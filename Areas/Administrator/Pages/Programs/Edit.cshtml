@@ -1,0 +1,63 @@
+﻿@page
+@model project.Pages.Programs.EditModel
+@{
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+                  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="program.Id" />
+           <div class="form-group">
+                <label asp-for="program.Title" class="control-label"></label>
+                <input asp-for="program.Title" class="form-control" />
+                <span asp-validation-for="program.Title" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="program.Price" class="control-label"></label>
+                <input asp-for="program.Price" class="form-control" />
+                <span asp-validation-for="program.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="program.Length" class="control-label"></label>
+                <input asp-for="program.Length" class="form-control" />
+                <span asp-validation-for="program.Length" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="program.BodyFocus" class="control-label"></label>
+                <input asp-for="program.BodyFocus" class="form-control" />
+                <span asp-validation-for="program.BodyFocus" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="program.Description" class="control-label"></label>
+                <input asp-for="program.Description" class="form-control" />
+                <span asp-validation-for="program.Description" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="program.Difficulty" class="control-label"></label>
+                <input asp-for="program.Difficulty" class="form-control" />
+                <span asp-validation-for="program.Difficulty" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="program.Equipment" class="control-label"></label>
+                <input asp-for="program.Equipment" class="form-control" />
+                <span asp-validation-for="program.Equipment" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="program.TrainingType" class="control-label"></label>
+                <input asp-for="program.TrainingType" class="form-control" />
+                <span asp-validation-for="program.TrainingType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
