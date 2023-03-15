@@ -27,7 +27,8 @@ namespace ProgectApi.Controllers
             return Ok(await  _context.TblMealPlans.ToArrayAsync());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetMealPlanById/{id}")]
+
         public async Task<ActionResult<List<MealPlans>>> GetMealPlanById(int id)
         {
 
@@ -69,7 +70,8 @@ namespace ProgectApi.Controllers
 
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteMealPlans/{id}")]
+
         public async Task<ActionResult<MealPlans>> DeleteMealPlans(string id)
         {
             MealPlans item = _context.TblMealPlans.Find(id);
@@ -138,7 +140,9 @@ namespace ProgectApi.Controllers
 
 
 
-        [HttpPut("{id}")]
+        [HttpPut("EditArticles/{id}")]
+        [Route("")]
+
         public async Task<ActionResult<MealPlans>> EditArticles(int id, MealPlans MealPlans)
         {
             if (_context.TblMealPlans.Find(id) == null)

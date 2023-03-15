@@ -25,7 +25,8 @@ namespace ProgectApi.Controllers
             return Ok(await  _context.TblExercises.ToArrayAsync());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetExerciseById/{id}")]
+
         public async Task<ActionResult<List<Exercise>>> GetExerciseById(int id)
         {
 
@@ -66,7 +67,8 @@ namespace ProgectApi.Controllers
 
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteExercise/{id}")]
+
         public async Task<ActionResult<Exercise>> DeleteExercise(int id)
         {
             Exercise item = _context.TblExercises.Find(id);
@@ -95,7 +97,7 @@ namespace ProgectApi.Controllers
 
         }
 
-        [HttpDelete("{Delete}")]
+        [HttpDelete("{DeleteToList}")]
 
 
         public async Task<ActionResult<List<Exercise>>> DeleteMultiExercise([FromForm] int[] ids)
@@ -134,7 +136,8 @@ namespace ProgectApi.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("EditExercise/{id}")]
+
         public async Task<ActionResult<Exercise>> EditExercise(int id, Exercise Exercise)
         {
             if (_context.TblExercises.Find(id) == null)

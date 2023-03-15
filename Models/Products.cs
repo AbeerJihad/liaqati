@@ -25,7 +25,7 @@ namespace liaqati_master.Models
         //public int? CategoryId { get; set; }
         //public Category? Category { get; set; }
         
-           public Service? services { get; set; }
+           public Service services { get; set; }
 
              //public int UserId { get; set; }
              //public User? User { get; set; }
