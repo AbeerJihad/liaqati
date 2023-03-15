@@ -1,0 +1,95 @@
+﻿@page
+@model liaqati_master.Pages.Product.EditProductModel
+@{
+}
+
+<h4>Meal Plane</h4>
+<hr />  
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form  method="post" class="form theme-form">
+                             <div class="text-danger" asp-validation-summary="All"> </div>
+                    <div class="row">
+                            <input asp-for="Product.Id" class="form-control" placeholder="">
+
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label asp-for="Product.services!.Title"></label>
+                                    <input asp-for="Product.services!.Title" class="form-control" placeholder="">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label asp-for="Product.services!.Description"></label>
+                                    <input asp-for="Product.services!.Description" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="Product.services!.Price"></label>
+                                    <input asp-for="Product.services!.Price" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="Product.Discount"></label>
+                                    <input asp-for="Product.Discount" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                           
+                        
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="Product.services!.Category!.Id"></label>
+                                    <select asp-for="Product.services!.Category!.Id" asp-items="Model.CatogeryName">
+                                        <option disabled value="-1">Please Select Catogery Name</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <button class="" type="submit"> Save </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                   
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+@*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+*@
+}

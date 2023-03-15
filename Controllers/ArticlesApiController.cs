@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace liaqati_master.Controllers
+
+namespace ProgectApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -12,14 +15,14 @@ namespace liaqati_master.Controllers
         public ArticlesApiController(LiaqatiDBContext context)
         {
             _context = context;
-
+           
         }
 
         [HttpGet("AllArticles")]
         public async Task<ActionResult<List<Articles>>> GetAllArticles()
         {
 
-            return Ok(await _context.TblArticles.ToArrayAsync());
+            return Ok(await  _context.TblArticles.ToArrayAsync());
         }
 
         [HttpGet("{id}")]
@@ -156,5 +159,10 @@ namespace liaqati_master.Controllers
             return Ok();
 
         }
+
+
+
+
+
     }
 }

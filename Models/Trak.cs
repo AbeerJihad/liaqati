@@ -1,9 +1,18 @@
-﻿namespace liaqati_master.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
+
+namespace liaqati_master.Models
 {
     public class Trak
     {
-        public int Id { get; set; }
-        public int? servicesId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "رقم")]
+        public string Id { get; set; }
+
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [ Display(Name = "رفم الخدمة")]
+        public string? servicesId { get; set; }
 
         public Service? services { get; set; }
     }

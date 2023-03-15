@@ -3,7 +3,7 @@ using liaqati_master.Models;
 
 namespace liaqati_master.Services.Repositories
 {
-    public class IMPAthleticProgram : IRepository<AthleticProgram>
+    public class IMPAthleticProgram : IRepository<SportsProgram>
     {
         private readonly LiaqatiDBContext _context;
         public IMPAthleticProgram(LiaqatiDBContext context)
@@ -11,7 +11,7 @@ namespace liaqati_master.Services.Repositories
             _context = context;
         }
 
-        public async Task<AthleticProgram> AddEntity(AthleticProgram Entity)
+        public async Task<SportsProgram> AddEntity(SportsProgram Entity)
         {
             await _context.TblSportsProgram.AddAsync(Entity);
             try
@@ -28,7 +28,7 @@ namespace liaqati_master.Services.Repositories
             }
         }
 
-        public async Task<AthleticProgram> DeleteEntity(AthleticProgram Entity)
+        public async Task<SportsProgram> DeleteEntity(SportsProgram Entity)
         {
             _context.TblSportsProgram.Remove(Entity);
             try
@@ -45,17 +45,17 @@ namespace liaqati_master.Services.Repositories
             }
         }
 
-        public Task<AthleticProgram> DeleteEntity(int Id)
+        public Task<SportsProgram> DeleteEntity(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<AthleticProgram> GetAll()
+        public IEnumerable<SportsProgram> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public AthleticProgram GetStudentByID(int EntityId)
+        public SportsProgram GetStudentByID(int EntityId)
         {
             throw new NotImplementedException();
         }
@@ -65,7 +65,7 @@ namespace liaqati_master.Services.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<AthleticProgram> UpdateEntity(AthleticProgram Entity)
+        public Task<SportsProgram> UpdateEntity(SportsProgram Entity)
         {
             throw new NotImplementedException();
         }

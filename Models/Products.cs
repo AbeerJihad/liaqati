@@ -1,33 +1,34 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace liaqati_master.Models
 {
+     public class Products
+      {
+            [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.None)]
+            public string Id { get; set; }
 
+        //[Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        //[Display(Name = "اسم المنتج")]اسم الصنف
+        //public string Pname { get; set; }
 
-    public class Products
-    {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        [Display(Name = "prouduct Name")]
-        public string Pname { get; set; }
+      //  [ StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل صورة")]
+        [Display(Name = "صورة المنتج")]
+        public string? imgUrl { get; set; } = "";
 
-        [Required]
-        [Display(Name = "Product Image")]
-        public string imgUrl { get; set; }
-        [Required]
-        public double Price { get; set; }
-        public double Discount { get; set; }
+            [Required]
+            
+            [Display(Name = "الخصم")]
+            public double Discount { get; set; }
 
         //public int? CategoryId { get; set; }
         //public Category? Category { get; set; }
+        
+           public Service? services { get; set; }
 
-        public int? servicesId { get; set; }
+             //public int UserId { get; set; }
+             //public User? User { get; set; }
 
-        public Service? services { get; set; }
-
-        //public int UserId { get; set; }
-        //public User? User { get; set; }
-
-    }
+     }
 }

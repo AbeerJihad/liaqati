@@ -46,6 +46,10 @@ namespace liaqati_master.Services
         {
             return dbSet.Find(id);
         }
+        public virtual List<TEntity> GetAllEntity()
+        {
+            return dbSet.ToList();
+        }
 
         public virtual void Insert(TEntity entity)
         {

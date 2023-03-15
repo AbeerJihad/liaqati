@@ -6,7 +6,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConntection")));
+        builder.Configuration.GetConnectionString("SqlMohammed")));
 
 builder.Services.AddScoped<GenericRepository<Order>>();
 builder.Services.AddScoped<GenericRepository<User>>();

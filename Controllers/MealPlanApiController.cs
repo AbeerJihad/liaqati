@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ProgectApi.Controllers
 {
@@ -6,17 +9,22 @@ namespace ProgectApi.Controllers
     [ApiController]
     public class MealPlanApiController : ControllerBase
     {
-        private readonly LiaqatiDBContext _context;
-        public MealPlanApiController(LiaqatiDBContext context)
+        readonly LiaqatiDBContext _context;
+        readonly UnitOfWork _unitOfWork;
+
+
+       
+        public MealPlanApiController(LiaqatiDBContext context, UnitOfWork unitOfWork)
         {
             _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet("AllMealPlan")]
         public async Task<ActionResult<List<MealPlans>>> GetAllMealPlan()
         {
 
-            return Ok(await _context.TblMealPlans.ToArrayAsync());
+            return Ok(await  _context.TblMealPlans.ToArrayAsync());
         }
 
         [HttpGet("{id}")]
@@ -41,7 +49,7 @@ namespace ProgectApi.Controllers
         public async Task<ActionResult<MealPlans>> AddMealPlans([FromForm] MealPlans MealPlans)
         {
 
-
+            
 
             await _context.TblMealPlans.AddAsync(MealPlans);
 
@@ -62,7 +70,7 @@ namespace ProgectApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<MealPlans>> DeleteMealPlans(int id)
+        public async Task<ActionResult<MealPlans>> DeleteMealPlans(string id)
         {
             MealPlans item = _context.TblMealPlans.Find(id);
 
