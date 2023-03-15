@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ProgectApi.Controllers
 {
@@ -12,18 +15,18 @@ namespace ProgectApi.Controllers
         public SportsProgramApiController(LiaqatiDBContext context)
         {
             _context = context;
-
+           
         }
 
         [HttpGet("AllSportsProgram")]
-        public async Task<ActionResult<List<AthleticProgram>>> GetAllSportsProgram()
+        public async Task<ActionResult<List<SportsProgram>>> GetAllSportsProgram()
         {
 
-            return Ok(await _context.TblSportsProgram.ToArrayAsync());
+            return Ok(await  _context.TblSportsProgram.ToArrayAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<AthleticProgram>>> GetSportsProgramById(int id)
+        public async Task<ActionResult<List<SportsProgram>>> GetSportsProgramById(int id)
         {
 
             return Ok(await _context.TblSportsProgram.FindAsync(id));
@@ -31,7 +34,7 @@ namespace ProgectApi.Controllers
 
 
         [HttpGet("LatesSportsProgram")]
-        public async Task<ActionResult<List<AthleticProgram>>> LatesSportsProgram()
+        public async Task<ActionResult<List<SportsProgram>>> LatesSportsProgram()
         {
 
             return Ok(await _context.TblSportsProgram.OrderByDescending(x => x.Id).ToArrayAsync());
@@ -39,7 +42,7 @@ namespace ProgectApi.Controllers
 
         ///
         [HttpPost]
-        public async Task<ActionResult<AthleticProgram>> AddSportsProgram([FromForm] AthleticProgram SportsProgram)
+        public async Task<ActionResult<SportsProgram>> AddSportsProgram([FromForm] SportsProgram SportsProgram)
         {
             await _context.TblSportsProgram.AddAsync(SportsProgram);
 
@@ -60,9 +63,9 @@ namespace ProgectApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<AthleticProgram>> DeleteSportsProgram(int id)
+        public async Task<ActionResult<SportsProgram>> DeleteSportsProgram(int id)
         {
-            AthleticProgram? item = _context.TblSportsProgram.Find(id);
+            SportsProgram item = _context.TblSportsProgram.Find(id);
 
             if (item == null)
             {
@@ -91,9 +94,9 @@ namespace ProgectApi.Controllers
         [HttpDelete("{Delete}")]
 
 
-        public async Task<ActionResult<List<AthleticProgram>>> DeleteMultiSportsProgram([FromForm] int[] ids)
+        public async Task<ActionResult<List<SportsProgram>>> DeleteMultiSportsProgram([FromForm] int[] ids)
         {
-            var plist = new List<AthleticProgram>();
+            var plist = new List<SportsProgram>();
 
             foreach (int id in ids)
             {
@@ -128,7 +131,7 @@ namespace ProgectApi.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<AthleticProgram>> EditSportsProgram(int id, AthleticProgram SportsProgram)
+        public async Task<ActionResult<SportsProgram>> EditSportsProgram(int id, SportsProgram SportsProgram)
         {
             if (_context.TblSportsProgram.Find(id) == null)
             {

@@ -1,31 +1,36 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace liaqati_master.Models
 {
     public class HealthyRecipes
     {
-        public int Id { get; set; }
-        public string Image { get; set; }
-        //[Display(Name = "نوع الوجبة")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "رقم الوجبة")]
+        public string Id { get; set; }
 
-        [Display(Name = "Meal Type")]
+        // [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        public string? Image { get; set; } = "";
+        [Display(Name = "نوع الوجبة")]
         public MealTypeTypeStatus MealType { get; set; }
 
-        [Display(Name = "Dietery Type")]
+        [Display(Name = "النوع الغذائي")]
         public DieteryTypeStatus DieteryType { get; set; }
 
-
-        [DataType(DataType.DateTime), Required]
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "وقت التحضير")]
+        [DataType(DataType.DateTime)]
         public DateTime prepTime { get; set; }
 
-
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "السعرات الحرارية")]
         public int Calories { get; set; }
-        [Display(Name = "Total Carbohy drates")]
+        [Display(Name = "مجموع السعرات الحرارية")]
         public int Total_Carbohydrate { get; set; }
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "كمية البروتين")]
         public int Protein { get; set; }
-
-        public int? servicesId { get; set; }
-
+      
         public Service? services { get; set; }
 
     }

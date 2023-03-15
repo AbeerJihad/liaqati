@@ -1,19 +1,27 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace liaqati_master.Models
 {
     public class Comments
     {
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "رقم التعليق")]
+        public string Id { get; set; }
+        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Display(Name = "التعليق")]
         public string Comment { get; set; }
-
-        [DataType(DataType.DateTime), Required]
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "التاريخ")]
+        [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
-
+        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Display(Name = "التعليق على")]
         public string commentFor { get; set; }
+        [Display(Name = "الرد على"),StringLength(50, MinimumLength = 2, ErrorMessage = "الحد الاقصى 50 حرف")]
         public string repliedFor { get; set; }
-
-        public int? articlesId { get; set; }
+        [Display(Name = "رقم المقالة")]
+        public string? articlesId { get; set; }
         public Articles? articles { get; set; }
     }
 }

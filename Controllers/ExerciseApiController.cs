@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ProgectApi.Controllers
 {
@@ -6,20 +9,20 @@ namespace ProgectApi.Controllers
     [ApiController]
     public class ExerciseApiController : ControllerBase
     {
-        readonly LiaqatiDBContext _context;
+        readonly  LiaqatiDBContext _context;
 
 
         public ExerciseApiController(LiaqatiDBContext context)
         {
             _context = context;
-
+           
         }
 
         [HttpGet("AllExercise")]
         public async Task<ActionResult<List<Exercise>>> GetAllExercise()
         {
 
-            return Ok(await _context.TblExercises.ToArrayAsync());
+            return Ok(await  _context.TblExercises.ToArrayAsync());
         }
 
         [HttpGet("{id}")]
@@ -72,6 +75,9 @@ namespace ProgectApi.Controllers
             {
                 return NotFound();
             }
+
+
+
 
             try
             {

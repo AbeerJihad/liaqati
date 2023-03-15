@@ -269,3 +269,11 @@ D:\Graduation Project\liaqati-master\obj\Debug\net6.0\refint\liaqati-master.dll
 D:\Graduation Project\liaqati-master\obj\Debug\net6.0\liaqati-master.pdb
 D:\Graduation Project\liaqati-master\obj\Debug\net6.0\liaqati-master.genruntimeconfig.cache
 D:\Graduation Project\liaqati-master\obj\Debug\net6.0\ref\liaqati-master.dll
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.csproj.AssemblyReference.cache
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.GeneratedMSBuildEditorConfig.editorconfig
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfoInputs.cache
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfo.cs
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.csproj.CoreCompileInputs.cache
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.MvcApplicationPartsAssemblyInfo.cache
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.RazorAssemblyInfo.cache
+F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.RazorAssemblyInfo.cs

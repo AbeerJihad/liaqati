@@ -28,6 +28,7 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("File")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FromDate")
@@ -41,8 +42,9 @@ namespace liaqati_master.Migrations
                     b.Property<DateTime>("ToDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -53,16 +55,15 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Articles", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<string>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PostDate")
@@ -81,71 +82,10 @@ namespace liaqati_master.Migrations
                     b.ToTable("TblArticles");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.AthleticProgram", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("BodyFocus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Difficulty")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Equipment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Length")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TrainingType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("servicesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("servicesId")
-                        .IsUnique()
-                        .HasFilter("[servicesId] IS NOT NULL");
-
-                    b.ToTable("TblSportsProgram");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BodyFocus = "كل الجسم",
-                            Description = "<p>\n أفضل طريقة لتحصيل أفضل النتائج من جهودك في التدريب هي تطبيق عدّة طرق وأنواع من التمارين والروتينات, وذلك لتمنح جسمك حوافز جديدة باستمرار لنمو العضلات وبناء أنسجة عضلية جديدة, ولتمنع تأقلم جسمك مع التدريبات التي تمارسهاء فإذا حصل هذا التاقلم سيبطئ عملية حرق الدهون وبناء العضلات. لذا عليك تغيير روتين تدريبك باستمرارإن كنت قد اتخذت قرارك بوضع حد لجسمك المترهّل وأسلوب حياتك الخامل وتريد أن تعرف كيف تنفذ خطة تدربيبة تعطيك نتائج مذهلة في فترة قصيرة, فقد وصلت للمكان المناسب. ستمكّنك هذه الخطة من رؤية تغيّرات جذرية في انسيابية جسمك ورشاقتك ومستوى لياقتك البدنية خلال 8 أسابيع من تنفيذها</p><h2>why kadljkd</h2>",
-                            Difficulty = "3-4",
-                            Equipment = "حزام التمرين,سجاد",
-                            Length = 8,
-                            Price = 99.0,
-                            Title = " برنامج لنحت وتفصيل الجسم في 8 أسابيع فقط",
-                            TrainingType = "القلب والأوعية الدموية ، تأثير منخفض ، تدريب القوة ، التنغيم ، اليوجا ، الحركة"
-                        });
-                });
-
             modelBuilder.Entity("liaqati_master.Models.Category", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -161,15 +101,26 @@ namespace liaqati_master.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Name = "MealPlane",
+                            target = 0
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Name = "Healthy",
+                            target = 0
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Chat", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ReceiverID")
                         .HasColumnType("int");
@@ -184,17 +135,16 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.ChatUser", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("ChatId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ChatId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -207,29 +157,30 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Comment_Servies", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Comment")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("commentFor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("repliedFor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("servicesId")
-                        .HasColumnType("int");
+                    b.Property<string>("servicesId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -240,29 +191,29 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Comments", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Comment")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("articlesId")
-                        .HasColumnType("int");
+                    b.Property<string>("articlesId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("commentFor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("repliedFor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -273,20 +224,19 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Exercies_program", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("exerciseId")
-                        .HasColumnType("int");
+                    b.Property<string>("exerciseId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("isComplete")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("sportsProgramId")
-                        .HasColumnType("int");
+                    b.Property<string>("sportsProgramId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -299,37 +249,44 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("DEx")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Detail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Difficulty")
                         .HasColumnType("int");
 
                     b.Property<string>("Equipments")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubTitle")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("TraningType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("startDate")
@@ -342,11 +299,8 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Favorite", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -359,34 +313,33 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Favorite_Servies", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("favoriteId")
-                        .HasColumnType("int");
+                    b.Property<string>("favoriteId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("servicesId")
+                        .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<string>("servicesId1")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("favoriteId");
 
-                    b.HasIndex("servicesId");
+                    b.HasIndex("servicesId1");
 
                     b.ToTable("Favorite_Servies");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.HealthyRecipes", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Calories")
                         .HasColumnType("int");
@@ -395,7 +348,6 @@ namespace liaqati_master.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MealType")
@@ -410,62 +362,99 @@ namespace liaqati_master.Migrations
                     b.Property<DateTime>("prepTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("servicesId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("servicesId")
-                        .IsUnique()
-                        .HasFilter("[servicesId] IS NOT NULL");
 
                     b.ToTable("HealthyRecipes");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("Length")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Length")
-                        .HasColumnType("int");
-
-                    b.Property<double>("avgRecipeTime")
+                    b.Property<double?>("avgRecipeTime")
                         .HasColumnType("float");
 
                     b.Property<string>("dietaryType")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("mealType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("servicesId")
+                    b.Property<int?>("numsubscribers")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("servicesId")
-                        .IsUnique()
-                        .HasFilter("[servicesId] IS NOT NULL");
-
                     b.ToTable("TblMealPlans");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Length = 0,
+                            avgRecipeTime = 0.0,
+                            dietaryType = "",
+                            image = "",
+                            mealType = "",
+                            numsubscribers = 0
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Length = 0,
+                            avgRecipeTime = 0.0,
+                            dietaryType = "",
+                            image = "",
+                            mealType = "",
+                            numsubscribers = 0
+                        },
+                        new
+                        {
+                            Id = "3",
+                            Length = 0,
+                            avgRecipeTime = 0.0,
+                            dietaryType = "",
+                            image = "",
+                            mealType = "",
+                            numsubscribers = 0
+                        },
+                        new
+                        {
+                            Id = "4",
+                            Length = 0,
+                            avgRecipeTime = 0.0,
+                            dietaryType = "",
+                            image = "",
+                            mealType = "",
+                            numsubscribers = 0
+                        },
+                        new
+                        {
+                            Id = "5",
+                            Length = 0,
+                            avgRecipeTime = 0.0,
+                            dietaryType = "",
+                            image = "",
+                            mealType = "",
+                            numsubscribers = 0
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Message", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ChatId")
-                        .HasColumnType("int");
+                    b.Property<string>("ChatId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -475,7 +464,8 @@ namespace liaqati_master.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -486,11 +476,8 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Order", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("OrderDate")
                         .IsRequired()
@@ -499,8 +486,9 @@ namespace liaqati_master.Migrations
                     b.Property<double>("TotalPrice")
                         .HasColumnType("float");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("UserIdDelivery")
                         .HasColumnType("int");
@@ -517,10 +505,10 @@ namespace liaqati_master.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = "1",
                             OrderDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TotalPrice = 0.0,
-                            UserId = 1,
+                            UserId = "1",
                             UserIdDelivery = 1,
                             UserIdResiver = 1
                         });
@@ -528,14 +516,14 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Order_Details", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("OrderId1")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -544,59 +532,48 @@ namespace liaqati_master.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("RateId")
+                        .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<string>("ServiceId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ServicesId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("OrderId1");
+
+                    b.HasIndex("ServiceId");
 
                     b.ToTable("TblOrder_Details");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Products", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Discount")
                         .HasColumnType("float");
 
-                    b.Property<string>("Pname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
                     b.Property<string>("imgUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("servicesId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("servicesId")
-                        .IsUnique()
-                        .HasFilter("[servicesId] IS NOT NULL");
 
                     b.ToTable("Products");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Rate", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("Order_DetailsId")
-                        .HasColumnType("int");
+                    b.Property<string>("Order_DetailsId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("review")
                         .HasColumnType("int");
@@ -606,7 +583,8 @@ namespace liaqati_master.Migrations
 
                     b.Property<string>("type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -619,55 +597,163 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<string>("CategoryId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("HealthyRecipesId")
-                        .HasColumnType("int");
+                    b.Property<string>("HealthyRecipesId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("MealPlansId")
+                    b.Property<string>("MealPlansId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double?>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ProductsId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sportsProgramId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("HealthyRecipesId")
+                        .IsUnique()
+                        .HasFilter("[HealthyRecipesId] IS NOT NULL");
+
+                    b.HasIndex("MealPlansId")
+                        .IsUnique()
+                        .HasFilter("[MealPlansId] IS NOT NULL");
+
+                    b.HasIndex("ProductsId")
+                        .IsUnique()
+                        .HasFilter("[ProductsId] IS NOT NULL");
+
+                    b.HasIndex("sportsProgramId")
+                        .IsUnique()
+                        .HasFilter("[sportsProgramId] IS NOT NULL");
+
+                    b.ToTable("TblServices");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            CategoryId = "1",
+                            Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
+                            MealPlansId = "1",
+                            Price = 19.989999999999998,
+                            Title = "حمية البحر المتوسط"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            CategoryId = "1",
+                            Description = " يعتمد على تقليل الكربوهيدرات  و منع السكر المصنع و البطاطا , يتم تناول الفواكه و الخضروات و الحبوب",
+                            MealPlansId = "2",
+                            Price = 20.989999999999998,
+                            Title = "  النظام الغذائي باليو"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            CategoryId = "1",
+                            Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
+                            MealPlansId = "3",
+                            Price = 19.989999999999998,
+                            Title = "   كيتو دايت "
+                        },
+                        new
+                        {
+                            Id = "4",
+                            CategoryId = "1",
+                            Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
+                            MealPlansId = "4",
+                            Price = 19.989999999999998,
+                            Title = "   كيتو دايت "
+                        },
+                        new
+                        {
+                            Id = "5",
+                            CategoryId = "1",
+                            Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
+                            MealPlansId = "5",
+                            Price = 19.989999999999998,
+                            Title = " اختبار "
+                        },
+                        new
+                        {
+                            Id = "11",
+                            CategoryId = "1",
+                            Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
+                            Price = 19.989999999999998,
+                            Title = " اختبار "
+                        });
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BodyFocus")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Difficulty")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Equipment")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Length")
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
-
-                    b.Property<int?>("ProductsId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("sportsProgramId")
-                        .HasColumnType("int");
+                    b.Property<string>("TrainingType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("TblServices");
+                    b.ToTable("TblSportsProgram");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Trak", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("servicesId")
-                        .HasColumnType("int");
+                    b.Property<string>("servicesId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -678,11 +764,8 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
@@ -724,7 +807,7 @@ namespace liaqati_master.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = "1",
                             Active = false,
                             Cover_photo = "sssssssssssssssa",
                             Exp_Years = 10,
@@ -759,15 +842,6 @@ namespace liaqati_master.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.AthleticProgram", b =>
-                {
-                    b.HasOne("liaqati_master.Models.Service", "services")
-                        .WithOne("sportsProgram")
-                        .HasForeignKey("liaqati_master.Models.AthleticProgram", "servicesId");
-
-                    b.Navigation("services");
-                });
-
             modelBuilder.Entity("liaqati_master.Models.ChatUser", b =>
                 {
                     b.HasOne("liaqati_master.Models.Chat", "Chat")
@@ -791,7 +865,9 @@ namespace liaqati_master.Migrations
                 {
                     b.HasOne("liaqati_master.Models.Service", "services")
                         .WithMany("commentServies")
-                        .HasForeignKey("servicesId");
+                        .HasForeignKey("servicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("services");
                 });
@@ -813,9 +889,11 @@ namespace liaqati_master.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("liaqati_master.Models.AthleticProgram", "sportsProgram")
+                    b.HasOne("liaqati_master.Models.SportsProgram", "sportsProgram")
                         .WithMany("exercies_Programs")
-                        .HasForeignKey("sportsProgramId");
+                        .HasForeignKey("sportsProgramId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("exercise");
 
@@ -826,31 +904,15 @@ namespace liaqati_master.Migrations
                 {
                     b.HasOne("liaqati_master.Models.Favorite", "favorite")
                         .WithMany("Favorite_Servies")
-                        .HasForeignKey("favoriteId");
+                        .HasForeignKey("favoriteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("liaqati_master.Models.Service", "services")
                         .WithMany("favorites")
-                        .HasForeignKey("servicesId");
+                        .HasForeignKey("servicesId1");
 
                     b.Navigation("favorite");
-
-                    b.Navigation("services");
-                });
-
-            modelBuilder.Entity("liaqati_master.Models.HealthyRecipes", b =>
-                {
-                    b.HasOne("liaqati_master.Models.Service", "services")
-                        .WithOne("HealthyRecipes")
-                        .HasForeignKey("liaqati_master.Models.HealthyRecipes", "servicesId");
-
-                    b.Navigation("services");
-                });
-
-            modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
-                {
-                    b.HasOne("liaqati_master.Models.Service", "services")
-                        .WithOne("MealPlans")
-                        .HasForeignKey("liaqati_master.Models.MealPlans", "servicesId");
 
                     b.Navigation("services");
                 });
@@ -881,20 +943,15 @@ namespace liaqati_master.Migrations
                 {
                     b.HasOne("liaqati_master.Models.Order", "Order")
                         .WithMany("Order_Details")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId1");
+
+                    b.HasOne("liaqati_master.Models.Service", "Service")
+                        .WithMany("Order_Details")
+                        .HasForeignKey("ServiceId");
 
                     b.Navigation("Order");
-                });
 
-            modelBuilder.Entity("liaqati_master.Models.Products", b =>
-                {
-                    b.HasOne("liaqati_master.Models.Service", "services")
-                        .WithOne("Products")
-                        .HasForeignKey("liaqati_master.Models.Products", "servicesId");
-
-                    b.Navigation("services");
+                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Rate", b =>
@@ -910,18 +967,42 @@ namespace liaqati_master.Migrations
                 {
                     b.HasOne("liaqati_master.Models.Category", "Category")
                         .WithMany("services")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("liaqati_master.Models.HealthyRecipes", "HealthyRecipes")
+                        .WithOne("services")
+                        .HasForeignKey("liaqati_master.Models.Service", "HealthyRecipesId");
+
+                    b.HasOne("liaqati_master.Models.MealPlans", "MealPlans")
+                        .WithOne("services")
+                        .HasForeignKey("liaqati_master.Models.Service", "MealPlansId");
+
+                    b.HasOne("liaqati_master.Models.Products", "Products")
+                        .WithOne("services")
+                        .HasForeignKey("liaqati_master.Models.Service", "ProductsId");
+
+                    b.HasOne("liaqati_master.Models.SportsProgram", "sportsProgram")
+                        .WithOne("services")
+                        .HasForeignKey("liaqati_master.Models.Service", "sportsProgramId");
 
                     b.Navigation("Category");
+
+                    b.Navigation("HealthyRecipes");
+
+                    b.Navigation("MealPlans");
+
+                    b.Navigation("Products");
+
+                    b.Navigation("sportsProgram");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Trak", b =>
                 {
                     b.HasOne("liaqati_master.Models.Service", "services")
                         .WithMany("traks")
-                        .HasForeignKey("servicesId");
+                        .HasForeignKey("servicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("services");
                 });
@@ -929,11 +1010,6 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.Articles", b =>
                 {
                     b.Navigation("comments");
-                });
-
-            modelBuilder.Entity("liaqati_master.Models.AthleticProgram", b =>
-                {
-                    b.Navigation("exercies_Programs");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Category", b =>
@@ -960,6 +1036,16 @@ namespace liaqati_master.Migrations
                     b.Navigation("Favorite_Servies");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.HealthyRecipes", b =>
+                {
+                    b.Navigation("services");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
+                {
+                    b.Navigation("services");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Order", b =>
                 {
                     b.Navigation("Order_Details");
@@ -970,21 +1056,27 @@ namespace liaqati_master.Migrations
                     b.Navigation("Rate");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Products", b =>
+                {
+                    b.Navigation("services");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
                 {
-                    b.Navigation("HealthyRecipes");
-
-                    b.Navigation("MealPlans");
-
-                    b.Navigation("Products");
+                    b.Navigation("Order_Details");
 
                     b.Navigation("commentServies");
 
                     b.Navigation("favorites");
 
-                    b.Navigation("sportsProgram");
-
                     b.Navigation("traks");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
+                {
+                    b.Navigation("exercies_Programs");
+
+                    b.Navigation("services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.User", b =>

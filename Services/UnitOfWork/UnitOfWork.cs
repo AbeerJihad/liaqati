@@ -19,12 +19,69 @@ namespace liaqati_master.Services
         private GenericRepository<Rate> rateRepository;
         private GenericRepository<Coupon> couponRepository;
         private GenericRepository<Coupon_redemption> coupon_redemptionRepository;
-        private GenericRepository<AthleticProgram> sportsProgramRepository;
+        private GenericRepository<SportsProgram> sportsProgramRepository;
+        private GenericRepository<MealPlans> mealPlansRepository;
+        private GenericRepository<Service> serviceRepository;
+        private GenericRepository<Category> categoryRepository;
+        private GenericRepository<Products> productsRepository;
+        private GenericRepository<HealthyRecipes> healthyRecipesRepository;
 
         public UnitOfWork(LiaqatiDBContext context)
         {
             this.context = context;
         }
+
+        public GenericRepository<Products> ProductsRepository
+        {
+            get
+            {
+
+                productsRepository ??= new GenericRepository<Products>(context);
+                return productsRepository;
+            }
+        }
+
+        public GenericRepository<HealthyRecipes> HealthyRecipesRepository
+        {
+            get
+            {
+
+                healthyRecipesRepository ??= new GenericRepository<HealthyRecipes>(context);
+                return healthyRecipesRepository;
+            }
+        }
+
+
+        public GenericRepository<MealPlans> MealPlansRepository
+        {
+            get
+            {
+
+                mealPlansRepository ??= new GenericRepository<MealPlans>(context);
+                return mealPlansRepository;
+            }
+        }
+
+        public GenericRepository<Service> ServiceRepository
+        {
+            get
+            {
+
+                serviceRepository ??= new GenericRepository<Service>(context);
+                return serviceRepository;
+            }
+        }
+
+        public GenericRepository<Category> CategoryRepository
+        {
+            get
+            {
+
+                categoryRepository ??= new GenericRepository<Category>(context);
+                return categoryRepository;
+            }
+        }
+
 
         public GenericRepository<User> UserRepository
         {
@@ -146,12 +203,12 @@ namespace liaqati_master.Services
             }
         }
 
-        public GenericRepository<AthleticProgram> SportsProgramRepository
+        public GenericRepository<SportsProgram> SportsProgramRepository
         {
             get
             {
 
-                this.sportsProgramRepository ??= new GenericRepository<AthleticProgram>(context);
+                this.sportsProgramRepository ??= new GenericRepository<SportsProgram>(context);
                 return sportsProgramRepository;
             }
         }

@@ -1,32 +1,44 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace liaqati_master.Models
 {
     public class Exercise
     {
 
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
-        public int Id { get; set; }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "رقم التمرين")]
+        public string Id { get; set; }
+        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Display(Name = "اسم التمرين")]
         public string? Title { get; set; }
-
-        [DataType(DataType.DateTime), Required]
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "تاريخ البدء")]
+        [DataType(DataType.DateTime)]
         public DateTime startDate { get; set; }
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "الوصف")]
         public string? Description { get; set; }
+        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Display(Name = "العنوان فرعي")]
         public string? SubTitle { get; set; }
 
         [Display(Name = "مدة التمرين")]
         public int? DEx { get; set; }
 
-        //[MaxLength(5)]
+        [Range(1,5)]
         public int? Difficulty { get; set; }
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "وصف التمارين")]
         public string? Detail { get; set; }
-
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "نوع التمرين")]
         public string? TraningType { get; set; }
-
+        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Display(Name = "المعدات ")]
         public string? Equipments { get; set; }
-
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "صورة")]
         public string? Image { get; set; }
         //public string? Video { get; set; }
 
