@@ -10055,11 +10055,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Graduation Project\\liaqati\\liaqati-master.csproj",
+      "projectUniqueName": "D:\\liaqati\\liaqati-master.csproj",
       "projectName": "liaqati-master",
-      "projectPath": "D:\\Graduation Project\\liaqati\\liaqati-master.csproj",
+      "projectPath": "D:\\liaqati\\liaqati-master.csproj",
       "packagesPath": "C:\\Users\\SUBEH\\.nuget\\packages\\",
-      "outputPath": "D:\\Graduation Project\\liaqati\\obj\\",
+      "outputPath": "D:\\liaqati\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

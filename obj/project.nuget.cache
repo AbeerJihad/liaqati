@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CxhqtT419mPXMgHxj32eLz6IgzCDqCE1wc4dW+zFmRlSe438syODZiEuZ1X75at/ZVdGgPF52tQhmGaZG8ED5Q==",
+  "dgSpecHash": "5zZQgJ3atD/7I9jaVkOmmY9vGHABvwlW4furqbkCpBy94rTij5Wj91q6czt9LubYR6ctrFn/botfVYl9hgiZJw==",
   "success": true,
-  "projectFilePath": "D:\\Graduation Project\\liaqati\\liaqati-master.csproj",
+  "projectFilePath": "D:\\liaqati\\liaqati-master.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SUBEH\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
