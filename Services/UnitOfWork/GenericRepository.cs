@@ -1,6 +1,4 @@
 ﻿#nullable disable
-using liaqati_master.Data;
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace liaqati_master.Services

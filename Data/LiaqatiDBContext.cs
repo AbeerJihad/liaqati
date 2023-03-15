@@ -6,7 +6,7 @@
         {
         }
         public DbSet<Order> TblOrder { set; get; }
-        public DbSet<Articles> TblArticles { set; get; }
+        public DbSet<Article> TblArticles { set; get; }
         public DbSet<Order_Details> TblOrder_Details { set; get; }
         public DbSet<Rate> TblRate { set; get; }
         public DbSet<AthleticProgram> TblSportsProgram { get; set; }

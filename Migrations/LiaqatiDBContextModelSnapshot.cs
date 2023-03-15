@@ -51,7 +51,7 @@ namespace liaqati_master.Migrations
                     b.ToTable("Achievements");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,8 +65,14 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("PostDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ViewsNumber")
                         .HasColumnType("int");
@@ -748,7 +754,7 @@ namespace liaqati_master.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.HasOne("liaqati_master.Models.Category", "Category")
                         .WithMany("articles")
@@ -798,7 +804,7 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Comments", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Articles", "articles")
+                    b.HasOne("liaqati_master.Models.Article", "articles")
                         .WithMany("comments")
                         .HasForeignKey("articlesId");
 
@@ -926,7 +932,7 @@ namespace liaqati_master.Migrations
                     b.Navigation("services");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.Navigation("comments");
                 });

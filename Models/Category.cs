@@ -15,7 +15,7 @@ namespace liaqati_master.Models
         //public List<Products>? products { get; set; }
         public List<Service>? services { get; set; }
 
-        public List<Articles>? articles { get; set; }
+        public List<Article>? articles { get; set; }
     }
 
     public enum Target

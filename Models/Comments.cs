@@ -14,6 +14,6 @@ namespace liaqati_master.Models
         public string repliedFor { get; set; }
 
         public int? articlesId { get; set; }
-        public Articles? articles { get; set; }
+        public Article? articles { get; set; }
     }
 }

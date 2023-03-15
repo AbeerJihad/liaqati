@@ -16,14 +16,14 @@ namespace liaqati_master.Controllers
         }
 
         [HttpGet("AllArticles")]
-        public async Task<ActionResult<List<Articles>>> GetAllArticles()
+        public async Task<ActionResult<List<Article>>> GetAllArticles()
         {
 
             return Ok(await _context.TblArticles.ToArrayAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<Articles>>> GetArticlesById(int id)
+        public async Task<ActionResult<List<Article>>> GetArticlesById(int id)
         {
 
             return Ok(await _context.TblArticles.FindAsync(id));
@@ -33,14 +33,14 @@ namespace liaqati_master.Controllers
 
 
         [HttpGet("LatesArticles")]
-        public async Task<ActionResult<List<Articles>>> LatesArticles()
+        public async Task<ActionResult<List<Article>>> LatesArticles()
         {
 
             return Ok(await _context.TblArticles.OrderByDescending(x => x.Id).ToArrayAsync());
         }
 
         [HttpPost]
-        public async Task<ActionResult<Articles>> AddArticles([FromForm] Articles Articles)
+        public async Task<ActionResult<Article>> AddArticles([FromForm] Article Articles)
         {
 
 
@@ -66,7 +66,7 @@ namespace liaqati_master.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<MealPlans>> DeleteArticles(int id)
         {
-            Articles item = _context.TblArticles.Find(id);
+            Article item = _context.TblArticles.Find(id);
 
             if (item == null)
             {
@@ -95,9 +95,9 @@ namespace liaqati_master.Controllers
         [HttpDelete("{Delete}")]
 
 
-        public async Task<ActionResult<List<Articles>>> DeleteMultiArticles([FromForm] int[] ids)
+        public async Task<ActionResult<List<Article>>> DeleteMultiArticles([FromForm] int[] ids)
         {
-            var plist = new List<Articles>();
+            var plist = new List<Article>();
 
             foreach (int id in ids)
             {
@@ -132,7 +132,7 @@ namespace liaqati_master.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Articles>> EditArticles(int id, Articles Articles)
+        public async Task<ActionResult<Article>> EditArticles(int id, Article Articles)
         {
             if (_context.TblArticles.Find(id) == null)
             {
