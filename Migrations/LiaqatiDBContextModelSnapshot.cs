@@ -95,7 +95,7 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("target")
+                    b.Property<int?>("target")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -106,14 +106,22 @@ namespace liaqati_master.Migrations
                         new
                         {
                             Id = "1",
-                            Name = "MealPlane",
-                            target = 0
+                            Name = "النظام الغذائي"
                         },
                         new
                         {
                             Id = "2",
-                            Name = "Healthy",
-                            target = 0
+                            Name = "الوجبات"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            Name = "المكملات الغذائية"
+                        },
+                        new
+                        {
+                            Id = "4",
+                            Name = "ٍٍالاجهزة الرياضية"
                         });
                 });
 
@@ -255,10 +263,6 @@ namespace liaqati_master.Migrations
                     b.Property<int?>("DEx")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Detail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -275,10 +279,8 @@ namespace liaqati_master.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SubTitle")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<double?>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -288,9 +290,6 @@ namespace liaqati_master.Migrations
                     b.Property<string>("TraningType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("startDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -564,7 +563,135 @@ namespace liaqati_master.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("TblProducts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "21",
+                            Discount = 20.0,
+                            imgUrl = "/Images/Product/Dumbbell3.jfif"
+                        },
+                        new
+                        {
+                            Id = "22",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/LiveupOlympic.jpg"
+                        },
+                        new
+                        {
+                            Id = "23",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Curved.jpg"
+                        },
+                        new
+                        {
+                            Id = "24",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Spinner.jpg"
+                        },
+                        new
+                        {
+                            Id = "25",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Liveup.jpg"
+                        },
+                        new
+                        {
+                            Id = "26",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/LiveupOlympic.jpg"
+                        },
+                        new
+                        {
+                            Id = "27",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Bowflex.jpg"
+                        },
+                        new
+                        {
+                            Id = "28",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Brobantle.jfif"
+                        },
+                        new
+                        {
+                            Id = "29",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Adjustable.jpg"
+                        },
+                        new
+                        {
+                            Id = "30",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/rower.jpg"
+                        },
+                        new
+                        {
+                            Id = "31",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/omega.jpg"
+                        },
+                        new
+                        {
+                            Id = "32",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Muscletech.jpg"
+                        },
+                        new
+                        {
+                            Id = "33",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Ultima.jpg"
+                        },
+                        new
+                        {
+                            Id = "34",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/krilloil.jpg"
+                        },
+                        new
+                        {
+                            Id = "35",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/anavite.jpg"
+                        },
+                        new
+                        {
+                            Id = "36",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Trace.jpg"
+                        },
+                        new
+                        {
+                            Id = "37",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/BodyBio.jpg"
+                        },
+                        new
+                        {
+                            Id = "38",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/Vega.jpg"
+                        },
+                        new
+                        {
+                            Id = "39",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/HydrationMultiplier.jpg"
+                        },
+                        new
+                        {
+                            Id = "40",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/NutriBiotic.jpg"
+                        },
+                        new
+                        {
+                            Id = "41",
+                            Discount = 0.0,
+                            imgUrl = "/Images/Product/krilloil.jpg"
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Rate", b =>
@@ -607,42 +734,26 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HealthyRecipesId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MealPlansId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
                     b.Property<string>("ProductsId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("sportsProgramId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("HealthyRecipesId")
-                        .IsUnique()
-                        .HasFilter("[HealthyRecipesId] IS NOT NULL");
-
-                    b.HasIndex("MealPlansId")
-                        .IsUnique()
-                        .HasFilter("[MealPlansId] IS NOT NULL");
-
-                    b.HasIndex("ProductsId")
-                        .IsUnique()
-                        .HasFilter("[ProductsId] IS NOT NULL");
-
-                    b.HasIndex("sportsProgramId")
-                        .IsUnique()
-                        .HasFilter("[sportsProgramId] IS NOT NULL");
 
                     b.ToTable("TblServices");
 
@@ -699,6 +810,153 @@ namespace liaqati_master.Migrations
                             Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
                             Price = 19.989999999999998,
                             Title = " اختبار "
+                        },
+                        new
+                        {
+                            Id = "21",
+                            CategoryId = "4",
+                            Price = 20.0,
+                            Title = "طقم اوزان دمبل 30 كغم"
+                        },
+                        new
+                        {
+                            Id = "22",
+                            CategoryId = "4",
+                            Price = 30.0,
+                            Title = "حلقات لايف اب الاولمبية للجمباز"
+                        },
+                        new
+                        {
+                            Id = "23",
+                            CategoryId = "4",
+                            Price = 1490.0,
+                            Title = "مشاية كهربائية منحنية بدون محرك"
+                        },
+                        new
+                        {
+                            Id = "24",
+                            CategoryId = "4",
+                            Price = 320.0,
+                            Title = "دراجة سبينر"
+                        },
+                        new
+                        {
+                            Id = "25",
+                            CategoryId = "4",
+                            Price = 150.0,
+                            Title = "Livepro أيروبيك ستيبر ومقعد"
+                        },
+                        new
+                        {
+                            Id = "26",
+                            CategoryId = "4",
+                            Price = 15.0,
+                            Title = "سجادة Liveup للتمارين الرياضية"
+                        },
+                        new
+                        {
+                            Id = "27",
+                            CategoryId = "4",
+                            Price = 175.0,
+                            Title = "مقعد بووفليكس متعدد الوظائف"
+                        },
+                        new
+                        {
+                            Id = "28",
+                            CategoryId = "4",
+                            Price = 69.0,
+                            Title = "حبل معركة بروبانتل"
+                        },
+                        new
+                        {
+                            Id = "29",
+                            CategoryId = "4",
+                            Price = 125.0,
+                            Title = "مقعد قابل للطي قابل للتعديل للتمارين الرياضية"
+                        },
+                        new
+                        {
+                            Id = "30",
+                            CategoryId = "4",
+                            Price = 25.0,
+                            Title = "مجدّف"
+                        },
+                        new
+                        {
+                            Id = "31",
+                            CategoryId = "3",
+                            Price = 111.0,
+                            Title = "زيت السمك أوميغا 3"
+                        },
+                        new
+                        {
+                            Id = "32",
+                            CategoryId = "3",
+                            Price = 78.0,
+                            Title = "Muscletech, بلاتينيوم ملتي فيتامين"
+                        },
+                        new
+                        {
+                            Id = "33",
+                            CategoryId = "3",
+                            Price = 169.0,
+                            Title = "Ultima Replenisher"
+                        },
+                        new
+                        {
+                            Id = "34",
+                            CategoryId = "3",
+                            Price = 169.0,
+                            Title = "زيت الكريل"
+                        },
+                        new
+                        {
+                            Id = "35",
+                            CategoryId = "3",
+                            Price = 170.0,
+                            Title = "أنافيت"
+                        },
+                        new
+                        {
+                            Id = "36",
+                            CategoryId = "3",
+                            Price = 79.0,
+                            Title = "Trace Minerals Research"
+                        },
+                        new
+                        {
+                            Id = "37",
+                            CategoryId = "3",
+                            Price = 109.0,
+                            Title = "BodyBio, E-Lyte"
+                        },
+                        new
+                        {
+                            Id = "38",
+                            CategoryId = "3",
+                            Price = 163.0,
+                            Title = "فيجا ، سبورت"
+                        },
+                        new
+                        {
+                            Id = "39",
+                            CategoryId = "3",
+                            Price = 111.0,
+                            Title = "مضاعف الترطيب"
+                        },
+                        new
+                        {
+                            Id = "40",
+                            CategoryId = "3",
+                            Price = 54.0,
+                            Title = "NutriBiotic"
+                        },
+                        new
+                        {
+                            Id = "41",
+                            CategoryId = "3",
+                            Price = 169.0,
+                            Title = "زيت الكريل"
                         });
                 });
 
@@ -712,10 +970,6 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Difficulty")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -727,14 +981,6 @@ namespace liaqati_master.Migrations
 
                     b.Property<int>("Length")
                         .HasColumnType("int");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("TrainingType")
                         .IsRequired()
@@ -917,6 +1163,28 @@ namespace liaqati_master.Migrations
                     b.Navigation("services");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.HealthyRecipes", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Service", "services")
+                        .WithOne("HealthyRecipes")
+                        .HasForeignKey("liaqati_master.Models.HealthyRecipes", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("services");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Service", "services")
+                        .WithOne("MealPlans")
+                        .HasForeignKey("liaqati_master.Models.MealPlans", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("services");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Message", b =>
                 {
                     b.HasOne("liaqati_master.Models.Chat", "Chat")
@@ -954,6 +1222,17 @@ namespace liaqati_master.Migrations
                     b.Navigation("Service");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Products", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Service", "services")
+                        .WithOne("Products")
+                        .HasForeignKey("liaqati_master.Models.Products", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("services");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Rate", b =>
                 {
                     b.HasOne("liaqati_master.Models.Order_Details", "Order_Details")
@@ -969,31 +1248,18 @@ namespace liaqati_master.Migrations
                         .WithMany("services")
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("liaqati_master.Models.HealthyRecipes", "HealthyRecipes")
-                        .WithOne("services")
-                        .HasForeignKey("liaqati_master.Models.Service", "HealthyRecipesId");
-
-                    b.HasOne("liaqati_master.Models.MealPlans", "MealPlans")
-                        .WithOne("services")
-                        .HasForeignKey("liaqati_master.Models.Service", "MealPlansId");
-
-                    b.HasOne("liaqati_master.Models.Products", "Products")
-                        .WithOne("services")
-                        .HasForeignKey("liaqati_master.Models.Service", "ProductsId");
-
-                    b.HasOne("liaqati_master.Models.SportsProgram", "sportsProgram")
-                        .WithOne("services")
-                        .HasForeignKey("liaqati_master.Models.Service", "sportsProgramId");
-
                     b.Navigation("Category");
+                });
 
-                    b.Navigation("HealthyRecipes");
+            modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Service", "services")
+                        .WithOne("sportsProgram")
+                        .HasForeignKey("liaqati_master.Models.SportsProgram", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("MealPlans");
-
-                    b.Navigation("Products");
-
-                    b.Navigation("sportsProgram");
+                    b.Navigation("services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Trak", b =>
@@ -1036,16 +1302,6 @@ namespace liaqati_master.Migrations
                     b.Navigation("Favorite_Servies");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.HealthyRecipes", b =>
-                {
-                    b.Navigation("services");
-                });
-
-            modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
-                {
-                    b.Navigation("services");
-                });
-
             modelBuilder.Entity("liaqati_master.Models.Order", b =>
                 {
                     b.Navigation("Order_Details");
@@ -1056,18 +1312,21 @@ namespace liaqati_master.Migrations
                     b.Navigation("Rate");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Products", b =>
-                {
-                    b.Navigation("services");
-                });
-
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
                 {
+                    b.Navigation("HealthyRecipes");
+
+                    b.Navigation("MealPlans");
+
                     b.Navigation("Order_Details");
+
+                    b.Navigation("Products");
 
                     b.Navigation("commentServies");
 
                     b.Navigation("favorites");
+
+                    b.Navigation("sportsProgram");
 
                     b.Navigation("traks");
                 });
@@ -1075,8 +1334,6 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
                 {
                     b.Navigation("exercies_Programs");
-
-                    b.Navigation("services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.User", b =>

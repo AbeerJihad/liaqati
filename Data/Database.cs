@@ -28,6 +28,17 @@ namespace liaqati_master.Data
 
             };
         }
+        public static List<Category> GetListOfCategories()
+        {
+            return new List<Category>() {
+                                            new Category { Id="1" , Name="النظام الغذائي" },
+                                            new Category { Id="2" , Name="الوجبات" },
+                                            new Category { Id="3" , Name="المكملات الغذائية" },
+                                            new Category { Id="4" , Name="ٍٍالاجهزة الرياضية" }
+
+            };
+        }
+
         public static List<User> GetListOfUsers()
         {
             return new List<User>() {
@@ -136,8 +147,7 @@ namespace liaqati_master.Data
                      CategoryId = "1",
 
                  },
-
-                     new Service
+                new Service
                  {
                      Id = "11",
                      Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
@@ -145,7 +155,31 @@ namespace liaqati_master.Data
                      Title = " اختبار ",
                      CategoryId = "1",
 
-                 }
+                 },
+
+            new Service() { Id ="21",Title = "طقم اوزان دمبل 30 كغم", Price = 20,  CategoryId ="4"},
+            new Service() { Id ="22",Title = "حلقات لايف اب الاولمبية للجمباز", Price = 30, CategoryId ="4"},
+            new Service() { Id ="23",Title = "مشاية كهربائية منحنية بدون محرك", Price = 1490, CategoryId ="4"},
+            new Service() { Id ="24",Title = "دراجة سبينر", Price = 320,  CategoryId ="4"},
+            new Service() { Id ="25",Title = "Livepro أيروبيك ستيبر ومقعد", Price = 150,  CategoryId ="4"},
+            new Service() { Id ="26",Title = "سجادة Liveup للتمارين الرياضية", Price = 15,  CategoryId ="4"},
+            new Service() { Id ="27",Title = "مقعد بووفليكس متعدد الوظائف", Price = 175,  CategoryId ="4"},
+            new Service() { Id ="28",Title = "حبل معركة بروبانتل", Price = 69,  CategoryId ="4"},
+            new Service() { Id ="29",Title = "مقعد قابل للطي قابل للتعديل للتمارين الرياضية", Price = 125, CategoryId ="4"},
+            new Service() { Id ="30",Title = "مجدّف", Price = 25,  CategoryId ="4"},
+            new Service() { Id ="31",Title = "زيت السمك أوميغا 3", Price = 111, CategoryId ="3"},
+            new Service() { Id ="32",Title = "Muscletech, بلاتينيوم ملتي فيتامين", Price = 78, CategoryId ="3", },
+            new Service() { Id ="33",Title = "Ultima Replenisher", Price = 169,  CategoryId ="3", },
+            new Service() { Id ="34",Title = "زيت الكريل", Price = 169, CategoryId ="3", },
+            new Service() { Id ="35",Title = "أنافيت", Price = 170,  CategoryId ="3", },
+            new Service() { Id ="36",Title = "Trace Minerals Research", Price = 79, CategoryId ="3", },
+            new Service() { Id ="37",Title = "BodyBio, E-Lyte", Price = 109,  CategoryId ="3", },
+            new Service() { Id ="38",Title = "فيجا ، سبورت", Price = 163,  CategoryId ="3", },
+            new Service() { Id ="39",Title = "مضاعف الترطيب", Price = 111,  CategoryId ="3", },
+            new Service() { Id ="40",Title = "NutriBiotic", Price = 54, CategoryId ="3", },
+            new Service() { Id ="41",Title = "زيت الكريل", Price = 169,  CategoryId = "3", }
+
+
 
             };
         }
@@ -186,11 +220,31 @@ new MealPlans()
             };
         }
 
-        public static List<Category> GetListOfCategories()
+      
+        public static List<Products> GetListOfProducts()
         {
-            return new List<Category>() {
-                                            new Category { Id="1" , Name="MealPlane" },
-                                            new Category { Id="2" , Name="Healthy" }
+            return new List<Products>() {
+            new Products() { Id ="21" , imgUrl = "/Images/Product/Dumbbell3.jfif",Discount=20 },
+            new Products() { Id ="22",imgUrl = "/Images/Product/LiveupOlympic.jpg",  },
+            new Products() { Id ="23", imgUrl = "/Images/Product/Curved.jpg", },
+            new Products() { Id ="24", imgUrl = "/Images/Product/Spinner.jpg"},
+            new Products() { Id ="25", imgUrl = "/Images/Product/Liveup.jpg", },
+            new Products() { Id ="26", imgUrl = "/Images/Product/LiveupOlympic.jpg", },
+            new Products() { Id = "27", imgUrl = "/Images/Product/Bowflex.jpg", },
+            new Products() { Id = "28", imgUrl = "/Images/Product/Brobantle.jfif", },
+            new Products() { Id = "29", imgUrl = "/Images/Product/Adjustable.jpg", },
+            new Products() { Id = "30", imgUrl = "/Images/Product/rower.jpg", },
+            new Products() { Id = "31", imgUrl = "/Images/Product/omega.jpg",  },
+            new Products() { Id = "32", imgUrl = "/Images/Product/Muscletech.jpg",  },
+            new Products() { Id = "33", imgUrl = "/Images/Product/Ultima.jpg",  },
+            new Products() { Id = "34", imgUrl = "/Images/Product/krilloil.jpg",  },
+            new Products() { Id = "35", imgUrl = "/Images/Product/anavite.jpg",  },
+            new Products() { Id = "36", imgUrl = "/Images/Product/Trace.jpg",  },
+            new Products() { Id = "37", imgUrl = "/Images/Product/BodyBio.jpg",  },
+            new Products() { Id = "38", imgUrl = "/Images/Product/Vega.jpg",  },
+            new Products() { Id = "39", imgUrl = "/Images/Product/HydrationMultiplier.jpg",  },
+            new Products() { Id = "40", imgUrl = "/Images/Product/NutriBiotic.jpg",  },
+            new Products() { Id ="41", imgUrl = "/Images/Product/krilloil.jpg"}
 
             };
         }

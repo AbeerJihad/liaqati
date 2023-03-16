@@ -14,6 +14,9 @@
             modelBuilder.Entity<User>().HasData(
                 Database.GetListOfUsers()
              );
+            modelBuilder.Entity<Products>().HasData(
+              Database.GetListOfProducts()
+           );
 
             modelBuilder.Entity<Order>().HasData(
                 Database.GetListOfOrders()

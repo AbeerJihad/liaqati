@@ -8,13 +8,13 @@ namespace liaqati_master.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "رقم المحادثة")]
 
-        public string? Id { get; set; }
+        public string Id { get; set; }
         [Required, Display(Name = "اسم الصنف"), StringLength(50, MinimumLength = 2, ErrorMessage = "هذا الحقل مطلوب")]
 
         public string? Name { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         //[Display(Name = "تابع الى")]
-        public Target target { get; set; }
+        public Target? target { get; set; }
 
         //public string categoryFor { get; set; }
         [Display(Name = "صورة")]

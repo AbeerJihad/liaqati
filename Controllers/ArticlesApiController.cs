@@ -25,7 +25,7 @@ namespace ProgectApi.Controllers
             return Ok(await  _context.TblArticles.ToArrayAsync());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetArticlesById/{id}")]
         public async Task<ActionResult<List<Articles>>> GetArticlesById(int id)
         {
 
@@ -66,7 +66,8 @@ namespace ProgectApi.Controllers
 
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteArticles/{id}")]
+
         public async Task<ActionResult<MealPlans>> DeleteArticles(int id)
         {
             Articles item = _context.TblArticles.Find(id);
@@ -95,7 +96,7 @@ namespace ProgectApi.Controllers
 
         }
 
-        [HttpDelete("{Delete}")]
+        [HttpDelete("DeleteToList")]
 
 
         public async Task<ActionResult<List<Articles>>> DeleteMultiArticles([FromForm] int[] ids)
@@ -134,7 +135,8 @@ namespace ProgectApi.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("EditArticles/{id}")]
+
         public async Task<ActionResult<Articles>> EditArticles(int id, Articles Articles)
         {
             if (_context.TblArticles.Find(id) == null)

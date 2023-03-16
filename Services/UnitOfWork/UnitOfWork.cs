@@ -25,6 +25,7 @@ namespace liaqati_master.Services
         private GenericRepository<Category> categoryRepository;
         private GenericRepository<Products> productsRepository;
         private GenericRepository<HealthyRecipes> healthyRecipesRepository;
+        private GenericRepository<Exercise> exerciseRepository;
 
         public UnitOfWork(LiaqatiDBContext context)
         {
@@ -40,6 +41,18 @@ namespace liaqati_master.Services
                 return productsRepository;
             }
         }
+
+        public GenericRepository<Exercise> ExerciseRepository
+        {
+            get
+            {
+
+                exerciseRepository ??= new GenericRepository<Exercise>(context);
+                return exerciseRepository;
+            }
+        }
+
+
 
         public GenericRepository<HealthyRecipes> HealthyRecipesRepository
         {

@@ -14,6 +14,7 @@
         public DbSet<Exercise> TblExercises { get; set; }
 
         public DbSet<MealPlans> TblMealPlans { get; set; }
+        public DbSet<Products> TblProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,24 +25,24 @@
             .HasOne(a => a.Rate)
             .WithOne(a => a.Order_Details)
             .HasForeignKey<Rate>(c => c.Order_DetailsId);
-            //modelBuilder.Entity<Service>()
-            //              .HasOne(a => a.HealthyRecipes)
-            //              .WithOne(a => a.services)
-            //              .HasForeignKey<HealthyRecipes>(c => c.servicesId);
-            //modelBuilder.Entity<Service>()
-            //            .HasOne(a => a.Products)
-            //            .WithOne(a => a.services)
-            //            .HasForeignKey<Products>(c => c.servicesId);
+            modelBuilder.Entity<Service>()
+                          .HasOne(a => a.HealthyRecipes)
+                          .WithOne(a => a.services)
+                          .HasForeignKey<HealthyRecipes>(c => c.Id);
+            modelBuilder.Entity<Service>()
+                        .HasOne(a => a.Products)
+                        .WithOne(a => a.services)
+                        .HasForeignKey<Products>(c => c.Id);
 
-            //modelBuilder.Entity<Service>()
-            //            .HasOne(a => a.MealPlans)
-            //            .WithOne(a => a.services)
-            //            .HasForeignKey<MealPlans>(c => c.servicesId);
+            modelBuilder.Entity<Service>()
+                        .HasOne(a => a.MealPlans)
+                        .WithOne(a => a.services)
+                        .HasForeignKey<MealPlans>(c => c.Id);
 
-            //modelBuilder.Entity<Service>()
-            //            .HasOne(a => a.sportsProgram)
-            //            .WithOne(a => a.services)
-            //            .HasForeignKey<SportsProgram>(c => c.servicesId);
+            modelBuilder.Entity<Service>()
+                        .HasOne(a => a.sportsProgram)
+                        .WithOne(a => a.services)
+                        .HasForeignKey<SportsProgram>(c => c.Id);
 
             modelBuilder.Entity<MealPlans>().Navigation(p => p.services).AutoInclude();
             modelBuilder.Entity<Products>().Navigation(p => p.services).AutoInclude();
