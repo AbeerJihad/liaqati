@@ -9,12 +9,12 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllers().AddJsonOptions(op =>
 {
     op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-}); 
+});
 
 
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("SqlMohammed")));
+        builder.Configuration.GetConnectionString("DefaultConntection")));
 
 builder.Services.AddScoped<GenericRepository<Order>>();
 builder.Services.AddScoped<GenericRepository<User>>();

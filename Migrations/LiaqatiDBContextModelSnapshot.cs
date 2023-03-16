@@ -95,7 +95,7 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("target")
+                    b.Property<int?>("Target")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

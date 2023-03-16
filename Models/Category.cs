@@ -14,7 +14,7 @@ namespace liaqati_master.Models
         public string? Name { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         //[Display(Name = "تابع الى")]
-        public Target? target { get; set; }
+        public Target? Target { get; set; }
 
         //public string categoryFor { get; set; }
         [Display(Name = "صورة")]
@@ -22,7 +22,7 @@ namespace liaqati_master.Models
         //public List<Products>? products { get; set; }
         public List<Service>? services { get; set; }
 
-        public List<Articles>? articles { get; set; }
+        public List<Article>? articles { get; set; }
     }
 
     public enum Target
