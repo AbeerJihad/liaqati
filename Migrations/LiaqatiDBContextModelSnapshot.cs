@@ -263,10 +263,6 @@ namespace liaqati_master.Migrations
                     b.Property<int?>("DEx")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Detail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -283,10 +279,8 @@ namespace liaqati_master.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SubTitle")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<double?>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -296,9 +290,6 @@ namespace liaqati_master.Migrations
                     b.Property<string>("TraningType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("startDate")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\الفصل الرابع\G Project\GitHub\liaqati
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXGluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/HealthyReicpe/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/HealthyReicpe/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/MealPlan/Create.cshtml]

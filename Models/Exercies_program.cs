@@ -9,12 +9,16 @@ namespace liaqati_master.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "رقم النظام الرياضي")]
         public string Id { get; set; }
+
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "هل تم انجازه")]
         public bool isComplete { get; set; }
+
+
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم النمرين")]
         public string exerciseId { get; set; }
+
         public Exercise? exercise { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم النظام الرياضي")]
