@@ -6,7 +6,7 @@
         {
         }
         public DbSet<Order> TblOrder { set; get; }
-        public DbSet<Articles> TblArticles { set; get; }
+        public DbSet<Article> TblArticles { set; get; }
         public DbSet<Order_Details> TblOrder_Details { set; get; }
         public DbSet<Rate> TblRate { set; get; }
         public DbSet<SportsProgram> TblSportsProgram { get; set; }
@@ -15,6 +15,7 @@
 
         public DbSet<MealPlans> TblMealPlans { get; set; }
         public DbSet<Products> TblProducts { get; set; }
+        public DbSet<Achievements> TblAchievements { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

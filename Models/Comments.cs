@@ -22,6 +22,6 @@ namespace liaqati_master.Models
         public string repliedFor { get; set; }
         [Display(Name = "رقم المقالة")]
         public string? articlesId { get; set; }
-        public Articles? articles { get; set; }
+        public Article? articles { get; set; }
     }
 }

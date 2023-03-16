@@ -1,4 +1,4 @@
-﻿namespace liaqati_master.Models
+namespace liaqati_master.Models
 {
     public interface IFormFileMang
     {
@@ -38,7 +38,6 @@
 
             FileStream fs = new FileStream(pathAll, FileMode.Create);
             await fm.CopyToAsync(fs);
-
             await fs.FlushAsync();
             fs.Close();
 

@@ -473,7 +473,7 @@ namespace liaqati_master.Migrations
 
             migrationBuilder.InsertData(
                 table: "Category",
-                columns: new[] { "Id", "Image", "Name", "target" },
+                columns: new[] { "Id", "Image", "Name", "Target" },
                 values: new object[,]
                 {
                     { "1", null, "النظام الغذائي", null },

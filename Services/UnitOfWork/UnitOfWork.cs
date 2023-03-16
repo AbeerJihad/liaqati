@@ -1,7 +1,4 @@
-﻿using liaqati_master.Data;
-using liaqati_master.Models;
-
-namespace liaqati_master.Services
+﻿namespace liaqati_master.Services
 {
     public class UnitOfWork : IDisposable
     {
@@ -26,6 +23,7 @@ namespace liaqati_master.Services
         private GenericRepository<Products> productsRepository;
         private GenericRepository<HealthyRecipes> healthyRecipesRepository;
         private GenericRepository<Exercise> exerciseRepository;
+        private GenericRepository<Article> articleRepository;
 
         public UnitOfWork(LiaqatiDBContext context)
         {
@@ -39,6 +37,15 @@ namespace liaqati_master.Services
 
                 productsRepository ??= new GenericRepository<Products>(context);
                 return productsRepository;
+            }
+        }
+        public GenericRepository<Article> ArticleRepository
+        {
+            get
+            {
+
+                articleRepository ??= new GenericRepository<Article>(context);
+                return articleRepository;
             }
         }
 
