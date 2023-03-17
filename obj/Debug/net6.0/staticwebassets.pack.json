@@ -109,8 +109,1148 @@
       "PackagePath": "staticwebassets\\Images\\Product\\منتجاتنا.jpg"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Index.html",
+      "PackagePath": "staticwebassets\\Index.html"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\script.js",
       "PackagePath": "staticwebassets\\JavaScript\\script.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\Proccess.css",
+      "PackagePath": "staticwebassets\\User\\css\\Proccess.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\User\\css\\bootstrap-icons.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\index.css",
+      "PackagePath": "staticwebassets\\User\\css\\index.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\nice-select2.css",
+      "PackagePath": "staticwebassets\\User\\css\\nice-select2.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\config.rb",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\config.rb"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.eot",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.eot"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.svg",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.svg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.ttf",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.ttf"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.woff",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.woff"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick-theme.css",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick-theme.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick-theme.less",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick-theme.less"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick-theme.scss",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick-theme.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick.css",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick.js",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick.less",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.less"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick.min.js",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\slick\\slick.scss",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\styleIndex.css",
+      "PackagePath": "staticwebassets\\User\\css\\styleIndex.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\130252-النظام-النباتى.png",
+      "PackagePath": "staticwebassets\\User\\images\\130252-النظام-النباتى.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\130252-النظام-النباتى@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\130252-النظام-النباتى@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022.png",
+      "PackagePath": "staticwebassets\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8.png",
+      "PackagePath": "staticwebassets\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\176-103747-cardio-exercises-their-benefits-types-10.png",
+      "PackagePath": "staticwebassets\\User\\images\\176-103747-cardio-exercises-their-benefits-types-10.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\218281.png",
+      "PackagePath": "staticwebassets\\User\\images\\218281.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\218281@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\218281@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\220919.png",
+      "PackagePath": "staticwebassets\\User\\images\\220919.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\220919@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\220919@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\43912889.png",
+      "PackagePath": "staticwebassets\\User\\images\\43912889.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\43912889@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\43912889@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\54263.png",
+      "PackagePath": "staticwebassets\\User\\images\\54263.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\54263@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\54263@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Background.png",
+      "PackagePath": "staticwebassets\\User\\images\\Background.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\1.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\1.jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\2.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\2.jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\7489555552f8902dae64102cc6419c37_w750_h500.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\7489555552f8902dae64102cc6419c37_w750_h500.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\ecb5b3cbe9af4f53f02f0161258ca74f_w750_h500.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\ecb5b3cbe9af4f53f02f0161258ca74f_w750_h500.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\pexels-jan-n-g-u-y-e-n-\uD83C\uDF41-699953.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\pexels-jan-n-g-u-y-e-n-\uD83C\uDF41-699953.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\top-view-cream-soup-with-slices-bread.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\top-view-cream-soup-with-slices-bread.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Mask Group 1.png",
+      "PackagePath": "staticwebassets\\User\\images\\Mask Group 1.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Mask Group 1@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Mask Group 1@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\MealPlans\\1.png",
+      "PackagePath": "staticwebassets\\User\\images\\MealPlans\\1.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\NavIcons\\Mask Group 12@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\NavIcons\\Mask Group 12@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\NavIcons\\XMLID_153_@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\NavIcons\\XMLID_153_@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\NavIcons\\XMLID_47_@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\NavIcons\\XMLID_47_@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174745.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174745.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174745@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174745@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174936.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174936.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174936@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174936@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Screenshot-2021-01-11-100141.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot-2021-01-11-100141.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\Screenshot-2021-01-11-100141@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot-2021-01-11-100141@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\cart-3-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\cart-3-svgrepo-com.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\cart-3-svgrepo-com@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\cart-3-svgrepo-com@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\download.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\download.jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\heart-svgrepo-com (1).png",
+      "PackagePath": "staticwebassets\\User\\images\\heart-svgrepo-com (1).png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\heart-svgrepo-com (1)@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\heart-svgrepo-com (1)@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ic_play_circle_outline_24px.png",
+      "PackagePath": "staticwebassets\\User\\images\\ic_play_circle_outline_24px.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ic_play_circle_outline_24px@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\ic_play_circle_outline_24px@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\images.jfif",
+      "PackagePath": "staticwebassets\\User\\images\\images.jfif"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\layer1.png",
+      "PackagePath": "staticwebassets\\User\\images\\layer1.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\layer1@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\layer1@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\logo 1.png",
+      "PackagePath": "staticwebassets\\User\\images\\logo 1.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\logo.png",
+      "PackagePath": "staticwebassets\\User\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\logo2.png",
+      "PackagePath": "staticwebassets\\User\\images\\logo2.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1.png",
+      "PackagePath": "staticwebassets\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ourServices\\1.png",
+      "PackagePath": "staticwebassets\\User\\images\\ourServices\\1.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ourServices\\2.png",
+      "PackagePath": "staticwebassets\\User\\images\\ourServices\\2.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ourServices\\3.png",
+      "PackagePath": "staticwebassets\\User\\images\\ourServices\\3.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\pexels-karolina-grabowska-8547529.png",
+      "PackagePath": "staticwebassets\\User\\images\\pexels-karolina-grabowska-8547529.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\pexels-karolina-grabowska-8547529@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\pexels-karolina-grabowska-8547529@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\share-button-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\share-button-svgrepo-com.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\share-button-svgrepo-com@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\share-button-svgrepo-com@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\star-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\star-svgrepo-com.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\star-svgrepo-com@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\star-svgrepo-com@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\vince-fleming-j3lf-Jn6deo-unsplash.png",
+      "PackagePath": "staticwebassets\\User\\images\\vince-fleming-j3lf-Jn6deo-unsplash.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\xpvlzfimzgo18_article.png",
+      "PackagePath": "staticwebassets\\User\\images\\xpvlzfimzgo18_article.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\xpvlzfimzgo18_article@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\xpvlzfimzgo18_article@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\Index.js",
+      "PackagePath": "staticwebassets\\User\\js\\Index.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\.gitattributes",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\.gitattributes"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\.gitignore",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\.gitignore"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\.travis.yml",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\.travis.yml"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\CONTRIBUTING.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\CONTRIBUTING.md"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\Gruntfile.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\Gruntfile.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\ISSUE_TEMPLATE.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\ISSUE_TEMPLATE.md"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\LICENSE",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\README.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\README.md"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\ROADMAP.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\ROADMAP.md"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\_config.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\_config.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\bower.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\bower.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\LICENSE",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\README.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\README.md"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\animate.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\animate.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\docs.theme.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\docs.theme.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\bird_blue_32.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\bird_blue_32.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\download.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\download.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-drag.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-drag.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-modern.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-modern.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-module.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-module.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-options.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-options.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-responsive.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-responsive.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-zombie.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-zombie.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\owl-logo.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\owl-logo.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\twitter_25.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\twitter_25.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\app.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\app.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\foundation.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\README.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\README.md"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\foundation.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\highlight.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\highlight.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.map",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.mousewheel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.mousewheel.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\animate.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\animate.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoheight.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoheight.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoplay.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoplay.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autowidth.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autowidth.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\basic.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\basic.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\center.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\center.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\demos.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\demos.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\events.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\events.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\lazyLoad.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\lazyLoad.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\merge.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\merge.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\mousewheel.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\mousewheel.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\responsive.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\responsive.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\rtl.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\rtl.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\stagepadding.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\stagepadding.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\test.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\test.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\urlhashnav.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\urlhashnav.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\video.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\video.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-classes.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-classes.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-events.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-events.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-options.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-options.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-buildin-plugins.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-buildin-plugins.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-external.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-external.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-plugin-api.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-plugin-api.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-styles.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-styles.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-faq.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-faq.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-installation.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-installation.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-welcome.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-welcome.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-changelog.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-changelog.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contact.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contact.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contributing.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contributing.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\index.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\index.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\css\\animate.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\css\\animate.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\bird_blue_32.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\bird_blue_32.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\download.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\download.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-drag.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-drag.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-modern.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-modern.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-module.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-module.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-options.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-options.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-responsive.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-responsive.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-zombie.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-zombie.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\owl-logo.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\owl-logo.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\twitter_25.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\twitter_25.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\app.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\app.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\foundation.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\_settings.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\_settings.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\custom.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\custom.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\demos.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\demos.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.theme.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.theme.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\highlight.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\highlight.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\foundation.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\highlight.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\highlight.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.map",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.mousewheel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.mousewheel.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\classes.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\classes.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\events.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\events.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\features.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\features.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\options.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\options.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\modulo.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\modulo.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\test.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\test.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\demos.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\demos.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\docs.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\docs.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\home.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\home.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\animate.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\animate.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoheight.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoheight.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoplay.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoplay.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autowidth.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autowidth.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\basic.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\basic.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\center.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\center.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\demos.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\demos.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\events.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\events.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\lazyLoad.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\lazyLoad.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\merge.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\merge.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\mousewheel.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\mousewheel.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\responsive.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\responsive.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\rtl.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\rtl.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\stagepadding.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\stagepadding.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\test.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\test.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\urlhashnav.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\urlhashnav.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\video.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\video.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-classes.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-classes.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-events.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-events.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-options.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-options.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-buildin-plugins.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-buildin-plugins.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-external.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-external.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-plugin-api.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-plugin-api.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-styles.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-styles.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-faq.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-faq.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-installation.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-installation.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-welcome.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-welcome.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-changelog.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-changelog.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contact.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contact.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contributing.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contributing.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\index.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\index.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\footer.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\footer.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\head.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\head.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\header.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\header.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-carousel.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-carousel.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-features.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-features.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-hero.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-hero.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-teaser-text.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-teaser-text.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\javascripts.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\javascripts.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\releated-docs.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\releated-docs.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\sidenav-docs.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\sidenav-docs.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\title.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\title.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\vendors.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\vendors.hbs"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\package-lock.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\package-lock.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\package.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\package.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jscsrc",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jscsrc"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jshintrc",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jshintrc"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.animate.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.animate.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoheight.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoheight.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoplay.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoplay.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autorefresh.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autorefresh.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.hash.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.hash.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.lazyload.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.lazyload.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.navigation.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.navigation.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.modernizr.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.modernizr.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.video.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.video.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_animate.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_animate.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_autoheight.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_autoheight.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_core.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_core.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_lazyload.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_lazyload.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.default.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.default.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.green.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.green.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_video.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_video.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.carousel.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.carousel.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.default.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.default.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.green.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.green.scss"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\test\\index.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\test\\index.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\autoplay.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\autoplay.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\core.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\core.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\SwiperSliders.js",
+      "PackagePath": "staticwebassets\\User\\js\\SwiperSliders.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\nice-select2.js",
+      "PackagePath": "staticwebassets\\User\\js\\nice-select2.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\scriptIndex.js",
+      "PackagePath": "staticwebassets\\User\\js\\scriptIndex.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\video\\1.mp4",
+      "PackagePath": "staticwebassets\\User\\video\\1.mp4"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\admin\\AOS.html",
@@ -927,6 +2067,10 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\assets\\audio\\horse.ogg",
       "PackagePath": "staticwebassets\\assets\\audio\\horse.ogg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\assets\\css\\Tables.css",
+      "PackagePath": "staticwebassets\\assets\\css\\Tables.css"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\assets\\css\\animate.css",
@@ -3491,6 +4635,250 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\bootstrap-icons\\package.json",
       "PackagePath": "staticwebassets\\node_modules\\bootstrap-icons\\package.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\jquery\\AUTHORS.txt",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\AUTHORS.txt"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\jquery\\bower.json",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\bower.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\jquery\\external\\sizzle\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\external\\sizzle\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\jquery\\package.json",
+      "PackagePath": "staticwebassets\\node_modules\\jquery\\package.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\ssr-window\\package.json",
+      "PackagePath": "staticwebassets\\node_modules\\ssr-window\\package.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\a11y\\a11y-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\a11y\\a11y-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\a11y\\a11y.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\a11y\\a11y.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\autoplay\\autoplay-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\autoplay\\autoplay-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\autoplay\\autoplay.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\autoplay\\autoplay.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\controller\\controller-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\controller\\controller-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\controller\\controller.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\controller\\controller.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-cards\\effect-cards-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-cards\\effect-cards-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-cards\\effect-cards.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-cards\\effect-cards.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-coverflow\\effect-coverflow-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-coverflow\\effect-coverflow-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-coverflow\\effect-coverflow.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-coverflow\\effect-coverflow.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-creative\\effect-creative-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-creative\\effect-creative-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-creative\\effect-creative.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-creative\\effect-creative.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-cube\\effect-cube-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-cube\\effect-cube-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-cube\\effect-cube.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-cube\\effect-cube.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-fade\\effect-fade-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-fade\\effect-fade-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-fade\\effect-fade.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-fade\\effect-fade.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-flip\\effect-flip-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-flip\\effect-flip-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\effect-flip\\effect-flip.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\effect-flip\\effect-flip.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\free-mode\\free-mode-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\free-mode\\free-mode-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\free-mode\\free-mode.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\free-mode\\free-mode.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\grid\\grid-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\grid\\grid-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\grid\\grid.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\grid\\grid.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\hash-navigation\\hash-navigation-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\hash-navigation\\hash-navigation-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\hash-navigation\\hash-navigation.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\hash-navigation\\hash-navigation.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\history\\history-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\history\\history-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\history\\history.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\history\\history.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\keyboard\\keyboard-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\keyboard\\keyboard-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\keyboard\\keyboard.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\keyboard\\keyboard.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\manipulation\\manipulation-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\manipulation\\manipulation-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\manipulation\\manipulation.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\manipulation\\manipulation.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\mousewheel\\mousewheel-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\mousewheel\\mousewheel-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\mousewheel\\mousewheel.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\mousewheel\\mousewheel.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\navigation\\navigation-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\navigation\\navigation-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\navigation\\navigation.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\navigation\\navigation.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\pagination\\pagination-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\pagination\\pagination-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\pagination\\pagination.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\pagination\\pagination.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\parallax\\parallax-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\parallax\\parallax-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\parallax\\parallax.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\parallax\\parallax.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\scrollbar\\scrollbar-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\scrollbar\\scrollbar-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\scrollbar\\scrollbar.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\scrollbar\\scrollbar.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\thumbs\\thumbs-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\thumbs\\thumbs-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\thumbs\\thumbs.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\thumbs\\thumbs.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\virtual\\virtual-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\virtual\\virtual-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\virtual\\virtual.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\virtual\\virtual.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\zoom\\zoom-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\zoom\\zoom-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\modules\\zoom\\zoom.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\modules\\zoom\\zoom.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\package.json",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\package.json"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper-bundle.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper-bundle.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper-bundle.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper-bundle.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper-element-bundle.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper-element-bundle.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper-element-bundle.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper-element-bundle.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper-element.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper-element.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper-element.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper-element.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\node_modules\\swiper\\swiper.min.css",
+      "PackagePath": "staticwebassets\\node_modules\\swiper\\swiper.min.css"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.liaqati-master.props",
