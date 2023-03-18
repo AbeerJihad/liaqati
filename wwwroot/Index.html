@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="assets/css/nice-select2.css" />
+    <link rel="stylesheet" href="assets/css/styleIndex.css" />
+    <link rel="stylesheet" href="assets/css/Proccess.css" />
+
+    <script src="assets/js/scriptIndex.js"></script>
+    <link rel="stylesheet"
+          href="node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        .subs-menu {
+            display: none !important;
+            width: 100vw;
+            height: 150px;
+            bottom: -150px;
+            border-top: 0.5px solid rgba(136, 133, 133, 0.427) !important;
+            border-bottom: 0.5px solid rgba(136, 133, 133, 0.427) !important;
+        }
+
+            .subs-menu li {
+                list-style: none;
+                width: 200px;
+            }
+
+                .subs-menu li a:hover {
+                    background-color: #9e92e2b0;
+                }
+
+        .hoverabllink:hover .subs-menu {
+            display: flex !important;
+        }
+
+        .nav-item {
+            padding: 0 10px;
+        }
+
+            .nav-item.active,
+            .nav-item:hover {
+                border-top: 3px solid #8a78ee;
+                border-bottom: 3px solid #8a78ee;
+            }
+
+        .bg-white-with-blur {
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar-container shadow bg-white-with-blur p-0 px-2 position-relative d-none d-lg-flex position-fixed w-100">
+        <div class="container-xl p-0">
+            <div class="d-flex">
+                <div class="d-flex justify-content-between align-items-center navbar-brand-container">
+                    <a title="Home"
+                       class="d-flex justify-content-center align-items-center"
+                       href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink"
+                             height="80"
+                             viewBox="0 0 138 121">
+                            <defs>
+                                <clipPath id="a1">
+                                    <rect width="138"
+                                          height="121"
+                                          fill="#fff"
+                                          stroke="#707070"
+                                          stroke-width="1" />
+                                </clipPath>
+                                <linearGradient id="b"
+                                                y1="0.5"
+                                                x2="1"
+                                                y2="0.5"
+                                                gradientUnits="objectBoundingBox">
+                                    <stop offset="0" stop-color="#fff" />
+                                    <stop offset="1" stop-color="#fff" />
+                                </linearGradient>
+                                <linearGradient id="c"
+                                                x1="0"
+                                                y1="0.5"
+                                                x2="1"
+                                                y2="0.5"
+                                                xlink:href="#b" />
+                            </defs>
+                            <g clip-path="url(#a1)">
+                                <g transform="translate(17.75 19.438)">
+                                    <path d="M795.259,582.63c37.967.486,41.705,48.247-9,35.71a.123.123,0,0,1-.091-.129.134.134,0,0,1,.122-.108c29.1-.517,31.48-25.144,8.918-35.241a.118.118,0,0,1-.079-.135.137.137,0,0,1,.134-.1Z"
+                                          transform="translate(-777.109 -530.85)"
+                                          fill="url(#b)" />
+                                    <g transform="translate(13.387)">
+                                        <ellipse cx="13.26"
+                                                 cy="14.011"
+                                                 rx="13.26"
+                                                 ry="14.011"
+                                                 transform="translate(0)"
+                                                 fill="#fff" />
+                                        <path d="M1024.286,424.67a1.23,1.23,0,0,0-.872-.137,1.074,1.074,0,0,0-.7.47l-.675,1.009a1.041,1.041,0,0,0,.348,1.487l4.9,2.946,1.589-3.013Z"
+                                              transform="translate(-974.24 -402.762)"
+                                              fill="#fff" />
+                                        <path d="M1082.175,462.171l-12.213-7.351-1.592,3.013,11.9,7.167a1.225,1.225,0,0,0,.872.138,1.07,1.07,0,0,0,.7-.47l.677-1.007A1.041,1.041,0,0,0,1082.175,462.171Z"
+                                              transform="translate(-1010.499 -427.317)"
+                                              fill="#fff" />
+                                        <path d="M1143.968,472.962c-2.2-1.09-6.5,2.578-9.6,8.191s-3.831,11.051-1.631,12.142,6.5-2.576,9.6-8.191S1146.168,474.052,1143.968,472.962Zm-3.776,11.19c-.714,1.294-1.763,2.112-2.332,1.829s-.458-1.565.256-2.859,1.763-2.114,2.334-1.829S1140.906,482.856,1140.192,484.152Z"
+                                              transform="translate(-1059.689 -441.858)"
+                                              fill="#fff" />
+                                        <path d="M998.552,383.166l.674-1.007a1.072,1.072,0,0,1,.7-.47,1.227,1.227,0,0,1,.872.138l2.2,1.33c2.546-5.155,3.024-9.894.985-10.9-2.2-1.09-6.5,2.578-9.6,8.191s-3.831,11.051-1.631,12.142c1.966.974,5.605-1.848,8.57-6.458l-2.425-1.461A1.042,1.042,0,0,1,998.552,383.166Z"
+                                              transform="translate(-950.563 -360.277)"
+                                              fill="#fff" />
+                                        <path d="M973.909,378.287l-2.372-1.613a2.069,2.069,0,0,1-.921-1.63c-.324-8.58,3.117-14.852,10.258-18.854a3.278,3.278,0,0,1,3.289.07l2.112,1.29C978.02,361.485,974.114,368.551,973.909,378.287Z"
+                                              transform="translate(-934.276 -347.092)"
+                                              fill="#fff" />
+                                        <path d="M1113.2,478.749l-2.372-1.615a2.066,2.066,0,0,1-.924-1.628c-.322-8.58,3.119-14.854,10.258-18.856a3.278,3.278,0,0,1,3.289.07l2.112,1.29C1117.313,461.945,1113.405,469.011,1113.2,478.749Z"
+                                              transform="translate(-1042.865 -428.47)"
+                                              fill="#fff" />
+                                    </g>
+                                    <path d="M817.957,408.227c-1.627,5.191-3.952,27.229-33.283,16.419a48.121,48.121,0,0,0-6.853-2.051c-31.8-6.582-44.943,18.942-18.835,35.944a.167.167,0,0,0,.245-.215c-2.4-3.947-13.571-24.718,9.258-21.138,14.142,2.22,62.157,27.252,49.651-28.948a.084.084,0,0,0-.085-.084A.088.088,0,0,0,817.957,408.227Z"
+                                          transform="translate(-745.083 -389.515)"
+                                          fill="url(#c)" />
+                                </g>
+                            </g>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink"
+                             width="100"
+                             height="50"
+                             viewBox="0 0 171 90">
+                            <defs>
+                                <clipPath id="a">
+                                    <rect width="171"
+                                          height="90"
+                                          fill="#fff"
+                                          stroke="#707070"
+                                          stroke-width="1" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#a)">
+                                <g transform="translate(8.214 20.571)">
+                                    <path d="M645.066,876.094v9.373h-4.559q-5.52,0-6.429-8.135v-6.024H631.8v13.54q-1.05,8.9-7.932,8.9h-22.2c-.03-.481-.045-.926-.045-1.338q0-7,7.066-8.083H623.5V872.129q0-10.039,7.75-10.039h3.738q7.2,0,7.2,8.288v5.716Zm-30.138,22.09v2.832a4.515,4.515,0,0,1-2.963,4.531,3.741,3.741,0,0,1-1.231.2,3.274,3.274,0,0,1-1.231-.2,4.568,4.568,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm10.761,0v2.832a4.515,4.515,0,0,1-2.963,4.531,3.741,3.741,0,0,1-1.231.2,3.247,3.247,0,0,1-1.231-.2,4.572,4.572,0,0,1-2.92-4.531v-2.832l4.151-2.627Z"
+                                          transform="translate(-601.62 -847.002)"
+                                          fill="#fff" />
+                                    <path d="M770.24,841.006h6.837v-5.462q1.46-8.444,7.66-8.444h.594V841h7.521v9.372H770.24Zm8.981-24.559v2.832a4.514,4.514,0,0,1-2.965,4.531,3.737,3.737,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.582,4.582,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm10.758,0v2.832a4.514,4.514,0,0,1-2.963,4.531,3.737,3.737,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.573,4.573,0,0,1-2.917-4.531v-2.832l4.148-2.627Z"
+                                          transform="translate(-727.796 -811.914)"
+                                          fill="#fff" />
+                                    <path d="M860.84,841.006V837.3q0-10.044,13.859-10.3,6.064.565,6.112,7.723v6.281q0,9.372-6.474,9.372h-19.7v-9.372Zm8.49-24.559v2.832a4.515,4.515,0,0,1-2.963,4.531,3.736,3.736,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.573,4.573,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm3.922,24.559v-4.427l-4.332,1.092v3.345Zm6.839-24.559v2.832a4.514,4.514,0,0,1-2.965,4.531,3.736,3.736,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.582,4.582,0,0,1-2.917-4.531v-2.832l4.128-2.627Z"
+                                          transform="translate(-790.951 -811.914)"
+                                          fill="#fff" />
+                                    <path d="M982.365,806.84h.594v29.092h3.776V845.3h-4.649q-7.385,0-7.385-8.343V815.284Q976.165,806.843,982.365,806.84Z"
+                                          transform="translate(-880.79 -806.84)"
+                                          fill="#fff" />
+                                    <path d="M1018.56,876.356h6.839v-5.462q1.458-8.444,7.657-8.444h.594v13.9h7.521v9.372H1018.56Zm8.981,15.858v2.832a4.509,4.509,0,0,1-2.965,4.531,3.652,3.652,0,0,1-1.228.208,3.214,3.214,0,0,1-1.233-.208,4.576,4.576,0,0,1-2.917-4.531v-2.832l4.151-2.624Zm10.758,0v2.832a4.508,4.508,0,0,1-2.963,4.531,3.675,3.675,0,0,1-1.231.208,3.21,3.21,0,0,1-1.231-.208,4.568,4.568,0,0,1-2.917-4.531v-2.832l4.148-2.624Z"
+                                          transform="translate(-913.609 -847.264)"
+                                          fill="#fff" />
+                                    <path d="M1109.827,835.932V815.284q1.458-8.441,7.66-8.444h.591v30.122q0,8.34-7.385,8.343h-5.563v-9.373Z"
+                                          transform="translate(-978.389 -806.84)"
+                                          fill="#fff" />
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="d-flex navLarge d-none d-lg-flex justify-content-between w-100">
+                    <ul class="navbar-nav flex-lg-row mb-2 mb-lg-0">
+                        <li class="nav-item active d-flex justify-content-center align-items-center">
+                            <a class="nav-link" aria-current="page" href="#">الرئيسية</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center align-items-center hoverabllink">
+                            <a class="nav-link" href="#" role="button">
+                                خدماتنا<i class="bi bi-chevron-down ms-2"></i>
+                            </a>
+                            <ul class="bg-white subs-menu text-dark position-absolute start-0 end-0 justify-content-center align-items-center border-0">
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
+                                       href="#"> <img src="assets/images/NavIcons/XMLID_47_@2x.png" alt="" class="img-fluid"> تمارين رياضية</a>
+                                </li>
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center  flex-column"
+                                       href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                </li>
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
+                                       href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                </li>
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
+                                       href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item d-flex justify-content-center align-items-center hoverabllink">
+                            <a class="nav-link" href="#" role="button">
+                                المنتجات<i class="bi bi-chevron-down ms-2"></i>
+                            </a>
+                            <ul class="bg-white subs-menu text-dark position-absolute start-0 end-0 justify-content-center align-items-center border-0">
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center "
+                                       href="#"><i class="bi bi-chevron-down ms-2 h1"></i>أجهزة رياضية</a>
+                                </li>
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center "
+                                       href="#"><i class="bi bi-chevron-down ms-2 h1"></i></a>
+                                </li>
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center "
+                                       href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                </li>
+                                <li class="d-flex justify-content-center align-items-center h-100">
+                                    <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
+                                       href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center align-items-center">
+                            <a class="nav-link" aria-current="page" href="#">مقالات</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center align-items-center">
+                            <a class="nav-link" aria-current="page" href="#">المدربين</a>
+                        </li>
+                        <li class="nav-item d-flex justify-content-center align-items-center">
+                            <a class="nav-link" aria-current="page" href="#">من نحن</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex justify-content-between gap-2 align-items-center">
+                        <div class="fav-cart d-flex justify-content-between align-items-center">
+                            <a href="" class="btn" title="fav">
+                                <i class="bi bi-bag-dash h3"></i>
+                            </a>
+                            <a href="" title="cart"><i class="bi bi-heart-fill h3"></i></a>
+                        </div>
+                        <button class="btn-main col-auto text-black rounded-4 fw-bold d-inline-block border-0 py-2 px-3">
+                            تسجيل الدخول
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <nav class="d-lg-none position-fixed w-100" style="z-index: 13">
+        <div class="d-flex justify-content-between align-items-center navbar-brand-container">
+            <a title="Home"
+               class="d-flex justify-content-center align-items-center"
+               href="#">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                     height="80"
+                     viewBox="0 0 138 121">
+                    <defs>
+                        <clipPath id="a1">
+                            <rect width="138"
+                                  height="121"
+                                  fill="#fff"
+                                  stroke="#707070"
+                                  stroke-width="1" />
+                        </clipPath>
+                        <linearGradient id="b"
+                                        y1="0.5"
+                                        x2="1"
+                                        y2="0.5"
+                                        gradientUnits="objectBoundingBox">
+                            <stop offset="0" stop-color="#fff" />
+                            <stop offset="1" stop-color="#fff" />
+                        </linearGradient>
+                        <linearGradient id="c"
+                                        x1="0"
+                                        y1="0.5"
+                                        x2="1"
+                                        y2="0.5"
+                                        xlink:href="#b" />
+                    </defs>
+                    <g clip-path="url(#a1)">
+                        <g transform="translate(17.75 19.438)">
+                            <path d="M795.259,582.63c37.967.486,41.705,48.247-9,35.71a.123.123,0,0,1-.091-.129.134.134,0,0,1,.122-.108c29.1-.517,31.48-25.144,8.918-35.241a.118.118,0,0,1-.079-.135.137.137,0,0,1,.134-.1Z"
+                                  transform="translate(-777.109 -530.85)"
+                                  fill="url(#b)" />
+                            <g transform="translate(13.387)">
+                                <ellipse cx="13.26"
+                                         cy="14.011"
+                                         rx="13.26"
+                                         ry="14.011"
+                                         transform="translate(0)"
+                                         fill="#fff" />
+                                <path d="M1024.286,424.67a1.23,1.23,0,0,0-.872-.137,1.074,1.074,0,0,0-.7.47l-.675,1.009a1.041,1.041,0,0,0,.348,1.487l4.9,2.946,1.589-3.013Z"
+                                      transform="translate(-974.24 -402.762)"
+                                      fill="#fff" />
+                                <path d="M1082.175,462.171l-12.213-7.351-1.592,3.013,11.9,7.167a1.225,1.225,0,0,0,.872.138,1.07,1.07,0,0,0,.7-.47l.677-1.007A1.041,1.041,0,0,0,1082.175,462.171Z"
+                                      transform="translate(-1010.499 -427.317)"
+                                      fill="#fff" />
+                                <path d="M1143.968,472.962c-2.2-1.09-6.5,2.578-9.6,8.191s-3.831,11.051-1.631,12.142,6.5-2.576,9.6-8.191S1146.168,474.052,1143.968,472.962Zm-3.776,11.19c-.714,1.294-1.763,2.112-2.332,1.829s-.458-1.565.256-2.859,1.763-2.114,2.334-1.829S1140.906,482.856,1140.192,484.152Z"
+                                      transform="translate(-1059.689 -441.858)"
+                                      fill="#fff" />
+                                <path d="M998.552,383.166l.674-1.007a1.072,1.072,0,0,1,.7-.47,1.227,1.227,0,0,1,.872.138l2.2,1.33c2.546-5.155,3.024-9.894.985-10.9-2.2-1.09-6.5,2.578-9.6,8.191s-3.831,11.051-1.631,12.142c1.966.974,5.605-1.848,8.57-6.458l-2.425-1.461A1.042,1.042,0,0,1,998.552,383.166Z"
+                                      transform="translate(-950.563 -360.277)"
+                                      fill="#fff" />
+                                <path d="M973.909,378.287l-2.372-1.613a2.069,2.069,0,0,1-.921-1.63c-.324-8.58,3.117-14.852,10.258-18.854a3.278,3.278,0,0,1,3.289.07l2.112,1.29C978.02,361.485,974.114,368.551,973.909,378.287Z"
+                                      transform="translate(-934.276 -347.092)"
+                                      fill="#fff" />
+                                <path d="M1113.2,478.749l-2.372-1.615a2.066,2.066,0,0,1-.924-1.628c-.322-8.58,3.119-14.854,10.258-18.856a3.278,3.278,0,0,1,3.289.07l2.112,1.29C1117.313,461.945,1113.405,469.011,1113.2,478.749Z"
+                                      transform="translate(-1042.865 -428.47)"
+                                      fill="#fff" />
+                            </g>
+                            <path d="M817.957,408.227c-1.627,5.191-3.952,27.229-33.283,16.419a48.121,48.121,0,0,0-6.853-2.051c-31.8-6.582-44.943,18.942-18.835,35.944a.167.167,0,0,0,.245-.215c-2.4-3.947-13.571-24.718,9.258-21.138,14.142,2.22,62.157,27.252,49.651-28.948a.084.084,0,0,0-.085-.084A.088.088,0,0,0,817.957,408.227Z"
+                                  transform="translate(-745.083 -389.515)"
+                                  fill="url(#c)" />
+                        </g>
+                    </g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                     width="100"
+                     height="50"
+                     viewBox="0 0 171 90">
+                    <defs>
+                        <clipPath id="a">
+                            <rect width="171"
+                                  height="90"
+                                  fill="#fff"
+                                  stroke="#707070"
+                                  stroke-width="1" />
+                        </clipPath>
+                    </defs>
+                    <g clip-path="url(#a)">
+                        <g transform="translate(8.214 20.571)">
+                            <path d="M645.066,876.094v9.373h-4.559q-5.52,0-6.429-8.135v-6.024H631.8v13.54q-1.05,8.9-7.932,8.9h-22.2c-.03-.481-.045-.926-.045-1.338q0-7,7.066-8.083H623.5V872.129q0-10.039,7.75-10.039h3.738q7.2,0,7.2,8.288v5.716Zm-30.138,22.09v2.832a4.515,4.515,0,0,1-2.963,4.531,3.741,3.741,0,0,1-1.231.2,3.274,3.274,0,0,1-1.231-.2,4.568,4.568,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm10.761,0v2.832a4.515,4.515,0,0,1-2.963,4.531,3.741,3.741,0,0,1-1.231.2,3.247,3.247,0,0,1-1.231-.2,4.572,4.572,0,0,1-2.92-4.531v-2.832l4.151-2.627Z"
+                                  transform="translate(-601.62 -847.002)"
+                                  fill="#fff" />
+                            <path d="M770.24,841.006h6.837v-5.462q1.46-8.444,7.66-8.444h.594V841h7.521v9.372H770.24Zm8.981-24.559v2.832a4.514,4.514,0,0,1-2.965,4.531,3.737,3.737,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.582,4.582,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm10.758,0v2.832a4.514,4.514,0,0,1-2.963,4.531,3.737,3.737,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.573,4.573,0,0,1-2.917-4.531v-2.832l4.148-2.627Z"
+                                  transform="translate(-727.796 -811.914)"
+                                  fill="#fff" />
+                            <path d="M860.84,841.006V837.3q0-10.044,13.859-10.3,6.064.565,6.112,7.723v6.281q0,9.372-6.474,9.372h-19.7v-9.372Zm8.49-24.559v2.832a4.515,4.515,0,0,1-2.963,4.531,3.736,3.736,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.573,4.573,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm3.922,24.559v-4.427l-4.332,1.092v3.345Zm6.839-24.559v2.832a4.514,4.514,0,0,1-2.965,4.531,3.736,3.736,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.582,4.582,0,0,1-2.917-4.531v-2.832l4.128-2.627Z"
+                                  transform="translate(-790.951 -811.914)"
+                                  fill="#fff" />
+                            <path d="M982.365,806.84h.594v29.092h3.776V845.3h-4.649q-7.385,0-7.385-8.343V815.284Q976.165,806.843,982.365,806.84Z"
+                                  transform="translate(-880.79 -806.84)"
+                                  fill="#fff" />
+                            <path d="M1018.56,876.356h6.839v-5.462q1.458-8.444,7.657-8.444h.594v13.9h7.521v9.372H1018.56Zm8.981,15.858v2.832a4.509,4.509,0,0,1-2.965,4.531,3.652,3.652,0,0,1-1.228.208,3.214,3.214,0,0,1-1.233-.208,4.576,4.576,0,0,1-2.917-4.531v-2.832l4.151-2.624Zm10.758,0v2.832a4.508,4.508,0,0,1-2.963,4.531,3.675,3.675,0,0,1-1.231.208,3.21,3.21,0,0,1-1.231-.208,4.568,4.568,0,0,1-2.917-4.531v-2.832l4.148-2.624Z"
+                                  transform="translate(-913.609 -847.264)"
+                                  fill="#fff" />
+                            <path d="M1109.827,835.932V815.284q1.458-8.441,7.66-8.444h.591v30.122q0,8.34-7.385,8.343h-5.563v-9.373Z"
+                                  transform="translate(-978.389 -806.84)"
+                                  fill="#fff" />
+                        </g>
+                    </g>
+                </svg>
+            </a>
+            <button class="d-lg-none btn"
+                    id="navbarToggler"
+                    type="button"
+                    title="navbar-toggler">
+                <i class="bi bi-list h2"></i>
+            </button>
+        </div>
+        <div class="NavLinks-Container nav-small d-none w-100 position-fixed"
+             id="navbarCollapse">
+            <div class="accordion" id="accordionExample">
+                <ul class="navbar-nav h-100 flex-lg-row mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="nav-link d-flex justify-content-between align-items-center p-0"
+                             href="#">
+                            <span class="w-100">
+                                <a class="nav-link w-100" href=""> الرئيسية </a>
+                            </span>
+                            <button title="close" class="btn px-0 close">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="accordion-item border-0 shadow-none">
+                            <h2 class="accordion-header border-0 p-0">
+                                <button class="accordion-button border-0 px-0"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne"
+                                        aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                    خدماتنا
+                                </button>
+                            </h2>
+                            <div id="collapseOne"
+                                 class="accordion-collapse collapse"
+                                 aria-labelledby="headingOne"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body p-0">
+                                    <ul class="sub-menu">
+                                        <li><a class="sub-menu-item" href="#">Action</a></li>
+                                        <li>
+                                            <a class="sub-menu-item" href="#">Another action</a>
+                                        </li>
+                                        <li>
+                                            <a class="sub-menu-item" href="#">Something else here</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="accordion-item border-0 shadow-none">
+                            <h2 class="accordion-header border-0 p-0" id="headingOne">
+                                <button class="accordion-button border-0 px-0"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo"
+                                        aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                    المنتجات
+                                </button>
+                            </h2>
+                            <div id="collapseTwo"
+                                 class="accordion-collapse collapse"
+                                 aria-labelledby="headingOne"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body p-0">
+                                    <ul class="sub-menu">
+                                        <li><a class="sub-menu-item" href="#">Action</a></li>
+                                        <li>
+                                            <a class="sub-menu-item" href="#">Another action</a>
+                                        </li>
+                                        <li>
+                                            <a class="sub-menu-item" href="#">Something else here</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">مقالات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">المدربين</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button class="btn-main col-auto text-black rounded-4 fw-bold d-inline-block border-0 py-2 px-3">
+                                تسجيل الدخول
+                            </button>
+                            <div class="fav-cart d-flex justify-content-between align-items-center">
+                                <a href="" class="btn" title="fav">
+                                    <i class="bi bi-bag-dash h3"></i>
+                                </a>
+                                <a href="" title="cart">
+                                    <i class="bi bi-heart-fill h3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="position-relative w-100 min-vh-100 overflow-hidden d-none d-xl-block">
+        <video autoplay muted loop id="myVideo">
+            <source src="assets/video/1.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <div class="content">
+        <div class="container-fluid p-0 min-vh-100 position-absolute start-0 top-0 header">
+            <div class="container-xl min-vh-100 d-flex flex-column justify-content-end align-items-center"
+                 style="padding-top: 120px !important">
+                <div class="w-100">
+                    <h1 class="text-white text-center py-3 fw-bold">
+                        لياقتي لحياة أفضل وجسم صحي سليم
+                    </h1>
+                    <form action=""
+                          method="get"
+                          class="p-0 g-0 row col-lg-10 mx-auto form-search">
+                        <div class="col-12 my-2 my-lg-0 col-lg-6">
+                            <input type="text"
+                                   class="form-control rounded-end-0"
+                                   name="te"
+                                   placeholder="الخدمة" />
+                        </div>
+                        <div class="col-12 my-2 my-lg-0 col-lg-3">
+                            <select title="Select Type Of Service"
+                                    id="MySelect"
+                                    name="select"
+                                    class="wide rounded-0">
+                                <option value="نوع الخدمة">نوع الخدمة</option>
+                                <option value="1نوع الخدمة">1نوع الخدمة</option>
+                                <option value="2نوع الخدمة">نوع الخدمة1</option>
+                                <option value="3نوع الخدمة">نوع الخدمة1</option>
+                            </select>
+                        </div>
+                        <div class="col-12 my-2 my-lg-0 col-lg-3">
+                            <input placeholder="بحث"
+                                   type="submit"
+                                   value="بحث"
+                                   class="form-control rounded-start-0 text-center"
+                                   style="background-color: #e4dfff" />
+                        </div>
+                    </form>
+                    <div>
+                        <div class=""></div>
+                        <h1 class="text-white text-center py-3 fw-bold">خدمات لياقتي</h1>
+                    </div>
+                    <div class="row pb-5 row-cols-1 row-cols-md-2 row-cols-xl-3 g-0 p-0 justify-content-center">
+                        <div class="col p-3 ps-lg-0">
+                            <div class="p-3 h-100 bg-white">
+                                <div class="row align-items-center row-cols-2">
+                                    <div class="col d-flex justify-content-center align-items-center">
+                                        <img src="assets/images/ourServices/3.png"
+                                             class="img-fluid"
+                                             alt="" />
+                                    </div>
+                                    <div class="col">
+                                        <h3>وصفات غذائية</h3>
+                                        <p>
+                                            وصفات متنوعة تساعدك على اتنباع النظام الغذائي الذي تحب
+                                            دون حرمان
+                                        </p>
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-main">اذهب الان</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3">
+                            <div class="p-3 h-100 bg-white">
+                                <div class="row align-items-center row-cols-2">
+                                    <div class="col d-flex justify-content-center align-items-center">
+                                        <img src="assets/images/ourServices/2.png"
+                                             class="img-fluid"
+                                             alt="" />
+                                    </div>
+                                    <div class="col">
+                                        <h3>أنظمة غذائية</h3>
+                                        <p>
+                                            أنظمة غذائية صحية تساعدك على اتباع نظام غذائي مناسب
+                                            لجسمك
+                                        </p>
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-main">اذهب الان</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3 pe-lg-0">
+                            <div class="p-3 h-100 bg-white">
+                                <div class="row align-items-center row-cols-2">
+                                    <div class="col d-flex justify-content-center align-items-center">
+                                        <img src="assets/images/ourServices/1.png"
+                                             class="img-fluid"
+                                             alt="" />
+                                    </div>
+                                    <div class="col">
+                                        <h3>تمارين رياضية</h3>
+                                        <p>
+                                            تمارين رياضية تساعدك على الحصول على جسم رشيق وصحة جيدة
+                                        </p>
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-main">اذهب الان</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 offset-md-3 offset-lg-0 col-md-6 col-lg-4 text-center">
+                        <div class="pie animate mb-3"
+                             style="--p: 70; --c: #b9aff5; --b: 10px">
+                            120
+                        </div>
+                        <h4>الأنظمةالغذائية</h4>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 text-center">
+                        <div class="pie animate mb-3"
+                             style="--p: 70; --c: #bae5ff; --b: 10px">
+                            120
+                        </div>
+                        <h4>عدد المستخدمين</h4>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 text-center">
+                        <div class="pie animate mb-3"
+                             style="--p: 50; --c: #bfe9d4; --b: 10px">
+                            70
+                        </div>
+                        <h4>عدد المدربين</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb-5 d-flex justify-content-center fitness-coaches-container align-items-center con p-3">
+        <div class="container-xl p-3">
+            <h2 class="my-3 fitness-coaches-title px-3">مدربيين لياقتي</h2>
+            <div class="position-relative">
+                <div class="swiper swiperCoach w-100" style="max-width: 900px">
+                    <div class="swiper-wrapper swiper-wrapper2 w-100"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb -5 d-flex justify-content-center fitness-coaches-container align-items-center con p-3">
+        <div class="container-xl p-3">
+            <h2 class="my-3 fitness-coaches-title px-3">مدربيين لياقتي</h2>
+            <div class="position-relative">
+                <div class="swiper swiperCoachV2 w-100">
+                    <div class="swiper-wrapper swiper-wrapper2 w-100"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid my-5 d-flex justify-content-center fitness-recipe-container align-items-center position-relative p-3">
+        <div class="container-xl p-3">
+            <h2 class="my-3 fitness-recipe-title px-3">وصفات لياقتي</h2>
+            <div class="position-relative">
+                <div class="swiper w-100">
+                    <div class="swiper-wrapper swiper-wrapper1 w-100"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <div class="my-5 py-5">
+        <div class="container-fluid my-5 d-flex justify-content-center fitness-recipe-container align-items-center position-relative p-3">
+            <div class="container-xl p-3">
+                <h2 class="my-3 fitness-recipe-title px-3">وصفات لياقتي</h2>
+                <div class="swiper sv2 w-100">
+                    <div class="swiper-wrapper swiper-wrapper1 w-100"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid meal-plans-container"
+         style="margin-top: 100px; background-color: #bae5ff27">
+        <div class="container-xl p-0">
+            <div class="swiper swiperMeals">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper my-5">
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="assets/images/MealPlans/1.png"
+                                 class="card-img-top"
+                                 alt="..." />
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-lg-center align-items-sm-end flex-wrap">
+                                        <div class="">
+                                            <h5 class="card-title">خطة وجبات للأشخاص المشغولين</h5>
+                                            <p class="card-text m-0">مدة النظام : أسبوع</p>
+                                            <p class="card-text m-0">
+                                                نوع الوجبة: إفطار ، غداء ، عشاء ، سناك
+                                            </p>
+                                            <p class="card-text m-0">
+                                                متوسط ​​وقت الوجبة : 20 دقيقة<a href=""
+                                                                                class="text-danger text-decoration-none px-3">
+                                                    اقرأ المزيد. . .
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-column justify-content-between align-items-lg-end">
+                                        <div class="ratings">
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div>السعر : $4.99</div>
+                                        <button class="btn btn-main text-white">
+                                            اشترك الآن
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="assets/images/MealPlans/1.png"
+                                 class="card-img-top"
+                                 alt="..." />
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-lg-center align-items-sm-end flex-wrap">
+                                        <div class="">
+                                            <h5 class="card-title">خطة وجبات للأشخاص المشغولين</h5>
+                                            <p class="card-text m-0">مدة النظام : أسبوع</p>
+                                            <p class="card-text m-0">
+                                                نوع الوجبة: إفطار ، غداء ، عشاء ، سناك
+                                            </p>
+                                            <p class="card-text m-0">
+                                                متوسط ​​وقت الوجبة : 20 دقيقة<a href=""
+                                                                                class="text-danger text-decoration-none px-3">
+                                                    اقرأ المزيد. . .
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-column justify-content-between align-items-lg-end">
+                                        <div class="ratings">
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill rating-color"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                        <div>السعر : $4.99</div>
+                                        <button class="btn btn-main text-white">
+                                            اشترك الآن
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev d-none d-md-block"></div>
+                <div class="swiper-button-next d-none d-md-block"></div>
+
+                <!-- If we need scrollbar -->
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid meal-plans-container"
+         style="margin-top: 100px; background-color: #bae5ff27">
+        <div class="container-xl p-0">
+            <div class="swiper swiperMealsV2">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper my-5">
+                    <div class="swiper-slide">
+                        <div class="border-0 shadow-sm rounded-4 w-100 h-100">
+                            <div class="img-box" style="height: 450px">
+                                <img src="assets/images/MealPlans/1.png"
+                                     class="card-img-top rounded-4"
+                                     alt="..." />
+                                <div class="inner-img-boxV2">
+                                    <div class="h-100 w-100 d-flex justify-content-start align-items-end">
+                                        <div class="d-flex text-white w-100 p-3">
+                                            <div class="text-white w-100 divtrans">
+                                                <div class="d-flex justify-content-between flex-wrap">
+                                                    <h5 class="card-title">
+                                                        خطة وجبات للأشخاص المشغولين
+                                                    </h5>
+                                                    <div class="ratings">
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between divtrans-2 align-items-sm-end flex-wrap">
+                                                    <div class="">
+                                                        <p class="card-text m-0">مدة النظام : أسبوع</p>
+                                                        <p class="card-text m-0">
+                                                            نوع الوجبة: إفطار ، غداء ، عشاء ، سناك
+                                                        </p>
+                                                        <p class="card-text m-0">
+                                                            متوسط ​​وقت الوجبة:20دقيقة
+                                                        </p>
+                                                        <a href=""
+                                                           class="text-danger text-decoration-none py-2">اقرأ المزيد</a>
+                                                    </div>
+                                                    <div class="d-flex w-100 justify-content-between flex-wrap align-items-center">
+                                                        <div>
+                                                            <p class="m-0">السعر : 4.99 $</p>
+                                                        </div>
+                                                        <button class="btn btn-main">اشترك الآن</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="border-0 shadow-sm rounded-4 w-100 h-100">
+                            <div class="img-box" style="height: 450px">
+                                <img src="assets/images/MealPlans/1.png"
+                                     class="card-img-top rounded-4"
+                                     alt="..." />
+                                <div class="inner-img-boxV2">
+                                    <div class="h-100 w-100 d-flex justify-content-start align-items-end">
+                                        <div class="d-flex text-white w-100 p-3">
+                                            <div class="text-white w-100 divtrans">
+                                                <div class="d-flex justify-content-between flex-wrap">
+                                                    <h5 class="card-title">
+                                                        خطة وجبات للأشخاص المشغولين
+                                                    </h5>
+                                                    <div class="ratings">
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between divtrans-2 align-items-sm-end flex-wrap">
+                                                    <div class="">
+                                                        <p class="card-text m-0">مدة النظام : أسبوع</p>
+                                                        <p class="card-text m-0">
+                                                            نوع الوجبة: إفطار ، غداء ، عشاء ، سناك
+                                                        </p>
+                                                        <p class="card-text m-0">
+                                                            متوسط ​​وقت الوجبة:20دقيقة
+                                                        </p>
+                                                        <a href=""
+                                                           class="text-danger text-decoration-none py-2">اقرأ المزيد</a>
+                                                    </div>
+                                                    <div class="d-flex w-100 justify-content-between flex-wrap align-items-center">
+                                                        <div>
+                                                            <p class="m-0">السعر : 4.99 $</p>
+                                                        </div>
+                                                        <button class="btn btn-main">اشترك الآن</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev d-none d-md-block"></div>
+                <div class="swiper-button-next d-none d-md-block"></div>
+
+                <!-- If we need scrollbar -->
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid meal-plans-container py-5 my-5"
+         style="margin-top: 100px; background-color: #bae5ff27">
+        <div class="container-xl p-0">
+            <div id="carouselExampleIndicators"
+                 class="carousel slide rounded-4 overflow-hidden">
+                <div class="carousel-indicators">
+                    <button type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="0"
+                            class="active"
+                            aria-current="true"
+                            aria-label="Slide 1"></button>
+                    <button type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="border-0 shadow-sm rounded-4 w-100 h-100">
+                            <div class="img-box" style="height: 450px">
+                                <img src="assets/images/MealPlans/1.png"
+                                     class="card-img-top rounded-4"
+                                     alt="..." />
+                                <div class="inner-img-boxV2">
+                                    <div class="h-100 w-100 d-flex justify-content-start align-items-end">
+                                        <div class="d-flex text-white w-100 p-3">
+                                            <div class="text-white w-100 divtrans">
+                                                <div class="d-flex justify-content-between flex-wrap">
+                                                    <h5 class="card-title">
+                                                        خطة وجبات للأشخاص المشغولين
+                                                    </h5>
+                                                    <div class="ratings">
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between divtrans-2 align-items-sm-end flex-wrap">
+                                                    <div class="">
+                                                        <p class="card-text m-0">مدة النظام : أسبوع</p>
+                                                        <p class="card-text m-0">
+                                                            نوع الوجبة: إفطار ، غداء ، عشاء ، سناك
+                                                        </p>
+                                                        <p class="card-text m-0">
+                                                            متوسط ​​وقت الوجبة:20دقيقة
+                                                        </p>
+                                                        <a href=""
+                                                           class="text-danger text-decoration-none py-2">اقرأ المزيد</a>
+                                                    </div>
+                                                    <div class="d-flex w-100 justify-content-between flex-wrap align-items-center">
+                                                        <div>
+                                                            <p class="m-0">السعر : 4.99 $</p>
+                                                        </div>
+                                                        <button class="btn btn-main">اشترك الآن</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="border-0 shadow-sm rounded-4 w-100 h-100">
+                            <div class="img-box" style="height: 450px">
+                                <img src="/assets/images/MealPlans/1.png"
+                                     class="card-img-top rounded-4"
+                                     alt="..." />
+                                <div class="inner-img-boxV2">
+                                    <div class="h-100 w-100 d-flex justify-content-start align-items-end">
+                                        <div class="d-flex text-white w-100 p-3">
+                                            <div class="text-white w-100 divtrans">
+                                                <div class="d-flex justify-content-between flex-wrap">
+                                                    <h5 class="card-title">
+                                                        خطة وجبات للأشخاص المشغولين
+                                                    </h5>
+                                                    <div class="ratings">
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill rating-color"></i>
+                                                        <i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between divtrans-2 align-items-sm-end flex-wrap">
+                                                    <div class="">
+                                                        <p class="card-text m-0">مدة النظام : أسبوع</p>
+                                                        <p class="card-text m-0">
+                                                            نوع الوجبة: إفطار ، غداء ، عشاء ، سناك
+                                                        </p>
+                                                        <p class="card-text m-0">
+                                                            متوسط ​​وقت الوجبة:20دقيقة
+                                                        </p>
+                                                        <a href=""
+                                                           class="text-danger text-decoration-none py-2">اقرأ المزيد</a>
+                                                    </div>
+                                                    <div class="d-flex w-100 justify-content-between flex-wrap align-items-center">
+                                                        <div>
+                                                            <p class="m-0">السعر : 4.99 $</p>
+                                                        </div>
+                                                        <button class="btn btn-main">اشترك الآن</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-absolute top-0 start-0 h-100 d-flex justify-content-center align-items-center"
+                     style="width: 40px">
+                    <button class="carousel-control-prev h-25 w-100"
+                            style="background: #8a78ee"
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"
+                              aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                </div>
+                <div class="position-absolute top-0 end-0 h-100 d-flex justify-content-center align-items-center"
+                     style="width: 40px">
+                    <button class="carousel-control-next w-100 h-25"
+                            style="background: #8a78ee"
+                            type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"
+                              aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div id="rowMealPlanIndex" class="row">
+            <div class="d-flex mb-4">
+                <div class="mx-3"
+                     style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                <h2 class="col-auto">أحدث الأنظمةالغذائية</h2>
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            </div>
+            <div id="colCloneMeal" class="col-12 col-md-6 col-lg-3 p-2">
+                <div class="card">
+                    <div class="position-relative">
+                        <img src="[Image]" class="card-img-top" alt="..." />
+                        <img width="40"
+                             class="position-absolute"
+                             style="top: 20px; right: 20px"
+                             src="assets/Images/heart-svgrepo-com (1).png"
+                             alt=""
+                             srcset="" />
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">[Name]</h5>
+                        <p class="card-text">[Description]</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="d-inline-block ms-2 fw-bold">عدد المشتركين</h6>
+
+                                <div style="background-color: #ffe9cb"
+                                     class="rounded-pill d-inline-block fw-bold align-middle p-2">
+                                    [num]
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="d-inline-block fw-bold text-danger align-middle ms-1 mt-2">
+                                    [Prise]
+                                </h5>
+                                <img width="20"
+                                     src="assets/Images/cart-3-svgrepo-com.png"
+                                     alt=""
+                                     srcset="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                var colMeal = document.getElementById("colCloneMeal");
+                var rowMeal = document.getElementById("rowMealPlanIndex");
+                rowMeal.removeChild(colMeal);
+                for (let Meal of listMealPlane) {
+                    var colClone = colMeal.cloneNode(true);
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Image]",
+                        Meal.image
+                    );
+
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Description]",
+                        Meal.Description
+                    );
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Prise]",
+                        Meal.Price
+                    );
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[num]",
+                        Meal.numsubscribers
+                    );
+
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Name]",
+                        Meal.Name
+                    );
+                    rowMeal.appendChild(colClone);
+                }
+            </script>
+            <div class="d-flex mt-4">
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+                <button style="background-color: #E4DFFF"
+                        class="col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
+                    جميع الأنظمةالغذائية
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div id="rowExercisesIndex" class="row">
+            <div class="d-flex">
+                <div class="mx-3"
+                     style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                <h2 class="col-auto">تمارين رياضية</h2>
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            </div>
+            <div id="colClone" class="col-12 col-md-6 col-lg-3 p-4">
+                <div class="card border-0">
+                    <div class="position-relative">
+                        <img src="[Image]" class="card-img-top" alt="..." />
+                        <img width="40"
+                             class="position-absolute"
+                             style="top: 20px; right: 20px"
+                             src="assets/Images/heart-svgrepo-com (1).png"
+                             alt=""
+                             srcset="" />
+                        <img width="80"
+                             class="position-absolute"
+                             style="bottom: 20px; right: 20px"
+                             src="assets/Images/ic_play_circle_outline_24px.png"
+                             alt=""
+                             srcset="" />
+                    </div>
+
+                    <div class="card-body">
+                        <p class="card-text text-center Exercises_duration_Color fw-bold">
+                            دقيقة اليوم[Time]-- أسابيع[duration] برنامج
+                        </p>
+                        <h5 class="card-title mb-3">[Description]</h5>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <img width="20"
+                                     src="assets/Images/star-svgrepo-com.png"
+                                     alt=""
+                                     srcset="" />
+                                <img width="20"
+                                     src="assets/Images/star-svgrepo-com.png"
+                                     alt=""
+                                     srcset="" />
+                                <img width="20"
+                                     src="assets/Images/star-svgrepo-com.png"
+                                     alt=""
+                                     srcset="" />
+                                <img width="20"
+                                     src="assets/Images/star-svgrepo-com.png"
+                                     alt=""
+                                     srcset="" />
+                                <img width="20"
+                                     src="assets/Images/star-svgrepo-com.png"
+                                     alt=""
+                                     srcset="" />
+                            </div>
+                            <div>
+                                <h4 class="d-inline-block text-danger align-middle ms-1">
+                                    [Prise]
+                                </h4>
+                                <img width="30"
+                                     src="assets/Images/cart-3-svgrepo-com.png"
+                                     alt=""
+                                     srcset="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                var col = document.getElementById("colClone");
+                var row = document.getElementById("rowExercisesIndex");
+                row.removeChild(col);
+                for (let Exercises of ListExercises) {
+                    var colClone = col.cloneNode(true);
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Image]",
+                        Exercises.image
+                    );
+
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Description]",
+                        Exercises.Description
+                    );
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Prise]",
+                        Exercises.Price
+                    );
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[duration]",
+                        Exercises.duration
+                    );
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Time]",
+                        Exercises.Time
+                    );
+                    row.appendChild(colClone);
+                }
+            </script>
+            <div class="d-flex">
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #E4DFFF"></div>
+                <button class="btn_Exercises_duration col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
+                    لمشاهدة المزيد من التمارين
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="d-flex p-0 mb-4">
+                <div class="mx-3"
+                     style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                <h2 class="col-auto mb-3">المنتجات الأكثر طلبا</h2>
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <!-- <div
+                          class="d-inline-block"
+                          style="height: 40px; width: 4px; background-color: #b9aff5"
+                        ></div> -->
+                        <h5 class="d-inline-block">مكملات غذائية</h5>
+                    </div>
+                    <p class="fw-bold">المزيد...</p>
+                </div>
+
+                <div id="devicesRow" class="row">
+                    <div id="colClonedevices" class="col-12 col-md-6 p-1">
+                        <div class="card">
+                            <div class="position-relative">
+                                <img src="[Image]" class="card-img-top" alt="..." />
+                                <img width="40"
+                                     class="position-absolute"
+                                     style="top: 20px; right: 20px"
+                                     src="assets/images/heart-svgrepo-com (1).png"
+                                     alt=""
+                                     srcset="" />
+                            </div>
+
+                            <div class="card-body">
+                                <p class="card-text">[Name]</p>
+                                <div class="d-flex justify-content-between">
+                                    <div style="background-color: #ffe9cb"
+                                         class="rounded-pill d-inline-block fw-bold align-middle p-2">
+                                        <img width="20"
+                                             src="assets/images/layer1.png"
+                                             alt=""
+                                             srcset="" />
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold">[Price]</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="d-flex justify-content-between">
+                    <p class="fw-bold">المزيد ...</p>
+                    <h5 class="">اجهزة رياضية</h5>
+                </div>
+                <div id="SupplementsRow" class="row"></div>
+            </div>
+            <script>
+                var coldevices = document.getElementById("colClonedevices");
+                var devicesRow = document.getElementById("devicesRow");
+                var SupplementsRow = document.getElementById("SupplementsRow");
+                for (let devices of ListDevices) {
+                    var colClone = coldevices.cloneNode(true);
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Image]",
+                        devices.image
+                    );
+
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Price]",
+                        devices.Price
+                    );
+
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Name]",
+                        devices.Name
+                    );
+                    devicesRow.appendChild(colClone);
+                }
+
+                for (let Supplements of ListSupplements) {
+                    var colClone = coldevices.cloneNode(true);
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Image]",
+                        Supplements.image
+                    );
+
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Price]",
+                        Supplements.Price
+                    );
+
+                    colClone.innerHTML = colClone.innerHTML.replace(
+                        "[Name]",
+                        Supplements.Name
+                    );
+                    SupplementsRow.appendChild(colClone);
+                }
+
+                devicesRow.removeChild(coldevices);
+            </script>
+            <div class="d-flex mt-3 p-0">
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+                <button style="background-color: #E4DFFF"
+                        class="col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
+                    جميع المنتجات
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div id="rowArtical1" class="row d-flex align-items-stretch">
+            <div class="d-flex">
+                <div class="mx-3"
+                     style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                <h2 class="col-auto">أحدث المقالات</h2>
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            </div>
+            <div class="col-12 col-lg-4 order-last">
+                <div id="rowArtical2" class="row">
+                    <div id="Artical2" class="col-12 [col-md-6 col-lg-12]">
+                        <div class="card">
+                            <img src="[Image]" class="card-img-top" alt="..." />
+
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-text">[Time]</h5>
+
+                                    <div>
+                                        <img width="20"
+                                             class="me-3"
+                                             src="assets/images/heart-svgrepo-com (1).png"
+                                             alt=""
+                                             srcset="" />
+                                        <img width="20"
+                                             src="assets/images//share-button-svgrepo-com.png"
+                                             alt=""
+                                             srcset="" />
+                                    </div>
+                                </div>
+                                <p class="card-text">[Name]</p>
+                                <h5 class="card-text my-lg-0">[Description]</h5>
+                                <p class="fw-bold card-text">[Duration]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var rowArtical1 = document.getElementById("rowArtical1");
+            var rowArtical2 = document.getElementById("rowArtical2");
+            var Artical2 = document.getElementById("Artical2");
+            rowArtical2.removeChild(Artical2);
+            for (var i = 0; i < ListArticle.length; i++) {
+                var colClone = Artical2.cloneNode(true);
+
+                colClone.innerHTML = colClone.innerHTML.replace(
+                    "[Image]",
+                    ListArticle[i].image
+                );
+
+                colClone.innerHTML = colClone.innerHTML.replace(
+                    "[Duration]",
+                    ListArticle[i].duration
+                );
+                colClone.innerHTML = colClone.innerHTML.replace(
+                    "[Description]",
+                    ListArticle[i].Description
+                );
+                colClone.innerHTML = colClone.innerHTML.replace(
+                    "[Name]",
+                    ListArticle[i].Name
+                );
+                colClone.innerHTML = colClone.innerHTML.replace(
+                    "[Time]",
+                    ListArticle[i].Time
+                );
+
+                if (i == 0) {
+                    colClone.setAttribute("class", "col-12 col-lg-8 mt-4 ");
+
+                    rowArtical1.appendChild(colClone);
+                } else {
+                    colClone.setAttribute("class", "col-12 col-md-6 col-lg-12 mt-4");
+
+                    rowArtical2.appendChild(colClone);
+                }
+            }
+        </script>
+        <div class="d-flex mt-4">
+            <div class="mt-4 mx-4 col"
+                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            <button style="background-color: #E4DFFF"
+                    class="col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
+                لمشاهدة جميع مقالاتنا
+            </button>
+        </div>
+    </div>
+
+    <div class="bgFooter mt-5">
+        <div class="container px-lg-5 pt-lg-5">
+            <div class="row mb-5">
+                <div class="col-12 col-md-6 order-last order-lg-first col-lg-4 my-auto">
+                    <h6 class="text-center">اشترك في النشرة البريدية ليصلك كل جديد</h6>
+                    <form action="">
+                        <input class="my-3 mx-auto border-0 px-3 py-2 w-100"
+                               type="text"
+                               placeholder="البريد الالتكروني" />
+                        <button class="px-3 py-2 border-0 rounded-2 text-white d-block mx-auto"
+                                style="background-color: #bfe9d4">
+                            اشترك
+                        </button>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-4 text-center order-first order-lg-0">
+                    <img src="assets/images/Mask Group 1.png" alt="" srcset="" />
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-around my-auto">
+                    <ul class="p-0">
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href="">خدماتنا </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href=""> منتجاتنا </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href=""> مقالاتنا </a>
+                        </li>
+                    </ul>
+                    <div style="height: 100px; width: 1px; background-color: #707070"></div>
+                    <ul class="p-0">
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href=""> اجهزة رياضية </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href=""> حلويات صحية </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href=""> مدربين </a>
+                        </li>
+                    </ul>
+                    <div style="height: 100px; width: 1px; background-color: #707070"></div>
+                    <ul class="p-0">
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href="">مكملات غذائية </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href=""> وصفات صحية </a>
+                        </li>
+                        <li class="mb-2">
+                            <a class="fw-bold colorLinkFooter" href=""> برامج رياضية </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-5 mx-auto d-flex justify-content-between">
+                    <h6 class="fw-bold">عن لياقتي</h6>
+                    <h6 class="fw-bold">اتصل بنا</h6>
+                    <h6 class="fw-bold">شروط الأستخدام</h6>
+                    <h6 class="fw-bold">تطبيق الموبايل</h6>
+                </div>
+            </div>
+            <hr />
+
+            <div class="row mt-4 pb-5">
+                <h5 style="color: #707070"
+                    class="col-12 col-lg-9 mx-auto text-center">
+                    جميع الحقوق محفوظة لموقع لياقتي و تخضع لشروط و إتفاق الأستخدام
+                    &copy; 2023
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="blur-div top-0 start-0 w-100 min-vh-100 position-fixed"></div>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="./assets/js/nice-select2.js"></script>
+    <script src="./assets/js/Index.js"></script>
+    <script defer src="./assets/js/SwiperSliders.js"></script>
+    <script>
+        var options = {
+            searchable: false,
+            placeholder: "select",
+            searchtext: "zoek",
+            selectedtext: "geselecteerd",
+        };
+        NiceSelect.bind(document.getElementById("MySelect"), options);
+        var navbarToggler = document.getElementById("navbarToggler");
+        var navbarCollapse = document.getElementById("navbarCollapse");
+        var blurDiv = document.querySelector(".blur-div");
+        var closeBtn = document.querySelector(".close");
+        navbarToggler.onclick = () => {
+            navbarCollapse.classList.add("showNav");
+            document.body.classList.add("disable-scroll");
+            blurDiv.classList.add("blur");
+        };
+        closeBtn.onclick = () => {
+            Rest();
+        };
+        function Rest() {
+            navbarCollapse.classList.remove("showNav");
+            document.body.classList.remove("disable-scroll");
+            blurDiv.classList.remove("blur");
+        }
+        window.onresize = () => {
+            Rest();
+        };
+        document.querySelectorAll(".swiper-wrapper2").forEach((item, i) => {
+            for (let index = 0; index < 10; index++) {
+                if (i == 0)
+                    item.innerHTML += `
+                      <div class="swiper-slide">
+                     <div class="coach-box pb-1 w-100 shadow">
+                            <div class="img-box2">
+                                <img src="assets/images/download.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"  alt="">
+                            </div>
+                            <p class="text-center m-0">محمد جمال</p>
+                            <p class="text-center text-success">مدرب لياقة</p>
+                        </div>
+                    </div>`;
+                else
+                    item.innerHTML += `
+                      <div class="swiper-slide d-flex justify-content-center align-items-center ">
+                          <div class="card w-100  rounded-4">
+                            <div class="card-body p-4">
+                                <div class="row  d-flex align-items-stretch text-black">
+                                    <div class="col-5 px-2 ">
+                                        <div class=" h-100 rounded-3 overflow-hidden "
+                                            style="background-size: cover;  background-image: url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp);">
+                                        </div>
+                                    </div>
+                                    <div class="col-7 px-2">
+                                        <div class="">
+                                            <h5 class="mb-1">محمد جمال</h5>
+                                            <p class="mb-2 pb-1" style="color: #2b2a2a;">خبير لياقة بدنية</p>
+                                            <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                                                style="background-color: #efefef;">
+                                                <div class="">
+                                                    <p class="small text-muted mb-1">أنظمتي</p>
+                                                    <p class="mb-0">976</p>
+                                                </div>
+                                                <div class="px-3">
+                                                    <p class="small text-muted mb-1">مقالاتي</p>
+                                                    <p class="mb-0">41</p>
+                                                </div>
+
+                                                <div class="">
+                                                    <p class="small text-muted mb-1">تقييمي</p>
+                                                    <p class="mb-0">8.5</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex pt-1">
+                                                <button type="button" class="btn btn-main me-1 flex-grow-1">Chat</button>
+                                                <button type="button" class="btn btn-main flex-grow-1">Follow</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>`;
+            }
+        });
+        for (let index = 0; index < 10; index++) {
+            document.querySelectorAll(".swiper-wrapper1")[0].innerHTML += `
+                      <div class="swiper-slide" onclick="goto(${index})">  <div class="w-100">
+                        <div class="img-box">
+                            <img src="assets/images/HealtyReicpe/2.jpg" alt="">
+                        </div>
+                        <p class="text-center my-2">${index}معكورنة بالخضار</p>
+                    </div>
+                    </div>`;
+            document.querySelectorAll(".swiper-wrapper1")[1].innerHTML += `
+                      <div class="swiper-slide">
+                            <div class="he w-100 border rounded-4" style="">
+                <div class="img-box">
+                    <img src="assets/images/HealtyReicpe/1.jpg" class="" alt="...">
+                    <div class="inner-img-box p-3">
+                        <div class="h-100 w-100 d-flex justify-content-start align-items-end">
+                            <div>
+                                <p class="text-white p-0 m-0">22 يناير 2020
+                                </p>
+                                <p class="text-white  p-0 m-0">نشرها محمد جمال</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <a href="#" class="badge text-decoration-none mb-2  bg-danger py-1 px-4">عشاء</a>
+                    <h5 class="card-title">معكرونة بالخضار</h5>
+                    <p class="card-text">بعض النصوص المثالية السريعة للبناء على عنوان البطاقة وتشكيل الجزء الأكبر من محتوى
+                        البطاقة.</p>
+                </div>
+            </div>
+                    </div>`;
+        }
+
+        for (let index = 0; index < 10; index++) {
+            document.querySelector(".swiper-wrapper1").innerHTML += `
+                      <div class="swiper-slide">  <div>
+                        <div class="img-box">
+                            <img src="assets/images/HealtyReicpe/2.jpg" alt="">
+                        </div>
+                        <p class="text-center my-2">${index}معكورنة بالخضار</p>
+                    </div>
+                    </div>`;
+        }
+
+        var MySelect = document
+            .getElementById("MySelect")
+            .addEventListener("change", () =>
+                alert(document.getElementById("MySelect").value)
+            );
+    </script>
+</body>
+</html>
+
+<!--  <nav class="navbar  navbar-expand-lg position-fixed  w-100" style="z-index: 1000;">
+        <div class="container-xl">
+            <div class="d-flex justify-content-between align-items-center aas">
+
+                <a class="navbar-brand d-flex justify-content-center align-items-center" href="#"><svg
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="80"
+                        viewBox="0 0 138 121">
+                        <defs>
+                            <clipPath id="a1">
+                                <rect width="138" height="121" fill="#fff" stroke="#707070" stroke-width="1" />
+                            </clipPath>
+                            <linearGradient id="b" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+                                <stop offset="0" stop-color="#fff" />
+                                <stop offset="1" stop-color="#fff" />
+                            </linearGradient>
+                            <linearGradient id="c" x1="0" y1="0.5" x2="1" y2="0.5" xlink:href="#b" />
+                        </defs>
+                        <g clip-path="url(#a1)">
+                            <g transform="translate(17.75 19.438)">
+                                <path
+                                    d="M795.259,582.63c37.967.486,41.705,48.247-9,35.71a.123.123,0,0,1-.091-.129.134.134,0,0,1,.122-.108c29.1-.517,31.48-25.144,8.918-35.241a.118.118,0,0,1-.079-.135.137.137,0,0,1,.134-.1Z"
+                                    transform="translate(-777.109 -530.85)" fill="url(#b)" />
+                                <g transform="translate(13.387)">
+                                    <ellipse cx="13.26" cy="14.011" rx="13.26" ry="14.011" transform="translate(0)"
+                                        fill="#fff" />
+                                    <path
+                                        d="M1024.286,424.67a1.23,1.23,0,0,0-.872-.137,1.074,1.074,0,0,0-.7.47l-.675,1.009a1.041,1.041,0,0,0,.348,1.487l4.9,2.946,1.589-3.013Z"
+                                        transform="translate(-974.24 -402.762)" fill="#fff" />
+                                    <path
+                                        d="M1082.175,462.171l-12.213-7.351-1.592,3.013,11.9,7.167a1.225,1.225,0,0,0,.872.138,1.07,1.07,0,0,0,.7-.47l.677-1.007A1.041,1.041,0,0,0,1082.175,462.171Z"
+                                        transform="translate(-1010.499 -427.317)" fill="#fff" />
+                                    <path
+                                        d="M1143.968,472.962c-2.2-1.09-6.5,2.578-9.6,8.191s-3.831,11.051-1.631,12.142,6.5-2.576,9.6-8.191S1146.168,474.052,1143.968,472.962Zm-3.776,11.19c-.714,1.294-1.763,2.112-2.332,1.829s-.458-1.565.256-2.859,1.763-2.114,2.334-1.829S1140.906,482.856,1140.192,484.152Z"
+                                        transform="translate(-1059.689 -441.858)" fill="#fff" />
+                                    <path
+                                        d="M998.552,383.166l.674-1.007a1.072,1.072,0,0,1,.7-.47,1.227,1.227,0,0,1,.872.138l2.2,1.33c2.546-5.155,3.024-9.894.985-10.9-2.2-1.09-6.5,2.578-9.6,8.191s-3.831,11.051-1.631,12.142c1.966.974,5.605-1.848,8.57-6.458l-2.425-1.461A1.042,1.042,0,0,1,998.552,383.166Z"
+                                        transform="translate(-950.563 -360.277)" fill="#fff" />
+                                    <path
+                                        d="M973.909,378.287l-2.372-1.613a2.069,2.069,0,0,1-.921-1.63c-.324-8.58,3.117-14.852,10.258-18.854a3.278,3.278,0,0,1,3.289.07l2.112,1.29C978.02,361.485,974.114,368.551,973.909,378.287Z"
+                                        transform="translate(-934.276 -347.092)" fill="#fff" />
+                                    <path
+                                        d="M1113.2,478.749l-2.372-1.615a2.066,2.066,0,0,1-.924-1.628c-.322-8.58,3.119-14.854,10.258-18.856a3.278,3.278,0,0,1,3.289.07l2.112,1.29C1117.313,461.945,1113.405,469.011,1113.2,478.749Z"
+                                        transform="translate(-1042.865 -428.47)" fill="#fff" />
+                                </g>
+                                <path
+                                    d="M817.957,408.227c-1.627,5.191-3.952,27.229-33.283,16.419a48.121,48.121,0,0,0-6.853-2.051c-31.8-6.582-44.943,18.942-18.835,35.944a.167.167,0,0,0,.245-.215c-2.4-3.947-13.571-24.718,9.258-21.138,14.142,2.22,62.157,27.252,49.651-28.948a.084.084,0,0,0-.085-.084A.088.088,0,0,0,817.957,408.227Z"
+                                    transform="translate(-745.083 -389.515)" fill="url(#c)" />
+                            </g>
+                        </g>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100"
+                        height="50" viewBox="0 0 171 90">
+                        <defs>
+                            <clipPath id="a">
+                                <rect width="171" height="90" fill="#fff" stroke="#707070" stroke-width="1" />
+                            </clipPath>
+                        </defs>
+                        <g clip-path="url(#a)">
+                            <g transform="translate(8.214 20.571)">
+                                <path
+                                    d="M645.066,876.094v9.373h-4.559q-5.52,0-6.429-8.135v-6.024H631.8v13.54q-1.05,8.9-7.932,8.9h-22.2c-.03-.481-.045-.926-.045-1.338q0-7,7.066-8.083H623.5V872.129q0-10.039,7.75-10.039h3.738q7.2,0,7.2,8.288v5.716Zm-30.138,22.09v2.832a4.515,4.515,0,0,1-2.963,4.531,3.741,3.741,0,0,1-1.231.2,3.274,3.274,0,0,1-1.231-.2,4.568,4.568,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm10.761,0v2.832a4.515,4.515,0,0,1-2.963,4.531,3.741,3.741,0,0,1-1.231.2,3.247,3.247,0,0,1-1.231-.2,4.572,4.572,0,0,1-2.92-4.531v-2.832l4.151-2.627Z"
+                                    transform="translate(-601.62 -847.002)" fill="#fff" />
+                                <path
+                                    d="M770.24,841.006h6.837v-5.462q1.46-8.444,7.66-8.444h.594V841h7.521v9.372H770.24Zm8.981-24.559v2.832a4.514,4.514,0,0,1-2.965,4.531,3.737,3.737,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.582,4.582,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm10.758,0v2.832a4.514,4.514,0,0,1-2.963,4.531,3.737,3.737,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.573,4.573,0,0,1-2.917-4.531v-2.832l4.148-2.627Z"
+                                    transform="translate(-727.796 -811.914)" fill="#fff" />
+                                <path
+                                    d="M860.84,841.006V837.3q0-10.044,13.859-10.3,6.064.565,6.112,7.723v6.281q0,9.372-6.474,9.372h-19.7v-9.372Zm8.49-24.559v2.832a4.515,4.515,0,0,1-2.963,4.531,3.736,3.736,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.573,4.573,0,0,1-2.917-4.531v-2.832l4.148-2.627Zm3.922,24.559v-4.427l-4.332,1.092v3.345Zm6.839-24.559v2.832a4.514,4.514,0,0,1-2.965,4.531,3.736,3.736,0,0,1-1.231.2,3.271,3.271,0,0,1-1.231-.2,4.582,4.582,0,0,1-2.917-4.531v-2.832l4.128-2.627Z"
+                                    transform="translate(-790.951 -811.914)" fill="#fff" />
+                                <path
+                                    d="M982.365,806.84h.594v29.092h3.776V845.3h-4.649q-7.385,0-7.385-8.343V815.284Q976.165,806.843,982.365,806.84Z"
+                                    transform="translate(-880.79 -806.84)" fill="#fff" />
+                                <path
+                                    d="M1018.56,876.356h6.839v-5.462q1.458-8.444,7.657-8.444h.594v13.9h7.521v9.372H1018.56Zm8.981,15.858v2.832a4.509,4.509,0,0,1-2.965,4.531,3.652,3.652,0,0,1-1.228.208,3.214,3.214,0,0,1-1.233-.208,4.576,4.576,0,0,1-2.917-4.531v-2.832l4.151-2.624Zm10.758,0v2.832a4.508,4.508,0,0,1-2.963,4.531,3.675,3.675,0,0,1-1.231.208,3.21,3.21,0,0,1-1.231-.208,4.568,4.568,0,0,1-2.917-4.531v-2.832l4.148-2.624Z"
+                                    transform="translate(-913.609 -847.264)" fill="#fff" />
+                                <path
+                                    d="M1109.827,835.932V815.284q1.458-8.441,7.66-8.444h.591v30.122q0,8.34-7.385,8.343h-5.563v-9.373Z"
+                                    transform="translate(-978.389 -806.84)" fill="#fff" />
+                            </g>
+                        </g>
+                    </svg>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse  navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav  flex-lg-row  mb-2 mb-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            خدماتنا
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            المنتجات
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">مقالات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">المدربين</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">من نحن</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav> -->
