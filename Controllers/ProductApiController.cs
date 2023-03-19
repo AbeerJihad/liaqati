@@ -1,10 +1,4 @@
-﻿using liaqati_master.Data;
-using liaqati_master.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace liaqati_master.Controllers
 {
@@ -18,14 +12,14 @@ namespace liaqati_master.Controllers
         public ProductApiController(LiaqatiDBContext context)
         {
             _context = context;
-           
+
         }
 
         [HttpGet("AllProduct")]
         public async Task<ActionResult<List<Products>>> GetAllProduct()
         {
 
-            return Ok(await  _context.TblProducts.ToArrayAsync());
+            return Ok(await _context.TblProducts.ToArrayAsync());
         }
 
         [HttpGet("GetProductsById/{id}")]
@@ -38,7 +32,7 @@ namespace liaqati_master.Controllers
         [HttpGet("GetProductsByCatId/{id}")]
         public async Task<ActionResult<List<Products>>> GetProductsByCatId(string id)
         {
-            List<Products> list=  _context.TblProducts.ToList();
+            List<Products> list = _context.TblProducts.ToList();
             try
             {
                 list = list.Where(x => x.services.CategoryId == id).ToList();
@@ -51,7 +45,7 @@ namespace liaqati_master.Controllers
 
 
 
-           
+
             return Ok(list);
         }
 

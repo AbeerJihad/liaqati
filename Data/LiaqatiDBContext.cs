@@ -1,4 +1,6 @@
-﻿namespace liaqati_master.Data
+﻿using Microsoft.EntityFrameworkCore;
+using liaqati_master.Models;
+namespace liaqati_master.Data
 {
     public class LiaqatiDBContext : DbContext
     {
@@ -54,5 +56,7 @@
 
             modelBuilder.SeedAsync();
         }
+
+        public DbSet<liaqati_master.Models.Category>? Category { get; set; }
     }
 }
