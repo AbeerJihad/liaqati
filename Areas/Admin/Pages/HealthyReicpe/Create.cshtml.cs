@@ -1,4 +1,3 @@
-using liaqati_master.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,19 +19,20 @@ namespace liaqati_master.Pages.HealthyReicpe
 
         public IActionResult OnGet()
         {
-            
+
 
 
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
                                          new SelectListItem
                                          {
-                                             Value = a.Id.ToString(), Text = a.Name
+                                             Value = a.Id.ToString(),
+                                             Text = a.Name
                                          }).ToList();
 
 
             return Page();
         }
-       
+
 
 
 
@@ -44,7 +44,7 @@ namespace liaqati_master.Pages.HealthyReicpe
         [BindProperty]
         public HealthyRecipes HealthyRecipes { get; set; }
 
-       
+
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -55,15 +55,15 @@ namespace liaqati_master.Pages.HealthyReicpe
             //    return Page();
             //}
 
+            var guid = Guid_Id.Id_Guid();
 
+            HealthyRecipes.Id = guid;
 
-            HealthyRecipes.Id = Guid_Id.Id_Guid();
+            HealthyRecipes.services!.Id = guid;
 
-            HealthyRecipes.services!.Id= HealthyRecipes.Id;
+            //HealthyRecipes.services.HealthyRecipesId = guid;
 
-            HealthyRecipes.services.HealthyRecipesId = HealthyRecipes.Id;
-
-          // MealPlans.servicesId = MealPlans.Id;
+            // MealPlans.servicesId = MealPlans.Id;
 
             var id = HealthyRecipes.services!.Category!.Id;
             if (id != null)
@@ -76,12 +76,16 @@ namespace liaqati_master.Pages.HealthyReicpe
             HealthyRecipes.Image = "";
 
 
-            _UnitOfWork.HealthyRecipesRepository.Insert(HealthyRecipes);
             _UnitOfWork.ServiceRepository.Insert(HealthyRecipes.services);
+
+            _UnitOfWork.Save();
+            var a = _UnitOfWork.ServiceRepository.Get();
+
+            _UnitOfWork.HealthyRecipesRepository.Insert(HealthyRecipes);
 
 
             _UnitOfWork.Save();
-            
+
 
 
             return RedirectToPage("./Index");

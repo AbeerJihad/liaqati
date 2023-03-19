@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iS+yqfHdAptt2bCK6WKzOXsnmW0G+YcDXPEJlTXulIA=",
+  "Hash": "xXaKm0Oe77PDjqefg8/r1VLtjEwrbo6a+Hqx0blqo58=",
   "Source": "liaqati-master",
   "BasePath": "_content/liaqati-master",
   "Mode": "Default",
@@ -16335,6 +16335,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\User\\css\\styleIndex.css"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\tabs.css",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "User/css/tabs.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\User\\css\\tabs.css"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\130252-النظام-النباتى.png",

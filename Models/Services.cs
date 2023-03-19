@@ -22,23 +22,23 @@ namespace liaqati_master.Models
         public string? CategoryId { get; set; }
 
         public Category? Category { get; set; } = null;
-        [Display(Name = "رقم النظام الغذائي")]
-        public string? MealPlansId { get; set; }
+        //[Display(Name = "رقم النظام الغذائي")]
+        //public string? MealPlansId { get; set; }
 
         public MealPlans? MealPlans { get; set; }
-        [Display(Name = "رقم الوصفة الصحية")]
-        public string? HealthyRecipesId { get; set; }
+        //[Display(Name = "رقم الوصفة الصحية")]
+        //public string? HealthyRecipesId { get; set; }
 
         public HealthyRecipes? HealthyRecipes { get; set; }
-        [Display(Name = "رقم المنتج")]
-        public string? ProductsId { get; set; }
+        //[Display(Name = "رقم المنتج")]
+        //public string? ProductsId { get; set; }
         public Products? Products { get; set; }
-        [Display(Name = "رقم البرنامج الرياضي")]
-        public string? sportsProgramId { get; set; }
+        //[Display(Name = "رقم البرنامج الرياضي")]
+        //public string? sportsProgramId { get; set; }
         public SportsProgram? sportsProgram { get; set; }
-   
-        public  List<Comment_Servies>? commentServies { get; set; }
-    
+
+        public List<Comment_Servies>? commentServies { get; set; }
+
         public List<Trak>? traks { get; set; }
         public List<Favorite_Servies>? favorites { get; set; }
 

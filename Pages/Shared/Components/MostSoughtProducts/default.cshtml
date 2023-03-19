@@ -1,0 +1,52 @@
+﻿@model List<Products>
+<div class="container mt-5">
+    <div class="row">
+        <div class="d-flex p-0 mb-4">
+            <div class="mx-3"
+                 style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+            <h2 class="col-auto mb-3">المنتجات الأكثر طلبا</h2>
+            <div class="mt-4 mx-4 col"
+                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <!-- <div
+                      class="d-inline-block"
+                      style="height: 40px; width: 4px; background-color: #b9aff5"
+                    ></div> -->
+                    <h5 class="d-inline-block">مكملات غذائية</h5>
+                </div>
+                <p class="fw-bold">المزيد...</p>
+            </div>
+
+            <div class="row row-cols-lg-2 p-0 g-0">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div>
+                        <partial name="_ProductCard" model="@Model[i]" />
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <div class="d-flex justify-content-between">
+                <p class="fw-bold">المزيد ...</p>
+                <h5 class="">اجهزة رياضية</h5>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+
+        <div class="d-flex mt-3 p-0">
+            <div class="mt-4 mx-4 col"
+                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            <button style="background-color: #E4DFFF"
+                    class="col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
+                جميع المنتجات
+            </button>
+        </div>
+    </div>
+</div>

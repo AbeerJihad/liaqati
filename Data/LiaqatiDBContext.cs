@@ -45,6 +45,7 @@
                         .WithOne(a => a.services)
                         .HasForeignKey<SportsProgram>(c => c.Id);
 
+            modelBuilder.Entity<Service>().Navigation(p => p.Category).AutoInclude();
             modelBuilder.Entity<MealPlans>().Navigation(p => p.services).AutoInclude();
             modelBuilder.Entity<Products>().Navigation(p => p.services).AutoInclude();
             modelBuilder.Entity<HealthyRecipes>().Navigation(p => p.services).AutoInclude();

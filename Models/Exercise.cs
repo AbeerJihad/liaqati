@@ -12,9 +12,9 @@ namespace liaqati_master.Models
         [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "اسم التمرين")]
         public string? Title { get; set; }
-       // [Required(ErrorMessage = "هذا الحقل مطلوب")]
-       // [Display(Name = "تاريخ البدء")]
-       // [DataType(DataType.DateTime)]
+        // [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        // [Display(Name = "تاريخ البدء")]
+        // [DataType(DataType.DateTime)]
         //public DateTime startDate { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         //[Display(Name = "الوصف")]
@@ -26,7 +26,7 @@ namespace liaqati_master.Models
         [Display(Name = "مدة التمرين")]
         public int? DEx { get; set; }
 
-        [Range(1,5)]
+        [Range(1, 5)]
         public int? Difficulty { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "وصف التمارين")]

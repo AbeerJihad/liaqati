@@ -274,18 +274,6 @@ F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\refint\liaq
 F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.pdb
 F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\liaqati-master.genruntimeconfig.cache
 F:\الفصل الرابع\G Project\GitHub\liaqati\obj\Debug\net6.0\ref\liaqati-master.dll
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.csproj.AssemblyReference.cache
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.GeneratedMSBuildEditorConfig.editorconfig
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfoInputs.cache
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfo.cs
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.csproj.CoreCompileInputs.cache
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.MvcApplicationPartsAssemblyInfo.cs
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.MvcApplicationPartsAssemblyInfo.cache
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.RazorAssemblyInfo.cache
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.RazorAssemblyInfo.cs
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.dll
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\refint\liaqati-master.dll
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.pdb
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\appsettings.Development.json
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\appsettings.json
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\liaqati-master.staticwebassets.runtime.json
@@ -362,6 +350,7 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Composition.Hos
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Composition.Runtime.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Composition.TypedParts.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Drawing.Common.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
@@ -537,6 +526,15 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\net6.
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.csproj.AssemblyReference.cache
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.GeneratedMSBuildEditorConfig.editorconfig
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfoInputs.cache
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfo.cs
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.csproj.CoreCompileInputs.cache
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.MvcApplicationPartsAssemblyInfo.cs
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.MvcApplicationPartsAssemblyInfo.cache
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.RazorAssemblyInfo.cache
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.RazorAssemblyInfo.cs
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\staticwebassets\msbuild.liaqati-master.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\staticwebassets\msbuild.build.liaqati-master.props
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.liaqati-master.props
@@ -548,5 +546,8 @@ D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\scopedcss\Pages\Shared
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\scopedcss\bundle\liaqati-master.styles.css
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\scopedcss\projectbundle\liaqati-master.bundle.scp.css
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.csproj.CopyComplete
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.dll
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\refint\liaqati-master.dll
+D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.pdb
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.genruntimeconfig.cache
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\ref\liaqati-master.dll

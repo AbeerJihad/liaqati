@@ -1,0 +1,25 @@
+﻿@model List<HealthyRecipes>
+
+
+<div class="container-fluid my-5 d-flex justify-content-center fitness-recipe-container align-items-center position-relative p-3">
+    <div class="container-xl p-3">
+        <h2 class="my-3 fitness-recipe-title px-3">وصفات لياقتي</h2>
+        <div class="position-relative">
+            <div class="swiper sv2 w-100">
+                <div class="swiper-wrapper swiper-wrapper1 w-100">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <partial name="_HealthyRecipesCard" model="@item" />
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>

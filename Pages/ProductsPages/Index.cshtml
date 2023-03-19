@@ -1,0 +1,302 @@
+﻿@page
+@model liaqati_master.Pages.ProductsPages.IndexModel
+@{
+}
+
+
+<link href="~/user/css/tabs.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+<div class="cd-tabs pt-5">
+    <div class="container-fluid  pt-5">
+        <div class="row col-12 justify-content-between">
+
+            <nav class="row col-7 col-lg-4 p-0 m-0">
+                <ul class="cd-tabs-navigation justify-content-start">
+                    <li><a class="text-decoration-none" data-content="Drugs" href="#0">مكملات غذائية</a></li>
+                    <li><a class="text-decoration-none" data-content="sportmachines" href="#0">اجهزة رياضية</a></li>
+                    <li><a class="text-decoration-none selected" data-content="All" href="#0">الكل</a></li>
+                </ul>
+            </nav>
+            <div class="col-4 col-md-2">
+                <select id="lstSort" class="form-select">
+                    <option value="-1" selected>ترتيب حسب </option>
+                </select>
+            </div>
+
+
+
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="cd-tabs-content" style="height: auto;">
+                        <li class="selected" data-content="All">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="container col-6 col-sm-5  col-md-4 col-lg-3 mt-3">
+                                        <div class="d-flex mb-4">
+                                            <div class="mx-3"
+                                                 style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                                            <h2 class="col-auto mt-3">أحدث المنتجات</h2>
+                                            <div class="mt-4 mx-4 col"
+                                                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+                                        </div>
+                                        <div class="card mb-3 boradius bgcol m-2">
+                                            <div class="row g-0">
+                                                <div class="col-md-4 p-0">
+                                                    <img src="~/images/Product/rower.jpg" class="img-fluid rounded-start p-0 borderimg h-100" style="object-fit: cover;" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title p-2">حزام تنحبف و تخسيس الجسم</h5>
+                                                        <p class="card-text p-2"><small class="text-muted redcolor">25$</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container col-6 col-sm-7 col-md-8  col-lg-9">
+                                        <div class="row m-2">
+                                            @foreach (var item in Model.lstProuduct)
+                                            {
+
+                                                <div class="card    col-lg-3 m-3 boradius shadow cardhov p-0">
+                                                    <div class="position-relative">
+                                                        <img src=@Html.DisplayFor(modelItem => item.imgUrl) height="200" class="card-img-top shadow rounded-top shadow-inset " alt="..." style="object-fit:cover; " />
+                                                        <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+                                                             src="~/images/heart-svgrepo-com (1).png" alt="" srcset="" />
+                                                    </div>
+                                                    <div class="card-body g-2 m-2 p-3">
+                                                        <p class="card-text">#type </p>
+                                                        <div class=" justify-content-between">
+                                                            <div class=" d-flex  justify-content-between">
+                                                                <p class="py-2 Pnametxt"> @Html.DisplayFor(modelItem => item.services.Title)</p>
+                                                                <div style="background-color:#ffff" id="imgBackground" class="rounded-pill shadow rounded d-inline-block fw-bold align-middle">
+                                                                    <img width="28" height="28" class="m-3" src="~/images/layer1.png" alt="" srcset="" />
+                                                                </div>
+                                                            </div>
+                                                            <h5 class="fw-bold redcolor"> @Html.DisplayFor(modelItem => item.services.Price)$</h5>
+                                                            <div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </li>
+                        <li data-content="sportmachines">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="container col-3 mt-3">
+                                        <div class="d-flex mb-4">
+                                            <div class="mx-3"
+                                                 style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                                            <h2 class="col-auto mt-3">أحدث المنتجات</h2>
+                                            <div class="mt-4 mx-4 col"
+                                                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+                                        </div>
+                                        <div class="card mb-3 boradius bg-light">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img src="~/images/screenshot-2021-01-11-100141@2x.png" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">حزام تنحبف و تخسيس الجسم</h5>
+                                                        <p class="card-text "><small class="text-muted redcolor">25$</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container col-9">
+                                        <div class="row m-2">
+                                            @foreach (var item in Model.lstProuduct.Where(item => item.services.CategoryId == "1"))
+                                            {
+
+                                                <div class="card col-md-3 m-3 boradius shadow cardhov p-0">
+                                                    <div class="position-relative">
+                                                        <img src=@Html.DisplayFor(modelItem => item.imgUrl) height="200" class="card-img-top shadow   shadow-inset " alt="..." style="object-fit:cover; " />
+                                                        <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+                                                             src="~/images/heart-svgrepo-com (1).png" alt="" srcset="" />
+                                                    </div>
+                                                    <div class="card-body g-2 m-2 p-3">
+                                                        <p class="card-text">#type </p>
+                                                        <div class=" justify-content-between">
+                                                            <div class=" d-flex  justify-content-between">
+                                                                <p class="py-2 Pnametxt"> @Html.DisplayFor(modelItem => item.services.Title)</p>
+                                                                <div style="background-color:#ffff" id="imgBackground" class="rounded-pill shadow rounded d-inline-block fw-bold align-middle">
+                                                                    <img width="28" height="28" class="m-3" src="~/images/layer1.png" alt="" srcset="" />
+                                                                </div>
+                                                            </div>
+                                                            <h5 class="fw-bold redcolor"> @Html.DisplayFor(modelItem => item.services.Price)$</h5>
+                                                            <div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </li>
+                        <li data-content="Drugs">
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="container col-3 mt-3">
+                                        <div class="d-flex mb-4">
+                                            <div class="mx-3"
+                                                 style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                                            <h2 class="col-auto mt-3">أحدث المنتجات</h2>
+                                            <div class="mt-4 mx-4 col"
+                                                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+                                        </div>
+                                        <div class="card mb-3 boradius bg-light">
+                                            <div class="row g-0">
+                                                <div class="col-md-4">
+                                                    <img src="~/images/screenshot-2021-01-11-100141@2x.png" class="img-fluid rounded-start" alt="...">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">حزام تنحبف و تخسيس الجسم</h5>
+                                                        <p class="card-text "><small class="text-muted redcolor">25$</small></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container col-9">
+                                        <div class="row m-2">
+                                            @foreach (var item in Model.lstProuduct.Where(item => item.services.CategoryId == "2"))
+                                            {
+
+                                                <div class="card col-md-3 m-3 boradius shadow cardhov p-0">
+                                                    <div class="position-relative">
+                                                        <img src=@Html.DisplayFor(modelItem => item.imgUrl) height="200" class="card-img-top shadow   shadow-inset " alt="..." style="object-fit:cover; " />
+                                                        <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+                                                             src="~/images/heart-svgrepo-com (1).png" alt="" srcset="" />
+                                                    </div>
+                                                    <div class="card-body g-2 m-2 p-3">
+                                                        <p class="card-text">#type </p>
+                                                        <div class=" justify-content-between">
+                                                            <div class=" d-flex  justify-content-between">
+                                                                <p class="py-2 Pnametxt"> @Html.DisplayFor(modelItem => item.services.Title)</p>
+                                                                <div style="background-color:#ffff" id="imgBackground" class="rounded-pill shadow rounded d-inline-block fw-bold align-middle">
+                                                                    <img width="28" height="28" class="m-3" src="~/images/layer1.png" alt="" srcset="" />
+                                                                </div>
+                                                            </div>
+                                                            <h5 class="fw-bold redcolor"> @Html.DisplayFor(modelItem => item.services.Price)$</h5>
+                                                            <div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script id="rendered-js">
+    jQuery(document).ready(function ($) {
+        var tabs = $('.cd-tabs');
+
+        tabs.each(function () {
+            var tab = $(this),
+                tabItems = tab.find('ul.cd-tabs-navigation'),
+                tabContentWrapper = tab.find('ul.cd-tabs-content'),
+                tabNavigation = tab.find('nav');
+
+            tabItems.on('click', 'a', function (event) {
+                event.preventDefault();
+                var selectedItem = $(this);
+                if (!selectedItem.hasClass('selected')) {
+                    var selectedTab = selectedItem.data('content'),
+                        selectedContent = tabContentWrapper.find('li[data-content="' + selectedTab + '"]'),
+                        slectedContentHeight = selectedContent.innerHeight();
+
+                    tabItems.find('a.selected').removeClass('selected');
+                    selectedItem.addClass('selected');
+                    selectedContent.addClass('selected').siblings('li').removeClass('selected');
+                    //animate tabContentWrapper height when content changes
+                    tabContentWrapper.animate({
+                        'height': slectedContentHeight
+                    },
+                        200);
+                }
+            });
+
+            //hide the .cd-tabs::after element when tabbed navigation has scrolled to the end (mobile version)
+            checkScrolling(tabNavigation);
+            tabNavigation.on('scroll', function () {
+                checkScrolling($(this));
+            });
+        });
+
+        $(window).on('resize', function () {
+            tabs.each(function () {
+                var tab = $(this);
+                checkScrolling(tab.find('nav'));
+                tab.find('.cd-tabs-content').css('height', 'auto');
+            });
+        });
+
+        function checkScrolling(tabs) {
+            var totalTabWidth = parseInt(tabs.children('.cd-tabs-navigation').width()),
+                tabsViewport = parseInt(tabs.width());
+            if (tabs.scrollLeft() >= totalTabWidth - tabsViewport) {
+                tabs.parent('.cd-tabs').addClass('is-ended');
+            } else {
+                tabs.parent('.cd-tabs').removeClass('is-ended');
+            }
+        }
+    });
+                                                                                                                                //# sourceURL=pen.js
+</script>
+
+
+

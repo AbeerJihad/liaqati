@@ -1,0 +1,23 @@
+﻿@model Products
+<div class="card  m-3 boradius shadow cardhov p-0">
+    <div class="position-relative">
+        <img src=@Model.imgUrl height="200" class="card-img-top shadow   shadow-inset" alt="..." style="object-fit:cover; " />
+        <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+             src="~/images/heart-svgrepo-com (1).png" alt="" srcset="" />
+    </div>
+    <div class="card-body g-2 m-2 p-3">
+        <p class="card-text">#type </p>
+        <div class=" justify-content-between">
+            <div class=" d-flex  justify-content-between">
+                <p class="py-2 Pnametxt"> @Model.services.Title</p>
+                <div style="background-color:#ffff" id="imgBackground" class="rounded-pill shadow rounded d-inline-block fw-bold align-middle">
+                    <img width="28" height="28" class="m-3" src="~/images/layer1.png" alt="" srcset="" />
+                </div>
+            </div>
+            <h5 class="fw-bold redcolor"> @Model.services.Price $</h5>
+            <div>
+            </div>
+        </div>
+
+    </div>
+</div>

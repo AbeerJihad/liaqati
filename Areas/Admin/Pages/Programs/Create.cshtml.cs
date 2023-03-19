@@ -1,4 +1,3 @@
-using liaqati_master.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,19 +19,20 @@ namespace liaqati_master.Pages.Programs
 
         public IActionResult OnGet()
         {
-            
+
 
 
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
                                          new SelectListItem
                                          {
-                                             Value = a.Id.ToString(), Text = a.Name
+                                             Value = a.Id.ToString(),
+                                             Text = a.Name
                                          }).ToList();
 
 
             return Page();
         }
-       
+
 
 
 
@@ -44,7 +44,7 @@ namespace liaqati_master.Pages.Programs
         [BindProperty]
         public SportsProgram SportsProgram { get; set; }
 
-       
+
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -55,15 +55,15 @@ namespace liaqati_master.Pages.Programs
             //    return Page();
             //}
 
-          
+
 
             SportsProgram.Id = Guid_Id.Id_Guid();
 
-            SportsProgram.services!.Id= SportsProgram.Id;
+            SportsProgram.services!.Id = SportsProgram.Id;
 
-            SportsProgram.services.sportsProgramId = SportsProgram.Id;
+            //     SportsProgram.services.sportsProgramId = SportsProgram.Id;
 
-          // MealPlans.servicesId = MealPlans.Id;
+            // MealPlans.servicesId = MealPlans.Id;
 
             var id = SportsProgram.services!.Category!.Id;
             if (id != null)
@@ -81,7 +81,7 @@ namespace liaqati_master.Pages.Programs
 
 
             _UnitOfWork.Save();
-            
+
 
 
             return RedirectToPage("./Index");
