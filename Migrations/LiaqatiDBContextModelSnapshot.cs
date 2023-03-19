@@ -50,10 +50,10 @@ namespace liaqati_master.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Achievements");
+                    b.ToTable("TblAchievements");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -66,13 +66,21 @@ namespace liaqati_master.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LikesNumber")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("PostDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ViewsNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("likesNumber")
+                    b.Property<int>("ViewsNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -264,19 +272,15 @@ namespace liaqati_master.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Detail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Difficulty")
                         .HasColumnType("int");
 
                     b.Property<string>("Equipments")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Price")
@@ -288,7 +292,6 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("TraningType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -733,22 +736,10 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("HealthyRecipesId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MealPlansId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("ProductsId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sportsProgramId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -763,7 +754,6 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             CategoryId = "1",
                             Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
-                            MealPlansId = "1",
                             Price = 19.989999999999998,
                             Title = "حمية البحر المتوسط"
                         },
@@ -772,7 +762,6 @@ namespace liaqati_master.Migrations
                             Id = "2",
                             CategoryId = "1",
                             Description = " يعتمد على تقليل الكربوهيدرات  و منع السكر المصنع و البطاطا , يتم تناول الفواكه و الخضروات و الحبوب",
-                            MealPlansId = "2",
                             Price = 20.989999999999998,
                             Title = "  النظام الغذائي باليو"
                         },
@@ -781,7 +770,6 @@ namespace liaqati_master.Migrations
                             Id = "3",
                             CategoryId = "1",
                             Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
-                            MealPlansId = "3",
                             Price = 19.989999999999998,
                             Title = "   كيتو دايت "
                         },
@@ -790,7 +778,6 @@ namespace liaqati_master.Migrations
                             Id = "4",
                             CategoryId = "1",
                             Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
-                            MealPlansId = "4",
                             Price = 19.989999999999998,
                             Title = "   كيتو دايت "
                         },
@@ -799,7 +786,6 @@ namespace liaqati_master.Migrations
                             Id = "5",
                             CategoryId = "1",
                             Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
-                            MealPlansId = "5",
                             Price = 19.989999999999998,
                             Title = " اختبار "
                         },
@@ -1077,7 +1063,7 @@ namespace liaqati_master.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.HasOne("liaqati_master.Models.Category", "Category")
                         .WithMany("articles")
@@ -1120,7 +1106,7 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Comments", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Articles", "articles")
+                    b.HasOne("liaqati_master.Models.Article", "articles")
                         .WithMany("comments")
                         .HasForeignKey("articlesId");
 
@@ -1273,7 +1259,7 @@ namespace liaqati_master.Migrations
                     b.Navigation("services");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.Navigation("comments");
                 });

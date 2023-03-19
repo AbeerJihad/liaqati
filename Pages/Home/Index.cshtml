@@ -3,8 +3,8 @@
 @{
 }
 
-<div class="position-relative w-100 min-vh-100 overflow-hidden d-none d-xl-block">
-    <video autoplay muted loop id="myVideo">
+<div class="position-relative w-100 min-vh-100 overflow-hidden ">
+    <video autoplay muted loop id="myVideo" class="d-none d-xl-block">
         <source src="~/user/video/1.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.
     </video>
@@ -119,6 +119,8 @@
     </div>
 </div>
 
+@await Component.InvokeAsync("LastestMealPlans")
+@await Component.InvokeAsync("HealthyRecipes")
 
 
 @section Scripts{
@@ -133,6 +135,30 @@
         var MySelect = document.getElementById("MySelect").addEventListener("change", () =>
             alert(document.getElementById("MySelect").value)
         );
+
+        var navbarToggler = document.getElementById("navbarToggler");
+        var navbarCollapse = document.getElementById("navbarCollapse");
+        var blurDiv = document.querySelector(".blur-div");
+        var closeBtn = document.querySelector(".close");
+        navbarToggler.onclick = () => {
+            navbarCollapse.classList.add("showNav");
+            document.body.classList.add("disable-scroll");
+            blurDiv.classList.add("blur");
+        };
+        closeBtn.onclick = () => {
+            Rest();
+        };
+        function Rest() {
+            navbarCollapse.classList.remove("showNav");
+            document.body.classList.remove("disable-scroll");
+            blurDiv.classList.remove("blur");
+        }
+        window.onresize = () => {
+            Rest();
+        };
+
+
+
     </script>
 
 }

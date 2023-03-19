@@ -1,4 +1,3 @@
-using liaqati_master.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,19 +19,20 @@ namespace liaqati_master.Pages.Product
 
         public IActionResult OnGet()
         {
-            
+
 
 
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
                                          new SelectListItem
                                          {
-                                             Value = a.Id.ToString(), Text = a.Name
+                                             Value = a.Id.ToString(),
+                                             Text = a.Name
                                          }).ToList();
 
 
             return Page();
         }
-       
+
 
 
 
@@ -44,7 +44,7 @@ namespace liaqati_master.Pages.Product
         [BindProperty]
         public Products Products { get; set; }
 
-       
+
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -59,11 +59,11 @@ namespace liaqati_master.Pages.Product
 
             Products.Id = Guid_Id.Id_Guid();
 
-            Products.services!.Id= Products.Id;
+            Products.services!.Id = Products.Id;
 
-            Products.services.ProductsId = Products.Id;
+            //  Products.services.ProductsId = Products.Id;
 
-          // MealPlans.servicesId = MealPlans.Id;
+            // MealPlans.servicesId = MealPlans.Id;
 
             var id = Products.services!.Category!.Id;
             if (id != null)
@@ -81,7 +81,7 @@ namespace liaqati_master.Pages.Product
 
 
             _UnitOfWork.Save();
-            
+
 
 
             return RedirectToPage("./Index");
