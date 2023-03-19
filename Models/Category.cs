@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace liaqati_master.Models
@@ -20,6 +21,7 @@ namespace liaqati_master.Models
         [Display(Name = "صورة")]
         public string? Image { get; set; }
         //public List<Products>? products { get; set; }
+        [JsonIgnore]
         public List<Service>? services { get; set; }
 
         public List<Article>? articles { get; set; }

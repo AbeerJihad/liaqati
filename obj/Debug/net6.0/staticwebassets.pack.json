@@ -457,6 +457,14 @@
       "PackagePath": "staticwebassets\\User\\images\\xpvlzfimzgo18_article@2x.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\API\\Products\\ProductModel.js",
+      "PackagePath": "staticwebassets\\User\\js\\API\\Products\\ProductModel.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\API\\Products\\ProductModelApp.js",
+      "PackagePath": "staticwebassets\\User\\js\\API\\Products\\ProductModelApp.js"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\Index.js",
       "PackagePath": "staticwebassets\\User\\js\\Index.js"
     },

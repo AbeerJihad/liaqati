@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xXaKm0Oe77PDjqefg8/r1VLtjEwrbo6a+Hqx0blqo58=",
+  "Hash": "jJ4/7UtmFA+1DOduT24fqLMXanXGWRYe1HXFAzOycaQ=",
   "Source": "liaqati-master",
   "BasePath": "_content/liaqati-master",
   "Mode": "Default",
@@ -17389,6 +17389,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\User\\images\\xpvlzfimzgo18_article@2x.png"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\API\\Products\\ProductModel.js",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "User/js/API/Products/ProductModel.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\User\\js\\API\\Products\\ProductModel.js"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\API\\Products\\ProductModelApp.js",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "User/js/API/Products/ProductModelApp.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\User\\js\\API\\Products\\ProductModelApp.js"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\js\\bootstrap.bundle.min.js",
