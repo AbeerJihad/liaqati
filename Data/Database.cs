@@ -32,7 +32,7 @@
                                             new Category { Id="1" , Name="النظام الغذائي" },
                                             new Category { Id="2" , Name="الوجبات" },
                                             new Category { Id="3" , Name="المكملات الغذائية" },
-                                            new Category { Id="4" , Name="ٍٍالاجهزة الرياضية" }
+                                            new Category { Id="4" , Name="الاجهزة الرياضية" }
 
             };
         }

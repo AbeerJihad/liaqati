@@ -6,14 +6,10 @@
             <h2 class="col-auto">أحدث الأنظمةالغذائية</h2>
             <div class="mt-4 mx-4 col" style="height: 2px; width: 50%; background-color: #b9aff5"></div>
         </div>
-        <div class="row">
-            @foreach (var item in Model)
-            {
-                <partial name="_MealPlansCard" model="@item" />
-            }
-        </div>
-
-
+        @foreach (var item in Model)
+        {
+            <partial name="_MealPlansCard" model="@item" />
+        }
         <div class="d-flex mt-4">
             <div class="mt-4 mx-4 col" style="height: 2px; width: 50%; background-color: #b9aff5"></div>
             <button style="background-color: #E4DFFF" class="col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">

@@ -184,6 +184,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Graduation Project/LastUpdate/liaqati/Pages/ProductsPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/Exercises/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcRXhlcmNpc2VzXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/HealthyRecipes/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcSGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -194,6 +202,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/LastestPrograms/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGFzdGVzdFByb2dyYW1zXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/MostSoughtProducts/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTW9zdFNvdWdodFByb2R1Y3RzXGRlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/Services/default.cshtml]
@@ -208,12 +220,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9jb2FjaHNDYXJkRGVzZ2luMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_exerciseCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9leGVyY2lzZUNhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_HealthyRecipesCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9IZWFsdGh5UmVjaXBlc0NhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_MealPlansCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9NZWFsUGxhbnNDYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_ProductCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Qcm9kdWN0Q2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_ValidationScriptsPartial.cshtml]
