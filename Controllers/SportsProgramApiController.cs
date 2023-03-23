@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using liaqati_master.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -43,12 +44,24 @@ namespace ProgectApi.Controllers
 
         ///
         [HttpPost]
-        public async Task<ActionResult<SportsProgram>> AddSportsProgram([FromForm] SportsProgram SportsProgram)
+        public async Task<ActionResult<SportsProgram>> AddSportsProgram([FromForm] VmSportProgram VmSportsProgram)
         {
-            await _context.TblSportsProgram.AddAsync(SportsProgram);
 
+            SportsProgram SportsProgram = new SportsProgram()
+            {
+                Id = VmSportsProgram.Id,
+                TrainingType = VmSportsProgram.TrainingType,
+                Length = VmSportsProgram.Length,
+                Equipment = VmSportsProgram.Equipment,
+                BodyFocus = VmSportsProgram.BodyFocus,
+                Difficulty = VmSportsProgram.Difficulty,
+                services = new Service() { Id = VmSportsProgram.Id, Title = VmSportsProgram.Title, Price = VmSportsProgram.Price }
+
+
+            };
             try
             {
+                await _context.TblSportsProgram.AddAsync(SportsProgram);
 
                 await _context.SaveChangesAsync();
 

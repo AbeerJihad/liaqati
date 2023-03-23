@@ -61,7 +61,7 @@ namespace liaqati_master.Pages.HealthyReicpe
 
             HealthyRecipes.services!.Id= HealthyRecipes.Id;
 
-            HealthyRecipes.services.HealthyRecipesId = HealthyRecipes.Id;
+          //  HealthyRecipes.services.HealthyRecipesId = HealthyRecipes.Id;
 
           // MealPlans.servicesId = MealPlans.Id;
 

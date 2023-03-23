@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ProgectApi.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    //[ApiController]
     public class ExerciseApiController : ControllerBase
     {
         readonly  LiaqatiDBContext _context;
@@ -44,7 +44,7 @@ namespace ProgectApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Exercise>> AddArticles([FromForm] Exercise Exercise)
+        public async Task<ActionResult<Exercise>> AddExercise([FromBody] Exercise Exercise)
         {
 
 

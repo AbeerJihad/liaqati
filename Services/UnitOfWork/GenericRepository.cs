@@ -46,6 +46,24 @@ namespace liaqati_master.Services
         {
             return dbSet.Find(id);
         }
+
+        public virtual List<TEntity> GetByMultiID(List<string> ids)
+        {
+            List <TEntity> entities = new List <TEntity>();
+
+            foreach(var x in ids)
+            {
+              if(  dbSet.Find(x) !=null)
+                {
+                    entities.Add(dbSet.Find(x));
+                }
+            }
+
+
+            return entities;
+        }
+
+
         public virtual List<TEntity> GetAllEntity()
         {
             return dbSet.ToList();

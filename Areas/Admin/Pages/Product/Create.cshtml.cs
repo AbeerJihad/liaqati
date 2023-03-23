@@ -61,7 +61,7 @@ namespace liaqati_master.Pages.Product
 
             Products.services!.Id= Products.Id;
 
-            Products.services.ProductsId = Products.Id;
+           // Products.services.ProductsId = Products.Id;
 
           // MealPlans.servicesId = MealPlans.Id;
 

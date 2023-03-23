@@ -21,6 +21,7 @@ namespace liaqati_master.Models
         [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "الجزءالذي يركز عليه النظام من الجسم")]
         public string? BodyFocus { get; set; }
+
         [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "المعدات")]
         public string? Equipment { get; set; }
@@ -40,7 +41,8 @@ namespace liaqati_master.Models
        
         public Service? services { get; set; }
 
-        public List<Exercies_program>? exercies_Programs { get; set; }   
+        public List<Exercies_program>? exercies_Programs { get; set; }/*=new List<Exercies_program>();*/
 
+     
     }
 }

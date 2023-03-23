@@ -235,6 +235,12 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Week")
+                        .HasColumnType("int");
+
                     b.Property<string>("exerciseId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -252,7 +258,7 @@ namespace liaqati_master.Migrations
 
                     b.HasIndex("sportsProgramId");
 
-                    b.ToTable("Exercies_program");
+                    b.ToTable("TblExercies_program");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
@@ -260,23 +266,21 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("DEx")
+                    b.Property<int>("DEx")
                         .HasColumnType("int");
 
                     b.Property<string>("Detail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Difficulty")
+                    b.Property<int>("Difficulty")
                         .HasColumnType("int");
 
                     b.Property<string>("Equipments")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Price")
@@ -733,22 +737,10 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("HealthyRecipesId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MealPlansId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("ProductsId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("sportsProgramId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -763,7 +755,6 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             CategoryId = "1",
                             Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
-                            MealPlansId = "1",
                             Price = 19.989999999999998,
                             Title = "حمية البحر المتوسط"
                         },
@@ -772,7 +763,6 @@ namespace liaqati_master.Migrations
                             Id = "2",
                             CategoryId = "1",
                             Description = " يعتمد على تقليل الكربوهيدرات  و منع السكر المصنع و البطاطا , يتم تناول الفواكه و الخضروات و الحبوب",
-                            MealPlansId = "2",
                             Price = 20.989999999999998,
                             Title = "  النظام الغذائي باليو"
                         },
@@ -781,7 +771,6 @@ namespace liaqati_master.Migrations
                             Id = "3",
                             CategoryId = "1",
                             Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
-                            MealPlansId = "3",
                             Price = 19.989999999999998,
                             Title = "   كيتو دايت "
                         },
@@ -790,7 +779,6 @@ namespace liaqati_master.Migrations
                             Id = "4",
                             CategoryId = "1",
                             Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
-                            MealPlansId = "4",
                             Price = 19.989999999999998,
                             Title = "   كيتو دايت "
                         },
@@ -799,7 +787,6 @@ namespace liaqati_master.Migrations
                             Id = "5",
                             CategoryId = "1",
                             Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
-                            MealPlansId = "5",
                             Price = 19.989999999999998,
                             Title = " اختبار "
                         },

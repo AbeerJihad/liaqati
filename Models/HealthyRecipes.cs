@@ -31,7 +31,7 @@ namespace liaqati_master.Models
         [Display(Name = "كمية البروتين")]
         public int Protein { get; set; }
       
-        public Service? services { get; set; }
+        public  Service? services { get; set; }
 
     }
     public enum DieteryTypeStatus { Omnivore, Vegetarian }

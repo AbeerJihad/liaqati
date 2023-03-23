@@ -109,8 +109,32 @@
       "PackagePath": "staticwebassets\\Images\\Product\\منتجاتنا.jpg"
     },
     {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\AddEx_ProgByApi.js",
+      "PackagePath": "staticwebassets\\JavaScript\\AddEx_ProgByApi.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\AddExercies.js",
+      "PackagePath": "staticwebassets\\JavaScript\\AddExercies.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\Programs.js",
+      "PackagePath": "staticwebassets\\JavaScript\\Programs.js"
+    },
+    {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\script.js",
       "PackagePath": "staticwebassets\\JavaScript\\script.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JsApi\\ApiIndex.js",
+      "PackagePath": "staticwebassets\\JsApi\\ApiIndex.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JsApi\\ExerciseApi.js",
+      "PackagePath": "staticwebassets\\JsApi\\ExerciseApi.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JsApi\\ProgramExcercies.js",
+      "PackagePath": "staticwebassets\\JsApi\\ProgramExcercies.js"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\admin\\AOS.html",
@@ -3239,6 +3263,14 @@
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\dynamicTextAreaForRecipe copy.html",
+      "PackagePath": "staticwebassets\\dynamicTextAreaForRecipe copy.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\dynamicTextAreaForRecipe.html",
+      "PackagePath": "staticwebassets\\dynamicTextAreaForRecipe.html"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\favicon.ico",

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using liaqati_master.Models;
+using liaqati_master.ViewModels;
 
 namespace ProgectApi.Controllers
 {
@@ -21,7 +22,7 @@ namespace ProgectApi.Controllers
         }
 
         [HttpGet("AllMealPlan")]
-        public async Task<ActionResult<List<MealPlans>>> GetAllMealPlan()
+        public async Task<ActionResult<List<VmMealPlan>>> GetAllMealPlan()
         {
 
             return Ok(await  _context.TblMealPlans.ToArrayAsync());
@@ -29,7 +30,7 @@ namespace ProgectApi.Controllers
 
         [HttpGet("GetMealPlanById/{id}")]
 
-        public async Task<ActionResult<List<MealPlans>>> GetMealPlanById(int id)
+        public async Task<ActionResult<List<VmMealPlan>>> GetMealPlanById(string id)
         {
 
             return Ok(await _context.TblMealPlans.FindAsync(id));
@@ -39,7 +40,7 @@ namespace ProgectApi.Controllers
 
 
         [HttpGet("LatesMealPlans")]
-        public async Task<ActionResult<List<MealPlans>>> LatesMealPlans()
+        public async Task<ActionResult<List<VmMealPlan>>> LatesMealPlans()
         {
 
             return Ok(await _context.TblMealPlans.OrderByDescending(x => x.Id).ToArrayAsync());
@@ -47,16 +48,30 @@ namespace ProgectApi.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<MealPlans>> AddMealPlans([FromForm] MealPlans MealPlans)
+        public async Task<ActionResult<MealPlans>> AddMealPlans( VmMealPlan VmMealPlans)
         {
+            MealPlans mealPlans = new MealPlans() { 
+                
+                Id= VmMealPlans.Id,
+                services=new Service() {Id= VmMealPlans.Id ,Title= VmMealPlans.Title ,Price= VmMealPlans.Price ,Description= VmMealPlans.Description },
 
+                
+               
+                Length= VmMealPlans.Length,
+                dietaryType=VmMealPlans.dietaryType,
+                mealType=VmMealPlans.mealType,
+                avgRecipeTime=VmMealPlans.avgRecipeTime
+
+            };
             
 
-            await _context.TblMealPlans.AddAsync(MealPlans);
+
+
+         
 
             try
             {
-
+                await _context.TblMealPlans.AddAsync(mealPlans);
                 await _context.SaveChangesAsync();
 
             }
@@ -66,13 +81,13 @@ namespace ProgectApi.Controllers
             }
 
 
-            return Ok(MealPlans);
+            return Ok(mealPlans);
 
         }
 
         [HttpDelete("DeleteMealPlans/{id}")]
 
-        public async Task<ActionResult<MealPlans>> DeleteMealPlans(string id)
+        public async Task<ActionResult<VmMealPlan>> DeleteMealPlans(string id)
         {
             MealPlans item = _context.TblMealPlans.Find(id);
 
@@ -103,11 +118,11 @@ namespace ProgectApi.Controllers
         [HttpDelete("{Delete}")]
 
 
-        public async Task<ActionResult<List<MealPlans>>> DeleteMultiMealPlans([FromForm] int[] ids)
+        public async Task<ActionResult<List<MealPlans>>> DeleteMultiMealPlans([FromForm] string[] ids)
         {
             var plist = new List<MealPlans>();
 
-            foreach (int id in ids)
+            foreach (string id in ids)
             {
                 var MealPlans = _context.TblMealPlans.Find(id);
 
@@ -141,9 +156,8 @@ namespace ProgectApi.Controllers
 
 
         [HttpPut("EditArticles/{id}")]
-        [Route("")]
 
-        public async Task<ActionResult<MealPlans>> EditArticles(int id, MealPlans MealPlans)
+        public async Task<ActionResult<VmMealPlan>> EditArticles(string id, VmMealPlan MealPlans)
         {
             if (_context.TblMealPlans.Find(id) == null)
             {

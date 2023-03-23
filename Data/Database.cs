@@ -101,7 +101,7 @@ namespace liaqati_master.Data
                         new Service
 {
     Id = "1",
-    MealPlansId = "1",
+   
     Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
     Price = 19.99,
     Title = "حمية البحر المتوسط",
@@ -111,7 +111,7 @@ namespace liaqati_master.Data
                  new Service
                  {
                      Id = "2",
-                     MealPlansId = "2",
+                    
                      Description = " يعتمد على تقليل الكربوهيدرات  و منع السكر المصنع و البطاطا , يتم تناول الفواكه و الخضروات و الحبوب",
                      Price = 20.99,
                      Title = "  النظام الغذائي باليو",
@@ -121,7 +121,7 @@ namespace liaqati_master.Data
                 new Service
                 {
                     Id = "3",
-                    MealPlansId = "3",
+                  
                     Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
                     Price = 19.99,
                     Title = "   كيتو دايت ",
@@ -131,7 +131,6 @@ namespace liaqati_master.Data
                 new Service
                 {
                     Id = "4",
-                    MealPlansId = "4",
                     Description = "  يعتمد على تقليل الكربوهيدرات و تناول الدهون الصحية , لا ينصح به النساءو الحوامل و كبار السن",
                     Price = 19.99,
                     Title = "   كيتو دايت ",
@@ -140,7 +139,6 @@ namespace liaqati_master.Data
                  new Service
                  {
                      Id = "5",
-                     MealPlansId = "5",
                      Description = "يعتمد على تناول البقوليات و المكسرات و الأوراق الخضراء ,مفيد لمرضى السكر و القلب ",
                      Price = 19.99,
                      Title = " اختبار ",

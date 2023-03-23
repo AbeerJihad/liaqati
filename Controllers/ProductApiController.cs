@@ -1,5 +1,6 @@
 ﻿using liaqati_master.Data;
 using liaqati_master.Models;
+using liaqati_master.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -68,15 +69,24 @@ namespace liaqati_master.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Products>> AddProducts([FromForm] Products Products)
+        public async Task<ActionResult<Products>> AddProducts([FromForm] VmProduct VmProducts)
         {
 
+            Products Products = new Products()
+            {
+                    Id= VmProducts.Id,
+                    imgUrl= VmProducts.imgUrl,
+                    Discount=VmProducts.Discount,
+
+                services = new Service() { Id = VmProducts.Id, Title = VmProducts.Title, Price = VmProducts.Price }
 
 
-            await _context.TblProducts.AddAsync(Products);
+            };
+
 
             try
             {
+                await _context.TblProducts.AddAsync(Products);
 
                 await _context.SaveChangesAsync();
 

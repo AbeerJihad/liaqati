@@ -10,21 +10,24 @@ namespace liaqati_master.Models
         [Display(Name = "رقم النظام الرياضي")]
         public string Id { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "هل تم انجازه")]
-        public bool isComplete { get; set; }
+        public bool isComplete { get; set; } = false;
 
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم النمرين")]
         public string exerciseId { get; set; }
 
-        public Exercise? exercise { get; set; }
+        public Exercise? exercise { get; set; } = null;
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم النظام الرياضي")]
         public string? sportsProgramId { get; set; }
-        public SportsProgram? sportsProgram { get; set; }
+        public SportsProgram? sportsProgram { get; set; } = null;
 
+
+        public int Day { get; set; }
+        public int Week { get; set; }
 
     }
 }

@@ -61,7 +61,7 @@ namespace liaqati_master.Pages.MealPlan
 
             MealPlans.services!.Id= MealPlans.Id;
 
-            MealPlans.services.MealPlansId = MealPlans.Id;
+          //  MealPlans.services.MealPlansId = MealPlans.Id;
 
           // MealPlans.servicesId = MealPlans.Id;
 

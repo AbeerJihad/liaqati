@@ -1,19 +1,261 @@
-﻿@page
+﻿@page "{Id?}"
 @model liaqati_master.Pages.Programs.CreatProgrameModel
 @{
 }
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="viho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="~/assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="~/assets/images/favicon.png" type="image/x-icon">
+    <title>viho - Premium Admin Template</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="../../css2.css?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="../../css2-1.css?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+    <link href="../../css2-2.css?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <!-- Font Awesome-->
 
-<h4>Meal Plane</h4>
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/fontawesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/feather-icon.css">
+    <!-- Plugins css start-->
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <link id="color" rel="stylesheet" href="~/assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/responsive.css">
+
+    <!-- Font Awesome-->
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/select2.css">
+
+    <!-- Responsive css-->
+
+     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <title>Default Page</title>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome-->
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css" />
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="assets/css/icofont.css" />
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="assets/css/themify.css" />
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="assets/css/flag-icon.css" />
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="assets/css/feather-icon.css" />
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/chartist.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/date-picker.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/prism.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/vector-map.css" />
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel=" stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css" />
+    <link
+      id="color"
+      rel="stylesheet"
+      href="assets/css/color-1.css"
+      media="screen"
+    />
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <style>
+      @@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+
+      body {
+        background-color: #f5f6f1;
+      }
+      * {
+        font-family: "Almarai", sans-serif;
+      }
+
+      .ingredient {
+        background: #dacdea;
+        color: #8763b3;
+        border-radius: 20px;
+        padding: 3px 15px;
+      }
+
+      .ingredients {
+        overflow-y: scroll;
+      }
+      </style>
+
+      
+</head>
+
+
+
+<<div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLabel">Edit </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Form Wizard And Validation</h5><span>Validation Step Form Wizard</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="stepwizard">
+                                <div class="stepwizard-row setup-panel">
+                                    <div class="stepwizard-step">
+                                        <a class="btn btn-primary" href="#step-1">1</a>
+                                        <p>Step 1</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a class="btn btn-light" href="#step-2">2</a>
+                                        <p>Step 2</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a class="btn btn-light" href="#step-3">3</a>
+                                        <p>Step 3</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a class="btn btn-light" href="#step-4">4</a>
+                                        <p>Step 4</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form id="formAddExercies"  method="POST">
+                                <div class="setup-content" id="step-1">
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Exercises.Title" class="control-label"></label>
+                                                <input name="Title" asp-for="Exercises.Title" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Exercises.Detail" class="control-label"></label>
+                                                <input name="Detail" asp-for="Exercises.Detail" class="form-control">
+                                                <span class="text-danger" asp-validation-for="Exercises.Detail"></span>
+
+                                            </div>
+                                            <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setup-content" id="step-2">
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Exercises.Price" class="control-label"></label>
+                                                <input name="Price" asp-for="Exercises.Price" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Exercises.TraningType" class="control-label"></label>
+                                                <input name="TraningType" asp-for="Exercises.TraningType" class="form-control">
+                                            </div>
+                                            <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="setup-content" id="step-3">
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Exercises.Difficulty" class="control-label"></label>
+                                                <input name="Difficulty" asp-for="Exercises.Difficulty" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="Exercises.DEx" class="control-label"></label>
+                                                <input name="DEx" asp-for="Exercises.DEx" class="form-control">
+                                            </div>
+                                            <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setup-content" id="step-4">
+                                    <div class="col-xs-12">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label asp-for="Exercises.Equipments" class="control-label"></label>
+                                                <input name="Equipments" asp-for="Exercises.Equipments" class="form-control">
+                                            </div>
+                                            @*   <div class="form-group">
+                                            <label asp-for="Exercise." class="control-label"></label>
+                                            <input asp-for="Exercise.TraningType" class="form-control">
+                                            </div>*@
+                                            <button onclick="FinishAddExercises(this)" class="btn btn-secondary pull-right" type="button">Finish!</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<a onclick="ShowModelAdd('editModel',@System.Text.Json.JsonSerializer.Serialize(new Exercise()))"> Add exercies</a>
+
+<h4>Program</h4>
 <hr />
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form  asp-page-handler="Add" method="post" class="form theme-form">
+                    <form id="FormProgramAdd" asp-page-handler="Add" method="post" class="form theme-form">
                    @*     <div asp-validation-summary="All">
                             
                         </div>*@
+                        <input name="Id" value="@Model.SportsProgram.Id" id="IdProg" asp-for="SportsProgram.Id" hidden />
+
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
@@ -41,7 +283,12 @@
                              <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Length"></label>
-                                    <input asp-for="SportsProgram.Length" class="form-control" placeholder="">
+                                    <select id="selectLength" asp-for="SportsProgram.Length">
+                                        <option value="-1">ادخل عدد اسابيع النظام الرياضي</option>
+                                        <option value="1">اسبوع</option>
+                                        <option value="2">اسبوعين</option>
+                                        <option value="4">  اربعة اسابيع</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -63,81 +310,122 @@
                                     <input asp-for="SportsProgram.TrainingType" class="form-control" placeholder="">
                                 </div>
                             </div>
-                             <div class="col-sm-4">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.services!.Category!.Name"></label>
-                                    <select asp-for="SportsProgram.services!.Category!.Id" asp-items="Model.CatogeryName">
+                                    <select  asp-for="SportsProgram.services!.Category!.Id" asp-items="Model.CatogeryName">
                                         <option disabled value="-1">Please Select Catogery Name</option>
 
                                     </select>
                                 </div>
                             </div>
+                     
+
+                         
+                        </div>
+
+
+                        <div>
+                            @{
+
+                                if (Model.SportsProgram.exercies_Programs !=null){
+                              <table  class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">اليوم</th>
+                                        <th scope="col">الاسبوع</th>
+                                        <th scope="col"> اسم التمرين</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyApi">
+                                   
+                                   
+
+                                        @for (int x = 0; x < Model.SportsProgram.exercies_Programs!.Count; x++)
+                                        {
+                                                
+                                                string id=  @Model.SportsProgram.exercies_Programs[x].exerciseId;
+                                                  Exercise exercise=   @Model.getExercise(id);
+ 
+                                        <tr>
+                                                <td>@Model.SportsProgram.exercies_Programs[x].Day  اليوم </td>
+                                                <td>@Model.SportsProgram.exercies_Programs[x].Week   الاسبوع</td>
+                                                <td>@exercise.Title</td>
+                                            </tr>
+
+                                        }
+                                    }
+
+                                    
+                              
+                                
+                                </tbody>
+                            </table>
+                          
+
+                                }
+
+
+                        
+                            }
+                        </div>
+
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+                     @*   <div class="row">
+                             <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label> اختر التمارين الخاصة بالنظام الرياضي</label>
+                                    <select id="SelectExercise" aria-label="Default select example" class="js-example-rtl " multiple="multiple">
+                                    </select>
+
+
+                                </div>
+                            </div>
                         </div>
                        
-                         
+                         *@
                         <div class="row">   
                              <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <button class="mx-auto col-auto" type="submit"> Save </button>
+                                    <a onclick="SaveProg(this)" id="btnSave" class="mx-auto col-auto" > Save </a>
                                 </div>
                             </div>
                         </div>
 
+                       @* @for (int i = 0; i < Model.SportsProgram.exercies_Programs?.Count; i++)
+                        {
 
-
-
-                       @* <div class="row">
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Project Size</label>
-                                    <select class="form-select">
-                                        <option>Small</option>
-                                        <option>Medium</option>
-                                        <option>Big</option>
+                            <input asp-for="@Model.SportsProgram.exercies_Programs[i].exerciseId" />
+                             <div id="rowExerciesForm" class="row">
+                                <div class="col">
+                                    <input asp-for="Exercies_program[0].Day" placeholder="اي يوم من الايام"/>
+                                </div>
+                                  <div class="col">
+                                    <input asp-for="Exercies_program[0].Week" placeholder="اي اسبوع من الاسابيع" />
+                                </div>
+                                  <div class="col">
+                                    <select id="selExForm" asp-for="list" placeholder="التمرين الخاص باليوم">
+                                       
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Starting date</label>
-                                    <input class="datepicker-here form-control" type="text" data-language="en">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Ending date</label>
-                                    <input class="datepicker-here form-control" type="text" data-language="en">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label>Enter some Details</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label>Upload project file</label>
-                                    <form class="dropzone dz-clickable " id="singleFileUpload">
-                                        <div class="dz-message needsclick">
-                                            <i class="icon-cloud-up"></i>
-                                            <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                                        </div>
+                        }*@
 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="text-end"><a class="btn btn-secondary me-3" href="#">Add</a><a class="btn btn-danger" href="#">Cancel</a></div>
-                            </div>
-                        </div>
-                   *@
+
                     
                     
                     </form>
@@ -146,6 +434,79 @@
         </div>
     </div>
 </div>
+
+<div id="DivSystem" class="container-lg my-5  @Model.Display">
+    <div class="row justify-content-center my-5">
+        <div data-v-2eea9796="" class="col-md-12">
+            <div class="field-value">
+                <div class="form-label d-flex flex-row align-items-center justify-content-between">
+                    <div></div>
+                </div>
+                <div class="input-group field-value">
+                    <div class="form-control">
+                        <div class="mb-3">
+                            <label> الاسابيع</label>
+                            <select name="Week" id="selectLengthWeek">
+                                <option disabled value="-1">اختر الاسبوع</option>
+
+                                @for (int x = 1; x <= Model.SportsProgram.Length; x++)
+                                {
+                                    <option value="@x"> @x الاسبوع</option>
+
+                                }
+
+
+                            </select>
+                        </div>
+                    </div>
+                    <select Day class="form-control"
+                            id="selectDays"
+                            placeholder="اكتب شيئاً...">
+                        <option value="1">اليوم الاول</option>
+                        <option value="2">اليوم الثاني</option>
+                        <option value="3">اليوم الثالث</option>
+                        <option value="4">اليوم الرابع</option>
+                        <option value="5">اليوم الخامس</option>
+                        <option value="6">اليوم السادس</option>
+                        <option value="7">اليوم السابع</option>
+                    </select>
+
+                    <div class="form-control">
+                        <label> اختر التمارين الخاصة بالنظام الرياضي</label>
+                        <select id="SelectExercises" aria-label="Default select example" multiple="multiple">
+                            <option value="-1"> اختر التمارين</option>
+                        </select>
+
+
+
+                    </div>
+
+
+                    <form  id="formSystem" method="post" asp-page="Create" asp-page-handler="AddSystem">
+                        <input name="Id" value="@Model.SportsProgram.Id" id="IdProg" name="id" asp-for="SportsProgram.Id" hidden />
+
+                        <a id="BtnAdd"
+                           class="text-nowrap bg-white fw-medium btn btn-outline-primary">
+                            <i class="bi bi-plus h5 fw-bold"></i>
+                        </a>
+                    </form>
+
+                    <button id="BtnClipboard"
+                            class="text-nowrap bg-white fw-medium btn btn-outline-primary rounded-start rounded-0">
+                        <i class="bi bi-clipboard h5 fw-bold"></i>
+                    </button>
+                </div>
+               
+                <div class="small fw-bold text-end mt-1 text-muted d-flex">
+                    <div class="field-area-visible-on-hover ms-auto"
+                         id="NoFoIngredients"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 
 
@@ -156,4 +517,277 @@
 
 @section Scripts {
 @*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-*@}
+*@
+
+
+  
+
+
+    <script>
+     
+
+
+        var length=1;
+
+        var day=1;
+        var week=1;
+        var Exercies=[];
+        var Calend=[];
+
+        var selectLength = document.getElementById("selectLength");
+
+        var selectLengthWeek = document.getElementById("selectLengthWeek");
+
+        var SelectExercise = document.getElementById("SelectExercise");
+
+        var selectDays = document.getElementById("selectDays");
+        var BtnAdd = document.getElementById("BtnAdd");
+        selectLength.addEventListener("change",LengthProgram);
+
+        selectLengthWeek.addEventListener("change", selectLengthWeekFun);
+        selectDays.addEventListener("change", selectDaysFun);
+
+      var  rowExerciesForm =document.getElementById("rowExerciesForm");
+
+        function selectLengthWeekFun(event)
+        {
+            week=event.target.value;
+        }
+        function selectDaysFun(event) {
+            day = event.target.value;
+
+        }
+        function SelectExerciseFun(event) {
+                      Exercies=[];
+
+                for (var option of SelectExercise.options) {
+                    if (option.selected) {
+                    Exercies.push(option.value);
+
+                    }
+                }
+       
+
+        }
+
+
+        
+        BtnAdd.addEventListener("click", AddDaysPrograms);
+
+        function LengthProgram(event) {
+            length=event.target.value;
+            selectLengthWeek.innerHTML="";
+            for(var x=1;x<=length ;x++)
+            {
+                let li = document.createElement("option");
+                li.value = x;
+                li.innerHTML = `الاسبوع  ${x} `;
+                selectLengthWeek.appendChild(li);
+            }
+
+
+
+        }
+
+        function AddDaysPrograms(event){
+
+        //    var newrow = rowExerciesForm.cloneNode(true);
+
+        //        newrow.firstElementChild.firstElementChild.value=day ;
+        //        newrow.firstElementChild.nextElementSibling.firstElementChild.value = week;
+        //newrow.innerHTML = newrow.innerHTML.replace("Exercies_program[0].Week", "Exercies_program[2].Week");
+
+        //    rowExerciesForm.parentElement.appendChild(newrow);
+
+        
+       
+
+        
+
+            for (var x = 0; x < Exercies.length ;x++) {
+
+                let li = document.createElement("option");
+                li.value = Exercies[x];
+                li.innerHTML = Exercies[x];
+                document.getElementById("selExForm").appendChild(li);
+                 }
+
+            //rowExerciesForm.lastElementChild.firstElementChild.value = Exercies;
+
+            
+
+            Calend.push({
+            Day:day,
+            Week :week,
+            Exercies : [Exercies]
+            });
+
+
+            txtAreaIngredients.value += day + "," + week + "," + Exercies + "\n"
+
+            console.log(Calend);
+
+
+        }
+
+
+
+
+        function ShowModelAdd(modelid, dataObj) {
+
+
+            let modelElm = document.getElementById(modelid);
+            var myModal = new bootstrap.Modal(modelElm, {
+                keyboard: false
+            })
+
+            modelElm.querySelectorAll('span.field-validation-error').forEach((obj, i, a) => a[i].innerHTML = '');
+
+
+            if (dataObj !== null) {
+                //modelElm.querySelector('#Student_Id').value = dataObj.Id;
+
+                //modelElm.querySelector('#Student_Name').value = dataObj.Name;
+
+
+            }
+
+
+
+            myModal.show()
+        }
+
+        function FinishAddExercise(tag) {
+            var form = tag.parentElement.parentElement.parentElement.parentElement;
+
+            form.submit();
+
+
+
+        }
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
+
+
+    </script>
+
+
+
+
+    <script src="~/javascript/addex_progbyapi.js"></script>
+    <script src="~/jsapi/programexcercies.js"></script>
+     <script src="~/javascript/addexercies.js"></script>
+    <script src="~/jsapi/exerciseapi.js"></script>
+
+     <script src="~/assets/js/jquery-3.5.1.min.js"></script>
+    <!-- feather icon js-->
+    <script src="~/assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="~/assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="~/assets/js/sidebar-menu.js"></script>
+    <script src="~/assets/js/config.js"></script>
+    <!-- Bootstrap js-->
+    <script src="~/assets/js/bootstrap/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugins JS start-->
+    <script src="~/assets/js/form-wizard/form-wizard-two.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="~/assets/js/select2/select2.full.min.js"></script>
+    <script src="~/assets/js/select2/select2-custom.js"></script>
+
+    <script src="~/assets/js/script.js"></script>
+    <script src="~/assets/js/theme-customizer/customizer.js"></script>
+    <script src="~/javascript/programs.js"></script>
+    <script defer src="~/jsapi/exerciseapi.js"></script>
+
+
+
+     <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <!-- feather icon js-->
+    <script src="assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="assets/js/sidebar-menu.js"></script>
+    <script src="assets/js/config.js"></script>
+    <!-- Bootstrap js-->
+    <script src="assets/js/bootstrap/popper.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Plugins JS start-->
+    <script src="assets/js/chart/chartist/chartist.js"></script>
+    <script src="assets/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+    <script src="assets/js/chart/knob/knob.min.js"></script>
+    <script src="assets/js/chart/knob/knob-chart.js"></script>
+    <script src="assets/js/chart/apex-chart/apex-chart.js"></script>
+    <script src="assets/js/chart/apex-chart/stock-prices.js"></script>
+    <script src="assets/js/prism/prism.min.js"></script>
+    <script src="assets/js/clipboard/clipboard.min.js"></script>
+    <script src="assets/js/counter/jquery.waypoints.min.js"></script>
+    <script src="assets/js/counter/jquery.counterup.min.js"></script>
+    <script src="assets/js/counter/counter-custom.js"></script>
+    <script src="assets/js/custom-card/custom-card.js"></script>
+    <script src="assets/js/notify/bootstrap-notify.min.js"></script>
+    <script src="assets/js/vector-map/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="assets/js/vector-map/map/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/js/vector-map/map/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="assets/js/vector-map/map/jquery-jvectormap-uk-mill-en.js"></script>
+    <script src="assets/js/vector-map/map/jquery-jvectormap-au-mill.js"></script>
+    <script src="assets/js/vector-map/map/jquery-jvectormap-chicago-mill-en.js"></script>
+    <script src="assets/js/vector-map/map/jquery-jvectormap-in-mill.js"></script>
+    <script src="assets/js/vector-map/map/jquery-jvectormap-asia-mill.js"></script>
+    <script src="assets/js/dashboard/default.js"></script>
+    <script src="assets/js/notify/index.js"></script>
+    <script src="assets/js/datepicker/date-picker/datepicker.js"></script>
+    <script src="assets/js/datepicker/date-picker/datepicker.en.js"></script>
+    <script src="assets/js/datepicker/date-picker/datepicker.custom.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/theme-customizer/customizer.js"></script>
+
+
+    <script>
+        //var FormMultiSeleected = document.getElementById("FormMultiSeleected");
+
+        //var select = document.getElementById("SelectExercise");
+
+        //FormMultiSeleected.addEventListener("submit", MultSelectExercise)
+        //function MultSelectExercise(event) {
+
+        //    var selected = [];
+        //    for (var option of select.options) {
+        //        if (option.selected) {
+        //            selected.push(option.value);
+        //        }
+        //    }
+        //    alert(selected);
+
+
+        //    //  alert(event.target.value);
+        //}
+    </script>
+
+}
+
+
+
+

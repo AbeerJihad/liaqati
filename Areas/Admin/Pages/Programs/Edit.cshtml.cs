@@ -19,6 +19,7 @@ namespace liaqati_master.Pages.Programs
         }
 
         public List<SelectListItem> CatogeryName { get; set; }
+        public List<SelectListItem> ExerciesName { get; set; }
 
 
         [BindProperty(SupportsGet =true)]
@@ -45,6 +46,14 @@ namespace liaqati_master.Pages.Programs
                                            Text = a.Name
                                        }).ToList();
 
+          
+           
+            ExerciesName = _UnitOfWork.ExerciseRepository.GetAllEntity().Select(a =>
+                                       new SelectListItem
+                                       {
+                                           Value = a.Id.ToString(),
+                                           Text = a.Title
+                                       }).ToList();
 
             return Page();
         }
@@ -54,22 +63,29 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnPost()
         {
 
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             var id=SportsProgram.Id;
 
-        var item= _UnitOfWork.MealPlansRepository.GetByID(id);
+           var item= _UnitOfWork.SportsProgramRepository.GetByID(id);
             item.services!.Title = SportsProgram.services!.Title;
             item.services.Price = SportsProgram.services.Price;
             item.services.Description = SportsProgram.services.Description;
             item.Length = SportsProgram.Length;
-            item.mealType= SportsProgram.BodyFocus;
-            item.mealType= SportsProgram.Difficulty;
-            item.mealType= SportsProgram.Equipment;
-            item.mealType= SportsProgram.TrainingType;
+            item.BodyFocus= SportsProgram.BodyFocus;
+            item.Difficulty = SportsProgram.Difficulty;
+            item.Equipment= "";
+            item.TrainingType= SportsProgram.TrainingType;
+
+            for(int x =0;x< SportsProgram.exercies_Programs!.Count;x++)
+            {
+                item.exercies_Programs![x] = SportsProgram.exercies_Programs[x];
+
+
+            }
 
 
             var cid = SportsProgram.services!.Category!.Id;
@@ -82,7 +98,7 @@ namespace liaqati_master.Pages.Programs
             item.services.Category = null;
 
 
-            _UnitOfWork.MealPlansRepository.Update(item);
+            _UnitOfWork.SportsProgramRepository.Update(item);
 
           
           //  _context.Attach(MealPlans).State = EntityState.Modified;

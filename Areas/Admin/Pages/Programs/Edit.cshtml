@@ -14,6 +14,8 @@
                         @*     <div asp-validation-summary="All">
 
                         </div>*@
+
+                        <input hidden asp-for="SportsProgram.Id"/>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
@@ -73,6 +75,28 @@
                                 </div>
                             </div>
                         </div>
+                        @for (int i = 0; i < Model.SportsProgram.exercies_Programs?.Count; i++)
+                        {
+
+                                <div id="rowExerciesForm" class="row">
+                                <input hidden asp-for="SportsProgram.exercies_Programs![i].Id" placeholder="اي يوم من الايام" />
+                                <input hidden asp-for="SportsProgram.exercies_Programs![i].sportsProgramId" placeholder="اي يوم من الايام" />
+
+
+                                    <div>Test</div>
+                                    <div class="col">
+                                        <input asp-for="SportsProgram.exercies_Programs![i].Day" placeholder="اي يوم من الايام" />
+                                    </div>
+                                    <div class="col">
+                                        <input asp-for="SportsProgram.exercies_Programs![i].Week" placeholder="اي اسبوع من الاسابيع" />
+                                   </div>
+                                    <div class="col">
+                                    <select id="selExForm" asp-items="Model.ExerciesName" asp-for="SportsProgram.exercies_Programs![i].exerciseId" placeholder="التمرين الخاص باليوم">
+                                        </select>
+                                    </div>
+                                </div>
+                        }
+
 
 
                         <div class="row">
@@ -83,8 +107,7 @@
                             </div>
                         </div>
 
-
-
+                      
 
                         @* <div class="row">
                         <div class="col-sm-4">
