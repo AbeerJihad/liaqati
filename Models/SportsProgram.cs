@@ -29,13 +29,13 @@ namespace liaqati_master.Models
         public string? TrainingType { get; set; }
 
         //[Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
-        //[Display(Name = "ادخل عنوان النظام الغذائي")]
+        //[Display(Tilte = "ادخل عنوان النظام الغذائي")]
         //public string? Title { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
-        //[Display(Name = "وصف النظام الغذائي")]
+        //[Display(Tilte = "وصف النظام الغذائي")]
         //public string? Description { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
-        //[Display(Name = "سعر النظام الرياضي")]
+        //[Display(Tilte = "سعر النظام الرياضي")]
         //public double Price { get; set; }
        
         public Service? services { get; set; }

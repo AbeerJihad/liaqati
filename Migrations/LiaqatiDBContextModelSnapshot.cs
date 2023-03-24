@@ -17,7 +17,7 @@ namespace liaqati_master.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.14")
+                .HasAnnotation("ProductVersion", "6.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -99,7 +99,6 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -129,7 +128,7 @@ namespace liaqati_master.Migrations
                         new
                         {
                             Id = "4",
-                            Name = "ٍٍالاجهزة الرياضية"
+                            Name = "الاجهزة الرياضية"
                         });
                 });
 
@@ -352,8 +351,16 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Ingredients")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("MealType")
                         .HasColumnType("int");
+
+                    b.Property<string>("PreparationMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Protein")
                         .HasColumnType("int");
@@ -521,10 +528,8 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OrderId1")
+                    b.Property<string>("OrderId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Price")
@@ -546,7 +551,7 @@ namespace liaqati_master.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId1");
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("ServiceId");
 
@@ -1197,7 +1202,9 @@ namespace liaqati_master.Migrations
                 {
                     b.HasOne("liaqati_master.Models.Order", "Order")
                         .WithMany("Order_Details")
-                        .HasForeignKey("OrderId1");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("liaqati_master.Models.Service", "Service")
                         .WithMany("Order_Details")

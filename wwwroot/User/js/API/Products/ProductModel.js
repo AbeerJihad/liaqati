@@ -32,26 +32,26 @@
     return result;
 }
 
-async function getCategories() {
+//async function getCategories() {
 
-    let result = [];
-    try {
-        const response = await fetch("/api/CategoriesApi", {
-            method: "GET",
-        });
+//    let result = [];
+//    try {
+//        const response = await fetch("/api/CategoriesApi", {
+//            method: "GET",
+//        });
 
 
-        if (response.status === 200) {
-            result = await response.json();
-        }
-        else {
-            console.error(json);
-            //`Error: ${json.title}`;
-        }
-    } catch (err) {
-        console.error(err);
-    }
-    return result;
-}
+//        if (response.status === 200) {
+//            result = await response.json();
+//        }
+//        else {
+//            console.error(result);
+//            //`Error: ${json.title}`;
+//        }
+//    } catch (err) {
+//        console.error(err);
+//    }
+//    return result;
+//}
 
 

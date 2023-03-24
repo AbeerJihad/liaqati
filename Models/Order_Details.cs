@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace liaqati_master.Models
 {
@@ -16,8 +15,8 @@ namespace liaqati_master.Models
         public int Quantity { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم الطلبية")]
-        public int OrderId{ get; set; }
-        public Order? Order{ get; set; }
+        public string OrderId { get; set; }
+        public Order? Order { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم التقييم")]
         public int? RateId { get; set; }

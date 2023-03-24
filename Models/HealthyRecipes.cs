@@ -7,7 +7,7 @@ namespace liaqati_master.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "رقم الوجبة")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         // [Required(ErrorMessage = "هذا الحقل مطلوب")]
         public string? Image { get; set; } = "";
@@ -25,12 +25,20 @@ namespace liaqati_master.Models
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "السعرات الحرارية")]
         public int Calories { get; set; }
-        [Display(Name = "مجموع السعرات الحرارية")]
+        [Display(Name = "مجموع الكاربوهيدرات")]
         public int Total_Carbohydrate { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "كمية البروتين")]
         public int Protein { get; set; }
-      
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "المكونات")]
+        public string? Ingredients { get; set; }
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "طريقة التحضير؟")]
+        public string? PreparationMethod { get; set; }
+
+
+
         public Service? services { get; set; }
 
     }
