@@ -542,18 +542,9 @@ namespace liaqati_master.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("ServiceId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ServicesId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
-
-                    b.HasIndex("ServiceId");
 
                     b.ToTable("TblOrder_Details");
                 });
@@ -1200,15 +1191,17 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Order_Details", b =>
                 {
+                    b.HasOne("liaqati_master.Models.Service", "Service")
+                        .WithMany("Order_Details")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("liaqati_master.Models.Order", "Order")
                         .WithMany("Order_Details")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("liaqati_master.Models.Service", "Service")
-                        .WithMany("Order_Details")
-                        .HasForeignKey("ServiceId");
 
                     b.Navigation("Order");
 

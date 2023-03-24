@@ -6,7 +6,8 @@ namespace liaqati_master.Models
     public class Order_Details
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Id { get; set; }
+        [Key]
+        public string? Id { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "السعر")]
         public double Price { get; set; }
@@ -21,9 +22,7 @@ namespace liaqati_master.Models
         [Display(Name = "رقم التقييم")]
         public int? RateId { get; set; }
         public Rate? Rate { get; set; }
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        [Display(Name = "رقم الخدمة")]
-        public string? ServicesId { get; set; }
+        [ForeignKey("Id")]
         public Service? Service { get; set; }
 
 
