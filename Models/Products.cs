@@ -10,7 +10,7 @@ namespace liaqati_master.Models
             public string Id { get; set; }
 
         //[Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
-        //[Display(Name = "اسم المنتج")]اسم الصنف
+        //[Display(Tilte = "اسم المنتج")]اسم الصنف
         //public string Pname { get; set; }
 
       //  [ StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل صورة")]

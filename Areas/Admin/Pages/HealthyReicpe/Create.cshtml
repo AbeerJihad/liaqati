@@ -3,6 +3,29 @@
 @{
 }
 
+<style>
+
+    body {
+        background-color: #f5f6f1;
+    }
+
+    * {
+        font-family: "Almarai", sans-serif;
+    }
+
+    .ingredient {
+        background: #dacdea;
+        color: #8763b3;
+        border-radius: 20px;
+        padding: 3px 15px;
+    }
+
+    .ingredients {
+        overflow-y: scroll;
+    }
+
+</style>
+
 <h4></h4>
 <hr />
 <div class="container-fluid">
@@ -10,86 +33,95 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form  asp-page-handler="Add" method="post" class="form theme-form">
-                   @*     <div asp-validation-summary="All">
-                            
-                        </div>*@
+                    <form asp-page-handler="Add" method="post" class="form theme-form">
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.services!.Title"></label>
                                     <input asp-for="HealthyRecipes.services!.Title" class="form-control" placeholder="">
-                                   
+                                    <span asp-validation-for="HealthyRecipes.services!.Title" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.services!.Price"></label>
                                     <input asp-for="HealthyRecipes.services!.Price" class="form-control" placeholder="">
+                                    <span asp-validation-for="HealthyRecipes.services!.Price" class="text-danger"></span>
+
                                 </div>
                             </div>
-                          
-                           <div class="col-12">
+
+                            <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.services!.Description"></label>
                                     <input asp-for="HealthyRecipes.services!.Description" class="form-control" placeholder="">
+                                    <span asp-validation-for="HealthyRecipes.services!.Description" class="text-danger"></span>
                                 </div>
                             </div>
-                            
+
                         </div>
-                      
+
                         <div class="row">
-
-
-                             <div class="col-sm-4">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.Protein"></label>
                                     <input asp-for="HealthyRecipes.Protein" class="form-control" placeholder="">
+                                    <span asp-validation-for="HealthyRecipes.Protein" class="text-danger"></span>
+
                                 </div>
                             </div>
 
-                                <div class="col-sm-4">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.Calories"></label>
                                     <input asp-for="HealthyRecipes.Calories" class="form-control" placeholder="">
+                                    <span asp-validation-for="HealthyRecipes.Calories" class="text-danger"></span>
+
                                 </div>
                             </div>
-                                <div class="col-sm-4">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.Total_Carbohydrate"></label>
                                     <input asp-for="HealthyRecipes.Total_Carbohydrate" class="form-control" placeholder="">
+                                    <span asp-validation-for="HealthyRecipes.Total_Carbohydrate" class="text-danger"></span>
+
                                 </div>
                             </div>
-                              <div class="col-sm-4">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.prepTime"></label>
                                     <input asp-for="HealthyRecipes.prepTime" class="form-control" placeholder="">
+                                    <span asp-validation-for="HealthyRecipes.prepTime" class="text-danger"></span>
+
                                 </div>
                             </div>
 
-                         
-                            
-                          
+
+
+
                         </div>
-                       <div class="row">
+                        <div class="row">
 
-                             <div class="col-sm-4">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.MealType"></label>
-                                    <select asp-for="HealthyRecipes.MealType" asp-items="@Html.GetEnumSelectList<MealTypeTypeStatus>()">
+                                    <select asp-for="HealthyRecipes.MealType" class="form-select" asp-items="@Html.GetEnumSelectList<MealTypeTypeStatus>()">
                                         <option disabled value="-1">Please Select MealType</option>
-
                                     </select>
+                                    <span asp-validation-for="HealthyRecipes.MealType" class="text-danger"></span>
+
                                 </div>
                             </div>
 
-                             <div class="col-sm-4">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="HealthyRecipes.MealType"></label>
-                                    <select asp-for="HealthyRecipes.MealType" asp-items="@Html.GetEnumSelectList<DieteryTypeStatus>()">
-                                        <option disabled value="-1">Please Select MealType</option>
-
+                                    <label asp-for="HealthyRecipes.DieteryType"></label>
+                                    <select asp-for="HealthyRecipes.DieteryType" class="form-select" asp-items="@Html.GetEnumSelectList<DieteryTypeStatus>()">
+                                        <option disabled value="-1">Please Select DieteryType</option>
                                     </select>
+                                    <span asp-validation-for="HealthyRecipes.DieteryType" class="text-danger"></span>
+
                                 </div>
                             </div>
 
@@ -97,81 +129,103 @@
 
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="HealthyRecipes.services!.Category!.Name"></label>
-                                    <select asp-for="HealthyRecipes.services!.Category!.Id" asp-items="Model.CatogeryName">
+                                    <label asp-for="HealthyRecipes.services!.Category!.Id"></label>
+                                    <select asp-for="HealthyRecipes.services!.Category!.Id" asp-items="Model.CatogeryName" class="form-select">
                                         <option disabled value="-1">Please Select Catogery Name</option>
-
                                     </select>
+                                    <span asp-validation-for="HealthyRecipes.services!.Category!.Id" class="text-danger"></span>
                                 </div>
                             </div>
 
-                       </div>
-                         
-                        <div class="row">   
-                             <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <button class="mx-auto col-auto" type="submit"> Save </button>
-                                </div>
-                            </div>
                         </div>
 
 
+                        <div class="row justify-content-center my-5">
+                            <div data-v-2eea9796="" class="col-md-12">
+                                <div class="field-value">
+                                    <div class="form-label d-flex flex-row align-items-center justify-content-between">
+                                        <div>المكونات</div>
+                                    </div>
+                                    <div class="input-group field-value">
+                                        <input class="form-control" id="txtPreparationMethod" placeholder="اكتب شيئاً..." />
+                                        <button id="BtnAdd" type="button" class="text-nowrap bg-white fw-medium btn btn-outline-primary">
+                                            <i class="bi bi-plus h5 fw-bold"></i>
+                                        </button>
+                                    </div>
+                                    <div class="border-top-0 rounded-bottom overflow-hidden border">
+                                        <div class="p-2 bg-white d-flex gap-1 flex-wrap justify-content-start align-items-start ingredients"
+                                             style="height: 80px"
+                                             id="StepsReviewer"></div>
+                                    </div>
+                                    <div class="small fw-bold text-end mt-1 text-danger d-flex">
+                                        <div class="field-area-visible-on-hover ms-auto" id="error"></div>
+                                    </div>
+                                    <div class="small fw-bold text-end mt-1 text-danger d-flex">
+                                        <span asp-validation-for="HealthyRecipes.PreparationMethod" class="text-danger"></span>
+                                    </div>
+                                    <div class="small fw-bold text-end mt-1 text-muted d-flex">
+                                        <div class="field-area-visible-on-hover ms-auto" id="NoofSteps"></div>
+                                    </div>
+                                </div>
+                                <textarea class="form-control" hidden asp-for="HealthyRecipes.PreparationMethod" id="HealthyRecipes_PreparationMethod"></textarea>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center my-5">
+                            <div data-v-2eea9796="" class="col-md-12">
+                                <div class="field-value">
+                                    <div class="form-label d-flex flex-row align-items-center justify-content-between">
+                                        <div>المكونات</div>
+                                    </div>
+                                    <div class="input-group field-value">
+                                        <input class="form-control"
+                                               id="txtIngredientName"
+                                               placeholder="اكتب شيئاً..." />
+                                        <input class="form-control"
+                                               id="txtIngredientQuantity"
+                                               placeholder="اكتب شيئاً..." />
+                                        <select class="form-control"
+                                                id="txtIngredientUnit"
+                                                placeholder="اكتب شيئاً...">
+                                            <option value="cup">كوب</option>
+                                            <option value="spoon">معلقة</option>
+                                            <option value="gram">غرام</option>
+                                        </select>
 
+                                        <button id="BtnAddIngredients"
+                                                type="button"
+                                                class="text-nowrap bg-white fw-medium btn btn-outline-primary">
+                                            <i class="bi bi-plus h5 fw-bold"></i>
+                                        </button>
 
-                       @* <div class="row">
+                                    </div>
+                                    <div class="border-top-0 rounded-bottom overflow-hidden border">
+                                        <div class="p-2 bg-white d-flex gap-1 flex-wrap justify-content-start align-items-start ingredients"
+                                             style="height: 80px"
+                                             id="ingredients_container"></div>
+                                    </div>
+                                    <div class="small fw-bold text-end mt-1 text-danger d-flex">
+                                        <span asp-validation-for="HealthyRecipes.Ingredients" class="text-danger"></span>
+                                    </div>
+                                    <div class="small fw-bold text-end mt-1 text-muted d-flex">
+                                        <div class="field-area-visible-on-hover ms-auto"
+                                             id="NoFoIngredients"></div>
+
+                                    </div>
+                                </div>
+                                <textarea class="form-control"
+                                          id="txtAreaIngredients" hidden asp-for="HealthyRecipes.Ingredients"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label>Project Size</label>
-                                    <select class="form-select">
-                                        <option>Small</option>
-                                        <option>Medium</option>
-                                        <option>Big</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Starting date</label>
-                                    <input class="datepicker-here form-control" type="text" data-language="en">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Ending date</label>
-                                    <input class="datepicker-here form-control" type="text" data-language="en">
+                                    <button class="mx-auto col-auto btn btn-primary" type="submit"> Save </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label>Enter some Details</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label>Upload project file</label>
-                                    <form class="dropzone dz-clickable " id="singleFileUpload">
-                                        <div class="dz-message needsclick">
-                                            <i class="icon-cloud-up"></i>
-                                            <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                                        </div>
 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="text-end"><a class="btn btn-secondary me-3" href="#">Add</a><a class="btn btn-danger" href="#">Cancel</a></div>
-                            </div>
-                        </div>
-                   *@
-                    
-                    
+
                     </form>
                 </div>
             </div>
@@ -187,5 +241,100 @@
 </div>
 
 @section Scripts {
-@*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-*@}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    <script>
+        let txtPreparationMethod = document.getElementById("txtPreparationMethod");
+        let HealthyRecipes_PreparationMethod = document.getElementById("HealthyRecipes_PreparationMethod");
+        let error = document.getElementById("error");
+        let BtnAdd = document.getElementById("BtnAdd");
+        let NoofSteps = document.getElementById("NoofSteps");
+        let StepsReviewer = document.getElementById("StepsReviewer");
+        var listOfSteps = [];
+        BtnAdd.addEventListener("click", () => {
+            error.innerText = "";
+            HealthyRecipes_PreparationMethod.value = "";
+            if (txtPreparationMethod.value && txtPreparationMethod.value !== "") {
+                if (listOfSteps.indexOf(txtPreparationMethod.value) === -1) {
+                    listOfSteps.push(txtPreparationMethod.value);
+                    StepsReviewer.innerHTML = "";
+                    listOfSteps.forEach((txt, index, array) => { RenderItems(txt); });
+                } else {
+                    error.innerText = "لقد أضفت هذه الخطوة سابقاً"
+                }
+                txtPreparationMethod.value = "";
+            }
+            HealthyRecipes_PreparationMethod.value = listOfSteps.join(",");
+            NoofSteps.innerText = `${listOfSteps.length} الخطوات`;
+        });
+        function RenderItems(text) {
+            let step = document.createElement("span");
+            step.className = "ingredient";
+            step.style.cursor = "pointer";
+            step.textContent = text;
+            step.onclick = () => {
+                StepsReviewer.removeChild(step);
+                listOfSteps.splice(listOfSteps.indexOf(text), 1);
+                HealthyRecipes_PreparationMethod.value = listOfSteps.join(",");
+            };
+
+            StepsReviewer.appendChild(step);
+        }
+
+
+
+        let txtIngredients = document.getElementById("txtIngredientName");
+        let txtIngredientQuantity = document.getElementById("txtIngredientQuantity");
+        let txtIngredientUnit = document.getElementById("txtIngredientUnit");
+        let txtAreaIngredients = document.getElementById("txtAreaIngredients");
+        let BtnAddIngredients = document.getElementById("BtnAddIngredients");
+        let NoFoIngredients = document.getElementById("NoFoIngredients");
+        let ingredients_container = document.getElementById("ingredients_container");
+        var listOfIngredients = [];
+        BtnAddIngredients.addEventListener("click", () => {
+            alert("asdasd");
+            if (txtIngredients.value && txtIngredients.value !== "" && txtIngredientUnit.value && txtIngredientUnit.value !== "" && txtIngredientQuantity.value && txtIngredientQuantity.value !== "") {
+                let isExist = false;
+                listOfIngredients.forEach((txt, index, array) => { if (txt.Name === txtIngredients.value) { isExist = true; return; } })
+                if (!isExist) {
+                    txtAreaIngredients.value = "";
+                    listOfIngredients.push({
+                        Name: txtIngredients.value,
+                        Quantity: txtIngredientQuantity.value,
+                        Unit: txtIngredientUnit.value,
+                    });
+                    ingredients_container.innerHTML = "";
+                    listOfIngredients.forEach((txt, index, array) => {
+                        RenderIngredients(txt);
+                        txtAreaIngredients.value += txt.Name + "," + txt.Quantity + "," + txt.Unit + "\n"
+                    });
+                    txtIngredients.value = "";
+
+                }
+            }
+
+            NoFoIngredients.innerText = `${listOfIngredients.length} المكونات`;
+        });
+
+
+        function RenderIngredients({ Name, Quantity, Unit }) {
+            let ingredient = document.createElement("span");
+            ingredient.className = "ingredient";
+            ingredient.style.cursor = "pointer";
+            ingredient.textContent = Name + " " + Quantity + " " + Unit;
+            ingredient.onclick = () => {
+                ingredients_container.removeChild(ingredient);
+                listOfIngredients.splice(listOfIngredients.indexOf(Name), 1);
+                txtAreaIngredients.value = "";
+                listOfIngredients.forEach((txt, index, array) => {
+                    txtAreaIngredients.value += txt.Name + "," + txt.Quantity + "," + txt.Unit + "\n"
+                });
+            };
+
+            ingredients_container.appendChild(ingredient);
+        }
+    </script>
+}

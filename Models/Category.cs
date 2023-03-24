@@ -7,14 +7,13 @@ namespace liaqati_master.Models
     public class Category
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "رقم المحادثة")]
-
-        public string Id { get; set; }
-        [Required, Display(Name = "اسم الصنف"), StringLength(50, MinimumLength = 2, ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = "رقم الصنف")]
+        public string? Id { get; set; }
+        [Display(Name = "اسم الصنف"), StringLength(50, MinimumLength = 2, ErrorMessage = "هذا الحقل مطلوب")]
 
         public string? Name { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
-        //[Display(Name = "تابع الى")]
+        //[Display(Tilte = "تابع الى")]
         public Target? Target { get; set; }
 
         //public string categoryFor { get; set; }
@@ -23,6 +22,7 @@ namespace liaqati_master.Models
         //public List<Products>? products { get; set; }
         [JsonIgnore]
         public List<Service>? services { get; set; }
+        [JsonIgnore]
 
         public List<Article>? articles { get; set; }
     }

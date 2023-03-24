@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jJ4/7UtmFA+1DOduT24fqLMXanXGWRYe1HXFAzOycaQ=",
+  "Hash": "oS0Fiwl3JlDeEDGWUHesnh+F2Ks57bML2dP66hQOV68=",
   "Source": "liaqati-master",
   "BasePath": "_content/liaqati-master",
   "Mode": "Default",
@@ -13819,6 +13819,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Product\\منتجاتنا.jpg"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\strong-man-training-gym.png",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "Images/strong-man-training-gym.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\strong-man-training-gym.png"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Index.html",

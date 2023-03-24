@@ -13,14 +13,14 @@ namespace liaqati_master.Models
         [Display(Name = "اسم التمرين")]
         public string? Title { get; set; }
         // [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        // [Display(Name = "تاريخ البدء")]
+        // [Display(Tilte = "تاريخ البدء")]
         // [DataType(DataType.DateTime)]
         //public DateTime startDate { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
-        //[Display(Name = "الوصف")]
+        //[Display(Tilte = "الوصف")]
         //public string? Description { get; set; }
         //[Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
-        //[Display(Name = "العنوان فرعي")]
+        //[Display(Tilte = "العنوان فرعي")]
         //public string? SubTitle { get; set; }
 
         [Display(Name = "مدة التمرين")]
