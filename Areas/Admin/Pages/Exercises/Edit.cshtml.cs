@@ -12,11 +12,19 @@ namespace liaqati_master.Pages.Exercises
         private readonly LiaqatiDBContext _context;
 
         private readonly UnitOfWork _UnitOfWork;
+        private readonly IFormFileMang _repoFile;
+        private readonly IFormFileMangVedio _repoFileVedio;
 
-        public EditExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public EditExerciseModel(LiaqatiDBContext context,
+            
+            
+            UnitOfWork unitOfWork, IFormFileMang repoFile,
+             IFormFileMangVedio repoFileVedio)
         {
             _context = context;
             _UnitOfWork = unitOfWork;
+            _repoFile = repoFile;
+            _repoFileVedio= repoFileVedio;
         }
 
        
@@ -62,6 +70,35 @@ namespace liaqati_master.Pages.Exercises
             item.Equipments = Exercise.Equipments;
             item.TraningType = Exercise.TraningType;
             item.Difficulty = Exercise.Difficulty;
+
+
+            string oldurl = Exercise.Image;
+            string oldurlvideo = Exercise.Video;
+
+            if (Exercise.FormFile != null)
+            {
+                item.Image = await _repoFile.Upload(Exercise.FormFile, "Exercise");
+
+            }
+            else
+            {
+                item.Image = oldurl;
+            }
+
+
+
+            if (Exercise.FormFileVedio != null)
+            {
+                item.Video = await _repoFileVedio.Upload(Exercise.FormFileVedio, "Exercise");
+
+            }
+            else
+            {
+                item.Video = oldurlvideo;
+            }
+
+
+
             _UnitOfWork.ExerciseRepository.Update(item);
 
           

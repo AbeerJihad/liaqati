@@ -59,11 +59,10 @@
            modelBuilder.Entity<SportsProgram>().Navigation(p => p.services).AutoInclude();
 
 
-           modelBuilder.Entity<Exercies_program>().Navigation(p => p.sportsProgram).AutoInclude();
 
-            modelBuilder.Entity<SportsProgram>().Navigation(p => p.exercies_Programs).AutoInclude();
+           // modelBuilder.Entity<SportsProgram>().Navigation(p => p.exercies_Programs).AutoInclude();
 
-            modelBuilder.Entity<Exercise>().Navigation(p => p.exercies_Programs).AutoInclude();
+         //   modelBuilder.Entity<Exercise>().Navigation(p => p.exercies_Programs).AutoInclude();
 
 
             modelBuilder.SeedAsync();

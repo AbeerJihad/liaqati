@@ -1,0 +1,18 @@
+﻿@page
+@model liaqati_master.Areas.Admin.Pages.Exercises.ExerciesDetailsModel
+@{
+}
+
+@{
+    Layout = "_Layout1";
+}
+
+<div class="container m-5">
+    <div >
+        <video class=" " style="height:300px; width:100%"  controls>
+            <source src="@Model.Exercise.Video" type="video/mp4">
+            <source src="@Model.Exercise.Video" type="video/ogg">
+            Your browser does not support HTML video.
+        </video>
+    </div>
+</div>

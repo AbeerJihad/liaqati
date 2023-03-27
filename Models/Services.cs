@@ -8,7 +8,7 @@ namespace liaqati_master.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string? Id { get; set; }
 
-        //[Required, Display(Name = "عنوان الخدمة"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءاًأدخل حرفين على الاقل")]
+        [Required, Display(Name = "عنوان الخدمة"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءاًأدخل حرفين على الاقل")]
 
         public string? Title { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]

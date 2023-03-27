@@ -2,7 +2,7 @@
 //var FormMultiSeleected = document.getElementById("FormProgramAdd");
 
 
-
+let myModal;
 
 
 
@@ -10,7 +10,7 @@ function ShowModelAdd(modelid, dataObj) {
 
 
     let modelElm = document.getElementById(modelid);
-    var myModal = new bootstrap.Modal(modelElm, {
+     myModal = new bootstrap.Modal(modelElm, {
         keyboard: false
     })
 
@@ -30,30 +30,40 @@ function ShowModelAdd(modelid, dataObj) {
     myModal.show()
 }
 
-function FinishAddExercise(tag) {
-    var form = tag.parentElement.parentElement.parentElement.parentElement;
 
-
-    form.submit();
+function ShowProgExerModelEdit(modelid, dataObj) {
 
 
 
+    let modelElm = document.getElementById(modelid);
+    var myModal = new bootstrap.Modal(modelElm, {
+        keyboard: false
+    })
+
+    modelElm.querySelectorAll('span.field-validation-error').forEach((obj, i, a) => a[i].innerHTML = '');
+
+
+    if (dataObj !== null) {
+
+        
+        modelElm.querySelector('#ExerciesprogramID').value = dataObj.Id;
+        modelElm.querySelector('#exercies_programSportsProgramId').value = dataObj.sportsProgramId;
+
+
+        modelElm.querySelector('#selectDays').value = dataObj.Day;
+
+        modelElm.querySelector('#selectLength').value = dataObj.Week;
+        modelElm.querySelector('#Exercie').value = dataObj.exerciseId;
+
+        getdata("SelectExercises");
+
+
+    }
+
+   
+    myModal.toggle()
 }
 
-//FormMultiSeleected.addEventListener("submit", MultSelectExercise)
 
 
 
-var select = document.getElementById("SelectExercise");
-
-//function MultSelectExercise(event) {
-
-//    var selected = [];
-//    for (var option of select.options) {
-//        if (option.selected) {
-//            selected.push(option.value);
-//        }
-//    }
-
-
-//}

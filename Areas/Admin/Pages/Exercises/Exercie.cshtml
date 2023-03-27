@@ -1,0 +1,58 @@
+﻿@page
+@model liaqati_master.Areas.Admin.Pages.Exercises.ExercieModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var x in Model.Exercises)
+        {
+            <div class="col-12 col-md-6 col-lg-3 p-2">
+                <div class="card">
+                    <div class="position-relative">
+                        <img src="@x.Image" class="card-img-top" alt="..." />
+                        <img width="40"
+                         class="position-absolute"
+                         style="top: 20px; right: 20px"
+                         src="./Images/heart-svgrepo-com (1).png"
+                         alt=""
+                         srcset="" />
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">@x.Title</h5>
+                        <p class="card-text">@x.Detail</p>
+                        <div class="d-flex justify-content-between">
+                             <div>
+                                <h5 class="d-inline-block fw-bold text-danger align-middle ms-1 mt-2">
+                                    @x.Price $$
+                                </h5>
+                                <img width="20"
+                                 src="./Images/cart-3-svgrepo-com.png"
+                                 alt=""
+                                 srcset="" />
+                            </div>
+                       
+                        
+
+                            <div>
+
+                                <div style="background-color: #ffe9cb"
+                                 class="rounded-3 d-inline-block fw-bold align-middle p-2 text-white">
+                                   ابدأ الان
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+      
+    
+    </div>
+</div>

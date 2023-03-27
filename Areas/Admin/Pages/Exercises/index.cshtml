@@ -128,9 +128,23 @@
                                         <td class="">
                                             <div class="img__box position-relative m-0  rounded-circle">
                                                 <img width="40" alt="Mark" class="position-absolute "
-                                                 src="https://t4.ftcdn.net/jpg/03/64/21/11/240_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" />
+                                                 src="@item.Image" />
                                             </div>
                                         </td>
+                                        @{
+                                            if(item.Video !=null)
+                                            {
+                                                <td>
+
+                                                    <video width="90" controls>
+                                                        <source src="@item.Video" type="video/mp4">
+                                                        <source src="@item.Video" type="video/ogg">
+                                                        Your browser does not support HTML video.
+                                                    </video>
+                                                </td>
+                                            }
+                                        }
+                                       
 
                                         <td>@item.Title</td>
                                         <td>@item.Detail</td>

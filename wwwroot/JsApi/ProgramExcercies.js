@@ -3,9 +3,9 @@ let lstprogramExercies = [];
 var selectElement = document.getElementById("tableBodyApi");
 
 var programid = document.getElementById("IdProg");
-var progid = programid.value;
+var progid = programid.value ;
 
-async function getprogramExercies() {
+async function getprogramExercies( progid ) {
 
     let result = [];
     try {
@@ -24,7 +24,7 @@ async function getprogramExercies() {
     } catch (err) {
         console.error(err);
     }
-    selectElement.innerHTML = "";
+   // selectElement.innerHTML = "";
 
     return result;
 }

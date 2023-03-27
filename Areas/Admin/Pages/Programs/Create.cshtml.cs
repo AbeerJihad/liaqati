@@ -17,7 +17,23 @@ namespace liaqati_master.Pages.Programs
             _UnitOfWork = unitOfWork;
         }
 
-        public List<SelectListItem> CatogeryName { get; set; }
+        public List<SelectListItem> CatogeryName 
+        {
+            get { return  _UnitOfWork.CategoryRepository.GetAllEntity().Select
+                    (a => new SelectListItem
+                                             {
+                                                 Value = a.Id.ToString(),
+                                                 Text = a.Name
+                                             }).ToList();
+                }
+            set { 
+                }
+        } 
+
+
+       
+
+
         public List<SelectListItem> LstExercies { get; set; }
         [BindProperty]
         public string text { get; set; }
@@ -45,11 +61,14 @@ namespace liaqati_master.Pages.Programs
 
         public string Display { get; set; } = "d-none";
 
+        public int btnSave { get; set; }
+
 
         public async Task< IActionResult> OnGet([FromRoute] string? Id)
         {
-            Display = "d-none";
 
+            Display = "d-none";
+            btnSave = 0;
 
 
              SportsProgram sports= _UnitOfWork.SportsProgramRepository.GetByID(Id);
@@ -62,11 +81,7 @@ namespace liaqati_master.Pages.Programs
 
 
 
-            CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
-                                         new SelectListItem
-                                         {
-                                             Value = a.Id.ToString(), Text = a.Name
-                                         }).ToList();
+     
 
 
             LstExercies = _UnitOfWork.ExerciseRepository.GetAllEntity().Select(a =>
@@ -81,7 +96,7 @@ namespace liaqati_master.Pages.Programs
         }
 
 
-     public Exercise getExercise(string id)
+     public  Exercise getExercise(string id)
         {
             Exercise exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
 
@@ -95,14 +110,16 @@ namespace liaqati_master.Pages.Programs
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAddAsync()
         {
+            btnSave = 1;
+
             //if (!ModelState.IsValid)
             //{
             //    return Page();
             //}
 
-      //      SportsProgram.Exercises = _UnitOfWork.ExerciseRepository.GetByMultiID(list);
+            //      SportsProgram.Exercises = _UnitOfWork.ExerciseRepository.GetByMultiID(list);
 
-           
+
 
 
 
@@ -215,6 +232,9 @@ namespace liaqati_master.Pages.Programs
 
         public async Task<IActionResult> OnPostAddSystemAsync(string? id)
         {
+            btnSave = 1;
+
+
             SportsProgram sports=  _UnitOfWork.SportsProgramRepository.GetByID(id);
 
             List<Exercies_program> list= new List<Exercies_program>();

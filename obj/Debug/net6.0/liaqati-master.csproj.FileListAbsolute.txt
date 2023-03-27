@@ -9,6 +9,8 @@ F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\liaqati-mas
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Humanizer.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\MessagePack.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\MessagePack.Annotations.dll
+F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.Build.dll
@@ -56,6 +58,7 @@ F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.V
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\NuGet.Common.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\NuGet.Configuration.dll
 F:\الفصل الرابع\G Project\GitHub\liaqati\bin\Debug\net6.0\NuGet.DependencyResolver.Core.dll

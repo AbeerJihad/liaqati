@@ -1,12 +1,11 @@
 ﻿
 var formAddExercies = document.getElementById("formAddExercies");
+var editModel = document.getElementById("editModel");
 
 
 
 async function addExerciesForm(data) {
 
-    console.log(data);
-    alert("api");
 
     try {
 
@@ -38,7 +37,11 @@ async function addExerciesForm(data) {
 
 
 
+
+
 function FinishAddExercises(tag) {
+
+ 
 
 
     var data = new FormData();
@@ -70,12 +73,22 @@ function FinishAddExercises(tag) {
 
         if (d !== undefined && d.status === 'ok') {
 
-         
+            getdata("SelectExercises");
 
-            formAdd.reset();
+
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'تم الإضافة بنجاح',
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+            formAddExercies.reset();
 
             myModal.toggle();
 
+           
 
         }
         else {

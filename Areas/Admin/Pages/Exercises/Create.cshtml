@@ -10,7 +10,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form  asp-page-handler="Add" method="post" class="form theme-form">
+                    <form enctype="multipart/form-data" asp-page-handler="Add" method="post" class="form theme-form">
                    @*     <div asp-validation-summary="All">
                             
                         </div>*@
@@ -62,7 +62,18 @@
                                     <input asp-for="Exercise.Difficulty" class="form-control" placeholder="">
                                 </div>
                             </div>
-                            
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="Exercise.FormFile"></label>
+                                    <input asp-for="Exercise.FormFile" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                              <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="Exercise.FormFileVedio"></label>
+                                    <input asp-for="Exercise.FormFileVedio" class="form-control" placeholder="">
+                                </div>
+                            </div>
                           
                         </div>
                        

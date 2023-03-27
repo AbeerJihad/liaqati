@@ -28,6 +28,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/Exercie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEV4ZXJjaWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/ExerciesDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEV4ZXJjaWVzRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,6 +92,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZHVjdFxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Programs/Calender.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZ3JhbXNcQ2FsZW5kZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Programs/card.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZ3JhbXNcY2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Programs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZ3JhbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -106,6 +122,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Shared/_Layout1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9MYXlvdXQxLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Users/Index.cshtml]

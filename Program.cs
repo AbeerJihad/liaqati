@@ -1,3 +1,5 @@
+using liaqati_master.Models;
+using liaqati_master.Services.RepoCrud;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,12 +11,22 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllers().AddJsonOptions(op =>
 {
     op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-}); 
+});
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
+
 
 
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("SqlMohammed")));
+
+
+builder.Services.AddScoped<RepoProgram, ProgramMang>();
+builder.Services.AddScoped<IFormFileMang, RepoFile>();
+builder.Services.AddScoped<IFormFileMangVedio, RepoFileVedio>();
 
 builder.Services.AddScoped<GenericRepository<Order>>();
 builder.Services.AddScoped<GenericRepository<User>>();

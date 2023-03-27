@@ -40,7 +40,15 @@ namespace liaqati_master.Models
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "صورة")]
         public string? Image { get; set; }
-        //public string? Video { get; set; }
+
+        [NotMapped]
+        public IFormFile FormFile { get; set; }
+
+        [NotMapped]
+        public IFormFile FormFileVedio { get; set; }
+
+
+        public string? Video { get; set; }
 
         [Display(Name = " سعر التمرين")]
         public double? Price { get; set; }
