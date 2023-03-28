@@ -59,25 +59,25 @@ namespace liaqati_master.Pages.MealPlan
 
             MealPlans.Id = Guid_Id.Id_Guid();
 
-            MealPlans.services!.Id = MealPlans.Id;
+            MealPlans.Services!.Id = MealPlans.Id;
 
-            //MealPlans.services.MealPlansId = MealPlans.Id;
+            //MealPlans.Services.MealPlansId = MealPlans.Id;
 
-            // MealPlans.servicesId = MealPlans.Id;
+            // MealPlans.ServicesId = MealPlans.Id;
 
-            var id = MealPlans.services!.Category!.Id;
+            var id = MealPlans.Services!.Category!.Id;
             if (id != null)
             {
-                MealPlans.services.CategoryId = id;
+                MealPlans.Services.CategoryId = id;
 
             }
-            MealPlans.services.Category = null;
+            MealPlans.Services.Category = null;
 
 
 
 
             _UnitOfWork.MealPlansRepository.Insert(MealPlans);
-            _UnitOfWork.ServiceRepository.Insert(MealPlans.services);
+            _UnitOfWork.ServiceRepository.Insert(MealPlans.Services);
 
 
             _UnitOfWork.Save();

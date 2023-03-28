@@ -1,8 +1,9 @@
-﻿using liaqati_master.Model;
+﻿using liaqati_master.ViewModels;
+using Microsoft.Office.Interop.Excel;
 
 namespace liaqati_master.Services.Repositories
 {
-    public class IMPProducts : IRepository<Products>
+    public class IMPProducts : IRepository<Product>
     {
         private readonly LiaqatiDBContext _context;
         public IMPProducts(LiaqatiDBContext context)
@@ -27,9 +28,21 @@ namespace liaqati_master.Services.Repositories
             }
         }
 
-        public Task<Products> AddEntity(Products Entity)
+
+        public Task<Product> AddEntity(Product Entity)
         {
             throw new NotImplementedException();
+        }
+        public async Task ReadFromExcel()
+        {
+
+            Application application = new();
+
+
+            Workbook wb = new();
+            Worksheet worksheet = new();
+
+
         }
 
         public async Task<SportsProgram> DeleteEntity(SportsProgram Entity)
@@ -55,7 +68,7 @@ namespace liaqati_master.Services.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Products> DeleteEntity(Products Entity)
+        public Task<Product> DeleteEntity(Product Entity)
         {
             throw new NotImplementedException();
         }
@@ -80,22 +93,22 @@ namespace liaqati_master.Services.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Products> UpdateEntity(Products Entity)
+        public Task<Product> UpdateEntity(Product Entity)
         {
             throw new NotImplementedException();
         }
 
-        Task<Products> IRepository<Products>.DeleteEntity(int Id)
+        Task<Product> IRepository<Product>.DeleteEntity(int Id)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<Products> IRepository<Products>.GetAll()
+        IEnumerable<Product> IRepository<Product>.GetAll()
         {
             throw new NotImplementedException();
         }
 
-        Products IRepository<Products>.GetStudentByID(int EntityId)
+        Product IRepository<Product>.GetStudentByID(int EntityId)
         {
             throw new NotImplementedException();
         }

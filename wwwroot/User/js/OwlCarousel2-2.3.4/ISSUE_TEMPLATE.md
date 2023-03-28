@@ -4,7 +4,7 @@
 3. Further steps, etc.
 
 _____________
-### `<url>` - a link to the reduced test case. You can use one of the following services:
+### `<url>` - a link to the reduced test case. You can use one of the following Services:
 - https://codepen.io/anon/pen/prvbMp
 - https://jsfiddle.net/h8x8bvn9/2/) 
 - https://jsbin.com/bojonaceve/2/edit?html,js,output

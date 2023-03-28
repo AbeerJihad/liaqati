@@ -1,15 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 
-namespace liaqati_master.Pages.Programs
+namespace liaqati_master.Areas.Admin.Pages.Programs
 {
-    public class indexProgramModel : PageModel
+    public class IndexProgramModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;
-        
-        public indexProgramModel(UnitOfWork UnitOfWork)
+
+        public IndexProgramModel(UnitOfWork UnitOfWork)
         {
             _unitOfWork = UnitOfWork;
         }
@@ -20,7 +18,7 @@ namespace liaqati_master.Pages.Programs
             if (_unitOfWork != null)
             {
 
-                Programs =  _unitOfWork.SportsProgramRepository.GetAllEntity();
+                Programs = _unitOfWork.SportsProgramRepository.GetAllEntity();
             }
         }
     }

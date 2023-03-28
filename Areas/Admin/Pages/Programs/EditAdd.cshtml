@@ -1,0 +1,262 @@
+﻿@page
+@model liaqati_master.Areas.Admin.Pages.Programs.EditAddModel
+@{
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <form id="FormProgramAdd" asp-page-handler="AddSystem" method="post" class="form theme-form">
+                        @*     <div asp-validation-summary="All">
+
+                        </div>*@
+
+                        <input asp-for="SportsPrograms.Id" hidden />
+
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label asp-for="SportsPrograms.Services!.Title"></label>
+                                    <input asp-for="SportsPrograms.Services!.Title" class="form-control" placeholder="">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label asp-for="SportsPrograms.Services!.Price"></label>
+                                    <input asp-for="SportsPrograms.Services!.Price" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label asp-for="SportsPrograms.Services!.Description"></label>
+                                    <input asp-for="SportsPrograms.Services!.Description" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="SportsPrograms.Length"></label>
+                                    <select id="selectLength">
+                                        <option value="-1">ادخل عدد اسابيع النظام الرياضي</option>
+                                        <option value="1">اسبوع</option>
+                                        <option value="2">اسبوعين</option>
+                                        <option value="4">  اربعة اسابيع</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="SportsPrograms.Difficulty"></label>
+                                    <input asp-for="SportsPrograms.Difficulty" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="SportsPrograms.BodyFocus"></label>
+                                    <input asp-for="SportsPrograms.BodyFocus" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="SportsPrograms.TrainingType"></label>
+                                    <input asp-for="SportsPrograms.TrainingType" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            @*  <div class="col-sm-4">
+                            <div class="mb-3">
+                            <label asp-for="SportsPrograms.Services!.Category!.Name"></label>
+                            <select asp-for="SportsPrograms.Services!.Category!.Id" asp-items="Model.CatogeryName">
+                            <option disabled value="-1">Please Select Catogery Name</option>
+
+                            </select>
+                            </div>
+                            </div>*@
+
+
+
+                        </div>
+                        <div class="container-lg my-5 d-none">
+                            <div class="row justify-content-center my-5">
+                                <div data-v-2eea9796="" class="col-md-12">
+                                    <div class="field-value">
+                                        <div class="form-label d-flex flex-row align-items-center justify-content-between">
+                                            <div>المكونات</div>
+                                        </div>
+                                        <div class="input-group field-value">
+                                            <div class="form-control">
+                                                <div class="mb-3">
+                                                    <label> الاسابيع</label>
+                                                    <select id="selectLengthWeek" asp-for="Exercies_program.Week">
+                                                        <option disabled value="-1">اختر الاسبوع</option>
+                                                        @for (int x = 1; x <= Model.SportsPrograms.Length; x++)
+                                                        {
+                                                            <option value="@x"> الاسبوع @x</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" asp-for="Exercies_program.Day"
+                                                    id="selectDays"
+                                                    placeholder="اكتب شيئاً...">
+                                                <option value="1">اليوم الاول</option>
+                                                <option value="2">اليوم الثاني</option>
+                                                <option value="3">اليوم الثالث</option>
+                                                <option value="4">اليوم الرابع</option>
+                                                <option value="5">اليوم الخامس</option>
+                                                <option value="6">اليوم السادس</option>
+                                                <option value="7">اليوم السابع</option>
+                                            </select>
+
+                                            <div class="form-control">
+                                                <label> اختر التمارين الخاصة بالنظام الرياضي</label>
+                                                <select asp-for="list" id="SelectExercise" aria-label="Default select example" class="js-example-rtl " multiple="multiple">
+                                                </select>
+
+
+
+                                            </div>
+                                            <button id="BtnAdd"
+                                                    class="text-nowrap bg-white fw-medium btn btn-outline-primary">
+                                                <i class="bi bi-plus h5 fw-bold"></i>
+                                            </button>
+                                            <button id="BtnClipboard"
+                                                    class="text-nowrap bg-white fw-medium btn btn-outline-primary rounded-start rounded-0">
+                                                <i class="bi bi-clipboard h5 fw-bold"></i>
+                                            </button>
+                                        </div>
+                                        <div class="border-top-0 rounded-bottom overflow-hidden border">
+                                            <div class="p-2 bg-white d-flex gap-1 flex-wrap justify-content-start align-items-start ingredients"
+                                                 style="height: 80px"
+                                                 id="ingredients_container"></div>
+                                        </div>
+                                        <div class="small fw-bold text-end mt-1 text-muted d-flex">
+                                            <div class="field-area-visible-on-hover ms-auto"
+                                                 id="NoFoIngredients"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        @*    <div class="row">
+                        <div class="col-sm-4">
+                        <div class="mb-3">
+                        <label> اختر التمارين الخاصة بالنظام الرياضي</label>
+                        <select id="SelectExercise" aria-label="Default select example" class="js-example-rtl " multiple="multiple">
+                        </select>
+
+
+                        </div>
+                        </div>
+                        </div>
+
+                        *@
+
+
+                        @*    @for (int i = 0; i < Model.SportsPrograms.Exercies_Programs?.Count; i++)
+                        {
+
+                        <input asp-for="@Model.SportsPrograms.Exercies_Programs[i].exerciseId" />
+                        <div id="rowExerciesForm" class="row">
+                        <div class="col">
+                        <input asp-for="Exercies_program[0].Day" placeholder="اي يوم من الايام"/>
+                        </div>
+                        <div class="col">
+                        <input asp-for="Exercies_program[0].Week" placeholder="اي اسبوع من الاسابيع" />
+                        </div>
+                        <div class="col">
+                        <select id="selExForm" asp-for="list" placeholder="التمرين الخاص باليوم">
+
+                        </select>
+                        </div>
+                        </div>
+                        }
+
+                        *@
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*<div class="row">
+    <div class="col-sm-4">
+        <div class="mb-3">
+            <button class="mx-auto col-auto" type="submit"> Save </button>
+        </div>
+    </div>
+</div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="cointainer">
+    @*  <div id="rowExerciesForm" class="row">
+    <div class="col">
+    <input asp-for="Exercies_program[0].Day" placeholder="اي يوم من الايام" />
+    </div>
+    <div class="col">
+    <input asp-for="Exercies_program[0].Week" placeholder="اي اسبوع من الاسابيع" />
+    </div>
+    <div class="col">
+    <select id="selExForm" asp-for="list" placeholder="التمرين الخاص باليوم">
+    </select>
+    </div>
+    </div>
+    <div id="rowExerciesForm" class="row">
+    <div class="col">
+    <input asp-for="Exercies_program[Model.index+3].Day" placeholder="اي يوم من الايام"/>
+    </div>
+    <div class="col">
+    <input asp-for="Exercies_program[Model.index+3].Week" placeholder="اي اسبوع من الاسابيع" />
+    </div>
+    <div class="col">
+    <select id="selExForm" asp-for="list" placeholder="التمرين الخاص باليوم">
+
+    </select>
+    </div>
+    </div>
+    *@
+</div>
+
+
+
+@section Scripts {
+
+    <script src="~/javascript/programs.js"></script>
+    <script defer src="~/jsapi/exerciseapi.js"></script>
+
+
+                 }

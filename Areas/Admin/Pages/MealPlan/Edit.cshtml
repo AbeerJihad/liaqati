@@ -4,7 +4,7 @@
 }
 
 <h4>Meal Plane</h4>
-<hr />  
+<hr />
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -17,22 +17,22 @@
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.services!.Title"></label>
-                                    <input asp-for="MealPlans.services!.Title" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.Services!.Title"></label>
+                                    <input asp-for="MealPlans.Services!.Title" class="form-control" placeholder="">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.services!.Price"></label>
-                                    <input asp-for="MealPlans.services!.Price" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.Services!.Price"></label>
+                                    <input asp-for="MealPlans.Services!.Price" class="form-control" placeholder="">
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.services!.Description"></label>
-                                    <input asp-for="MealPlans.services!.Description" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.Services!.Description"></label>
+                                    <input asp-for="MealPlans.Services!.Description" class="form-control" placeholder="">
                                 </div>
                             </div>
 
@@ -40,14 +40,14 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.mealType"></label>
-                                    <input asp-for="MealPlans.mealType" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.MealType"></label>
+                                    <input asp-for="MealPlans.MealType" class="form-control" placeholder="">
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.dietaryType"></label>
-                                    <input asp-for="MealPlans.dietaryType" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.DietaryType"></label>
+                                    <input asp-for="MealPlans.DietaryType" class="form-control" placeholder="">
                                 </div>
                             </div>
 
@@ -59,14 +59,14 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.avgRecipeTime"></label>
-                                    <input asp-for="MealPlans.avgRecipeTime" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.AvgRecipeTime"></label>
+                                    <input asp-for="MealPlans.AvgRecipeTime" class="form-control" placeholder="">
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.services!.Category!.Name"></label>
-                                    <select asp-for="MealPlans.services!.Category!.Id" asp-items="Model.CatogeryName">
+                                    <label asp-for="MealPlans.Services!.Category!.Name"></label>
+                                    <select asp-for="MealPlans.Services!.Category!.Id" asp-items="Model.CatogeryName">
                                         <option disabled value="-1">Please Select Catogery Name</option>
 
                                     </select>
@@ -154,6 +154,6 @@
 </div>
 
 @section Scripts {
-@*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 *@
 }

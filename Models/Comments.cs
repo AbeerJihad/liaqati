@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
     public class Comments
     {
@@ -18,7 +15,7 @@ namespace liaqati_master.Models
         [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "التعليق على")]
         public string commentFor { get; set; }
-        [Display(Name = "الرد على"),StringLength(50, MinimumLength = 2, ErrorMessage = "الحد الاقصى 50 حرف")]
+        [Display(Name = "الرد على"), StringLength(50, MinimumLength = 2, ErrorMessage = "الحد الاقصى 50 حرف")]
         public string repliedFor { get; set; }
         [Display(Name = "رقم المقالة")]
         public string? articlesId { get; set; }

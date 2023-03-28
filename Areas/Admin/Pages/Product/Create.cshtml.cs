@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -42,7 +41,7 @@ namespace liaqati_master.Pages.Product
 
 
         [BindProperty]
-        public Products Products { get; set; }
+        public Models.Product Products { get; set; }
 
 
 
@@ -59,25 +58,25 @@ namespace liaqati_master.Pages.Product
 
             Products.Id = Guid_Id.Id_Guid();
 
-            Products.services!.Id = Products.Id;
+            Products.Services!.Id = Products.Id;
 
-            //  Products.services.ProductsId = Products.Id;
+            //  Products.Services.ProductsId = Products.Id;
 
-            // MealPlans.servicesId = MealPlans.Id;
+            // MealPlans.ServicesId = MealPlans.Id;
 
-            var id = Products.services!.Category!.Id;
+            var id = Products.Services!.Category!.Id;
             if (id != null)
             {
-                Products.services.CategoryId = id;
+                Products.Services.CategoryId = id;
 
             }
-            Products.services.Category = null;
+            Products.Services.Category = null;
 
 
 
 
             _UnitOfWork.ProductsRepository.Insert(Products);
-            _UnitOfWork.ServiceRepository.Insert(Products.services);
+            _UnitOfWork.ServiceRepository.Insert(Products.Services);
 
 
             _UnitOfWork.Save();

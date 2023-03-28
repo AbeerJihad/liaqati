@@ -14,7 +14,7 @@
             modelBuilder.Entity<User>().HasData(
                 Database.GetListOfUsers()
              );
-            modelBuilder.Entity<Products>().HasData(
+            modelBuilder.Entity<Product>().HasData(
               Database.GetListOfProducts()
            );
 
@@ -31,6 +31,9 @@
             modelBuilder.Entity<MealPlans>().HasData(
                Database.GetListOfMealPlan()
             );
+            modelBuilder.Entity<Order_Details>().HasData(
+            Database.GetListOfOrdersDetails()
+         );
 
 
 

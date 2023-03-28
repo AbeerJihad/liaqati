@@ -17284,22 +17284,22 @@ table.dataTable.display tbody tr {
         margin-top: 15px;
     }
 
-ul.pro-services li svg {
+ul.pro-Services li svg {
     color: #8763b3;
     margin-right: 15px;
 }
 
-ul.pro-services li h5 {
+ul.pro-Services li h5 {
     font-weight: 600;
     font-size: 16px;
     margin-bottom: 5px;
 }
 
-ul.pro-services li p {
+ul.pro-Services li p {
     font-size: 14px;
 }
 
-ul.pro-services li:nth-child(n+2) {
+ul.pro-Services li:nth-child(n+2) {
     margin-top: 20px;
 }
 
@@ -17383,7 +17383,7 @@ ul.pro-services li:nth-child(n+2) {
         margin-top: 10px;
     }
 
-    ul.pro-services li:nth-child(n+2) {
+    ul.pro-Services li:nth-child(n+2) {
         margin-top: 10px;
     }
 }
@@ -17521,7 +17521,7 @@ ul.pro-services li:nth-child(n+2) {
 }
 
 @media (max-width: 420px) {
-    ul.pro-services li h5 {
+    ul.pro-Services li h5 {
         margin-bottom: 0;
     }
 
@@ -40452,7 +40452,7 @@ span.twitter-typeahead .tt-suggestion {
     margin-right: 10px;
 }
 
-.rtl ul.pro-services li svg {
+.rtl ul.pro-Services li svg {
     margin-left: 15px;
     margin-right: unset;
 }

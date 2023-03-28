@@ -20,22 +20,23 @@
         private GenericRepository<MealPlans> mealPlansRepository;
         private GenericRepository<Service> serviceRepository;
         private GenericRepository<Category> categoryRepository;
-        private GenericRepository<Products> productsRepository;
-        private GenericRepository<HealthyRecipes> healthyRecipesRepository;
+        private GenericRepository<Product> productsRepository;
+        private GenericRepository<HealthyRecipe> healthyRecipesRepository;
         private GenericRepository<Exercise> exerciseRepository;
         private GenericRepository<Article> articleRepository;
+        private GenericRepository<Exercies_program> programexerciseRepository;
 
         public UnitOfWork(LiaqatiDBContext context)
         {
             this.context = context;
         }
 
-        public GenericRepository<Products> ProductsRepository
+        public GenericRepository<Product> ProductsRepository
         {
             get
             {
 
-                productsRepository ??= new GenericRepository<Products>(context);
+                productsRepository ??= new GenericRepository<Product>(context);
                 return productsRepository;
             }
         }
@@ -61,13 +62,22 @@
 
 
 
-        public GenericRepository<HealthyRecipes> HealthyRecipesRepository
+        public GenericRepository<HealthyRecipe> HealthyRecipesRepository
         {
             get
             {
 
-                healthyRecipesRepository ??= new GenericRepository<HealthyRecipes>(context);
+                healthyRecipesRepository ??= new GenericRepository<HealthyRecipe>(context);
                 return healthyRecipesRepository;
+            }
+        }
+        public GenericRepository<Exercies_program> ProgramexerciseRepository
+        {
+            get
+            {
+
+                programexerciseRepository ??= new GenericRepository<Exercies_program>(context);
+                return programexerciseRepository;
             }
         }
 

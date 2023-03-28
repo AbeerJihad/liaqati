@@ -9,12 +9,12 @@ namespace liaqati_master.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم الطلبية")]
-        public string Id { get; set; }
+        public string? Id { get; set; }
         //  [Required, Display(Tilte = "Last Tilte"), StringLength(50, MinimumLength = 2, ErrorMessage = "Please enter at least two characters")]
         //  public string Title { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "تاريخ الطلبية")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime? OrderDate { get; set; }
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]

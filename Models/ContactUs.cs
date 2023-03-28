@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
     public class ContactUs
     {

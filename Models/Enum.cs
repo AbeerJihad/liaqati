@@ -3,9 +3,5 @@
     public class Enum
     {
     }
-    public enum Gender {Female , Male }
-
-
-
-
+    public enum Gender { Female, Male }
 }

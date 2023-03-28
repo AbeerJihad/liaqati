@@ -14,7 +14,7 @@ namespace liaqati_master.Pages.Product
             _unitOfWork = UnitOfWork;
         }
 
-        public IList<Products> Products { get; set; }
+        public IList<Models.Product> Products { get; set; }
         public async Task OnGetAsync()
         {
             if (_unitOfWork != null)

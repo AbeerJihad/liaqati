@@ -18,6 +18,6 @@ namespace liaqati_master.Models
         [Display(Name = "رقم الوصفة")]
         public string? HealthyRecipesId { get; set; }
 
-        public HealthyRecipes? HealthyRecipes { get; set; }
+        public HealthyRecipe? HealthyRecipes { get; set; }
     }
 }

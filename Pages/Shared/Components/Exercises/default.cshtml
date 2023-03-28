@@ -1,25 +1,27 @@
 ﻿@model List<Exercise>
-<div class="container mt-5">
-    <div id="rowExercisesIndex" class="row">
-        <div class="d-flex">
-            <div class="mx-3"
-                 style="height: 40px; width: 4px; background-color: #b9aff5"></div>
-            <h2 class="col-auto">تمارين رياضية</h2>
-            <div class="mt-4 mx-4 col"
-                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
-        </div>
-        @foreach (var item in Model)
-        {
-            <partial name="_exerciseCard" model="@item" />
 
-        }
-
-        <div class="d-flex">
-            <div class="mt-4 mx-4 col"
-                 style="height: 2px; width: 50%; background-color: #E4DFFF"></div>
-            <button class="btn_Exercises_duration col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
-                لمشاهدة المزيد من التمارين
-            </button>
+@if (Model.Count > 0)
+{
+    <div class="container mt-5">
+        <div id="rowExercisesIndex" class="row">
+            <div class="d-flex">
+                <div class="mx-3"
+                     style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+                <h2 class="col-auto">تمارين رياضية</h2>
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <partial name="_exerciseCard" model="@item" />
+            }
+            <div class="d-flex">
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 50%; background-color: #E4DFFF"></div>
+                <button class="btn_Exercises_duration col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
+                    لمشاهدة المزيد من التمارين
+                </button>
+            </div>
         </div>
     </div>
-</div>
+}

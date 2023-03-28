@@ -48,7 +48,7 @@
                     Wieght = 120,
                     Height = 120,
                     Gender = Gender.Male,
-                    Photograph = "ssssssssssssssss",
+                    Photo = "ssssssssssssssss",
                     Cover_photo = "sssssssssssssssa",
                     Fname = "sssssssssssssss",
                     Lname = "sssssssssssssss",
@@ -63,7 +63,22 @@
                 new Order()
                 {
                     Id = "1",
-                    OrderDate = new DateTime(),
+                    OrderDate = new  DateTime(year:2021,month:5,1 ),
+                    UserIdResiver = 1,
+                    UserIdDelivery = 1,
+                    UserId = "1",
+                    TotalPrice=200,
+                }, new Order()
+                {
+                    Id = "2",
+                    OrderDate = new DateTime(year:2021,month:5,1 ),
+                    UserIdResiver = 1,
+                    UserIdDelivery = 1,
+                    UserId = "1"
+                } ,new Order()
+                {
+                    Id = "3",
+                    OrderDate = new DateTime(year:2021,month:5,1 ),
                     UserIdResiver = 1,
                     UserIdDelivery = 1,
                     UserId = "1"
@@ -74,15 +89,33 @@
         {
             return new List<Order_Details>()
             {
-                new Order_Details()
-                {
-                    Id = "1",
-                    OrderId="1",
-                    Price=100,
-                    RateId=1,
-
-
-                }
+                new Order_Details(){Id = "1",OrderId="1",Price=100,RateId=1,Quantity=2,ServiceId="21"},
+                new Order_Details(){Id = "2",OrderId="1",Price=100,RateId=1,Quantity=2,ServiceId="21"},
+                new Order_Details(){Id = "3",OrderId="1",Price=100,RateId=1,Quantity=2 , ServiceId = "21"},
+                new Order_Details(){Id = "4",OrderId="2",Price=100,RateId=1,Quantity=7  , ServiceId="31"},
+                new Order_Details(){Id = "5",OrderId="2",Price=100,RateId=1,Quantity=5, ServiceId = "31"},
+                new Order_Details(){Id = "6",OrderId="2",Price=100,RateId=1,Quantity=3, ServiceId = "24"},
+                new Order_Details(){Id = "7",OrderId="3",Price=100,RateId=1,Quantity=2 , ServiceId = "23"},
+                new Order_Details(){Id = "8",OrderId="3",Price=100,RateId=1,Quantity=4, ServiceId = "23"},
+                new Order_Details(){Id = "9",OrderId="3",Price=100,RateId=1,Quantity = 10 , ServiceId = "23"},
+                new Order_Details(){Id = "10",OrderId="1",Price=100,RateId=1,Quantity=2,ServiceId="23"},
+                new Order_Details(){Id = "11",OrderId="1",Price=100,RateId=1,Quantity=2,ServiceId="23"},
+                new Order_Details(){Id = "12",OrderId="1",Price=100,RateId=1,Quantity=2 , ServiceId = "23"},
+                new Order_Details(){Id = "13",OrderId="2",Price=100,RateId=1,Quantity=7  , ServiceId="24"},
+                new Order_Details(){Id = "14",OrderId="2",Price=100,RateId=1,Quantity=5, ServiceId = "24"},
+                new Order_Details(){Id = "15",OrderId="2",Price=100,RateId=1,Quantity=3, ServiceId = "24"},
+                new Order_Details(){Id = "16",OrderId="3",Price=100,RateId=1,Quantity=2 , ServiceId = "24"},
+                new Order_Details(){Id = "17",OrderId="3",Price=100,RateId=1,Quantity=4, ServiceId = "24"},
+                new Order_Details(){Id = "18",OrderId="3",Price=100,RateId=1,Quantity = 10 , ServiceId = "24"},
+                new Order_Details(){Id = "19",OrderId="1",Price=100,RateId=1,Quantity=2,ServiceId="31"},
+                new Order_Details(){Id = "20",OrderId="1",Price=100,RateId=1,Quantity=2,ServiceId="31"},
+                new Order_Details(){Id = "21",OrderId="1",Price=100,RateId=1,Quantity=2 , ServiceId = "31"},
+                new Order_Details(){Id = "22",OrderId="2",Price=100,RateId=1,Quantity=7  , ServiceId="31"},
+                new Order_Details(){Id = "23",OrderId="2",Price=100,RateId=1,Quantity=5, ServiceId = "32"},
+                new Order_Details(){Id = "24",OrderId="2",Price=100,RateId=1,Quantity=3, ServiceId = "32"},
+                new Order_Details(){Id = "25",OrderId="3",Price=100,RateId=1,Quantity=2 , ServiceId = "32"},
+                new Order_Details(){Id = "26",OrderId="3",Price=100,RateId=1,Quantity=4, ServiceId = "32"},
+                new Order_Details(){Id = "27",OrderId="3",Price=100,RateId=1,Quantity = 10 , ServiceId = "32"},
             };
         }
         public static List<Achievements> GetListOfAchievements()
@@ -372,36 +405,31 @@
                 }
             };
         }
-        public static List<Products> GetListOfProducts()
+        public static List<Product> GetListOfProducts()
         {
-            return new List<Products>()
+            return new List<Product>()
             {
-                new Products()
-                {
-                    Id = "21",
-                    imgUrl = "/Images/Product/Dumbbell3.jfif",
-                    Discount = 20
-                },
-                new Products() { Id = "22", imgUrl = "/Images/Product/LiveupOlympic.jpg", },
-                new Products() { Id = "23", imgUrl = "/Images/Product/Curved.jpg", },
-                new Products() { Id = "24", imgUrl = "/Images/Product/Spinner.jpg" },
-                new Products() { Id = "25", imgUrl = "/Images/Product/Liveup.jpg", },
-                new Products() { Id = "26", imgUrl = "/Images/Product/LiveupOlympic.jpg", },
-                new Products() { Id = "27", imgUrl = "/Images/Product/Bowflex.jpg", },
-                new Products() { Id = "28", imgUrl = "/Images/Product/Brobantle.jfif", },
-                new Products() { Id = "29", imgUrl = "/Images/Product/Adjustable.jpg", },
-                new Products() { Id = "30", imgUrl = "/Images/Product/rower.jpg", },
-                new Products() { Id = "31", imgUrl = "/Images/Product/omega.jpg", },
-                new Products() { Id = "32", imgUrl = "/Images/Product/Muscletech.jpg", },
-                new Products() { Id = "33", imgUrl = "/Images/Product/Ultima.jpg", },
-                new Products() { Id = "34", imgUrl = "/Images/Product/krilloil.jpg", },
-                new Products() { Id = "35", imgUrl = "/Images/Product/anavite.jpg", },
-                new Products() { Id = "36", imgUrl = "/Images/Product/Trace.jpg", },
-                new Products() { Id = "37", imgUrl = "/Images/Product/BodyBio.jpg", },
-                new Products() { Id = "38", imgUrl = "/Images/Product/Vega.jpg", },
-                new Products() { Id = "39", imgUrl = "/Images/Product/HydrationMultiplier.jpg", },
-                new Products() { Id = "40", imgUrl = "/Images/Product/NutriBiotic.jpg", },
-                new Products() { Id = "41", imgUrl = "/Images/Product/krilloil.jpg" }
+                new Product(){Id = "21",imgUrl = "/Images/Product/Dumbbell3.jfif",Discount = 20,},
+                new Product() { Id = "22", imgUrl = "/Images/Product/LiveupOlympic.jpg", },
+                new Product() { Id = "23", imgUrl = "/Images/Product/Curved.jpg", },
+                new Product() { Id = "24", imgUrl = "/Images/Product/Spinner.jpg" },
+                new Product() { Id = "25", imgUrl = "/Images/Product/Liveup.jpg", },
+                new Product() { Id = "26", imgUrl = "/Images/Product/LiveupOlympic.jpg", },
+                new Product() { Id = "27", imgUrl = "/Images/Product/Bowflex.jpg", },
+                new Product() { Id = "28", imgUrl = "/Images/Product/Brobantle.jfif", },
+                new Product() { Id = "29", imgUrl = "/Images/Product/Adjustable.jpg", },
+                new Product() { Id = "30", imgUrl = "/Images/Product/rower.jpg", },
+                new Product() { Id = "31", imgUrl = "/Images/Product/omega.jpg", },
+                new Product() { Id = "32", imgUrl = "/Images/Product/Muscletech.jpg", },
+                new Product() { Id = "33", imgUrl = "/Images/Product/Ultima.jpg", },
+                new Product() { Id = "34", imgUrl = "/Images/Product/krilloil.jpg", },
+                new Product() { Id = "35", imgUrl = "/Images/Product/anavite.jpg", },
+                new Product() { Id = "36", imgUrl = "/Images/Product/Trace.jpg", },
+                new Product() { Id = "37", imgUrl = "/Images/Product/BodyBio.jpg", },
+                new Product() { Id = "38", imgUrl = "/Images/Product/Vega.jpg", },
+                new Product() { Id = "39", imgUrl = "/Images/Product/HydrationMultiplier.jpg", },
+                new Product() { Id = "40", imgUrl = "/Images/Product/NutriBiotic.jpg", },
+                new Product() { Id = "41", imgUrl = "/Images/Product/krilloil.jpg" }
             };
         }
     }
