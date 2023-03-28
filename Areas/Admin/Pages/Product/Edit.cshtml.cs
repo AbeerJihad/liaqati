@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace liaqati_master.Pages.Product
 {
@@ -21,17 +19,17 @@ namespace liaqati_master.Pages.Product
         public List<SelectListItem> CatogeryName { get; set; }
 
 
-        [BindProperty(SupportsGet =true)]
-        public Products Product { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public Models.Product Product { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var product =  _UnitOfWork.ProductsRepository.GetByID(id);
+            var product = _UnitOfWork.ProductsRepository.GetByID(id);
             if (product == null)
             {
                 return NotFound();
@@ -59,29 +57,29 @@ namespace liaqati_master.Pages.Product
             //    return Page();
             //}
 
-            var id= Product.Id;
+            var id = Product.Id;
 
-        var item= _UnitOfWork.ProductsRepository.GetByID(id);
-            item.services!.Title = Product.services!.Title;
-            item.services.Price = Product.services.Price;
-            item.services.Description = Product.services.Description;
+            var item = _UnitOfWork.ProductsRepository.GetByID(id);
+            item.Services!.Title = Product.Services!.Title;
+            item.Services.Price = Product.Services.Price;
+            item.Services.Description = Product.Services.Description;
             item.Discount = Product.Discount;
 
 
-            var cid = Product.services!.Category!.Id;
+            var cid = Product.Services!.Category!.Id;
             if (id != null)
             {
-                Product.services.CategoryId = id;
+                Product.Services.CategoryId = id;
 
             }
 
-            item.services.Category = null;
+            item.Services.Category = null;
 
 
             _UnitOfWork.ProductsRepository.Update(item);
 
-          
-          //  _context.Attach(MealPlans).State = EntityState.Modified;
+
+            //  _context.Attach(MealPlans).State = EntityState.Modified;
 
             try
             {

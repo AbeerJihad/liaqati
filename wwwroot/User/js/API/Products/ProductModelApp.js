@@ -29,7 +29,7 @@ function RenderCards(product) {
               height="200"
               class="position-absolute w-100 h-100 start-0 top-0 rounded-top"
               alt="..."
-              onclick="alert("${product.services.title}")"
+              onclick="alert("${product.Services.title}")"
               style="object-fit: cover"
             />
             <button
@@ -41,7 +41,7 @@ function RenderCards(product) {
           </div>
           <div class="card-body g-2 p-2 mt-0">
             <div class="d-flex m-2 justify-content-between">
-              <p class="card-text">#${product.services.category.name} </p>
+              <p class="card-text">#${product.Services.category.name} </p>
               <div class="rating-section">
                 <i class="bi bi-star-fill text-secondary star"></i>
                 <i class="bi bi-star-fill text-secondary star"></i>
@@ -53,8 +53,8 @@ function RenderCards(product) {
             <div class="justify-content-between">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
-                  <p class="p-0 m-0 text-success">${product.services.title}</p>
-                  <h5 class="fw-bold text-danger mt-3">$${product.services.price}</h5>
+                  <p class="p-0 m-0 text-success">${product.Services.title}</p>
+                  <h5 class="fw-bold text-danger mt-3">$${product.Services.price}</h5>
                 </div>
                 <button
                   style="width: 70px; height: 70px"

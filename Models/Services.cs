@@ -29,10 +29,10 @@ namespace liaqati_master.Models
         //[Display(Tilte = "رقم الوصفة الصحية")]
         //public string? HealthyRecipesId { get; set; }
 
-        public HealthyRecipes? HealthyRecipes { get; set; }
+        public HealthyRecipe? HealthyRecipes { get; set; }
         //[Display(Tilte = "رقم المنتج")]
         //public string? ProductsId { get; set; }
-        public Products? Products { get; set; }
+        public Product? Products { get; set; }
         //[Display(Tilte = "رقم البرنامج الرياضي")]
         //public string? sportsProgramId { get; set; }
         public SportsProgram? sportsProgram { get; set; }

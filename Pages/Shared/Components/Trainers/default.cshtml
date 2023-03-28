@@ -1,0 +1,41 @@
+﻿@model List<User>
+
+<div class="container-fluid mb-5 d-flex justify-content-center fitness-coaches-container align-items-center con p-3">
+    <div class="container-xl p-3">
+        <h2 class="my-3 fitness-coaches-title px-3">مدربيين لياقتي</h2>
+        <div class="position-relative">
+            <div class="swiper swiperCoach w-100" style="max-width: 900px">
+                <div class="swiper-wrapper swiper-wrapper2 w-100">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <partial name="_coachsCardDesgin1" model="item" />
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mb -5 d-flex justify-content-center fitness-coaches-container align-items-center con p-3">
+    <div class="container-xl p-3">
+        <h2 class="my-3 fitness-coaches-title px-3">مدربيين لياقتي</h2>
+        <div class="position-relative">
+            <div class="swiper swiperCoachV2 w-100">
+                <div class="swiper-wrapper swiper-wrapper2 w-100">
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <partial name="_coachsCardDesgin2" model="item" />
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>

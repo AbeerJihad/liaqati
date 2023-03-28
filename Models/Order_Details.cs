@@ -22,7 +22,11 @@ namespace liaqati_master.Models
         [Display(Name = "رقم التقييم")]
         public int? RateId { get; set; }
         public Rate? Rate { get; set; }
-        [ForeignKey("Id")]
+
+        public string? ServiceId { get; set; }
+
+        [ForeignKey("ServiceId")]
+
         public Service? Service { get; set; }
 
 

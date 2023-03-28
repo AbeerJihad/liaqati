@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
+using liaqati_master.Services.RepoCrud;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace liaqati_master.Pages.Programs
 {
@@ -11,27 +10,55 @@ namespace liaqati_master.Pages.Programs
         private readonly LiaqatiDBContext _context;
 
         private readonly UnitOfWork _UnitOfWork;
+        public readonly RepoProgram _repo;
 
-        public EditProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+
+        public EditProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork, RepoProgram repo)
         {
             _context = context;
             _UnitOfWork = unitOfWork;
+            _repo = repo;
         }
 
+        public Exercise getExercise(string id)
+        {
+            Exercise exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
+
+            return exercise;
+        }
+
+
         public List<SelectListItem> CatogeryName { get; set; }
+        public List<SelectListItem> ExerciesName { get; set; }
 
 
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public SportsProgram SportsProgram { get; set; }
+
+
+        [BindProperty(SupportsGet = true)]
+        public Exercies_program Exercies_program { get; set; }
+
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var sportsProgram =  _UnitOfWork.SportsProgramRepository.GetByID(id);
+            SportsProgram sportsProgram = await _repo.GetProgram(id);
+
+
+            //  SportsProgram sportsProgram =_UnitOfWork.SportsProgramRepository.GetByID(id);
+
+
+            //foreach(Exercies_program x in  sportsProgram.Exercies_Programs!)
+            //{
+            //    x.sportsProgram = null;
+            //}
+
+
             if (sportsProgram == null)
             {
                 return NotFound();
@@ -46,6 +73,14 @@ namespace liaqati_master.Pages.Programs
                                        }).ToList();
 
 
+
+            ExerciesName = _UnitOfWork.ExerciseRepository.GetAllEntity().Select(a =>
+                                       new SelectListItem
+                                       {
+                                           Value = a.Id.ToString(),
+                                           Text = a.Title
+                                       }).ToList();
+
             return Page();
         }
 
@@ -54,38 +89,45 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnPost()
         {
 
-            if (!ModelState.IsValid)
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
+
+            var id = SportsProgram.Id;
+
+            var item = _UnitOfWork.SportsProgramRepository.GetByID(id);
+            item.Services!.Title = SportsProgram.Services!.Title;
+            item.Services.Price = SportsProgram.Services.Price;
+            item.Services.Description = SportsProgram.Services.Description;
+            item.Length = SportsProgram.Length;
+            item.BodyFocus = SportsProgram.BodyFocus;
+            item.Difficulty = SportsProgram.Difficulty;
+            item.Equipment = "";
+            item.TrainingType = SportsProgram.TrainingType;
+
+            for (int x = 0; x < SportsProgram.Exercies_Programs!.Count; x++)
             {
-                return Page();
+                item.Exercies_Programs![x] = SportsProgram.Exercies_Programs[x];
+
+
             }
 
-            var id=SportsProgram.Id;
 
-        var item= _UnitOfWork.MealPlansRepository.GetByID(id);
-            item.services!.Title = SportsProgram.services!.Title;
-            item.services.Price = SportsProgram.services.Price;
-            item.services.Description = SportsProgram.services.Description;
-            item.Length = SportsProgram.Length;
-            item.mealType= SportsProgram.BodyFocus;
-            item.mealType= SportsProgram.Difficulty;
-            item.mealType= SportsProgram.Equipment;
-            item.mealType= SportsProgram.TrainingType;
-
-
-            var cid = SportsProgram.services!.Category!.Id;
+            var cid = SportsProgram.Services!.Category!.Id;
             if (id != null)
             {
-                SportsProgram.services.CategoryId = id;
+                SportsProgram.Services.CategoryId = id;
 
             }
 
-            item.services.Category = null;
+            item.Services.Category = null;
 
 
-            _UnitOfWork.MealPlansRepository.Update(item);
+            _UnitOfWork.SportsProgramRepository.Update(item);
 
-          
-          //  _context.Attach(MealPlans).State = EntityState.Modified;
+
+            //  _context.Attach(MealPlans).State = EntityState.Modified;
 
             try
             {
@@ -97,22 +139,55 @@ namespace liaqati_master.Pages.Programs
 
             catch (DbUpdateConcurrencyException)
             {
-                if (!StudentExists(SportsProgram.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+
             }
 
             return RedirectToPage("./Index");
         }
 
-        private bool StudentExists(string id)
+
+        public async Task<IActionResult> OnPostDeleteProgExer(string id)
         {
-            return _context.TblMealPlans.Any(e => e.Id == id);
+
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var x = _UnitOfWork.ProgramexerciseRepository.GetByID(id);
+
+            _UnitOfWork.ProgramexerciseRepository.Delete(id);
+
+
+            return Page();
         }
+
+
+
+        public async Task<IActionResult> OnPostEditProgExer()
+        {
+            Exercies_program exercies = _UnitOfWork.ProgramexerciseRepository.GetByID(Exercies_program.Id);
+
+            exercies.Day = Exercies_program.Day;
+            exercies.Week = Exercies_program.Week;
+            exercies.ExerciseId = Exercies_program.ExerciseId;
+
+            _UnitOfWork.ProgramexerciseRepository.Update(exercies);
+            _UnitOfWork.Save();
+
+            return RedirectToPage("Edit", new { id = Exercies_program.SportsProgramId });
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

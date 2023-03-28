@@ -1,30 +1,26 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
     public class Exercies_program
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "رقم النظام الرياضي")]
-        public string Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None), Key, HiddenInput]
+        public string? Id { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        [Display(Name = "هل تم انجازه")]
-        public bool isComplete { get; set; }
+        [Required(ErrorMessage = "هذا الحقل مطلوب"), Display(Name = "رقم النمرين")]
+        public string? ExerciseId { get; set; }
 
-
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        [Display(Name = "رقم النمرين")]
-        public string exerciseId { get; set; }
-
-        public Exercise? exercise { get; set; }
+        [ForeignKey(nameof(ExerciseId))]
+        public Exercise? Exercise { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم النظام الرياضي")]
-        public string? sportsProgramId { get; set; }
-        public SportsProgram? sportsProgram { get; set; }
+        public string? SportsProgramId { get; set; }
 
+        [ForeignKey(nameof(SportsProgramId))]
+        public SportsProgram? SportsProgram { get; set; }
+
+        [Required(ErrorMessage = "هذا الحقل مطلوب"), Display(Name = "رقم اليوم")]
+        public int Day { get; set; }
+        [Required(ErrorMessage = "هذا الحقل مطلوب"), Display(Name = "رقم الأسبوع")]
+        public int Week { get; set; }
 
     }
 }

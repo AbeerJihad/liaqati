@@ -1,0 +1,32 @@
+﻿@using liaqati_master.ViewModels;
+@model LiaqatiStatisticViewModel
+<div class="container mt-5">
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-md-3 offset-lg-0 col-md-6 col-lg-4 text-center">
+                    <div class="pie animate mb-3"
+                         style="--p: @Model.PerNumberOfMealPans; --c: #b9aff5; --b: 10px">
+                        120
+                    </div>
+                    <h4>الأنظمةالغذائية</h4>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 text-center">
+                    <div class="pie animate mb-3"
+                         style="--p: @Model.PerNumberOfNormalUsers; --c: #bae5ff; --b: 10px">
+                        120
+                    </div>
+                    <h4>عدد المستخدمين</h4>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 text-center">
+                    <div class="pie animate mb-3"
+                         style="--p: @Model.PerNumberOfCoachs; --c: #bfe9d4; --b: 10px">
+                        70
+                    </div>
+                    <h4>عدد المدربين</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

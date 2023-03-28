@@ -1,5 +1,4 @@
-﻿using liaqati_master.Model;
-using liaqati_master.Models.ViewModels;
+﻿using liaqati_master.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,7 +19,7 @@ namespace liaqati_master.Pages.ProductsPages
         [BindProperty(SupportsGet = true)]
         public ProductQueryParamters Parameters { get; set; }
 
-        public QueryPageResult<Products> queryPageResult { get; set; }
+        public QueryPageResult<Models.Product> queryPageResult { get; set; }
 
 
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
@@ -31,33 +30,33 @@ namespace liaqati_master.Pages.ProductsPages
 
         public async Task OnGet()
         {
-            IQueryable<Products> products = _unitOfWork.ProductsRepository.Get().AsQueryable();
+            IQueryable<Models.Product> products = _unitOfWork.ProductsRepository.Get().AsQueryable();
 
             if (Parameters.CategoryId != null)
             {
-                products = products.Where(p => p.services.CategoryId == Parameters.CategoryId);
+                products = products.Where(p => p.Services.CategoryId == Parameters.CategoryId);
             }
 
             if (Parameters.MinPrice != null)
             {
-                products = products.Where(p => p.services.Price >= Parameters.MinPrice);
+                products = products.Where(p => p.Services.Price >= Parameters.MinPrice);
             }
 
             if (Parameters.MaxPrice != null)
             {
-                products = products.Where(p => p.services.Price <= Parameters.MaxPrice);
+                products = products.Where(p => p.Services.Price <= Parameters.MaxPrice);
             }
 
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
                 products = products.Where(p =>
-                    p.services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
+                    p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
                  );
             }
 
             if (!string.IsNullOrEmpty(Parameters.Tilte))
             {
-                products = products.Where(p => p.services.Title.ToLower() == Parameters.Tilte.ToLower());
+                products = products.Where(p => p.Services.Title.ToLower() == Parameters.Tilte.ToLower());
             }
 
             //  products = products.OrderByCustom(Parameters.SortBy, Parameters.SortOrder);
@@ -65,12 +64,12 @@ namespace liaqati_master.Pages.ProductsPages
             {
                 if (Parameters.SortBy.Equals("MinPrice", StringComparison.OrdinalIgnoreCase))
                 {
-                    products = products.OrderBy(p => p.services.Price);
+                    products = products.OrderBy(p => p.Services.Price);
 
                 }
                 else if (Parameters.SortBy.Equals("MaxPrice", StringComparison.OrdinalIgnoreCase))
                 {
-                    products = products.OrderByDescending(p => p.services.Price);
+                    products = products.OrderByDescending(p => p.Services.Price);
 
                 }
             }

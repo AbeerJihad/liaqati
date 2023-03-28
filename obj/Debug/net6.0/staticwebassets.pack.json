@@ -5,6 +5,46 @@
       "PackagePath": "staticwebassets\\liaqati-master.bundle.scp.css"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\0158d34a-3cd6-478e-a443-d20bbc9c9fdd.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\0158d34a-3cd6-478e-a443-d20bbc9c9fdd.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\1430d3a2-1d15-4b1e-9670-5552041e0147.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\1430d3a2-1d15-4b1e-9670-5552041e0147.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\2ede3103-1d12-45da-a3e8-f0ff05a5c525.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\2ede3103-1d12-45da-a3e8-f0ff05a5c525.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\447cca6d-97bb-4b27-b838-91f0b27b27b4.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\447cca6d-97bb-4b27-b838-91f0b27b27b4.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\4a094154-b8e1-4629-b27e-485393c765af.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\4a094154-b8e1-4629-b27e-485393c765af.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\4be142b5-fac5-4371-bfce-3f2d1b4201e6.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\68e9c452-b34b-45d3-b22f-397a58b3a752.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\68e9c452-b34b-45d3-b22f-397a58b3a752.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\83cad8a0-0acd-4170-9477-6fe714a4e76c.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\83cad8a0-0acd-4170-9477-6fe714a4e76c.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\b2ae42a3-5b15-4514-bccf-a0e19b8e9528.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\b2ae42a3-5b15-4514-bccf-a0e19b8e9528.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Exercise\\e91d50dd-888e-4260-9cca-c42e883abc57.png",
+      "PackagePath": "staticwebassets\\Images\\Exercise\\e91d50dd-888e-4260-9cca-c42e883abc57.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Product\\43912889.png",
       "PackagePath": "staticwebassets\\Images\\Product\\43912889.png"
     },
@@ -113,12 +153,36 @@
       "PackagePath": "staticwebassets\\Images\\strong-man-training-gym.png"
     },
     {
-      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Index.html",
-      "PackagePath": "staticwebassets\\Index.html"
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\AddEx_ProgByApi.js",
+      "PackagePath": "staticwebassets\\JavaScript\\AddEx_ProgByApi.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\AddExercies.js",
+      "PackagePath": "staticwebassets\\JavaScript\\AddExercies.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\Programs.js",
+      "PackagePath": "staticwebassets\\JavaScript\\Programs.js"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\script.js",
       "PackagePath": "staticwebassets\\JavaScript\\script.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JsApi\\ApiIndex.js",
+      "PackagePath": "staticwebassets\\JsApi\\ApiIndex.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JsApi\\ExerciseApi.js",
+      "PackagePath": "staticwebassets\\JsApi\\ExerciseApi.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JsApi\\ProgramExcercies.js",
+      "PackagePath": "staticwebassets\\JsApi\\ProgramExcercies.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\Index.html",
+      "PackagePath": "staticwebassets\\User\\Index.html"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\Proccess.css",
@@ -253,6 +317,10 @@
       "PackagePath": "staticwebassets\\User\\images\\218281@2x.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\220844.png",
+      "PackagePath": "staticwebassets\\User\\images\\220844.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\220919.png",
       "PackagePath": "staticwebassets\\User\\images\\220919.png"
     },
@@ -261,12 +329,48 @@
       "PackagePath": "staticwebassets\\User\\images\\220919@2x.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\221474.png",
+      "PackagePath": "staticwebassets\\User\\images\\221474.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\221796.png",
+      "PackagePath": "staticwebassets\\User\\images\\221796.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\223603.png",
+      "PackagePath": "staticwebassets\\User\\images\\223603.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\224058.png",
+      "PackagePath": "staticwebassets\\User\\images\\224058.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\224347.png",
+      "PackagePath": "staticwebassets\\User\\images\\224347.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\224664.png",
+      "PackagePath": "staticwebassets\\User\\images\\224664.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\224756.png",
+      "PackagePath": "staticwebassets\\User\\images\\224756.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\41616.png",
+      "PackagePath": "staticwebassets\\User\\images\\41616.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\43912889.png",
       "PackagePath": "staticwebassets\\User\\images\\43912889.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\43912889@2x.png",
       "PackagePath": "staticwebassets\\User\\images\\43912889@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\46303.png",
+      "PackagePath": "staticwebassets\\User\\images\\46303.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\54263.png",
@@ -353,12 +457,20 @@
       "PackagePath": "staticwebassets\\User\\images\\Screenshot-2021-01-11-100141@2x.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\article1.png",
+      "PackagePath": "staticwebassets\\User\\images\\article1.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\cart-3-svgrepo-com.png",
       "PackagePath": "staticwebassets\\User\\images\\cart-3-svgrepo-com.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\cart-3-svgrepo-com@2x.png",
       "PackagePath": "staticwebassets\\User\\images\\cart-3-svgrepo-com@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\color.jfif",
+      "PackagePath": "staticwebassets\\User\\images\\color.jfif"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\download.jpg",
@@ -373,12 +485,20 @@
       "PackagePath": "staticwebassets\\User\\images\\heart-svgrepo-com (1)@2x.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ic_expand_more_24px.png",
+      "PackagePath": "staticwebassets\\User\\images\\ic_expand_more_24px.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ic_play_circle_outline_24px.png",
       "PackagePath": "staticwebassets\\User\\images\\ic_play_circle_outline_24px.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\ic_play_circle_outline_24px@2x.png",
       "PackagePath": "staticwebassets\\User\\images\\ic_play_circle_outline_24px@2x.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\image_20230202235025276.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\image_20230202235025276.jpg"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\images\\images.jfif",
@@ -1267,6 +1387,18 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\video\\1.mp4",
       "PackagePath": "staticwebassets\\User\\video\\1.mp4"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Video\\Exercise\\1aaea527-a010-48c1-a673-d2a85b7e9996.mp4",
+      "PackagePath": "staticwebassets\\Video\\Exercise\\1aaea527-a010-48c1-a673-d2a85b7e9996.mp4"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Video\\Exercise\\3241cd90-823d-45f5-82b8-c0867f951ab6.mp4",
+      "PackagePath": "staticwebassets\\Video\\Exercise\\3241cd90-823d-45f5-82b8-c0867f951ab6.mp4"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Video\\Exercise\\dc0c565e-95e0-40c4-b2b7-d9b9bc7eedc4.mp4",
+      "PackagePath": "staticwebassets\\Video\\Exercise\\dc0c565e-95e0-40c4-b2b7-d9b9bc7eedc4.mp4"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\admin\\AOS.html",

@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -19,7 +18,7 @@ namespace liaqati_master.Pages.HealthyReicpe
 
 
         [BindProperty]
-        public HealthyRecipes HealthyRecipes { get; set; }
+        public HealthyRecipe HealthyRecipes { get; set; }
 
         public IActionResult OnGet()
         {
@@ -41,16 +40,16 @@ namespace liaqati_master.Pages.HealthyReicpe
 
             var guid = Guid_Id.Id_Guid();
             HealthyRecipes.Id = guid;
-            HealthyRecipes.services!.Id = guid;
-            var id = HealthyRecipes.services!.Category!.Id;
+            HealthyRecipes.Services!.Id = guid;
+            var id = HealthyRecipes.Services!.Category!.Id;
 
             if (id != null)
             {
-                HealthyRecipes.services.CategoryId = id;
+                HealthyRecipes.Services.CategoryId = id;
             }
-            HealthyRecipes.services.Category = null;
+            HealthyRecipes.Services.Category = null;
             HealthyRecipes.Image = "";
-            _UnitOfWork.ServiceRepository.Insert(HealthyRecipes.services);
+            _UnitOfWork.ServiceRepository.Insert(HealthyRecipes.Services);
             _UnitOfWork.HealthyRecipesRepository.Insert(HealthyRecipes);
             _UnitOfWork.Save();
             return RedirectToPage("./Index");

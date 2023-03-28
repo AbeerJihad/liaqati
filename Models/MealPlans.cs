@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
     public class MealPlans
     {
@@ -11,36 +7,35 @@ namespace liaqati_master.Models
         [HiddenInput]
         public string? Id { get; set; }
         [Display(Name = "عدد المشتركيين")]
-        public int? numsubscribers { get; set; }
+        public int? Numsubscribers { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "المدة")]
-        public int?  Length { get; set; }
+        public int? Length { get; set; }
 
-        public string? dietaryType { get; set; }
+        public string? DietaryType { get; set; }
         //[Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "نوع الوجبة")]
-        public string? mealType { get; set; }
+        public string? MealType { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "منوسط وقت الوجبة")]
-        public double? avgRecipeTime { get; set; }
+        public double? AvgRecipeTime { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "صورة الوجبة")]
-        public string? image { get; set; }
-
-       
-       
-        public Service? services { get; set; }
+        public string? Image { get; set; }
 
 
-        public MealPlans() { 
-        
-        numsubscribers= 0;
-            Length= 0;
-        dietaryType= string.Empty;
-            mealType= string.Empty;
-            avgRecipeTime= 0;
-            image= string.Empty;
-        
+
+        [ForeignKey(nameof(Id))]
+        public Service? Services { get; set; }
+
+        public MealPlans()
+        {
+            Numsubscribers = 0;
+            Length = 0;
+            DietaryType = string.Empty;
+            MealType = string.Empty;
+            AvgRecipeTime = 0;
+            Image = string.Empty;
         }
 
     }

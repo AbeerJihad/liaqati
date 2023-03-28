@@ -12,8 +12,8 @@ namespace liaqati_master.Models
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [ Display(Name = "رفم الخدمة")]
-        public string? servicesId { get; set; }
+        public string? ServicesId { get; set; }
 
-        public Service? services { get; set; }
+        public Service? Services { get; set; }
     }
 }

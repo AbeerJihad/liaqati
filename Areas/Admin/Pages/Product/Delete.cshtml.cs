@@ -16,7 +16,7 @@ namespace liaqati_master.Pages.Product
         }
 
         [BindProperty]
-        public Products Product { get; set; }
+        public Models.Product Product { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (id == null )

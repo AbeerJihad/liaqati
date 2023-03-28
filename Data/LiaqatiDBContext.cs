@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using liaqati_master.Models;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 namespace liaqati_master.Data
 {
-    public class LiaqatiDBContext : DbContext
+    public class LiaqatiDBContext : IdentityDbContext<User>
     {
         public LiaqatiDBContext(DbContextOptions<LiaqatiDBContext> options) : base(options)
         {
@@ -16,13 +16,16 @@ namespace liaqati_master.Data
         public DbSet<Exercise> TblExercises { get; set; }
 
         public DbSet<MealPlans> TblMealPlans { get; set; }
-        public DbSet<Products> TblProducts { get; set; }
+        public DbSet<Product> TblProducts { get; set; }
         public DbSet<Achievements> TblAchievements { get; set; }
+
+        public DbSet<Exercies_program> TblExercies_program { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
 
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Order_Details>()
             .HasOne(a => a.Rate)
@@ -30,28 +33,28 @@ namespace liaqati_master.Data
             .HasForeignKey<Rate>(c => c.Order_DetailsId);
             modelBuilder.Entity<Service>()
                           .HasOne(a => a.HealthyRecipes)
-                          .WithOne(a => a.services)
-                          .HasForeignKey<HealthyRecipes>(c => c.Id);
+                          .WithOne(a => a.Services)
+                          .HasForeignKey<HealthyRecipe>(c => c.Id);
             modelBuilder.Entity<Service>()
                         .HasOne(a => a.Products)
-                        .WithOne(a => a.services)
-                        .HasForeignKey<Products>(c => c.Id);
+                        .WithOne(a => a.Services)
+                        .HasForeignKey<Product>(c => c.Id);
 
             modelBuilder.Entity<Service>()
                         .HasOne(a => a.MealPlans)
-                        .WithOne(a => a.services)
+                        .WithOne(a => a.Services)
                         .HasForeignKey<MealPlans>(c => c.Id);
 
             modelBuilder.Entity<Service>()
                         .HasOne(a => a.sportsProgram)
-                        .WithOne(a => a.services)
+                        .WithOne(a => a.Services)
                         .HasForeignKey<SportsProgram>(c => c.Id);
 
             modelBuilder.Entity<Service>().Navigation(p => p.Category).AutoInclude();
-            modelBuilder.Entity<MealPlans>().Navigation(p => p.services).AutoInclude();
-            modelBuilder.Entity<Products>().Navigation(p => p.services).AutoInclude();
-            modelBuilder.Entity<HealthyRecipes>().Navigation(p => p.services).AutoInclude();
-            modelBuilder.Entity<SportsProgram>().Navigation(p => p.services).AutoInclude();
+            modelBuilder.Entity<MealPlans>().Navigation(p => p.Services).AutoInclude();
+            modelBuilder.Entity<Product>().Navigation(p => p.Services).AutoInclude();
+            modelBuilder.Entity<HealthyRecipe>().Navigation(p => p.Services).AutoInclude();
+            modelBuilder.Entity<SportsProgram>().Navigation(p => p.Services).AutoInclude();
 
 
             modelBuilder.SeedAsync();

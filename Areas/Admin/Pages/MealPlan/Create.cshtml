@@ -10,73 +10,73 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form  asp-page-handler="Add" method="post" class="form theme-form">
-                   @*     <div asp-validation-summary="All">
-                            
+                    <form asp-page-handler="Add" method="post" class="form theme-form">
+                        @*     <div asp-validation-summary="All">
+
                         </div>*@
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.services!.Title"></label>
-                                    <input asp-for="MealPlans.services!.Title" class="form-control" placeholder="">
-                                   
+                                    <label asp-for="MealPlans.Services!.Title"></label>
+                                    <input asp-for="MealPlans.Services!.Title" class="form-control" placeholder="">
+
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.services!.Price"></label>
-                                    <input asp-for="MealPlans.services!.Price" class="form-control"  placeholder="">
-                                </div>
-                            </div>
-                          
-                           <div class="col-12">
-                                <div class="mb-3">
-                                  <label asp-for="MealPlans.services!.Description"></label>
-                                    <input asp-for="MealPlans.services!.Description" class="form-control"  placeholder="">
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row">
-                             <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label asp-for="MealPlans.mealType"></label>
-                                    <input asp-for="MealPlans.mealType" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label asp-for="MealPlans.dietaryType"></label>
-                                    <input asp-for="MealPlans.dietaryType" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.Services!.Price"></label>
+                                    <input asp-for="MealPlans.Services!.Price" class="form-control" placeholder="">
                                 </div>
                             </div>
 
-                             <div class="col-sm-4">
+                            <div class="col-12">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.Length"></label>
-                                    <input asp-for="MealPlans.Length" class="form-control"  placeholder="">
+                                    <label asp-for="MealPlans.Services!.Description"></label>
+                                    <input asp-for="MealPlans.Services!.Description" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="MealPlans.MealType"></label>
+                                    <input asp-for="MealPlans.MealType" class="form-control" placeholder="">
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.avgRecipeTime"></label>
-                                    <input asp-for="MealPlans.avgRecipeTime" class="form-control" placeholder="">
+                                    <label asp-for="MealPlans.DietaryType"></label>
+                                    <input asp-for="MealPlans.DietaryType" class="form-control" placeholder="">
                                 </div>
                             </div>
-                             <div class="col-sm-4">
+
+                            <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.services!.Category!.Name"></label>
-                                    <select asp-for="MealPlans.services!.Category!.Id" asp-items="Model.CatogeryName">
+                                    <label asp-for="MealPlans.Length"></label>
+                                    <input asp-for="MealPlans.Length" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="MealPlans.AvgRecipeTime"></label>
+                                    <input asp-for="MealPlans.AvgRecipeTime" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label asp-for="MealPlans.Services!.Category!.Name"></label>
+                                    <select asp-for="MealPlans.Services!.Category!.Id" asp-items="Model.CatogeryName">
                                         <option disabled value="-1">Please Select Catogery Name</option>
 
                                     </select>
                                 </div>
                             </div>
                         </div>
-                       
-                         
-                        <div class="row">   
-                             <div class="col-sm-4">
+
+
+                        <div class="row">
+                            <div class="col-sm-4">
                                 <div class="mb-3">
                                     <button class="mx-auto col-auto" type="submit"> Save </button>
                                 </div>
@@ -86,60 +86,60 @@
 
 
 
-                       @* <div class="row">
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Project Size</label>
-                                    <select class="form-select">
-                                        <option>Small</option>
-                                        <option>Medium</option>
-                                        <option>Big</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Starting date</label>
-                                    <input class="datepicker-here form-control" type="text" data-language="en">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label>Ending date</label>
-                                    <input class="datepicker-here form-control" type="text" data-language="en">
-                                </div>
-                            </div>
+                        @* <div class="row">
+                        <div class="col-sm-4">
+                        <div class="mb-3">
+                        <label>Project Size</label>
+                        <select class="form-select">
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Big</option>
+                        </select>
+                        </div>
+                        </div>
+                        <div class="col-sm-4">
+                        <div class="mb-3">
+                        <label>Starting date</label>
+                        <input class="datepicker-here form-control" type="text" data-language="en">
+                        </div>
+                        </div>
+                        <div class="col-sm-4">
+                        <div class="mb-3">
+                        <label>Ending date</label>
+                        <input class="datepicker-here form-control" type="text" data-language="en">
+                        </div>
+                        </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label>Enter some Details</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-                                </div>
-                            </div>
+                        <div class="col">
+                        <div class="mb-3">
+                        <label>Enter some Details</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+                        </div>
+                        </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label>Upload project file</label>
-                                    <form class="dropzone dz-clickable " id="singleFileUpload">
-                                        <div class="dz-message needsclick">
-                                            <i class="icon-cloud-up"></i>
-                                            <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                                        </div>
+                        <div class="col">
+                        <div class="mb-3">
+                        <label>Upload project file</label>
+                        <form class="dropzone dz-clickable " id="singleFileUpload">
+                        <div class="dz-message needsclick">
+                        <i class="icon-cloud-up"></i>
+                        <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+                        </div>
 
-                                    </form>
-                                </div>
-                            </div>
+                        </form>
+                        </div>
+                        </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="text-end"><a class="btn btn-secondary me-3" href="#">Add</a><a class="btn btn-danger" href="#">Cancel</a></div>
-                            </div>
+                        <div class="col">
+                        <div class="text-end"><a class="btn btn-secondary me-3" href="#">Add</a><a class="btn btn-danger" href="#">Cancel</a></div>
                         </div>
-                   *@
-                    
-                    
+                        </div>
+                        *@
+
+
                     </form>
                 </div>
             </div>
@@ -155,5 +155,6 @@
 </div>
 
 @section Scripts {
-@*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-*@}
+    @*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+*@
+}

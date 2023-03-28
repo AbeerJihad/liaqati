@@ -14,7 +14,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             _unitOfWork = UnitOfWork;
         }
 
-        public IList<HealthyRecipes> HealthyRecipes { get; set; }
+        public IList<HealthyRecipe> HealthyRecipes { get; set; }
         public async Task OnGetAsync()
         {
             if (_unitOfWork != null)
