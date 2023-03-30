@@ -1,4 +1,4 @@
-﻿@page 
+﻿@page
 @model liaqati_master.Areas.Admin.Pages.Programs.EditAddModel
 @{
 }
@@ -12,28 +12,28 @@
 
                         </div>*@
 
-                        <input asp-for="SportsPrograms.Id" hidden/>
+                        <input asp-for="SportsPrograms.Id" hidden />
 
 
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="SportsPrograms.services!.Title"></label>
-                                    <input asp-for="SportsPrograms.services!.Title" class="form-control" placeholder="">
+                                    <label asp-for="SportsPrograms.Services!.Title"></label>
+                                    <input asp-for="SportsPrograms.Services!.Title" class="form-control" placeholder="">
 
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="SportsPrograms.services!.Price"></label>
-                                    <input asp-for="SportsPrograms.services!.Price" class="form-control" placeholder="">
+                                    <label asp-for="SportsPrograms.Services!.Price"></label>
+                                    <input asp-for="SportsPrograms.Services!.Price" class="form-control" placeholder="">
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label asp-for="SportsPrograms.services!.Description"></label>
-                                    <input asp-for="SportsPrograms.services!.Description" class="form-control" placeholder="">
+                                    <label asp-for="SportsPrograms.Services!.Description"></label>
+                                    <input asp-for="SportsPrograms.Services!.Description" class="form-control" placeholder="">
                                 </div>
                             </div>
 
@@ -69,22 +69,20 @@
                                     <input asp-for="SportsPrograms.TrainingType" class="form-control" placeholder="">
                                 </div>
                             </div>
-                          @*  <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label asp-for="SportsPrograms.services!.Category!.Name"></label>
-                                    <select asp-for="SportsPrograms.services!.Category!.Id" asp-items="Model.CatogeryName">
-                                        <option disabled value="-1">Please Select Catogery Name</option>
+                            @*  <div class="col-sm-4">
+                            <div class="mb-3">
+                            <label asp-for="SportsPrograms.Services!.Category!.Name"></label>
+                            <select asp-for="SportsPrograms.Services!.Category!.Id" asp-items="Model.CatogeryName">
+                            <option disabled value="-1">Please Select Catogery Name</option>
 
-                                    </select>
-                                </div>
+                            </select>
+                            </div>
                             </div>*@
 
 
 
                         </div>
-
-
-                        <div  class="container-lg my-5 d-none">
+                        <div class="container-lg my-5 d-none">
                             <div class="row justify-content-center my-5">
                                 <div data-v-2eea9796="" class="col-md-12">
                                     <div class="field-value">
@@ -97,13 +95,10 @@
                                                     <label> الاسابيع</label>
                                                     <select id="selectLengthWeek" asp-for="Exercies_program.Week">
                                                         <option disabled value="-1">اختر الاسبوع</option>
-
                                                         @for (int x = 1; x <= Model.SportsPrograms.Length; x++)
                                                         {
                                                             <option value="@x"> الاسبوع @x</option>
-
                                                         }
-
                                                     </select>
                                                 </div>
                                             </div>
@@ -127,8 +122,8 @@
 
 
                                             </div>
-                                            <button id="BtnAdd" 
-                                               class="text-nowrap bg-white fw-medium btn btn-outline-primary">
+                                            <button id="BtnAdd"
+                                                    class="text-nowrap bg-white fw-medium btn btn-outline-primary">
                                                 <i class="bi bi-plus h5 fw-bold"></i>
                                             </button>
                                             <button id="BtnClipboard"
@@ -157,7 +152,7 @@
 
 
 
-                       @*    <div class="row">
+                        @*    <div class="row">
                         <div class="col-sm-4">
                         <div class="mb-3">
                         <label> اختر التمارين الخاصة بالنظام الرياضي</label>
@@ -170,12 +165,12 @@
                         </div>
 
                         *@
-                      
 
-                     @*    @for (int i = 0; i < Model.SportsPrograms.exercies_Programs?.Count; i++)
+
+                        @*    @for (int i = 0; i < Model.SportsPrograms.Exercies_Programs?.Count; i++)
                         {
 
-                        <input asp-for="@Model.SportsPrograms.exercies_Programs[i].exerciseId" />
+                        <input asp-for="@Model.SportsPrograms.Exercies_Programs[i].exerciseId" />
                         <div id="rowExerciesForm" class="row">
                         <div class="col">
                         <input asp-for="Exercies_program[0].Day" placeholder="اي يوم من الايام"/>
@@ -191,7 +186,7 @@
                         </div>
                         }
 
-*@
+                        *@
 
 
                     </form>
@@ -228,19 +223,19 @@
 
 
 <div class="cointainer">
-  @*  <div id="rowExerciesForm" class="row">
-        <div class="col">
-            <input asp-for="Exercies_program[0].Day" placeholder="اي يوم من الايام" />
-        </div>
-        <div class="col">
-            <input asp-for="Exercies_program[0].Week" placeholder="اي اسبوع من الاسابيع" />
-        </div>
-        <div class="col">
-            <select id="selExForm" asp-for="list" placeholder="التمرين الخاص باليوم">
-            </select>
-        </div>
+    @*  <div id="rowExerciesForm" class="row">
+    <div class="col">
+    <input asp-for="Exercies_program[0].Day" placeholder="اي يوم من الايام" />
     </div>
-       <div id="rowExerciesForm" class="row">
+    <div class="col">
+    <input asp-for="Exercies_program[0].Week" placeholder="اي اسبوع من الاسابيع" />
+    </div>
+    <div class="col">
+    <select id="selExForm" asp-for="list" placeholder="التمرين الخاص باليوم">
+    </select>
+    </div>
+    </div>
+    <div id="rowExerciesForm" class="row">
     <div class="col">
     <input asp-for="Exercies_program[Model.index+3].Day" placeholder="اي يوم من الايام"/>
     </div>
@@ -259,9 +254,9 @@
 
 
 @section Scripts {
-            
+
     <script src="~/javascript/programs.js"></script>
     <script defer src="~/jsapi/exerciseapi.js"></script>
 
-            
+
                  }

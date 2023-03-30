@@ -1,0 +1,140 @@
+﻿@page
+@model liaqati_master.Pages.ProgramPages.IndexModel
+@{
+
+}
+
+<div class="container mt-5">
+    <div id="rowMealPlanIndex" class="row">
+        <div class="d-flex mb-4 p-0">
+            <div class="mx-3"
+                 style="height: 40px; width: 4px; background-color: #b9aff5"></div>
+            <h2 class="col-auto">أحدث الأنظمةالغذائية</h2>
+            <div class="mt-4 mx-4 col"
+                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+        </div>
+
+         @foreach (var item in Model.Sports)
+                        {
+            <div id="colCloneMeal" class="col-12 col-md-6 col-lg-3 p-2">
+                <div class="card">
+                    <div class="position-relative">
+                        <img src="@item.Image" class="card-img-top" alt="..." />
+                        <img width="40"
+                         class="position-absolute"
+                         style="top: 20px; right: 20px"
+                         src="./Images/heart-svgrepo-com (1).png"
+                         alt=""
+                         srcset="" />
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">@item.Services!.Title</h5>
+                        <p class="card-text">@item.Services!.Title</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="d-inline-block ms-2 fw-bold">عدد المشتركين</h6>
+
+                                <div style="background-color: #ffe9cb"
+                                 class="rounded-pill d-inline-block fw-bold align-middle p-2">
+                                    [num]
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="d-inline-block fw-bold text-danger align-middle ms-1 mt-2">
+                                    @if (item.Services!.Price > 0)
+                                    {
+                                        @item.Services!.Price <span>$</span>
+                                                    
+                                                        }
+                                    else
+                                    {
+                                        <span> مجانا </span>
+                                    }
+
+                                   
+                                </h5>
+                                <img width="20"
+                                 src="./Images/cart-3-svgrepo-com.png"
+                                 alt=""
+                                 srcset="" />
+                            </div>
+                              
+                            <div>
+                                <a onclick="AddStartDate('AddDatelModel',@System.Text.Json.JsonSerializer.Serialize(item))">  ابدأ الان</a>
+                               
+                                <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    
+
+
+
+       
+       
+        
+        <div class="d-flex mt-4">
+            <div class="mt-4 mx-4 col"
+                 style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+            <button style="background-color: #ffe9cb"
+                    class="col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
+                جميع الأنظمةالغذائية
+            </button>
+        </div>
+    </div>
+</div>
+        }
+</div>
+</div>
+<script>
+
+    function AddStartDate(modelid, dataObj) {
+                let modelElm = document.getElementById(modelid);
+                var myModal = new bootstrap.Modal(modelElm, {
+                    keyboard: false
+                })
+     
+               
+
+            myModal.toggle()
+        }
+
+</script>
+<div class="modal fade" id="AddDatelModel" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLabel">Edit </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> 
+            <form class="form theme-form" method="post" asp-area="admin" asp-page="/programs/edit" asp-page-handler="EditProgram">
+                <div class="modal-body">
+                        <input asp-for="SportsProgram.Id" hidden/>
+
+
+
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="SportsProgram.StartDate"></label>
+                                    <input asp-for="SportsProgram.StartDate" class="form-control" placeholder="">
+                                    <span class="text-danger" asp-validation-for="SportsProgram.StartDate"></span>
+                                </div>
+                            </div>
+                            </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" >Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<a asp-area="admin" asp-page="/programs/edit"  asp-route-id="1">ssss</a>

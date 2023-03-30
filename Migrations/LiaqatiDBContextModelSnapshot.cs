@@ -50,10 +50,10 @@ namespace liaqati_master.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Achievements");
+                    b.ToTable("TblAchievements");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -66,13 +66,21 @@ namespace liaqati_master.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LikesNumber")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("PostDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ViewsNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("likesNumber")
+                    b.Property<int>("ViewsNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -91,11 +99,10 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("target")
+                    b.Property<int?>("Target")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -121,7 +128,12 @@ namespace liaqati_master.Migrations
                         new
                         {
                             Id = "4",
-                            Name = "ٍٍالاجهزة الرياضية"
+                            Name = "الاجهزة الرياضية"
+                        },
+                        new
+                        {
+                            Id = "5",
+                            Name = " النظام الرياضي"
                         });
                 });
 
@@ -176,6 +188,10 @@ namespace liaqati_master.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ServicesId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("commentFor")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -186,13 +202,9 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("servicesId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("servicesId");
+                    b.HasIndex("ServicesId");
 
                     b.ToTable("Comment_Servies");
                 });
@@ -238,27 +250,34 @@ namespace liaqati_master.Migrations
                     b.Property<int>("Day")
                         .HasColumnType("int");
 
+                    b.Property<string>("ExerciseId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SportsProgramId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("Week")
                         .HasColumnType("int");
 
-                    b.Property<string>("exerciseId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("isComplete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("sportsProgramId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("exerciseId");
+                    b.HasIndex("ExerciseId");
 
-                    b.HasIndex("sportsProgramId");
+                    b.HasIndex("SportsProgramId");
 
                     b.ToTable("TblExercies_program");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Day = 1,
+                            ExerciseId = "1",
+                            SportsProgramId = "100",
+                            Week = 1
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
@@ -266,18 +285,23 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("DEx")
-                        .HasColumnType("int");
+                    b.Property<string>("BodyFocus")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Detail")
-                        .IsRequired()
+                    b.Property<string>("BurnEstimate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Difficulty")
+                    b.Property<string>("Detail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Difficulty")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Duration")
                         .HasColumnType("int");
 
                     b.Property<string>("Equipments")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
@@ -286,13 +310,15 @@ namespace liaqati_master.Migrations
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("TraningType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Video")
@@ -301,6 +327,18 @@ namespace liaqati_master.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TblExercises");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            BodyFocus = "",
+                            Detail = "",
+                            Difficulty = 1,
+                            Duration = 1,
+                            Price = 100.0,
+                            Title = ""
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Favorite", b =>
@@ -322,27 +360,27 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("favoriteId")
+                    b.Property<string>("FavoriteId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("servicesId")
+                    b.Property<int?>("ServicesId")
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("servicesId1")
+                    b.Property<string>("ServicesId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("favoriteId");
+                    b.HasIndex("FavoriteId");
 
-                    b.HasIndex("servicesId1");
+                    b.HasIndex("ServicesId1");
 
                     b.ToTable("Favorite_Servies");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.HealthyRecipes", b =>
+            modelBuilder.Entity("liaqati_master.Models.HealthyRecipe", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -356,8 +394,19 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Ingredients")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("MealType")
                         .HasColumnType("int");
+
+                    b.Property<int>("PrepTime")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PreparationMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Protein")
                         .HasColumnType("int");
@@ -365,12 +414,9 @@ namespace liaqati_master.Migrations
                     b.Property<int>("Total_Carbohydrate")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("prepTime")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
-                    b.ToTable("HealthyRecipes");
+                    b.ToTable("HealthyRecipe");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
@@ -378,22 +424,22 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double?>("AvgRecipeTime")
+                        .HasColumnType("float");
+
+                    b.Property<string>("DietaryType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("Length")
                         .HasColumnType("int");
 
-                    b.Property<double?>("avgRecipeTime")
-                        .HasColumnType("float");
-
-                    b.Property<string>("dietaryType")
+                    b.Property<string>("MealType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("mealType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("numsubscribers")
+                    b.Property<int?>("Numsubscribers")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -404,52 +450,52 @@ namespace liaqati_master.Migrations
                         new
                         {
                             Id = "1",
+                            AvgRecipeTime = 0.0,
+                            DietaryType = "",
+                            Image = "",
                             Length = 0,
-                            avgRecipeTime = 0.0,
-                            dietaryType = "",
-                            image = "",
-                            mealType = "",
-                            numsubscribers = 0
+                            MealType = "",
+                            Numsubscribers = 0
                         },
                         new
                         {
                             Id = "2",
+                            AvgRecipeTime = 0.0,
+                            DietaryType = "",
+                            Image = "",
                             Length = 0,
-                            avgRecipeTime = 0.0,
-                            dietaryType = "",
-                            image = "",
-                            mealType = "",
-                            numsubscribers = 0
+                            MealType = "",
+                            Numsubscribers = 0
                         },
                         new
                         {
                             Id = "3",
+                            AvgRecipeTime = 0.0,
+                            DietaryType = "",
+                            Image = "",
                             Length = 0,
-                            avgRecipeTime = 0.0,
-                            dietaryType = "",
-                            image = "",
-                            mealType = "",
-                            numsubscribers = 0
+                            MealType = "",
+                            Numsubscribers = 0
                         },
                         new
                         {
                             Id = "4",
+                            AvgRecipeTime = 0.0,
+                            DietaryType = "",
+                            Image = "",
                             Length = 0,
-                            avgRecipeTime = 0.0,
-                            dietaryType = "",
-                            image = "",
-                            mealType = "",
-                            numsubscribers = 0
+                            MealType = "",
+                            Numsubscribers = 0
                         },
                         new
                         {
                             Id = "5",
+                            AvgRecipeTime = 0.0,
+                            DietaryType = "",
+                            Image = "",
                             Length = 0,
-                            avgRecipeTime = 0.0,
-                            dietaryType = "",
-                            image = "",
-                            mealType = "",
-                            numsubscribers = 0
+                            MealType = "",
+                            Numsubscribers = 0
                         });
                 });
 
@@ -512,7 +558,25 @@ namespace liaqati_master.Migrations
                         new
                         {
                             Id = "1",
-                            OrderDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderDate = new DateTime(2021, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TotalPrice = 200.0,
+                            UserId = "1",
+                            UserIdDelivery = 1,
+                            UserIdResiver = 1
+                        },
+                        new
+                        {
+                            Id = "2",
+                            OrderDate = new DateTime(2021, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TotalPrice = 0.0,
+                            UserId = "1",
+                            UserIdDelivery = 1,
+                            UserIdResiver = 1
+                        },
+                        new
+                        {
+                            Id = "3",
+                            OrderDate = new DateTime(2021, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TotalPrice = 0.0,
                             UserId = "1",
                             UserIdDelivery = 1,
@@ -525,10 +589,8 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OrderId1")
+                    b.Property<string>("OrderId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Price")
@@ -544,20 +606,261 @@ namespace liaqati_master.Migrations
                     b.Property<string>("ServiceId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ServicesId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId1");
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("ServiceId");
 
                     b.ToTable("TblOrder_Details");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "21"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "21"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "21"
+                        },
+                        new
+                        {
+                            Id = "4",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 7,
+                            RateId = 1,
+                            ServiceId = "31"
+                        },
+                        new
+                        {
+                            Id = "5",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 5,
+                            RateId = 1,
+                            ServiceId = "31"
+                        },
+                        new
+                        {
+                            Id = "6",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 3,
+                            RateId = 1,
+                            ServiceId = "24"
+                        },
+                        new
+                        {
+                            Id = "7",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "23"
+                        },
+                        new
+                        {
+                            Id = "8",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 4,
+                            RateId = 1,
+                            ServiceId = "23"
+                        },
+                        new
+                        {
+                            Id = "9",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 10,
+                            RateId = 1,
+                            ServiceId = "23"
+                        },
+                        new
+                        {
+                            Id = "10",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "23"
+                        },
+                        new
+                        {
+                            Id = "11",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "23"
+                        },
+                        new
+                        {
+                            Id = "12",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "23"
+                        },
+                        new
+                        {
+                            Id = "13",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 7,
+                            RateId = 1,
+                            ServiceId = "24"
+                        },
+                        new
+                        {
+                            Id = "14",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 5,
+                            RateId = 1,
+                            ServiceId = "24"
+                        },
+                        new
+                        {
+                            Id = "15",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 3,
+                            RateId = 1,
+                            ServiceId = "24"
+                        },
+                        new
+                        {
+                            Id = "16",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "24"
+                        },
+                        new
+                        {
+                            Id = "17",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 4,
+                            RateId = 1,
+                            ServiceId = "24"
+                        },
+                        new
+                        {
+                            Id = "18",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 10,
+                            RateId = 1,
+                            ServiceId = "24"
+                        },
+                        new
+                        {
+                            Id = "19",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "31"
+                        },
+                        new
+                        {
+                            Id = "20",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "31"
+                        },
+                        new
+                        {
+                            Id = "21",
+                            OrderId = "1",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "31"
+                        },
+                        new
+                        {
+                            Id = "22",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 7,
+                            RateId = 1,
+                            ServiceId = "31"
+                        },
+                        new
+                        {
+                            Id = "23",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 5,
+                            RateId = 1,
+                            ServiceId = "32"
+                        },
+                        new
+                        {
+                            Id = "24",
+                            OrderId = "2",
+                            Price = 100.0,
+                            Quantity = 3,
+                            RateId = 1,
+                            ServiceId = "32"
+                        },
+                        new
+                        {
+                            Id = "25",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 2,
+                            RateId = 1,
+                            ServiceId = "32"
+                        },
+                        new
+                        {
+                            Id = "26",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 4,
+                            RateId = 1,
+                            ServiceId = "32"
+                        },
+                        new
+                        {
+                            Id = "27",
+                            OrderId = "3",
+                            Price = 100.0,
+                            Quantity = 10,
+                            RateId = 1,
+                            ServiceId = "32"
+                        });
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Products", b =>
+            modelBuilder.Entity("liaqati_master.Models.Product", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -735,12 +1038,15 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CategoryId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Price")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<string>("Title")
@@ -807,6 +1113,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "21",
                             CategoryId = "4",
+                            Description = "",
                             Price = 20.0,
                             Title = "طقم اوزان دمبل 30 كغم"
                         },
@@ -814,6 +1121,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "22",
                             CategoryId = "4",
+                            Description = "",
                             Price = 30.0,
                             Title = "حلقات لايف اب الاولمبية للجمباز"
                         },
@@ -821,6 +1129,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "23",
                             CategoryId = "4",
+                            Description = "",
                             Price = 1490.0,
                             Title = "مشاية كهربائية منحنية بدون محرك"
                         },
@@ -828,6 +1137,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "24",
                             CategoryId = "4",
+                            Description = "",
                             Price = 320.0,
                             Title = "دراجة سبينر"
                         },
@@ -835,6 +1145,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "25",
                             CategoryId = "4",
+                            Description = "",
                             Price = 150.0,
                             Title = "Livepro أيروبيك ستيبر ومقعد"
                         },
@@ -842,6 +1153,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "26",
                             CategoryId = "4",
+                            Description = "",
                             Price = 15.0,
                             Title = "سجادة Liveup للتمارين الرياضية"
                         },
@@ -849,6 +1161,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "27",
                             CategoryId = "4",
+                            Description = "",
                             Price = 175.0,
                             Title = "مقعد بووفليكس متعدد الوظائف"
                         },
@@ -856,6 +1169,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "28",
                             CategoryId = "4",
+                            Description = "",
                             Price = 69.0,
                             Title = "حبل معركة بروبانتل"
                         },
@@ -863,6 +1177,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "29",
                             CategoryId = "4",
+                            Description = "",
                             Price = 125.0,
                             Title = "مقعد قابل للطي قابل للتعديل للتمارين الرياضية"
                         },
@@ -870,6 +1185,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "30",
                             CategoryId = "4",
+                            Description = "",
                             Price = 25.0,
                             Title = "مجدّف"
                         },
@@ -877,6 +1193,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "31",
                             CategoryId = "3",
+                            Description = "",
                             Price = 111.0,
                             Title = "زيت السمك أوميغا 3"
                         },
@@ -884,6 +1201,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "32",
                             CategoryId = "3",
+                            Description = "",
                             Price = 78.0,
                             Title = "Muscletech, بلاتينيوم ملتي فيتامين"
                         },
@@ -891,6 +1209,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "33",
                             CategoryId = "3",
+                            Description = "",
                             Price = 169.0,
                             Title = "Ultima Replenisher"
                         },
@@ -898,6 +1217,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "34",
                             CategoryId = "3",
+                            Description = "",
                             Price = 169.0,
                             Title = "زيت الكريل"
                         },
@@ -905,6 +1225,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "35",
                             CategoryId = "3",
+                            Description = "",
                             Price = 170.0,
                             Title = "أنافيت"
                         },
@@ -912,6 +1233,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "36",
                             CategoryId = "3",
+                            Description = "",
                             Price = 79.0,
                             Title = "Trace Minerals Research"
                         },
@@ -919,6 +1241,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "37",
                             CategoryId = "3",
+                            Description = "",
                             Price = 109.0,
                             Title = "BodyBio, E-Lyte"
                         },
@@ -926,6 +1249,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "38",
                             CategoryId = "3",
+                            Description = "",
                             Price = 163.0,
                             Title = "فيجا ، سبورت"
                         },
@@ -933,6 +1257,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "39",
                             CategoryId = "3",
+                            Description = "",
                             Price = 111.0,
                             Title = "مضاعف الترطيب"
                         },
@@ -940,6 +1265,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "40",
                             CategoryId = "3",
+                            Description = "",
                             Price = 54.0,
                             Title = "NutriBiotic"
                         },
@@ -947,8 +1273,17 @@ namespace liaqati_master.Migrations
                         {
                             Id = "41",
                             CategoryId = "3",
+                            Description = "",
                             Price = 169.0,
                             Title = "زيت الكريل"
+                        },
+                        new
+                        {
+                            Id = "100",
+                            CategoryId = "3",
+                            Description = "",
+                            Price = 99.0,
+                            Title = " برنامج لنحت وتفصيل الجسم في 8 أسابيع فقط "
                         });
                 });
 
@@ -971,8 +1306,14 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Length")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("TrainingType")
                         .IsRequired()
@@ -982,6 +1323,49 @@ namespace liaqati_master.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TblSportsProgram");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "100",
+                            BodyFocus = "كل الجسم",
+                            Difficulty = "3-4",
+                            Equipment = "حزام التمرين,سجاد",
+                            Length = 8,
+                            TrainingType = ""
+                        });
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Tracking", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Exercies_programId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("Iscomplete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Order_DetailsId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Exercies_programId");
+
+                    b.HasIndex("Order_DetailsId");
+
+                    b.ToTable("TblTracking");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Exercies_programId = "1",
+                            Iscomplete = true,
+                            Order_DetailsId = "1"
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Trak", b =>
@@ -989,13 +1373,13 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("servicesId")
+                    b.Property<string>("ServicesId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("servicesId");
+                    b.HasIndex("ServicesId");
 
                     b.ToTable("Trak");
                 });
@@ -1005,12 +1389,25 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("Active")
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Cover_photo")
-                        .IsRequired()
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cover_photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("Exp_Years")
                         .HasColumnType("int");
@@ -1023,7 +1420,7 @@ namespace liaqati_master.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
-                    b.Property<int>("Height")
+                    b.Property<int?>("Height")
                         .HasColumnType("int");
 
                     b.Property<string>("Lname")
@@ -1031,31 +1428,211 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Photograph")
-                        .IsRequired()
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Wieght")
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<int?>("Wieght")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = "1",
+                            AccessFailedCount = 0,
                             Active = false,
+                            ConcurrencyStamp = "c35908f2-59c4-4e6b-ac9e-8bc8e198a878",
                             Cover_photo = "sssssssssssssssa",
+                            EmailConfirmed = false,
                             Exp_Years = 10,
                             Fname = "sssssssssssssss",
                             Gender = 1,
                             Height = 120,
                             Lname = "sssssssssssssss",
-                            Photograph = "ssssssssssssssss",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Photo = "ssssssssssssssss",
+                            SecurityStamp = "746f9aa6-9a2c-412b-946d-73193d09a801",
+                            TwoFactorEnabled = false,
                             Wieght = 120
                         });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Achievements", b =>
@@ -1069,10 +1646,10 @@ namespace liaqati_master.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.HasOne("liaqati_master.Models.Category", "Category")
-                        .WithMany("articles")
+                        .WithMany("Articles")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1101,18 +1678,18 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Comment_Servies", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Service", "services")
+                    b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithMany("commentServies")
-                        .HasForeignKey("servicesId")
+                        .HasForeignKey("ServicesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Comments", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Articles", "articles")
+                    b.HasOne("liaqati_master.Models.Article", "articles")
                         .WithMany("comments")
                         .HasForeignKey("articlesId");
 
@@ -1121,60 +1698,60 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Exercies_program", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Exercise", "exercise")
-                        .WithMany("exercies_Programs")
-                        .HasForeignKey("exerciseId")
+                    b.HasOne("liaqati_master.Models.Exercise", "Exercise")
+                        .WithMany("Exercies_Programs")
+                        .HasForeignKey("ExerciseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("liaqati_master.Models.SportsProgram", "sportsProgram")
-                        .WithMany("exercies_Programs")
-                        .HasForeignKey("sportsProgramId")
+                    b.HasOne("liaqati_master.Models.SportsProgram", "SportsProgram")
+                        .WithMany("Exercies_Programs")
+                        .HasForeignKey("SportsProgramId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("exercise");
+                    b.Navigation("Exercise");
 
-                    b.Navigation("sportsProgram");
+                    b.Navigation("SportsProgram");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Favorite_Servies", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Favorite", "favorite")
+                    b.HasOne("liaqati_master.Models.Favorite", "Favorite")
                         .WithMany("Favorite_Servies")
-                        .HasForeignKey("favoriteId")
+                        .HasForeignKey("FavoriteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("liaqati_master.Models.Service", "services")
+                    b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithMany("favorites")
-                        .HasForeignKey("servicesId1");
+                        .HasForeignKey("ServicesId1");
 
-                    b.Navigation("favorite");
+                    b.Navigation("Favorite");
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.HealthyRecipes", b =>
+            modelBuilder.Entity("liaqati_master.Models.HealthyRecipe", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Service", "services")
+                    b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithOne("HealthyRecipes")
-                        .HasForeignKey("liaqati_master.Models.HealthyRecipes", "Id")
+                        .HasForeignKey("liaqati_master.Models.HealthyRecipe", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Service", "services")
+                    b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithOne("MealPlans")
                         .HasForeignKey("liaqati_master.Models.MealPlans", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Message", b =>
@@ -1203,7 +1780,9 @@ namespace liaqati_master.Migrations
                 {
                     b.HasOne("liaqati_master.Models.Order", "Order")
                         .WithMany("Order_Details")
-                        .HasForeignKey("OrderId1");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("liaqati_master.Models.Service", "Service")
                         .WithMany("Order_Details")
@@ -1214,15 +1793,15 @@ namespace liaqati_master.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Products", b =>
+            modelBuilder.Entity("liaqati_master.Models.Product", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Service", "services")
+                    b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithOne("Products")
-                        .HasForeignKey("liaqati_master.Models.Products", "Id")
+                        .HasForeignKey("liaqati_master.Models.Product", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Rate", b =>
@@ -1237,44 +1816,112 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
                 {
                     b.HasOne("liaqati_master.Models.Category", "Category")
-                        .WithMany("services")
-                        .HasForeignKey("CategoryId");
+                        .WithMany("Services")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Service", "services")
+                    b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithOne("sportsProgram")
                         .HasForeignKey("liaqati_master.Models.SportsProgram", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Tracking", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Exercies_program", "Exercies_program")
+                        .WithMany("Tracking")
+                        .HasForeignKey("Exercies_programId");
+
+                    b.HasOne("liaqati_master.Models.Order_Details", "Order_Details")
+                        .WithMany("Tracking")
+                        .HasForeignKey("Order_DetailsId");
+
+                    b.Navigation("Exercies_program");
+
+                    b.Navigation("Order_Details");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Trak", b =>
                 {
-                    b.HasOne("liaqati_master.Models.Service", "services")
+                    b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithMany("traks")
-                        .HasForeignKey("servicesId")
+                        .HasForeignKey("ServicesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Articles", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("liaqati_master.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("liaqati_master.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("liaqati_master.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("liaqati_master.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Article", b =>
                 {
                     b.Navigation("comments");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Category", b =>
                 {
-                    b.Navigation("articles");
+                    b.Navigation("Articles");
 
-                    b.Navigation("services");
+                    b.Navigation("Services");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Chat", b =>
@@ -1284,9 +1931,14 @@ namespace liaqati_master.Migrations
                     b.Navigation("Message");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Exercies_program", b =>
+                {
+                    b.Navigation("Tracking");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
                 {
-                    b.Navigation("exercies_Programs");
+                    b.Navigation("Exercies_Programs");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Favorite", b =>
@@ -1302,6 +1954,8 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.Order_Details", b =>
                 {
                     b.Navigation("Rate");
+
+                    b.Navigation("Tracking");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
@@ -1325,7 +1979,7 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
                 {
-                    b.Navigation("exercies_Programs");
+                    b.Navigation("Exercies_Programs");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.User", b =>

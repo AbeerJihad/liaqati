@@ -1,5 +1,6 @@
 ﻿
 let lstprogramExercies = [];
+let lstExercise = [];
 var selectElement = document.getElementById("tableBodyApi");
 
 var programid = document.getElementById("IdProg");
@@ -33,12 +34,24 @@ async function getprogramExercies( progid ) {
 
 
 
-async function getdata() {
+async function getdata(select) {
 
 
-    lstprogramExercies = await getprogramExercies();
-    lstprogramExercies.forEach((p) =>
-        RenderSelect(selectElement));
+    if (select == "tableBodyApi") {
+        lstprogramExercies = await getprogramExercies();
+        lstprogramExercies.forEach((p) =>
+            RenderSelect(select));
+    }
+    else if (select == "SelectExercises") {
+
+        lstExercise = await getExercise(select);
+        lstExercise.forEach((p) =>
+            RenderSelect(select));
+
+    }
+
+
+  
 
 }
 
@@ -47,17 +60,39 @@ async function getdata() {
 
 
 function RenderSelect(selectElement) {
-    for (element of lstprogramExercies) {
-        let tr = document.createElement("tr");
-        tr.innerHTML =
-            `
+
+    if (selectElement == "tableBodyApi") {
+        var selectElement = document.getElementById(selectElement);
+
+        for (element of lstprogramExercies) {
+            let tr = document.createElement("tr");
+            tr.innerHTML =
+                `
         <td>${element.Day}  اليوم </td>
         <td>${element.Week}   الاسبوع</td>
         <td></td>
             `;
-        selectElement.appendChild(tr);
+            selectElement.appendChild(tr);
+        }
+
+    }
+    else if (selectElement == "SelectExercises") {
+        var xx = document.getElementById(selectElement);
+        xx.innerHTML = "";
+
+        for (element of lstExercise) {
+            let li = document.createElement("option");
+            li.value = element.id;
+
+            li.innerHTML = element.title;
+            xx.appendChild(li);
+        }
+       
+
     }
 
+
+   
 }
 
 

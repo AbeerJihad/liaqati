@@ -28,7 +28,7 @@ namespace liaqati_master.Controllers
         public async  Task<ActionResult<List<Exercies_program>>> GetAllProgramExerciesByProgramId(string id)
         {
 
-        IEnumerable<Exercies_program> list = _context.TblExercies_program.ToList().Where(p => p.sportsProgramId == id);
+        IEnumerable<Exercies_program> list = _context.TblExercies_program.ToList().Where(p => p.SportsProgramId == id);
 
             return Ok(list);
         }
@@ -51,8 +51,8 @@ namespace liaqati_master.Controllers
             Exercies_program Exercies_program = new Exercies_program()
             {
                 Id = VmExercies_program.Id,
-                exerciseId = VmExercies_program.exerciseId,
-                sportsProgramId = VmExercies_program.sportsProgramId,
+                ExerciseId = VmExercies_program.exerciseId,
+                SportsProgramId = VmExercies_program.sportsProgramId,
                 Day = VmExercies_program.Day,
                 Week = VmExercies_program.Week
 

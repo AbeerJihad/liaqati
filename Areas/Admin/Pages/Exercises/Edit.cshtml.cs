@@ -1,57 +1,45 @@
-using liaqati_master.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
-namespace liaqati_master.Pages.Exercises
+namespace liaqati_master.Areas.Admin.Pages.Exercises
 {
     public class EditExerciseModel : PageModel
     {
 
         private readonly LiaqatiDBContext _context;
-
         private readonly UnitOfWork _UnitOfWork;
         private readonly IFormFileMang _repoFile;
-        private readonly IFormFileMangVedio _repoFileVedio;
 
-        public EditExerciseModel(LiaqatiDBContext context,
-            
-            
-            UnitOfWork unitOfWork, IFormFileMang repoFile,
-             IFormFileMangVedio repoFileVedio)
+        public EditExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang repoFile)
         {
             _context = context;
             _UnitOfWork = unitOfWork;
             _repoFile = repoFile;
-            _repoFileVedio= repoFileVedio;
         }
-
-       
-
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public Exercise Exercise { get; set; }
+        [BindProperty]
+        public IFormFile Image { get; set; }
+        [BindProperty]
+        public IFormFile Video { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var exercise =  _UnitOfWork.ExerciseRepository.GetByID(id);
+            var exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
             if (exercise == null)
             {
                 return NotFound();
             }
             Exercise = exercise;
 
-           
+
 
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPost()
         {
 
@@ -60,57 +48,50 @@ namespace liaqati_master.Pages.Exercises
             //    return Page();
             //}
 
-            var id= Exercise.Id;
+            var id = Exercise.Id;
 
-        var item= _UnitOfWork.ExerciseRepository.GetByID(id);
-           
+            var item = _UnitOfWork.ExerciseRepository.GetByID(id);
+
             item.Title = Exercise.Title;
             item.Detail = Exercise.Detail;
-            item.DEx = Exercise.DEx;
+            item.Duration = Exercise.Duration;
             item.Equipments = Exercise.Equipments;
             item.TraningType = Exercise.TraningType;
             item.Difficulty = Exercise.Difficulty;
-
-
             string oldurl = Exercise.Image;
             string oldurlvideo = Exercise.Video;
 
             if (Exercise.FormFile != null)
             {
-                item.Image = await _repoFile.Upload(Exercise.FormFile, "Exercise");
+                Exercise.Image = await _repoFile.Upload(Exercise.FormFile, "Images", "Exercise");
 
             }
             else
             {
-                item.Image = oldurl;
+                Exercise.Image = oldurl;
             }
 
 
 
             if (Exercise.FormFileVedio != null)
             {
-                item.Video = await _repoFileVedio.Upload(Exercise.FormFileVedio, "Exercise");
+                Exercise.Video = await _repoFile.Upload(Exercise.FormFileVedio, "Vedio", "Exercise");
 
             }
             else
             {
-                item.Video = oldurlvideo;
+                Exercise.Video = oldurlvideo;
             }
-
-
 
             _UnitOfWork.ExerciseRepository.Update(item);
 
-          
-          //  _context.Attach(MealPlans).State = EntityState.Modified;
+
+            //  _context.Attach(MealPlans).State = EntityState.Modified;
 
             try
             {
                 _UnitOfWork.Save();
             }
-
-
-
 
             catch (DbUpdateConcurrencyException)
             {

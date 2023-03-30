@@ -2,7 +2,7 @@
 {
     public interface IFormFileMang
     {
-        public Task<string> Upload(IFormFile fm, string filename);
+        public Task<string> Upload(IFormFile fm, string TypeFile, string filename);
         public void DeleteFile(string OldFileName);
     }
 
@@ -25,10 +25,10 @@
             }
         }
 
-        public async Task<string> Upload(IFormFile fm, string Foldername)
+        public async Task<string> Upload(IFormFile fm,string TypeFile , string Foldername)
         {
 
-            string Folder = _web.WebRootPath + "//Images//" + Foldername;
+            string Folder = _web.WebRootPath + "//"+ TypeFile + "//" + Foldername;
             if (!System.IO.File.Exists(Folder))
             {
                 System.IO.Directory.CreateDirectory(Folder);
@@ -43,7 +43,7 @@
             fs.Close();
 
 
-            return $"/Images//{Foldername}//{filename}";
+            return $"/{TypeFile}//{Foldername}//{filename}";
         }
     }
 

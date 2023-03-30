@@ -1,5 +1,4 @@
 
-let lstExercise = [];
 
 async function getExercise(SelectExercises) {
     var xxx = document.getElementById(SelectExercises);
@@ -30,30 +29,30 @@ async function getExercise(SelectExercises) {
 
 
 
-async function getdata(SelectExercises) {
-    lstExercise = await getExercise(SelectExercises);
-    lstExercise.forEach((p) =>
-        RenderSelect(SelectExercises));
+//async function getdata(SelectExercises) {
+//    lstExercise = await getExercise(SelectExercises);
+//    lstExercise.forEach((p) =>
+//        RenderSelect(SelectExercises));
 
-}
-
-
+//}
 
 
-function RenderSelect(SelectExercises) {
 
-    var xx = document.getElementById(SelectExercises);
-    xx.innerHTML = "";
 
-    for (element of lstExercise) {
-        let li = document.createElement("option");
-        li.value = element.id;
+//function RenderSelect(SelectExercises) {
+
+//    var xx = document.getElementById(SelectExercises);
+//    xx.innerHTML = "";
+
+//    for (element of lstExercise) {
+//        let li = document.createElement("option");
+//        li.value = element.id;
      
-        li.innerHTML = element.title;
-        xx.appendChild(li);
-    }
+//        li.innerHTML = element.title;
+//        xx.appendChild(li);
+//    }
 
-}
+//}
 
 
 //async function addExerciesForm(data) {

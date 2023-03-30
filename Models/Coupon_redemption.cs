@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
     public class Coupon_redemption
     {
@@ -29,7 +26,7 @@ namespace liaqati_master.Models
         [Display(Name = "رقم الكوبون")]
         public string CouponId { get; set; }
         public Coupon? Coupon { get; set; }
-        
+
 
     }
 }

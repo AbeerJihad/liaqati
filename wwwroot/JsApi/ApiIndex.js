@@ -17,7 +17,7 @@ async function getLatesMealPlan(rowMealPlan) {
 }
 
 
-function RenderMealPlan(rowMealPlan, { image, services, numsubscribers, Id }) {
+function RenderMealPlan(rowMealPlan, { image, Services, numsubscribers, Id }) {
 
 
     let div = document.createElement("div");
@@ -37,8 +37,8 @@ function RenderMealPlan(rowMealPlan, { image, services, numsubscribers, Id }) {
         </div>
 
         <div class="card-body">
-            <h5 class="card-title mb-3">${services.title}</h5>
-            <p class="card-text">${services.description}</p>
+            <h5 class="card-title mb-3">${Services.title}</h5>
+            <p class="card-text">${Services.description}</p>
             <div class="d-flex justify-content-between">
                 <div>
                     <h6 class="d-inline-block ms-2 fw-bold">عدد المشتركين</h6>
@@ -54,7 +54,7 @@ function RenderMealPlan(rowMealPlan, { image, services, numsubscribers, Id }) {
                     <h5
                         class="d-inline-block fw-bold text-danger align-middle ms-1 mt-2"
                     >
-                        ${services.price}
+                        ${Services.price}
                     </h5>
                     <img
                         width="20"

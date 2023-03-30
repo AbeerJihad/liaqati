@@ -16,7 +16,7 @@ namespace liaqati_master.Pages.HealthyReicpe
         }
 
         [BindProperty]
-        public HealthyRecipes HealthyRecipe { get; set; }
+        public HealthyRecipe HealthyRecipe { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (id == null )
@@ -25,7 +25,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             }
 
 
-            HealthyRecipes healthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+            HealthyRecipe healthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
 
             if (healthyRecipe == null)
             {
@@ -45,7 +45,7 @@ namespace liaqati_master.Pages.HealthyReicpe
                 return NotFound();
             }
 
-            HealthyRecipes healthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+            HealthyRecipe healthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
 
             if (healthyRecipe != null)
             {

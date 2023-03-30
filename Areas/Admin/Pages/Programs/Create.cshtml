@@ -48,27 +48,19 @@
 
     <!-- Responsive css-->
 
-     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
-    <link
-      rel="shortcut icon"
-      href="assets/images/favicon.png"
-      type="image/x-icon"
-    />
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon"
+          href="assets/images/favicon.png"
+          type="image/x-icon" />
     <title>Default Page</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+          rel="stylesheet" />
     <!-- Font Awesome-->
     <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css" />
     <!-- ico-font-->
@@ -91,47 +83,44 @@
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style2.css" />
-    <link
-      id="color"
-      rel="stylesheet"
-      href="assets/css/color-1.css"
-      media="screen"
-    />
+    <link id="color"
+          rel="stylesheet"
+          href="assets/css/color-1.css"
+          media="screen" />
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="node_modules/bootstrap-icons/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet"
+          type="text/css"
+          href="node_modules/bootstrap-icons/font/bootstrap-icons.css" />
     <style>
-      @@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+        @@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
 
-      body {
-        background-color: #f5f6f1;
-      }
-      * {
-        font-family: "Almarai", sans-serif;
-      }
+        body {
+            background-color: #f5f6f1;
+        }
 
-      .ingredient {
-        background: #dacdea;
-        color: #8763b3;
-        border-radius: 20px;
-        padding: 3px 15px;
-      }
+        * {
+            font-family: "Almarai", sans-serif;
+        }
 
-      .ingredients {
-        overflow-y: scroll;
-      }
-      </style>
+        .ingredient {
+            background: #dacdea;
+            color: #8763b3;
+            border-radius: 20px;
+            padding: 3px 15px;
+        }
 
-      
+        .ingredients {
+            overflow-y: scroll;
+        }
+    </style>
+
+
 </head>
 
 <script>
 
-    
+
 </script>
 
 <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
@@ -169,7 +158,7 @@
                                 </div>
                             </div>
 
-                            <form id="formAddExercies"  method="POST">
+                            <form id="formAddExercies" method="POST">
                                 <div class="setup-content" id="step-1">
                                     <div class="col-xs-12">
                                         <div class="col-md-12">
@@ -211,8 +200,8 @@
                                                 <input name="Difficulty" asp-for="Exercises.Difficulty" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label asp-for="Exercises.DEx" class="control-label"></label>
-                                                <input name="DEx" asp-for="Exercises.DEx" class="form-control">
+                                                <label asp-for="Exercises.Duration" class="control-label"></label>
+                                                <input name="Duration" asp-for="Exercises.Duration" class="form-control">
                                             </div>
                                             <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
                                         </div>
@@ -253,38 +242,38 @@
             <div class="card">
                 <div class="card-body">
                     <form id="FormProgramAdd" asp-page-handler="Add" method="post" class="form theme-form">
-                       
+
                         <input name="Id" value="@Model.SportsProgram.Id" id="IdProg" asp-for="SportsProgram.Id" hidden />
 
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label asp-for="SportsProgram.services!.Title"></label>
-                                    <input asp-for="SportsProgram.services!.Title" class="form-control" placeholder="">
-                                    <span class="text-danger" asp-validation-for="SportsProgram.services!.Title"></span>
+                                    <label asp-for="SportsProgram.Services!.Title"></label>
+                                    <input asp-for="SportsProgram.Services!.Title" class="form-control" placeholder="">
+                                    <span class="text-danger" asp-validation-for="SportsProgram.Services!.Title"></span>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label asp-for="SportsProgram.services!.Price"></label>
-                                    <input asp-for="SportsProgram.services!.Price" class="form-control" placeholder="">
-                                    <span class="text-danger" asp-validation-for="SportsProgram.services!.Price"></span>
+                                    <label asp-for="SportsProgram.Services!.Price"></label>
+                                    <input asp-for="SportsProgram.Services!.Price" class="form-control" placeholder="">
+                                    <span class="text-danger" asp-validation-for="SportsProgram.Services!.Price"></span>
 
                                 </div>
                             </div>
-                          
-                           <div class="col-12">
+
+                            <div class="col-12">
                                 <div class="mb-3">
-                                    <label asp-for="SportsProgram.services!.Description"></label>
-                                    <input asp-for="SportsProgram.services!.Description" class="form-control" placeholder="">
-                                    <span class="text-danger" asp-validation-for="SportsProgram.services!.Description"></span>
+                                    <label asp-for="SportsProgram.Services!.Description"></label>
+                                    <input asp-for="SportsProgram.Services!.Description" class="form-control" placeholder="">
+                                    <span class="text-danger" asp-validation-for="SportsProgram.Services!.Description"></span>
 
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="row">
-                           <div class="col-12 col-md-4  ">
+                            <div class="col-12 col-md-4  ">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.TrainingType"></label>
                                     <input asp-for="SportsProgram.TrainingType" class="form-control" placeholder="">
@@ -292,7 +281,7 @@
 
                                 </div>
                             </div>
-                            
+
                             <div class="col-12 col-md-4">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Difficulty"></label>
@@ -310,8 +299,8 @@
 
                                 </div>
                             </div>
-                          
-                         
+
+
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -330,63 +319,45 @@
 
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label class="d-block" asp-for="SportsProgram.services!.Category!.Name"></label>
-                                    <select  style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.services!.Category!.Id" asp-items="Model.CatogeryName">
-                                        <option  value="-1"> ادخل اسم الصنف الخاص بالنظام الرياضي</option>
+                                    <label class="d-block" asp-for="SportsProgram.Services!.Category!.Name"></label>
+                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Services!.CategoryId" asp-items="Model.CatogeryName">
+                                        <option value="-1"> ادخل اسم الصنف الخاص بالنظام الرياضي</option>
 
                                     </select>
-                                   <span class="text-danger" asp-validation-for="SportsProgram.services!.CategoryId"></span>
+                                    <span class="text-danger" asp-validation-for="SportsProgram.Services!.CategoryId"></span>
 
                                 </div>
                             </div>
-
-
                         </div>
-
-
                         <div>
                             @{
-
-                                if (Model.SportsProgram.exercies_Programs !=null){
+                                if (Model.SportsProgram.Exercies_Programs != null)
+                                {
                                     <table class="table table-striped table-hover table-bordered table-responsive">
                                         <thead class="table-Secondary">
-                                    <tr>
-                                      
-                                        <th scope="col">الاسبوع</th>
-                                         <th scope="col">اليوم</th>
-                                        <th scope="col"> اسم التمرين</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tableBodyApi">
-                                   
-                                   
+                                            <tr>
 
-                                        @for (int x = 0; x < Model.SportsProgram.exercies_Programs!.Count; x++)
-                                        {
-                                                
-                                                string id=  @Model.SportsProgram.exercies_Programs[x].exerciseId;
-                                                  Exercise exercise=   @Model.getExercise(id);
- 
-                                        <tr>
-                                                <td>@Model.SportsProgram.exercies_Programs[x].Week   الاسبوع</td>
-                                                <td>@Model.SportsProgram.exercies_Programs[x].Day  اليوم </td>
-                                                <td>@exercise.Title</td>
+                                                <th scope="col">الاسبوع</th>
+                                                <th scope="col">اليوم</th>
+                                                <th scope="col"> اسم التمرين</th>
                                             </tr>
+                                        </thead>
+                                        <tbody id="tableBodyApi">
+                                            @for (int x = 0; x < Model.SportsProgram.Exercies_Programs!.Count; x++)
+                                            {
 
-                                        }
-                                    }
+                                                string id = @Model.SportsProgram.Exercies_Programs[x].ExerciseId;
+                                                Exercise exercise = Model.getExercise(id);
+                                                <tr>
+                                                    <td>@Model.SportsProgram.Exercies_Programs[x].Week   الاسبوع</td>
+                                                    <td>@Model.SportsProgram.Exercies_Programs[x].Day  اليوم </td>
+                                                    <td>@exercise.Title</td>
+                                                </tr>
 
-                                    
-                              
-                                
-                                </tbody>
-                            </table>
-                          
-
+                                            }
+                                        </tbody>
+                                    </table>
                                 }
-
-
-                        
                             }
                         </div>
 
@@ -400,7 +371,7 @@
                                 <div class="row">
                                     <div class="col-4 mx-auto">
                                         <div class="mb-3">
-                                            <a style="margin-right:35%" onclick="SaveProg(this)" id="btnSave" class="btn btn-secondary"> Save </a>
+                                            <button style="margin-right:35%" id="btnSave" class="btn btn-secondary"> Save </button>
                                         </div>
                                     </div>
                                 </div>
@@ -408,7 +379,6 @@
                         }
 
 
-                       
 
 
 
@@ -416,25 +386,27 @@
 
 
 
-                     @*   <div class="row">
-                             <div class="col-sm-4">
-                                <div class="mb-3">
-                                    <label> اختر التمارين الخاصة بالنظام الرياضي</label>
-                                    <select id="SelectExercise" aria-label="Default select example" class="js-example-rtl " multiple="multiple">
-                                    </select>
+
+                        @*   <div class="row">
+                        <div class="col-sm-4">
+                        <div class="mb-3">
+                        <label> اختر التمارين الخاصة بالنظام الرياضي</label>
+                        <select id="SelectExercise" aria-label="Default select example" class="js-example-rtl " multiple="multiple">
+                        </select>
 
 
-                                </div>
-                            </div>
                         </div>
-                       
-                         *@
-                    
+                        </div>
+                        </div>
+
+                        *@
 
 
-                    
-                    
+
+
+
                     </form>
+               
                 </div>
             </div>
         </div>
@@ -449,12 +421,12 @@
                     <div></div>
                 </div>
                 <div class="bg-white p-4">
-                   
+
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
                                 <label>اختر الاسبوع </label>
-                                <select style="height:35px;" class="col-12 border border-light rounded-3"  name="Week" id="selectLengthWeek">
+                                <select style="height:35px;" class="col-12 border border-light rounded-3" name="Week" id="selectLengthWeek">
                                     <option disabled value="-1">اختر الاسبوع</option>
 
                                     @for (int x = 1; x <= Model.SportsProgram!.Length; x++)
@@ -488,7 +460,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="d-block"> اختر التمارين الخاصة بالنظام الرياضي</label>
-                                <select style="height:35px;" class="col-12 border border-light rounded-3" id="SelectExercises"  multiple="multiple">
+                                <select onchange="SelectExerciseFun()" style="height:35px;" class="col-12 border border-light rounded-3" id="SelectExercises" multiple="multiple">
                                     <option value="-1"> اختر التمارين</option>
                                 </select>
                             </div>
@@ -496,41 +468,41 @@
                         </div>
 
                         <div class="col-auto py-4">
-                             <form id="formSystem" method="post" asp-page="Create" asp-page-handler="AddSystem">
-                            <input name="Id" value="@Model.SportsProgram.Id" id="IdProg" name="id" asp-for="SportsProgram.Id" hidden />
+                            <form id="formSystem" method="post" asp-page="Create" asp-page-handler="AddSystem">
+                                <input name="Id" value="@Model.SportsProgram.Id" id="IdProg" name="id" asp-for="SportsProgram.Id" hidden />
 
-                            <a id="BtnAdd"
-                               class="text-nowrap bg-white fw-medium btn btn-outline-primary">
-                                <i class="bi bi-plus h5 fw-bold"></i>
-                            </a>
-                        </form>
+                                <a id="BtnAdd"
+                                   class="text-nowrap bg-white fw-medium btn btn-outline-primary">
+                                    <i class="bi bi-plus h5 fw-bold"></i>
+                                </a>
+                            </form>
 
                         </div>
-                       
+
 
 
                     </div>
-                    
+
                     <div class="col-4">
                         <label>لاضافة تمرين غير موجود  </label>
-                        <a  onclick="ShowModelAdd('editModel',@System.Text.Json.JsonSerializer.Serialize(new Exercise()))"
+                        <a onclick="ShowModelAdd('editModel',@System.Text.Json.JsonSerializer.Serialize(new Exercise()))"
                            class="text-nowrap bg-white fw-medium btn btn-outline-primary">
                             <i class="bi bi-plus h5 fw-bold"></i>
                         </a>
                     </div>
 
-                 
 
 
-                    
-                  
 
 
-                  
-                  
+
+
+
+
+
                 </div>
-               
-              
+
+
             </div>
 
         </div>
@@ -553,22 +525,22 @@
 
 
 
-  
+
 
 
     <script>
-     
 
 
-        
-
-      
-
-     
 
 
-      
-      
+
+
+
+
+
+
+
+
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
@@ -593,14 +565,13 @@
 
 
     </script>
-
+    <script src="~/javascript/addex_progbyapi.js"></script>
     <script src="~/javascript/addexercies.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="~/javascript/addex_progbyapi.js"></script>
     <script src="~/jsapi/programexcercies.js"></script>
     <script src="~/jsapi/exerciseapi.js"></script>
 
-     <script src="~/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="~/assets/js/jquery-3.5.1.min.js"></script>
     <!-- feather icon js-->
     <script src="~/assets/js/icons/feather-icon/feather.min.js"></script>
     <script src="~/assets/js/icons/feather-icon/feather-icon.js"></script>
@@ -624,7 +595,7 @@
 
 
 
-     <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
     <!-- feather icon js-->
     <script src="assets/js/icons/feather-icon/feather.min.js"></script>
     <script src="assets/js/icons/feather-icon/feather-icon.js"></script>
@@ -667,7 +638,7 @@
     <script src="assets/js/theme-customizer/customizer.js"></script>
 
 
-  
+
 }
 
 

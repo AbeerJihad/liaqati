@@ -5,50 +5,6 @@
       "PackagePath": "staticwebassets\\liaqati-master.bundle.scp.css"
     },
     {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\Calender.html",
-      "PackagePath": "staticwebassets\\Calender\\Calender.html"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.midnight-blue.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.midnight-blue.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.midnight-blue.min.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.midnight-blue.min.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.min.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.min.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.orange-coral.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.orange-coral.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.orange-coral.min.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.orange-coral.min.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.royal-navy.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.royal-navy.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\css\\evo-calendar.royal-navy.min.css",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\css\\evo-calendar.royal-navy.min.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\js\\evo-calendar.js",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\js\\evo-calendar.js"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Calender\\evo-calendar\\js\\evo-calendar.min.js",
-      "PackagePath": "staticwebassets\\Calender\\evo-calendar\\js\\evo-calendar.min.js"
-    },
-    {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Exercise\\0158d34a-3cd6-478e-a443-d20bbc9c9fdd.png",
       "PackagePath": "staticwebassets\\Images\\Exercise\\0158d34a-3cd6-478e-a443-d20bbc9c9fdd.png"
     },
@@ -87,6 +43,26 @@
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Exercise\\e91d50dd-888e-4260-9cca-c42e883abc57.png",
       "PackagePath": "staticwebassets\\Images\\Exercise\\e91d50dd-888e-4260-9cca-c42e883abc57.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Healthy\\10.png",
+      "PackagePath": "staticwebassets\\Images\\Healthy\\10.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Healthy\\7.png",
+      "PackagePath": "staticwebassets\\Images\\Healthy\\7.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Healthy\\8.png",
+      "PackagePath": "staticwebassets\\Images\\Healthy\\8.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Healthy\\9.png",
+      "PackagePath": "staticwebassets\\Images\\Healthy\\9.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Healthy\\gym.png",
+      "PackagePath": "staticwebassets\\Images\\Healthy\\gym.png"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Product\\43912889.png",
@@ -193,12 +169,44 @@
       "PackagePath": "staticwebassets\\Images\\Product\\منتجاتنا.jpg"
     },
     {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Program\\1.jfif",
+      "PackagePath": "staticwebassets\\Images\\Program\\1.jfif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Program\\2.jfif",
+      "PackagePath": "staticwebassets\\Images\\Program\\2.jfif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Program\\3.jpg",
+      "PackagePath": "staticwebassets\\Images\\Program\\3.jpg"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Program\\4.webp",
+      "PackagePath": "staticwebassets\\Images\\Program\\4.webp"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Program\\5.webp",
+      "PackagePath": "staticwebassets\\Images\\Program\\5.webp"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\Program\\77518dbf-440a-4e16-abc7-d7013f7dc1e5.webp",
+      "PackagePath": "staticwebassets\\Images\\Program\\77518dbf-440a-4e16-abc7-d7013f7dc1e5.webp"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Images\\strong-man-training-gym.png",
+      "PackagePath": "staticwebassets\\Images\\strong-man-training-gym.png"
+    },
+    {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\AddEx_ProgByApi.js",
       "PackagePath": "staticwebassets\\JavaScript\\AddEx_ProgByApi.js"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\AddExercies.js",
       "PackagePath": "staticwebassets\\JavaScript\\AddExercies.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\JsEditProgram.js",
+      "PackagePath": "staticwebassets\\JavaScript\\JsEditProgram.js"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\JavaScript\\Programs.js",
@@ -221,16 +229,1228 @@
       "PackagePath": "staticwebassets\\JsApi\\ProgramExcercies.js"
     },
     {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Vedio\\Exercise\\1aaea527-a010-48c1-a673-d2a85b7e9996.mp4",
-      "PackagePath": "staticwebassets\\Vedio\\Exercise\\1aaea527-a010-48c1-a673-d2a85b7e9996.mp4"
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\Index.html",
+      "PackagePath": "staticwebassets\\User\\Index.html"
     },
     {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Vedio\\Exercise\\3241cd90-823d-45f5-82b8-c0867f951ab6.mp4",
-      "PackagePath": "staticwebassets\\Vedio\\Exercise\\3241cd90-823d-45f5-82b8-c0867f951ab6.mp4"
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\Proccess.css",
+      "PackagePath": "staticwebassets\\User\\css\\Proccess.css"
     },
     {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Vedio\\Exercise\\dc0c565e-95e0-40c4-b2b7-d9b9bc7eedc4.mp4",
-      "PackagePath": "staticwebassets\\Vedio\\Exercise\\dc0c565e-95e0-40c4-b2b7-d9b9bc7eedc4.mp4"
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\User\\css\\bootstrap-icons.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\index.css",
+      "PackagePath": "staticwebassets\\User\\css\\index.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\nice-select2.css",
+      "PackagePath": "staticwebassets\\User\\css\\nice-select2.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\owl.carousel.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\User\\css\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\ajax-loader.gif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\config.rb",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\config.rb"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.eot",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.eot"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.svg",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.svg"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.ttf",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.ttf"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\fonts\\slick.woff",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\fonts\\slick.woff"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick-theme.css",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick-theme.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick-theme.less",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick-theme.less"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick-theme.scss",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick-theme.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick.css",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick.js",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick.less",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.less"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick.min.js",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\slick\\slick.scss",
+      "PackagePath": "staticwebassets\\User\\css\\slick\\slick.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\styleIndex.css",
+      "PackagePath": "staticwebassets\\User\\css\\styleIndex.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\css\\tabs.css",
+      "PackagePath": "staticwebassets\\User\\css\\tabs.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\130252-النظام-النباتى.png",
+      "PackagePath": "staticwebassets\\User\\images\\130252-النظام-النباتى.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\130252-النظام-النباتى@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\130252-النظام-النباتى@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022.png",
+      "PackagePath": "staticwebassets\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\1316-the-role-of-exercise-in-addiction-treatment-a022@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8.png",
+      "PackagePath": "staticwebassets\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\176-103746-cardio-exercises-their-benefits-types-8@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\176-103747-cardio-exercises-their-benefits-types-10.png",
+      "PackagePath": "staticwebassets\\User\\images\\176-103747-cardio-exercises-their-benefits-types-10.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\218281.png",
+      "PackagePath": "staticwebassets\\User\\images\\218281.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\218281@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\218281@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\220844.png",
+      "PackagePath": "staticwebassets\\User\\images\\220844.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\220919.png",
+      "PackagePath": "staticwebassets\\User\\images\\220919.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\220919@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\220919@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\221474.png",
+      "PackagePath": "staticwebassets\\User\\images\\221474.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\221796.png",
+      "PackagePath": "staticwebassets\\User\\images\\221796.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\223603.png",
+      "PackagePath": "staticwebassets\\User\\images\\223603.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\224058.png",
+      "PackagePath": "staticwebassets\\User\\images\\224058.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\224347.png",
+      "PackagePath": "staticwebassets\\User\\images\\224347.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\224664.png",
+      "PackagePath": "staticwebassets\\User\\images\\224664.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\224756.png",
+      "PackagePath": "staticwebassets\\User\\images\\224756.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\41616.png",
+      "PackagePath": "staticwebassets\\User\\images\\41616.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\43912889.png",
+      "PackagePath": "staticwebassets\\User\\images\\43912889.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\43912889@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\43912889@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\46303.png",
+      "PackagePath": "staticwebassets\\User\\images\\46303.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\54263.png",
+      "PackagePath": "staticwebassets\\User\\images\\54263.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\54263@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\54263@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Background.png",
+      "PackagePath": "staticwebassets\\User\\images\\Background.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\1.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\1.jpg"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\2.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\2.jpg"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\7489555552f8902dae64102cc6419c37_w750_h500.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\7489555552f8902dae64102cc6419c37_w750_h500.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\ecb5b3cbe9af4f53f02f0161258ca74f_w750_h500.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\ecb5b3cbe9af4f53f02f0161258ca74f_w750_h500.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\pexels-jan-n-g-u-y-e-n-\uD83C\uDF41-699953.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\pexels-jan-n-g-u-y-e-n-\uD83C\uDF41-699953.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\top-view-cream-soup-with-slices-bread.png",
+      "PackagePath": "staticwebassets\\User\\images\\HealtyReicpe\\top-view-cream-soup-with-slices-bread.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Mask Group 1.png",
+      "PackagePath": "staticwebassets\\User\\images\\Mask Group 1.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Mask Group 1@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Mask Group 1@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\MealPlans\\1.png",
+      "PackagePath": "staticwebassets\\User\\images\\MealPlans\\1.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\NavIcons\\Mask Group 12@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\NavIcons\\Mask Group 12@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\NavIcons\\XMLID_153_@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\NavIcons\\XMLID_153_@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\NavIcons\\XMLID_47_@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\NavIcons\\XMLID_47_@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174745.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174745.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174745@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174745@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174936.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174936.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Screenshot 2023-02-18 174936@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot 2023-02-18 174936@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Screenshot-2021-01-11-100141.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot-2021-01-11-100141.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\Screenshot-2021-01-11-100141@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\Screenshot-2021-01-11-100141@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\article1.png",
+      "PackagePath": "staticwebassets\\User\\images\\article1.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\cart-3-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\cart-3-svgrepo-com.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\cart-3-svgrepo-com@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\cart-3-svgrepo-com@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\color.jfif",
+      "PackagePath": "staticwebassets\\User\\images\\color.jfif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\download.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\download.jpg"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\heart-svgrepo-com (1).png",
+      "PackagePath": "staticwebassets\\User\\images\\heart-svgrepo-com (1).png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\heart-svgrepo-com (1)@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\heart-svgrepo-com (1)@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\ic_expand_more_24px.png",
+      "PackagePath": "staticwebassets\\User\\images\\ic_expand_more_24px.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\ic_play_circle_outline_24px.png",
+      "PackagePath": "staticwebassets\\User\\images\\ic_play_circle_outline_24px.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\ic_play_circle_outline_24px@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\ic_play_circle_outline_24px@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\image_20230202235025276.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\image_20230202235025276.jpg"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\images.jfif",
+      "PackagePath": "staticwebassets\\User\\images\\images.jfif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\layer1.png",
+      "PackagePath": "staticwebassets\\User\\images\\layer1.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\layer1@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\layer1@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\logo 1.png",
+      "PackagePath": "staticwebassets\\User\\images\\logo 1.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\logo.png",
+      "PackagePath": "staticwebassets\\User\\images\\logo.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\logo2.png",
+      "PackagePath": "staticwebassets\\User\\images\\logo2.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1.png",
+      "PackagePath": "staticwebassets\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\mediterranean-diet-food-list-meal-plan-722x406-1@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\ourServices\\1.png",
+      "PackagePath": "staticwebassets\\User\\images\\ourServices\\1.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\ourServices\\2.png",
+      "PackagePath": "staticwebassets\\User\\images\\ourServices\\2.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\ourServices\\3.png",
+      "PackagePath": "staticwebassets\\User\\images\\ourServices\\3.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\pexels-karolina-grabowska-8547529.png",
+      "PackagePath": "staticwebassets\\User\\images\\pexels-karolina-grabowska-8547529.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\pexels-karolina-grabowska-8547529@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\pexels-karolina-grabowska-8547529@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\share-button-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\share-button-svgrepo-com.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\share-button-svgrepo-com@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\share-button-svgrepo-com@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\star-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\star-svgrepo-com.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\star-svgrepo-com@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\star-svgrepo-com@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\vince-fleming-j3lf-Jn6deo-unsplash.png",
+      "PackagePath": "staticwebassets\\User\\images\\vince-fleming-j3lf-Jn6deo-unsplash.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\xpvlzfimzgo18_article.png",
+      "PackagePath": "staticwebassets\\User\\images\\xpvlzfimzgo18_article.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\images\\xpvlzfimzgo18_article@2x.png",
+      "PackagePath": "staticwebassets\\User\\images\\xpvlzfimzgo18_article@2x.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\API\\Products\\ProductModel.js",
+      "PackagePath": "staticwebassets\\User\\js\\API\\Products\\ProductModel.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\API\\Products\\ProductModelApp.js",
+      "PackagePath": "staticwebassets\\User\\js\\API\\Products\\ProductModelApp.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\Index.js",
+      "PackagePath": "staticwebassets\\User\\js\\Index.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\.gitattributes",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\.gitattributes"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\.gitignore",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\.gitignore"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\.travis.yml",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\.travis.yml"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\CONTRIBUTING.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\CONTRIBUTING.md"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\Gruntfile.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\Gruntfile.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\ISSUE_TEMPLATE.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\ISSUE_TEMPLATE.md"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\LICENSE",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\README.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\README.md"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\ROADMAP.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\ROADMAP.md"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\_config.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\_config.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\bower.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\bower.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\LICENSE",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\README.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\README.md"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\dist\\owl.carousel.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\animate.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\animate.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\docs.theme.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\css\\docs.theme.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\bird_blue_32.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\bird_blue_32.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\download.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\download.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-drag.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-drag.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-modern.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-modern.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-module.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-module.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-options.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-options.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-responsive.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-responsive.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-zombie.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\feature-zombie.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\owl-logo.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\owl-logo.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\twitter_25.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\img\\twitter_25.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\app.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\app.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\js\\foundation.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\README.md",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\README.md"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\foundation.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\highlight.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\highlight.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.map",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.min.map"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.mousewheel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\assets\\vendors\\jquery.mousewheel.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\animate.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\animate.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoheight.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoheight.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoplay.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autoplay.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autowidth.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\autowidth.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\basic.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\basic.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\center.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\center.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\demos.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\demos.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\events.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\events.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\lazyLoad.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\lazyLoad.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\merge.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\merge.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\mousewheel.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\mousewheel.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\responsive.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\responsive.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\rtl.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\rtl.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\stagepadding.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\stagepadding.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\test.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\test.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\urlhashnav.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\urlhashnav.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\video.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\demos\\video.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-classes.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-classes.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-events.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-events.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-options.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\api-options.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-buildin-plugins.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-buildin-plugins.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-external.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-external.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-plugin-api.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-plugin-api.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-styles.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\dev-styles.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-faq.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-faq.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-installation.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-installation.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-welcome.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\started-welcome.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-changelog.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-changelog.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contact.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contact.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contributing.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\docs\\support-contributing.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs\\index.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs\\index.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\css\\animate.css",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\css\\animate.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\bird_blue_32.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\bird_blue_32.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\download.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\download.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-drag.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-drag.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-modern.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-modern.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-module.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-module.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-options.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-options.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-responsive.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-responsive.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-zombie.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\feature-zombie.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\owl-logo.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\owl-logo.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\twitter_25.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\img\\twitter_25.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\app.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\app.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\js\\foundation.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\_settings.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\_settings.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\custom.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\custom.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\demos.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\demos.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.theme.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\docs.theme.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\highlight.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\scss\\highlight.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\foundation.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\foundation.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\highlight.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\highlight.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.map",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.min.map"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.mousewheel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\assets\\vendors\\jquery.mousewheel.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\classes.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\classes.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\events.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\events.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\features.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\features.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\options.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\data\\options.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\modulo.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\modulo.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\test.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\helpers\\test.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\demos.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\demos.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\docs.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\docs.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\home.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\layouts\\home.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\animate.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\animate.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoheight.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoheight.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoplay.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autoplay.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autowidth.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\autowidth.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\basic.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\basic.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\center.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\center.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\demos.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\demos.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\events.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\events.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\lazyLoad.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\lazyLoad.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\merge.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\merge.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\mousewheel.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\mousewheel.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\responsive.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\responsive.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\rtl.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\rtl.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\stagepadding.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\stagepadding.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\test.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\test.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\urlhashnav.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\urlhashnav.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\video.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\demos\\video.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-classes.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-classes.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-events.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-events.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-options.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\api-options.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-buildin-plugins.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-buildin-plugins.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-external.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-external.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-plugin-api.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-plugin-api.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-styles.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\dev-styles.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-faq.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-faq.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-installation.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-installation.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-welcome.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\started-welcome.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-changelog.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-changelog.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contact.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contact.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contributing.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\docs\\support-contributing.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\index.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\pages\\index.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\footer.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\footer.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\head.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\head.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\header.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\header.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-carousel.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-carousel.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-features.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-features.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-hero.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-hero.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-teaser-text.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\home-teaser-text.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\javascripts.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\javascripts.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\releated-docs.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\releated-docs.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\sidenav-docs.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\sidenav-docs.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\title.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\title.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\vendors.hbs",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\docs_src\\templates\\partials\\vendors.hbs"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\package-lock.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\package-lock.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\package.json",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\package.json"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\ajax-loader.gif"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\img\\owl.video.play.png"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jscsrc",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jscsrc"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jshintrc",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\.jshintrc"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.animate.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.animate.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoheight.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoheight.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoplay.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autoplay.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autorefresh.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.autorefresh.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.carousel.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.hash.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.hash.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.lazyload.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.lazyload.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.navigation.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.navigation.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.modernizr.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.support.modernizr.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.video.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\js\\owl.video.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_animate.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_animate.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_autoheight.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_autoheight.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_core.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_core.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_lazyload.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_lazyload.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.default.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.default.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.green.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.green.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_theme.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_video.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\_video.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.carousel.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.carousel.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.default.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.default.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.green.scss",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\src\\scss\\owl.theme.green.scss"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\test\\index.html",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\test\\index.html"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\autoplay.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\autoplay.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\core.js",
+      "PackagePath": "staticwebassets\\User\\js\\OwlCarousel2-2.3.4\\test\\unit\\core.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\SwiperSliders.js",
+      "PackagePath": "staticwebassets\\User\\js\\SwiperSliders.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\jquery.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\nice-select2.js",
+      "PackagePath": "staticwebassets\\User\\js\\nice-select2.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\User\\js\\owl.carousel.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\User\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\js\\scriptIndex.js",
+      "PackagePath": "staticwebassets\\User\\js\\scriptIndex.js"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\User\\video\\1.mp4",
+      "PackagePath": "staticwebassets\\User\\video\\1.mp4"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Video\\Exercise\\1aaea527-a010-48c1-a673-d2a85b7e9996.mp4",
+      "PackagePath": "staticwebassets\\Video\\Exercise\\1aaea527-a010-48c1-a673-d2a85b7e9996.mp4"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Video\\Exercise\\3241cd90-823d-45f5-82b8-c0867f951ab6.mp4",
+      "PackagePath": "staticwebassets\\Video\\Exercise\\3241cd90-823d-45f5-82b8-c0867f951ab6.mp4"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Video\\Exercise\\dc0c565e-95e0-40c4-b2b7-d9b9bc7eedc4.mp4",
+      "PackagePath": "staticwebassets\\Video\\Exercise\\dc0c565e-95e0-40c4-b2b7-d9b9bc7eedc4.mp4"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\Video\\Exercise\\فيديو معبر عن قبل الافطار برمضان__رسم ديجتال_رقمي.mp4",
+      "PackagePath": "staticwebassets\\Video\\Exercise\\فيديو معبر عن قبل الافطار برمضان__رسم ديجتال_رقمي.mp4"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\admin\\AOS.html",
@@ -1047,6 +2267,10 @@
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\assets\\audio\\horse.ogg",
       "PackagePath": "staticwebassets\\assets\\audio\\horse.ogg"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\assets\\css\\Tables.css",
+      "PackagePath": "staticwebassets\\assets\\css\\Tables.css"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\assets\\css\\animate.css",
@@ -3357,16 +4581,16 @@
       "PackagePath": "staticwebassets\\assets\\video\\auth-bg.mp4"
     },
     {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\css\\ProgramCard.css",
+      "PackagePath": "staticwebassets\\css\\ProgramCard.css"
+    },
+    {
+      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\css\\ProgramDetails.css",
+      "PackagePath": "staticwebassets\\css\\ProgramDetails.css"
+    },
+    {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\dynamicTextAreaForRecipe copy.html",
-      "PackagePath": "staticwebassets\\dynamicTextAreaForRecipe copy.html"
-    },
-    {
-      "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\dynamicTextAreaForRecipe.html",
-      "PackagePath": "staticwebassets\\dynamicTextAreaForRecipe.html"
     },
     {
       "Id": "F:\\الفصل الرابع\\G Project\\GitHub\\liaqati\\wwwroot\\favicon.ico",

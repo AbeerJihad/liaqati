@@ -23,10 +23,10 @@ namespace liaqati_master.ViewModels
         [Display(Name = "المدة")]
         public int? Length { get; set; }
 
-        public string? dietaryType { get; set; }
+        public string? DietaryType { get; set; }
         //[Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "نوع الوجبة")]
-        public string? mealType { get; set; }
+        public string? MealType { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "منوسط وقت الوجبة")]
         public double? avgRecipeTime { get; set; }

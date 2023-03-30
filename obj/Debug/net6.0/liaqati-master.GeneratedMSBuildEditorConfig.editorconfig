@@ -16,6 +16,54 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\الفصل الرابع\G Project\GitHub\liaqati
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/AchievementsPages/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzUGFnZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/AchievementsPages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzUGFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/AchievementsPages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzUGFnZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/AchievementsPages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzUGFnZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/AchievementsPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Articles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Articles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Articles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Articles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Articles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Categories/IndexAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQ2F0ZWdvcmllc1xJbmRleEFsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Exercises/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -120,12 +168,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZ3JhbXNcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Shared/_ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9Db25maXJtRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Shared/_Layout1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9MYXlvdXQxLmNzaHRtbA==
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Shared/_tables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF90YWJsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Areas/Admin/Pages/Users/Index.cshtml]
@@ -144,16 +196,84 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Index1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgxLmNzaHRtbA==
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/ProductsPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/ProgramPages/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZ3JhbVBhZ2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/ProgramPages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZ3JhbVBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/Exercises/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcRXhlcmNpc2VzXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/HealthyRecipes/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcSGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/LastestArticles/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGFzdGVzdEFydGljbGVzXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/LastestMealPlans/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGFzdGVzdE1lYWxQbGFuc1xkZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/LastestPrograms/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGFzdGVzdFByb2dyYW1zXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/LiaqatiStatistic/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGlhcWF0aVN0YXRpc3RpY1xkZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/MostSoughtProducts/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTW9zdFNvdWdodFByb2R1Y3RzXGRlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/Trainers/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcVHJhaW5lcnNcZGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_ArticlesCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BcnRpY2xlc0NhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_coachsCardDesgin1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9jb2FjaHNDYXJkRGVzZ2luMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_coachsCardDesgin2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9jb2FjaHNDYXJkRGVzZ2luMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_exerciseCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9leGVyY2lzZUNhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_HealthyRecipesCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9IZWFsdGh5UmVjaXBlc0NhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_MealPlansCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9NZWFsUGxhbnNDYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_ProductCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Qcm9kdWN0Q2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_ValidationScriptsPartial.cshtml]

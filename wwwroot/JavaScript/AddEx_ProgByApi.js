@@ -8,20 +8,11 @@ var IdProg = document.getElementById("IdProg").value;
 
 
 
-function SaveProg(event) {
 
-
-
-    DivSystem.classList = "container-lg my-5 d-block";
-
-    btnSave.hidden = true;
-
-    forms.submit();
-
-}
 
 window.onload = function () {
-    getdata("SelectExercises");
+getdata("SelectExercises");
+
 
 }
 
@@ -46,7 +37,7 @@ var BtnAdd = document.getElementById("BtnAdd");
 BtnAdd.addEventListener("click", AddDaysPrograms);
 
 
-selectLength.addEventListener("change", LengthProgram);
+//selectLength.addEventListener("change", LengthProgram);
 
 selectLengthWeek.addEventListener("change", selectLengthWeekFun);
 selectDays.addEventListener("change", selectDaysFun);
@@ -77,19 +68,7 @@ function SelectExerciseFun(event) {
 
 
 
-function LengthProgram(event) {
-    length = event.target.value;
-    selectLengthWeek.innerHTML = "";
-    for (var x = 1; x <= length; x++) {
-        let li = document.createElement("option");
-        li.value = x;
-        li.innerHTML = `الاسبوع  ${x} `;
-        selectLengthWeek.appendChild(li);
-    }
 
-
-
-}
 
 function AddDaysPrograms(event) {
 
@@ -140,6 +119,7 @@ function AddDaysPrograms(event) {
 
 
     }
+
 
     formSystem.submit();
 

@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
     public class Comment_Servies
     {
@@ -21,10 +18,10 @@ namespace liaqati_master.Models
         public string repliedFor { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم الخدمة")]
-        public string? servicesId { get; set; }
+        public string? ServicesId { get; set; }
 
-        public Service? services { get; set; }
+        public Service? Services { get; set; }
 
-  
+
     }
 }

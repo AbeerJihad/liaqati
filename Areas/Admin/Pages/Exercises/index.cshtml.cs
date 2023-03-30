@@ -1,15 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 
-namespace liaqati_master.Pages.Exercises
+namespace liaqati_master.Areas.Admin.Pages.Exercises
 {
-    public class indexExerciseModel : PageModel
+    public class IndexExerciseModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;
-        
-        public indexExerciseModel(UnitOfWork UnitOfWork)
+
+        public IndexExerciseModel(UnitOfWork UnitOfWork)
         {
             _unitOfWork = UnitOfWork;
         }
@@ -20,7 +18,7 @@ namespace liaqati_master.Pages.Exercises
             if (_unitOfWork != null)
             {
 
-                Exercises =  _unitOfWork.ExerciseRepository.GetAllEntity();
+                Exercises = _unitOfWork.ExerciseRepository.GetAllEntity();
             }
         }
     }

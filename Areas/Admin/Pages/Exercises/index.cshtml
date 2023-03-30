@@ -1,5 +1,5 @@
 ﻿@page
-@model liaqati_master.Pages.Exercises.indexExerciseModel
+@model liaqati_master.Areas.Admin.Pages.Exercises.IndexExerciseModel
 @{
 }
 <link href="~/css/table.css" rel="stylesheet" />
@@ -26,6 +26,7 @@
                         </a>
                     </div>
                     <div class="square-product-setting d-inline-block">
+                        Video
                         <a class="icon-grid m-0  list-layout-view"
                            href="javascript:void(0)" data-original-title="" title="" data-bs-original-title="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -113,11 +114,12 @@
                                     <th scope="col" width="180">نوع التمرين</th>
                                     <th scope="col" width="180">مدة التمرين</th>
                                     <th scope="col" width="180">المعدات</th>
-                                  
+
                                 </tr>
                             </thead>
                             <tbody>
-                                 @foreach(var item in Model.Exercises){
+                                @foreach (var item in Model.Exercises)
+                                {
 
                                     <tr>
                                         <td scope="row">
@@ -128,11 +130,11 @@
                                         <td class="">
                                             <div class="img__box position-relative m-0  rounded-circle">
                                                 <img width="40" alt="Mark" class="position-absolute "
-                                                 src="@item.Image" />
+                                                     src="@item.Image" />
                                             </div>
                                         </td>
                                         @{
-                                            if(item.Video !=null)
+                                            if (item.Video != null)
                                             {
                                                 <td>
 
@@ -144,7 +146,7 @@
                                                 </td>
                                             }
                                         }
-                                       
+
 
                                         <td>@item.Title</td>
                                         <td>@item.Detail</td>
@@ -157,31 +159,31 @@
                                             {
                                                 <span>مجانا</span>
                                             }
-                                            
-                                            </td>
+
+                                        </td>
                                         <td>@item.TraningType</td>
-                                        <td>@item.DEx</td>
+                                        <td>@item.Duration</td>
                                         <td>@item.Equipments</td>
-                                      
+
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <a  asp-page="Edit" asp-route-id="@item.Id" class="btn"
-                                                    style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
-                                                    type="button">
+                                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
+                                                   style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
+                                                   type="button">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
                                                 <form method="post" asp-page="Delete" asp-route-id="@item.Id">
-                                                    <button hidden type="submit" ></button>
+                                                    <button hidden type="submit"></button>
                                                     <a onclick="DeleteFun(this)" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
                                                 </form>
-                                              
+
                                             </div>
                                         </td>
                                     </tr>
 
-		                                            }
+                                }
 
-                               
+
                             </tbody>
                         </table>
                     </div>
@@ -391,6 +393,5 @@
     }
 
 
-      
 
-     
+

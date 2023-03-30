@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace liaqati_master.Pages.MealPlan
 {
@@ -21,17 +19,17 @@ namespace liaqati_master.Pages.MealPlan
         public List<SelectListItem> CatogeryName { get; set; }
 
 
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public MealPlans MealPlans { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var meal =  _UnitOfWork.MealPlansRepository.GetByID(id);
+            var meal = _UnitOfWork.MealPlansRepository.GetByID(id);
             if (meal == null)
             {
                 return NotFound();
@@ -59,30 +57,30 @@ namespace liaqati_master.Pages.MealPlan
                 return Page();
             }
 
-            var id=MealPlans.Id;
+            var id = MealPlans.Id;
 
-        var item= _UnitOfWork.MealPlansRepository.GetByID(id);
-            item.services!.Title = MealPlans.services!.Title;
-            item.services.Price = MealPlans.services.Price;
-            item.services.Description = MealPlans.services.Description;
+            var item = _UnitOfWork.MealPlansRepository.GetByID(id);
+            item.Services!.Title = MealPlans.Services!.Title;
+            item.Services.Price = MealPlans.Services.Price;
+            item.Services.Description = MealPlans.Services.Description;
             item.Length = MealPlans.Length;
-            item.mealType= MealPlans.mealType;
+            item.MealType = MealPlans.MealType;
 
 
-            var cid = MealPlans.services!.Category!.Id;
+            var cid = MealPlans.Services!.Category!.Id;
             if (id != null)
             {
-                MealPlans.services.CategoryId = id;
+                MealPlans.Services.CategoryId = id;
 
             }
 
-            item.services.Category = null;
+            item.Services.Category = null;
 
 
             _UnitOfWork.MealPlansRepository.Update(item);
 
-          
-          //  _context.Attach(MealPlans).State = EntityState.Modified;
+
+            //  _context.Attach(MealPlans).State = EntityState.Modified;
 
             try
             {

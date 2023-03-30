@@ -14,7 +14,7 @@
             modelBuilder.Entity<User>().HasData(
                 Database.GetListOfUsers()
              );
-            modelBuilder.Entity<Products>().HasData(
+            modelBuilder.Entity<Product>().HasData(
               Database.GetListOfProducts()
            );
 
@@ -31,11 +31,21 @@
             modelBuilder.Entity<MealPlans>().HasData(
                Database.GetListOfMealPlan()
             );
+            modelBuilder.Entity<Order_Details>().HasData(
+            Database.GetListOfOrdersDetails()
+         );
+            modelBuilder.Entity<Tracking>().HasData(
+               Database.GetListOfTracking()
+       );
+            modelBuilder.Entity<Exercies_program>().HasData(
+              Database.GetListOfExerciesprogram()
+      );
+            modelBuilder.Entity<Exercise>().HasData(
+             Database.GetListOfExercise()
+     );
 
 
-
-
-
+            
         }
 
     }

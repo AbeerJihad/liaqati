@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace liaqati_master.Areas.Admin.Pages.Programs
@@ -44,23 +43,23 @@ namespace liaqati_master.Areas.Admin.Pages.Programs
             {
                 var Eid = _UnitOfWork.ExerciseRepository.GetAllEntity().Where(p => p.Title == list[y]).ToList();
 
-                old.exercies_Programs!.Add(new Exercies_program()
+                old.Exercies_Programs!.Add(new Exercies_program()
                 {
                     Id = Guid_Id.Id_Guid(),
-                    sportsProgramId = SportsPrograms.Id,
+                    SportsProgramId = SportsPrograms.Id,
                     Day = int.Parse(Exercies_program.Day.ToString()),
                     Week = int.Parse(Exercies_program.Week.ToString()),
-                    exerciseId = Eid[0].Id
+                    ExerciseId = Eid[0].Id
                 });
 
 
-           
+
             }
 
 
-            old.services!.Title = SportsPrograms.services!.Title;
-            old.services.Price = SportsPrograms.services.Price;
-            old.services.Description = SportsPrograms.services.Description;
+            old.Services!.Title = SportsPrograms.Services!.Title;
+            old.Services.Price = SportsPrograms.Services.Price;
+            old.Services.Description = SportsPrograms.Services.Description;
             old.Length = SportsPrograms.Length;
             old.BodyFocus = SportsPrograms.BodyFocus;
             old.Difficulty = SportsPrograms.Difficulty;
@@ -68,14 +67,14 @@ namespace liaqati_master.Areas.Admin.Pages.Programs
             old.TrainingType = SportsPrograms.TrainingType;
 
 
-            //var cid = SportsPrograms.services!.Category!.Id;
+            //var cid = SportsPrograms.Services!.Category!.Id;
             //if (cid != null)
             //{
-            //    SportsPrograms.services.CategoryId = cid;
+            //    SportsPrograms.Services.CategoryId = cid;
 
             //}
 
-            old.services.Category = null;
+            old.Services.Category = null;
 
 
             _UnitOfWork.SportsProgramRepository.Update(old);

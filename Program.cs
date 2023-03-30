@@ -1,10 +1,10 @@
-using liaqati_master.Models;
-using liaqati_master.Services.RepoCrud;
+﻿using liaqati_master.Services.RepoCrud;
+using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add Services to the container.
 builder.Services.AddRazorPages();
 //builder.Services.AddSingleton<Service>();
 
@@ -12,25 +12,32 @@ builder.Services.AddControllers().AddJsonOptions(op =>
 {
     op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
-builder.Services.AddControllersWithViews()
-    .AddNewtonsoftJson(options =>
-    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-);
-
-
-
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("SqlMohammed")));
-
-
-builder.Services.AddScoped<RepoProgram, ProgramMang>();
-builder.Services.AddScoped<IFormFileMang, RepoFile>();
-builder.Services.AddScoped<IFormFileMangVedio, RepoFileVedio>();
+builder.Services.AddIdentity<User, IdentityRole>(options =>
+{
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+    options.Password.RequireDigit = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireUppercase = false;
+    options.SignIn.RequireConfirmedAccount = false;
+    options.SignIn.RequireConfirmedEmail = false;
+    options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890@.ضصثقفغعهخحجدشسيبلاتنمكطئء ؤرلاىةوزظإآ";
+})
+ .AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
 
 builder.Services.AddScoped<GenericRepository<Order>>();
 builder.Services.AddScoped<GenericRepository<User>>();
 builder.Services.AddScoped<GenericRepository<SportsProgram>>();
+
+builder.Services.AddScoped<IFormFileMang, RepoFile>();
+
+builder.Services.AddScoped<RepoProgram, ProgramMang>();
+
 
 builder.Services.AddScoped<UnitOfWork>();
 
@@ -66,12 +73,8 @@ app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(
 
 app.MapControllers();
 
-
-///
-
-
 app.UseAuthorization();
 
 app.MapRazorPages();
-//SeedData.SeedAsync(app);  
+await SeedData.SeedAsync(app);
 app.Run();

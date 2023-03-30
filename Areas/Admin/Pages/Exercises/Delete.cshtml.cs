@@ -1,7 +1,4 @@
-using liaqati_master.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace liaqati_master.Pages.Exercises
 {
@@ -10,25 +7,22 @@ namespace liaqati_master.Pages.Exercises
         private readonly LiaqatiDBContext _context;
         private readonly UnitOfWork _UnitOfWork;
         private readonly IFormFileMang _repoFile;
-        private readonly IFormFileMangVedio _repoFileVedio;
 
         public DeleteExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork,
-            IFormFileMang repoFile,
-         IFormFileMangVedio repoFileVedio
-            
+            IFormFileMang repoFile
+
             )
         {
             _context = context;
             _UnitOfWork = unitOfWork;
             _repoFile = repoFile;
-            _repoFileVedio= repoFileVedio;
         }
 
         [BindProperty]
         public Exercise Exercise { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
@@ -49,7 +43,7 @@ namespace liaqati_master.Pages.Exercises
 
         public async Task<IActionResult> OnPostAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
@@ -62,13 +56,13 @@ namespace liaqati_master.Pages.Exercises
 
 
                 _repoFile.DeleteFile(Exercise.Image);
-                _repoFileVedio.DeleteFile(Exercise.Video);
+                _repoFile.DeleteFile(Exercise.Video);
 
 
                 _UnitOfWork.ExerciseRepository.Delete(Exercise);
                 _UnitOfWork.Save();
 
-            
+
             }
 
             return RedirectToPage("./Index");

@@ -1,4 +1,3 @@
-using liaqati_master.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,19 +19,20 @@ namespace liaqati_master.Pages.MealPlan
 
         public IActionResult OnGet()
         {
-            
+
 
 
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
                                          new SelectListItem
                                          {
-                                             Value = a.Id.ToString(), Text = a.Name
+                                             Value = a.Id.ToString(),
+                                             Text = a.Name
                                          }).ToList();
 
 
             return Page();
         }
-       
+
 
 
 
@@ -44,7 +44,7 @@ namespace liaqati_master.Pages.MealPlan
         [BindProperty]
         public MealPlans MealPlans { get; set; }
 
-       
+
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -55,33 +55,33 @@ namespace liaqati_master.Pages.MealPlan
             //    return Page();
             //}
 
-          
+
 
             MealPlans.Id = Guid_Id.Id_Guid();
 
-            MealPlans.services!.Id= MealPlans.Id;
+            MealPlans.Services!.Id = MealPlans.Id;
 
-          //  MealPlans.services.MealPlansId = MealPlans.Id;
+            //MealPlans.Services.MealPlansId = MealPlans.Id;
 
-          // MealPlans.servicesId = MealPlans.Id;
+            // MealPlans.ServicesId = MealPlans.Id;
 
-            var id = MealPlans.services!.Category!.Id;
+            var id = MealPlans.Services!.Category!.Id;
             if (id != null)
             {
-                MealPlans.services.CategoryId = id;
+                MealPlans.Services.CategoryId = id;
 
             }
-            MealPlans.services.Category = null;
+            MealPlans.Services.Category = null;
 
 
 
 
             _UnitOfWork.MealPlansRepository.Insert(MealPlans);
-            _UnitOfWork.ServiceRepository.Insert(MealPlans.services);
+            _UnitOfWork.ServiceRepository.Insert(MealPlans.Services);
 
 
             _UnitOfWork.Save();
-            
+
 
 
             return RedirectToPage("./Index");

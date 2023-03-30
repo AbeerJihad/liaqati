@@ -1,11 +1,11 @@
 ﻿
 var formAddExercies = document.getElementById("formAddExercies");
-var editModel = document.getElementById("editModel");
 
 
 
 async function addExerciesForm(data) {
 
+    console.log(data);
 
     try {
 
@@ -37,21 +37,7 @@ async function addExerciesForm(data) {
 
 
 
-
-
 function FinishAddExercises(tag) {
-
- 
-
-
-    var data = new FormData();
-    data.append("Title", formAddExercies.Title.value);
-    data.append("Detail", formAddExercies.Detail.value);
-    data.append("TraningType", formAddExercies.TraningType.value);
-    data.append("Price", parseFloat(formAddExercies.Price.value));
-    data.append("Difficulty", formAddExercies.Difficulty.value);
-    data.append("DEx", formAddExercies.DEx.value);
-    data.append("Equipments", formAddExercies.Equipments.value);
 
 
     var payloadExer = {
@@ -61,7 +47,7 @@ function FinishAddExercises(tag) {
         TraningType: formAddExercies.TraningType.value,
         Price: parseFloat(formAddExercies.Price.value),
         Difficulty: formAddExercies.Difficulty.value,
-        DEx: formAddExercies.DEx.value,
+        Duration: formAddExercies.Duration.value,
         Equipments: formAddExercies.Equipments.value
     };
 
@@ -73,22 +59,18 @@ function FinishAddExercises(tag) {
 
         if (d !== undefined && d.status === 'ok') {
 
-            getdata("SelectExercises");
-
-
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: 'تم الإضافة بنجاح',
-                showConfirmButton: false,
-                timer: 1500
-            });
+         
 
             formAddExercies.reset();
 
-            myModal.toggle();
+            var myModal = new bootstrap.Modal(document.getElementById("editModel"), {
+                keyboard: false
+            })
+            //myModal.show();
+            //myModal.hide();
 
-           
+            getdata("SelectExercises");
+
 
         }
         else {

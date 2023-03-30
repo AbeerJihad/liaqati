@@ -2,7 +2,7 @@
 @model liaqati_master.Pages.HealthyReicpe.indexHealthyModel
 @{
 }
-<link href="~/css/table.css" rel="stylesheet" />
+<link href="~/assets/css/Tables.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="~/javascript/script.js"></script>
 
@@ -107,19 +107,16 @@
                                     </th>
                                     <th scope="col" width="100">الصورة</th>
                                     <th scope="col" width="180">العنوان</th>
-                                    <th scope="col" width="300">الوصف </th>
-
                                     <th scope="col" width="180">نوع الوجبة</th>
                                     <th scope="col" width="180">النوع الغذائي</th>
                                     <th scope="col" width="180">وقت التحضير</th>
-                                    <th scope="col" width="180">السعرات الحرارية</th>
-                                    <th scope="col" width="180">كمية البروتين</th>
-                                    <th scope="col" width="180"> مجموع السعرات الحرارية</th>
-                                  
+                                    <th scope="col" width="180"> </th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                 @foreach(var item in Model.HealthyRecipes){
+                                @foreach (var item in Model.HealthyRecipes)
+                                {
 
                                     <tr>
                                         <td scope="row">
@@ -130,40 +127,35 @@
                                         <td class="">
                                             <div class="img__box position-relative m-0  rounded-circle">
                                                 <img width="40" alt="Mark" class="position-absolute "
-                                                 src="https://t4.ftcdn.net/jpg/03/64/21/11/240_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" />
+                                                     src="@item.Image" />
                                             </div>
                                         </td>
 
-                                        <td>@item.services!.Title</td>
-                                        <td>@item.services!.Description</td>
-                                        <td>@item.services!.Price $</td>
-
+                                        <td>@item.Services!.Title</td>
                                         <td>@item.MealType</td>
+                                        <td>@String.Format("{0:c}",item.Services!.Price)</td>
                                         <td>@item.DieteryType</td>
-                                        <td>@item.prepTime</td>
-                                        <td>@item.Calories</td>
-                                        <td>@item.Protein</td>
-                                        <td>@item.Total_Carbohydrate</td>
-                                      
                                         <td>
                                             <div class="d-flex gap-2">
-                                                <a  asp-page="Edit" asp-route-id="@item.Id" class="btn"
-                                                    style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
-                                                    type="button">
+                                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
+                                                   style="background-color: #8763b320; color:#3c077d;  padding: 0.375rem 0.75rem;"
+                                                   type="button">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
                                                 <form method="post" asp-page="Delete" asp-route-id="@item.Id">
-                                                    <button hidden type="submit" ></button>
-                                                    <a onclick="DeleteFun(this)" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
+                                                    <a onclick="DeleteFun(this)" class="btn"
+                                                       style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
                                                 </form>
-                                              
+
                                             </div>
                                         </td>
                                     </tr>
 
-		                                            }
+                                }
 
-                               
+
                             </tbody>
                         </table>
                     </div>
@@ -373,6 +365,5 @@
     }
 
 
-      
 
-     
+
