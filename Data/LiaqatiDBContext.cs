@@ -20,6 +20,7 @@ namespace liaqati_master.Data
         public DbSet<Achievements> TblAchievements { get; set; }
 
         public DbSet<Exercies_program> TblExercies_program { get; set; }
+        public DbSet<Event> TblEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +32,7 @@ namespace liaqati_master.Data
             .HasOne(a => a.Rate)
             .WithOne(a => a.Order_Details)
             .HasForeignKey<Rate>(c => c.Order_DetailsId);
+
             modelBuilder.Entity<Service>()
                           .HasOne(a => a.HealthyRecipes)
                           .WithOne(a => a.Services)
@@ -49,6 +51,12 @@ namespace liaqati_master.Data
                         .HasOne(a => a.sportsProgram)
                         .WithOne(a => a.Services)
                         .HasForeignKey<SportsProgram>(c => c.Id);
+
+
+            modelBuilder.Entity<Event>()
+                        .HasOne(a => a.exercise)
+                        .WithOne(a => a.events)
+                        .HasForeignKey<Exercise>(c => c.Id);
 
             modelBuilder.Entity<Service>().Navigation(p => p.Category).AutoInclude();
             modelBuilder.Entity<MealPlans>().Navigation(p => p.Services).AutoInclude();

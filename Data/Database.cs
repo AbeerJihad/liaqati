@@ -432,5 +432,22 @@
                 new Product() { Id = "41", imgUrl = "/Images/Product/krilloil.jpg" }
             };
         }
+
+        public static List<Exercise> GetListOfExercise()
+        {
+            return new List<Exercise>()
+            {
+             new Exercise(){Id="1" ,Title="",Price=100, BodyFocus="" , Detail="", Difficulty=1 , Duration=1,Image="",Video=""},
+             new Exercise(){Id="2" ,Title="",Price=100, BodyFocus="" , Detail="", Difficulty=1 , Duration=1,Image="",Video=""},
+            };
+        }
+            public static List<Event> GetListOfEvents()
+        {
+            return new List<Event>()
+            {
+
+                //new Event(){EventId= "1", Title="تمرين 1", startDate= "2023-03-06", endDate="" ,exercise={ Id="1"} },
+            };
+        }
     }
 }

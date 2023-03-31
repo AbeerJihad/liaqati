@@ -1,0 +1,81 @@
+﻿@page
+@model liaqati_master.Pages.ProgramPages.clenderModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+       
+    <div id='calendar' style="margin-top:100px;"></div>
+
+</div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="eventModel" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLabel"> Event </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> 
+             <form id="eventForm" class="p-5">
+                      <dl class="row">
+                            <dt class="col-sm-4">
+                           Title
+                            </dt>
+                            <dd class="col-sm-8" >
+                                 <span class="" id="EventTitle"></span>
+                            </dd>
+                       </dl>
+                        <dl class="row">                      
+
+                            <dt class="col-sm-4">
+                          Event Id
+                            </dt>
+                            <dd class="col-sm-8" >
+                                 <span class="" id="eventId"></span>
+                            </dd>
+                       </dl>
+
+               @*     <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Title</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="EventTitle">
+                        </div>
+                    </div>*@
+
+                
+                   @* <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Start Time</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="StartTime" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">End Time</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="EndTime" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Description</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="Description" rows="5"></textarea>
+                        </div>
+                    </div>*@
+             @*      <div class="form-group row">
+                        <div class="col-sm-3 offset-sm-9">
+                            <label><input type="checkbox" id="AllDay" /> All Day</label>
+                        </div>
+                    </div>
+                    <input type="hidden" id="isNewEvent" />*@
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </form>
+        </div>
+    </div>
+</div>

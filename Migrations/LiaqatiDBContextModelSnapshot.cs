@@ -237,6 +237,32 @@ namespace liaqati_master.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Event", b =>
+                {
+                    b.Property<string>("EventId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("endDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("startDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EventId");
+
+                    b.ToTable("TblEvents");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Exercies_program", b =>
                 {
                     b.Property<string>("Id")
@@ -1375,7 +1401,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "e347dfa2-1e38-45c1-806a-5de3eadfb6a6",
+                            ConcurrencyStamp = "32267977-407a-4083-a15b-5756636a5f39",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -1386,7 +1412,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "772d82d5-73c6-4dda-8882-70eec6d4bdc3",
+                            SecurityStamp = "ccc388c3-4f8f-4af6-af62-7d8aa8ff08db",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });
@@ -1605,6 +1631,17 @@ namespace liaqati_master.Migrations
                     b.Navigation("SportsProgram");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Event", "events")
+                        .WithOne("exercise")
+                        .HasForeignKey("liaqati_master.Models.Exercise", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("events");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Favorite_Servies", b =>
                 {
                     b.HasOne("liaqati_master.Models.Favorite", "Favorite")
@@ -1802,6 +1839,11 @@ namespace liaqati_master.Migrations
                     b.Navigation("ChatUser");
 
                     b.Navigation("Message");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Event", b =>
+                {
+                    b.Navigation("exercise");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
