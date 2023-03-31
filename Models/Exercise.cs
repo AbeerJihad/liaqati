@@ -29,6 +29,9 @@
         public double? Price { get; set; }
         [Display(Name = "تقدير الحرق")]
         public string? BurnEstimate { get; set; }
+        [ForeignKey(nameof(Id))]
+
+        public Event? events { get; set; }
         public List<Exercies_program>? Exercies_Programs { get; set; }
 
     }
