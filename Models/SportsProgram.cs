@@ -1,9 +1,8 @@
 ﻿namespace liaqati_master.Models
 {
-    public class SportsProgram
+    public class SportsProgram : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None), Key, HiddenInput]
-        public string? Id { get; set; }
+
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "المدة")]
         public int Length { get; set; }
@@ -21,8 +20,8 @@
         [Display(Name = "نوع التدريب")]
         public string? TrainingType { get; set; }
         [ForeignKey(nameof(Id))]
-        public Service? Services { get; set; }
-        public List<Exercies_program>? Exercies_Programs { get; set; }
+        public virtual Service? Services { get; set; }
+        public virtual List<Exercies_program>? Exercies_Programs { get; set; }
 
     }
 }

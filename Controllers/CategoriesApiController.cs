@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace liaqati_master.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,22 +16,21 @@ namespace liaqati_master.Controllers
 
         public async Task<ActionResult<IEnumerable<Category>>> GetAllCategories()
         {
-            if (_context.Category == null)
+            if (_context.TblCategory == null)
             {
                 return NotFound();
             }
-            return await _context.Category.ToListAsync();
+            return await _context.TblCategory.ToListAsync();
         }
 
-        // GET: api/CategoriesApi/5
-        [HttpGet("{id}")]
+        [HttpGet("GetCategory/{id}")]
         public async Task<ActionResult<Category>> GetCategory(string id)
         {
-            if (_context.Category == null)
+            if (_context.TblCategory == null)
             {
                 return NotFound();
             }
-            var category = await _context.Category.FindAsync(id);
+            var category = await _context.TblCategory.FindAsync(id);
 
             if (category == null)
             {
@@ -43,10 +40,8 @@ namespace liaqati_master.Controllers
             return category;
         }
 
-        // PUT: api/CategoriesApi/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(string id, Category category)
+        [HttpPut("UpdateCategroy/{id}")]
+        public async Task<IActionResult> UpdateCategroy(string id, Category category)
         {
             if (id != category.Id)
             {
@@ -74,16 +69,14 @@ namespace liaqati_master.Controllers
             return NoContent();
         }
 
-        // POST: api/CategoriesApi
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        [HttpPost("AddCategory")]
+        public async Task<ActionResult<Category>> AddCategory(Category category)
         {
-            if (_context.Category == null)
+            if (_context.TblCategory == null)
             {
-                return Problem("Entity set 'LiaqatiDBContext.Category'  is null.");
+                return Problem("Entity set 'LiaqatiDBContext.TblCategory'  is null.");
             }
-            _context.Category.Add(category);
+            _context.TblCategory.Add(category);
             try
             {
                 await _context.SaveChangesAsync();
@@ -103,21 +96,20 @@ namespace liaqati_master.Controllers
             return CreatedAtAction("GetCategory", new { id = category.Id }, category);
         }
 
-        // DELETE: api/CategoriesApi/5
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteCategory/{id}")]
         public async Task<IActionResult> DeleteCategory(string id)
         {
-            if (_context.Category == null)
+            if (_context.TblCategory == null)
             {
                 return NotFound();
             }
-            var category = await _context.Category.FindAsync(id);
+            var category = await _context.TblCategory.FindAsync(id);
             if (category == null)
             {
                 return NotFound();
             }
 
-            _context.Category.Remove(category);
+            _context.TblCategory.Remove(category);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -125,7 +117,7 @@ namespace liaqati_master.Controllers
 
         private bool CategoryExists(string id)
         {
-            return (_context.Category?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.TblCategory?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

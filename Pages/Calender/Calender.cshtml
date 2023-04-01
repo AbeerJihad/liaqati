@@ -1,0 +1,399 @@
+﻿@page
+@model liaqati_master.Pages.Calender.CalenderModel
+@{
+
+
+
+    var lstEvent = Json.Serialize(Model.events);
+
+
+
+
+}
+
+<script>
+
+    var eventslst = [];
+    var eventslst2 = [];
+    eventslst = @lstEvent;
+
+
+
+
+    //  Description
+
+
+
+    //var eventslst = [
+    //    { EventId: 1, Title: 'يوغا', startDate: '2023-03-01', endDate:'' },
+    //    { EventId: 2, Title: 'تدريبات الارتفاع', startDate: '2023-03-06', endDate:'' },
+    //    { EventId: 3, Title: 'تمرين ضغط الدمبل الواقف', startDate: '2023-03-06', endDate:'' },
+    //    { EventId: 4, Title: 'تمرين ضغط الدمبل الواقف', startDate: '2023-04-01', endDate:'2023-04-02' },
+    //    { EventId: 5, Title: 'تمرين ضغط الدمبل الواقف', startDate: '2023-03-03', endDate:'2023-03-05' },
+
+    //];
+
+    for (var x = 0; x < eventslst.length; x++) {
+        eventslst2.push(eventslst[x]);
+
+    }
+
+
+
+
+    var exModel = document.getElementById('eventModal');
+
+    document.addEventListener('DOMContentLoaded', function () {
+        //  console.log(eventslst[0].eventId);
+
+
+        draw(eventslst
+
+            //        eventslst.map(obj => {
+            //        return {
+            //            id: obj.eventId,
+            //            title: obj.title,
+            //            start: obj.startDate
+
+            //            //    end: obj.endDate
+            //        }
+            //    }))
+
+            //}
+        )
+    });
+
+    function draw(data) {
+        console.log(data);
+        console.log(data[0].id);
+
+        alert("ss");
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            //    defaultView: 'month',
+
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+            initialDate: new Date(), //current data //alaa
+            navLinks: true, // can click day/week names to navigate views    alaa //view events for each date
+            businessHours: true, // display business hours
+            editable: true,
+            selectable: true,
+            locale: 'ar',
+            direction: 'rtl',
+            buttonText: {
+                today: 'اليوم',
+                month: 'الشهر',
+                week: 'الأسبوع',
+                day: 'اليوم',
+                list: 'لائحة'
+
+            },
+
+            //events: '/Home/GetCalendarEvents',
+            eventClick: /*ShowModelEvent*/
+
+
+                //Sweet Alert
+                function (info) {
+                    //var eventd = calendar.getEventById(event.id)
+                    //alert(eventd);
+                    info.jsEvent.preventDefault();
+
+                    console.log(info.event)
+                    console.log(info.event.title)
+                    console.log(info.event.id)
+                    Swal.fire({
+                        title: info.event.title,
+                        text: 'Id :' + info.event.id,
+                        imageUrl: 'https://unsplash.it/400/200',
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        imageAlt: 'Custom image',
+                    })
+                }
+
+
+            ,
+            selectable: true,
+            select: addEventdd,
+            events: eventslst2,
+
+
+
+            //      [
+            //  {
+            //      title: 'Meeting Alaa Yass',
+            //      start: '2023-03-06',
+            //      end:'2023-03-09',
+            //        color: 'red',
+
+
+            //    },
+            //    {
+            //      title: 'تمرين  1',
+            //      start: '2023-03-06',
+
+
+            //    },
+            //  {
+            //    title: 'Business Lunch',
+            //    start: '2023-03-03T13:00:00',
+            //   // end:
+            //    constraint: 'businessHours'
+            //  },
+            //  {
+            //    title: 'Meeting',
+            //    start: '2023-03-13T11:00:00',
+            //    constraint: 'availableForMeeting', // defined below
+            //    color: '#257e4a'
+            //  },
+            //  {
+            //    title: 'Conference',
+            //    start: '2023-03-18',
+            //    end: '2023-03-20'
+            //  },
+            //  {
+            //    title: 'Party',
+            //    start: '2023-03-29T20:00:00'
+            //  },
+
+            //  // areas where "Meeting" must be dropped
+            //  {
+            //    groupId: 'availableForMeeting',
+            //    start: '2020-09-11T10:00:00',
+            //    end: '2020-09-11T16:00:00',
+            //    display: 'background'
+            //  },
+            //  {
+            //    groupId: 'availableForMeeting',
+            //    start: '2020-09-13T10:00:00',
+            //    end: '2020-09-13T16:00:00',
+            //    display: 'background'
+            //  },
+
+            //  // red areas where no events can be dropped
+            //  {
+            //    start: '2020-09-24',
+            //    end: '2020-09-28',
+            //    overlap: false,
+            //    display: 'background',
+            //    color: '#ff9f89'
+            //  },
+            //  {
+            //    start: '2020-09-06',
+            //    end: '2020-09-08',
+            //    overlap: false,
+            //    display: 'background',
+            //    color: '#ff9f89'
+            //  }
+            //]
+        });
+
+        calendar.render();
+
+
+    }
+
+    var eventid = document.getElementById('eventId');
+    //var exerciseID = document.getElementById('eventModal');
+    var title = document.getElementById('EventTitle');
+    var startDate = document.getElementById('StartTime');
+
+    function ShowModelEvent(info) {
+        let modelElm = document.getElementById('eventModel');
+        var myModal = new bootstrap.Modal(modelElm, {
+            keyboard: false
+        })
+        console.log(info.event)
+        console.log(info.event.title)
+        console.log(info.event.id)
+        eventid.textContent = info.event.id;
+        //title.textContent = info.event.title;
+
+        //eventid.textContent = "ss";
+        //title.textContent = "ssss;
+
+        myModal.toggle()
+    }
+    /**
+     * Calendar Methods
+     **/
+    function addEventdd(start, end) {
+        alert('here');
+        var selctedDay = [];
+        console.log(start);
+        for (let i = 0; i < eventslst2.length; i++) {
+            if (eventslst2[i].start == start.startStr) {
+                console.log('==')
+                selctedDay.push(eventslst2[i]);
+
+            }
+        }
+
+        //console.log(event);
+        console.log(end);
+        console.log(selctedDay);
+
+    }
+
+
+
+
+
+
+
+                            //function updateEvent(event, element) {
+                            //    currentEvent = event;
+
+                            //    if ($(this).data("qtip")) $(this).qtip("hide");
+
+                            //    $('#eventModalLabel').html('Edit Event');
+                            //    $('#eventModalSave').html('Update Event');
+                            //    $('#EventTitle').val(event.title);
+                            //    $('#Description').val(event.description);
+                            //    $('#isNewEvent').val(false);
+
+                            //    const start = formatDate(event.start);
+                            //    const end = formatDate(event.end);
+
+                            //    fpStartTime.setDate(start);
+                            //    fpEndTime.setDate(end);
+
+                            //    $('#StartTime').val(start);
+                            //    $('#EndTime').val(end);
+
+                            //    if (event.allDay) {
+                            //        $('#AllDay').prop('checked', 'checked');
+                            //    } else {
+                            //        $('#AllDay')[0].checked = false;
+                            //    }
+
+                            //    $('#eventModal').modal('show');
+                            //}
+
+                            //function addEvent(start, end) {
+                            //    //$('#eventForm')[0].reset();
+
+                            //    //$('#eventModalLabel').html('Add Event');
+                            //    //$('#eventModalSave').html('Create Event');
+                            //    //$('#isNewEvent').val(true);
+
+                            //    //start = formatDate(start);
+                            //    //end = formatDate(end);
+
+                            //    //fpStartTime.setDate(start);
+                            //    //fpEndTime.setDate(end);
+
+                            //    /*   $('#eventModal').modal('show');*/
+                            //    var myModal = new bootstrap.Modal(exModel, {
+                            //        keyboard: false
+                            //    })
+                            //    console.log(start);
+                            //    console.log(end);
+                            //}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<link href="~/css/main.min.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+
+        <div id='calendar' style="margin-top:100px;"></div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="eventModel" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLabel"> Event </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="eventForm" class="p-5">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        Title
+                    </dt>
+                    <dd class="col-sm-8">
+                        <span class="" id="EventTitle"></span>
+                    </dd>
+                </dl>
+                <dl class="row">
+
+                    <dt class="col-sm-4">
+                        Event Id
+                    </dt>
+                    <dd class="col-sm-8">
+                        <span class="" id="eventId"></span>
+                    </dd>
+                </dl>
+
+                @*     <div class="form-group row">
+                <label for="" class="col-sm-3 col-form-label">Title</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" id="EventTitle">
+                </div>
+                </div>*@
+
+
+                @* <div class="form-group row">
+                <label for="" class="col-sm-3 col-form-label">Start Time</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" id="StartTime" >
+                </div>
+                </div>
+                <div class="form-group row">
+                <label for="" class="col-sm-3 col-form-label">End Time</label>
+                <div class="col-sm-9">
+                <input type="text" class="form-control" id="EndTime" >
+                </div>
+                </div>
+                <div class="form-group row">
+                <label for="" class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                <textarea class="form-control" id="Description" rows="5"></textarea>
+                </div>
+                </div>*@
+                @*      <div class="form-group row">
+                <div class="col-sm-3 offset-sm-9">
+                <label><input type="checkbox" id="AllDay" /> All Day</label>
+                </div>
+                </div>
+                <input type="hidden" id="isNewEvent" />*@
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/JavaScript/clender/main.min.js" asp-append-version="true"></script>
+    @*    <script src="~/JavaScript/clender/script.js" asp-append-version="true"></script>
+*@
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                    }

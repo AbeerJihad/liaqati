@@ -18,7 +18,7 @@ namespace liaqati_master.Pages.Articles
         {
             if (_unitOfWork.ArticleRepository.Get() != null)
             {
-                Articles = _unitOfWork.ArticleRepository.Get(includeProperties: "Category").ToList();
+                Articles = _unitOfWork.ArticleRepository.Get(includeProperties: "TblCategory").ToList();
             }
         }
         public async Task<IActionResult> OnPostAsync(string? id)

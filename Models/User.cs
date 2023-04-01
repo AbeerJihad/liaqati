@@ -4,15 +4,9 @@ namespace liaqati_master.Models
 {
     public class User : IdentityUser
     {
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
-        //[Required(ErrorMessage = "هذا الحقل مطلوب")]
-        //[Display(Name = "رقم المستخدم")]
-        //[Key]
-        //public string Id { get; set; }
 
         [Required, Display(Name = "الاسم الاول"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         public string? Fname { get; set; }
-
 
         [Required, Display(Name = "الاسم الأخير"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءً أدخل حرفين على الاقل")]
         public string? Lname { get; set; }
@@ -40,10 +34,10 @@ namespace liaqati_master.Models
         [Display(Name = "صورة الغلاف")]
         public string? Cover_photo { get; set; }
 
-        public List<Achievements>? Achievements { get; set; }
-        public List<Order>? Orders { get; set; }
+        public virtual List<Achievement>? Achievements { get; set; }
+        public virtual List<Order>? Orders { get; set; }
 
-        public List<ChatUser>? ChatUser { get; set; }
+        public virtual List<ChatUser>? ChatUser { get; set; }
         public User()
         {
             Gender = Gender.Male;

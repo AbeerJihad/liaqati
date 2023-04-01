@@ -1,9 +1,8 @@
 ﻿namespace liaqati_master.Models
 {
-    public class Comment_Servies
+    public class Comment_Servies : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Id { get; set; }
+
         [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "التعليق")]
         public string Comment { get; set; }
@@ -20,7 +19,7 @@
         [Display(Name = "رقم الخدمة")]
         public string? ServicesId { get; set; }
 
-        public Service? Services { get; set; }
+        public virtual Service? Services { get; set; }
 
 
     }

@@ -1,9 +1,8 @@
 ﻿namespace liaqati_master.Models
 {
-    public class Chat
+    public class Chat : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None), Key, HiddenInput]
-        public string? Id { get; set; }
+
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم المرسل")]
         public int SenderId { get; set; }
@@ -12,8 +11,8 @@
         public int ReceiverID { get; set; }
 
 
-        public List<Message>? Message { get; set; }
-        public List<ChatUser>? ChatUser { get; set; }
+        public virtual List<Message>? Message { get; set; }
+        public virtual List<ChatUser>? ChatUser { get; set; }
 
     }
 }

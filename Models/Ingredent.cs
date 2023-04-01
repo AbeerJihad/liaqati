@@ -1,14 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
-    public class Ingredent
+    public class Ingredent : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "رقم المكون")]
-        public string Id { get; set; }
+
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "الكمية")]
         public int Amount { get; set; }

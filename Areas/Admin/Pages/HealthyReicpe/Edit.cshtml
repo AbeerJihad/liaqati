@@ -33,7 +33,7 @@
             <div class="card">
                 <div class="card-body">
                     <form asp-page-handler="Add" method="post" class="form theme-form">
-                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input asp-for="HealthyRecipes.Id" class="form-control" placeholder="">
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
@@ -334,6 +334,26 @@
             };
 
             ingredients_container.appendChild(ingredient);
+        }
+
+        var list = [];
+        window.onload = () => {
+            listOfSteps = HealthyRecipes_PreparationMethod.value.split(',');
+            listOfSteps.forEach((txt, index, array) => { RenderItems(txt); });
+            list = txtAreaIngredients.value.trim().split('\n');
+            list.forEach((txt, index, array) => {
+                var a = txt.split(',');
+                if (txt !== "")
+                    listOfIngredients.push({
+                        Name: a[0],
+                        Quantity: a[1],
+                        Unit: a[2],
+                    });
+                listOfIngredients.forEach((text, index, array) => {
+                    RenderIngredients(text)
+                });
+            });
+
         }
     </script>
 }

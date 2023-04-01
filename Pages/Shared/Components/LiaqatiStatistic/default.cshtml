@@ -1,5 +1,5 @@
 ﻿@using liaqati_master.ViewModels;
-@model LiaqatiStatisticViewModel
+@model VMLiaqatiStatistic
 <div class="container mt-5">
     <div class="container">
         <div class="container">
@@ -7,14 +7,15 @@
                 <div class="col-12 offset-md-3 offset-lg-0 col-md-6 col-lg-4 text-center">
                     <div class="pie animate mb-3"
                          style="--p: @Model.PerNumberOfMealPans; --c: #b9aff5; --b: 10px">
-                        120
+                        @Model.NumberOfMealPans
                     </div>
                     <h4>الأنظمةالغذائية</h4>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 text-center">
                     <div class="pie animate mb-3"
                          style="--p: @Model.PerNumberOfNormalUsers; --c: #bae5ff; --b: 10px">
-                        120
+                        @Model.NumberOfNormalUsers
+
                     </div>
                     <h4>عدد المستخدمين</h4>
                 </div>
@@ -22,7 +23,7 @@
                 <div class="col-12 col-md-6 col-lg-4 text-center">
                     <div class="pie animate mb-3"
                          style="--p: @Model.PerNumberOfCoachs; --c: #bfe9d4; --b: 10px">
-                        70
+                        @Model.NumberOfCoachs
                     </div>
                     <h4>عدد المدربين</h4>
                 </div>

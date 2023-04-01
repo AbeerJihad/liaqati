@@ -57,7 +57,7 @@ namespace liaqati_master.Pages.MealPlan
 
 
 
-            MealPlans.Id = Guid_Id.Id_Guid();
+            MealPlans.Id = CommonMethods.Id_Guid();
 
             MealPlans.Services!.Id = MealPlans.Id;
 

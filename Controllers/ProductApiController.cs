@@ -1,6 +1,4 @@
-﻿using liaqati_master.ViewModels;
-
-namespace liaqati_master.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -117,8 +115,8 @@ namespace liaqati_master.Controllers
             return Ok(plist);
 
         }
-        [HttpPut("EditArticles/{id}")]
-        public async Task<ActionResult<Product>> EditArticles(int id, Product Products)
+        [HttpPut("EditProducts/{id}")]
+        public async Task<ActionResult<Product>> EditProducts(int id, Product Products)
         {
             if (_context.TblProducts.Find(id) == null)
             {
@@ -184,29 +182,7 @@ namespace liaqati_master.Controllers
 
                 }
             }
-            QueryPageResult<Product> queryPageResult = new()
-            {
-                TotalCount = products.Count()
-            };
-            queryPageResult.TotalPages = (int)Math.Ceiling(queryPageResult.TotalCount / (double)Parameters.Size);
-            if ((Parameters.CurPage - 1) > 0)
-                queryPageResult.PreviousPage = Parameters.CurPage - 1;
-
-            if ((Parameters.CurPage + 1) <= queryPageResult.TotalPages)
-                queryPageResult.NextPage = Parameters.CurPage + 1;
-
-            if (queryPageResult.TotalCount == 0)
-                queryPageResult.FirstRowOnPage = queryPageResult.LastRowOnPage = 0;
-            else
-            {
-                queryPageResult.FirstRowOnPage = (Parameters.CurPage - 1) * Parameters.Size + 1;
-                queryPageResult.LastRowOnPage = Math.Min(Parameters.CurPage * Parameters.Size, queryPageResult.TotalCount);
-            }
-            Response.Headers.Add("PageStatstics", System.Text.Json.JsonSerializer.Serialize(queryPageResult));
-
-            products = products.Skip(Parameters.Size * (Parameters.CurPage - 1))
-                .Take(Parameters.Size);
-            queryPageResult.ListOfData = products;
+            QueryPageResult<Product> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
 
             return Ok(queryPageResult);
 

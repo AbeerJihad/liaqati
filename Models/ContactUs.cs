@@ -1,9 +1,7 @@
 ﻿namespace liaqati_master.Models
 {
-    public class ContactUs
+    public class ContactUs : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Id { get; set; }
 
 
         [Required, Display(Name = "الملاحظات"), StringLength(200, MinimumLength = 10, ErrorMessage = " رجاءً ادخل ملاحظاتك")]
@@ -13,7 +11,7 @@
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم المستخدم")]
         public string UserId { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
     }
 }

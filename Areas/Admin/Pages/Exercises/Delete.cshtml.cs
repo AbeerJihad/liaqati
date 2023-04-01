@@ -7,18 +7,12 @@ namespace liaqati_master.Pages.Exercises
         private readonly LiaqatiDBContext _context;
         private readonly UnitOfWork _UnitOfWork;
         private readonly IFormFileMang _repoFile;
-        private readonly IFormFileMangVideo _repoFileVedio;
 
-        public DeleteExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork,
-            IFormFileMang repoFile,
-         IFormFileMangVideo repoFileVedio
-
-            )
+        public DeleteExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang repoFile)
         {
             _context = context;
             _UnitOfWork = unitOfWork;
             _repoFile = repoFile;
-            _repoFileVedio = repoFileVedio;
         }
 
         [BindProperty]
@@ -56,16 +50,10 @@ namespace liaqati_master.Pages.Exercises
             if (exercise != null)
             {
                 Exercise = exercise;
-
-
                 _repoFile.DeleteFile(Exercise.Image);
-                _repoFileVedio.DeleteFile(Exercise.Video);
-
-
+                _repoFile.DeleteFile(Exercise.Video);
                 _UnitOfWork.ExerciseRepository.Delete(Exercise);
                 _UnitOfWork.Save();
-
-
             }
 
             return RedirectToPage("./Index");

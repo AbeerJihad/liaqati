@@ -1,49 +1,9 @@
 ﻿@model Product
-<style>
-    .boradius {
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-    }
 
-    .star {
-        color: gold !important;
-    }
-
-    .card,
-    .imgBackground {
-        transition: 0.2s;
-    }
-
-        .card:hover .imgBackground {
-            background: #cdc6f1;
-        }
-
-        .card:hover .card-body {
-            background: #eeedf5;
-        }
-
-        .card:hover {
-            box-shadow: 0 0 10px rgb(210, 196, 196);
-            transform: translateY(-10px) !important;
-        }
-
-    .box-img {
-        height: 200px !important;
-    }
-
-    .btnRed {
-        color: red !important;
-    }
-
-    .bg {
-        background-image: linear-gradient(#00000060, #00000060), url('/Images/strong-man-training-gym.png');
-        height: 70vh;
-    }
-</style>
 <div class="col p-2">
     <div class="card overflow-hidden h-100  boradius border p-0">
         <div class="position-relative box-img w-100">
-            <img src="@Model.imgUrl"
+            <img src="@Model.ImgUrl"
                  height="200"
                  class="position-absolute w-100 h-100 start-0 top-0 rounded-top"
                  alt=""

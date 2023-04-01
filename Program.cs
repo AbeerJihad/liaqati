@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using liaqati_master.Services.RepoCrud;
+using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +12,17 @@ builder.Services.AddControllers().AddJsonOptions(op =>
 {
     op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
+
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConntection")));
+    options.UseLazyLoadingProxies()
+    .UseInMemoryDatabase("LiaqatiDB"));
+//builder.Services.AddDbContext<LiaqatiDBContext>(options =>
+//    options.UseLazyLoadingProxies()
+//    .UseSqlServer(
+//        builder.Configuration.GetConnectionString("DefaultConntection")
+//        )
+//    );
+
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
@@ -30,14 +39,18 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
  .AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
 
 builder.Services.AddScoped<GenericRepository<Order>>();
+
 builder.Services.AddScoped<GenericRepository<User>>();
+
 builder.Services.AddScoped<GenericRepository<SportsProgram>>();
 
 builder.Services.AddScoped<UnitOfWork>();
 
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<IRepoProgram, ProgramMang>();
+
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
@@ -45,8 +58,16 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+else
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.RoutePrefix = "";
+    });
 }
 
 app.UseHttpsRedirection();
@@ -54,21 +75,16 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-///
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
-app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-
-
-app.MapControllers();
+app.UseCors(builder =>
+    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+);
 
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.MapControllers();
+
 await SeedData.SeedAsync(app);
 app.Run();

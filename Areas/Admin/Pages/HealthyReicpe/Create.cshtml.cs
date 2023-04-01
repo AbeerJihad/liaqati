@@ -38,10 +38,10 @@ namespace liaqati_master.Pages.HealthyReicpe
                 return Page();
             }
 
-            var guid = Guid_Id.Id_Guid();
+            var guid = CommonMethods.Id_Guid();
             HealthyRecipes.Id = guid;
             HealthyRecipes.Services!.Id = guid;
-            var id = HealthyRecipes.Services!.Category!.Id;
+            var id = HealthyRecipes.Services!.Category?.Id;
 
             if (id != null)
             {

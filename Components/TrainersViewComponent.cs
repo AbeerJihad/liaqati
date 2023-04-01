@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 
 namespace liaqati_master.Components
 {
@@ -13,7 +12,7 @@ namespace liaqati_master.Components
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View((await _userManager.GetUsersInRoleAsync("Trainer")).Take(3).ToList());
+            return View((await _userManager.GetUsersInRoleAsync("Trainer")).ToList());
         }
 
     }

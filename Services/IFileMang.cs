@@ -2,14 +2,12 @@
 {
     public interface IFormFileMang
     {
-        public Task<string> Upload(IFormFile fm, string filename);
+        public Task<string> Upload(IFormFile fm, string BaseFolderName, string filename);
         public void DeleteFile(string OldFileName);
     }
-
-
     public class RepoFile : IFormFileMang
     {
-        IWebHostEnvironment _web;
+        private readonly IWebHostEnvironment _web;
 
         public RepoFile(IWebHostEnvironment web)
         {
@@ -18,32 +16,34 @@
 
         public void DeleteFile(string OldFileName)
         {
-            if (System.IO.File.Exists(OldFileName))
+            if (File.Exists(OldFileName))
             {
-                System.IO.File.Delete(OldFileName);
-
+                File.Delete(OldFileName);
             }
         }
 
-        public async Task<string> Upload(IFormFile fm, string Foldername)
+        public async Task<string> Upload(IFormFile fm, string BaseFolderName, string Foldername)
         {
 
-            string Folder = _web.WebRootPath + "//Images//" + Foldername;
-            if (!System.IO.File.Exists(Folder))
+            string Folder = _web.WebRootPath + "//" + BaseFolderName + "//" + Foldername;
+            if (!File.Exists(BaseFolderName))
             {
-                System.IO.Directory.CreateDirectory(Folder);
+                Directory.CreateDirectory(BaseFolderName);
+            }
+            if (!File.Exists(Folder))
+            {
+                Directory.CreateDirectory(Folder);
             }
             string filename = Guid.NewGuid().ToString() + Path.GetExtension(fm.FileName);
             string pathAll = Folder + "//" + filename;
 
-            FileStream fs = new FileStream(pathAll, FileMode.Create);
+            FileStream fs = new(pathAll, FileMode.Create);
             await fm.CopyToAsync(fs);
-
             await fs.FlushAsync();
             fs.Close();
 
 
-            return $"/Images//{Foldername}//{filename}";
+            return $"/{BaseFolderName}//{Foldername}//{filename}";
         }
     }
 

@@ -6,7 +6,7 @@
 
         private GenericRepository<User> userRepository;
         private GenericRepository<Order> orderRepository;
-        private GenericRepository<Achievements> achievementsRepository;
+        private GenericRepository<Achievement> achievementsRepository;
         private GenericRepository<ContactUs> contactUsRepository;
         private GenericRepository<Notification> notificationRepository;
         private GenericRepository<ChatUser> chatUserRepository;
@@ -133,12 +133,12 @@
             }
         }
 
-        public GenericRepository<Achievements> AchievementsRepository
+        public GenericRepository<Achievement> AchievementsRepository
         {
             get
             {
 
-                achievementsRepository ??= new GenericRepository<Achievements>(context);
+                achievementsRepository ??= new GenericRepository<Achievement>(context);
                 return achievementsRepository;
             }
         }

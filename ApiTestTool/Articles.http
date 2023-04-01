@@ -1,0 +1,5 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+@BaseUrl=https://localhost:7232
+### 
+GET {{BaseUrl}}/api/ArticlesApi/GetArticlesWithLoadMore?page=1&size=4

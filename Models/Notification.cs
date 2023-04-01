@@ -1,12 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
-    public class Notification
+    public class Notification : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Id { get; set; }
 
 
         [Required, Display(Name = "العتوان"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءاًأدخل حرفين على الاقل")]
@@ -30,7 +25,7 @@ namespace liaqati_master.Models
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم المستخدم")]
         public string UserId { get; set; }
-        public User? User { get; set; }
+        public virtual User? User { get; set; }
 
     }
 }
