@@ -1,14 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
-    public class Message
+    public class Message : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "رقم الرسالة")]
-        public string Id { get; set; }
+
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "تاريخ الرسالة")]
@@ -24,8 +18,8 @@ namespace liaqati_master.Models
         public int SenderId { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم الحادثة")]
-        public string ChatId { get; set; }
-        public Chat? Chat { get; set; }
+        public string? ChatId { get; set; }
+        public virtual Chat? Chat { get; set; }
 
     }
 }

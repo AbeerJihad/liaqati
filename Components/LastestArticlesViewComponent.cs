@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class LastestArticlesViewComponent : ViewComponent
     {
@@ -15,7 +13,7 @@ namespace liaqati_master.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var AthleticPrograms = _unitOfWork.ArticleRepository.Get().ToList();
+            var AthleticPrograms = _unitOfWork.ArticleRepository.Get().OrderByDescending(a => a.PostDate).Take(3).ToList();
             return View(AthleticPrograms);
         }
     }

@@ -1,14 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
 
-    public class Article
+    public class Article : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "رقم المقالة")]
-        public string? Id { get; set; }
+
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "وصف المقالة")]
         public string? Description { get; set; }
@@ -30,12 +25,13 @@ namespace liaqati_master.Models
         public int LikesNumber { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم الصنف")]
-        public string CategoryId { get; set; }
+        public string? CategoryId { get; set; }
 
-        public Category? Category { get; set; }
+        [ForeignKey(nameof(CategoryId))]
+        public virtual Category? Category { get; set; }
 
 
-        public List<Comments>? comments { get; set; }
+        public virtual List<Comments>? comments { get; set; }
 
     }
 }

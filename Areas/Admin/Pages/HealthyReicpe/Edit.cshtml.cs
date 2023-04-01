@@ -42,8 +42,6 @@ namespace liaqati_master.Pages.HealthyReicpe
                                            Value = a.Id.ToString(),
                                            Text = a.Name
                                        }).ToList();
-
-
             return Page();
         }
 
@@ -58,9 +56,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             //}
 
             var id = HealthyRecipes.Id;
-
             var item = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
-
             item.Services!.Title = HealthyRecipes.Services!.Title;
             item.Services.Price = HealthyRecipes.Services.Price;
             item.Services.Description = HealthyRecipes.Services.Description;
@@ -70,6 +66,8 @@ namespace liaqati_master.Pages.HealthyReicpe
             item.Calories = HealthyRecipes.Calories;
             item.Total_Carbohydrate = HealthyRecipes.Total_Carbohydrate;
             item.Protein = HealthyRecipes.Protein;
+            item.PreparationMethod = HealthyRecipes.PreparationMethod;
+            item.Ingredients = HealthyRecipes.Ingredients;
 
             var cid = HealthyRecipes.Services!.Category!.Id;
             if (id != null)
@@ -79,10 +77,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             }
             item.Services.Category = null;
             _UnitOfWork.HealthyRecipesRepository.Update(item);
-
-
             //  _context.Attach(MealPlans).State = EntityState.Modified;
-
             try
             {
                 _UnitOfWork.Save();

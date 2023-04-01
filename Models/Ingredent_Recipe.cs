@@ -1,14 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
-    public class Ingredent_Recipe
+    public class Ingredent_Recipe : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
 
-        public string Id { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم المكونات")]
         public int? IngredentId { get; set; }

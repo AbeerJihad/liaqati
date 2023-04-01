@@ -56,7 +56,7 @@ namespace liaqati_master.Pages.Product
 
 
 
-            Products.Id = Guid_Id.Id_Guid();
+            Products.Id = CommonMethods.Id_Guid();
 
             Products.Services!.Id = Products.Id;
 

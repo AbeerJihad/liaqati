@@ -4,7 +4,7 @@
     {
 
 
-        public static void SeedAsync(this ModelBuilder modelBuilder)
+        public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SportsProgram>().HasData
                 (

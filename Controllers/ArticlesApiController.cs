@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-
-namespace ProgectApi.Controllers
+﻿namespace ProgectApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -15,14 +10,14 @@ namespace ProgectApi.Controllers
         public ArticlesApiController(LiaqatiDBContext context)
         {
             _context = context;
-           
+
         }
 
         [HttpGet("AllArticles")]
         public async Task<ActionResult<List<Article>>> GetAllArticles()
         {
 
-            return Ok(await  _context.TblArticles.ToArrayAsync());
+            return Ok(await _context.TblArticles.ToArrayAsync());
         }
 
         [HttpGet("GetArticlesById/{id}")]
@@ -70,7 +65,7 @@ namespace ProgectApi.Controllers
 
         public async Task<ActionResult<MealPlans>> DeleteArticles(int id)
         {
-            Article item = _context.TblArticles.Find(id);
+            Article? item = _context.TblArticles.Find(id);
 
             if (item == null)
             {
@@ -97,8 +92,6 @@ namespace ProgectApi.Controllers
         }
 
         [HttpDelete("DeleteToList")]
-
-
         public async Task<ActionResult<List<Article>>> DeleteMultiArticles([FromForm] int[] ids)
         {
             var plist = new List<Article>();
@@ -162,9 +155,16 @@ namespace ProgectApi.Controllers
 
         }
 
+        [HttpGet("GetArticlesWithLoadMore")]
 
+        public async Task<ActionResult<List<Article>>> GetArticlesWithLoadMore(int page, int size = 4)
+        {
 
-
-
+            if (await _context.TblArticles.ToListAsync<Article>() == null)
+            {
+                return NotFound();
+            }
+            return Ok(_context.TblArticles.Skip((page - 1) * size).Take(size));
+        }
     }
 }

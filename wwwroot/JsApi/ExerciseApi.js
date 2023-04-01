@@ -9,8 +9,6 @@ async function getExercise(SelectExercises) {
         const response = await fetch("https://localhost:7232/api/ExerciseApi/AllExercise", {
             method: "GET",
         });
-
-
         if (response.status === 200) {
             result = await response.json();
         }
@@ -27,17 +25,12 @@ async function getExercise(SelectExercises) {
 }
 
 
-
-
-
 async function getdata(SelectExercises) {
     lstExercise = await getExercise(SelectExercises);
     lstExercise.forEach((p) =>
         RenderSelect(SelectExercises));
 
 }
-
-
 
 
 function RenderSelect(SelectExercises) {
@@ -48,7 +41,7 @@ function RenderSelect(SelectExercises) {
     for (element of lstExercise) {
         let li = document.createElement("option");
         li.value = element.id;
-     
+
         li.innerHTML = element.title;
         xx.appendChild(li);
     }

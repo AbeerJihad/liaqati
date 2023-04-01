@@ -1,0 +1,78 @@
+﻿@page
+@model liaqati_master.Areas.Administrator.Pages.Achievements.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Achievements</h4>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form theme-form">
+                        <form method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <input asp-for="Achievements.Id" hidden class="form-control" />
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label asp-for="Achievements.Title" class="control-label"></label>
+                                        <input asp-for="Achievements.Title" class="form-control" />
+                                        <span asp-validation-for="Achievements.Title" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="mb-3">
+                                        <label asp-for="Achievements.FromDate" class="control-label"></label>
+                                        <input asp-for="Achievements.FromDate" class="form-control" />
+                                        <span asp-validation-for="Achievements.FromDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="mb-3">
+                                        <label asp-for="Achievements.ToDate" class="control-label"></label>
+                                        <input asp-for="Achievements.ToDate" class="form-control" />
+                                        <span asp-validation-for="Achievements.ToDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label asp-for="Achievements.File" class="control-label"></label>
+                                        <input asp-for="Achievements.File" class="form-control" />
+                                        <span asp-validation-for="Achievements.File" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="text-end"><input type="submit" class="btn btn-secondary me-3" value="Add" /><a class="btn btn-danger" href="#">Cancel</a></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

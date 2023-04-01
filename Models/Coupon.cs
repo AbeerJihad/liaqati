@@ -1,11 +1,8 @@
 ﻿namespace liaqati_master.Models
 {
-    public class Coupon
+    public class Coupon : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "رقم الكوبون")]
 
-        public string Id { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "الخصم")]
         public double Discount { get; set; }

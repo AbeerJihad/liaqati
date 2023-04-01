@@ -1,11 +1,7 @@
 ﻿namespace liaqati_master.Models
 {
-    public class HealthyRecipe
+    public class HealthyRecipe : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None), Key, HiddenInput]
-
-        public string? Id { get; set; }
-
         // [Required(ErrorMessage = "هذا الحقل مطلوب")]
         public string? Image { get; set; } = "";
         [Display(Name = "نوع الوجبة")]
@@ -34,7 +30,7 @@
         public string? PreparationMethod { get; set; }
 
         [ForeignKey(nameof(Id))]
-        public Service? Services { get; set; }
+        public virtual Service? Services { get; set; }
 
     }
     public enum DieteryTypeStatus { Omnivore, Vegetarian }

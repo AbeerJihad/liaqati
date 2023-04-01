@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-
-namespace ProgectApi.Controllers
+﻿namespace ProgectApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -13,7 +8,7 @@ namespace ProgectApi.Controllers
         readonly UnitOfWork _unitOfWork;
 
 
-       
+
         public MealPlanApiController(LiaqatiDBContext context, UnitOfWork unitOfWork)
         {
             _context = context;
@@ -24,7 +19,7 @@ namespace ProgectApi.Controllers
         public async Task<ActionResult<List<MealPlans>>> GetAllMealPlan()
         {
 
-            return Ok(await  _context.TblMealPlans.ToArrayAsync());
+            return Ok(await _context.TblMealPlans.ToArrayAsync());
         }
 
         [HttpGet("GetMealPlanById/{id}")]
@@ -50,7 +45,7 @@ namespace ProgectApi.Controllers
         public async Task<ActionResult<MealPlans>> AddMealPlans([FromForm] MealPlans MealPlans)
         {
 
-            
+
 
             await _context.TblMealPlans.AddAsync(MealPlans);
 
@@ -141,7 +136,6 @@ namespace ProgectApi.Controllers
 
 
         [HttpPut("EditArticles/{id}")]
-        [Route("")]
 
         public async Task<ActionResult<MealPlans>> EditArticles(int id, MealPlans MealPlans)
         {

@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace liaqati_master.Pages.Articles
+namespace liaqati_master.Areas.Admin.Pages.Articles
 {
     public class CreateModel : PageModel
     {
@@ -31,7 +30,7 @@ namespace liaqati_master.Pages.Articles
             CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get(), nameof(Category.Id), nameof(Category.Name));
 
 
-            Articles.Id = Guid_Id.Id_Guid();
+            Articles.Id = CommonMethods.Id_Guid();
             if (!ModelState.IsValid)
             {
                 return Page();

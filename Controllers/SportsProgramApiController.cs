@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-
-namespace ProgectApi.Controllers
+﻿namespace ProgectApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -15,14 +10,14 @@ namespace ProgectApi.Controllers
         public SportsProgramApiController(LiaqatiDBContext context)
         {
             _context = context;
-           
+
         }
 
         [HttpGet("AllSportsProgram")]
         public async Task<ActionResult<List<SportsProgram>>> GetAllSportsProgram()
         {
 
-            return Ok(await  _context.TblSportsProgram.ToArrayAsync());
+            return Ok(await _context.TblSportsProgram.ToArrayAsync());
         }
 
         [HttpGet("GetSportsProgramById/{id}")]
@@ -42,7 +37,7 @@ namespace ProgectApi.Controllers
         }
 
         ///
-        [HttpPost]
+        [HttpPost("AddSportsProgram")]
         public async Task<ActionResult<SportsProgram>> AddSportsProgram([FromForm] SportsProgram SportsProgram)
         {
             await _context.TblSportsProgram.AddAsync(SportsProgram);

@@ -1,0 +1,196 @@
+﻿@page
+@model liaqati_master.Areas.Administrator.Pages.Achievements.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css">
+
+<h1>Index</h1>
+
+<div class="container-lg ">
+    <div class=" ">
+        <div class="row justify-content-center">
+            <div class="col  py-2 ">
+                <div class="products-total d-flex gap-2">
+                    <div class="square-product-setting d-inline-block">
+                        <a class="icon-grid m-0 grid-layout-view"
+                           href="javascript:void(0)" data-original-title="" title="" data-bs-original-title="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="feather feather-grid">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="square-product-setting d-inline-block">
+                        <a class="icon-grid m-0  list-layout-view"
+                           href="javascript:void(0)" data-original-title="" title="" data-bs-original-title="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="feather feather-list">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3" y2="6"></line>
+                                <line x1="3" y1="12" x2="3" y2="12"></line>
+                                <line x1="3" y1="18" x2="3" y2="18"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col  py-2  d-flex justify-content-end gap-2">
+                <button class="btn btn-outline-primary" type="button">استيراد<i class="bi bi-download ms-2"></i></button>
+                <button class="btn btn-outline-primary" type="button">تصدير<i class="bi bi-upload ms-2"></i></button>
+                <a class="btn btn-primary" asp-page="Create" type="button">إضافة<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+            </div>
+            <div class="col-md-12 project-list">
+                <div class="card p-3">
+                    <div class="row m-0">
+
+                        <div class="col">
+
+                            <div class="feature-products">
+                                <form>
+                                    <div class="form-group m-0">
+                                        <input class="form-control m-0" type="search" placeholder="Search.." data-original-title=""
+                                               title="" data-bs-original-title=""><i class="bi bi-search"></i>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-12">
+                <div class="card  border-raduis">
+                    <div class="card-header bg-transparent px-0 py-4 ">
+                        <h5>المستخدمين</h5>
+                    </div>
+                    <div class="table-responsive table-hover">
+                        <table class="table  table-borderless" id="Tbl">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="50">
+                                        <input class="form-check-input " type="checkbox" id="chk-all" value="">
+                                    </th>
+                                    <th scope="col" width="100">العنوان</th>
+                                    <th scope="col" width="180">من تاريخ</th>
+                                    <th scope="col" width="200">إلى تاريخ</th>
+                                    <th scope="col" width="130">مرفق</th>
+                                    <th scope="col" width="150">العملية</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Achievements)
+                                {
+                                    <tr>
+                                        <td scope="row">
+                                            <label class="d-block">
+                                                <input class="checkbox_animated" type="checkbox">
+                                            </label>
+                                        </td>
+                                        <td>@item.Title</td>
+                                        <td>@item.FromDate</td>
+                                        <td>@item.ToDate</td>
+                                        <td>@item.File</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                                <form method="post" asp-route-Id="@item.Id">
+                                                    <a asp-page="./Edit" asp-route-Id="@item.Id" class="btn"
+                                                       style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </a>
+                                                    <a class="btn"
+                                                       onclick="ConfirmDelete(this)"
+                                                       style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-none manage__data position-fixed  rounded-pill">
+                        <div class="h-100 p-20 d-flex gap-2 justify-content-between align-content-center align-items-center">
+                            <div class=" d-flex gap-2 justify-content-between align-content-center align-items-center">
+                                <span class=" badge rounded-pill bg-danger " id="noOfSelectedItem">0</span>
+                                <p class="text-white p-0 m-0 d-none  d-lg-inline">العناصر المحددة</p>
+                            </div>
+                            <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 text-white"
+                                    style="background:#3c3b4a;" type="button">
+                                تعديل
+                                <i class="bi bi-pencil-square me-lg-2"></i>
+                            </button>
+                            <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
+                                    id="BtnDelete" data-name="مستخدم" type="button">
+                                حذف
+                                <i class="bi bi-trash  me-lg-2"></i>
+                            </button>
+                            <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
+                                    type="button" id="BtnCancelSelection">
+                                إلغاء
+                                <span class="d-none  d-lg-inline fw-bold"> تحديد </span><i class="bi bi-x-circle  me-lg-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="modalConfirmation" tabindex="-1" aria-labelledby="modalConfirmation" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">تأكيد الجذف</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="confirm-massage"></p>
+                    <div class="mb-3">
+                        <label for="confirmText" class="fw-normal">اكتب <strong>تأكيد</strong> للمضي قدمًا في الطلب:</label>
+                        <input type="text" class="form-control" placeholder="تأكيد" id="confirmText">
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    <button type="button" class="btn btn-primary" id="BtnConfirmDelete" disabled>حذف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image__viewer d-none flex-column justify-content-center align-items-center position-fixed min-vw-100 top-0 start-0 min-vh-100" style="z-index:1000">
+        <div class="" style="width:600px;">
+            <div class="d-flex justify-content-between align-items-center p-3">
+                <button id="BtnClose" class="btn bg-white rounded-circle "> <i class="bi bi-x"></i></button>
+                <p class="title p-0 m-0 text-white h5"></p>
+            </div>
+            <div class="img__box2">
+                <img src="" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/@@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    @{
+        await Html.RenderPartialAsync("_tables");
+        await Html.RenderPartialAsync("_ConfirmDelete");
+    }
+}

@@ -102,7 +102,7 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("Target")
+                    b.Property<int>("Target")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -113,22 +113,38 @@ namespace liaqati_master.Migrations
                         new
                         {
                             Id = "1",
-                            Name = "النظام الغذائي"
+                            Name = "طبق رئيسي",
+                            Target = 2
                         },
                         new
                         {
                             Id = "2",
-                            Name = "الوجبات"
+                            Name = "أكل صحي",
+                            Target = 2
                         },
                         new
                         {
                             Id = "3",
-                            Name = "المكملات الغذائية"
+                            Name = "حلوى",
+                            Target = 2
                         },
                         new
                         {
                             Id = "4",
-                            Name = "الاجهزة الرياضية"
+                            Name = "الوجبات",
+                            Target = 0
+                        },
+                        new
+                        {
+                            Id = "5",
+                            Name = "المكملات الغذائية",
+                            Target = 0
+                        },
+                        new
+                        {
+                            Id = "6",
+                            Name = "الاجهزة الرياضية",
+                            Target = 0
                         });
                 });
 
@@ -145,7 +161,7 @@ namespace liaqati_master.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Chat");
+                    b.ToTable("TblChat");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.ChatUser", b =>
@@ -167,7 +183,7 @@ namespace liaqati_master.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ChatUser");
+                    b.ToTable("TblChatUser");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Comment_Servies", b =>
@@ -201,7 +217,7 @@ namespace liaqati_master.Migrations
 
                     b.HasIndex("ServicesId");
 
-                    b.ToTable("Comment_Servies");
+                    b.ToTable("TblCommentServies");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Comments", b =>
@@ -234,7 +250,64 @@ namespace liaqati_master.Migrations
 
                     b.HasIndex("articlesId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("TblComment");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Coupon", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("FromDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ToDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TblCoupon");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Coupon_redemption", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("CouponId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Order_DetailsId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("RedemptionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Total_discount")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CouponId");
+
+                    b.HasIndex("Order_DetailsId");
+
+                    b.ToTable("TblCoupon_redemption");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Exercies_program", b =>
@@ -325,7 +398,7 @@ namespace liaqati_master.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Favorite");
+                    b.ToTable("TblFavorite");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Favorite_Servies", b =>
@@ -350,7 +423,7 @@ namespace liaqati_master.Migrations
 
                     b.HasIndex("ServicesId1");
 
-                    b.ToTable("Favorite_Servies");
+                    b.ToTable("TblFavorite_Servies");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.HealthyRecipe", b =>
@@ -389,7 +462,7 @@ namespace liaqati_master.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HealthyRecipe");
+                    b.ToTable("TblHealthyRecipe");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>
@@ -499,6 +572,38 @@ namespace liaqati_master.Migrations
                     b.ToTable("Message");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Notification", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("DATE")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TblNotification");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Order", b =>
                 {
                     b.Property<string>("Id")
@@ -512,7 +617,6 @@ namespace liaqati_master.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("UserIdDelivery")
@@ -841,7 +945,7 @@ namespace liaqati_master.Migrations
                     b.Property<double>("Discount")
                         .HasColumnType("float");
 
-                    b.Property<string>("imgUrl")
+                    b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -853,127 +957,127 @@ namespace liaqati_master.Migrations
                         {
                             Id = "21",
                             Discount = 20.0,
-                            imgUrl = "/Images/Product/Dumbbell3.jfif"
+                            ImgUrl = "/Images/Product/Dumbbell3.jfif"
                         },
                         new
                         {
                             Id = "22",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/LiveupOlympic.jpg"
+                            ImgUrl = "/Images/Product/LiveupOlympic.jpg"
                         },
                         new
                         {
                             Id = "23",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Curved.jpg"
+                            ImgUrl = "/Images/Product/Curved.jpg"
                         },
                         new
                         {
                             Id = "24",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Spinner.jpg"
+                            ImgUrl = "/Images/Product/Spinner.jpg"
                         },
                         new
                         {
                             Id = "25",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Liveup.jpg"
+                            ImgUrl = "/Images/Product/Liveup.jpg"
                         },
                         new
                         {
                             Id = "26",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/LiveupOlympic.jpg"
+                            ImgUrl = "/Images/Product/LiveupOlympic.jpg"
                         },
                         new
                         {
                             Id = "27",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Bowflex.jpg"
+                            ImgUrl = "/Images/Product/Bowflex.jpg"
                         },
                         new
                         {
                             Id = "28",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Brobantle.jfif"
+                            ImgUrl = "/Images/Product/Brobantle.jfif"
                         },
                         new
                         {
                             Id = "29",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Adjustable.jpg"
+                            ImgUrl = "/Images/Product/Adjustable.jpg"
                         },
                         new
                         {
                             Id = "30",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/rower.jpg"
+                            ImgUrl = "/Images/Product/rower.jpg"
                         },
                         new
                         {
                             Id = "31",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/omega.jpg"
+                            ImgUrl = "/Images/Product/omega.jpg"
                         },
                         new
                         {
                             Id = "32",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Muscletech.jpg"
+                            ImgUrl = "/Images/Product/Muscletech.jpg"
                         },
                         new
                         {
                             Id = "33",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Ultima.jpg"
+                            ImgUrl = "/Images/Product/Ultima.jpg"
                         },
                         new
                         {
                             Id = "34",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/krilloil.jpg"
+                            ImgUrl = "/Images/Product/krilloil.jpg"
                         },
                         new
                         {
                             Id = "35",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/anavite.jpg"
+                            ImgUrl = "/Images/Product/anavite.jpg"
                         },
                         new
                         {
                             Id = "36",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Trace.jpg"
+                            ImgUrl = "/Images/Product/Trace.jpg"
                         },
                         new
                         {
                             Id = "37",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/BodyBio.jpg"
+                            ImgUrl = "/Images/Product/BodyBio.jpg"
                         },
                         new
                         {
                             Id = "38",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/Vega.jpg"
+                            ImgUrl = "/Images/Product/Vega.jpg"
                         },
                         new
                         {
                             Id = "39",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/HydrationMultiplier.jpg"
+                            ImgUrl = "/Images/Product/HydrationMultiplier.jpg"
                         },
                         new
                         {
                             Id = "40",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/NutriBiotic.jpg"
+                            ImgUrl = "/Images/Product/NutriBiotic.jpg"
                         },
                         new
                         {
                             Id = "41",
                             Discount = 0.0,
-                            imgUrl = "/Images/Product/krilloil.jpg"
+                            ImgUrl = "/Images/Product/krilloil.jpg"
                         });
                 });
 
@@ -1375,7 +1479,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "e347dfa2-1e38-45c1-806a-5de3eadfb6a6",
+                            ConcurrencyStamp = "14968a9a-90f2-4428-80ea-4eab54eff6c5",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -1386,7 +1490,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "772d82d5-73c6-4dda-8882-70eec6d4bdc3",
+                            SecurityStamp = "9405be86-da04-4e5f-a301-40aec6aa2dd8",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });
@@ -1569,7 +1673,7 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.Comment_Servies", b =>
                 {
                     b.HasOne("liaqati_master.Models.Service", "Services")
-                        .WithMany("commentServies")
+                        .WithMany("CommentServies")
                         .HasForeignKey("ServicesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1584,6 +1688,25 @@ namespace liaqati_master.Migrations
                         .HasForeignKey("articlesId");
 
                     b.Navigation("articles");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Coupon_redemption", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Coupon", "Coupon")
+                        .WithMany()
+                        .HasForeignKey("CouponId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("liaqati_master.Models.Order_Details", "Order_Details")
+                        .WithMany()
+                        .HasForeignKey("Order_DetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Coupon");
+
+                    b.Navigation("Order_Details");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Exercies_program", b =>
@@ -1614,7 +1737,7 @@ namespace liaqati_master.Migrations
                         .IsRequired();
 
                     b.HasOne("liaqati_master.Models.Service", "Services")
-                        .WithMany("favorites")
+                        .WithMany("Favorites")
                         .HasForeignKey("ServicesId1");
 
                     b.Navigation("Favorite");
@@ -1655,13 +1778,22 @@ namespace liaqati_master.Migrations
                     b.Navigation("Chat");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Notification", b =>
+                {
+                    b.HasOne("liaqati_master.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Order", b =>
                 {
                     b.HasOne("liaqati_master.Models.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -1715,7 +1847,7 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
                 {
                     b.HasOne("liaqati_master.Models.Service", "Services")
-                        .WithOne("sportsProgram")
+                        .WithOne("SportsProgram")
                         .HasForeignKey("liaqati_master.Models.SportsProgram", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1726,7 +1858,7 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.Trak", b =>
                 {
                     b.HasOne("liaqati_master.Models.Service", "Services")
-                        .WithMany("traks")
+                        .WithMany("Traks")
                         .HasForeignKey("ServicesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1826,6 +1958,10 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
                 {
+                    b.Navigation("CommentServies");
+
+                    b.Navigation("Favorites");
+
                     b.Navigation("HealthyRecipes");
 
                     b.Navigation("MealPlans");
@@ -1834,13 +1970,9 @@ namespace liaqati_master.Migrations
 
                     b.Navigation("Products");
 
-                    b.Navigation("commentServies");
+                    b.Navigation("SportsProgram");
 
-                    b.Navigation("favorites");
-
-                    b.Navigation("sportsProgram");
-
-                    b.Navigation("traks");
+                    b.Navigation("Traks");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>

@@ -1,10 +1,9 @@
 ﻿namespace liaqati_master.Models
 {
-    public class Exercise
+    public class Exercise : BaseEntity
     {
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None), HiddenInput, Key]
-        public string? Id { get; set; }
+
         [Required(ErrorMessage = "requird{0}"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل"), Display(Name = "اسم التمرين")]
         public string? Title { get; set; }
         [StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل"), Display(Name = "تركيز الجسم")]
@@ -29,7 +28,7 @@
         public double? Price { get; set; }
         [Display(Name = "تقدير الحرق")]
         public string? BurnEstimate { get; set; }
-        public List<Exercies_program>? Exercies_Programs { get; set; }
+        public virtual List<Exercies_program>? Exercies_Programs { get; set; }
 
     }
 }

@@ -11,9 +11,9 @@ namespace liaqati_master.Data
             LiaqatiDBContext liaqatiDBContext = scope.ServiceProvider.GetRequiredService<LiaqatiDBContext>();
             RoleManager<IdentityRole>? RoleManager = scope.ServiceProvider?.GetService<RoleManager<IdentityRole>>();
             UserManager<User>? userManager = scope.ServiceProvider?.GetService<UserManager<User>>();
-            var migrations = liaqatiDBContext.Database.GetPendingMigrations();
-            if (migrations.Any())
-                liaqatiDBContext.Database.Migrate();
+            //var migrations = liaqatiDBContext.Database.GetPendingMigrations();
+            //if (migrations.Any())
+            // liaqatiDBContext.Database.Migrate();
             if (!liaqatiDBContext.TblSportsProgram.Any())
             {
                 await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfAthleticProgram());
