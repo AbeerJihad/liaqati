@@ -1,6 +1,4 @@
-﻿using liaqati_master.ViewModels;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class MostSoughtProductsViewComponent : ViewComponent
     {
@@ -28,22 +26,20 @@ namespace liaqati_master.Components
         {
             List<Product> products = new();
 
-            var a = _unitOfWork.Order_DetailsRepository
-               .Get(includeProperties: "Service")
-               .Where(s => s.Service?.CategoryId == CategoryID)
-               .GroupBy(info => info.ServiceId)
-               .Select(group => new
-               {
-                   ServiceId = group.Key,
-                   Count = group.Count()
-               })
-               .OrderByDescending(x => x.Count)
-               .Take(2);
+            var a = _unitOfWork.Order_DetailsRepository.GetAllEntity().Where(s => s.Service?.CategoryId == CategoryID)
+               .GroupBy(info => info.ServiceId);
+            //.Select(group => new
+            //{
+            //    ServiceId = group.Key,
+            //    Count = group.Count()
+            //})
+            //.OrderByDescending(x => x.Count)
+            //.Take(2);
 
-            foreach (var prodIds in a)
-            {
-                products.Add(_unitOfWork.ProductsRepository.GetByID(prodIds.ServiceId));
-            }
+            //foreach (var prodIds in a)
+            //{
+            //    products.Add(_unitOfWork.ProductsRepository.GetByID(prodIds.ServiceId));
+            //}
             return products;
         }
 

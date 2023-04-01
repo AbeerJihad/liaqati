@@ -14,7 +14,7 @@
         [Display(Name = "رقم الصنف")]
         public string? CategoryId { get; set; }
 
-        public virtual Category? Category { get; set; } = null;
+        public virtual Category? Category { get; set; }
         //[Display(Tilte = "رقم النظام الغذائي")]
         //public string? MealPlansId { get; set; }
 

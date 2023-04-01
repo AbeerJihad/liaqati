@@ -1,5 +1,5 @@
 ﻿namespace liaqati_master.Enums
 {
-    public enum Target { Product, MealPlan, HealthyRecipe, SportProgram, Article }
+    public enum Target { MealPlan, HealthyRecipe, SportProgram, Article, Product }
 
 }

@@ -1,4 +1,4 @@
-﻿namespace liaqati_master.Services.RepoCrud
+﻿namespace liaqati_master.Services.Repositories
 {
     public interface IRepoProgram
     {

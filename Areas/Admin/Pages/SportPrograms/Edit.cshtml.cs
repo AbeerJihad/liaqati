@@ -1,4 +1,4 @@
-using liaqati_master.Services.RepoCrud;
+using liaqati_master.Services.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -50,7 +50,7 @@ namespace liaqati_master.Pages.Programs
             SportsProgram sportsProgram = await _repo.GetProgram(id);
 
 
-            //  SportsProgram sportsProgram =_UnitOfWork.SportsProgramRepository.GetByID(id);
+            //  SportsProgram sportsProgram =_UnitOfWork.SportsProgramRepository.GetByIDAsync(id);
 
 
             //foreach(Exercies_program x in  sportsProgram.Exercies_Programs!)

@@ -5,8 +5,8 @@
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم الخدمة")]
-        public int? ServicesId { get; set; }
-
+        public string? ServicesId { get; set; }
+        [ForeignKey(nameof(ServicesId))]
         public virtual Service? Services { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "رقم المفضل")]

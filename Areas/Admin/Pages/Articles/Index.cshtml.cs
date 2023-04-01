@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace liaqati_master.Pages.Articles
+namespace liaqati_master.Areas.Admin.Articles
 {
     public class IndexModel : PageModel
     {
