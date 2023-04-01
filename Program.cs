@@ -1,4 +1,4 @@
-﻿using liaqati_master.Services.RepoCrud;
+﻿using liaqati_master.Services.Repositories;
 using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
 
@@ -13,15 +13,15 @@ builder.Services.AddControllers().AddJsonOptions(op =>
     op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
-builder.Services.AddDbContext<LiaqatiDBContext>(options =>
-    options.UseLazyLoadingProxies()
-    .UseInMemoryDatabase("LiaqatiDB"));
 //builder.Services.AddDbContext<LiaqatiDBContext>(options =>
 //    options.UseLazyLoadingProxies()
-//    .UseSqlServer(
-//        builder.Configuration.GetConnectionString("DefaultConntection")
-//        )
-//    );
+//    .UseInMemoryDatabase("LiaqatiDB"));
+builder.Services.AddDbContext<LiaqatiDBContext>(options =>
+    options.UseLazyLoadingProxies()
+    .UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConntection")
+        )
+    );
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
@@ -41,6 +41,7 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
 builder.Services.AddScoped<GenericRepository<Order>>();
 
 builder.Services.AddScoped<GenericRepository<User>>();
+builder.Services.AddScoped<IRepository<Article>, RepoArticles>();
 
 builder.Services.AddScoped<GenericRepository<SportsProgram>>();
 

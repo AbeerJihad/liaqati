@@ -22,7 +22,7 @@ namespace liaqati_master.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("liaqati_master.Models.Achievements", b =>
+            modelBuilder.Entity("liaqati_master.Models.Achievement", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -114,19 +114,19 @@ namespace liaqati_master.Migrations
                         {
                             Id = "1",
                             Name = "طبق رئيسي",
-                            Target = 2
+                            Target = 1
                         },
                         new
                         {
                             Id = "2",
                             Name = "أكل صحي",
-                            Target = 2
+                            Target = 1
                         },
                         new
                         {
                             Id = "3",
                             Name = "حلوى",
-                            Target = 2
+                            Target = 1
                         },
                         new
                         {
@@ -138,13 +138,13 @@ namespace liaqati_master.Migrations
                         {
                             Id = "5",
                             Name = "المكملات الغذائية",
-                            Target = 0
+                            Target = 4
                         },
                         new
                         {
                             Id = "6",
                             Name = "الاجهزة الرياضية",
-                            Target = 0
+                            Target = 4
                         });
                 });
 
@@ -410,18 +410,15 @@ namespace liaqati_master.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("ServicesId")
+                    b.Property<string>("ServicesId")
                         .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<string>("ServicesId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("FavoriteId");
 
-                    b.HasIndex("ServicesId1");
+                    b.HasIndex("ServicesId");
 
                     b.ToTable("TblFavorite_Servies");
                 });
@@ -1479,7 +1476,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "14968a9a-90f2-4428-80ea-4eab54eff6c5",
+                            ConcurrencyStamp = "77c7be0d-50ba-4386-9500-83023a7cedaa",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -1490,7 +1487,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "9405be86-da04-4e5f-a301-40aec6aa2dd8",
+                            SecurityStamp = "84e660da-73c0-4cfd-8603-1d3766902ee0",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });
@@ -1629,7 +1626,7 @@ namespace liaqati_master.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("liaqati_master.Models.Achievements", b =>
+            modelBuilder.Entity("liaqati_master.Models.Achievement", b =>
                 {
                     b.HasOne("liaqati_master.Models.User", "User")
                         .WithMany("Achievements")
@@ -1738,7 +1735,9 @@ namespace liaqati_master.Migrations
 
                     b.HasOne("liaqati_master.Models.Service", "Services")
                         .WithMany("Favorites")
-                        .HasForeignKey("ServicesId1");
+                        .HasForeignKey("ServicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Favorite");
 

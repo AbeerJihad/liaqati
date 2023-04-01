@@ -62,7 +62,7 @@ namespace liaqati_master.Areas.Admin.Pages.Exercises
             string? oldurlvideo = Exercise.Video;
             if (Image != null)
             {
-                Exercise.Image = await _repoFile.Upload(Image, "Images", "Exercise");
+                Exercise.Image = await _repoFile.Upload(Image, "~/images/atricles", "Exercise");
             }
             else
             {

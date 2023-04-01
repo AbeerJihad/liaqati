@@ -1,0 +1,200 @@
+﻿@page
+@model liaqati_master.Pages.Articles.IndexModel
+@{
+}
+<style>
+    body {
+        background-color: #F7F7F7;
+    }
+
+    .sideArticlesImages {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carouselImages {
+        height: 500px;
+        width: 100%;
+        opacity: 0.9;
+        object-fit: cover;
+    }
+
+    .overlay {
+        background-color: #8F8F8F50;
+        opacity: 1;
+        transition: .5s;
+        z-index: 2;
+    }
+
+    .carousel:hover .overlay {
+        opacity: 0;
+        display: none;
+    }
+
+</style>
+<div class="position-relative w-100  overflow-hidden" style="height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/articles bg.png');background-size:cover;">
+    <div class="h-100">
+        <div class="container-fluid h-100 p-0 position-absolute start-0 top-0 bg ">
+            <div class="container-xl h-100  d-flex flex-column justify-content-center align-items-center">
+                <div class="w-100">
+                    <h1 class="text-white text-center py-5 fw-bold">
+                        مقالات لياقتي
+                    </h1>
+                    <div class="p-0 g-0 row col-lg-10 justify-content-center mx-auto form-search">
+                        <div class="col-12 my-2 my-lg-0 col-lg-6">
+                            <input type="text" name="SearchTearm" class="form-control rounded-end-0" placeholder="الخدمة" />
+                        </div>
+                        <div class="col-12 my-2 my-lg-0 col-lg-3">
+                            <input placeholder="بحث" type="submit" value="بحث" class="form-control rounded-start-0 text-center" style="background-color: #e4dfff" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-lg mt-3" style="font-size:13px;">
+    <div class="row">
+        <p class="fs-6 p-4">
+            الرئيسية
+            <img src="~/images/atricles/ic_expand_more_24px.png" />
+            مقالات
+        </p>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-6 h-100 align-self-center">
+            <div id="carouselExampleCaptions" class="carousel h-100 slide carousel-fade" data-bs-ride="carousel">
+
+                <div class="carousel-inner h-100">
+                    <div class="h-100 w-100 position-absolute top-0 start-0 overlay"></div>
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        var active = @i == 0 ? "active" : "";
+                        string[] Links = new string[] { "221796.png", "224347.png", "224664.png" };
+                        <div class='carousel-item  h-100 @active'>
+                            <img src="~/images/atricles/@Links[i]" class="d-block carouselImages" alt="...">
+                            <div class="carousel-caption w-100 start-0 m-0 p-3 bottom-0   text-start d-none d-md-block" style="background-color:rgba(255,255,255,0.6);">
+                                <p class="text-black-50 fw-bold">رشاقة وتغذية</p>
+                                <h6 class="text-dark">تمارين بالمنزل للتغلب على خشونة الركبة .</h6>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 d-flex gap-2 flex-column justify-content-center align-items-center">
+            @for (int i = 0; i < 3; i++)
+            {
+                string[] Links = new string[] { "article1.png", "224058.png", "224756.png" };
+                <div class="row mx-1 bg-white">
+                    <div class="col-4 g-0 ">
+                        <img src="~/images/atricles/@Links[i]" class="sideArticlesImages" />
+                    </div>
+                    <div class="col">
+                        <div class="pt-2">
+                            <p class="fw-bold">فبراير 18 2023</p>
+                            <p class="text-black-50">رشاقة وتغذية</p>
+                            <p style="font-weight:bold;">كيف أستعمل الشوفان لانقاص الوزن؟.. طبيبة تغذية تجيب</p>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+
+                            <div>
+                                <p>وقت القراءة 10 دقائق</p>
+                            </div>
+                            <div class="my-1">
+                                <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
+                                <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            }
+        </div>
+
+    </div>
+
+</div>
+@await Component.InvokeAsync("MostViewedArticles")
+
+
+<h3 class="mx-5 mt-4 mb-0">المقالات الحديثة</h3>
+<div class="container-lg">
+    <div class="row g-0 p-0 justify-content-center align-self-center">
+        @for (int i = 0; i < 4; i++)
+        {
+            string[] Links = new string[] { "224664.png", "221474.png", "224347.png", "223603.png" };
+
+            <div class="col-md-6 p-2">
+                <div class="">
+                    <div class="row g-0 bg-white">
+                        <div class="col-4 g-0">
+                            <img src="~/images/atricles/@Links[i]" class="sideArticlesImages" />
+                        </div>
+                        <div class="col p-2 m-0">
+                            <div class="d-flex justify-content-between ">
+
+                                <div>
+                                    <p class="fw-bold">رشاقة وتغذية</p>
+                                </div>
+                                <div>
+                                    <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
+                                    <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+                                </div>
+
+
+
+                            </div>
+                            <p>فبراير 18 2023</p>
+                            <p style="font-weight:bold;">فوائد المغنيسيوم للتنحيف ولصحة الجسم كافة لا تُثمّن</p>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row g-0 p-0 my-3">
+        <div class="col d-flex justify-content-end ">
+            <button class="btn btn-main" type="button">
+                <span class="spinner-grow  spinner-grow-sm d-none" role="status" aria-hidden="true"></span>
+                عرض المزيد
+            </button>
+        </div>
+    </div>
+
+</div>
+@*
+
+<img src="~/images/atricles/221474.png" class="sideArticlesImages" />
+
+<img src="~/images/atricles/224347.png" class="sideArticlesImages" />
+
+
+<img src="~/images/atricles/223603.png" class="sideArticlesImages" />
+*@

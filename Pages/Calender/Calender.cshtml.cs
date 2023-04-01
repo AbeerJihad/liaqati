@@ -1,4 +1,3 @@
-using liaqati_master.Services.RepoCrud;
 using liaqati_master.Services.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
