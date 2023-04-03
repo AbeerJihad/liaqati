@@ -1,61 +1,39 @@
-﻿
-
-.card_container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+﻿* {
+    font-family: Almarai;
 }
 
-.card {
-    border-radius: 14px;
-    padding: 20px;
-    position: relative;
+.hrcolor {
+    color: #b1abcf;
+    height: 3px !important;
+    width: 55% !important;
 }
 
-    .card .card-container {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        z-index: 10;
-        border-radius: 10px;
-        padding: 15px;
-        padding-top: 50px;
+.detailsbox {
+    top: 35%;
+    left: 15%;
+    right: 15%;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+    .detailsbox:hover {
+        opacity: 1;
     }
 
-
-        .card .card-container ::before, .card .card-container :hover {
-            position: absolute;
-            content: 'مزيد من التفاصيل...';
-            top: -10%;
-            padding-left: 3%;
-            padding: 1%;
-            right: -15%;
-            width: stretch;
-            background-color: rgba(204,204,255,.4);
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            color: black;
-        }
-
-.cardimg {
-    background-image: url('img/9.png');
-    background-repeat: no-repeat;
-    width: stretch;
-    background-size: cover;
-    opacity: .8;
+.pcolor {
+    color: #B9AFF5;
 }
 
+.bgcolor {
+    background-color: #DEDBF6;
+}
 
+.colordiv {
+    background-color: #ffffffa9;
+}
 
-
-
-
-
-
-
-
-
-
+.poss {
+    bottom: 0;
+    border-radius: 0 0 15px 15px;
+}

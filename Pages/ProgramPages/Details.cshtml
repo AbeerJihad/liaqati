@@ -2,333 +2,364 @@
 @model liaqati_master.Pages.ProgramPages.DetailsModel
 @{
 }
+<link href="~/css/programdetails.css" rel="stylesheet" />
+<div class="container  " style="padding-top:100px">
+    <div class="row">
 
-<link href="~/css/site.css" rel="stylesheet" />
+        <div class="d-flex my-2">
+            <p class="p-1">الرئيسية</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/images/exercise/ic_expand_more_24px.png" />
+            <p class="p-1">خدماتنا</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/images/exercise/ic_expand_more_24px.png" />
+            <p class="p-1">تمارين رياضية</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/images/exercise/ic_expand_more_24px.png" />
+            <p class="p-1"> @Model.Exercise.Title </p>
+        </div>
+      
+       
+        <div style="width:100%; height:80%;">
 
+            @if (@Model.Exercise!.Video!.Contains("http"))
+            {
+                <iframe class="w-100" height="500" src="@Model.Exercise.Video" frameborder="0" allowfullscreen></iframe>
 
-    <!--section1-->
+            }
+            else
+            {
+             @*   <video style="width:100%; height:500px;" src="@Model.E`xercise.Video" title="YouTube video player" controls>
+                    <source src="@Model.Exercise.Video" type="video/mp4">
+                    <source src="@Model.Exercise.Video" type="video/ogg">Your browser does not support HTML video.
+                </video>*@
+                <iframe style="width:100%; height:500px;" src="@Model.Exercise.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-    <div class="container align-content-center " style="padding-top:200px;">
-    
-    <video style=" width:100%; height:300px" controls="controls">
-        <source src="~/video/exercise/%d9%81%d9%8a%d8%af%d9%8a%d9%88%20%d9%85%d8%b9%d8%a8%d8%b1%20%d8%b9%d9%86%20%d9%82%d8%a8%d9%84%20%d8%a7%d9%84%d8%a7%d9%81%d8%b7%d8%a7%d8%b1%20%d8%a8%d8%b1%d9%85%d8%b6%d8%a7%d9%86__%d8%b1%d8%b3%d9%85%20%d8%af%d9%8a%d8%ac%d8%aa%d8%a7%d9%84_%d8%b1%d9%82%d9%85%d9%8a.mp4" type="video/mp4" />
-    </video>
+            }
 
-        <div class="row mt-3">
-            <div class="col-12 col-md-6">
-                <h5>مجموعة سريعة من تمارين القوة  لكامل الجسم</h5>
-                <p>تمرين كامل لمدة 30 دقيقة </p>
+           
+        
+        
+        </div>         
+        section1
+        <div class="row my-3 justify-content-between">
+            <div class="col-8 col-md-6">
+                <h4>   @Model.Exercise.Title   </h4>
+                <p class="my-4">تمرين كامل لمدة 30 دقيقة </p>
+                <div>
+                    <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                </div>
             </div>
-            <div class="col-12 col-md-6 ">
-                <button class="btn border-0 float-start" style="background-color: #B9AFF5;">
-                    <h5 class="fs-6 text-white float-end">
+            <div class="col-4 col-md-2 p-0">
+                <a class="btn px-3 py-2 fs-5 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                    ابدأ الآن
+                    <img class="me-2" src="~/images/exercise/cart-3-svgrepo-com.png" />
+                </a>
+            </div>
+        </div>
+        <!--section2-->
+        <div class="row col-10 m-auto my-3">
+            <div class="col-sm-6 col-md-4 my-4 d-flex">
+                <img height="60" src="~/images/exercise/Group 72.png" />
+                <p class=" fs-5 my-auto mx-2">مدة البرنامج @Model.Exercise.Duration يوم </p>
+            </div>
+            <div class="col-sm-6 col-md-4 my-4 d-flex">
+                <img height="60" src="~/images/exercise/Group 70.png" />
+                <p class="my-auto  fs-5 mx-2">30دقيقة كل يوم </p>
+            </div>
+            <div class="col-sm-7 col-md-4 d-flex  my-4  m-sm-auto">
+                <img height="60" src="~/images/exercise/Group 701.png" />
+                <p class="my-auto  fs-5 mx-2"> @Model.Exercise.BurnEstimate سعرة حرارية </p>
+            </div>
+        </div>
+
+        <!--section3-->
+        <hr class="col-12" />
+        <div class="row my-2 justify-content-between">
+            <div class="col-12 col-md-8">
+                <h4 class="fw-bold">تفاصيل البرنامج</h4>
+                <hr style="height: 3px;color: #CEBFE9; width: 13% " />
+                <div class="">
+                    <div class="d-flex m-2">
+                        <h5>نوع التدريب:</h5>
+                        <p class="mx-4">  @Model.Exercise.TraningType </p>
+                    </div>
+                    <div class="d-flex  m-2">
+                        <h5>المعدات:</h5>
+                        <p class="mx-4"> @Model.Exercise.Equipments </p>
+                    </div>
+                    <div class="d-flex  m-2">
+                        <h5>المدرب:</h5>
+                        <p class="mx-4">احمد صبح </p>
+                    </div>
+                </div>
+                <p class="lh-base">
+                  @Model.Exercise.Detail
+                </p>
+             @*   <p class="lh-base">
+                    أضف تحدي الـ 5 أيام هذا إلى تقويم التمرين حيث يمكنك إعادة الجدولة ووضع علامة مكتمل ، تمامًا مثل
+                    أحد برامجنا. إذا كنت تستمتع بهذا التحدي ، تحقق من FB Strong الجديد لمدة 4 أسابيع والذي تم إطلاقه
+                    للتو. يستخدم نفس موضوع التحدي (قوي) ويستخدم تمرينًا إضافيًا فريدًا كل يوم (بدون تكرار
+                    التدريبات!).
+                    نحن على وشك الوصول إلى مرحلة ممتعة ؛ هذا الأسبوع ، سيصل Fitness Blender رسميًا إلى إجمالي 1000
+                    مقطع فيديو تمرين ! وهذا الرقم لا يزال يرتفع بسرعة. إذا كنت تستمتع بمقاطع الفيديو الخاصة بالتمرين
+                    وتحدي الـ 5 أيام هذا ، فيرجى التفكير في مساعدتنا على الاستمرار في القيام بما نقوم به من خلال
+                    مشاركة عملنا مع الأصدقاء والعائلة. نحن لا نقوم بالإعلان على الإطلاق ، من أجل المساعدة في الحفاظ
+                    على أسعارنا منخفضة ، لذا فإن الحديث الشفهي مهم بالنسبة لنا. بغض النظر عن طريقة استخدامك لعملنا ،
+                    فنحن ممتنون للأشخاص حول العالم الذين يستخدمون Fitness Blender ويسعدنا حقًا وجودك هنا.
+                </p>
+                <p class="lh-base">
+                    أضف تحدي الـ 5 أيام هذا إلى تقويم التمرين حيث يمكنك إعادة الجدولة ووضع علامة مكتمل ، تمامًا مثل
+                    أحد برامجنا. إذا كنت تستمتع بهذا التحدي ، تحقق من FB Strong الجديد لمدة 4 أسابيع والذي تم إطلاقه
+                    للتو. يستخدم نفس موضوع التحدي (قوي) ويستخدم تمرينًا إضافيًا فريدًا كل يوم (بدون تكرار
+                    التدريبات!).
+                    نحن على وشك الوصول إلى مرحلة ممتعة ؛ هذا الأسبوع ، سيصل Fitness Blender رسميًا إلى إجمالي 1000
+                    مقطع فيديو تمرين ! وهذا الرقم لا يزال يرتفع بسرعة. إذا كنت تستمتع بمقاطع الفيديو الخاصة بالتمرين
+                    وتحدي الـ 5 أيام هذا ، فيرجى التفكير في مساعدتنا على الاستمرار في القيام بما نقوم به من خلال
+                    مشاركة عملنا مع الأصدقاء والعائلة. نحن لا نقوم بالإعلان على الإطلاق ، من أجل المساعدة في الحفاظ
+                    على أسعارنا منخفضة ، لذا فإن الحديث الشفهي مهم بالنسبة لنا. بغض النظر عن طريقة استخدامك لعملنا ،
+                    فنحن ممتنون للأشخاص حول العالم الذين يستخدمون Fitness Blender ويسعدنا حقًا وجودك هنا.
+                </p>
+               *@
+                
+                
+                
+                <div class="d-flex justify-content-end">
+                    <a class="btn px-3 py-2 fs-5 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
                         ابدأ الآن
-                        <span><i class='bx bx-shopping-bag fs-6  fw-ligh' style='color:#ffffff;'></i></span>
-                    </h5>
-                </button>
-            </div>
-        </div>
-
-    </div>
-
-
-    <!--<div class="container w-75">
-
-        <div class="row">
-
-
-
-            <div class=" col-12 col-md-6 col-lg-4">
-                <div>
-                    <div class="card">
-                        <div>
-                            <div class="row" style="margin-bottom:-20% !important; opacity:.9">
-                                <i class='bx bxs-heart fs-1 position-absolute' style='color:red; top:5%; left:-75%'></i>
-
-                            </div>
-
-                            <div>
-                                <img src="img/7.png" style="width:100%; height:5%!important; margin-top:20%" />
-                            </div>
-                        </div>
-                        <div class="card-body" style="height:50% !important;">
-                            <p style="color:grey; font-weight:bold; margin-top:-5%; font-size:smaller">برنامج 8 أسابيع -- 30دقيقة /اليوم </p>
-                            <h6>برنامج فقدان الدهون للأشخاص</h6>
-                            <div class="container ">
-                                <div class="row stars " style="margin-bottom:-5%;margin-right:-2rem !important">
-
-                                    <div class="col d-inline-flex">
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                    </div>
-                                </div>
-                                <div class="row mt-3" style="margin-top: -5%; margin-right: -27% ">
-                                    <div class="col-md-6 ">
-
-                                        <a class="btn ">  <h4 class="free me-md-4 me-lg-4" style="color: red; margin-right:-22%">مجانا</h4></a>
-
-                                    </div>
-                                    <div class=" col-md-6">
-                                        <div class="row">
-                                            <a class="btn border-0" style="background-color: #B9AFF5">
-                                                <h5 class="fs-6 text-white">
-                                                    ابدأ الآن
-                                                    <span><i class='bx bx-shopping-bag fs-6  fw-ligh' style='color:#ffffff;'></i></span>
-                                                </h5>
-                                            </a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class=" col-12 col-md-6 col-lg-4">
-                <div>
-                    <div class="card">
-                        <div>
-                            <div class="row" style="margin-bottom:-20% !important; opacity:.9">
-                                <i class='bx bxs-heart fs-1 position-absolute' style='color:red; top:5%; left:-75%'></i>
-
-                            </div>
-
-                            <div>
-                                <img src="img/7.png" style="width:100%; height:5%!important; margin-top:20%" />
-                            </div>
-                        </div>
-                        <div class="card-body" style="height:50% !important;">
-                            <p style="color:grey; font-weight:bold; margin-top:-5%; font-size:smaller">برنامج 8 أسابيع -- 30دقيقة /اليوم </p>
-                            <h6>برنامج فقدان الدهون للأشخاص</h6>
-                            <div class="container ">
-                                <div class="row stars " style="margin-bottom:-5%;margin-right:-2rem !important">
-
-                                    <div class="col d-inline-flex">
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                    </div>
-                                </div>
-                                <div class="row mt-3" style="margin-top: -5%; margin-right: -27% ">
-                                    <div class="col-md-6 ">
-
-                                        <a class="btn ">  <h4 class="free me-md-4 me-lg-4" style="color: red; margin-right:-22%">مجانا</h4></a>
-
-                                    </div>
-                                    <div class=" col-md-6">
-                                        <div class="row">
-                                            <a class="btn border-0" style="background-color: #B9AFF5">
-                                                <h5 class="fs-6 text-white">
-                                                    ابدأ الآن
-                                                    <span><i class='bx bx-shopping-bag fs-6  fw-ligh' style='color:#ffffff;'></i></span>
-                                                </h5>
-                                            </a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <div class=" col-12 col-md-6 col-lg-4">
-                <div>
-                    <div class="card">
-                        <div>
-                            <div class="row" style="margin-bottom:-20% !important; opacity:.9">
-                                <i class='bx bxs-heart fs-1 position-absolute' style='color:red; top:5%; left:-75%'></i>
-
-                            </div>
-
-                            <div>
-                                <img src="img/7.png" style="width:100%; height:5%!important; margin-top:20%" />
-                            </div>
-                        </div>
-                        <div class="card-body" style="height:50% !important;">
-                            <p style="color:grey; font-weight:bold; margin-top:-5%; font-size:smaller">برنامج 8 أسابيع -- 30دقيقة /اليوم </p>
-                            <h6>برنامج فقدان الدهون للأشخاص</h6>
-                            <div class="container ">
-                                <div class="row stars " style="margin-bottom:-5%;margin-right:-2rem !important">
-
-                                    <div class="col d-inline-flex">
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                        <i class='bx bxs-star' style='color:#f7ff00'></i>
-                                    </div>
-                                </div>
-                                <div class="row mt-3" style="margin-top: -5%; margin-right: -27% ">
-                                    <div class="col-md-6 ">
-
-                                        <a class="btn ">  <h4 class="free me-md-4 me-lg-4" style="color: red; margin-right:-22%">مجانا</h4></a>
-
-                                    </div>
-                                    <div class=" col-md-6">
-                                        <div class="row">
-                                            <a class="btn border-0" style="background-color: #B9AFF5">
-                                                <h5 class="fs-6 text-white">
-                                                    ابدأ الآن
-                                                    <span><i class='bx bx-shopping-bag fs-6  fw-ligh' style='color:#ffffff;'></i></span>
-                                                </h5>
-                                            </a>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-
-    </div>-->
-    <!--section2-->
-    <div class="container w-50 my-5">
-        <div class="row me-auto">
-            <div class="col-4 d-inline-flex">
-                <i class='bx bx-calendar fs-3' style="background-color: #CEBFE9; padding:2%; border-radius:50%" undefined></i>
-                <p class="my-2 mx-2">مدة البرنامج 15 يوم </p>
-            </div>
-            <div class="col-4 d-inline-flex">
-                <i class='bx bx-timer fs-3' style="background-color: #CEBFE9; padding:2%; border-radius:50%" undefined></i>
-                <p class="my-2 mx-2">30دقيقة كل يوم </p>
-            </div>
-            <div class="col-4 d-inline-flex">
-                <i class='bx bxs-hot fs-3' style="background-color: #CEBFE9; padding:2%; border-radius:50%" undefined></i>
-                <p class="my-2 mx-2">   50-250 سعرة حرارية </p>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!--section3-->
-    <div class="container mb-5 mt-5">
-        <div class="row">
-            <div class="col-12 col-md-9">
-                <h5>تفاصيل البرنامج</h5>
-                <hr style="border-top: 3px solid #CEBFE9; width:15%" />
-                <div class="me-5">
-                    <div class="d-flex">
-                        <h6 class="fs-6 fw-light" style="color:#808080;">نوع التدريب</h6>
-                        <h6 class="me-3 fs-6"> تدريب القلب والأوعية الدموية والقوة</h6>
-                    </div>
-                    <div class="d-flex">
-                        <h6 class="fs-6 fw-light" style="color:#808080;">المعدات</h6>
-                        <h6 class="me-3 fs-6"> دمبل, حصيرة</h6>
-                    </div>
-                    <div class="d-flex">
-                        <h6 class="fs-6 fw-light" style="color:#808080;">المدرب</h6>
-                        <h6 class="me-3 fs-6">احمد صبح </h6>
-                    </div>
-                </div>
-
-                <p>التحدي  تحقق من يوم (بدون تكرار التدريبات) FB Strong أضف تحدي ال 5 أيام هنا إلى تقويم التمرين حيث يمكنك اعادة الجدولة ووضع علامة مكتمل, تماما مثل أخذ برامجنا إذا كنت تستمتع بهذا الجديد لمدة 4 أسابيع والذي تم اطلاقه للتو يستخدم نفس موضوع التحدي(قوي) ويستخدم تمرينا أضافيا فريدا كل </p>
-                <p>التحدي  تحقق من يوم (بدون تكرار التدريبات) FB Strong أضف تحدي ال 5 أيام هنا إلى تقويم التمرين حيث يمكنك اعادة الجدولة ووضع علامة مكتمل, تماما مثل أخذ برامجنا إذا كنت تستمتع بهذا الجديد لمدة 4 أسابيع والذي تم اطلاقه للتو يستخدم نفس موضوع التحدي(قوي) ويستخدم تمرينا أضافيا فريدا كل </p>
-                <p>التحدي  تحقق من يوم (بدون تكرار التدريبات) FB Strong أضف تحدي ال 5 أيام هنا إلى تقويم التمرين حيث يمكنك اعادة الجدولة ووضع علامة مكتمل, تماما مثل أخذ برامجنا إذا كنت تستمتع بهذا الجديد لمدة 4 أسابيع والذي تم اطلاقه للتو يستخدم نفس موضوع التحدي(قوي) ويستخدم تمرينا أضافيا فريدا كل </p>
-
-                <div class="row w-auto position-absolute " style=" left:35%">
-                    <a class="btn border-0" style="background-color: #B9AFF5">
-                        <h5 class="fs-6 text-white">
-                            ابدأ الآن
-                            <span><i class='bx bx-shopping-bag fs-6  fw-ligh' style='color:#ffffff;'></i></span>
-                        </h5>
+                        <img class="me-2" src="~/images/exercise/cart-3-svgrepo-com.png" />
                     </a>
                 </div>
-
             </div>
 
-            <div class="col-12 col-md-3 py-2" style=" background-color: rgba(204,204,255,.2); ">
-                <div>
-                    <h6 class="px-3 lh-sm mb-4 pt-2 text-center">احتار واحد من الأنظمة الغذائية المجانية للحصول على أفضل النتائج</h6>
 
-                    <div class="col">
-                        <div class="card_container h-100 py-2">
+            <!--card-->
+            <div class="col-md-4 ">
+                <div class="col-10 p-4 bgcolor me-5">
+                    <h5 class="fw-bold">اختار واحد من الأنظمة الغذائية المجانية للحصول على أفضل النتائج</h5>
 
-                            <div class="card cardimg" style="width:95%;">
-                                <div class="card-container">
-                                    <a class="btn border-0 float-start" href="HtmlPage4.html" style="background-color: rgba(204,204,255,.8); margin-bottom:-10%;">ابدأ الآن </a>
-                                </div>
-                            </div>
+                    <div class="my-5  position-relative carhov">
+                        <img src="~/images/exercise/8.png" class="img-fluid border rounded-2 w-100" />
+                        <div class=" position-absolute detailsbox text-center rounded-pill px-4 py-2">
+                            <a href="#" class="btn bg-white"> مزيد من التفاصيل ...</a>
+                        </div>
+
+                        <div class="d-flex justify-content-between my-auto colordiv p-2 w-100  position-absolute poss">
+                            <p>نظام غذائي | رجيم الأرز</p>
+                            <a class="btn px-3 py-1 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                                اشنرك الآن
+                            </a>
                         </div>
                     </div>
+                    <!--card2-->
+                    <div class="my-5  position-relative">
+                        <img src="~/images/exercise/8.png" class="img-fluid border rounded-2 w-100" />
+                        <div class=" position-absolute detailsbox text-center rounded-pill px-4 py-2">
+                            <a href="#" class="btn bg-white"> مزيد من التفاصيل ...</a>
+                        </div>
 
-
-
-
-                    <div class="col">
-                        <div class="card_container h-100 py-2" ">
-
-                            <div class="card cardimg" style="width:95%;">
-                                <div class="card-container">
-                                    <a href="HtmlPage2.html" data-label="مزيد من التفاصيل ..."></a>
-                                    <a class="btn border-0 float-start" href="HtmlPage4.html" style="background-color: rgba(204,204,255,.8); margin-bottom:-10%;">ابدأ الآن </a>
-                                </div>
-                            </div>
+                        <div class="d-flex justify-content-between my-auto colordiv p-2 w-100  position-absolute poss">
+                            <p>نظام غذائي | رجيم الأرز</p>
+                            <a class="btn px-3 py-1 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                                اشنرك الآن
+                            </a>
                         </div>
                     </div>
+                    <!--card3-->
 
+                    <div class="my-5  position-relative">
+                        <img src="~/images/exercise/8.png" class="img-fluid border rounded-2 w-100" />
+                        <div class=" position-absolute detailsbox text-center rounded-pill px-4 py-2">
+                            <a href="#" class="btn bg-white"> مزيد من التفاصيل ...</a>
+                        </div>
 
-
-
-                    <div class="col">
-                        <div class="card_container h-100 py-2">
-
-                            <div class="card cardimg" style="width:95%;">
-                                <div class="card-container">
-                                    <a href="HtmlPage2.html" data-label="مزيد من التفاصيل ..."></a>
-                                    <a class="btn border-0 float-start" href="HtmlPage4.html" style="background-color: rgba(204,204,255,.8); margin-bottom:-10%;">ابدأ الآن </a>
-                                </div>
-                            </div>
+                        <div class="d-flex justify-content-between my-auto colordiv p-2 w-100  position-absolute poss">
+                            <p>نظام غذائي | رجيم الأرز</p>
+                            <a class="btn px-3 py-1 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                                اشنرك الآن
+                            </a>
                         </div>
                     </div>
-
-
-
 
                 </div>
+
+            </div>
+        </div>
+
+        <!--section4-->
+
+
+
+        <div class=" m-3">
+            <div class="col-12 col-md-4">
+                <h3 class="m-3">جرب هذه التمارين لبناء كتلة عضلية</h3>
+                <hr class="m-auto hrcolor" />
             </div>
 
 
+
+
+            <div class="row justify-content-around my-5">
+
+
+                   @foreach (var item in Model.ExerciseList)
+                {
+
+                    <div class="col-12 col-md-3 shadow rounded-top p-2">
+                    <div class="card border-0 p-0 m-0 h-100">
+                        <div class="position-relative">
+                            <img src="~/images/exercise/pexels-cliff-booth-4058411.png" style="object-fit:fill"
+                                 class="card-img-top p-0 m-0" alt="..." />
+                            <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+                                 src="~/images/exercise/heart-svgrepo-com (1).png" alt="" srcset="" />
+
+                        </div>
+
+                        <div class="card-body">
+                            <h6 class="card-text pcolor">
+                                    دقيقة اليوم30-- أسابيع    @item.Duration  برنامج
+                            </h6>
+                            <h6 class="card-title fw-bold  mb-3">
+                              @item.Title </h6>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                    </div>
+                                    <div>
+                                        <h5 class="d-inline-block text-danger align-middle ms-1">
+                                            @if(item.Price != 0)
+                                            {
+                                                <span> $ @item.Price </span>
+                                            }
+                                            else
+                                            {
+                                                <span>  مجانا</span>
+                                            }
+
+                                            
+                                        </h5>
+                                        <img width="30" src="~/images/exercise/cart-3-svgrepo-com.png" />
+                                    </div>
+                                </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            
+                }
+               
+                
+                
+              
+            </div>
+      
+        
+
+
+
+
+
+
+
+        
         </div>
 
     </div>
 
 
 
+</div>
+
+<!--section4-->
+<div class="container-fluid my-5 p-5  bgcolor">
+
+    <div class="col-12 justify-content-center">
+        <div class="col-7 mx-auto  col-md-2">
+            <h4 class="mx-auto  d-inline-block">تقييم العملاء</h4>
+            <hr class="hrcolor mx-2" />
+        </div>
+        <div class="col-12 d-flex mx-auto justify-content-around">
+
+            <p class="col-2 mx-auto  d-inline-block">تقييم(150)</p>
+
+            <div class="col-2">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+
+            <p class="col-2 mx-auto">$4.90</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="row col-12 d-flex justify-content-around">
+
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/images/exercise/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/images/exercise/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP  my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/images/exercise/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP  my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+    </div>
 
 
 
-
-
-
-
-
-
+</div>
 
 
 
@@ -336,6 +367,5 @@
     @section Scripts{
 
 
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 }

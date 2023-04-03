@@ -4,7 +4,7 @@ let lstExercise = [];
 var selectElement = document.getElementById("tableBodyApi");
 
 var programid = document.getElementById("IdProg");
-var progid = programid.value ;
+var progid = programid.value;
 
 async function getprogramExercies( progid ) {
 

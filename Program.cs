@@ -37,6 +37,8 @@ builder.Services.AddScoped<GenericRepository<SportsProgram>>();
 builder.Services.AddScoped<IFormFileMang, RepoFile>();
 
 builder.Services.AddScoped<RepoProgram, ProgramMang>();
+builder.Services.AddScoped<RepoProgramExercies, ProgramExerciesMang>();
+builder.Services.AddScoped<RepoExercises, ExercisesMang>();
 
 
 builder.Services.AddScoped<UnitOfWork>();

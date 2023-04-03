@@ -196,6 +196,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Exercises/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhlcmNpc2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -208,12 +212,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/ProgramPages/clender.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZ3JhbVBhZ2VzXGNsZW5kZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/ProgramPages/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZ3JhbVBhZ2VzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/ProgramPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZ3JhbVBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/ProgramPages/ToDaycshtml.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZ3JhbVBhZ2VzXFRvRGF5Y3NodG1sLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/Components/Exercises/default.cshtml]
@@ -286,6 +298,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/الفصل الرابع/G Project/GitHub/liaqati/wwwroot/css/ProgramPages/clender.cshtml]
+build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxjc3NcUHJvZ3JhbVBhZ2VzXGNsZW5kZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/الفصل الرابع/G Project/GitHub/liaqati/Pages/Shared/_Layout.cshtml]
