@@ -202,6 +202,7 @@
                                             <div class="form-group">
                                                 <label asp-for="Exercises.Duration" class="control-label"></label>
                                                 <input name="Duration" asp-for="Exercises.Duration" class="form-control">
+
                                             </div>
                                             <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
                                         </div>
@@ -265,7 +266,10 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Services!.Description"></label>
-                                    <input asp-for="SportsProgram.Services!.Description" class="form-control" placeholder="">
+
+                                    <textarea asp-for="SportsProgram.Services!.Description" class="form-control"  rows="3"></textarea>
+
+
                                     <span class="text-danger" asp-validation-for="SportsProgram.Services!.Description"></span>
 
                                 </div>
@@ -285,7 +289,14 @@
                             <div class="col-12 col-md-4">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Difficulty"></label>
-                                    <input asp-for="SportsProgram.Difficulty" class="form-control" placeholder="">
+
+                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Difficulty">
+                                        <option value="-1">ادخل مستوى صعوبة النظام الرياضي</option>
+                                        <option value="1">سهل</option>
+                                        <option value="2">متوسط </option>
+                                        <option value="3">  صعب </option>
+                                    </select>
+
                                     <span class="text-danger" asp-validation-for="SportsProgram.Difficulty"></span>
 
                                 </div>

@@ -1627,9 +1627,9 @@ namespace liaqati_master.Migrations
                     b.Property<string>("BodyFocus")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Difficulty")
+                    b.Property<int?>("Difficulty")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int");
 
                     b.Property<int>("Duration")
                         .HasColumnType("int");
@@ -1658,7 +1658,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "100",
                             BodyFocus = "الجسم السفلي ",
-                            Difficulty = "4-5",
+                            Difficulty = 3,
                             Duration = 34,
                             Equipment = "خطوة التمرين ، الدمبل ، حزام التمرين",
                             Image = "Images/Program/10.jpg",
@@ -1669,7 +1669,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "101",
                             BodyFocus = "كل الجسم ",
-                            Difficulty = "4-5",
+                            Difficulty = 3,
                             Duration = 37,
                             Equipment = "الدمبل ، حزام التمرين ، الكتيل بيل ، حصيرة ، بدون معدات",
                             Image = "Images/Program/11.jpg",
@@ -1680,7 +1680,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "102",
                             BodyFocus = " كل الجسم ",
-                            Difficulty = "4-5",
+                            Difficulty = 2,
                             Duration = 44,
                             Equipment = "الدمبل، حصيرة",
                             Image = "Images/Program/12.jpg",
@@ -1691,7 +1691,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "103",
                             BodyFocus = "كل الجسم ",
-                            Difficulty = "3-5",
+                            Difficulty = 1,
                             Duration = 35,
                             Equipment = "الدمبل ",
                             Image = "Images/Program/13.jpg",
@@ -1849,7 +1849,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "ef2d5826-ce39-4f79-8c50-a5618c6e8e79",
+                            ConcurrencyStamp = "85d8ebdb-09bc-4c24-a330-f629130e4f71",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -1860,7 +1860,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "ed965094-0c1f-40bf-b18b-2504bdbd84d6",
+                            SecurityStamp = "ae8b729d-737b-415e-a922-351f1b346667",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });

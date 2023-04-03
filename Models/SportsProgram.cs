@@ -17,7 +17,7 @@
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "مستوى الصعوبة")]
-        public string? Difficulty { get; set; }
+        public int? Difficulty { get; set; }
 
       //  [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "الجزءالذي يركز عليه النظام من الجسم")]

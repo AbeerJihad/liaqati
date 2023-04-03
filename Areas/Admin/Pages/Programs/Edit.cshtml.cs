@@ -59,11 +59,24 @@ namespace liaqati_master.Pages.Programs
             //}
 
 
+
+
+
+
+
+
             if (sportsProgram == null)
             {
                 return NotFound();
             }
             SportsProgram = sportsProgram;
+
+       SportsProgram.Exercies_Programs=  SportsProgram.Exercies_Programs!.OrderBy(x=>x.Week).ThenBy(y=>y.Day).ToList();
+
+
+
+
+
 
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
                                        new SelectListItem

@@ -13,7 +13,7 @@
                      Length = 4,
                      Duration =34,
                      BodyFocus = "الجسم السفلي ",
-                     Difficulty = "4-5",
+                     Difficulty = 3,
                      Equipment = "خطوة التمرين ، الدمبل ، حزام التمرين",
                      TrainingType = "تدريب القوة",
                      Image="Images/Program/10.jpg"
@@ -27,7 +27,7 @@
                      Length = 1,
                      Duration =37,
                      BodyFocus = "كل الجسم ",
-                     Difficulty = "4-5",
+                     Difficulty = 3,
                      Equipment = "الدمبل ، حزام التمرين ، الكتيل بيل ، حصيرة ، بدون معدات",
                      TrainingType = "القلب والأوعية الدموية ، تأثير منخفض ، تدريب القوة ، التنغيم ، اليوجا ، الحركة",
 
@@ -43,7 +43,7 @@
                      Length = 2,
                      Duration =44,
                      BodyFocus = " كل الجسم ",
-                     Difficulty = "4-5",
+                     Difficulty = 2,
                      Equipment = "الدمبل، حصيرة",
                      TrainingType = "تدريب القوة",
                         Image="Images/Program/12.jpg"
@@ -57,7 +57,7 @@
                      Length = 8,
                      Duration =35,
                      BodyFocus = "كل الجسم ",
-                     Difficulty = "3-5",
+                     Difficulty = 1,
                      Equipment = "الدمبل ",
                      TrainingType = "تدريب متقطع عالي الكثافة ، تأثير منخفض ، بيلاتيس ، تدريب القوة ، التمدد / المرونة ، القدرة على الحركة",
                         Image="Images/Program/13.jpg"
@@ -491,23 +491,48 @@
                 new MealPlans()
                 {
                     Id = "1",
-                    //numsubscribers= 105,
-                    //image= "./Images/images.jfif",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=13,
+                    Image= "./Images/MealPlan/1.jpg",
+
                 },
-                new MealPlans() { Id = "2", },
+                new MealPlans()
+                {
+                    Id = "2",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=13,
+                    Image= "./Images/MealPlan/2.jpg",
+
+                },
                 new MealPlans()
                 {
                     Id = "3",
-                    //numsubscribers = 105,
-                    //image = "./Images/images.jfif",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=20,
+                    Image= "./Images/MealPlan/3.jpg",
+
                 },
-                new MealPlans() { Id = "4", },
                 new MealPlans()
                 {
-                    Id = "5",
-                    //numsubscribers = 105,
-                    //image = "./Images/images.jfif",
-                }
+                    Id = "4",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=20,
+                    Image= "./Images/MealPlan/4.jpg",
+
+                },
+
             };
         }
         public static List<Product> GetListOfProducts()
