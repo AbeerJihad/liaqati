@@ -1,4 +1,4 @@
-using liaqati_master.Services.RepoCrud;
+using liaqati_master.Services.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,10 +10,10 @@ namespace liaqati_master.Pages.Programs
         private readonly LiaqatiDBContext _context;
 
         private readonly UnitOfWork _UnitOfWork;
-        public readonly RepoProgram _repo;
+        public readonly IRepoProgram _repo;
 
 
-        public EditProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork, RepoProgram repo)
+        public EditProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IRepoProgram repo)
         {
             _context = context;
             _UnitOfWork = unitOfWork;
@@ -71,7 +71,7 @@ namespace liaqati_master.Pages.Programs
             }
             SportsProgram = sportsProgram;
 
-       SportsProgram.Exercies_Programs=  SportsProgram.Exercies_Programs!.OrderBy(x=>x.Week).ThenBy(y=>y.Day).ToList();
+            SportsProgram.Exercies_Programs = SportsProgram.Exercies_Programs!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
 
 
 
@@ -98,8 +98,8 @@ namespace liaqati_master.Pages.Programs
             return Page();
         }
 
-     
-        public async Task<IActionResult> OnPostEditProgramAsync ()
+
+        public async Task<IActionResult> OnPostEditProgramAsync()
         {
 
             //if (!ModelState.IsValid)
@@ -128,10 +128,10 @@ namespace liaqati_master.Pages.Programs
             }
 
 
-         
-            
 
-            
+
+
+
 
 
 
@@ -165,10 +165,10 @@ namespace liaqati_master.Pages.Programs
                 return NotFound();
             }
 
-                     Exercies_program x = _UnitOfWork.ProgramexerciseRepository.GetByID(id);
-                   
+            Exercies_program x = _UnitOfWork.ProgramexerciseRepository.GetByID(id);
 
-                    SportsProgram sport = _UnitOfWork.SportsProgramRepository.GetByID(x.SportsProgramId);
+
+            SportsProgram sport = _UnitOfWork.SportsProgramRepository.GetByID(x.SportsProgramId);
 
 
 
@@ -176,7 +176,7 @@ namespace liaqati_master.Pages.Programs
             _UnitOfWork.Save();
 
 
-            return RedirectToPage("Edit",new  { id= sport.Id});
+            return RedirectToPage("Edit", new { id = sport.Id });
         }
 
 
@@ -198,7 +198,7 @@ namespace liaqati_master.Pages.Programs
 
         public async Task<IActionResult> OnPostAddSystemAsync(string? id)
         {
-        
+
 
             SportsProgram sports = _UnitOfWork.SportsProgramRepository.GetByID(id);
 
@@ -215,7 +215,7 @@ namespace liaqati_master.Pages.Programs
             SportsProgram = sports;
             SportsProgram.Exercies_Programs = list;
 
-          
+
 
             return Page();
         }
