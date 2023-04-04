@@ -45,7 +45,7 @@ namespace liaqati_master.Areas.Admin.Pages.Programs
 
                 old.Exercies_Programs!.Add(new Exercies_program()
                 {
-                    Id = Guid_Id.Id_Guid(),
+                    Id = CommonMethods.Id_Guid(),
                     SportsProgramId = SportsPrograms.Id,
                     Day = int.Parse(Exercies_program.Day.ToString()),
                     Week = int.Parse(Exercies_program.Week.ToString()),

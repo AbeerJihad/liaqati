@@ -24,7 +24,7 @@ namespace liaqati_master.Areas.Admin.Pages.Programs
             {
                 Exercise exercise = _unitOfWork.ExerciseRepository.GetByID(program.Exercies_Programs[i]);
 
-                data.Add(new { Id = Guid_Id.Id_Guid(), name = exercise.Title });
+                data.Add(new { Id = CommonMethods.Id_Guid(), name = exercise.Title });
 
             }
 

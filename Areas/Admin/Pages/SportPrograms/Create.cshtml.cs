@@ -1,4 +1,3 @@
-using liaqati_master.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -62,7 +61,8 @@ namespace liaqati_master.Pages.Programs
         [BindProperty(SupportsGet = true)]
         public List<string> list { get; set; }
 
-
+        [BindProperty]
+        public IFormFile Image { get; set; }
         public string Display { get; set; } = "d-none";
 
         public int btnSave { get; set; }
@@ -125,25 +125,25 @@ namespace liaqati_master.Pages.Programs
 
 
 
-            SportsProgram.Id = Guid_Id.Id_Guid();
+            SportsProgram.Id = CommonMethods.Id_Guid();
 
             SportsProgram.Services!.Id = SportsProgram.Id;
 
 
 
-          
+
 
             SportsProgram.Equipment = "";
-          
-                SportsProgram.Services.CategoryId = SportsProgram.Services.CategoryId;
+
+            SportsProgram.Services.CategoryId = SportsProgram.Services.CategoryId;
 
 
 
-            string oldurl = SportsProgram.Image ;
+            string oldurl = SportsProgram.Image;
 
-            if (SportsProgram.FormFile != null)
+            if (Image != null)
             {
-                SportsProgram.Image = await _repoFile.Upload(SportsProgram.FormFile, "Images", "Program");
+                SportsProgram.Image = await _repoFile.Upload(Image, "Images", "Program");
 
             }
             else
@@ -153,14 +153,14 @@ namespace liaqati_master.Pages.Programs
 
 
 
-          
+
 
 
 
             _UnitOfWork.SportsProgramRepository.Insert(SportsProgram);
             _UnitOfWork.ServiceRepository.Insert(SportsProgram.Services);
             _UnitOfWork.Save();
-          
+
 
             Display = "d-block";
 
