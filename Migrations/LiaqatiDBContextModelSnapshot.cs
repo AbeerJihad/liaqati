@@ -125,26 +125,26 @@ namespace liaqati_master.Migrations
                         new
                         {
                             Id = "3",
-                            Name = "حلوى",
-                            Target = 1
-                        },
-                        new
-                        {
-                            Id = "4",
-                            Name = "الوجبات",
-                            Target = 0
-                        },
-                        new
-                        {
-                            Id = "5",
                             Name = "المكملات الغذائية",
                             Target = 4
                         },
                         new
                         {
-                            Id = "6",
+                            Id = "4",
                             Name = "الاجهزة الرياضية",
                             Target = 4
+                        },
+                        new
+                        {
+                            Id = "5",
+                            Name = "حلوى",
+                            Target = 1
+                        },
+                        new
+                        {
+                            Id = "6",
+                            Name = "الوجبات",
+                            Target = 0
                         });
                 });
 
@@ -1476,7 +1476,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "77c7be0d-50ba-4386-9500-83023a7cedaa",
+                            ConcurrencyStamp = "b50c83cd-9c86-4079-a735-7a55368ffbd8",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -1487,7 +1487,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "84e660da-73c0-4cfd-8603-1d3766902ee0",
+                            SecurityStamp = "ab5310cc-acae-4ef9-9f97-09bfa69699fa",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });

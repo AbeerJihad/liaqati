@@ -47,6 +47,7 @@
 
         public async Task<IEnumerable<Article>> GetAllAsync()
         {
+            //.Include(Category => Category.Category).Include(com => com.comments)
             return await _context.TblArticles.ToListAsync();
         }
 

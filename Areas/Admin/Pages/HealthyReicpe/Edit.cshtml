@@ -2,6 +2,8 @@
 @model liaqati_master.Pages.HealthyReicpe.EditHealthyModel
 @{
 }
+<link href="~/assets/css/Tables.css" rel="stylesheet" />
+
 <style>
 
     body {
@@ -197,10 +199,33 @@
                                         </button>
 
                                     </div>
-                                    <div class="border-top-0 rounded-bottom overflow-hidden border">
-                                        <div class="p-2 bg-white d-flex gap-1 flex-wrap justify-content-start align-items-start ingredients"
-                                             style="height: 80px"
-                                             id="ingredients_container"></div>
+                                    <div class="rounded-bottom overflow-hidden ">
+                                        <div class="row ">
+                                            <div class="col-sm-12">
+                                                <div class="card mt-3 p-0 border-raduis">
+
+                                                    <div class="table-responsive table-hover">
+                                                        <table class="table  table-borderless" id="Tbl">
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th scope="col" width="180">المكون</th>
+                                                                    <th scope="col" width="180">الكمية</th>
+                                                                    <th scope="col" width="180">وحدة القياس</th>
+                                                                    <th scope="col" width="180"></th>
+
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="ingredients_container">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                     <div class="small fw-bold text-end mt-1 text-danger d-flex">
                                         <span asp-validation-for="HealthyRecipes.Ingredients" class="text-danger"></span>
@@ -245,115 +270,6 @@
     }
 
 
-    <script>
-        let txtPreparationMethod = document.getElementById("txtPreparationMethod");
-        let HealthyRecipes_PreparationMethod = document.getElementById("HealthyRecipes_PreparationMethod");
-        let error = document.getElementById("error");
-        let BtnAdd = document.getElementById("BtnAdd");
-        let NoofSteps = document.getElementById("NoofSteps");
-        let StepsReviewer = document.getElementById("StepsReviewer");
-        var listOfSteps = [];
-        BtnAdd.addEventListener("click", () => {
-            error.innerText = "";
-            HealthyRecipes_PreparationMethod.value = "";
-            if (txtPreparationMethod.value && txtPreparationMethod.value !== "") {
-                if (listOfSteps.indexOf(txtPreparationMethod.value) === -1) {
-                    listOfSteps.push(txtPreparationMethod.value);
-                    StepsReviewer.innerHTML = "";
-                    listOfSteps.forEach((txt, index, array) => { RenderItems(txt); });
-                } else {
-                    error.innerText = "لقد أضفت هذه الخطوة سابقاً"
-                }
-                txtPreparationMethod.value = "";
-            }
-            HealthyRecipes_PreparationMethod.value = listOfSteps.join(",");
-            NoofSteps.innerText = `${listOfSteps.length} الخطوات`;
-        });
-        function RenderItems(text) {
-            let step = document.createElement("span");
-            step.className = "ingredient";
-            step.style.cursor = "pointer";
-            step.textContent = text;
-            step.onclick = () => {
-                StepsReviewer.removeChild(step);
-                listOfSteps.splice(listOfSteps.indexOf(text), 1);
-                HealthyRecipes_PreparationMethod.value = listOfSteps.join(",");
-            };
+    <script src="~/JavaScript/HealthyRecipecs.js"></script>
 
-            StepsReviewer.appendChild(step);
-        }
-
-
-
-        let txtIngredients = document.getElementById("txtIngredientName");
-        let txtIngredientQuantity = document.getElementById("txtIngredientQuantity");
-        let txtIngredientUnit = document.getElementById("txtIngredientUnit");
-        let txtAreaIngredients = document.getElementById("txtAreaIngredients");
-        let BtnAddIngredients = document.getElementById("BtnAddIngredients");
-        let NoFoIngredients = document.getElementById("NoFoIngredients");
-        let ingredients_container = document.getElementById("ingredients_container");
-        var listOfIngredients = [];
-        BtnAddIngredients.addEventListener("click", () => {
-            alert("asdasd");
-            if (txtIngredients.value && txtIngredients.value !== "" && txtIngredientUnit.value && txtIngredientUnit.value !== "" && txtIngredientQuantity.value && txtIngredientQuantity.value !== "") {
-                let isExist = false;
-                listOfIngredients.forEach((txt, index, array) => { if (txt.Name === txtIngredients.value) { isExist = true; return; } })
-                if (!isExist) {
-                    txtAreaIngredients.value = "";
-                    listOfIngredients.push({
-                        Name: txtIngredients.value,
-                        Quantity: txtIngredientQuantity.value,
-                        Unit: txtIngredientUnit.value,
-                    });
-                    ingredients_container.innerHTML = "";
-                    listOfIngredients.forEach((txt, index, array) => {
-                        RenderIngredients(txt);
-                        txtAreaIngredients.value += txt.Name + "," + txt.Quantity + "," + txt.Unit + "\n"
-                    });
-                    txtIngredients.value = "";
-
-                }
-            }
-
-            NoFoIngredients.innerText = `${listOfIngredients.length} المكونات`;
-        });
-
-
-        function RenderIngredients({ Name, Quantity, Unit }) {
-            let ingredient = document.createElement("span");
-            ingredient.className = "ingredient";
-            ingredient.style.cursor = "pointer";
-            ingredient.textContent = Name + " " + Quantity + " " + Unit;
-            ingredient.onclick = () => {
-                ingredients_container.removeChild(ingredient);
-                listOfIngredients.splice(listOfIngredients.indexOf(Name), 1);
-                txtAreaIngredients.value = "";
-                listOfIngredients.forEach((txt, index, array) => {
-                    txtAreaIngredients.value += txt.Name + "," + txt.Quantity + "," + txt.Unit + "\n"
-                });
-            };
-
-            ingredients_container.appendChild(ingredient);
-        }
-
-        var list = [];
-        window.onload = () => {
-            listOfSteps = HealthyRecipes_PreparationMethod.value.split(',');
-            listOfSteps.forEach((txt, index, array) => { RenderItems(txt); });
-            list = txtAreaIngredients.value.trim().split('\n');
-            list.forEach((txt, index, array) => {
-                var a = txt.split(',');
-                if (txt !== "")
-                    listOfIngredients.push({
-                        Name: a[0],
-                        Quantity: a[1],
-                        Unit: a[2],
-                    });
-                listOfIngredients.forEach((text, index, array) => {
-                    RenderIngredients(text)
-                });
-            });
-
-        }
-    </script>
 }

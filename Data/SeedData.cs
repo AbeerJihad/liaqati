@@ -16,7 +16,7 @@ namespace liaqati_master.Data
             // liaqatiDBContext.Database.Migrate();
             if (!liaqatiDBContext.TblSportsProgram.Any())
             {
-                await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfAthleticProgram());
+                await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfSportsProgram());
             }
             await SeedRoles(RoleManager);
             await SeedUsers(userManager, RoleManager);

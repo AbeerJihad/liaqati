@@ -2,4 +2,5 @@
 
 @BaseUrl=https://localhost:7232
 ### 
-GET {{BaseUrl}}/api/ArticlesApi/GetArticlesWithLoadMore?page=1&size=4
+GET {{BaseUrl}}/api/ArticlesApi/GetArticlesWithLoadMore?page=2&size=4
+

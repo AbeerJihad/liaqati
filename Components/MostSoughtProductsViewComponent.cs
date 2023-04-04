@@ -27,19 +27,19 @@
             List<Product> products = new();
 
             var a = _unitOfWork.Order_DetailsRepository.GetAllEntity().Where(s => s.Service?.CategoryId == CategoryID)
-               .GroupBy(info => info.ServiceId);
-            //.Select(group => new
-            //{
-            //    ServiceId = group.Key,
-            //    Count = group.Count()
-            //})
-            //.OrderByDescending(x => x.Count)
-            //.Take(2);
+               .GroupBy(info => info.ServiceId)
+            .Select(group => new
+            {
+                ServiceId = group.Key,
+                Count = group.Count()
+            })
+            .OrderByDescending(x => x.Count)
+            .Take(2);
 
-            //foreach (var prodIds in a)
-            //{
-            //    products.Add(_unitOfWork.ProductsRepository.GetByID(prodIds.ServiceId));
-            //}
+            foreach (var prodIds in a)
+            {
+                products.Add(_unitOfWork.ProductsRepository.GetByID(prodIds.ServiceId));
+            }
             return products;
         }
 

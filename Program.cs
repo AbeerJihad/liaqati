@@ -13,9 +13,8 @@ builder.Services.AddControllers().AddJsonOptions(op =>
     op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 
-//builder.Services.AddDbContext<LiaqatiDBContext>(options =>
-//    options.UseLazyLoadingProxies()
-//    .UseInMemoryDatabase("LiaqatiDB"));
+//builder.Services.AddDbContext<LiaqatiDBContext>(options => options.UseLazyLoadingProxies().UseInMemoryDatabase("LiaqatiDB"));
+
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
     options.UseLazyLoadingProxies()
     .UseSqlServer(
@@ -35,8 +34,7 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
     options.SignIn.RequireConfirmedAccount = false;
     options.SignIn.RequireConfirmedEmail = false;
     options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890@.ضصثقفغعهخحجدشسيبلاتنمكطئء ؤرلاىةوزظإآ";
-})
- .AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
+}).AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
 
 builder.Services.AddScoped<GenericRepository<Order>>();
 
@@ -64,11 +62,7 @@ if (!app.Environment.IsDevelopment())
 else
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-        c.RoutePrefix = "";
-    });
+    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); c.RoutePrefix = ""; });
 }
 
 app.UseHttpsRedirection();
