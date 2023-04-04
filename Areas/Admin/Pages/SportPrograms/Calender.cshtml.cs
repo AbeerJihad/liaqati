@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace liaqati_master.Areas.Admin.Pages.SportPrograms
+namespace liaqati_master.Areas.Admin.Pages.Programs
 {
     public class CalenderModel : PageModel
     {
@@ -24,7 +24,7 @@ namespace liaqati_master.Areas.Admin.Pages.SportPrograms
             {
                 Exercise exercise = _unitOfWork.ExerciseRepository.GetByID(program.Exercies_Programs[i]);
 
-                data.Add(new { Id = CommonMethods.Id_Guid(), name = exercise.Title });
+                data.Add(new { Id = Guid_Id.Id_Guid(), name = exercise.Title });
 
             }
 

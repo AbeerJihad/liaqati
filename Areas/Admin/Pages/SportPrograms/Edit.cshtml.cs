@@ -1,4 +1,4 @@
-using liaqati_master.Services.Repositories;
+using liaqati_master.Services.RepoCrud;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,10 +10,10 @@ namespace liaqati_master.Pages.Programs
         private readonly LiaqatiDBContext _context;
 
         private readonly UnitOfWork _UnitOfWork;
-        public readonly IRepoProgram _repo;
+        public readonly RepoProgram _repo;
 
 
-        public EditProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IRepoProgram repo)
+        public EditProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork, RepoProgram repo)
         {
             _context = context;
             _UnitOfWork = unitOfWork;
@@ -50,7 +50,7 @@ namespace liaqati_master.Pages.Programs
             SportsProgram sportsProgram = await _repo.GetProgram(id);
 
 
-            //  SportsProgram sportsProgram =_UnitOfWork.SportsProgramRepository.GetByIDAsync(id);
+            //  SportsProgram sportsProgram =_UnitOfWork.SportsProgramRepository.GetByID(id);
 
 
             //foreach(Exercies_program x in  sportsProgram.Exercies_Programs!)
@@ -59,11 +59,24 @@ namespace liaqati_master.Pages.Programs
             //}
 
 
+
+
+
+
+
+
             if (sportsProgram == null)
             {
                 return NotFound();
             }
             SportsProgram = sportsProgram;
+
+       SportsProgram.Exercies_Programs=  SportsProgram.Exercies_Programs!.OrderBy(x=>x.Week).ThenBy(y=>y.Day).ToList();
+
+
+
+
+
 
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
                                        new SelectListItem
@@ -81,12 +94,12 @@ namespace liaqati_master.Pages.Programs
                                            Text = a.Title
                                        }).ToList();
 
+            //
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPost()
+     
+        public async Task<IActionResult> OnPostEditProgramAsync ()
         {
 
             //if (!ModelState.IsValid)
@@ -105,6 +118,7 @@ namespace liaqati_master.Pages.Programs
             item.Difficulty = SportsProgram.Difficulty;
             item.Equipment = "";
             item.TrainingType = SportsProgram.TrainingType;
+            item.Services.CategoryId = SportsProgram.Services.CategoryId;
 
             for (int x = 0; x < SportsProgram.Exercies_Programs!.Count; x++)
             {
@@ -114,20 +128,16 @@ namespace liaqati_master.Pages.Programs
             }
 
 
-            var cid = SportsProgram.Services!.Category!.Id;
-            if (id != null)
-            {
-                SportsProgram.Services.CategoryId = id;
+         
+            
 
-            }
+            
 
-            item.Services.Category = null;
 
 
             _UnitOfWork.SportsProgramRepository.Update(item);
 
 
-            //  _context.Attach(MealPlans).State = EntityState.Modified;
 
             try
             {
@@ -155,12 +165,18 @@ namespace liaqati_master.Pages.Programs
                 return NotFound();
             }
 
-            var x = _UnitOfWork.ProgramexerciseRepository.GetByID(id);
+                     Exercies_program x = _UnitOfWork.ProgramexerciseRepository.GetByID(id);
+                   
+
+                    SportsProgram sport = _UnitOfWork.SportsProgramRepository.GetByID(x.SportsProgramId);
+
+
 
             _UnitOfWork.ProgramexerciseRepository.Delete(id);
+            _UnitOfWork.Save();
 
 
-            return Page();
+            return RedirectToPage("Edit",new  { id= sport.Id});
         }
 
 
@@ -180,7 +196,29 @@ namespace liaqati_master.Pages.Programs
         }
 
 
+        public async Task<IActionResult> OnPostAddSystemAsync(string? id)
+        {
+        
 
+            SportsProgram sports = _UnitOfWork.SportsProgramRepository.GetByID(id);
+
+            List<Exercies_program> list = new List<Exercies_program>();
+
+            foreach (Exercies_program x in _context.TblExercies_program.ToList())
+            {
+                if (x.SportsProgramId == id)
+                {
+                    list.Add(x);
+                }
+
+            }
+            SportsProgram = sports;
+            SportsProgram.Exercies_Programs = list;
+
+          
+
+            return Page();
+        }
 
 
 
