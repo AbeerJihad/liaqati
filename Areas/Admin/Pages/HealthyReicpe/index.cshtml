@@ -4,7 +4,6 @@
 }
 <link href="~/assets/css/Tables.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="~/javascript/script.js"></script>
 
 <div class="container-lg ">
     <div class=" ">
@@ -137,6 +136,11 @@
                                         <td>@item.DieteryType</td>
                                         <td>
                                             <div class="d-flex gap-2">
+                                                <a asp-page="Details" asp-route-id="@item.Id" class="btn"
+                                                   style="background-color: #8763b320; color:#3c077d;  padding: 0.375rem 0.75rem;"
+                                                   type="button">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
                                                 <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
                                                    style="background-color: #8763b320; color:#3c077d;  padding: 0.375rem 0.75rem;"
                                                    type="button">
@@ -225,6 +229,8 @@
 
 
 @section Scripts{
+    <script src="~/javascript/script.js"></script>
+
     <script defer>
         var topTab = document.getElementById('top-tab');
         var checkAll = document.getElementById('chk-all');

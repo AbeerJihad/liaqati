@@ -9,9 +9,9 @@
         public Target Target { get; set; }
         [Display(Name = "صورة")]
         public string? Image { get; set; }
-        [JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual List<Service>? Services { get; set; }
-        [JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
         public virtual List<Article>? Articles { get; set; }
     }
 }

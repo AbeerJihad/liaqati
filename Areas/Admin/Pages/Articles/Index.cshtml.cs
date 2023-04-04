@@ -17,7 +17,7 @@ namespace liaqati_master.Areas.Admin.Articles
         {
             if (_unitOfWork.ArticleRepository.Get() != null)
             {
-                Articles = _unitOfWork.ArticleRepository.Get(includeProperties: "TblCategory").ToList();
+                Articles = _unitOfWork.ArticleRepository.GetAllEntity().ToList();
             }
         }
         public async Task<IActionResult> OnPostAsync(string? id)
@@ -27,7 +27,7 @@ namespace liaqati_master.Areas.Admin.Articles
             {
                 return NotFound();
             }
-            var articles = _unitOfWork.ArticleRepository.GetByID(id);
+            Article? articles = _unitOfWork.ArticleRepository.GetByID(id);
 
             if (articles != null)
             {

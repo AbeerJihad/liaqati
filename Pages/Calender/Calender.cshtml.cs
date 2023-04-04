@@ -59,7 +59,7 @@ namespace liaqati_master.Pages.Calender
                             Exercise ex = await _repocontextExer.GetExercises(exercies.ExerciseId);
 
 
-                            events.Add(new Event() { id = ex.Id, title = ex.Title, start = DateOnly.FromDateTime(date).ToString("yyyy-MM-dd") });
+                            events.Add(new Event() { Id = ex.Id, title = ex.Title, start = DateOnly.FromDateTime(date).ToString("yyyy-MM-dd") });
 
                         }
                     }

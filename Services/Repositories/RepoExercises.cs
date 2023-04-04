@@ -4,6 +4,7 @@
     {
 
         public Task<Exercise> GetExercises(string? id);
+        public Task<List<Exercise>> GetAllExercises();
 
 
     }
@@ -17,6 +18,11 @@
         public ExercisesMang(LiaqatiDBContext context)
         {
             _context = context;
+        }
+
+        public async Task<List<Exercise>> GetAllExercises()
+        {
+            return _context.TblExercises.ToList();
         }
 
         public async Task<Exercise> GetExercises(string? id)

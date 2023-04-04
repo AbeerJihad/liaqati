@@ -1,0 +1,68 @@
+﻿@page
+@model liaqati_master.Pages.SportProgram.IndexModel
+<link href="~/css/programdetails.css" rel="stylesheet" />
+
+
+<div class="container " style="padding-top:200px">
+    <div class="row justify-content-around my-5">
+
+
+        @foreach (var item in Model.Sports)
+        {
+
+
+            <div class="col-12 col-md-3 shadow rounded-top p-2">
+                <div class="card border-0 p-0 m-0 h-100">
+                    <div class="position-relative">
+                        <a asp-page="clender" asp-route-id="@item.Id">
+                            <img src="@item.Image" style="object-fit:fill"
+                                 class="card-img-top p-0 m-0" alt="..." />
+                        </a>
+                        <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+                             src="~/images/exercise/heart-svgrepo-com (1).png" alt="" srcset="" />
+
+                    </div>
+
+                    <div class="card-body">
+                        <h6 class="card-text pcolor">
+                            دقيقة اليوم30-- أسابيع8 برنامج
+                        </h6>
+                        <h6 class="card-title fw-bold  mb-3">
+                            @item.Services!.Title
+                        </h6>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                            </div>
+                            <div>
+                                <h5 class="d-inline-block text-danger align-middle ms-1">
+                                    $ @item.Services.Price
+                                </h5>
+                                <a asp-page="clender" asp-route-id="@item.Id">  <img width="30" src="~/images/exercise/cart-3-svgrepo-com.png" />  </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+        }
+    </div>
+</div>
+
+
+

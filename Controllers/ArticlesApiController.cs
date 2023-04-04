@@ -5,11 +5,13 @@
     public class ArticlesApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
+        readonly IRepository<Article> _repository;
 
 
-        public ArticlesApiController(LiaqatiDBContext context)
+        public ArticlesApiController(LiaqatiDBContext context, IRepository<Article> repository)
         {
             _context = context;
+            _repository = repository;
 
         }
 
@@ -156,15 +158,15 @@
         }
 
         [HttpGet("GetArticlesWithLoadMore")]
-
         public async Task<ActionResult<List<Article>>> GetArticlesWithLoadMore(int page, int size = 4)
         {
 
-            if (await _context.TblArticles.ToListAsync<Article>() == null)
+            if (_context.TblArticles == null)
             {
                 return NotFound();
             }
-            return Ok(_context.TblArticles.Skip((page - 1) * size).Take(size));
+
+            return Ok((await _repository.GetAllAsync()).Skip((page - 1) * size).Take(size));
         }
     }
 }

@@ -5,16 +5,20 @@ namespace liaqati_master.Pages.HealthyReicpe
 {
     public class CreateHealthyModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
         private readonly UnitOfWork _UnitOfWork;
 
-        public CreateHealthyModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public CreateHealthyModel(UnitOfWork unitOfWork)
         {
-            _context = context;
             _UnitOfWork = unitOfWork;
+            CatogeryName = new SelectList(
+              _UnitOfWork.CategoryRepository.GetAllEntity(),
+              nameof(Category.Id),
+              nameof(Category.Name)
+              );
         }
 
         public SelectList CatogeryName { get; set; }
+
 
 
         [BindProperty]
@@ -23,15 +27,10 @@ namespace liaqati_master.Pages.HealthyReicpe
         public IActionResult OnGet()
         {
 
-            CatogeryName = new SelectList(
-                _UnitOfWork.CategoryRepository.GetAllEntity(),
-                nameof(Category.Id),
-                nameof(Category.Name)
-                );
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAddAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {

@@ -1,0 +1,371 @@
+﻿@page
+@model liaqati_master.Pages.ProgramPages.DetailsModel
+@{
+}
+<link href="~/css/programdetails.css" rel="stylesheet" />
+<div class="container  " style="padding-top:100px">
+    <div class="row">
+
+        <div class="d-flex my-2">
+            <p class="p-1">الرئيسية</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/images/exercise/ic_expand_more_24px.png" />
+            <p class="p-1">خدماتنا</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/images/exercise/ic_expand_more_24px.png" />
+            <p class="p-1">تمارين رياضية</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/images/exercise/ic_expand_more_24px.png" />
+            <p class="p-1"> @Model.Exercise.Title </p>
+        </div>
+      
+       
+        <div style="width:100%; height:80%;">
+
+            @if (@Model.Exercise!.Video!.Contains("http"))
+            {
+                <iframe class="w-100" height="500" src="@Model.Exercise.Video" frameborder="0" allowfullscreen></iframe>
+
+            }
+            else
+            {
+             @*   <video style="width:100%; height:500px;" src="@Model.E`xercise.Video" title="YouTube video player" controls>
+                    <source src="@Model.Exercise.Video" type="video/mp4">
+                    <source src="@Model.Exercise.Video" type="video/ogg">Your browser does not support HTML video.
+                </video>*@
+                <iframe style="width:100%; height:500px;" src="@Model.Exercise.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+            }
+
+           
+        
+        
+        </div>         
+        section1
+        <div class="row my-3 justify-content-between">
+            <div class="col-8 col-md-6">
+                <h4>   @Model.Exercise.Title   </h4>
+                <p class="my-4">تمرين كامل لمدة 30 دقيقة </p>
+                <div>
+                    <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                    <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                </div>
+            </div>
+            <div class="col-4 col-md-2 p-0">
+                <a class="btn px-3 py-2 fs-5 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                    ابدأ الآن
+                    <img class="me-2" src="~/images/exercise/cart-3-svgrepo-com.png" />
+                </a>
+            </div>
+        </div>
+        <!--section2-->
+        <div class="row col-10 m-auto my-3">
+            <div class="col-sm-6 col-md-4 my-4 d-flex">
+                <img height="60" src="~/images/exercise/Group 72.png" />
+                <p class=" fs-5 my-auto mx-2">مدة البرنامج @Model.Exercise.Duration يوم </p>
+            </div>
+            <div class="col-sm-6 col-md-4 my-4 d-flex">
+                <img height="60" src="~/images/exercise/Group 70.png" />
+                <p class="my-auto  fs-5 mx-2">30دقيقة كل يوم </p>
+            </div>
+            <div class="col-sm-7 col-md-4 d-flex  my-4  m-sm-auto">
+                <img height="60" src="~/images/exercise/Group 701.png" />
+                <p class="my-auto  fs-5 mx-2"> @Model.Exercise.BurnEstimate سعرة حرارية </p>
+            </div>
+        </div>
+
+        <!--section3-->
+        <hr class="col-12" />
+        <div class="row my-2 justify-content-between">
+            <div class="col-12 col-md-8">
+                <h4 class="fw-bold">تفاصيل البرنامج</h4>
+                <hr style="height: 3px;color: #CEBFE9; width: 13% " />
+                <div class="">
+                    <div class="d-flex m-2">
+                        <h5>نوع التدريب:</h5>
+                        <p class="mx-4">  @Model.Exercise.TraningType </p>
+                    </div>
+                    <div class="d-flex  m-2">
+                        <h5>المعدات:</h5>
+                        <p class="mx-4"> @Model.Exercise.Equipments </p>
+                    </div>
+                    <div class="d-flex  m-2">
+                        <h5>المدرب:</h5>
+                        <p class="mx-4">احمد صبح </p>
+                    </div>
+                </div>
+                <p class="lh-base">
+                  @Model.Exercise.Detail
+                </p>
+             @*   <p class="lh-base">
+                    أضف تحدي الـ 5 أيام هذا إلى تقويم التمرين حيث يمكنك إعادة الجدولة ووضع علامة مكتمل ، تمامًا مثل
+                    أحد برامجنا. إذا كنت تستمتع بهذا التحدي ، تحقق من FB Strong الجديد لمدة 4 أسابيع والذي تم إطلاقه
+                    للتو. يستخدم نفس موضوع التحدي (قوي) ويستخدم تمرينًا إضافيًا فريدًا كل يوم (بدون تكرار
+                    التدريبات!).
+                    نحن على وشك الوصول إلى مرحلة ممتعة ؛ هذا الأسبوع ، سيصل Fitness Blender رسميًا إلى إجمالي 1000
+                    مقطع فيديو تمرين ! وهذا الرقم لا يزال يرتفع بسرعة. إذا كنت تستمتع بمقاطع الفيديو الخاصة بالتمرين
+                    وتحدي الـ 5 أيام هذا ، فيرجى التفكير في مساعدتنا على الاستمرار في القيام بما نقوم به من خلال
+                    مشاركة عملنا مع الأصدقاء والعائلة. نحن لا نقوم بالإعلان على الإطلاق ، من أجل المساعدة في الحفاظ
+                    على أسعارنا منخفضة ، لذا فإن الحديث الشفهي مهم بالنسبة لنا. بغض النظر عن طريقة استخدامك لعملنا ،
+                    فنحن ممتنون للأشخاص حول العالم الذين يستخدمون Fitness Blender ويسعدنا حقًا وجودك هنا.
+                </p>
+                <p class="lh-base">
+                    أضف تحدي الـ 5 أيام هذا إلى تقويم التمرين حيث يمكنك إعادة الجدولة ووضع علامة مكتمل ، تمامًا مثل
+                    أحد برامجنا. إذا كنت تستمتع بهذا التحدي ، تحقق من FB Strong الجديد لمدة 4 أسابيع والذي تم إطلاقه
+                    للتو. يستخدم نفس موضوع التحدي (قوي) ويستخدم تمرينًا إضافيًا فريدًا كل يوم (بدون تكرار
+                    التدريبات!).
+                    نحن على وشك الوصول إلى مرحلة ممتعة ؛ هذا الأسبوع ، سيصل Fitness Blender رسميًا إلى إجمالي 1000
+                    مقطع فيديو تمرين ! وهذا الرقم لا يزال يرتفع بسرعة. إذا كنت تستمتع بمقاطع الفيديو الخاصة بالتمرين
+                    وتحدي الـ 5 أيام هذا ، فيرجى التفكير في مساعدتنا على الاستمرار في القيام بما نقوم به من خلال
+                    مشاركة عملنا مع الأصدقاء والعائلة. نحن لا نقوم بالإعلان على الإطلاق ، من أجل المساعدة في الحفاظ
+                    على أسعارنا منخفضة ، لذا فإن الحديث الشفهي مهم بالنسبة لنا. بغض النظر عن طريقة استخدامك لعملنا ،
+                    فنحن ممتنون للأشخاص حول العالم الذين يستخدمون Fitness Blender ويسعدنا حقًا وجودك هنا.
+                </p>
+               *@
+                
+                
+                
+                <div class="d-flex justify-content-end">
+                    <a class="btn px-3 py-2 fs-5 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                        ابدأ الآن
+                        <img class="me-2" src="~/images/exercise/cart-3-svgrepo-com.png" />
+                    </a>
+                </div>
+            </div>
+
+
+            <!--card-->
+            <div class="col-md-4 ">
+                <div class="col-10 p-4 bgcolor me-5">
+                    <h5 class="fw-bold">اختار واحد من الأنظمة الغذائية المجانية للحصول على أفضل النتائج</h5>
+
+                    <div class="my-5  position-relative carhov">
+                        <img src="~/images/exercise/8.png" class="img-fluid border rounded-2 w-100" />
+                        <div class=" position-absolute detailsbox text-center rounded-pill px-4 py-2">
+                            <a href="#" class="btn bg-white"> مزيد من التفاصيل ...</a>
+                        </div>
+
+                        <div class="d-flex justify-content-between my-auto colordiv p-2 w-100  position-absolute poss">
+                            <p>نظام غذائي | رجيم الأرز</p>
+                            <a class="btn px-3 py-1 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                                اشنرك الآن
+                            </a>
+                        </div>
+                    </div>
+                    <!--card2-->
+                    <div class="my-5  position-relative">
+                        <img src="~/images/exercise/8.png" class="img-fluid border rounded-2 w-100" />
+                        <div class=" position-absolute detailsbox text-center rounded-pill px-4 py-2">
+                            <a href="#" class="btn bg-white"> مزيد من التفاصيل ...</a>
+                        </div>
+
+                        <div class="d-flex justify-content-between my-auto colordiv p-2 w-100  position-absolute poss">
+                            <p>نظام غذائي | رجيم الأرز</p>
+                            <a class="btn px-3 py-1 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                                اشنرك الآن
+                            </a>
+                        </div>
+                    </div>
+                    <!--card3-->
+
+                    <div class="my-5  position-relative">
+                        <img src="~/images/exercise/8.png" class="img-fluid border rounded-2 w-100" />
+                        <div class=" position-absolute detailsbox text-center rounded-pill px-4 py-2">
+                            <a href="#" class="btn bg-white"> مزيد من التفاصيل ...</a>
+                        </div>
+
+                        <div class="d-flex justify-content-between my-auto colordiv p-2 w-100  position-absolute poss">
+                            <p>نظام غذائي | رجيم الأرز</p>
+                            <a class="btn px-3 py-1 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+                                اشنرك الآن
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!--section4-->
+
+
+
+        <div class=" m-3">
+            <div class="col-12 col-md-4">
+                <h3 class="m-3">جرب هذه التمارين لبناء كتلة عضلية</h3>
+                <hr class="m-auto hrcolor" />
+            </div>
+
+
+
+
+            <div class="row justify-content-around my-5">
+
+
+                   @foreach (var item in Model.ExerciseList)
+                {
+
+                    <div class="col-12 col-md-3 shadow rounded-top p-2">
+                    <div class="card border-0 p-0 m-0 h-100">
+                        <div class="position-relative">
+                            <img src="~/images/exercise/pexels-cliff-booth-4058411.png" style="object-fit:fill"
+                                 class="card-img-top p-0 m-0" alt="..." />
+                            <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+                                 src="~/images/exercise/heart-svgrepo-com (1).png" alt="" srcset="" />
+
+                        </div>
+
+                        <div class="card-body">
+                            <h6 class="card-text pcolor">
+                                    دقيقة اليوم30-- أسابيع    @item.Duration  برنامج
+                            </h6>
+                            <h6 class="card-title fw-bold  mb-3">
+                              @item.Title </h6>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                        <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
+                                    </div>
+                                    <div>
+                                        <h5 class="d-inline-block text-danger align-middle ms-1">
+                                            @if(item.Price != 0)
+                                            {
+                                                <span> $ @item.Price </span>
+                                            }
+                                            else
+                                            {
+                                                <span>  مجانا</span>
+                                            }
+
+                                            
+                                        </h5>
+                                        <img width="30" src="~/images/exercise/cart-3-svgrepo-com.png" />
+                                    </div>
+                                </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            
+                }
+               
+                
+                
+              
+            </div>
+      
+        
+
+
+
+
+
+
+
+        
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<!--section4-->
+<div class="container-fluid my-5 p-5  bgcolor">
+
+    <div class="col-12 justify-content-center">
+        <div class="col-7 mx-auto  col-md-2">
+            <h4 class="mx-auto  d-inline-block">تقييم العملاء</h4>
+            <hr class="hrcolor mx-2" />
+        </div>
+        <div class="col-12 d-flex mx-auto justify-content-around">
+
+            <p class="col-2 mx-auto  d-inline-block">تقييم(150)</p>
+
+            <div class="col-2">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+
+            <p class="col-2 mx-auto">$4.90</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="row col-12 d-flex justify-content-around">
+
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/images/exercise/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/images/exercise/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP  my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/images/exercise/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP  my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/images/exercise/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+    @section Scripts{
+
+
+
+}
