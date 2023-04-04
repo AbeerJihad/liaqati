@@ -649,31 +649,50 @@ namespace liaqati_master.Data
             return new List<MealPlans>()
             {
                 new MealPlans()
-                    {
-                        Id = "1",
-                            //numsubscribers= 105,
-                            //image= "./Image/Image.jfif",
-                    },
-                    new MealPlans()
-                    {
-                        Id = "2",
-                    },
-                    new MealPlans()
-                    {
-                        Id = "3",
-                            //numsubscribers = 105,
-                            //image = "./Image/Image.jfif",
-                    },
-                    new MealPlans()
-                    {
-                        Id = "4",
-                    },
-                    new MealPlans()
-                    {
-                        Id = "5",
-                            //numsubscribers = 105,
-                            //image = "./Image/Image.jfif",
-                    }
+                {
+                    Id = "1",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=13,
+                    Image= "./Images/MealPlan/1.jpg",
+
+                },
+                new MealPlans()
+                {
+                    Id = "2",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=13,
+                    Image= "./Images/MealPlan/2.jpg",
+
+                },
+                new MealPlans()
+                {
+                    Id = "3",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=20,
+                    Image= "./Images/MealPlan/3.jpg",
+
+                },
+                new MealPlans()
+                {
+                    Id = "4",
+                    Numsubscribers= 105,
+                    Length= 1,
+                    DietaryType="اكلة اللحوم",
+                    MealType="الإفطار والغداء والعشاء والوجبات الخفيفة\r\n",
+                    AvgRecipeTime=20,
+                    Image= "./Images/MealPlan/4.jpg",
+
+                },
+
             };
         }
         public static List<Product> GetListOfProducts()

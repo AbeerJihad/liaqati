@@ -202,6 +202,7 @@
                                             <div class="form-group">
                                                 <label asp-for="Exercises.Duration" class="control-label"></label>
                                                 <input name="Duration" asp-for="Exercises.Duration" class="form-control">
+
                                             </div>
                                             <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
                                         </div>
@@ -265,7 +266,10 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Services!.Description"></label>
-                                    <input asp-for="SportsProgram.Services!.Description" class="form-control" placeholder="">
+
+                                    <textarea asp-for="SportsProgram.Services!.Description" class="form-control"  rows="3"></textarea>
+
+
                                     <span class="text-danger" asp-validation-for="SportsProgram.Services!.Description"></span>
 
                                 </div>
@@ -285,7 +289,14 @@
                             <div class="col-12 col-md-4">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Difficulty"></label>
-                                    <input asp-for="SportsProgram.Difficulty" class="form-control" placeholder="">
+
+                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Difficulty">
+                                        <option value="-1">ادخل مستوى صعوبة النظام الرياضي</option>
+                                        <option value="1">سهل</option>
+                                        <option value="2">متوسط </option>
+                                        <option value="3">  صعب </option>
+                                    </select>
+
                                     <span class="text-danger" asp-validation-for="SportsProgram.Difficulty"></span>
 
                                 </div>
@@ -320,7 +331,7 @@
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label class="d-block" asp-for="SportsProgram.Services!.Category!.Name"></label>
-                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Services!.Category!.Id" asp-items="Model.CatogeryName">
+                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Services!.CategoryId" asp-items="Model.CatogeryName">
                                         <option value="-1"> ادخل اسم الصنف الخاص بالنظام الرياضي</option>
 
                                     </select>
@@ -371,7 +382,7 @@
                                 <div class="row">
                                     <div class="col-4 mx-auto">
                                         <div class="mb-3">
-                                            <a style="margin-right:35%" onclick="SaveProg(this)" id="btnSave" class="btn btn-secondary"> Save </a>
+                                            <button style="margin-right:35%" id="btnSave" class="btn btn-secondary"> Save </button>
                                         </div>
                                     </div>
                                 </div>
@@ -406,6 +417,7 @@
 
 
                     </form>
+               
                 </div>
             </div>
         </div>
@@ -459,7 +471,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="d-block"> اختر التمارين الخاصة بالنظام الرياضي</label>
-                                <select style="height:35px;" class="col-12 border border-light rounded-3" id="SelectExercises" multiple="multiple">
+                                <select onchange="SelectExerciseFun()" style="height:35px;" class="col-12 border border-light rounded-3" id="SelectExercises" multiple="multiple">
                                     <option value="-1"> اختر التمارين</option>
                                 </select>
                             </div>
@@ -564,10 +576,9 @@
 
 
     </script>
-
+    <script src="~/javascript/addex_progbyapi.js"></script>
     <script src="~/javascript/addexercies.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="~/javascript/addex_progbyapi.js"></script>
     <script src="~/jsapi/programexcercies.js"></script>
     <script src="~/jsapi/exerciseapi.js"></script>
 

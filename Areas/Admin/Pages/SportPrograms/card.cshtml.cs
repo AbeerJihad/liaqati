@@ -1,12 +1,14 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 
-namespace liaqati_master.Pages.SportPrograms
+namespace liaqati_master.Pages.Programs
 {
     public class cardModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;
-
+        
         public cardModel(UnitOfWork UnitOfWork)
         {
             _unitOfWork = UnitOfWork;
@@ -18,23 +20,23 @@ namespace liaqati_master.Pages.SportPrograms
             if (_unitOfWork != null)
             {
 
-                Programs = _unitOfWork.SportsProgramRepository.GetAllEntity();
+                Programs =  _unitOfWork.SportsProgramRepository.GetAllEntity();
             }
         }
-
-
-        public async Task<IActionResult> OnPostAsync(string id)
+  
+    
+    public async Task<IActionResult> OnPostAsync(string id)
         {
 
 
 
 
-            return Page();
+           return Page();
         }
-
-
-
-
-
+    
+    
+    
+    
+    
     }
 }

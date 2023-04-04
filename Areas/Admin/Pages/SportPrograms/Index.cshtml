@@ -109,6 +109,7 @@
                                     <th scope="col" width="180">العنوان</th>
                                     <th scope="col" width="300">الوصف </th>
                                     <th scope="col" width="180">السعر</th>
+                                    <th scope="col" width="180">المدة </th>
                                     <th scope="col" width="180"> الصعوبة</th>
                                     <th scope="col" width="180"> تركيز النظام</th>
                                     <th scope="col" width="150">المعدات</th>
@@ -134,8 +135,29 @@
                                         <td>@item.Services!.Title</td>
                                         <td>@item.Services!.Description</td>
                                         <td>@item.Services!.Price?.ToString("c")</td>
-                                        <td>@item.Length</td>
-                                        <td>@item.Difficulty</td>
+                                        <td>@item.Length   اسابيع</td>
+                                        <td>
+
+                                            @if (@item.Difficulty == 1)
+                                            {
+                                                <span> سهل </span>
+                                            }
+                                            else if (@item.Difficulty ==2)
+                                            {
+                                                <span> متوسط </span>
+
+                                            }
+                                            else
+                                            {
+                                                <span> صعب </span>
+
+                                            }
+
+                                           
+                                            
+                                        
+                                        
+                                        </td>
                                         <td>@item.BodyFocus</td>
                                         <td>@item.Equipment</td>
                                         <td>@item.TrainingType</td>

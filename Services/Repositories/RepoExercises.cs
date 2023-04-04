@@ -28,18 +28,9 @@
         public async Task<Exercise> GetExercises(string? id)
         {
             Exercise Exercise = _context.TblExercises.ToList().Where(p => p.Id.Equals(id)).ToList()[0];
-
-
             await _context.SaveChangesAsync();
-
-
             return Exercise;
         }
-
-
-
-
-
 
 
     }

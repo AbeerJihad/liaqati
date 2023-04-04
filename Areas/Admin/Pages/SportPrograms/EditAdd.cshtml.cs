@@ -45,7 +45,7 @@ namespace liaqati_master.Areas.Admin.Pages.Programs
 
                 old.Exercies_Programs!.Add(new Exercies_program()
                 {
-                    Id = CommonMethods.Id_Guid(),
+                    Id = Guid_Id.Id_Guid(),
                     SportsProgramId = SportsPrograms.Id,
                     Day = int.Parse(Exercies_program.Day.ToString()),
                     Week = int.Parse(Exercies_program.Week.ToString()),
@@ -67,7 +67,7 @@ namespace liaqati_master.Areas.Admin.Pages.Programs
             old.TrainingType = SportsPrograms.TrainingType;
 
 
-            //var cid = SportsPrograms.Services!.TblCategory!.Id;
+            //var cid = SportsPrograms.Services!.Category!.Id;
             //if (cid != null)
             //{
             //    SportsPrograms.Services.CategoryId = cid;
