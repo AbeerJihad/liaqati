@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7SzbSKZCYDzHvhAMlkUngLVJRus6d9d91lkrr4B24pE=",
+  "Hash": "lJDE7GDVKcaqMOyyERYgVmmdQkumyXC1qmFDsy4/DQE=",
   "Source": "liaqati-master",
   "BasePath": "_content/liaqati-master",
   "Mode": "Default",
@@ -9926,6 +9926,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Articles Bg.png"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Articles\\3d57b81d-bfc0-4931-b25e-4d13feb1890a.jpg",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "Images/Articles/3d57b81d-bfc0-4931-b25e-4d13feb1890a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Articles\\3d57b81d-bfc0-4931-b25e-4d13feb1890a.jpg"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Atricles\\220844.png",

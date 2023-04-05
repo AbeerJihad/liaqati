@@ -12,7 +12,7 @@ build_property.RootNamespace = liaqati_master
 build_property.ProjectDir = D:\Graduation Project\LastUpdate\liaqati\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\Graduation Project\LastUpdate\liaqati
 build_property._RazorSourceGeneratorDebug = 
 

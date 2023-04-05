@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Create";
 }
+
 <h4>إضافة مقالة</h4>
 <div class="container-fluid">
     <div class="row">
@@ -11,7 +12,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form theme-form">
-                        <form method="post" class="needs-validation" novalidate>
+                        <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                             @*<div asp-validation-summary="All" class="text-danger"></div>*@
                             <div class="row">
                                 <div class="col">
@@ -35,9 +36,9 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="mb-3">
-                                        <label asp-for="Articles.Image" class="control-label"></label>
-                                        <input asp-for="Articles.Image" class="form-control" />
-                                        <span asp-validation-for="Articles.Image" class="text-danger"></span>
+                                        <label asp-for="Image" class="control-label"></label>
+                                        <input asp-for="Image" class="form-control" />
+                                        <span asp-validation-for="Image" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
