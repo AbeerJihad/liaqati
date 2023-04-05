@@ -5,13 +5,10 @@ using System.Text.Json.Serialization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Services to the container.
-builder.Services.AddRazorPages();
 //builder.Services.AddSingleton<Service>();
 
-builder.Services.AddControllers().AddJsonOptions(op =>
-{
-    op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-});
+builder.Services.AddControllers().AddJsonOptions(op => { op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; });
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 //builder.Services.AddDbContext<LiaqatiDBContext>(options => options.UseLazyLoadingProxies().UseInMemoryDatabase("LiaqatiDB"));
 
@@ -22,7 +19,8 @@ builder.Services.AddDbContext<LiaqatiDBContext>(options =>
         )
     );
 
-builder.Services.AddIdentity<User, IdentityRole>(options =>
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
+builder.Services.Configure<IdentityOptions>((options =>
 {
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     options.Lockout.MaxFailedAccessAttempts = 5;
@@ -34,18 +32,15 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
     options.SignIn.RequireConfirmedAccount = false;
     options.SignIn.RequireConfirmedEmail = false;
     options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890@.ضصثقفغعهخحجدشسيبلاتنمكطئء ؤرلاىةوزظإآ";
-}).AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
+}));
 
 builder.Services.AddScoped<GenericRepository<Order>>();
-
 builder.Services.AddScoped<GenericRepository<User>>();
 builder.Services.AddScoped<IRepository<Article>, RepoArticles>();
-
 builder.Services.AddScoped<GenericRepository<SportsProgram>>();
-
 builder.Services.AddScoped<UnitOfWork>();
-
 builder.Services.AddScoped<IRepoProgram, ProgramMang>();
+builder.Services.AddScoped<IFormFileMang, RepoFile>();
 
 builder.Services.AddSwaggerGen();
 

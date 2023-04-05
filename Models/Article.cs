@@ -7,8 +7,6 @@
         [Required(ErrorMessage = " {0} حقل مطلوب")]
         [Display(Name = "وصف المقالة")]
         public string? Description { get; set; }
-        [Required(ErrorMessage = " {0} حقل مطلوب")]
-        [Display(Name = "أضف صورة")]
         public string? Image { get; set; }
         [Required(ErrorMessage = " {0} حقل مطلوب"), Display(Name = "عنوان المقال")]
         public string? Title { get; set; }
@@ -16,7 +14,6 @@
         [DataType(DataType.DateTime)]
         public DateTime PostDate { get; set; } = DateTime.Now;
         [Display(Name = "عدد المشاهدات")]
-
         public int ViewsNumber { get; set; } = 0;
         [Display(Name = "عدد الاعجابات")]
         public int LikesNumber { get; set; } = 0;
