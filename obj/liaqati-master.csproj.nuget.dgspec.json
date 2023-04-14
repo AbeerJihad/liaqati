@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Graduation Project\\LastUpdate\\liaqati\\liaqati-master.csproj": {}
+    "F:\\الفصل الرابع\\G Project\\GitHub\\Omar\\4-4-liaqati\\liaqati\\liaqati-master.csproj": {}
   },
   "projects": {
-    "D:\\Graduation Project\\LastUpdate\\liaqati\\liaqati-master.csproj": {
+    "F:\\الفصل الرابع\\G Project\\GitHub\\Omar\\4-4-liaqati\\liaqati\\liaqati-master.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Graduation Project\\LastUpdate\\liaqati\\liaqati-master.csproj",
+        "projectUniqueName": "F:\\الفصل الرابع\\G Project\\GitHub\\Omar\\4-4-liaqati\\liaqati\\liaqati-master.csproj",
         "projectName": "liaqati-master",
-        "projectPath": "D:\\Graduation Project\\LastUpdate\\liaqati\\liaqati-master.csproj",
-        "packagesPath": "C:\\Users\\SUBEH\\.nuget\\packages\\",
-        "outputPath": "D:\\Graduation Project\\LastUpdate\\liaqati\\obj\\",
+        "projectPath": "F:\\الفصل الرابع\\G Project\\GitHub\\Omar\\4-4-liaqati\\liaqati\\liaqati-master.csproj",
+        "packagesPath": "C:\\Users\\al\\.nuget\\packages\\",
+        "outputPath": "F:\\الفصل الرابع\\G Project\\GitHub\\Omar\\4-4-liaqati\\liaqati\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\SUBEH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\al\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -102,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

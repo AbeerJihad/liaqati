@@ -36,7 +36,7 @@
                 <div class="card-body">
                     <form method="post" class="form theme-form">
                         <div asp-validation-summary="All" class="text-danger"></div>
-                        <div class="row">
+                      @*  <div class="row">
                             <div class="col">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.Services!.Title"></label>
@@ -62,7 +62,7 @@
                             </div>
 
                         </div>
-
+*@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="mb-3">
@@ -128,7 +128,7 @@
 
 
 
-                            <div class="col-sm-4">
+                          @*  <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="HealthyRecipes.Services!.Category!.Id"></label>
                                     <select asp-for="HealthyRecipes.Services!.Category!.Id" asp-items="Model.CatogeryName" class="form-select">
@@ -137,7 +137,7 @@
                                     <span asp-validation-for="HealthyRecipes.Services!.Category!.Id" class="text-danger"></span>
                                 </div>
                             </div>
-
+*@
                         </div>
 
 

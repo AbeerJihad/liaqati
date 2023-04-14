@@ -1,0 +1,39 @@
+﻿* {
+    font-family: Almarai;
+}
+
+.hrcolor {
+    color: #b1abcf;
+    height: 3px !important;
+    width: 55% !important;
+}
+
+.detailsbox {
+    top: 35%;
+    left: 15%;
+    right: 15%;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+    .detailsbox:hover {
+        opacity: 1;
+    }
+
+.pcolor {
+    color: #B9AFF5;
+}
+
+.bgcolor {
+    background-color: #DEDBF6;
+}
+
+.colordiv {
+    background-color: #ffffffa9;
+}
+
+.poss {
+    bottom: 0;
+    border-radius: 0 0 15px 15px;
+}

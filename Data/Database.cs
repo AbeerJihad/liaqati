@@ -450,11 +450,11 @@ namespace liaqati_master.Data
                 },
                       new Service
                 {
-                    Id = "102",
-                   Title="3 تمارين في الأسبوع لمدة أسبوعين",
+                     Id = "102",
+                     Title="3 تمارين في الأسبوع لمدة أسبوعين",
                      Description="تحدي تجريب أسبوع مصمم للأشخاص الذين يريدون فقط ثلاثة (مطلوب) أيام تمرين في الأسبوع. سواء كنت مشغولاً للغاية لأكثر من ثلاثة تمارين في الأسبوع ، أو كنت ترغب في استكمال أنواع أخرى من اللياقة البدنية (المشي ، والسباحة ، وما إلى ذلك) بمقاطع فيديو للتمرين في المنزل ، فإن هذا التحدي يهدف إلى المساعدة في دعم اللياقة البدنية الشاملة. الروتين الذي يناسب الجدول الزمني والسرعة التي تريدها. توقع مزيجًا من رفع الأثقال والتدريب المتقطع عالي الكثافة (التدريب المتقطع عالي الكثافة) الذي سيختبر قدرتك على التحمل وصحة القلب والأوعية الدموية والقوة.",
                      Price=200,
-                                         CategoryId = "5",
+                     CategoryId = "5",
 
                  },
 
@@ -521,71 +521,80 @@ namespace liaqati_master.Data
                         Id = "21",
                             Title = "طقم اوزان دمبل 30 كغم",
                             Price = 20,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                            Description=""
                     },
                     new Service()
                     {
                         Id = "22",
                             Title = "حلقات لايف اب الاولمبية للجمباز",
                             Price = 30,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                              Description=""
                     },
                     new Service()
                     {
                         Id = "23",
                             Title = "مشاية كهربائية منحنية بدون محرك",
                             Price = 1490,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                              Description=""
                     },
                     new Service()
                     {
-                        Id = "24", Title = "دراجة سبينر", Price = 320, CategoryId = "4"
+                        Id = "24", Title = "دراجة سبينر", Price = 320, CategoryId = "4",  Description=""
                     },
                     new Service()
                     {
                         Id = "25",
                             Title = "Livepro أيروبيك ستيبر ومقعد",
                             Price = 150,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                              Description=""
                     },
                     new Service()
                     {
                         Id = "26",
                             Title = "سجادة Liveup للتمارين الرياضية",
                             Price = 15,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                              Description=""
                     },
                     new Service()
                     {
                         Id = "27",
                             Title = "مقعد بووفليكس متعدد الوظائف",
                             Price = 175,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                              Description=""
                     },
                     new Service()
                     {
                         Id = "28",
                             Title = "حبل معركة بروبانتل",
                             Price = 69,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                              Description=""
                     },
                     new Service()
                     {
                         Id = "29",
                             Title = "مقعد قابل للطي قابل للتعديل للتمارين الرياضية",
                             Price = 125,
-                            CategoryId = "4"
+                            CategoryId = "4",
+                              Description=""
                     },
                     new Service()
                     {
-                        Id = "30", Title = "مجدّف", Price = 25, CategoryId = "4"
+                        Id = "30", Title = "مجدّف", Price = 25, CategoryId = "4",  Description=""
                     },
                     new Service()
                     {
                         Id = "31",
                             Title = "زيت السمك أوميغا 3",
                             Price = 111,
-                            CategoryId = "3"
+                            CategoryId = "3",
+                              Description=""
                     },
                     new Service()
                     {
@@ -593,6 +602,7 @@ namespace liaqati_master.Data
                             Title = "Muscletech, بلاتينيوم ملتي فيتامين",
                             Price = 78,
                             CategoryId = "3",
+                              Description=""
                     },
                     new Service()
                     {
@@ -600,47 +610,48 @@ namespace liaqati_master.Data
                             Title = "Ultima Replenisher",
                             Price = 169,
                             CategoryId = "3",
+                              Description=""
                     },
                     new Service()
                     {
-                        Id = "34", Title = "زيت الكريل", Price = 169, CategoryId = "3",
+                        Id = "34", Title = "زيت الكريل", Price = 169, CategoryId = "3",  Description=""
                     },
                     new Service()
                     {
-                        Id = "35", Title = "أنافيت", Price = 170, CategoryId = "3",
+                        Id = "35", Title = "أنافيت", Price = 170, CategoryId = "3",  Description=""
                     },
                     new Service()
                     {
                         Id = "36",
                             Title = "Trace Minerals Research",
                             Price = 79,
-                            CategoryId = "3",
+                            CategoryId = "3",  Description=""
                     },
                     new Service()
                     {
                         Id = "37",
                             Title = "BodyBio, E-Lyte",
                             Price = 109,
-                            CategoryId = "3",
+                            CategoryId = "3",  Description=""
                     },
                     new Service()
                     {
-                        Id = "38", Title = "فيجا ، سبورت", Price = 163, CategoryId = "3",
+                        Id = "38", Title = "فيجا ، سبورت", Price = 163, CategoryId = "3",  Description=""
                     },
                     new Service()
                     {
                         Id = "39",
                             Title = "مضاعف الترطيب",
                             Price = 111,
-                            CategoryId = "3",
+                            CategoryId = "3",  Description=""
                     },
                     new Service()
                     {
-                        Id = "40", Title = "NutriBiotic", Price = 54, CategoryId = "3",
+                        Id = "40", Title = "NutriBiotic", Price = 54, CategoryId = "3",  Description=""
                     },
                     new Service()
                     {
-                        Id = "41", Title = "زيت الكريل", Price = 169, CategoryId = "3",
+                        Id = "41", Title = "زيت الكريل", Price = 169, CategoryId = "3",  Description=""
                     }
             };
         }
@@ -860,9 +871,9 @@ namespace liaqati_master.Data
 
 
 
-                new HealthyRecipe { Id = "41", Image = "1.jpg", MealType = MealTypeTypeStatus.Dinner, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35 },
+                new HealthyRecipe { Id = "41", Image = "1.jpg", MealType = MealTypeTypeStatus.Dinner, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35,Title="وجبة 1" },
                 //الثوم الطازج والليمون,سمك السلمون,طماطم كرزية,صلصة 
-                new HealthyRecipe { Id = "41", Image = "2.jpg", MealType = MealTypeTypeStatus.Snack, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4 },
+                new HealthyRecipe { Id = "42", Image = "2.jpg", MealType = MealTypeTypeStatus.Snack, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4 },
                 //موزولوز
                 new HealthyRecipe { Id = "43", Image = "3.jpg", MealType = MealTypeTypeStatus.Lunch, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 50, Calories = 379, Total_Carbohydrate = 47, Protein = 32 },
                 // الدجاج المشويةوصلصة الباربكيو و وتوابل الصوديوم المنخفضةوالسكروالطماطم و شريحتين من خبز القمح الكامل المحمص و خل التفاح
@@ -898,7 +909,7 @@ namespace liaqati_master.Data
                 //1بصلة,300 جراملحمة المفرومة,1بيضة, رشة فلفل أسمر,ملعقتانزيت,ملعقةبصل بودر,حسب الرغبةبهارات,حسب الرغبةبقدونس
                 new HealthyRecipe { Id = "59", Image = "19.jpg", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 15, Calories = 34, Total_Carbohydrate = 15, Protein = 0 },
                 // ملعقةسكر دايت,1تفاح,2القرنفل ,عودالقرفة
-                new HealthyRecipe { Id = "6-", Image = "20.jpg", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 }
+                new HealthyRecipe { Id = "60", Image = "20.jpg", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 }
                 //نصف كيلوكريز,3 معالقسكر ستيفيا,نصف ملعقة صغيرةفانيلا سائلة,رشة قرفة,ربع كوبعصير ليمونة,ملعقةعسل
 
             };

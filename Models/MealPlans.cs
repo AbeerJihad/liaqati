@@ -1,8 +1,11 @@
 ﻿namespace liaqati_master.Models
 {
-    public class MealPlans : BaseEntity
+    public class MealPlans
     {
-
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "رقم النطام الغذائي")]
+        [HiddenInput]
+        public string? Id { get; set; }
         [Display(Name = "عدد المشتركيين")]
         public int? Numsubscribers { get; set; }
         //[Required(ErrorMessage = "هذا الحقل مطلوب")]
@@ -24,6 +27,10 @@
 
         [ForeignKey(nameof(Id))]
         public virtual Service? Services { get; set; }
+
+
+        public virtual List<Meal_Healthy>? Meal_Healthy { get; set; }
+
 
         public MealPlans()
         {

@@ -57,9 +57,6 @@ namespace liaqati_master.Pages.HealthyReicpe
 
             var id = HealthyRecipes.Id;
             var item = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
-            item.Services!.Title = HealthyRecipes.Services!.Title;
-            item.Services.Price = HealthyRecipes.Services.Price;
-            item.Services.Description = HealthyRecipes.Services.Description;
             item.DieteryType = HealthyRecipes.DieteryType;
             item.MealType = HealthyRecipes.MealType;
             item.PrepTime = HealthyRecipes.PrepTime;
@@ -69,13 +66,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             item.PreparationMethod = HealthyRecipes.PreparationMethod;
             item.Ingredients = HealthyRecipes.Ingredients;
 
-            var cid = HealthyRecipes.Services!.Category!.Id;
-            if (id != null)
-            {
-                HealthyRecipes.Services.CategoryId = id;
-
-            }
-            item.Services.Category = null;
+          
             _UnitOfWork.HealthyRecipesRepository.Update(item);
             //  _context.Attach(MealPlans).State = EntityState.Modified;
             try

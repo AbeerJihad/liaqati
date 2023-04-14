@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using liaqati_master.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace liaqati_master.Data
@@ -18,6 +19,7 @@ namespace liaqati_master.Data
         public DbSet<Product> TblProducts { get; set; }
         public DbSet<Achievement> TblAchievements { get; set; }
         public DbSet<Exercies_program> TblExercies_program { get; set; }
+        public DbSet<Meal_Healthy> TblMeal_Healthy { get; set; }
         public DbSet<Favorite> TblFavorite { get; set; }
         public DbSet<Favorite_Servies> TblFavorite_Servies { get; set; }
         public DbSet<Comments> TblComment { get; set; }
@@ -37,12 +39,15 @@ namespace liaqati_master.Data
 
             //Relations
             modelBuilder.Entity<Order_Details>().HasOne(a => a.Rate).WithOne(a => a.Order_Details).HasForeignKey<Rate>(c => c.Order_DetailsId);
-            modelBuilder.Entity<Service>().HasOne(a => a.HealthyRecipes).WithOne(a => a.Services).HasForeignKey<HealthyRecipe>(c => c.Id);
+            //modelBuilder.Entity<Service>().HasOne(a => a.HealthyRecipes).WithOne(a => a.Services).HasForeignKey<HealthyRecipe>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.Products).WithOne(a => a.Services).HasForeignKey<Product>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.MealPlans).WithOne(a => a.Services).HasForeignKey<MealPlans>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.SportsProgram).WithOne(a => a.Services).HasForeignKey<SportsProgram>(c => c.Id);
 
 
+            //modelBuilder.Entity<Meal_Healthy>().HasMany(x=>x.MealPlan).HasForeignKey<MealPlans>(c => c.)
+
+                //.WillCascadeOnDelete(false);
 
             //AutoInclude
             //modelBuilder.Entity<Service>().Navigation(p => p.Category).AutoInclude();

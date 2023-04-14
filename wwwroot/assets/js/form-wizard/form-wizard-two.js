@@ -24,7 +24,9 @@
                     curInputs = curStep.find("input[type='text'],input[type='url']"),
                     isValid = true;
                 $(".form-group").removeClass("has-error");
-                for(var i=0; i<curInputs.length; i++){
+                alert("a");
+                for (var i = 0; i < curInputs.length; i++){
+                    alert(curInputs[i].validity.valid);
                     if (!curInputs[i].validity.valid){
                         isValid = false;
                         $(curInputs[i]).closest(".form-group").addClass("has-error");

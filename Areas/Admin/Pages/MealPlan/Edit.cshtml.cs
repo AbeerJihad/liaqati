@@ -36,6 +36,11 @@ namespace liaqati_master.Pages.MealPlan
             }
             MealPlans = meal;
 
+
+            MealPlans.Meal_Healthy = MealPlans.Meal_Healthy!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
+
+
+
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
                                        new SelectListItem
                                        {

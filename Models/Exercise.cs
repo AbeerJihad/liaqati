@@ -4,9 +4,9 @@
     {
 
 
-        [Required(ErrorMessage = "requird{0}"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل"), Display(Name = "اسم التمرين")]
+        //[Required(ErrorMessage = "requird{0}"), StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل"), Display(Name = "اسم التمرين")]
         public string? Title { get; set; }
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل"), Display(Name = "تركيز الجسم")]
+        //[StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل"), Display(Name = "تركيز الجسم")]
         public string? BodyFocus { get; set; }
         [Display(Name = "وصف مختصر لا يزيد عن سطر")]
         public string? ShortDescription { get; set; }

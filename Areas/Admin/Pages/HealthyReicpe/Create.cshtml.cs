@@ -17,6 +17,8 @@ namespace liaqati_master.Pages.HealthyReicpe
               );
         }
 
+       
+
         public SelectList CatogeryName { get; set; }
 
 
@@ -24,6 +26,8 @@ namespace liaqati_master.Pages.HealthyReicpe
         [BindProperty]
         public HealthyRecipe HealthyRecipes { get; set; }
 
+
+       
         public IActionResult OnGet()
         {
 
@@ -39,16 +43,9 @@ namespace liaqati_master.Pages.HealthyReicpe
 
             var guid = CommonMethods.Id_Guid();
             HealthyRecipes.Id = guid;
-            HealthyRecipes.Services!.Id = guid;
-            var id = HealthyRecipes.Services!.Category?.Id;
 
-            if (id != null)
-            {
-                HealthyRecipes.Services.CategoryId = id;
-            }
-            HealthyRecipes.Services.Category = null;
+         
             HealthyRecipes.Image = "";
-            _UnitOfWork.ServiceRepository.Insert(HealthyRecipes.Services);
             _UnitOfWork.HealthyRecipesRepository.Insert(HealthyRecipes);
             _UnitOfWork.Save();
             return RedirectToPage("./Index");
