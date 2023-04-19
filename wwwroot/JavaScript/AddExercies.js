@@ -6,7 +6,6 @@ var formAddExercies = document.getElementById("formAddExercies");
 async function addExerciesForm(data) {
 
     console.log(data);
-    alert("api");
 
     try {
 
@@ -62,15 +61,15 @@ function FinishAddExercises(tag) {
         Equipments: formAddExercies.Equipments.value
     };
 
- var JSExercies =   JSON.stringify(payloadExer);
+    var JSExercies = JSON.stringify(payloadExer);
 
     addExerciesForm(JSExercies).then((d) => {
 
-      
+
 
         if (d !== undefined && d.status === 'ok') {
 
-         
+
 
             formAdd.reset();
 

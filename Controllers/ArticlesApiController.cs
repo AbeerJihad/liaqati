@@ -1,4 +1,4 @@
-﻿namespace ProgectApi.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -140,7 +140,6 @@
             }
 
 
-            //  _context.Product.Update(product);
             _context.Entry(Articles).State = EntityState.Modified;
 
             try

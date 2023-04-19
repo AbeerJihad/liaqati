@@ -1,11 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
-@import "/assets/css/nice-select2.css";
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+/*@import "/assets/css/nice-select2.css";
 @import "/assets/css/bootstrap.rtl.min.css";
-@import "/assets/css/bootstrap-icons.css";
+@import "/assets/css/bootstrap-icons.css";*/
 
 :root {
-    --primary-color: #b9aff5;
-    --secondary-color: #e4dfff;
+    --primary-color: #a864c8;
+    /*--primary-color: #b9aff5;*/
+    --secondary-color: #a864c8;
+    /*--secondary-color: #e4dfff;*/
     /* --secondary-color: #8763b3; */
 }
 
@@ -14,7 +18,13 @@ body,
 * {
     margin: 0;
     font-family: "Almarai", sans-serif;
+    font-family: "Tajawal", sans-serif;
     box-sizing: border-box;
+}
+
+
+body {
+    background-color: #eef3f4;
 }
 
 .navbar-container {
@@ -78,11 +88,10 @@ body,
 .navbar-scroll-effect .navbar-brand svg ellipse,
 .navbar-scroll-effect .navbar-brand svg g,
 .navbar-scroll-effect .navbar-brand svg path {
-    fill: #b9aff5;
+    fill: #a864c8;
 }
 
-.form-search input,
-.form-search select {
+.form-search input {
     height: 50px !important;
 }
 
@@ -106,13 +115,11 @@ body,
     left: 12px;
 }
 
-select {
-    display: none;
-}
+
 
 @media (max-width: 1200px) {
     .header {
-        background-image: linear-gradient(#00000060, #00000060), url("../../assets/images/Background.png");
+        background-image: linear-gradient(#00000060, #00000060), url("/User/images/Background.png");
         background-size: cover;
     }
 
@@ -140,7 +147,7 @@ select {
     .navbar-brand svg ellipse,
     .navbar-brand svg g,
     .navbar-brand svg path {
-        fill: #b9aff5;
+        fill: #a864c8;
     }
 
     .navbar-scroll-effect {
@@ -179,7 +186,7 @@ select {
 svg ellipse,
 svg g,
 svg path {
-    fill: #b9aff5;
+    fill: #a864c8;
 }
 
 #myVideo {
@@ -271,39 +278,10 @@ svg path {
             background-size: cover;
         } */
 
-.form-search input,
-.form-search select {
-    height: 50px;
-}
 
-.nice-select {
-    height: 50px;
-    text-align: right !important;
-}
 
-.current {
-    display: block;
-    height: 100%;
-    line-height: 50px;
-}
 
-.nice-select-dropdown li {
-    text-align: right !important;
-}
 
-.nice-select:after {
-    right: inherit;
-    left: 12px;
-}
-
-select {
-    display: none;
-}
-
-body {
-    height: 120vh;
-    transition: 0.5s;
-}
 
 .showNav {
     display: block !important;
@@ -526,10 +504,6 @@ body.disable-scroll {
     font-weight: bold;
 }
 
-body {
-    background-color: #eef3f4;
-}
-
 .meal-plans-container .height-100 {
     height: 100vh;
 }
@@ -637,4 +611,31 @@ body {
 
 .carousel-control-next {
     justify-content: end !important;
+}
+
+
+
+
+.Exercises_duration_Color {
+    color: #d8d3f9;
+}
+
+.btn_Exercises_duration {
+    background-color: #E4DFFF;
+}
+
+.bgFooter {
+    background-color: #E4DFFF;
+}
+
+ul {
+    list-style-type: none
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.colorLinkFooter {
+    color: #707070;
 }

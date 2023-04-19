@@ -16,9 +16,9 @@
 
         public void DeleteFile(string OldFileName)
         {
-            if (File.Exists(OldFileName))
+            if (File.Exists(_web.WebRootPath + OldFileName))
             {
-                File.Delete(OldFileName);
+                File.Delete(_web.WebRootPath + OldFileName);
             }
         }
 
@@ -34,15 +34,13 @@
             {
                 Directory.CreateDirectory(Folder);
             }
-            string filename = Guid.NewGuid().ToString() + Path.GetExtension(fm.FileName);
+            string filename = Guid.NewGuid().ToString() + Path.GetFileNameWithoutExtension(fm.FileName) + Path.GetExtension(fm.FileName);
             string pathAll = Folder + "//" + filename;
 
             FileStream fs = new(pathAll, FileMode.Create);
             await fm.CopyToAsync(fs);
             await fs.FlushAsync();
             fs.Close();
-
-
             return $"/{BaseFolderName}//{Foldername}//{filename}";
         }
     }

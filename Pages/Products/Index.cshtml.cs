@@ -1,5 +1,4 @@
-﻿using liaqati_master.ViewModels;
-using Microsoft.AspNetCore.Mvc;
+﻿using liaqati_master.Services.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -8,18 +7,19 @@ namespace liaqati_master.Pages.ProductsPages
     public class IndexModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;
+        private readonly RepProducts _repProducts;
 
-        public IndexModel(UnitOfWork unitOfWork)
+        public IndexModel(UnitOfWork unitOfWork, RepProducts repProducts)
         {
+
             _unitOfWork = unitOfWork;
-
-
+            _repProducts = repProducts;
         }
 
         [BindProperty(SupportsGet = true)]
         public ProductQueryParamters Parameters { get; set; }
 
-        public QueryPageResult<Models.Product> queryPageResult { get; set; }
+        public QueryPageResult<Product> queryPageResult { get; set; }
 
 
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
@@ -28,9 +28,23 @@ namespace liaqati_master.Pages.ProductsPages
             new SelectListItem(){Value="MaxRate",Text="الأغلى تقييما"},
         };
 
-        public async Task OnGet()
+        public async Task OnGetAsync()
         {
-            IQueryable<Models.Product> products = _unitOfWork.ProductsRepository.Get().AsQueryable();
+
+            queryPageResult = await _repProducts.SearchProduct(Parameters);
+
+            //return RedirectToPage("./index");
+        }
+        public async Task OnPostAsync()
+        {
+            queryPageResult = await _repProducts.SearchProduct(Parameters);
+
+            //return RedirectToPage("./index");
+        }
+    }
+}
+
+/* IQueryable<Product> products = _unitOfWork.ProductsRepository.Get().AsQueryable();
 
             if (Parameters.CategoryId != null)
             {
@@ -95,8 +109,4 @@ namespace liaqati_master.Pages.ProductsPages
             products = products.Skip(Parameters.Size * (Parameters.CurPage - 1))
                 .Take(Parameters.Size);
             queryPageResult.ListOfData = products;
-
-            //return RedirectToPage("./index");
-        }
-    }
-}
+*/

@@ -1,15 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 
 namespace liaqati_master.Pages.HealthyReicpe
 {
-    public class indexHealthyModel : PageModel
+    public class IndexHealthyModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;
-        
-        public indexHealthyModel(UnitOfWork UnitOfWork)
+
+        public IndexHealthyModel(UnitOfWork UnitOfWork)
         {
             _unitOfWork = UnitOfWork;
         }
@@ -20,7 +18,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             if (_unitOfWork != null)
             {
 
-                HealthyRecipes =  _unitOfWork.HealthyRecipesRepository.GetAllEntity();
+                HealthyRecipes = _unitOfWork.HealthyRecipesRepository.GetAllEntity();
             }
         }
     }

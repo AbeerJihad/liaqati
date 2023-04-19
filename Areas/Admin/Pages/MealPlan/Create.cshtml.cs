@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -17,9 +16,15 @@ namespace liaqati_master.Pages.MealPlan
 
         public List<SelectListItem> CatogeryName { get; set; }
 
+
+        public string Display { get; set; } = "d-none";
+
+        public int btnSave { get; set; }
+
         public IActionResult OnGet()
         {
-
+            Display = "d-none";
+            btnSave = 0;
 
 
             CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
@@ -33,6 +38,12 @@ namespace liaqati_master.Pages.MealPlan
             return Page();
         }
 
+        public HealthyRecipe getHealthyRecipe(string id)
+        {
+            HealthyRecipe HealthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+
+            return HealthyRecipe;
+        }
 
 
 
@@ -41,7 +52,7 @@ namespace liaqati_master.Pages.MealPlan
 
 
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public MealPlans MealPlans { get; set; }
 
 
@@ -50,28 +61,26 @@ namespace liaqati_master.Pages.MealPlan
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAddAsync()
         {
+
+
             //if (!ModelState.IsValid)
             //{
             //    return Page();
             //}
 
+            btnSave = 1;
 
 
             MealPlans.Id = CommonMethods.Id_Guid();
 
             MealPlans.Services!.Id = MealPlans.Id;
 
-            //MealPlans.Services.MealPlansId = MealPlans.Id;
 
-            // MealPlans.ServicesId = MealPlans.Id;
 
-            var id = MealPlans.Services!.Category!.Id;
-            if (id != null)
-            {
-                MealPlans.Services.CategoryId = id;
 
-            }
-            MealPlans.Services.Category = null;
+            MealPlans.Services.CategoryId = MealPlans.Services.CategoryId;
+
+
 
 
 
@@ -82,9 +91,41 @@ namespace liaqati_master.Pages.MealPlan
 
             _UnitOfWork.Save();
 
+            Display = "d-block";
 
-
-            return RedirectToPage("./Index");
+            return Page();
         }
+
+        public async Task<IActionResult> OnPostAddSystemAsync(string? id)
+        {
+            btnSave = 1;
+
+
+            MealPlans meals = _UnitOfWork.MealPlansRepository.GetByID(id);
+
+            List<Meal_Healthy> list = new List<Meal_Healthy>();
+
+            foreach (Meal_Healthy x in _context.TblMeal_Healthy.ToList())
+            {
+                if (x.MealPlansId == id)
+                {
+                    list.Add(x);
+                }
+
+            }
+            MealPlans = meals;
+            MealPlans.Meal_Healthy = list;
+
+            MealPlans.Meal_Healthy = MealPlans.Meal_Healthy!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
+
+
+            Display = "d-block";
+
+            return Page();
+        }
+
+
+
+
     }
 }

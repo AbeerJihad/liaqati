@@ -4,12 +4,12 @@ namespace liaqati_master.Data
 {
     public static class IQueryableExtensions
     {
-        public static IQueryable<TEntity> OrderByCustom<TEntity>(this IQueryable<TEntity> items, string sortBy, string sortOrder)
+        public static IQueryable<TEntity> OrderByCustom<TEntity>(this IQueryable<TEntity> items, string sortBy, string sortOrder) where TEntity : class
         {
             var type = typeof(TEntity);
             var expression2 = Expression.Parameter(type, "t");
             var property = type.GetProperty(sortBy);
-            var expression1 = Expression.MakeMemberAccess(expression2, property);
+            var expression1 = Expression.MakeMemberAccess(expression2, member: property);
             var lambda = Expression.Lambda(expression1, expression2);
             var result = Expression.Call(
                 typeof(Queryable),

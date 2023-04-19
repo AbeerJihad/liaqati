@@ -4,3 +4,7 @@
 ### 
 GET {{BaseUrl}}/api/ArticlesApi/GetArticlesWithLoadMore?page=2&size=4
 
+###
+GET {{BaseUrl}}/api/ProductApi/search?sortBy=MinPrice
+
+

@@ -1,13 +1,17 @@
-﻿namespace liaqati_master.Controllers
+﻿using liaqati_master.Services.Repositories;
+
+namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ProductApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
-        public ProductApiController(LiaqatiDBContext context)
+        readonly RepProducts _repository;
+        public ProductApiController(LiaqatiDBContext context, RepProducts repository)
         {
             _context = context;
+            _repository = repository;
         }
 
         [HttpGet("AllProduct")]
@@ -139,8 +143,12 @@
         [Route("search")]
         public async Task<ActionResult> SearchForProduct([FromQuery] ProductQueryParamters Parameters)
         {
+            QueryPageResult<Product> queryPageResult = await _repository.SearchProduct(Parameters);
 
-            IQueryable<Product> products = _context.TblProducts;
+            return Ok(queryPageResult);
+
+        }
+        /*   IQueryable<Product> products = _context.TblProducts;
 
             if (Parameters.CategoryId != null)
             {
@@ -183,10 +191,7 @@
                 }
             }
             QueryPageResult<Product> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
-
-            return Ok(queryPageResult);
-
-        }
+*/
 
     }
 }

@@ -1,9 +1,12 @@
 ﻿@model Product
 
+@{
+    string image = string.IsNullOrEmpty(Model.ImgUrl) ? "/images/default.png" : Model.ImgUrl;
+}
 <div class="col p-2">
     <div class="card overflow-hidden h-100  boradius border p-0">
         <div class="position-relative box-img w-100">
-            <img src="@Model.ImgUrl"
+            <img src="@image"
                  height="200"
                  class="position-absolute w-100 h-100 start-0 top-0 rounded-top"
                  alt=""
@@ -16,12 +19,23 @@
         <div class="card-body g-2 p-2 mt-0">
             <div class="d-flex m-2 justify-content-between">
                 <p class="card-text">@Model.Services?.Category?.Name </p>
-                <div class="rating-section">
-                    <i class="bi bi-star-fill text-secondary star"></i>
-                    <i class="bi bi-star-fill text-secondary star"></i>
-                    <i class="bi bi-star-fill text-secondary star"></i>
-                    <i class="bi bi-star-fill text-secondary star"></i>
-                    <i class="bi bi-star-fill text-secondary star"></i>
+                <div class="rating">
+                    <div class="rating position-relative">
+                        <div class="rating-upper d-flex ">
+                            <i class="bi bi-star-fill text-black-50"></i>
+                            <i class="bi bi-star-fill text-black-50"></i>
+                            <i class="bi bi-star-fill text-black-50"></i>
+                            <i class="bi bi-star-fill text-black-50"></i>
+                            <i class="bi bi-star-fill text-black-50"></i>
+                        </div>
+                        <div class="rating-lower d-flex  position-absolute top-0 start-0 overflow-hidden  w-10">
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                            <i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="justify-content-between">

@@ -37,10 +37,16 @@ builder.Services.Configure<IdentityOptions>((options =>
 builder.Services.AddScoped<GenericRepository<Order>>();
 builder.Services.AddScoped<GenericRepository<User>>();
 builder.Services.AddScoped<IRepository<Article>, RepoArticles>();
+builder.Services.AddScoped<IRepository<MealPlans>, RepoMealPlans>();
+builder.Services.AddScoped<RepProducts>();
+builder.Services.AddScoped<RepoFiles>();
 builder.Services.AddScoped<GenericRepository<SportsProgram>>();
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IRepoProgram, ProgramMang>();
+builder.Services.AddScoped<RepoProgramExercies, ProgramExerciesMang>();
+builder.Services.AddScoped<RepoExercises, ExercisesMang>();
 builder.Services.AddScoped<IFormFileMang, RepoFile>();
+
 
 builder.Services.AddSwaggerGen();
 
@@ -67,7 +73,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseCors(builder =>
-    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+    builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader()
 );
 
 app.UseAuthorization();

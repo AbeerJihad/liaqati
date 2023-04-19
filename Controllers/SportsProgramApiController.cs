@@ -1,4 +1,4 @@
-﻿namespace ProgectApi.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

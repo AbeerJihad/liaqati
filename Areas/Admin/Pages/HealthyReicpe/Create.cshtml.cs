@@ -15,9 +15,14 @@ namespace liaqati_master.Pages.HealthyReicpe
               nameof(Category.Id),
               nameof(Category.Name)
               );
+            DieteryTypeStatusList = Database.GetListOfDietaryType();
+            MealTypeTypeStatusList = Database.GetListOfMealType();
+
         }
 
         public SelectList CatogeryName { get; set; }
+        public List<SelectListItem> DieteryTypeStatusList { get; set; }
+        public List<SelectListItem> MealTypeTypeStatusList { get; set; }
 
 
 
@@ -39,16 +44,15 @@ namespace liaqati_master.Pages.HealthyReicpe
 
             var guid = CommonMethods.Id_Guid();
             HealthyRecipes.Id = guid;
-            HealthyRecipes.Services!.Id = guid;
-            var id = HealthyRecipes.Services!.Category?.Id;
+            HealthyRecipes!.Id = guid;
+            //var id = HealthyRecipes.Category?.Id;
 
-            if (id != null)
-            {
-                HealthyRecipes.Services.CategoryId = id;
-            }
-            HealthyRecipes.Services.Category = null;
+            //if (id != null)
+            //{
+            //    HealthyRecipes.CategoryId = id;
+            //}
+
             HealthyRecipes.Image = "";
-            _UnitOfWork.ServiceRepository.Insert(HealthyRecipes.Services);
             _UnitOfWork.HealthyRecipesRepository.Insert(HealthyRecipes);
             _UnitOfWork.Save();
             return RedirectToPage("./Index");

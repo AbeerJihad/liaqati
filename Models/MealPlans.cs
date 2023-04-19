@@ -20,10 +20,9 @@
         [Display(Name = "صورة الوجبة")]
         public string? Image { get; set; }
 
-
-
         [ForeignKey(nameof(Id))]
         public virtual Service? Services { get; set; }
+        public virtual List<Meal_Healthy>? Meal_Healthy { get; set; }
 
         public MealPlans()
         {

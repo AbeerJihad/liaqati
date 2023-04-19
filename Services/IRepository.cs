@@ -10,5 +10,6 @@
         Task<T?> GetByIDAsync(string EntityId);
         Task SaveAsync();
 
+
     }
 }
