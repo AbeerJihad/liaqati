@@ -12,13 +12,13 @@
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "مستوى الصعوبة")]
         public int Duration { get; set; }
-        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Required]
         [Display(Name = "الجزءالذي يركز عليه النظام من الجسم")]
         public string? BodyFocus { get; set; }
-        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Required]
         [Display(Name = "المعدات")]
         public string? Equipment { get; set; }
-        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Required]
         [Display(Name = "نوع التدريب")]
         public string? TrainingType { get; set; }
         [Display(Name = "صورة")]

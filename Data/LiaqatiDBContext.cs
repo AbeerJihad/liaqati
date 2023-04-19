@@ -15,6 +15,7 @@ namespace liaqati_master.Data
         public DbSet<Exercise> TblExercises { get; set; }
         public DbSet<MealPlans> TblMealPlans { get; set; }
         public DbSet<HealthyRecipe> TblHealthyRecipe { get; set; }
+        public DbSet<Meal_Healthy> TblMeal_Healthy { get; set; }
         public DbSet<Product> TblProducts { get; set; }
         public DbSet<Achievement> TblAchievements { get; set; }
         public DbSet<Exercies_program> TblExercies_program { get; set; }
@@ -25,10 +26,11 @@ namespace liaqati_master.Data
         public DbSet<Chat> TblChat { get; set; }
         public DbSet<ChatUser> TblChatUser { get; set; }
         public DbSet<Category> TblCategory { get; set; }
-        public DbSet<Category> TblContactUs { get; set; }
+        public DbSet<ContactUs> TblContactUs { get; set; }
         public DbSet<Notification> TblNotification { get; set; }
         public DbSet<Coupon_redemption> TblCoupon_redemption { get; set; }
         public DbSet<Coupon> TblCoupon { get; set; }
+        public DbSet<Files> TblFiles { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,7 +39,6 @@ namespace liaqati_master.Data
 
             //Relations
             modelBuilder.Entity<Order_Details>().HasOne(a => a.Rate).WithOne(a => a.Order_Details).HasForeignKey<Rate>(c => c.Order_DetailsId);
-            modelBuilder.Entity<Service>().HasOne(a => a.HealthyRecipes).WithOne(a => a.Services).HasForeignKey<HealthyRecipe>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.Products).WithOne(a => a.Services).HasForeignKey<Product>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.MealPlans).WithOne(a => a.Services).HasForeignKey<MealPlans>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.SportsProgram).WithOne(a => a.Services).HasForeignKey<SportsProgram>(c => c.Id);

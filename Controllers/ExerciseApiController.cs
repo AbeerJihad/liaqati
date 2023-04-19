@@ -1,28 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-
-namespace ProgectApi.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ExerciseApiController : ControllerBase
     {
-        readonly  LiaqatiDBContext _context;
+        readonly LiaqatiDBContext _context;
 
 
         public ExerciseApiController(LiaqatiDBContext context)
         {
             _context = context;
-           
+
         }
 
         [HttpGet("AllExercise")]
         public async Task<ActionResult<List<Exercise>>> GetAllExercise()
         {
-
-            return Ok(await  _context.TblExercises.ToArrayAsync());
+            return Ok(await _context.TblExercises.ToArrayAsync());
         }
 
         [HttpGet("GetExerciseById/{id}")]
@@ -71,7 +65,7 @@ namespace ProgectApi.Controllers
 
         public async Task<ActionResult<Exercise>> DeleteExercise(int id)
         {
-            Exercise item = _context.TblExercises.Find(id);
+            Exercise? item = await _context.TblExercises.FindAsync(id);
 
             if (item == null)
             {

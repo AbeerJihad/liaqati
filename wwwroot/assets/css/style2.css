@@ -43953,6 +43953,11 @@ span.twitter-typeahead .tt-suggestion {
     }
 }
 
+
+
+.form-conrtol, .form-select {
+    height: 50px !important;
+}
 /**=====================
     60. RTL CSS Ends
 ==========================**/

@@ -13,5 +13,7 @@
         public virtual List<Service>? Services { get; set; }
         [System.Text.Json.Serialization.JsonIgnore]
         public virtual List<Article>? Articles { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
+        public virtual List<HealthyRecipe>? HealthyRecipes { get; set; }
     }
 }

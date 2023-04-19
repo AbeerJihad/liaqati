@@ -3,6 +3,10 @@
 @model liaqati_master.Pages.Home.IndexModel
 @{
 }
+@section Styles{
+    <link rel="stylesheet" href="~/User/css/PieChart.css" asp-append-version="true" />
+
+}
 
 <div class="position-relative w-100 min-vh-100 overflow-hidden ">
     <video autoplay muted loop id="myVideo" class="d-none d-xl-block">
@@ -30,7 +34,7 @@
                             <select title="Select Type Of Service"
                                     id="MySelect"
                                     name="select"
-                                    class="wide rounded-0">
+                                    class="wide rounded-0" style="display:none;">
                                 <option value="نوع الخدمة">نوع الخدمة</option>
                                 <option value="1نوع الخدمة">1نوع الخدمة</option>
                                 <option value="2نوع الخدمة">نوع الخدمة1</option>
@@ -38,11 +42,12 @@
                             </select>
                         </div>
                         <div class="col-12 my-2 my-lg-0 col-lg-3">
-                            <input placeholder="بحث"
-                                   type="submit"
-                                   value="بحث"
-                                   class="form-control rounded-start-0 text-center"
-                                   style="background-color: #e4dfff" />
+                            <button placeholder="بحث"
+                                    type="submit"
+                                    class="btn rounded-start-0 w-100 text-center btn-main"
+                                    style="height:50px">
+                                بحث
+                            </button>
                         </div>
                     </form>
                     <div>
@@ -126,45 +131,7 @@
 @await Component.InvokeAsync("Trainers")
 @await Component.InvokeAsync("MostSoughtProducts")
 
-
-
 @section Scripts{
-    <script>
-        var options = {
-            searchable: false,
-            placeholder: "select",
-            searchtext: "zoek",
-            selectedtext: "geselecteerd",
-        };
-        NiceSelect.bind(document.getElementById("MySelect"), options);
-        var MySelect = document.getElementById("MySelect").addEventListener("change", () =>
-            alert(document.getElementById("MySelect").value)
-        );
-
-        var navbarToggler = document.getElementById("navbarToggler");
-        var navbarCollapse = document.getElementById("navbarCollapse");
-        var blurDiv = document.querySelector(".blur-div");
-        var closeBtn = document.querySelector(".close");
-        navbarToggler.onclick = () => {
-            navbarCollapse.classList.add("showNav");
-            document.body.classList.add("disable-scroll");
-            blurDiv.classList.add("blur");
-        };
-        closeBtn.onclick = () => {
-            Rest();
-        };
-        function Rest() {
-            navbarCollapse.classList.remove("showNav");
-            document.body.classList.remove("disable-scroll");
-            blurDiv.classList.remove("blur");
-        }
-        window.onresize = () => {
-            Rest();
-        };
-
-
-
-    </script>
-
-    <script src="~/user/js/swipersliders.js"></script>
+    <script defer src="~/User/js/SwiperSliders.js"></script>
+    <script src="~/User/js/Index.js" asp-append-version="true"></script>
 }

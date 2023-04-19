@@ -1,0 +1,238 @@
+﻿@page
+@model liaqati_master.Areas.Admin.Pages.Products.IndexProductModel
+@{
+    var parms = new Dictionary<string, string>
+    {
+        {nameof(Model.ProductQueryParamters.CurPage),Model.ProductQueryParamters.CurPage.ToString()},
+        {nameof(Model.ProductQueryParamters.SortBy),Model.ProductQueryParamters.SortBy},
+        {nameof(Model.ProductQueryParamters.SortOrder),Model.ProductQueryParamters.SortOrder},
+        {nameof(Model.ProductQueryParamters.SearchTearm),Model.ProductQueryParamters.SearchTearm},
+        {nameof(Model.ProductQueryParamters.Size),Model.ProductQueryParamters.Size.ToString()},
+        {nameof(Model.ProductQueryParamters.CategoryId),Model.ProductQueryParamters.CategoryId??""},
+    };
+}
+@section Styles{
+    <link href="~/assets/css/Tables.css" rel="stylesheet" />
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+}
+
+
+<form method="post" asp-page="./Index">
+    <div class="container-lg ">
+        <div class=" ">
+            <div class="row justify-content-center">
+                <div class="col  py-2 ">
+                    <div class="products-total d-flex gap-2">
+                        @if (!Model.IsGrid)
+                        {
+                            <div class="square-product-setting d-inline-block">
+                                <a class="icon-grid m-0 grid-layout-view" asp-page="./Index" asp-route-grid="1"
+                                   title="">
+                                    <i class="bi bi-grid"></i>
+                                </a>
+                            </div>
+                            <div class="square-product-setting d-inline-block">
+                                <a class="icon-grid m-0  list-layout-view" title="">
+                                    <i class="bi bi-list-ul"></i>
+                                </a>
+                            </div>
+
+                        }
+
+                        else
+                        {
+                            <div class="square-product-setting d-inline-block">
+                                <a class="icon-grid m-0 grid-layout-view"
+                                   title="">
+                                    <i class="bi bi-grid"></i>
+                                </a>
+                            </div>
+                            <div class="square-product-setting d-inline-block">
+                                <a class="icon-grid m-0  list-layout-view" title="" asp-page="./Index" asp-route-grid="0">
+                                    <i class="bi bi-list-ul"></i>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col   py-2  d-flex justify-content-end gap-2">
+                    <button class="btn btn-outline-primary" type="button">استيراد<i class="bi bi-download ms-2"></i></button>
+                    <button class="btn btn-outline-primary" type="button">تصدير<i class="bi bi-upload ms-2"></i></button>
+                    <a class="btn btn-primary" asp-page="./Create">إضافة<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+                </div>
+
+                <div class="col-md-12 project-list">
+                    <div class="card p-3">
+                        <div class="row m-0">
+                            <div class="col">
+                                <div class="feature-products">
+                                    <div class="form-group m-0">
+                                        <input class="form-control m-0" type="search" placeholder="Search.."><i class="bi bi-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <select id="lstSort" onchange="submit()" name="SortBy"
+                                        class="form-select" asp-for="ProductQueryParamters.SortBy" asp-items="Model.SortList">
+                                    <option value="" selected>ترتيب حسب</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-12">
+                    <div class="card  border-raduis">
+                        <div class="card-header bg-transparent px-0 py-4 ">
+
+                            <h5>المستخدمين</h5>
+
+                        </div>
+                        @if (!Model.IsGrid)
+                        {
+                            <div class="table-responsive table-hover">
+                                <table class="table  table-borderless" id="Tbl">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" width="50">
+                                                <input class="form-check-input " type="checkbox" id="chk-all" value="">
+                                            </th>
+                                            <th scope="col" width="100">الصورة</th>
+                                            <th scope="col" width="180">العنوان</th>
+                                            <th scope="col" width="180">الخصم</th>
+                                            <th scope="col" width="120">الخصم</th>
+                                            <th scope="col" width="120">الخصم</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.QueryPageResult.ListOfData)
+                                        {
+                                            <tr>
+                                                <td scope="row">
+                                                    <label class="d-block">
+                                                        <input class="checkbox_animated" type="checkbox">
+                                                    </label>
+                                                </td>
+                                                <td class="">
+                                                    <div class="img__box position-relative m-0  rounded-circle">
+                                                        <img width="40" alt="Mark" class="position-absolute "
+                                                             src="@item.ImgUrl" />
+                                                    </div>
+                                                </td>
+
+                                                <td>@item.Services!.Title</td>
+                                                <td>@item.Services!.Price?.ToString("c")</td>
+                                                <td>@item.Discount.ToString("c")</td>
+
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
+                                                           style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
+                                                           type="button">
+                                                            <i class="bi bi-pencil-square"></i>
+                                                        </a>
+                                                        <form method="post" asp-page="Delete">
+                                                            <input name="id" asp-for="@item.Id" type="hidden" />
+                                                            <a class="btn" onclick="DeleteFun(this)" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
+                                                        </form>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                               @{
+                                                   ;
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row product-row row-cols-lg-3 p-0 g-0 ">
+                                @foreach (var item in Model.QueryPageResult.ListOfData)
+                                {
+
+                                    <partial name="_ProductCard" model="item" />
+
+                                }
+                            </div>
+                        }
+
+
+                    </div>
+                    <partial name="_Manage__data" />
+                </div>
+                @*                <partial name="_Manage__data.cshtml" />
+                *@
+
+                @*    @Html.Partial("_Manage__data.cshtml");*@
+            </div>
+        </div>
+        <partial name="_ConfirmDeleteModel" />
+        <partial name="_ImageViewer" />
+    </div>
+
+    @{
+        parms["CategoryId"] = Model.ProductQueryParamters.CategoryId ?? "";
+        var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
+        var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
+        var first = (Model.ProductQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+        var last = (Model.ProductQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+        var firstIndex = Math.Max(Model.ProductQueryParamters.CurPage - 2, 1);
+        var lastIndex = Math.Min(Model.ProductQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
+    }
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination  justify-content-end px-5">
+            @{
+                parms["CurPage"] = "1" ?? "";
+            }
+            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms">الصفحة الاولى</a></li>
+            @{
+                parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
+            }
+            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms">الصفحة السابقة</a></li>
+
+            @for (int i = firstIndex; i <= lastIndex; i++)
+            {
+                parms["CurPage"] = i.ToString();
+                string a = Model.ProductQueryParamters.CurPage == i ? "active" : "";
+                <li class="page-item"><a class="page-link @a" asp-all-route-data="parms">@i</a></li>
+            }
+            @{
+                parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
+            }
+            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة التالية</a></li>  @{
+                parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
+            }
+            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة الاخيرة</a></li>
+        </ul>
+    </nav>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts{
+    @*    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+*@    <script src="~/javascript/table.js" asp-append-version="true"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/javascript/script.js" asp-append-version="true"></script>
+    <script>
+
+    </script>
+    }
+
+
+

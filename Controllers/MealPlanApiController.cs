@@ -5,15 +5,18 @@
     public class MealPlanApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
+        readonly IRepository<MealPlans> _IRepoMealPlans;
         readonly UnitOfWork _unitOfWork;
 
 
 
-        public MealPlanApiController(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public MealPlanApiController(LiaqatiDBContext context, UnitOfWork unitOfWork, IRepository<MealPlans> iRepoMealPlans)
         {
             _context = context;
             _unitOfWork = unitOfWork;
+            _IRepoMealPlans = iRepoMealPlans;
         }
+
 
         [HttpGet("AllMealPlan")]
         public async Task<ActionResult<List<MealPlans>>> GetAllMealPlan()
@@ -30,16 +33,12 @@
             return Ok(await _context.TblMealPlans.FindAsync(id));
         }
 
-
-
-
         [HttpGet("LatesMealPlans")]
         public async Task<ActionResult<List<MealPlans>>> LatesMealPlans()
         {
 
             return Ok(await _context.TblMealPlans.OrderByDescending(x => x.Id).ToArrayAsync());
         }
-
 
         [HttpPost]
         public async Task<ActionResult<MealPlans>> AddMealPlans([FromForm] MealPlans MealPlans)
@@ -135,9 +134,9 @@
 
 
 
-        [HttpPut("EditArticles/{id}")]
+        [HttpPut("Edit/{id}")]
 
-        public async Task<ActionResult<MealPlans>> EditArticles(int id, MealPlans MealPlans)
+        public async Task<ActionResult<MealPlans>> EditMealPlans(int id, MealPlans MealPlans)
         {
             if (_context.TblMealPlans.Find(id) == null)
             {
@@ -163,6 +162,35 @@
         }
 
 
+
+
+        [HttpGet]
+        [Route("search")]
+        public async Task<ActionResult> SearchForMealPlans([FromQuery] MealPlansQueryParamters Parameters)
+        {
+
+            IQueryable<MealPlans> products = (await _IRepoMealPlans.GetAllAsync()).AsQueryable();
+            if (Parameters.CategoryId != null)
+            {
+                products = products.Where(p => p.Services.CategoryId == Parameters.CategoryId);
+            }
+            if (Parameters.MinPrice != null)
+            {
+                products = products.Where(p => p.Services.Price >= Parameters.MinPrice);
+            }
+            if (Parameters.MaxPrice != null)
+            {
+                products = products.Where(p => p.Services.Price <= Parameters.MaxPrice);
+            }
+            if (!string.IsNullOrEmpty(Parameters.SearchTearm))
+            {
+                products = products.Where(p => p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+            }
+            QueryPageResult<MealPlans> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
+
+            return Ok(queryPageResult);
+
+        }
 
 
 

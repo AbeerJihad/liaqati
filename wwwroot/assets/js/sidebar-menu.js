@@ -135,7 +135,6 @@ var widthwindow = $window.width();
 $(window).resize(function () {
     var widthwindaw = $window.width();
     if (widthwindaw + 17 <= 991) {
-        alert(widthwindaw);
         $toggle_nav_top.attr('checked', false);
         $nav.addClass("close_icon");
         $header.addClass("close_icon");

@@ -1,45 +1,7 @@
 ﻿@model VMMostSoughtProducts
-<style>
-    .boradius {
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-    }
+<link rel="stylesheet" href="~/User/css/Products.css" asp-append-version="true" />
 
-    .star {
-        color: gold !important;
-    }
 
-    .card,
-    .imgBackground {
-        transition: 0.2s;
-    }
-
-        .card:hover .imgBackground {
-            background: #cdc6f1;
-        }
-
-        .card:hover .card-body {
-            background: #eeedf5;
-        }
-
-        .card:hover {
-            box-shadow: 0 0 10px rgb(210, 196, 196);
-            transform: translateY(-10px) !important;
-        }
-
-    .box-img {
-        height: 200px !important;
-    }
-
-    .btnRed {
-        color: red !important;
-    }
-
-    .bg {
-        background-image: linear-gradient(#00000060, #00000060), url('/Images/strong-man-training-gym.png');
-        height: 70vh;
-    }
-</style>
 @if (Model.ProductsCount > 0)
 {
     <div class="container mt-5">
@@ -62,7 +24,7 @@
                     </div>
                     <p class="fw-bold">المزيد...</p>
                 </div>
-                <div class="row row-cols-lg-2 p-0 g-0 products-row">
+                <div class="row product-row row-cols-1  row-cols-md-2  p-0 g-0 ">
                     @if (Model.ProductsOfCategorySupplementation != null)
                     {
                         @for (int i = 0; i < Model.ProductsOfCategorySupplementation.Count; i++)
@@ -75,10 +37,10 @@
             </div>
             <div class="col-12  col-lg-6">
                 <div class="d-flex justify-content-between">
-                    <p class="fw-bold">المزيد ...</p>
                     <h5 class="">اجهزة رياضية</h5>
+                    <p class="fw-bold">المزيد ...</p>
                 </div>
-                <div class="row row-cols-lg-2 p-0 g-0 products-row">
+                <div class="row product-row row-cols-1  row-cols-md-2  p-0 g-0 ">
                     @if (Model.ProductsOfCategorySportsEquipment != null)
                     {
                         @for (int i = 0; i < Model.ProductsOfCategorySportsEquipment.Count; i++)

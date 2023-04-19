@@ -82,6 +82,7 @@ namespace liaqati_master.Pages.Programs
             }
 
 
+            SportsProgram.Exercies_Programs = SportsProgram.Exercies_Programs!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
 
 
 

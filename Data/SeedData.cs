@@ -14,10 +14,10 @@ namespace liaqati_master.Data
             //var migrations = liaqatiDBContext.Database.GetPendingMigrations();
             //if (migrations.Any())
             // liaqatiDBContext.Database.Migrate();
-            if (!liaqatiDBContext.TblSportsProgram.Any())
-            {
-                await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfSportsProgram());
-            }
+            //if (!liaqatiDBContext.TblSportsProgram.Any())
+            //{
+            //    await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfSportsProgram());
+            //}
             await SeedRoles(RoleManager);
             await SeedUsers(userManager, RoleManager);
         }
