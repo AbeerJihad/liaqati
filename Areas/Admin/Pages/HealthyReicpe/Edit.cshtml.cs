@@ -60,7 +60,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             item!.Title = HealthyRecipes.Title;
             item.Price = HealthyRecipes.Price;
             item.Description = HealthyRecipes.Description;
-            item.DieteryType = HealthyRecipes.DieteryType;
+            item.DietaryType = HealthyRecipes.DietaryType;
             item.MealType = HealthyRecipes.MealType;
             item.PrepTime = HealthyRecipes.PrepTime;
             item.Calories = HealthyRecipes.Calories;

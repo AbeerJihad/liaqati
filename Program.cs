@@ -34,18 +34,32 @@ builder.Services.Configure<IdentityOptions>((options =>
     options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890@.ضصثقفغعهخحجدشسيبلاتنمكطئء ؤرلاىةوزظإآ";
 }));
 
-builder.Services.AddScoped<GenericRepository<Order>>();
-builder.Services.AddScoped<GenericRepository<User>>();
-builder.Services.AddScoped<IRepository<Article>, RepoArticles>();
-builder.Services.AddScoped<IRepository<MealPlans>, RepoMealPlans>();
-builder.Services.AddScoped<RepProducts>();
-builder.Services.AddScoped<RepoFiles>();
-builder.Services.AddScoped<GenericRepository<SportsProgram>>();
+
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IRepoProgram, ProgramMang>();
-builder.Services.AddScoped<RepoProgramExercies, ProgramExerciesMang>();
-builder.Services.AddScoped<RepoExercises, ExercisesMang>();
+builder.Services.AddScoped<IRepoProgramExercies, ProgramExerciesMang>();
 builder.Services.AddScoped<IFormFileMang, RepoFile>();
+builder.Services.AddScoped<IRepoMealPlans>();
+builder.Services.AddScoped<IRepoFiles>();
+builder.Services.AddScoped<IRepoArticles>();
+builder.Services.AddScoped<IRepoExercise>();
+builder.Services.AddScoped<IRepoProducts>();
+builder.Services.AddScoped<IRepoFavorite>();
+builder.Services.AddScoped<IRepoFavorite_Servies>();
+builder.Services.AddScoped<IRepoCoupon_redemption>();
+builder.Services.AddScoped<IRepoCoupon>();
+builder.Services.AddScoped<IRepoChat>();
+builder.Services.AddScoped<IRepoChatUser>();
+builder.Services.AddScoped<IRepoComments>();
+builder.Services.AddScoped<IRepoComment_Servies>();
+builder.Services.AddScoped<IRepoContactUs>();
+builder.Services.AddScoped<IRepoCategory>();
+builder.Services.AddScoped<IRepoAchievement>();
+builder.Services.AddScoped<IRepoHealthyRecipe>();
+builder.Services.AddScoped<IRepoOrder>();
+builder.Services.AddScoped<IRepoOrder_Details>();
+builder.Services.AddScoped<IRepoRate>();
+builder.Services.AddScoped<IRepoService>();
 
 
 builder.Services.AddSwaggerGen();
@@ -59,6 +73,10 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
+
+    app.UseSwagger();
+    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); c.RoutePrefix = ""; });
+
 }
 else
 {

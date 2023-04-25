@@ -21,10 +21,10 @@
         //public virtual Category? Category { get; set; }
         public string? Image { get; set; } = "";
         [Display(Name = "نوع الوجبة")]
-        public MealTypeTypeStatus MealType { get; set; }
+        public string? MealType { get; set; }
 
         [Display(Name = "النوع الغذائي")]
-        public DieteryTypeStatus DieteryType { get; set; }
+        public string? DietaryType { get; set; }
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "وقت التحضير")]
@@ -38,17 +38,24 @@
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "كمية البروتين")]
         public int Protein { get; set; }
+        [Display(Name = "كمية البروتين")]
+        public int ViewsNumber { get; set; }
         //  [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        [Display(Name = "المكونات")]
+        [Display(Name = "المكونات"), Column(TypeName = "NTEXT")]
         public string? Ingredients { get; set; }
         // [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        [Display(Name = "طريقة التحضير؟")]
+        [Display(Name = "طريقة التحضير؟"), Column(TypeName = "NTEXT")]
         public string? PreparationMethod { get; set; }
+        [Display(Name = " التقييم"), Range(0, 100)]
+        public double? RatePercentage { get; set; }
+        public DateTime? CreatedDate { get; set; } = DateTime.Now;
+        public bool? IsFeatured { get; set; }
+        public virtual List<Rate>? Rate { get; set; }
         public virtual List<Meal_Healthy>? Meal_Healthy { get; set; }
 
 
     }
-    public enum DieteryTypeStatus { Omnivore, Vegetarian }
+    public enum DietaryTypeStatus { Omnivore, Vegetarian }
     public enum MealTypeTypeStatus { SideDish, Breakfast, Lunch, Dinner, Snack }
 }
 

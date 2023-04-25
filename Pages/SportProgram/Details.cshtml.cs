@@ -5,9 +5,9 @@ namespace liaqati_master.Pages.ProgramPages
 {
     public class DetailsModel : PageModel
     {
-        readonly RepoExercises _repocontextExer;
+        readonly IRepoExercise _repocontextExer;
         readonly LiaqatiDBContext _context;
-        public DetailsModel(RepoExercises repocontextExer, LiaqatiDBContext context)
+        public DetailsModel(IRepoExercise repocontextExer, LiaqatiDBContext context)
         {
             _repocontextExer = repocontextExer;
             _context = context;
@@ -25,7 +25,7 @@ namespace liaqati_master.Pages.ProgramPages
         public async Task<IActionResult> OnGet(string? id)
         {
 
-            Exercise exercise = await _repocontextExer.GetExercises(id);
+            Exercise? exercise = await _repocontextExer.GetByIDAsync(id);
 
             if (exercise == null)
             {

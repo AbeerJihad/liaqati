@@ -7,10 +7,10 @@ namespace liaqati_master.Pages.SportProgram
     {
 
         readonly IRepoProgram _repoProgram;
-        readonly RepoProgramExercies _repocontext;
-        readonly RepoExercises _repocontextExer;
+        readonly IRepoProgramExercies _repocontext;
+        readonly IRepoExercise _repocontextExer;
 
-        public ClenderModel(IRepoProgram repoProgram, RepoProgramExercies repocontext, RepoExercises repocontextExer)
+        public ClenderModel(IRepoProgram repoProgram, IRepoProgramExercies repocontext, IRepoExercise repocontextExer)
         {
             _repoProgram = repoProgram;
             _repocontext = repocontext;
@@ -57,7 +57,7 @@ namespace liaqati_master.Pages.SportProgram
                         foreach (Exercies_program exercies in exercies_Programs)
                         {
 
-                            Exercise ex = await _repocontextExer.GetExercises(exercies.ExerciseId);
+                            Exercise ex = await _repocontextExer.GetByIDAsync(exercies.ExerciseId);
 
 
                             Events.Add(new Event() { Id = ex.Id, title = "", start = DateOnly.FromDateTime(date).ToString("yyyy-MM-dd") });

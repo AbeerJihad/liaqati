@@ -135,39 +135,65 @@ namespace liaqati_master.Data
                 Value = "حيواني", Text = "حيواني"
             },
         };
-        public static List<SelectListItem> GetBodyFocusCategories() => new()
+        public static List<SelectListItem> GetListOfBodyFocus() => new()
         {
-            new SelectListItem
-            {
-                Value = "الجزء العلوي", Text = "الجزء العلوي"
-            },
-            new SelectListItem
-            {
-                Value = "الجزء السفلي", Text = "الجزء السفلي"
-            },
-            new SelectListItem
-            {
-                Value = "محور الجسم", Text = "محور الجسم"
-            },
-            new SelectListItem
-            {
-                Value = "جميع الجسم", Text = "جميع الجسم"
-            }
+
+            new SelectListItem() { Text = "الجسم السفلي من الجسم" ,Value = " الجسم السفلي من الجسم" },
+             new SelectListItem() { Text = "الجزء العلوي من الجسم" ,Value = "الجزء العلوي من الجسم" },
+             new SelectListItem() { Text = "جوهر" ,Value = "جوهر" },
+             new SelectListItem() { Text = "الجسم بالكامل" ,Value = "الجسم بالكامل" }
+
+
         };
-        public static List<SelectListItem> GetDifficultyCategories() => new()
+        public static List<SelectListItem> GetListOfTrainingType() => new()
         {
-            new SelectListItem
-            {
-                Value = "1", Text = "سهل"
-            },
-            new SelectListItem
-            {
-                Value = "2", Text = "متوسط"
-            },
-            new SelectListItem
-            {
-                Value = "3", Text = "صعب"
-            },
+            new SelectListItem() { Text = "HIIT" ,Value = "HIIT" },
+            new SelectListItem() { Text = "تدريب القوة" ,Value = "تدريب القوة" },
+            new SelectListItem() { Text = "بيلاتيس" ,Value = "بيلاتيس" },
+            new SelectListItem() { Text = "كيتل بيل" ,Value = "كيتل بيل" },
+            new SelectListItem() { Text = "الكيك بوكسينغ" ,Value = "الكيك بوكسينغ" },
+            new SelectListItem() { Text = "التنغيم" ,Value = "التنغيم" },
+            new SelectListItem() { Text = "التوازن / الرشاقة" ,Value = "التوازن / الرشاقة" },
+            new SelectListItem() { Text = "بليومترك" ,Value = "بليومترك" },
+            new SelectListItem() { Text = "باري" ,Value = "باري" },
+            new SelectListItem() { Text = "اليوغا" ,Value = "اليوغا" },
+            new SelectListItem() { Text = "الاحماء / التبريد" ,Value = "الاحماء / التبريد" },
+            new SelectListItem() { Text = "تأثير ضعيف" ,Value = "تأثير ضعيف" },
+            new SelectListItem() { Text = "التمدد / المرونة" ,Value = "التمدد / المرونة" } ,
+            new SelectListItem() { Text = "القلب والأوعية الدموية" ,Value = "القلب والأوعية الدموية" },
+            new SelectListItem() { Text = "تدريب القوة" ,Value = "تدريب القوة" }
+
+
+        };
+        public static List<SelectListItem> GetListOfEquipment() => new()
+        {
+
+             new SelectListItem() { Text = "لا معدات" ,Value = "لا معدات" },
+             new SelectListItem() { Text = "الدمبل" ,Value = "الدمبل" },
+             new SelectListItem() { Text = "حصيرة" ,Value = "حصيرة" },
+             new SelectListItem() { Text = "مقعد" ,Value = "مقعد" },
+             new SelectListItem() { Text = "حزام التمارين الرياضية" ,Value = "حزام التمارين الرياضية" },
+             new SelectListItem() { Text = "حبل قفز" ,Value = "حبل قفز" },
+             new SelectListItem() { Text = "كيتل بيل" ,Value = "كيتل بيل" },
+             new SelectListItem() { Text = "كرة طبية" ,Value = "كرة طبية" } ,
+             new SelectListItem() { Text = "فيزيو بول" ,Value = "فيزيو بول" },
+             new SelectListItem() { Text = "كيس الرمل" ,Value = "كيس الرمل" },
+             new SelectListItem() { Text = "اسطوانة رغوة" ,Value = "اسطوانة رغوة" },
+             new SelectListItem() { Text = "خطوة التمرين" ,Value = "خطوة التمرين" },
+             new SelectListItem() { Text = "آخر" ,Value = "آخر" }
+
+
+        };
+        public static List<SelectListItem> GetListOfDifficulty() => new()
+        {
+
+            new SelectListItem() { Text = "1" ,Value = "1" },
+            new SelectListItem() { Text = "2" ,Value = "2" },
+            new SelectListItem() { Text = "3" ,Value = "3" },
+            new SelectListItem() { Text = "4" ,Value = "4" },
+            new SelectListItem() { Text = "5" ,Value = "5" },
+
+
         };
         public static List<User> GetListOfUsers()
         {
@@ -799,7 +825,11 @@ namespace liaqati_master.Data
             return new List<Exercise>()
             {
              new Exercise(){Id="1" ,
-                 TraningType="تدريب القوة" ,BurnEstimate="50-250", Title="اليوجا الصباحية للجسم بالكامل",Price=0, BodyFocus="الجسم بالكامل" ,
+                 TraningType="تدريب القوة" ,
+                 BurnEstimate="50-250",
+                 Title="اليوجا الصباحية للجسم بالكامل",
+                 Price=0,
+                 BodyFocus="الجسم بالكامل" ,
                  Detail="هذا التدفق هو واحد من المفضلة. عندما أستيقظ في الصباح ، أحب أن أبدأ يومي بتمديدات روتينية من شأنها أن تجعل دمي يتدفق ، وطاقي ، وتضبط نغمة اليوم. هذه الممارسة ستجعلك تتعرق وتساعد " +"جسمك على تخفيف الضغط في نفس الوقت. تخلق أنماط الحركة ذاكرة حسية يمكننا البناء عليها. بدءًا من نمط التنفس ، تهدف كل حركة إلى مطابقة كل شهيق أو زفير لتشجيع التنفس العميق الذي يعزز الشعور بالتوتر ، ويزيد من مستوى الطاقة والاسترخاء ، ويثبت ضغط الدم. إذا ركزت على أنفاسك ، فسوف يهدأ عقلك. فيما يلي بعض إشارات المحاذاة التي يجب وضعها في الاعتبار للسلامة في Low Lunge:\r\n\r\nابدأ في اندفاع العداء ، والساق اليمنى للأمام مع الركبة فوق الكاحل والركبة اليسرى على الأرض مع وضع الجزء العلوي من قدمك على السجادة" +
              ". ارفع الجذع ببطء وضع يديك برفق على الفخذ الأيمن. تميل الوركين إلى الأمام قليلاً ،" +
              " مع إبقاء الركبة اليمنى خلف أصابع القدم ، والشعور بالتمدد في ثني الورك الأيسر." +
@@ -808,28 +838,24 @@ namespace liaqati_master.Data
              "استمر لمدة 30 ثانية على الأقل ، ثم كرر على الجانب الآخر. تتضمن عضلات الجسم المنخفضة المستهدفة في هذا" +
              " التسلسل أوتار الركبة ، وثني الورك ، والرباعية ، والألوية. في كل مرة نتنقل فيها عبر نمط الحركة" +
              " ، سيكون هناك موقف أو وضعان مضافان إلى التسلسل. التكرار مع كل الجسم للانفتاح على كل شكل تدريجيًا.",
-             Difficulty=3 , Duration=27,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=w5y3Zl1F5Vs", Equipments="حصيرة ، معدات اليوجا"},
-
-
+             Difficulty=3 , Duration=27,Image="/images/Exercise/1.png",Video="https://www.youtube.com/watch?v=w5y3Zl1F5Vs", Equipments="حصيرة ، معدات اليوجا",RatePercentage = 50,exerciseDate= new DateTime(year: 2017, month: 3, 3)},
 
              new Exercise(){Id="2",TraningType = "الحركة",BurnEstimate="50-250",Title="تمارين تقوية الجسم بالكامل وتمارين القلب",Price=0, BodyFocus="الجسم بالكامل" , Detail="إذا كنت تريد ممارسة تمرينات رياضية فعالة في أقل من 25 دقيقة ، فلا داعي لمزيد من البحث. هذا مزيج قصير ولطيف بين نمطي تدريب مهمين: تدريب القوة وتمارين القلب والأوعية الدموية. يتم تقديم تعديلات عالية ومنخفضة التأثير حتى تتمكن من مقابلة جسمك تمامًا في مكانه.                        عندما يتعلق الأمر بالحصول على أقصى درجات \"الضجة\" لوقتك ، يمكن أن تكون قوة الاقتران وتمارين القلب فعالة للغاية. يسمح لنا تدريب القوة ببناء العضلات الخالية من الدهون بينما تحافظ تمارين القلب والأوعية الدموية على ارتفاع معدل ضربات القلب. يعملان معًا على تعزيز عملية التمثيل الغذائي وإطلاق الطاقة لتغذية يومك!\r\n\r\nكنت مؤخرًا أحضر فصلًا لركوب الدراجات حيث قال المدرب ، \"ما هي أفضل طريقة للاحتفال بجسدك من الشعور بإطلاق الطاقة والقوة التي يحملها جسمك؟\" لا يمكن اقبل المزيد. هذا التمرين هو النوع الذي يبدو وكأنه احتفال بما يمكن أن يفعله جسمك. دون أن تكون شديدة أو معتدلة للغاية ، فإنها تهبط في المنتصف تمامًا \"للاحتفال\" التمكيني والحيوي ، إذا رغبت في ذلك.",
-                 Difficulty=3 , Duration=23,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=R58oVgVgRlc"  , Equipments="دمبل"},
+                 Difficulty=3 , Duration=23,Image="/images/Exercise/2.png",Video="https://www.youtube.com/watch?v=R58oVgVgRlc"  , Equipments="دمبل",RatePercentage = 50,exerciseDate= new DateTime(year: 2023, month: 3, 3)},
             new Exercise(){Id="3",TraningType="تدريب القوة",BurnEstimate="50-250" ,Title="مجموعات القوة المركبة للجزء العلوي من الجسم",Price=0, BodyFocus="الجزء العلوي من الجسم" , Detail="أولاً ، سنركز على الصدر ، بدءًا من مكابس الأرضية ثم الانتقال بسرعة إلى ذبابة الصدر والانتهاء بضغطة سحق. بعد مجموعتين من تمارين الصدر ، سننتقل إلى الخلف ، بدءًا من الصفوف المنحنية ، والانتقال إلى الذباب العكسي ، والانتهاء من صف yates. مجموعتنا التالية سوف تستهدف الذراعين ، في المقام الأول العضلة ثلاثية الرؤوس والعضلة ذات الرأسين. بالنسبة لمجموعات الترايسبس لدينا ، نحتاج فقط إلى دمبل واحد. سنبدأ المجموعات بضغطة دمبل مفردة بقبضة قريبة ، وننتقل إلى كسارة جمجمة دمبل واحدة ، ثم ننتقل إلى تمديدات ثلاثية الرؤوس العلوية. (سوف تحترق عضلاتك ثلاثية الرؤوس ، لول). مجموعتنا التالية هي إحدى الطرق المفضلة لتدريب العضلة ذات الرأسين. سنستخدم المقاييس المتساوية لدفع العضلة ذات الرأسين هنا. تمريننا الأول هو ما أحب أن أسميه تجعيد الشعر أحادي الذراع ؛ سنقوم بعمل كل ذراع على حدة مع تلك قبل الانتهاء من تمارين العضلة ذات الرأسين القياسية. هذا المزيج يعمل دائمًا مع العضلة ذات الرأسين! في مجموعتنا النهائية ، سنركز على أكتافنا. سنبدأ العمل بضغط الكتف القياسي ، والانتقال إلى صفوفنا المستقيمة ، وإنهاء المجموعة مع صف دلتا الخلفي الذي يستهدف عضلات الدالية الصغيرة - مما يجعل هذه الطريقة المثالية لإنهاء تمرين الجزء العلوي من الجسم.",
-                Difficulty=4 , Duration=37,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=fPlN4amOMY8" ,  Equipments="دمبل"},
+                Difficulty=4 , Duration=37,Image="/images/Exercise/3.png",Video="https://www.youtube.com/watch?v=fPlN4amOMY8" ,  Equipments="دمبل",RatePercentage = 50,exerciseDate= new DateTime(year: 2022, month: 4, 3)},
              new Exercise(){Id="4",TraningType="اليوجا" ,BurnEstimate="50-250",Title="مجموعة القلب والقوة",Price=0, BodyFocus="الجسم بالكامل" , Detail="أولاً ، سنركز على الصدر ، بدءًا من مكابس الأرضية ثم الانتقال بسرعة إلى ذبابة الصدر والانتهاء بضغطة سحق. بعد مجموعتين من تمارين الصدر ، سننتقل إلى الخلف ، بدءًا من الصفوف المنحنية ، والانتقال إلى الذباب العكسي ، والانتهاء من صف yates. مجموعتنا التالية سوف تستهدف الذراعين ، في المقام الأول العضلة ثلاثية الرؤوس والعضلة ذات الرأسين. بالنسبة لمجموعات الترايسبس لدينا ، نحتاج فقط إلى دمبل واحد. سنبدأ المجموعات بضغطة دمبل مفردة بقبضة قريبة ، وننتقل إلى كسارة جمجمة دمبل واحدة ، ثم ننتقل إلى تمديدات ثلاثية الرؤوس العلوية. (سوف تحترق عضلاتك ثلاثية الرؤوس ، لول). مجموعتنا التالية هي إحدى الطرق المفضلة لتدريب العضلة ذات الرأسين. سنستخدم المقاييس المتساوية لدفع العضلة ذات الرأسين هنا. تمريننا الأول هو ما أحب أن أسميه تجعيد الشعر أحادي الذراع ؛ سنقوم بعمل كل ذراع على حدة مع تلك قبل الانتهاء من تمارين العضلة ذات الرأسين القياسية. هذا المزيج يعمل دائمًا مع العضلة ذات الرأسين! في مجموعتنا النهائية ، سنركز على أكتافنا. سنبدأ العمل بضغط الكتف القياسي ، والانتقال إلى صفوفنا المستقيمة ، وإنهاء المجموعة مع صف دلتا الخلفي الذي يستهدف عضلات الدالية الصغيرة - مما يجعل هذه الطريقة المثالية لإنهاء تمرين الجزء العلوي من الجسم. ",
-                 Difficulty=4 , Duration=23,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=d8QcqQA0zIQ", Equipments="حصيرة ، دمبل" },
+                 Difficulty=4 , Duration=23,Image="/images/Exercise/4.png",Video="https://www.youtube.com/watch?v=d8QcqQA0zIQ", Equipments="دمبل",RatePercentage=50 ,exerciseDate= new DateTime(year: 2021, month: 3, 3)},
              new Exercise(){Id="5",TraningType="تدريب القوة",BurnEstimate="50-250" ,Title="دوائر القوة الأساسية السريعة و الجوهر",Price=0, BodyFocus="جوهر" , Detail="يعد هذا التمرين القصير الذي يركز على النواة إضافة رائعة لروتين الجسم السفلي أو العلوي أو الكلي - ولكنه أيضًا خيار رائع كتمرين مستقل لحركتك الأساسية في اليوم. استخدم الإحماء أحادي الدورة لتهيئة عضلاتك الأساسية جسديًا للدوائر الصعبة ولكن القابلة للتكيف التي تليها ، ولكن ركز أيضًا على التدفق ببطء خلال كل تمرين لتنشيط اتصال العقل والعضلات لتوظيف العضلات بكفاءة.\r\n\r\n\r\n\r\n\r\nتحتوي كل دائرة على تمارين تجمع بين الإمساك المتساوي القياس وأنماط الحركة الديناميكية ولكن المتحكم فيها والتركيز على الاستقرار الأساسي. هذه التمارين لن تقوي فقط عضلات البطن (التي تشمل عضلات البطن ، الألوية ، عضلات الفخذ ، وعضلات الظهر السفلية) مع حركات الانثناء / الطحن التقليدية ، بل ستعمل أيضًا على تحسين مشاركة عضلات الجسم الكلية وتكامل الحركة (التدفق).\r\n\r\nلاحظ أنه لا يوجد سوى عدد قليل من التمارين المتعلقة بلوح في هذا التمرين ؛ لذلك ، إذا كانت لديك مخاوف من ألم الرسغ أثناء تمارين اللوح / وضعية الانبطاح ، فقد يكون هذا الروتين خيارًا رائعًا للاحتفاظ به في مجموعتك من أجل إجراءات الانتقال الأساسية المستقبلية. من الاعتبارات المهمة للجميع الحفاظ على ثنية طفيفة في الحوض أثناء تمارين وضعية الاستلقاء (الوجه لأعلى) والمنبطحة (الوجه لأسفل / اللوح الخشبي). على سبيل المثال ، أثناء الجزء الميت من تسلسل التنشيط بالإضافة إلى تمرين لوح الساعد في الدائرة رقم 1 ، تخيل أنك تقوم بإدخال عظام الفخذ إلى ضلوعك - قم بإمالة الجزء العلوي من عظام الحوض قليلاً إلى الأعلى والعودة باتجاه الجزء السفلي من القفص الصدري الخاص بك.\r\n\r\nفيما يلي بعض النصائح الإضافية لجعل هذا الروتين تجربة مُرضية لك:\r\n\r\nتشمل التعديلات لجميع التمارين تقليل نطاق الحركة و / أو ثني ركبتيك (تقصير الرافعة) لأي حركات تتضمن اختلافات في تمديد الساق.\r\nلاحظ التمارين الأكثر صعوبة بالنسبة لك وحدد الاختلافات في نطاقات الحركة والقوة وعدد التكرارات للتمارين ذات التركيز الأحادي (مثل v-ups المائلة). سيساعدك الانتباه إلى أكثر الاختلافات دقة في توجيه تركيزك أثناء المحاولات المستقبلية في هذا التمرين.\r\nلا تتردد في تكرار دائرة التبريد القصيرة لتمديد ممتد أو إضافة الامتدادات الخاصة بك لمساعدتك على العودة إلى حالة الاسترخاء والحيوية. يجب أن تشعر كما لو أن عضلاتك \"تعمل\" خلال هذا الروتين ولكن لا تزال تنتهي بعقلية \"جاهزة للتعامل مع أي شيء قادم\".\r\nيتمتع!",
-                 Difficulty=3 , Duration=19,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=B5ZZqBslKU0" , Equipments="حصيرة"},
+                 Difficulty=3 , Duration=19,Image="/images/Exercise/5.png",Video="https://www.youtube.com/watch?v=B5ZZqBslKU0" , Equipments="حصيرة",RatePercentage=50,exerciseDate= new DateTime(year: 2021, month: 1, 3)},
              new Exercise(){Id="6",TraningType="القلب والأوعية الدموية",BurnEstimate="50-250" ,Title="دارات تقوية الجسم الكلي مع عمل التوازن",Price=0, BodyFocus="الجسم بالكامل" , Detail="\r\nتساعد التدريبات أحادية الجانب على تعزيز المشاركة الأساسية ، وبالتالي تحسين الأساس الذي تبدأ منه كل الحركات.\r\nتعمل عضلاتك معًا بشكل تآزري لتقوية السلسلة الحركية بأكملها ، مما يقلل من فرص السقوط أو العثرات الضارة المحتملة أثناء الأنشطة المعتادة للحياة اليومية.\r\nيمكن أن يساعدك العمل المتوازن في تحديد مناطق الضعف والكتل المحتملة نحو تحسين الأداء الرياضي وكذلك تحسين التنسيق لأنماط الحركة المتقدمة والتمارين التي تحركها القوة.\r\nالتدريبات مع تحديات التوازن تعمل على تحسين الاتصال بين العقل والجسم. يؤدي هذا الاتصال المعزز إلى زيادة القدرة على التحمل الذهني والفعالية الذاتية اللازمة لإكمال التدريبات الصعبة.\r\nتوفر مثل هذه التدريبات استراحة من البلى من التدريب على التأثير وتتحدى الدماغ لطرق بديلة لمعالجة وعي العقل والجسم من أجل نهج شامل للياقة البدنية.\r\nكل حركة في هذا التمرين لها درجات متفاوتة من التوازن في العمل. أثناء دورات القوة ، ستكمل كل تمرين لمدة 45 ثانية ، وهي فترة زمنية كافية لتتعرف تمامًا على كل حركة. تؤدي إضافة درجة صغيرة من التوازن أثناء هذه الحركات التي تركز على القوة إلى زيادة وقت العضلات تحت التوتر للمساعدة في بناء القوة. بمجرد الانتقال إلى موازنة قطاعات العمل ، استفد من تنشيط العضلات الذي حدث أثناء دوائر القوة لتحقيق أقصى استفادة من الفواصل الزمنية التي تبلغ دقيقة واحدة والتركيز على الاستقرار.\r\n\r\nسأعترف ، لقد استمتعت تمامًا بالحركة بسرعة أبطأ من التدريبات المعتادة مع هذه الجلسة التي تركز على التوازن. لبضعة أيام بعد ذلك ، لاحظت أن العديد من العضلات شعرت بـ \"الاستيقاظ\" مع نوع صحي جيد من القرحة التي سمحت لي بمعرفة أنني كنت أهمل مجموعات عضلية معينة وطرق التدريب. خذ وقتك مع كل حركة واستمع إلى الملاحظات التي يقدمها لك جسمك. استمتع!",
-                 Difficulty=3 , Duration=45,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=UzAFN61CiVQ" , Equipments="حصيرة"},
+                 Difficulty=3 , Duration=45,Image="/images/Exercise/6.png",Video="https://www.youtube.com/watch?v=UzAFN61CiVQ" , Equipments="حصيرة",RatePercentage = 50,exerciseDate= new DateTime(year: 2021, month: 2, 3)},
              new Exercise(){Id="7",TraningType="تدريب القوة",BurnEstimate="50-250" ,Title="مجموعة سريعة من تمارين القلب والقوة و الجوهر  لكامل الجسم",Price=0, BodyFocus="الجسم بالكامل" , Detail="في منتصف عام 2022 ، قمت بتصوير تمرين بدا أن عددًا كبيرًا منكم يحبه حقًا. كان قسم التعليقات مليئًا بطلبات لتصوير المزيد مثله ، وعلى الرغم من أنني كنت أمتلك مجموعة من التدريبات الأخرى المطلوبة للحصول عليها أولاً ، إلا أنني لم أنس هذا التمرين (بفضل Kelli لتذكيري) وقمت ببناء علامة تجارية جديدة نسخة منه مع جميع التدريبات الجديدة. بالنسبة لأولئك منكم الذين لم يجربوا النسخة الأصلية ، يمكنك إلقاء نظرة هنا أو - بل أفضل - جرب كلاهما وأخبرني ما إذا كان هذا الإصدار الجديد يتوافق مع نفس المعيار.\r\n\r\n\r\n\r\n\r\nسواء كنت قد جربت الإصدار الأصلي أم لا ، لا يهم ، حيث إن كلاهما تمرين مستقل مصمم لروتين كامل للجسم متوازن. يحتوي هذا التمرين الذي يستغرق 26 دقيقة على كل شيء: الإحماء ، والتهدئة ، وفترات HIIT للقلب ، ومجموعات القوة ، والتمارين الأساسية ، كل ذلك في فاصل زمني سريع بأسلوب Tabata للحفاظ على هذا التمرين سريعًا.\r\n\r\nتم بناء كل مجموعة من المجموعات الأربع في هذا الروتين بنفس الطريقة تمامًا ولكن مع تمارين فريدة في كل مرة. تتكون المجموعات من تمرين HIIT من أجل انفجار القلب ، يليه تمرين قوة متعدد السلاسل لزيادة إجهاد العضلات ومكاسب القوة ، ثم ننهيها بتمرين أساسي للمتعة فقط. على الرغم من أن هذا التمرين قصير ، إلا أنه يحزم لك بالتأكيد ، خاصة إذا كنت تتحدى نفسك في مجموعات القوة.\r\n\r\nأيضًا ، إذا كنت تريد تحديًا إضافيًا لكامل الجسم ، فحاول القيام بكل من هذين التمرينين معًا أو كل منهما مرتين خلال تمرين كامل للجسم لمدة ساعة تقريبًا.",
-                 Difficulty=4 , Duration=26,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=3xR8ZKVALwo", Equipments = "حصيرة ، دمبل  ، بدون معدات "},
+                 Difficulty=4 , Duration=26,Image="/images/Exercise/7.png",Video="https://www.youtube.com/watch?v=3xR8ZKVALwo", Equipments = "حصيرة ، دمبل  ، بدون معدات ",RatePercentage = 50,exerciseDate= new DateTime(year: 2022, month: 5, 3)},
              new Exercise(){Id="8" , TraningType = "اليوجا" ,BurnEstimate="50-250" ,Title="تمرين الجسم الكلي السريع - 10 أو 15 دقيقة تختارها",Price=0, BodyFocus="الجسم بالكامل ", Detail="في تمرين اليوم نركز على السرعة. تم تصميم هذا التمرين القصير ولكن الفعال ليوفر لك تمرينًا جيدًا في أقصر وقت ممكن لتلك الأيام التي ربما لم تكن قد مارستها فيها على الإطلاق. لقد صممت هذا التمرين بعد نوبة أخيرة من العمل المكثف ومتطلبات الحياة التي ضربت في نفس الوقت ، مما يجعل التمرين لمدة 20 دقيقة يبدو كثيرًا.\r\n\r\nلقد صممت هذا الروتين عن قصد لاستخدامه بسهولة في تخصيصين مختلفين للوقت: إصدار سريع يأخذك خلال مقطع فيديو التمرين الكامل هذا ويبلغ أقصى حد له 15 دقيقة ، وإصدار فائق السرعة يأخذك خلال جزء \"التمرين\" لـ نصف الوقت مع قطع الطول الإجمالي إلى حوالي 10 دقائق.\r\n\r\nيتم إجراء كل هذا الروتين بنفس بنية الفاصل الزمني 20 تشغيل و 10 إيقاف لإبقائه سريعًا وبسيطًا. لقد قمت بتضمين إحماء سريع مدته 3 دقائق يتم تشغيله مباشرة في التمرين لتقليل أي توقف مؤقت غير ضروري ؛ تذكر أن هذا كله يتعلق بالكفاءة حتى نتمكن من الحصول على أفضل تدريب ممكن في أقصر وقت ممكن. لذلك ، بعد تمارين الإحماء الستة ، ننتقل مباشرة إلى التمارين الثمانية لقسم التمرين. هذا هو المكان الذي يمكنك فيه الاختيار من خلال هذه التدريبات الثمانية مرة واحدة أو مرتين. أعطي دعوة واضحة عندما ننتهي من أول تشغيل لهذه التمارين حتى تتمكن من اتخاذ قرار التخطي إلى فترة التهدئة السريعة التي تبلغ 3 دقائق والقيام بها في حوالي 10 دقائق أو إجراء التمارين مرة ثانية (كما أفعل في الفيديو) ويتم الانتهاء منه في حوالي 15 دقيقة. بهذه الطريقة يمكنك تحديد مقدار الوقت الذي يمكنك تخصيصه لهذا التمرين.\r\n\r\nهذا تمرين شامل للجسم ، لذا إذا كنت تستخدمه بعد يوم مكثف من الجزء العلوي أو السفلي من الجسم ، ففي كلتا الحالتين من المرجح أنك تستخدم بعض مجموعات العضلات نفسها. لا تقلق ، على الرغم من ذلك - ستفعل ذلك بوزن الجسم فقط حتى تتمكن من التكيف لجعل التمارين أسهل أو أصعب ، وستقوم فقط ببضع عمليات التكرار لكل منها ، لذلك لا داعي للقلق بشأن إرهاق العضلات المؤلمة.\r\n\r\nمع ذلك ، يمكن أيضًا استخدام هذا كتمرين إضافي إذا كنت تريد القيام بتمرين ثانٍ في يوم واحد. يمكن القيام بذلك إما مباشرة بعد التمرين الأول أو في وقت لاحق من اليوم للحصول على نوبة إضافية من حرق السعرات الحرارية.",
-                 Difficulty=3 , Duration=15,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=xafq0q5lIq4" , Equipments=" بدون معدات " },
-             new Exercise(){Id="9",TraningType="تدريب القوة",BurnEstimate="50-250" ,Title="تقوية اعضاء الجسم السفلية - تمرين الفخذ لمدة 43 دقيقة",Price=0, BodyFocus="الجسم السفلي" , Detail="يمكن استخدام تمرين الجزء السفلي من الجسم هذا للتناغم أو القوة أو بناء الكتلة ، بحيث يمكنك استخدامه لما تحتاجه بالضبط. في هذا الروتين ، قمنا بتقسيم التمرين إلى ثلاث مجموعات (لا تشمل الإحماء والتهدئة). سيتم إجراء أول مجموعتين بأسلوب فاصل من 45 ثانية من النشاط مع 15 ثانية من الراحة للاستعداد للتمرين التالي. تحتوي كل مجموعة من هاتين المجموعتين الأوليين على 4 تمارين لكل منهما ، وسيتم إجراؤها بنمط A ، B A ، B بالتناوب ، بالتناوب ذهابًا وإيابًا بين اثنين من التمارين الأربعة في وقت واحد. سيتم إجراء كل تمرين لما مجموعه ثلاث مجموعات قبل الانتقال إلى التدريبات التالية ، مما يمنحنا إجمالي 12 فترة لكل مجموعة لأول مجموعتين. ستتم المجموعة الأخيرة قبل فترة التهدئة والتمدد بشكل مختلف. على الرغم من وجود أربعة تمارين مرة أخرى في هذه المجموعة ، فإننا سنقوم بدلاً من ذلك بإجراء كل تمرين لمجموعة واحدة فقط باستخدام فترات 60 ثانية على و 15 ثانية راحة. هذا المزيج من مجموعتين باستخدام ثلاث مجموعات تقليدية أكثر لكل تمرين متبوعًا بمجموعة تستخدم مجموعة نضوب واحدة سيسمح لنا بإرهاق العضلات بشكل فعال إلى الحد الذي يمكننا فيه الحصول على التمزقات الدقيقة في عضلاتنا التي تؤدي إلى زيادة القوة والكتلة.\r\nمع ما يقال ، تذكر أنه يمكنك التحكم بالضبط في النتائج التي تحصل عليها من هذا الروتين عن طريق ضبط الوزن الذي تختار رفعه ومدى سرعة القيام بكل تكرار. للحصول على تمرين أكثر تركيزًا على التنغيم ، استخدم وزن الجسم فقط أو الوزن الخفيف جدًا وتحرك بسرعة أكبر (طالما أنك لا تزال تتحرك مع التحكم ولا تستخدم الزخم للمساعدة في إكمال الحركة التي يتم إجراؤها). إذا كنت تريد التركيز أكثر على بناء الحجم الكلي للعضلات ، فحافظ على بطء حركاتك واختر أثقل وزن يمكنك التحكم فيه من خلال نطاق كامل من الحركة. مع بناء الكتلة ، يجب أن يكون هدفك هو الحصول على 90-100 ٪ من كل مجموعة من أول مجموعتين (من أي تمرين معين) قبل أن تبدأ عضلاتك في الاستسلام ويبدأ شكلك في المعاناة. يجب أن يكون الهدف من المجموعة الثالثة (الأخيرة) من كل تمرين هو إكمال 80-90٪ من الفاصل الزمني قبل أن تستسلم عضلاتك.",
-                 Difficulty=4 , Duration=43,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=ABDmiZD1TDU" , Equipments = "دمبل"},
-             new Exercise(){Id="10",TraningType = "الحركة", BurnEstimate="50-250" ,Title="روتين القوة الأساسية الموزونة - روتين أوزان الدمبل في المنزل",Price=0, BodyFocus="جوهر" , Detail="\r\nإذا كنت تمارس هذا التمرين بهدف بناء القوة و / أو الكتلة ، فإليك بعض الأشياء التي يجب وضعها في الاعتبار.\r\n\r\nأولاً ، كما هو الحال مع أي تمرين قوي أو جماعي ، لا ترفع كثيرًا حتى يبدأ شكلك أو نطاق حركتك في المعاناة. إذا كنت قد قمت في أي وقت مضى بواحد من إجراءات قوتنا من أي نوع من قبل ، فمن المحتمل أنك سمعتنا بالفعل نقول هذا مرارًا وتكرارًا ؛ شكل ونطاق الحركة أكثر أهمية بكثير من مقدار الوزن الذي ترفعه عندما يتعلق الأمر بالقوة الوظيفية الخالية من الإصابات.\r\n\r\nثانيًا ، حدد الوزن الذي تستخدمه بناءً على معدل التعب لديك. يجب أن يكون هدفك هو استخدام وزن ثقيل بدرجة كافية بحيث يمكنك إجراء جميع عمليات التكرار تقريبًا بشكل مثالي ونطاق كامل من الحركة. يجب السماح للمعاناة في آخر 2 أو 3 مرات فقط لأن هذه العضلات تصبح مرهقة للغاية بحيث لا يمكن الحفاظ عليها نظيفة.\r\n\r\nثالثًا ، عندما تتخلى عضلاتك عن تلك التكرارات القليلة الأخيرة ، ابدأ في التركيز حقًا على الحركة \"السلبية\". يُعرف بشكل أكثر رسميًا باسم الانقباض غريب الأطوار ، والسالب هو النقطة التي يتغلب فيها الحمل على القوة التي يمكن للعضلة أو تقدمها والمبتدئين في إطالة العضلات. على سبيل المثال ، عند أداء تمرين الدمبل ، فإن المرحلة اللامتراكزة هي عندما يتراجع الدمبل إلى أسفل من الكتف ، مما يؤدي إلى إطالة عضلات البايسبس. من خلال التركيز على هذه الحركة ومحاولة التحكم في المرحلة اللامركزية ، يمكنك الحصول على مزيد من التمزقات الدقيقة في ألياف عضلاتك ، مما يؤدي إلى درجة أعلى من التقدم لزيادة القوة والحجم في العضلات التي تعمل. لذلك ، عندما تبدأ في الشعور بالتعب ، لا تدع هذا الوزن ينخفض فقط. إن بذل قصارى جهدك لمحاربة فقدان الوزن هو أهم جزء في روتين قوتك بالكامل.\r\n\r\nأخيرًا ، تأكد من ضبط الوزن الذي تستخدمه لكل مجموعة ، حسب الحاجة. لا تتعثر في عقلية أن ما تبدأ به يجب أن ينتهي به. بالنسبة لبعض التمارين ، قد تشعر أنه يمكنك زيادة وزنك والبعض الآخر قد تحتاج إلى إنقاصه ، وقد يكون ذلك لمجموعة واحدة فقط قبل التغيير مرة أخرى. جسمك هو آلة ديناميكية دائمة التغير ، لذلك عليك أن تكون قادرًا على التغيير والتكيف مع احتياجاته يوميًا ، إن لم يكن دقيقة بدقيقة.",
-                 Difficulty=3 , Duration=37,Image="Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",Video="https://www.youtube.com/watch?v=pnNCuecyZnQ" , Equipments = " دمبل  ، بدون معدات "},
+                 Difficulty=4 , Duration=23,Image="/images/Exercise/8.png",Video="https://www.youtube.com/watch?v=xafq0q5lIq4" , Equipments="دمبل" ,RatePercentage = 50,exerciseDate= new DateTime(year: 2022, month: 6, 3)},
+             new Exercise(){Id="9",TraningType="تدريب القوة",BurnEstimate="50-250" ,Title="تقوية اعضاء الجسم السفلية - تمرين الفخذ لمدة 43 دقيقة",Price=0, BodyFocus="الجسم السفلي" , Detail="يمكن استخدام تمرين الجزء السفلي من الجسم هذا للتناغم أو القوة أو بناء الكتلة ، بحيث يمكنك استخدامه لما تحتاجه بالضبط. في هذا الروتين ، قمنا بتقسيم التمرين إلى ثلاث مجموعات (لا تشمل الإحماء والتهدئة). سيتم إجراء أول مجموعتين بأسلوب فاصل من 45 ثانية من النشاط مع 15 ثانية من الراحة للاستعداد للتمرين التالي. تحتوي كل مجموعة من هاتين المجموعتين الأوليين على 4 تمارين لكل منهما ، وسيتم إجراؤها بنمط A ، B A ، B بالتناوب ، بالتناوب ذهابًا وإيابًا بين اثنين من التمارين الأربعة في وقت واحد. سيتم إجراء كل تمرين لما مجموعه ثلاث مجموعات قبل الانتقال إلى التدريبات التالية ، مما يمنحنا إجمالي 12 فترة لكل مجموعة لأول مجموعتين. ستتم المجموعة الأخيرة قبل فترة التهدئة والتمدد بشكل مختلف. على الرغم من وجود أربعة تمارين مرة أخرى في هذه المجموعة ، فإننا سنقوم بدلاً من ذلك بإجراء كل تمرين لمجموعة واحدة فقط باستخدام فترات 60 ثانية على و 15 ثانية راحة. هذا المزيج من مجموعتين باستخدام ثلاث مجموعات تقليدية أكثر لكل تمرين متبوعًا بمجموعة تستخدم مجموعة نضوب واحدة سيسمح لنا بإرهاق العضلات بشكل فعال إلى الحد الذي يمكننا فيه الحصول على التمزقات الدقيقة في عضلاتنا التي تؤدي إلى زيادة القوة والكتلة.\r\nمع ما يقال ، تذكر أنه يمكنك التحكم بالضبط في النتائج التي تحصل عليها من هذا الروتين عن طريق ضبط الوزن الذي تختار رفعه ومدى سرعة القيام بكل تكرار. للحصول على تمرين أكثر تركيزًا على التنغيم ، استخدم وزن الجسم فقط أو الوزن الخفيف جدًا وتحرك بسرعة أكبر (طالما أنك لا تزال تتحرك مع التحكم ولا تستخدم الزخم للمساعدة في إكمال الحركة التي يتم إجراؤها). إذا كنت تريد التركيز أكثر على بناء الحجم الكلي للعضلات ، فحافظ على بطء حركاتك واختر أثقل وزن يمكنك التحكم فيه من خلال نطاق كامل من الحركة. مع بناء الكتلة ، يجب أن يكون هدفك هو الحصول على 90-100 ٪ من كل مجموعة من أول مجموعتين (من أي تمرين معين) قبل أن تبدأ عضلاتك في الاستسلام ويبدأ شكلك في المعاناة. يجب أن يكون الهدف من المجموعة الثالثة (الأخيرة) من كل تمرين هو إكمال 80-90٪ من الفاصل الزمني قبل أن تستسلم عضلاتك.",Difficulty=4 , Duration=43,Image="/images/Exercise/9.png",Video="https://www.youtube.com/watch?v=ABDmiZD1TDU" , Equipments = "دمبل",RatePercentage = 50,exerciseDate= new DateTime(year: 2023, month: 5, 3)},
+             new Exercise(){Id="10",TraningType = "الحركة", BurnEstimate="50-250" ,Title="روتين القوة الأساسية الموزونة - روتين أوزان الدمبل في المنزل",Price=0, BodyFocus="جوهر" , Detail="\r\nإذا كنت تمارس هذا التمرين بهدف بناء القوة و / أو الكتلة ، فإليك بعض الأشياء التي يجب وضعها في الاعتبار.\r\n\r\nأولاً ، كما هو الحال مع أي تمرين قوي أو جماعي ، لا ترفع كثيرًا حتى يبدأ شكلك أو نطاق حركتك في المعاناة. إذا كنت قد قمت في أي وقت مضى بواحد من إجراءات قوتنا من أي نوع من قبل ، فمن المحتمل أنك سمعتنا بالفعل نقول هذا مرارًا وتكرارًا ؛ شكل ونطاق الحركة أكثر أهمية بكثير من مقدار الوزن الذي ترفعه عندما يتعلق الأمر بالقوة الوظيفية الخالية من الإصابات.\r\n\r\nثانيًا ، حدد الوزن الذي تستخدمه بناءً على معدل التعب لديك. يجب أن يكون هدفك هو استخدام وزن ثقيل بدرجة كافية بحيث يمكنك إجراء جميع عمليات التكرار تقريبًا بشكل مثالي ونطاق كامل من الحركة. يجب السماح للمعاناة في آخر 2 أو 3 مرات فقط لأن هذه العضلات تصبح مرهقة للغاية بحيث لا يمكن الحفاظ عليها نظيفة.\r\n\r\nثالثًا ، عندما تتخلى عضلاتك عن تلك التكرارات القليلة الأخيرة ، ابدأ في التركيز حقًا على الحركة \"السلبية\". يُعرف بشكل أكثر رسميًا باسم الانقباض غريب الأطوار ، والسالب هو النقطة التي يتغلب فيها الحمل على القوة التي يمكن للعضلة أو تقدمها والمبتدئين في إطالة العضلات. على سبيل المثال ، عند أداء تمرين الدمبل ، فإن المرحلة اللامتراكزة هي عندما يتراجع الدمبل إلى أسفل من الكتف ، مما يؤدي إلى إطالة عضلات البايسبس. من خلال التركيز على هذه الحركة ومحاولة التحكم في المرحلة اللامركزية ، يمكنك الحصول على مزيد من التمزقات الدقيقة في ألياف عضلاتك ، مما يؤدي إلى درجة أعلى من التقدم لزيادة القوة والحجم في العضلات التي تعمل. لذلك ، عندما تبدأ في الشعور بالتعب ، لا تدع هذا الوزن ينخفض فقط. إن بذل قصارى جهدك لمحاربة فقدان الوزن هو أهم جزء في روتين قوتك بالكامل.\r\n\r\nأخيرًا ، تأكد من ضبط الوزن الذي تستخدمه لكل مجموعة ، حسب الحاجة. لا تتعثر في عقلية أن ما تبدأ به يجب أن ينتهي به. بالنسبة لبعض التمارين ، قد تشعر أنه يمكنك زيادة وزنك والبعض الآخر قد تحتاج إلى إنقاصه ، وقد يكون ذلك لمجموعة واحدة فقط قبل التغيير مرة أخرى. جسمك هو آلة ديناميكية دائمة التغير ، لذلك عليك أن تكون قادرًا على التغيير والتكيف مع احتياجاته يوميًا ، إن لم يكن دقيقة بدقيقة.",Difficulty=3 , Duration=37,Image="/images/Exercise/9.png",Video="https://www.youtube.com/watch?v=pnNCuecyZnQ" , Equipments = " دمبل  ، بدون معدات ",RatePercentage = 50,exerciseDate= new DateTime(year: 2021, month: 9, 3)},
 
 
 
@@ -871,50 +897,97 @@ namespace liaqati_master.Data
 
 
 
-                new HealthyRecipe { Id = "41", Image = "1.jpg", MealType = MealTypeTypeStatus.Dinner, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35},
+                new HealthyRecipe { Id = "41", Image = "1.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35},
                 //الثوم الطازج والليمون,سمك السلمون,طماطم كرزية,صلصة 
-                new HealthyRecipe { Id = "42", Image = "2.jpg", MealType = MealTypeTypeStatus.Snack, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4},
+                new HealthyRecipe { Id = "42", Image = "2.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4},
                 //موزولوز
-                new HealthyRecipe { Id = "43", Image = "3.jpg", MealType = MealTypeTypeStatus.Lunch, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 50, Calories = 379, Total_Carbohydrate = 47, Protein = 32},
+                new HealthyRecipe { Id = "43", Image = "3.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 379, Total_Carbohydrate = 47, Protein = 32},
                 // الدجاج المشويةوصلصة الباربكيو و وتوابل الصوديوم المنخفضةوالسكروالطماطم و شريحتين من خبز القمح الكامل المحمص و خل التفاح
-                new HealthyRecipe { Id = "44", Image = "4.jpg", MealType = MealTypeTypeStatus.Snack, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 60, Calories = 19 ,Total_Carbohydrate = 37, Protein = 5 },
+                new HealthyRecipe { Id = "44", Image = "4.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 19 ,Total_Carbohydrate = 37, Protein = 5 },
                 //100 جرام زيت كانولا, 1كوب لبن, 2بيضة,1 ملعقة صغيرةبيكنج باودر,رشةفانيلا,6 باكتسكر دايت,نصف كوبكاكاو خام,1كوب دقيق كامل الحبة,1 ملعقة صغيرةبيكنج صودا, رشةملح
-                new HealthyRecipe { Id = "45", Image = "5.png", MealType = MealTypeTypeStatus.Snack, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 60, Calories = 170, Total_Carbohydrate = 43, Protein = 5},
+                new HealthyRecipe { Id = "45", Image = "5.png", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 60, Calories = 170, Total_Carbohydrate = 43, Protein = 5},
                 //150جرام  مكرونة,1بصلة,رشةفلفل,كوب ونصفلبن, ملعقتين دقيق, 2جبنة مثلثات خفيفة,ربع لحمة مفروم احمر, رشةملح, ملعقتين زيت, كوب ماء, 50جرامجبنة حلوم, كوب ونصف لبن,
-                new HealthyRecipe { Id = "46", Image = "6.jpg", MealType = MealTypeTypeStatus.Lunch, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 30, Calories = 180, Total_Carbohydrate = 44, Protein = 4 },
+                new HealthyRecipe { Id = "46", Image = "6.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 180, Total_Carbohydrate = 44, Protein = 4 },
                 //كوب ارز بسمتي,100 جرامجزر, 2 ملعقةشوفان مطحون,رشةفلفل,كوب شوربة, ربع ملعقةزبد, 1ثومة,100 جرامبسلة,100 جرامفلفل الوان, رشة ملح,رشةقرفة, 50 جرامجبن حلوم, كوب لبن
-                new HealthyRecipe { Id = "47", Image = "7.jpg", MealType = MealTypeTypeStatus.Dinner, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 35, Calories = 538, Total_Carbohydrate = 79, Protein = 37 },
+                new HealthyRecipe { Id = "47", Image = "7.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 35, Calories = 538, Total_Carbohydrate = 79, Protein = 37 },
                 //صدور الدجاج والجلد,الأرز البني, زبادي يوناني قليل الدسم ,الثوم, فتات خبز القمح الكامل المقرمش,طبقة البارميزان,
-                new HealthyRecipe { Id = "48", Image = "8.jpg", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 10, Calories = 30, Total_Carbohydrate = 10, Protein = 5  },
+                new HealthyRecipe { Id = "48", Image = "8.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 10, Calories = 30, Total_Carbohydrate = 10, Protein = 5  },
                 //50 جرام بقدونس,1الليمون,1الخيار, 1التفاح,20 جرام النعناع
-                new HealthyRecipe { Id = "49", Image = "9.png", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 15, Calories = 110, Total_Carbohydrate = 10, Protein = 5 , },
+                new HealthyRecipe { Id = "49", Image = "9.png", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 110, Total_Carbohydrate = 10, Protein = 5 , },
                 //ربع ملعقةزيت زيتون,1فلفل, ربع كوبزيتون, رشةفلفل اسود, قطعةريكفورد
-                new HealthyRecipe { Id = "50", Image = "10.png", MealType = MealTypeTypeStatus.SideDish, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 60, Calories = 40, Total_Carbohydrate = 20, Protein = 8  },
+                new HealthyRecipe { Id = "50", Image = "10.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 40, Total_Carbohydrate = 20, Protein = 8  },
                 //1جزر, 1 خرشوف,100 جرامكوسة,100 جرامذرة حب,ربع ملعقة نشأ, 1 بطاطس,100 جرامبسلة,100 جرامفاصوليا, نصف كوب لبن, ملعقة دقيق
-                new HealthyRecipe { Id = "51", Image = "11.png", MealType = MealTypeTypeStatus.Lunch, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 50, Calories = 125, Total_Carbohydrate = 30, Protein = 5 , },
+                new HealthyRecipe { Id = "51", Image = "11.png", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 50, Calories = 125, Total_Carbohydrate = 30, Protein = 5 , },
                 // ملعقةخميرة,ملعقتان دقيق ابيض,50 جرامشوفان مطحون,ملعقةخل,رشة بيكنج بودر,50 جرامطماطم,50 جرامفلفل الوا,50 جرامبصل,50 جرامزيتون,50 جرامذرة مسلوق,100 جرامجبن حلوم,فصثوم مفروم,ملعقةسكر,ملعقتانزيت زيتون,
-                new HealthyRecipe { Id = "52", Image = "12.png", MealType = MealTypeTypeStatus.Snack, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 30, Calories = 66, Total_Carbohydrate = 36, Protein = 5 , },
+                new HealthyRecipe { Id = "52", Image = "12.png", MealType = MealTypeTypeStatus.Snack.ToString()    , DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 66, Total_Carbohydrate = 36, Protein = 5 , },
                 //كوب دقيق ذرة اصفر,نصف كوب دقيق ابيض,1 بيضه,كوب لبن,رشه ملح,3معالقزيت كانولا او زيت نباتي,3 معالق سكر بني او دايت,معلقةبيكنج بودر,نصف معلقةفانيليا سائلة
-                new HealthyRecipe { Id = "53", Image = "13.jpg", MealType = MealTypeTypeStatus.Lunch, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 30, Calories = 110, Total_Carbohydrate = 45, Protein = 7 , },
+                new HealthyRecipe { Id = "53", Image = "13.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 110, Total_Carbohydrate = 45, Protein = 7 , },
                 //250 جرام دجاج,2فلفل الوان,1بصلة,ملعقتين صلصلة صحية,100 جراممكرونة
-                new HealthyRecipe { Id = "54", Image = "14.jpg", MealType = MealTypeTypeStatus.Lunch, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 60, Calories = 145, Total_Carbohydrate = 30, Protein = 17 , },
+                new HealthyRecipe { Id = "54", Image = "14.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString()   , PrepTime = 60, Calories = 145, Total_Carbohydrate = 30, Protein = 17 , },
                 // كوبارز بني,1بصلة,1دجاجة,رشة بهارات صحيحة,رشة ملح,رشة كمون,رشة فلفل اسود,رشة بهارات مشكلة,رشة بصل بودر,رشة قرفه مطحونه,رشةلومي مطحون,رشةكزبرة مطحونه,30 جرام مكسرات
-                new HealthyRecipe { Id = "55", Image = "15.png", MealType = MealTypeTypeStatus.SideDish, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 15, Calories = 25, Total_Carbohydrate = 10, Protein = 8     },
+                new HealthyRecipe { Id = "55", Image = "15.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 25, Total_Carbohydrate = 10, Protein = 8     },
                 //كوب فاصوليا حمراء,كوب فاصوليا بيضاء,كوب فاصوليا خضراء,1بصلة خضراء,2 ملعقةبقدونس,ملعقةزيت زيتون,ملعقةخل,1ثومة,ملعقةماستردة,ملعقةفلفل اسود,ملعقةملح
-                new HealthyRecipe { Id = "56", Image = "16.jpg", MealType = MealTypeTypeStatus.Snack, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 30, Calories = 150, Total_Carbohydrate = 25, Protein = 5 },
+                new HealthyRecipe { Id = "56", Image = "16.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 150, Total_Carbohydrate = 25, Protein = 5 },
                 // نصف لتر لبن,4 باكيتسكر دايت,2 ملعقةجوز الهند,2 ملعقة ماء ورد,ملعقةنشا,1فانيليا
-                new HealthyRecipe { Id = "57", Image = "17.jpg", MealType = MealTypeTypeStatus.Dinner, DieteryType = DieteryTypeStatus.Vegetarian, PrepTime = 20, Calories = 50, Total_Carbohydrate = 15, Protein = 4 },
+                new HealthyRecipe { Id = "57", Image = "17.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 20, Calories = 50, Total_Carbohydrate = 15, Protein = 4 },
                 //1ملفوف,1جزر,3المايونيز الصحي,1زبادي كبير,ملعقة صغيرة عسل ابيض,3 ملعقاتخل,ربع ملعقةملح
-                new HealthyRecipe { Id = "58", Image = "18.jpg", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 30, Calories = 65, Total_Carbohydrate = 40, Protein = 15 },
+                new HealthyRecipe { Id = "58", Image = "18.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 65, Total_Carbohydrate = 40, Protein = 15 },
                 //1بصلة,300 جراملحمة المفرومة,1بيضة, رشة فلفل أسمر,ملعقتانزيت,ملعقةبصل بودر,حسب الرغبةبهارات,حسب الرغبةبقدونس
-                new HealthyRecipe { Id = "59", Image = "19.jpg", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 15, Calories = 34, Total_Carbohydrate = 15, Protein = 0 },
+                new HealthyRecipe { Id = "59", Image = "19.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 15, Calories = 34, Total_Carbohydrate = 15, Protein = 0 },
                 // ملعقةسكر دايت,1تفاح,2القرنفل ,عودالقرفة
-                new HealthyRecipe { Id = "6-", Image = "20.jpg", MealType = MealTypeTypeStatus.Breakfast, DieteryType = DieteryTypeStatus.Omnivore, PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 }
+                new HealthyRecipe { Id = "6-", Image = "20.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 }
                 //نصف كيلوكريز,3 معالقسكر ستيفيا,نصف ملعقة صغيرةفانيلا سائلة,رشة قرفة,ربع كوبعصير ليمونة,ملعقةعسل
 
             };
         }
+        public static List<HealthyRecipe> GetListHealthyRecipe2()
+        {
+            return new List<HealthyRecipe>()
+            {
 
+                new HealthyRecipe {
+                    Id = "61",
+                    Image = "/Images/HealthyRecipes/1.jpg",
+                    MealType = "وجبة الإفطار",
+                    DietaryType = "حيواني",
+                    PrepTime = 12,
+                    Calories = 250,
+                    Total_Carbohydrate = 6,
+                    Protein = 24,
+                    Ingredients="بيضات كاملة,100,غرام\n"+" الديك الرومي المطحون الخالي من الد,60,غرام\n"+
+                    "توابل التاكو ,2,غرام\n"+" الفلفل الأخضر الجرس,20,غرام\n"+" الفلفل الأحمر,20,غرام\n"
+                    +" البصل الأحمر,20,غرام\n"+"صلصة,15,غرام\n"+" زبادي يوناني قليل الدسم,15,غرام\n"+" البصل الأخضر,10,غرام\n",
+                    PreparationMethod="دهن مقلاة غير لاصقة بقليل من بخاخ تحرير المقلاة وقم بالتسخين المسبق على حرارة متوسطة إلى عالية.\r\nبمجرد أن يسخن , افرم الديك الرومي المطحون في المقلاة ورشي توابل التاكو مع التقليب حتى تمتزج. يُطهى لمدة 3-4 دقائق مع التحريك من حين لآخر أو حتى ينضج تمامًا ويصبح لونه بنيًا جيدًا. بمجرد طهيه , باستخدام ملعقة مثقوبة , أخرج الديك الرومي من المقلاة وضعه جانبًا على طبق.\r\n, دهن المقلاة برفق مرة أخرى وعاد إلى درجة حرارة متوسطة إلى عالية. يُضاف الفلفل والبصل ويُطهى لمدة 3-4 دقائق أو حتى ينضج.\r\n, بمجرد أن تصبح الخضار طرية , أعد الديك الرومي المطحون إلى المقلاة وقلّب المزيج. باستخدام ملعقة مشقوقة , تُرفع الخضار والديك الرومي المفروم من المقلاة , ويُترك جانباً على الطبق , ويُتبل قليلاً بالملح والفلفل حسب الرغبة.\r\n, أعد المقلاة إلى درجة حرارة متوسطة إلى عالية. بمجرد أن يسخن , أضف البيض ولفه لتغطي قاع المقلاة.\r\n,يُغطّى ويُطهى لمدة 2-3 دقائق أو حتى يصبح البيض متماسكًا وينضج تمامًا. أخرج البيضة من المقلاة بحذر وانقلها إلى طبق التقديم.\r\nوزعي البيض بالديك الرومي والخضار والصلصة. دولوب مع الزبادي ورش البصل الأخضر قبل التقديم.",
+                    Description="<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
+                    Price=0,
+                    RatePercentage=0,
+                    ShortDescription="",
+                    Title=" فاهيتا أوميليت مفتوح الوجه مع تركيا المطحونة والفلفل والبصل",
+                },
+
+                 new HealthyRecipe {
+                    Id = "62",
+                    Image = "/Images/HealthyRecipes/2.jpg",
+                    MealType = "طبق جانبي,وجبة غداء",
+                    DietaryType = "حيواني",
+                    PrepTime = 15,
+                    Calories = 269,
+                    Total_Carbohydrate = 30,
+                    Protein = 26,
+                    Ingredients=" الريحان الطازج,2,غرام\n"+" خيارة,60,غرام\n"+
+                    " جبن كوخ قليل الدسم ,2,غرام\n"+"  كعكة القمح الكامل الإنجليزية ,20,غرام\n"+" الخل البلسمي ,20,غرام\n"
+                    +"  البارود الأسود,20,غرام\n"+"التوابل الإيطالية,15,غرام\n"+" صدر دجاج,15,غرام\n"+"زيت الزيتون,10,غرام\n",
+                    PreparationMethod=", قم بالتسخين المسبق لشواية الغاز إلى درجة حرارة متوسطة إلى عالية أو الفحم المسبق لشواية الفحم., صدر الدجاج يجفف بالمناشف الورقية ويوضع على طبق ويتبل قليلا بالتوابل الإيطالية والفلفل الأسود والخل البلسمي ورشة ملح., ضع الدجاج جانبًا لينقع لمدة 10 دقائق بينما تسخن الشواية مسبقًا., بمجرد أن تصبح الشواية ساخنة ، أضيفي الدجاج واطهيها لمدة 2-3 دقائق لكل جانب أو حتى تفحم قليلاً وتنضج بالكامل. تُرفع عن الشواية وتترك جانباً لترتاح قبل التقطيع., ملعقة وافرد الجبن القريش على الكعك الإنجليزي المحمص. يُغطى التوست المُجهز بشرائح الدجاج وشرائح الخيار والريحان الطازج. الموسم الى الذوق مع الملح والفلفل.",
+                    Description="<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
+                    Price=0,
+                    RatePercentage=0,
+                    ShortDescription="",
+                    Title="خيار وجبن كوخ وخبز محمص دجاج مشوي مع الخل البلسمي والأعشاب الإيطالية",
+                },
+
+
+            };
+        }
         public static List<Tracking> GetListOfTracking()
         {
             return new List<Tracking>()

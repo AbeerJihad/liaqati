@@ -7,8 +7,8 @@ namespace liaqati_master.Controllers
     public class ProductApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
-        readonly RepProducts _repository;
-        public ProductApiController(LiaqatiDBContext context, RepProducts repository)
+        readonly IRepoProducts _repository;
+        public ProductApiController(LiaqatiDBContext context, IRepoProducts repository)
         {
             _context = context;
             _repository = repository;

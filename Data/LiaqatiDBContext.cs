@@ -44,7 +44,6 @@ namespace liaqati_master.Data
             modelBuilder.Entity<Service>().HasOne(a => a.SportsProgram).WithOne(a => a.Services).HasForeignKey<SportsProgram>(c => c.Id);
 
 
-
             //AutoInclude
             //modelBuilder.Entity<Service>().Navigation(p => p.Category).AutoInclude();
             //modelBuilder.Entity<MealPlans>().Navigation(p => p.Services).AutoInclude();

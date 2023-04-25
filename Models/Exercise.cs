@@ -29,6 +29,18 @@ namespace liaqati_master.Models
         public double? Price { get; set; }
         [Display(Name = "تقدير الحرق")]
         public string? BurnEstimate { get; set; }
+
+
+
+        [Display(Name = "تاريخ اضافة التمرين")]
+        [DataType(DataType.DateTime)]
+        public DateTime exerciseDate { get; set; } = DateTime.Now;
+
+
+        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Display(Name = " التقييم")]
+        public double? RatePercentage { get; set; }
+        public virtual List<Rate>? Rate { get; set; }
         [JsonIgnore]
         public virtual List<Exercies_program>? Exercies_Programs { get; set; }
 

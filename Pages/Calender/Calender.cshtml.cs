@@ -7,10 +7,10 @@ namespace liaqati_master.Pages.Calender
     {
 
         readonly IRepoProgram _context;
-        readonly RepoProgramExercies _repocontext;
-        readonly RepoExercises _repocontextExer;
+        readonly IRepoProgramExercies _repocontext;
+        readonly IRepoExercise _repocontextExer;
 
-        public CalenderModel(IRepoProgram context, RepoProgramExercies repocontext, RepoExercises repocontextExer)
+        public CalenderModel(IRepoProgram context, IRepoProgramExercies repocontext, IRepoExercise repocontextExer)
         {
             _context = context;
             _repocontext = repocontext;
@@ -56,7 +56,7 @@ namespace liaqati_master.Pages.Calender
                         foreach (Exercies_program exercies in exercies_Programs)
                         {
 
-                            Exercise ex = await _repocontextExer.GetExercises(exercies.ExerciseId);
+                            Exercise? ex = await _repocontextExer.GetByIDAsync(exercies.ExerciseId);
 
 
                             events.Add(new Event() { Id = ex.Id, title = ex.Title, start = DateOnly.FromDateTime(date).ToString("yyyy-MM-dd") });

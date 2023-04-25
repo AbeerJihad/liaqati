@@ -543,6 +543,10 @@ namespace liaqati_master.Migrations
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
+                    b.Property<double?>("RatePercentage")
+                        .IsRequired()
+                        .HasColumnType("float");
+
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -556,6 +560,9 @@ namespace liaqati_master.Migrations
 
                     b.Property<string>("Video")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("exerciseDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -571,11 +578,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 3,
                             Duration = 27,
                             Equipments = "حصيرة ، معدات اليوجا",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/1.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "اليوجا الصباحية للجسم بالكامل",
                             TraningType = "تدريب القوة",
-                            Video = "https://www.youtube.com/watch?v=w5y3Zl1F5Vs"
+                            Video = "https://www.youtube.com/watch?v=w5y3Zl1F5Vs",
+                            exerciseDate = new DateTime(2017, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -586,11 +595,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 3,
                             Duration = 23,
                             Equipments = "دمبل",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/2.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "تمارين تقوية الجسم بالكامل وتمارين القلب",
                             TraningType = "الحركة",
-                            Video = "https://www.youtube.com/watch?v=R58oVgVgRlc"
+                            Video = "https://www.youtube.com/watch?v=R58oVgVgRlc",
+                            exerciseDate = new DateTime(2023, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -601,11 +612,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 4,
                             Duration = 37,
                             Equipments = "دمبل",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/3.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "مجموعات القوة المركبة للجزء العلوي من الجسم",
                             TraningType = "تدريب القوة",
-                            Video = "https://www.youtube.com/watch?v=fPlN4amOMY8"
+                            Video = "https://www.youtube.com/watch?v=fPlN4amOMY8",
+                            exerciseDate = new DateTime(2022, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -615,12 +628,14 @@ namespace liaqati_master.Migrations
                             Detail = "أولاً ، سنركز على الصدر ، بدءًا من مكابس الأرضية ثم الانتقال بسرعة إلى ذبابة الصدر والانتهاء بضغطة سحق. بعد مجموعتين من تمارين الصدر ، سننتقل إلى الخلف ، بدءًا من الصفوف المنحنية ، والانتقال إلى الذباب العكسي ، والانتهاء من صف yates. مجموعتنا التالية سوف تستهدف الذراعين ، في المقام الأول العضلة ثلاثية الرؤوس والعضلة ذات الرأسين. بالنسبة لمجموعات الترايسبس لدينا ، نحتاج فقط إلى دمبل واحد. سنبدأ المجموعات بضغطة دمبل مفردة بقبضة قريبة ، وننتقل إلى كسارة جمجمة دمبل واحدة ، ثم ننتقل إلى تمديدات ثلاثية الرؤوس العلوية. (سوف تحترق عضلاتك ثلاثية الرؤوس ، لول). مجموعتنا التالية هي إحدى الطرق المفضلة لتدريب العضلة ذات الرأسين. سنستخدم المقاييس المتساوية لدفع العضلة ذات الرأسين هنا. تمريننا الأول هو ما أحب أن أسميه تجعيد الشعر أحادي الذراع ؛ سنقوم بعمل كل ذراع على حدة مع تلك قبل الانتهاء من تمارين العضلة ذات الرأسين القياسية. هذا المزيج يعمل دائمًا مع العضلة ذات الرأسين! في مجموعتنا النهائية ، سنركز على أكتافنا. سنبدأ العمل بضغط الكتف القياسي ، والانتقال إلى صفوفنا المستقيمة ، وإنهاء المجموعة مع صف دلتا الخلفي الذي يستهدف عضلات الدالية الصغيرة - مما يجعل هذه الطريقة المثالية لإنهاء تمرين الجزء العلوي من الجسم. ",
                             Difficulty = 4,
                             Duration = 23,
-                            Equipments = "حصيرة ، دمبل",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Equipments = "دمبل",
+                            Image = "/images/Exercise/4.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "مجموعة القلب والقوة",
                             TraningType = "اليوجا",
-                            Video = "https://www.youtube.com/watch?v=d8QcqQA0zIQ"
+                            Video = "https://www.youtube.com/watch?v=d8QcqQA0zIQ",
+                            exerciseDate = new DateTime(2021, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -631,11 +646,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 3,
                             Duration = 19,
                             Equipments = "حصيرة",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/5.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "دوائر القوة الأساسية السريعة و الجوهر",
                             TraningType = "تدريب القوة",
-                            Video = "https://www.youtube.com/watch?v=B5ZZqBslKU0"
+                            Video = "https://www.youtube.com/watch?v=B5ZZqBslKU0",
+                            exerciseDate = new DateTime(2021, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -646,11 +663,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 3,
                             Duration = 45,
                             Equipments = "حصيرة",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/6.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "دارات تقوية الجسم الكلي مع عمل التوازن",
                             TraningType = "القلب والأوعية الدموية",
-                            Video = "https://www.youtube.com/watch?v=UzAFN61CiVQ"
+                            Video = "https://www.youtube.com/watch?v=UzAFN61CiVQ",
+                            exerciseDate = new DateTime(2021, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -661,11 +680,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 4,
                             Duration = 26,
                             Equipments = "حصيرة ، دمبل  ، بدون معدات ",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/7.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "مجموعة سريعة من تمارين القلب والقوة و الجوهر  لكامل الجسم",
                             TraningType = "تدريب القوة",
-                            Video = "https://www.youtube.com/watch?v=3xR8ZKVALwo"
+                            Video = "https://www.youtube.com/watch?v=3xR8ZKVALwo",
+                            exerciseDate = new DateTime(2022, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -673,14 +694,16 @@ namespace liaqati_master.Migrations
                             BodyFocus = "الجسم بالكامل ",
                             BurnEstimate = "50-250",
                             Detail = "في تمرين اليوم نركز على السرعة. تم تصميم هذا التمرين القصير ولكن الفعال ليوفر لك تمرينًا جيدًا في أقصر وقت ممكن لتلك الأيام التي ربما لم تكن قد مارستها فيها على الإطلاق. لقد صممت هذا التمرين بعد نوبة أخيرة من العمل المكثف ومتطلبات الحياة التي ضربت في نفس الوقت ، مما يجعل التمرين لمدة 20 دقيقة يبدو كثيرًا.\r\n\r\nلقد صممت هذا الروتين عن قصد لاستخدامه بسهولة في تخصيصين مختلفين للوقت: إصدار سريع يأخذك خلال مقطع فيديو التمرين الكامل هذا ويبلغ أقصى حد له 15 دقيقة ، وإصدار فائق السرعة يأخذك خلال جزء \"التمرين\" لـ نصف الوقت مع قطع الطول الإجمالي إلى حوالي 10 دقائق.\r\n\r\nيتم إجراء كل هذا الروتين بنفس بنية الفاصل الزمني 20 تشغيل و 10 إيقاف لإبقائه سريعًا وبسيطًا. لقد قمت بتضمين إحماء سريع مدته 3 دقائق يتم تشغيله مباشرة في التمرين لتقليل أي توقف مؤقت غير ضروري ؛ تذكر أن هذا كله يتعلق بالكفاءة حتى نتمكن من الحصول على أفضل تدريب ممكن في أقصر وقت ممكن. لذلك ، بعد تمارين الإحماء الستة ، ننتقل مباشرة إلى التمارين الثمانية لقسم التمرين. هذا هو المكان الذي يمكنك فيه الاختيار من خلال هذه التدريبات الثمانية مرة واحدة أو مرتين. أعطي دعوة واضحة عندما ننتهي من أول تشغيل لهذه التمارين حتى تتمكن من اتخاذ قرار التخطي إلى فترة التهدئة السريعة التي تبلغ 3 دقائق والقيام بها في حوالي 10 دقائق أو إجراء التمارين مرة ثانية (كما أفعل في الفيديو) ويتم الانتهاء منه في حوالي 15 دقيقة. بهذه الطريقة يمكنك تحديد مقدار الوقت الذي يمكنك تخصيصه لهذا التمرين.\r\n\r\nهذا تمرين شامل للجسم ، لذا إذا كنت تستخدمه بعد يوم مكثف من الجزء العلوي أو السفلي من الجسم ، ففي كلتا الحالتين من المرجح أنك تستخدم بعض مجموعات العضلات نفسها. لا تقلق ، على الرغم من ذلك - ستفعل ذلك بوزن الجسم فقط حتى تتمكن من التكيف لجعل التمارين أسهل أو أصعب ، وستقوم فقط ببضع عمليات التكرار لكل منها ، لذلك لا داعي للقلق بشأن إرهاق العضلات المؤلمة.\r\n\r\nمع ذلك ، يمكن أيضًا استخدام هذا كتمرين إضافي إذا كنت تريد القيام بتمرين ثانٍ في يوم واحد. يمكن القيام بذلك إما مباشرة بعد التمرين الأول أو في وقت لاحق من اليوم للحصول على نوبة إضافية من حرق السعرات الحرارية.",
-                            Difficulty = 3,
-                            Duration = 15,
-                            Equipments = " بدون معدات ",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Difficulty = 4,
+                            Duration = 23,
+                            Equipments = "دمبل",
+                            Image = "/images/Exercise/8.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "تمرين الجسم الكلي السريع - 10 أو 15 دقيقة تختارها",
                             TraningType = "اليوجا",
-                            Video = "https://www.youtube.com/watch?v=xafq0q5lIq4"
+                            Video = "https://www.youtube.com/watch?v=xafq0q5lIq4",
+                            exerciseDate = new DateTime(2022, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -691,11 +714,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 4,
                             Duration = 43,
                             Equipments = "دمبل",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/9.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "تقوية اعضاء الجسم السفلية - تمرين الفخذ لمدة 43 دقيقة",
                             TraningType = "تدريب القوة",
-                            Video = "https://www.youtube.com/watch?v=ABDmiZD1TDU"
+                            Video = "https://www.youtube.com/watch?v=ABDmiZD1TDU",
+                            exerciseDate = new DateTime(2023, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -706,11 +731,13 @@ namespace liaqati_master.Migrations
                             Difficulty = 3,
                             Duration = 37,
                             Equipments = " دمبل  ، بدون معدات ",
-                            Image = "Images/Exercise/4be142b5-fac5-4371-bfce-3f2d1b4201e6.png",
+                            Image = "/images/Exercise/9.png",
                             Price = 0.0,
+                            RatePercentage = 50.0,
                             Title = "روتين القوة الأساسية الموزونة - روتين أوزان الدمبل في المنزل",
                             TraningType = "الحركة",
-                            Video = "https://www.youtube.com/watch?v=pnNCuecyZnQ"
+                            Video = "https://www.youtube.com/watch?v=pnNCuecyZnQ",
+                            exerciseDate = new DateTime(2021, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -779,32 +806,41 @@ namespace liaqati_master.Migrations
                     b.Property<string>("CategoryId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("NTEXT");
 
-                    b.Property<int>("DieteryType")
-                        .HasColumnType("int");
+                    b.Property<string>("DietaryType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ingredients")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("NTEXT");
 
-                    b.Property<int>("MealType")
-                        .HasColumnType("int");
+                    b.Property<bool?>("IsFeatured")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MealType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PrepTime")
                         .HasColumnType("int");
 
                     b.Property<string>("PreparationMethod")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("NTEXT");
 
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
                     b.Property<int>("Protein")
                         .HasColumnType("int");
+
+                    b.Property<double?>("RatePercentage")
+                        .HasColumnType("float");
 
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
@@ -813,6 +849,9 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Total_Carbohydrate")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ViewsNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -826,221 +865,301 @@ namespace liaqati_master.Migrations
                         {
                             Id = "41",
                             Calories = 491,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6374),
+                            DietaryType = "Omnivore",
                             Image = "1.jpg",
-                            MealType = 3,
+                            MealType = "Dinner",
                             PrepTime = 50,
                             Protein = 35,
-                            Total_Carbohydrate = 43
+                            Total_Carbohydrate = 43,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "42",
                             Calories = 156,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6577),
+                            DietaryType = "Vegetarian",
                             Image = "2.jpg",
-                            MealType = 4,
+                            MealType = "Snack",
                             PrepTime = 5,
                             Protein = 4,
-                            Total_Carbohydrate = 17
+                            Total_Carbohydrate = 17,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "43",
                             Calories = 379,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6589),
+                            DietaryType = "Omnivore",
                             Image = "3.jpg",
-                            MealType = 2,
+                            MealType = "Lunch",
                             PrepTime = 50,
                             Protein = 32,
-                            Total_Carbohydrate = 47
+                            Total_Carbohydrate = 47,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "44",
                             Calories = 19,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6597),
+                            DietaryType = "Vegetarian",
                             Image = "4.jpg",
-                            MealType = 4,
+                            MealType = "Snack",
                             PrepTime = 60,
                             Protein = 5,
-                            Total_Carbohydrate = 37
+                            Total_Carbohydrate = 37,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "45",
                             Calories = 170,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6607),
+                            DietaryType = "Omnivore",
                             Image = "5.png",
-                            MealType = 4,
+                            MealType = "Snack",
                             PrepTime = 60,
                             Protein = 5,
-                            Total_Carbohydrate = 43
+                            Total_Carbohydrate = 43,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "46",
                             Calories = 180,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6667),
+                            DietaryType = "Vegetarian",
                             Image = "6.jpg",
-                            MealType = 2,
+                            MealType = "Lunch",
                             PrepTime = 30,
                             Protein = 4,
-                            Total_Carbohydrate = 44
+                            Total_Carbohydrate = 44,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "47",
                             Calories = 538,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6677),
+                            DietaryType = "Omnivore",
                             Image = "7.jpg",
-                            MealType = 3,
+                            MealType = "Dinner",
                             PrepTime = 35,
                             Protein = 37,
-                            Total_Carbohydrate = 79
+                            Total_Carbohydrate = 79,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "48",
                             Calories = 30,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6688),
+                            DietaryType = "Vegetarian",
                             Image = "8.jpg",
-                            MealType = 1,
+                            MealType = "Breakfast",
                             PrepTime = 10,
                             Protein = 5,
-                            Total_Carbohydrate = 10
+                            Total_Carbohydrate = 10,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "49",
                             Calories = 110,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6699),
+                            DietaryType = "Vegetarian",
                             Image = "9.png",
-                            MealType = 1,
+                            MealType = "Breakfast",
                             PrepTime = 15,
                             Protein = 5,
-                            Total_Carbohydrate = 10
+                            Total_Carbohydrate = 10,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "50",
                             Calories = 40,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6710),
+                            DietaryType = "Vegetarian",
                             Image = "10.png",
-                            MealType = 0,
+                            MealType = "SideDish",
                             PrepTime = 60,
                             Protein = 8,
-                            Total_Carbohydrate = 20
+                            Total_Carbohydrate = 20,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "51",
                             Calories = 125,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6723),
+                            DietaryType = "Vegetarian",
                             Image = "11.png",
-                            MealType = 2,
+                            MealType = "Lunch",
                             PrepTime = 50,
                             Protein = 5,
-                            Total_Carbohydrate = 30
+                            Total_Carbohydrate = 30,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "52",
                             Calories = 66,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6732),
+                            DietaryType = "Omnivore",
                             Image = "12.png",
-                            MealType = 4,
+                            MealType = "Snack",
                             PrepTime = 30,
                             Protein = 5,
-                            Total_Carbohydrate = 36
+                            Total_Carbohydrate = 36,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "53",
                             Calories = 110,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6741),
+                            DietaryType = "Vegetarian",
                             Image = "13.jpg",
-                            MealType = 2,
+                            MealType = "Lunch",
                             PrepTime = 30,
                             Protein = 7,
-                            Total_Carbohydrate = 45
+                            Total_Carbohydrate = 45,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "54",
                             Calories = 145,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6750),
+                            DietaryType = "Omnivore",
                             Image = "14.jpg",
-                            MealType = 2,
+                            MealType = "Lunch",
                             PrepTime = 60,
                             Protein = 17,
-                            Total_Carbohydrate = 30
+                            Total_Carbohydrate = 30,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "55",
                             Calories = 25,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6759),
+                            DietaryType = "Vegetarian",
                             Image = "15.png",
-                            MealType = 0,
+                            MealType = "SideDish",
                             PrepTime = 15,
                             Protein = 8,
-                            Total_Carbohydrate = 10
+                            Total_Carbohydrate = 10,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "56",
                             Calories = 150,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6788),
+                            DietaryType = "Omnivore",
                             Image = "16.jpg",
-                            MealType = 4,
+                            MealType = "Snack",
                             PrepTime = 30,
                             Protein = 5,
-                            Total_Carbohydrate = 25
+                            Total_Carbohydrate = 25,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "57",
                             Calories = 50,
-                            DieteryType = 1,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6808),
+                            DietaryType = "Vegetarian",
                             Image = "17.jpg",
-                            MealType = 3,
+                            MealType = "Dinner",
                             PrepTime = 20,
                             Protein = 4,
-                            Total_Carbohydrate = 15
+                            Total_Carbohydrate = 15,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "58",
                             Calories = 65,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6829),
+                            DietaryType = "Omnivore",
                             Image = "18.jpg",
-                            MealType = 1,
+                            MealType = "Breakfast",
                             PrepTime = 30,
                             Protein = 15,
-                            Total_Carbohydrate = 40
+                            Total_Carbohydrate = 40,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "59",
                             Calories = 34,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6840),
+                            DietaryType = "Omnivore",
                             Image = "19.jpg",
-                            MealType = 1,
+                            MealType = "Breakfast",
                             PrepTime = 15,
                             Protein = 0,
-                            Total_Carbohydrate = 15
+                            Total_Carbohydrate = 15,
+                            ViewsNumber = 0
                         },
                         new
                         {
                             Id = "6-",
                             Calories = 45,
-                            DieteryType = 0,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6858),
+                            DietaryType = "Omnivore",
                             Image = "20.jpg",
-                            MealType = 1,
+                            MealType = "Breakfast",
                             PrepTime = 240,
                             Protein = 7,
-                            Total_Carbohydrate = 15
+                            Total_Carbohydrate = 15,
+                            ViewsNumber = 0
+                        },
+                        new
+                        {
+                            Id = "61",
+                            Calories = 250,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6930),
+                            Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
+                            DietaryType = "حيواني",
+                            Image = "/Images/HealthyRecipes/1.jpg",
+                            Ingredients = "بيضات كاملة,100,غرام\n الديك الرومي المطحون الخالي من الد,60,غرام\nتوابل التاكو ,2,غرام\n الفلفل الأخضر الجرس,20,غرام\n الفلفل الأحمر,20,غرام\n البصل الأحمر,20,غرام\nصلصة,15,غرام\n زبادي يوناني قليل الدسم,15,غرام\n البصل الأخضر,10,غرام\n",
+                            MealType = "وجبة الإفطار",
+                            PrepTime = 12,
+                            PreparationMethod = "دهن مقلاة غير لاصقة بقليل من بخاخ تحرير المقلاة وقم بالتسخين المسبق على حرارة متوسطة إلى عالية.\r\nبمجرد أن يسخن , افرم الديك الرومي المطحون في المقلاة ورشي توابل التاكو مع التقليب حتى تمتزج. يُطهى لمدة 3-4 دقائق مع التحريك من حين لآخر أو حتى ينضج تمامًا ويصبح لونه بنيًا جيدًا. بمجرد طهيه , باستخدام ملعقة مثقوبة , أخرج الديك الرومي من المقلاة وضعه جانبًا على طبق.\r\n, دهن المقلاة برفق مرة أخرى وعاد إلى درجة حرارة متوسطة إلى عالية. يُضاف الفلفل والبصل ويُطهى لمدة 3-4 دقائق أو حتى ينضج.\r\n, بمجرد أن تصبح الخضار طرية , أعد الديك الرومي المطحون إلى المقلاة وقلّب المزيج. باستخدام ملعقة مشقوقة , تُرفع الخضار والديك الرومي المفروم من المقلاة , ويُترك جانباً على الطبق , ويُتبل قليلاً بالملح والفلفل حسب الرغبة.\r\n, أعد المقلاة إلى درجة حرارة متوسطة إلى عالية. بمجرد أن يسخن , أضف البيض ولفه لتغطي قاع المقلاة.\r\n,يُغطّى ويُطهى لمدة 2-3 دقائق أو حتى يصبح البيض متماسكًا وينضج تمامًا. أخرج البيضة من المقلاة بحذر وانقلها إلى طبق التقديم.\r\nوزعي البيض بالديك الرومي والخضار والصلصة. دولوب مع الزبادي ورش البصل الأخضر قبل التقديم.",
+                            Price = 0.0,
+                            Protein = 24,
+                            RatePercentage = 0.0,
+                            ShortDescription = "",
+                            Title = " فاهيتا أوميليت مفتوح الوجه مع تركيا المطحونة والفلفل والبصل",
+                            Total_Carbohydrate = 6,
+                            ViewsNumber = 0
+                        },
+                        new
+                        {
+                            Id = "62",
+                            Calories = 269,
+                            CreatedDate = new DateTime(2023, 4, 24, 8, 49, 17, 604, DateTimeKind.Local).AddTicks(6947),
+                            Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
+                            DietaryType = "حيواني",
+                            Image = "/Images/HealthyRecipes/2.jpg",
+                            Ingredients = " الريحان الطازج,2,غرام\n خيارة,60,غرام\n جبن كوخ قليل الدسم ,2,غرام\n  كعكة القمح الكامل الإنجليزية ,20,غرام\n الخل البلسمي ,20,غرام\n  البارود الأسود,20,غرام\nالتوابل الإيطالية,15,غرام\n صدر دجاج,15,غرام\nزيت الزيتون,10,غرام\n",
+                            MealType = "طبق جانبي,وجبة غداء",
+                            PrepTime = 15,
+                            PreparationMethod = ", قم بالتسخين المسبق لشواية الغاز إلى درجة حرارة متوسطة إلى عالية أو الفحم المسبق لشواية الفحم., صدر الدجاج يجفف بالمناشف الورقية ويوضع على طبق ويتبل قليلا بالتوابل الإيطالية والفلفل الأسود والخل البلسمي ورشة ملح., ضع الدجاج جانبًا لينقع لمدة 10 دقائق بينما تسخن الشواية مسبقًا., بمجرد أن تصبح الشواية ساخنة ، أضيفي الدجاج واطهيها لمدة 2-3 دقائق لكل جانب أو حتى تفحم قليلاً وتنضج بالكامل. تُرفع عن الشواية وتترك جانباً لترتاح قبل التقطيع., ملعقة وافرد الجبن القريش على الكعك الإنجليزي المحمص. يُغطى التوست المُجهز بشرائح الدجاج وشرائح الخيار والريحان الطازج. الموسم الى الذوق مع الملح والفلفل.",
+                            Price = 0.0,
+                            Protein = 26,
+                            RatePercentage = 0.0,
+                            ShortDescription = "",
+                            Title = "خيار وجبن كوخ وخبز محمص دجاج مشوي مع الخل البلسمي والأعشاب الإيطالية",
+                            Total_Carbohydrate = 30,
+                            ViewsNumber = 0
                         });
                 });
 
@@ -1683,10 +1802,16 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ExerciseId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("HealthyRecipeId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Order_DetailsId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("review")
+                    b.Property<int>("Review")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("review_date")
@@ -1698,6 +1823,10 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ExerciseId");
+
+                    b.HasIndex("HealthyRecipeId");
 
                     b.HasIndex("Order_DetailsId")
                         .IsUnique()
@@ -2224,7 +2353,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "ff748227-2f4c-41b5-a809-77fc7ebdbe7c",
+                            ConcurrencyStamp = "87afa91a-72a6-4419-8ba5-d445a2cca41d",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -2235,7 +2364,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "e795a2aa-5add-4af2-b06f-4a4b16d1f24f",
+                            SecurityStamp = "b57c5fae-6689-41ed-b7d7-bf155633d494",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });
@@ -2610,9 +2739,21 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Rate", b =>
                 {
+                    b.HasOne("liaqati_master.Models.Exercise", "Exercise")
+                        .WithMany("Rate")
+                        .HasForeignKey("ExerciseId");
+
+                    b.HasOne("liaqati_master.Models.HealthyRecipe", "HealthyRecipe")
+                        .WithMany("Rate")
+                        .HasForeignKey("HealthyRecipeId");
+
                     b.HasOne("liaqati_master.Models.Order_Details", "Order_Details")
                         .WithOne("Rate")
                         .HasForeignKey("liaqati_master.Models.Rate", "Order_DetailsId");
+
+                    b.Navigation("Exercise");
+
+                    b.Navigation("HealthyRecipe");
 
                     b.Navigation("Order_Details");
                 });
@@ -2744,6 +2885,8 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
                 {
                     b.Navigation("Exercies_Programs");
+
+                    b.Navigation("Rate");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Favorite", b =>
@@ -2754,6 +2897,8 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.HealthyRecipe", b =>
                 {
                     b.Navigation("Meal_Healthy");
+
+                    b.Navigation("Rate");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.MealPlans", b =>

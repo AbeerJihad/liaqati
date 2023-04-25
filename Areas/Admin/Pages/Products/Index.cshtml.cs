@@ -7,12 +7,12 @@ namespace liaqati_master.Areas.Admin.Pages.Products
     public class IndexProductModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;
-        private readonly RepProducts _repProducts;
+        private readonly IRepoProducts _IRepoProducts;
 
-        public IndexProductModel(UnitOfWork UnitOfWork, RepProducts repProducts)
+        public IndexProductModel(UnitOfWork UnitOfWork, IRepoProducts IRepoProducts)
         {
             _unitOfWork = UnitOfWork;
-            _repProducts = repProducts;
+            _IRepoProducts = IRepoProducts;
         }
 
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
@@ -41,7 +41,7 @@ namespace liaqati_master.Areas.Admin.Pages.Products
             if (_unitOfWork != null)
             {
                 ProductQueryParamters.Size = 7;
-                QueryPageResult = await _repProducts.SearchProduct(ProductQueryParamters);
+                QueryPageResult = await _IRepoProducts.SearchProduct(ProductQueryParamters);
             }
         }
         public async Task OnPost()
@@ -49,7 +49,7 @@ namespace liaqati_master.Areas.Admin.Pages.Products
             if (_unitOfWork != null)
             {
                 ProductQueryParamters.Size = 7;
-                QueryPageResult = await _repProducts.SearchProduct(ProductQueryParamters);
+                QueryPageResult = await _IRepoProducts.SearchProduct(ProductQueryParamters);
             }
 
             //return RedirectToPage("./index");

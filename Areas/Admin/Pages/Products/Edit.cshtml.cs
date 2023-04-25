@@ -11,9 +11,9 @@ namespace liaqati_master.Pages.Products
 
         private readonly UnitOfWork _UnitOfWork;
         private readonly IFormFileMang _IFormFileMang;
-        private readonly RepoFiles _RepoFiles;
+        private readonly IRepoFiles _RepoFiles;
 
-        public EditProductModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang iFormFileMang, RepoFiles repoFiles)
+        public EditProductModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang iFormFileMang, IRepoFiles repoFiles)
         {
             _context = context;
             _UnitOfWork = unitOfWork;

@@ -22,7 +22,7 @@ namespace liaqati_master.ViewModels
         public MealTypeTypeStatus MealType { get; set; }
 
         [Display(Name = "النوع الغذائي")]
-        public DieteryTypeStatus DieteryType { get; set; }
+        public DietaryTypeStatus DietaryType { get; set; }
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "وقت التحضير")]

@@ -1,16 +1,18 @@
-﻿namespace liaqati_master.Controllers
+﻿using liaqati_master.Services.Repositories;
+
+namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ExerciseApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
+        private readonly IRepoExercise _repoExercise;
 
-
-        public ExerciseApiController(LiaqatiDBContext context)
+        public ExerciseApiController(LiaqatiDBContext context, IRepoExercise repoExercise)
         {
             _context = context;
-
+            _repoExercise = repoExercise;
         }
 
         [HttpGet("AllExercise")]
@@ -159,6 +161,43 @@
 
 
 
+        [HttpPost]
+        [Route("searchforExercise")]
+        public async Task<ActionResult> Search([FromBody] ExerciseQueryParamters exqParameters)
+        {
+            return Ok(await _repoExercise.SearchExercies(exqParameters));
+
+
+            //   if (exqParameters.BodyFocus.Count != 0 && exqParameters.TraningType.Count != 0
+            //&& exqParameters.Difficulty.Count != 0 && exqParameters.Equipment.Count != 0)
+            //   {
+            //       {
+            //           ex = exercises.Where(p => exqParameters.BodyFocus.Contains(p.BodyFocus.ToLower())
+            //           && exqParameters.TraningType.Contains(p.TraningType)
+
+            //           && exqParameters.Difficulty.Contains(p.Difficulty.Value)
+            //           && exqParameters.Equipment.Contains(p.Equipments)
+
+            //           //&& exqParameters.Duration.Contains(p.Duration.Value)
+            //           ).ToList();
+
+            //           if (ex.Count == 0)
+            //           {
+            //               ex = _context.TblExercises.ToList();
+            //           }
+            //           return Ok(ex);
+
+            //       }
+            //   }
+            //   //
+
+
+
+
+            //   QueryPageResult< Exercise> queryPageResult=CommonMethods.GetPageResult(exercises, exqParameters);
+
+
+        }
 
 
     }

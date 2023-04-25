@@ -1,12 +1,7 @@
-﻿using liaqati_master.ViewModels;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Text;
-
-namespace liaqati_master.Controllers
+﻿namespace liaqati_master.Controllers
 {
-   [Route("api/[controller]")]
-   // [ApiController]
+    [Route("api/[controller]")]
+    // [ApiController]
     public class MealhealthyController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
@@ -24,13 +19,13 @@ namespace liaqati_master.Controllers
 
             return Ok(await _context.TblMeal_Healthy.ToArrayAsync());
         }
-      
-        
+
+
         [HttpGet("AllMealhealthies/{id}")]
-        public async  Task<ActionResult<List<Meal_Healthy>>> GetAllMealhealthyByMealId(string id)
+        public async Task<ActionResult<List<Meal_Healthy>>> GetAllMealhealthyByMealId(string id)
         {
 
-        IEnumerable<Meal_Healthy> list = _context.TblMeal_Healthy.ToList().Where(p => p.MealPlansId == id);
+            IEnumerable<Meal_Healthy> list = _context.TblMeal_Healthy.ToList().Where(p => p.MealPlansId == id);
 
             return Ok(list);
         }
@@ -42,13 +37,14 @@ namespace liaqati_master.Controllers
         [HttpPost("AddMealhealthy")]
         public async Task<ActionResult<Meal_Healthy>> AddMealhealthy([FromBody] vmMeal_Healthy vmMeal_Healthy)
         {
-            
-            if(vmMeal_Healthy == null) { 
+
+            if (vmMeal_Healthy == null)
+            {
 
                 return NotFound();
-          
 
-                }
+
+            }
 
             Meal_Healthy Meal_Healthy = new Meal_Healthy()
             {

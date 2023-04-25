@@ -6,10 +6,10 @@ namespace liaqati_master.Pages.ProgramPages
     public class ToDaycshtmlModel : PageModel
     {
         readonly IRepoProgram _context;
-        readonly RepoProgramExercies _repocontext;
-        readonly RepoExercises _repocontextExer;
+        readonly IRepoProgramExercies _repocontext;
+        readonly IRepoExercise _repocontextExer;
 
-        public ToDaycshtmlModel(IRepoProgram context, RepoProgramExercies repocontext, RepoExercises repocontextExer)
+        public ToDaycshtmlModel(IRepoProgram context, IRepoProgramExercies repocontext, IRepoExercise repocontextExer)
         {
             _context = context;
             _repocontext = repocontext;
@@ -32,7 +32,7 @@ namespace liaqati_master.Pages.ProgramPages
 
             foreach (var x in list2)
             {
-                Exercise item = await _repocontextExer.GetExercises(x);
+                Exercise item = await _repocontextExer.GetByIDAsync(x);
                 Exercises.Add(item);
 
             }

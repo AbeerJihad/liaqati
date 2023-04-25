@@ -7,13 +7,13 @@ namespace liaqati_master.Pages.ProductsPages
     public class IndexModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;
-        private readonly RepProducts _repProducts;
+        private readonly IRepoProducts _IRepoProducts;
 
-        public IndexModel(UnitOfWork unitOfWork, RepProducts repProducts)
+        public IndexModel(UnitOfWork unitOfWork, IRepoProducts IRepoProducts)
         {
 
             _unitOfWork = unitOfWork;
-            _repProducts = repProducts;
+            _IRepoProducts = IRepoProducts;
         }
 
         [BindProperty(SupportsGet = true)]
@@ -31,13 +31,13 @@ namespace liaqati_master.Pages.ProductsPages
         public async Task OnGetAsync()
         {
 
-            queryPageResult = await _repProducts.SearchProduct(Parameters);
+            queryPageResult = await _IRepoProducts.SearchProduct(Parameters);
 
             //return RedirectToPage("./index");
         }
         public async Task OnPostAsync()
         {
-            queryPageResult = await _repProducts.SearchProduct(Parameters);
+            queryPageResult = await _IRepoProducts.SearchProduct(Parameters);
 
             //return RedirectToPage("./index");
         }
