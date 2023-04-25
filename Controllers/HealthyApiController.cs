@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using liaqati_master.Services.Repositories;
 
 
 namespace liaqati_master.Controllers
@@ -9,20 +7,20 @@ namespace liaqati_master.Controllers
     [ApiController]
     public class HealthyApiController : ControllerBase
     {
-        readonly  LiaqatiDBContext _context;
+        readonly LiaqatiDBContext _context;
+        private readonly IRepoHealthyRecipe _repoHealthyRecipe;
 
-
-        public HealthyApiController(LiaqatiDBContext context)
+        public HealthyApiController(LiaqatiDBContext context, IRepoHealthyRecipe repoHealthyRecipe)
         {
             _context = context;
-           
+            _repoHealthyRecipe = repoHealthyRecipe;
         }
 
         [HttpGet("AllHealthyRecipe")]
         public async Task<ActionResult<List<HealthyRecipe>>> GetAllHealthyRecipe()
         {
 
-            return Ok(await  _context.TblHealthyRecipe.ToArrayAsync());
+            return Ok(await _context.TblHealthyRecipe.ToArrayAsync());
         }
 
         [HttpGet("GetHealthyRecipeById/{id}")]
@@ -68,7 +66,6 @@ namespace liaqati_master.Controllers
         }
 
         [HttpDelete("DeleteHealthyRecipe/{id}")]
-
         public async Task<ActionResult<HealthyRecipe>> DeleteHealthyRecipe(string id)
         {
             HealthyRecipe item = _context.TblHealthyRecipe.Find(id);
@@ -98,8 +95,6 @@ namespace liaqati_master.Controllers
         }
 
         [HttpDelete("{DeleteToList}")]
-
-
         public async Task<ActionResult<List<HealthyRecipe>>> DeleteMultiExercise([FromForm] string[] ids)
         {
             var plist = new List<HealthyRecipe>();
@@ -137,7 +132,6 @@ namespace liaqati_master.Controllers
 
 
         [HttpPut("EditHealthyRecipe/{id}")]
-
         public async Task<ActionResult<HealthyRecipe>> EditExercise(int id, HealthyRecipe HealthyRecipe)
         {
             if (_context.TblHealthyRecipe.Find(id) == null)
@@ -162,10 +156,11 @@ namespace liaqati_master.Controllers
             return Ok();
 
         }
-
-
-
-
-
+        [HttpPost]
+        [Route("searchforHealty")]
+        public async Task<ActionResult> Search([FromBody] HealthyRecipeQueryParamters exqParameters)
+        {
+            return Ok(await _repoHealthyRecipe.SearchHealty(exqParameters));
+        }
     }
 }

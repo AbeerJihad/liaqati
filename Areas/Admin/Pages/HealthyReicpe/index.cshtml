@@ -4,8 +4,8 @@
 }
 
 @section Styles{
-<link href="~/assets/css/Tables.css" rel="stylesheet" />
-<link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/assets/css/Tables.css" rel="stylesheet" />
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 }
 
 <div class="container-lg ">
@@ -16,13 +16,13 @@
                 <div class="products-total d-flex gap-2">
                     <div class="square-product-setting d-inline-block">
                         <a class="icon-grid m-0 grid-layout-view"
-                           href="javascript:void(0)"  title=""><i class="bi bi-grid"></i>                        </a>
+                           href="javascript:void(0)" title=""><i class="bi bi-grid"></i>                        </a>
                     </div>
-                   <div class="square-product-setting d-inline-block">
-                                <a class="icon-grid m-0  list-layout-view" title=""  href="javascript:void(0)" >
-                                        <i class="bi bi-list-ul"></i>
-                                </a>
-                            </div>
+                    <div class="square-product-setting d-inline-block">
+                        <a class="icon-grid m-0  list-layout-view" title="" href="javascript:void(0)">
+                            <i class="bi bi-list-ul"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col   py-2  d-flex justify-content-end gap-2">
@@ -86,7 +86,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">
-                                        <input class="form-check-input " type="checkbox" id="chk-all" value="" >
+                                        <input class="form-check-input " type="checkbox" id="chk-all" value="">
                                     </th>
                                     <th scope="col" width="100">الصورة</th>
                                     <th scope="col" width="180">العنوان</th>
@@ -117,7 +117,7 @@
                                         <td>@item.Title</td>
                                         <td>@item.MealType</td>
                                         <td>@item.Price?.ToString("c")</td>
-                                        <td>@item.DieteryType</td>
+                                        <td>@item.DietaryType</td>
                                         <td>
                                             <div class="d-flex gap-2">
                                                 <a asp-page="Details" asp-route-id="@item.Id" class="btn"
@@ -147,14 +147,14 @@
                             </tbody>
                         </table>
                     </div>
-                    <partial name="_Manage__data"/>
+                    <partial name="_Manage__data" />
                 </div>
             </div>
 
         </div>
     </div>
-                     <partial name="_ConfirmDeleteModel"/>
-                    <partial name="_ImageViewer"/>
+    <partial name="_ConfirmDeleteModel" />
+    <partial name="_ImageViewer" />
 
 </div>
 

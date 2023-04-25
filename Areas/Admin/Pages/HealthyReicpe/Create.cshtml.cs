@@ -15,13 +15,13 @@ namespace liaqati_master.Pages.HealthyReicpe
               nameof(Category.Id),
               nameof(Category.Name)
               );
-            DieteryTypeStatusList = Database.GetListOfDietaryType();
+            DietaryTypeStatusList = Database.GetListOfDietaryType();
             MealTypeTypeStatusList = Database.GetListOfMealType();
 
         }
 
         public SelectList CatogeryName { get; set; }
-        public List<SelectListItem> DieteryTypeStatusList { get; set; }
+        public List<SelectListItem> DietaryTypeStatusList { get; set; }
         public List<SelectListItem> MealTypeTypeStatusList { get; set; }
 
 

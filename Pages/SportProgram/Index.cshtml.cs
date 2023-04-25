@@ -6,10 +6,10 @@ namespace liaqati_master.Pages.SportProgram
     public class IndexModel : PageModel
     {
         readonly IRepoProgram _context;
-        readonly RepoProgramExercies _repocontext;
-        readonly RepoExercises _repocontextExer;
+        readonly IRepoProgramExercies _repocontext;
+        readonly IRepoExercise _repocontextExer;
 
-        public IndexModel(IRepoProgram context, RepoProgramExercies repocontext, RepoExercises repocontextExer)
+        public IndexModel(IRepoProgram context, IRepoProgramExercies repocontext, IRepoExercise repocontextExer)
         {
             _context = context;
             _repocontext = repocontext;

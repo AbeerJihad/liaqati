@@ -2,14 +2,13 @@
 {
     public class Rate : BaseEntity
     {
-
         [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
         [Display(Name = "التقييم على")]
         public string type { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "التقييم")]
         [Range(1, 5)]
-        public int review { get; set; }
+        public int Review { get; set; }
 
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "تاريخ التقييم")]
@@ -20,5 +19,9 @@
         public string? Order_DetailsId { get; set; }
         public virtual Order_Details? Order_Details { get; set; }
 
+        public string? ExerciseId { get; set; }
+        public virtual Exercise? Exercise { get; set; }
+        public string? HealthyRecipeId { get; set; }
+        public virtual HealthyRecipe? HealthyRecipe { get; set; }
     }
 }

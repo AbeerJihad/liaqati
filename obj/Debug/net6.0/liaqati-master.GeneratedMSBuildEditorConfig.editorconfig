@@ -228,12 +228,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Exercises2/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhlcmNpc2VzMlxJbmRleC5jc2h0bWw=
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Exercises3/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhlcmNpc2VzM1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Exercises/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhlcmNpc2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Components/GenericComponentHealthyRecipes/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcQ29tcG9uZW50c1xHZW5lcmljQ29tcG9uZW50SGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Components/MostViewedHealthyRecipes/default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcQ29tcG9uZW50c1xNb3N0Vmlld2VkSGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcX0hlYWx0aHlSZWNpcGVDYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeSkeletonCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcX0hlYWx0aHlSZWNpcGVTa2VsZXRvbkNhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeSmallCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcX0hlYWx0aHlSZWNpcGVTbWFsbENhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Home/Index.cshtml]

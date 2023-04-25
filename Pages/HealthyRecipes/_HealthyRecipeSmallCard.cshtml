@@ -1,0 +1,22 @@
+﻿@model HealthyRecipe
+<div class="col p-3">
+    <div class="card shadow-sm ">
+        <div class="row g-0  overflow-hidden">
+            <div class="col-5 position-relative overflow-hidden " style="height:100px;">
+                <img src="@Model.Image" class="h-100 start-0 top-0 object-fit-cover w-100 position-absolute" alt="...">
+            </div>
+            <div class="col-7">
+                <div class=" position-relative h-100 w-100">
+                    <div class="h-100 d-flex justify-content-center align-items-center pe-4">
+                        <h6 class=" m-0 text-center fw-bold ">@Model.Title</h6>
+                    </div>
+                    <div class="text-start d-flex justify-content-center align-items-center position-absolute bottom-0 end-0 p-2">
+                        <a class=" d-flex justify-content-center align-items-center" style="width: 20px; height:20px;" href="#">
+                            <i class="bi bi-heart  text-black"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
