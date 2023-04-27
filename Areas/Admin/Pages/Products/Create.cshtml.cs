@@ -52,6 +52,7 @@ namespace liaqati_master.Pages.Products
             _UnitOfWork.Save();
 
             List<Files> ImagesPaths = new();
+
             foreach (var item in Images)
             {
                 ImagesPaths.Add(new Files() { Id = CommonMethods.Id_Guid(), ServiceId = Id, Path = await _IFormFileMang.Upload(item, "images", "products") });

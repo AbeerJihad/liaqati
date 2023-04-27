@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<User> signManager
+
 <nav class="d-lg-none position-fixed w-100" style="z-index: 13">
     <div class="d-flex justify-content-between align-items-center navbar-brand-container">
         <partial name="HeaderLogo" />
@@ -92,11 +94,19 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">من نحن</a>
                 </li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item d-flex justify-content-center align-items-center">
+                        <a class="nav-link" aria-current="page" asp-area="admin" asp-page="/Dashboard/Index">لوحة التحكم</a>
+                    </li>
+                }
+
                 <li class="nav-item">
+
                     <div class="d-flex justify-content-between align-items-center">
-                        <button class="btn-main col-auto text-black rounded-4 fw-bold d-inline-block border-0 py-2 px-3">
-                            تسجيل الدخول
-                        </button>
+                        <partial name="_LoginPartial" />
+
+
                         <div class="fav-cart d-flex justify-content-between align-items-center">
                             <a href="" class="btn" title="fav">
                                 <i class="bi bi-bag-dash h3"></i>
