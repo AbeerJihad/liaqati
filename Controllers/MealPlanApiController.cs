@@ -1,16 +1,18 @@
-﻿namespace ProgectApi.Controllers
+﻿using liaqati_master.Services.Repositories;
+
+namespace ProgectApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class MealPlanApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
-        readonly IRepository<MealPlans> _IRepoMealPlans;
+        readonly IRepoMealPlans _IRepoMealPlans;
         readonly UnitOfWork _unitOfWork;
 
 
 
-        public MealPlanApiController(LiaqatiDBContext context, UnitOfWork unitOfWork, IRepository<MealPlans> iRepoMealPlans)
+        public MealPlanApiController(LiaqatiDBContext context, UnitOfWork unitOfWork, IRepoMealPlans iRepoMealPlans)
         {
             _context = context;
             _unitOfWork = unitOfWork;
@@ -21,12 +23,10 @@
         [HttpGet("AllMealPlan")]
         public async Task<ActionResult<List<MealPlans>>> GetAllMealPlan()
         {
-
             return Ok(await _context.TblMealPlans.ToArrayAsync());
         }
 
         [HttpGet("GetMealPlanById/{id}")]
-
         public async Task<ActionResult<List<MealPlans>>> GetMealPlanById(int id)
         {
 
@@ -168,7 +168,6 @@
         [Route("search")]
         public async Task<ActionResult> SearchForMealPlans([FromQuery] MealPlansQueryParamters Parameters)
         {
-
             IQueryable<MealPlans> products = (await _IRepoMealPlans.GetAllAsync()).AsQueryable();
             if (Parameters.CategoryId != null)
             {
@@ -187,7 +186,6 @@
                 products = products.Where(p => p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
             }
             QueryPageResult<MealPlans> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
-
             return Ok(queryPageResult);
 
         }

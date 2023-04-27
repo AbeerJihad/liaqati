@@ -126,7 +126,14 @@
             }
             if (exqParameters.Equipment.Count != 0)
             {
-                exercises = exercises.Where(p => exqParameters.Equipment.Contains(p.Equipments));
+                List<Exercise> Exercises = new List<Exercise>();
+                for (int i = 0; i < exqParameters.Equipment.Count; i++)
+                {
+
+                    Exercises.AddRange(exercises.Where(p => p.Equipments.Contains(exqParameters.Equipment[i])));
+                }
+
+                exercises = Exercises.AsQueryable();
             }
 
             if (!string.IsNullOrEmpty(exqParameters.SortBy))

@@ -28,6 +28,8 @@ namespace liaqati_master.Models
         public int? Height { get; set; } //sm
         public Gender Gender { get; set; }
 
+        [Display(Name = "التخصص  ")]
+        public string? Specialization { get; set; }
         [Display(Name = "الصورة الشخصية")]
         public string? Photo { get; set; }
 

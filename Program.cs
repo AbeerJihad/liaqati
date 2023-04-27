@@ -1,11 +1,15 @@
 ﻿using liaqati_master.Services.Repositories;
 using Microsoft.AspNetCore.Identity;
+using SportProductsWeb.Services;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Services to the container.
 //builder.Services.AddSingleton<Service>();
+EmailSetting emailSetting = builder.Configuration.GetSection("EmailSetting").Get<EmailSetting>();
+builder.Services.AddSingleton(emailSetting);
+builder.Services.AddScoped<AppEmailService>();
 
 builder.Services.AddControllers().AddJsonOptions(op => { op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; });
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -60,6 +64,7 @@ builder.Services.AddScoped<IRepoOrder>();
 builder.Services.AddScoped<IRepoOrder_Details>();
 builder.Services.AddScoped<IRepoRate>();
 builder.Services.AddScoped<IRepoService>();
+builder.Services.AddScoped<IRepoUser>();
 
 
 builder.Services.AddSwaggerGen();
@@ -97,6 +102,7 @@ app.UseCors(builder =>
     .AllowAnyHeader()
 );
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

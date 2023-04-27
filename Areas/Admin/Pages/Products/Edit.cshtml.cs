@@ -1,8 +1,7 @@
-using liaqati_master.Services.Repositories;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace liaqati_master.Pages.Products
+namespace liaqati_master.Pages.Product
 {
     public class EditProductModel : PageModel
     {
@@ -10,27 +9,19 @@ namespace liaqati_master.Pages.Products
         private readonly LiaqatiDBContext _context;
 
         private readonly UnitOfWork _UnitOfWork;
-        private readonly IFormFileMang _IFormFileMang;
-        private readonly IRepoFiles _RepoFiles;
 
-        public EditProductModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang iFormFileMang, IRepoFiles repoFiles)
+        public EditProductModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
         {
             _context = context;
             _UnitOfWork = unitOfWork;
-            _IFormFileMang = iFormFileMang;
-            _RepoFiles = repoFiles;
-            CatogeryName = new SelectList(_UnitOfWork.CategoryRepository.GetAllEntity(), nameof(Category.Id), nameof(Category.Name));
-
         }
 
-        public SelectList CatogeryName { get; set; }
+        public List<SelectListItem> CatogeryName { get; set; }
 
 
         [BindProperty(SupportsGet = true)]
-        public Product Product { get; set; }
-        [BindProperty]
-        public IFormFileCollection? Images { get; set; }
-        public List<string?> paths { get; set; }
+        public Models.Product Product { get; set; }
+
         public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (id == null)
@@ -39,14 +30,19 @@ namespace liaqati_master.Pages.Products
             }
 
             var product = _UnitOfWork.ProductsRepository.GetByID(id);
-
-            paths = (await _RepoFiles.GetAllAsync()).Where(file => file.ServiceId == product.Id).Select(fil => fil.Path).ToList();
-
             if (product == null)
             {
                 return NotFound();
             }
             Product = product;
+
+            CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
+                                       new SelectListItem
+                                       {
+                                           Value = a.Id.ToString(),
+                                           Text = a.Name
+                                       }).ToList();
+
 
             return Page();
         }
@@ -62,6 +58,7 @@ namespace liaqati_master.Pages.Products
             //}
 
             var id = Product.Id;
+
             var item = _UnitOfWork.ProductsRepository.GetByID(id);
             item.Services!.Title = Product.Services!.Title;
             item.Services.Price = Product.Services.Price;
@@ -78,34 +75,9 @@ namespace liaqati_master.Pages.Products
 
             item.Services.Category = null;
 
-            if (Images?.Count > 0)
-            {
-                List<Files> ImagesPaths = new();
-                foreach (var formFile in Images)
-                {
-                    ImagesPaths.Add(new Files() { Id = CommonMethods.Id_Guid(), ServiceId = id, Path = await _IFormFileMang.Upload(formFile, "images", "products") });
-                }
-
-                List<Files> images = (await _RepoFiles.GetAllAsync()).Where(file => file.ServiceId == Product.Id).ToList();
-
-                foreach (var image in images)
-                {
-                    await _RepoFiles.DeleteEntityAsync(image);
-                    _IFormFileMang.DeleteFile(image.Path);
-
-                }
-
-                await _RepoFiles.AddRangeOfFiles(ImagesPaths);
-                await _RepoFiles.SaveAsync();
-                if (ImagesPaths.Count > 0)
-                {
-                    Product.ImgUrl = ImagesPaths[0].Path;
-                }
-
-
-            }
 
             _UnitOfWork.ProductsRepository.Update(item);
+
 
             //  _context.Attach(MealPlans).State = EntityState.Modified;
 
@@ -113,6 +85,10 @@ namespace liaqati_master.Pages.Products
             {
                 _UnitOfWork.Save();
             }
+
+
+
+
             catch (DbUpdateConcurrencyException)
             {
                 if (!StudentExists(Product.Id))

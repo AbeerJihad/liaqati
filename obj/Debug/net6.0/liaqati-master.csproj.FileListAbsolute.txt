@@ -116,7 +116,6 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensi
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Features.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Composite.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Physical.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileSystemGlobbing.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
@@ -572,3 +571,11 @@ D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.pdb
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.genruntimeconfig.cache
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\ref\liaqati-master.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\libman.json
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\bundleconfig.json
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\MailKit.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\MimeKit.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll

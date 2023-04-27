@@ -1,9 +1,11 @@
-﻿namespace liaqati_master.Components
+﻿using liaqati_master.Services.Repositories;
+
+namespace liaqati_master.Components
 {
     public class MostViewedArticlesViewComponent : ViewComponent
     {
-        private readonly IRepository<Article> _articleRepo;
-        public MostViewedArticlesViewComponent(IRepository<Article> articleRepo)
+        private readonly IRepoArticles _articleRepo;
+        public MostViewedArticlesViewComponent(IRepoArticles articleRepo)
         {
             _articleRepo = articleRepo;
         }
