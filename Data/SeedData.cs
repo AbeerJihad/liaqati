@@ -31,7 +31,8 @@ namespace liaqati_master.Data
                     UserName = "OmarHamad",
                     Email = "admin@website.com",
                     Fname = "Website",
-                    Lname = "Admin"
+                    Lname = "Admin",
+                    Specialization="أخصائي تغذية"
                 };
                 var result = await userManager.CreateAsync(Admin, "Admin123@");
                 if (result.Succeeded)
@@ -58,7 +59,8 @@ namespace liaqati_master.Data
                     UserName = "Trainer1",
                     Email = "trainer1@website.com",
                     Fname = "Trainer1",
-                    Lname = "Trainer1"
+                    Lname = "Trainer1",
+                    Specialization = " مدرب لياقة "
                 };
                 var result = await userManager.CreateAsync(Trainer, "Trainer1231@");
                 if (result.Succeeded)
@@ -85,7 +87,8 @@ namespace liaqati_master.Data
                     UserName = "Trainer2",
                     Email = "trainer2@website.com",
                     Fname = "Trainer2",
-                    Lname = "Trainer2"
+                    Lname = "Trainer2",
+                    Specialization = "مدرب لياقة "
                 };
                 var result = await userManager.CreateAsync(Trainer, "Trainer2231@");
                 if (result.Succeeded)
@@ -112,7 +115,8 @@ namespace liaqati_master.Data
                     UserName = "Trainer3",
                     Email = "trainer3@website.com",
                     Fname = "Trainer3",
-                    Lname = "Trainer3"
+                    Lname = "Trainer3",
+                    Specialization = "مدرب قوة "
                 };
                 var result = await userManager.CreateAsync(Trainer, "Trainer3231@");
                 if (result.Succeeded)
@@ -131,6 +135,69 @@ namespace liaqati_master.Data
 
                 }
             }
+            if (await userManager.FindByNameAsync("Trainer3") == null)
+            {
+                var Trainer = new User
+                {
+                    Photo = "Trainer3.jpg",
+                    UserName = "Trainer5",
+                    Email = "trainer5@website.com",
+                    Fname = "Trainer5",
+                    Lname = "Trainer5",
+                    Specialization = "مدرب لياقة "
+                };
+                var result = await userManager.CreateAsync(Trainer, "Trainer3231@");
+                if (result.Succeeded)
+                {
+                    bool checkRole = await roleManager!.RoleExistsAsync("Trainer");
+                    if (!checkRole)
+                    {
+                        IdentityRole role = new() { Name = "Trainer" };
+                        await roleManager.CreateAsync(role);
+                        await userManager.AddToRoleAsync(Trainer, "Trainer");
+                    }
+                    else
+                    {
+                        await userManager.AddToRoleAsync(Trainer, "Trainer");
+                    }
+
+                }
+            }
+
+
+
+
+
+
+            if (await userManager.FindByNameAsync("Trainer3") == null)
+            {
+                var Trainer = new User
+                {
+                    Photo = "Trainer3.jpg",
+                    UserName = "Trainer6",
+                    Email = "trainer6@website.com",
+                    Fname = "Trainer6",
+                    Lname = "Trainer6",
+                    Specialization = "مدرب كارديو "
+                };
+                var result = await userManager.CreateAsync(Trainer, "Trainer3231@");
+                if (result.Succeeded)
+                {
+                    bool checkRole = await roleManager!.RoleExistsAsync("Trainer");
+                    if (!checkRole)
+                    {
+                        IdentityRole role = new() { Name = "Trainer" };
+                        await roleManager.CreateAsync(role);
+                        await userManager.AddToRoleAsync(Trainer, "Trainer");
+                    }
+                    else
+                    {
+                        await userManager.AddToRoleAsync(Trainer, "Trainer");
+                    }
+
+                }
+            }
+
         }
         private static async Task SeedRoles(RoleManager<IdentityRole> roleManager)
         {

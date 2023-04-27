@@ -71,31 +71,31 @@ namespace liaqati_master.Data
         }
         public static List<Category> GetListOfCategories() => new()
         {
+                      
             new Category
             {
-                Id = "1", Name = "طبق رئيسي", Target = Target.HealthyRecipe
+                Id = "1", Name = "طبق رئيسي", Target = "الوجبات"
             },
             new Category
             {
-                Id = "2", Name = "أكل صحي", Target = Target.HealthyRecipe
+                Id = "2", Name = "أكل صحي", Target = "الوجبات"
             },
              new Category
             {
-                Id = "3", Name = "المكملات الغذائية", Target = Target.Product
+                Id = "3", Name = "المكملات الغذائية", Target =  "منتجات"
             },
             new Category
             {
-                Id = "4", Name = "الاجهزة الرياضية", Target = Target.Product
+                Id = "4", Name = "الاجهزة الرياضية", Target =  "منتجات"
             },
             new Category
             {
-                Id = "5", Name = "حلوى", Target = Target.HealthyRecipe
+                Id = "5", Name = "حلوى", Target ="الوجبات"
             },
             new Category
             {
-                Id = "6", Name = "الوجبات"
+                Id = "6", Name = "الوجبات", Target ="الوجبات"
             },
-
         };
         public static List<SelectListItem> GetListOfMealType() => new()
         {

@@ -48,7 +48,7 @@
         public string? PreparationMethod { get; set; }
         [Display(Name = " التقييم"), Range(0, 100)]
         public double? RatePercentage { get; set; }
-        public DateTime? CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? CreatedDate { get; set; } = DateTime.Now;  
         public bool? IsFeatured { get; set; }
         public virtual List<Rate>? Rate { get; set; }
         public virtual List<Meal_Healthy>? Meal_Healthy { get; set; }

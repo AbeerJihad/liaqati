@@ -34,6 +34,10 @@ namespace liaqati_master.Models
         [Display(Name = "صورة الغلاف")]
         public string? Cover_photo { get; set; }
 
+        [Display(Name = "التخصص  ")]
+        public string? Specialization { get; set; }
+        
+
         public virtual List<Achievement>? Achievements { get; set; }
         public virtual List<Order>? Orders { get; set; }
 

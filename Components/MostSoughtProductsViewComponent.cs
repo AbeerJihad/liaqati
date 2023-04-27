@@ -12,7 +12,7 @@
         {
             //var a = _unitOfWork.Order_DetailsRepository.Get().GroupBy(o => o.ServiceId);
             VMMostSoughtProducts vMMostSoughtProducts = new();
-            List<Category> productCategories = _unitOfWork.CategoryRepository.GetAllEntity().Where(predicate: Category => Category.Target == Target.Product).ToList();
+            List<Category> productCategories = _unitOfWork.CategoryRepository.GetAllEntity().Where(predicate: Category => Category.Target == "منتجات").ToList();
             if (productCategories.Any() && productCategories.Count >= 2)
             {
                 vMMostSoughtProducts.ProductsOfCategorySupplementation = GetProducts(productCategories[0].Id);

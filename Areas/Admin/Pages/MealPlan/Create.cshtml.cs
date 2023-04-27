@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace liaqati_master.Pages.MealPlan
 {
@@ -16,6 +17,20 @@ namespace liaqati_master.Pages.MealPlan
 
         public List<SelectListItem> CatogeryName { get; set; }
 
+        [BindProperty(SupportsGet =true)]
+        public List<VmCheckBox> lstCheckBox { get; set; }
+
+
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBoxDietaryType { get; set; }
+
+
+
+        
+
+        public List<string> MealType { get; set; } = Database.GetListOfMealType().Select(b => b.Value).ToList();
+        public List<string> DietaryType { get; set; } = Database.GetListOfDietaryType().Select(b => b.Value).ToList();
+
 
         public string Display { get; set; } = "d-none";
 
@@ -23,6 +38,28 @@ namespace liaqati_master.Pages.MealPlan
 
         public IActionResult OnGet()
         {
+
+           foreach (var item in MealType)
+            {
+                lstCheckBox.Add(new VmCheckBox() { Name = item });
+
+            }
+
+            foreach (var item in DietaryType)
+            {
+                lstCheckBoxDietaryType.Add(new VmCheckBox() { Name = item });
+
+            }
+
+
+
+
+
+
+
+
+
+
             Display = "d-none";
             btnSave = 0;
 
@@ -56,8 +93,6 @@ namespace liaqati_master.Pages.MealPlan
         public MealPlans MealPlans { get; set; }
 
 
-
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAddAsync()
         {
@@ -68,12 +103,29 @@ namespace liaqati_master.Pages.MealPlan
             //    return Page();
             //}
 
+           
+
+
+
+            
+
+
+
+
+
+
+
+
             btnSave = 1;
 
 
             MealPlans.Id = CommonMethods.Id_Guid();
 
             MealPlans.Services!.Id = MealPlans.Id;
+            MealPlans.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+
+            MealPlans.DietaryType = string.Join(',', lstCheckBoxDietaryType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+
 
 
 

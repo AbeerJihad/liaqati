@@ -29,8 +29,24 @@ namespace liaqati_master.Pages.HealthyReicpe
         [BindProperty]
         public HealthyRecipe HealthyRecipes { get; set; }
 
+
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBox { get; set; }
+
+        public List<string> MealType { get; set; } = Database.GetListOfMealType().Select(b => b.Value).ToList();
+
+
+
+
+
+
         public IActionResult OnGet()
         {
+            foreach (var item in MealType)
+            {
+                lstCheckBox.Add(new VmCheckBox() { Name = item });
+
+            }
 
             return Page();
         }
@@ -42,6 +58,9 @@ namespace liaqati_master.Pages.HealthyReicpe
                 return Page();
             }
 
+
+
+
             var guid = CommonMethods.Id_Guid();
             HealthyRecipes.Id = guid;
             HealthyRecipes!.Id = guid;
@@ -51,6 +70,9 @@ namespace liaqati_master.Pages.HealthyReicpe
             //{
             //    HealthyRecipes.CategoryId = id;
             //}
+
+            HealthyRecipes.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+
 
             HealthyRecipes.Image = "";
             _UnitOfWork.HealthyRecipesRepository.Insert(HealthyRecipes);
