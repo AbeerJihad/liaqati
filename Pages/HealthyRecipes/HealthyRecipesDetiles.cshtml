@@ -1,0 +1,314 @@
+﻿@page
+@model liaqati_master.Pages.HealthyRecipes.HealthyRecipesDetilesModel
+@{
+}
+
+<link href="~/user/css/drinks.css" rel="stylesheet" />
+
+
+<div class="container-fluid imgHeader position-relative">
+    <div class="row bgcolor">
+        <div>
+            <h1 class="text-white fw-bolder text-center" style="padding:155px;">@Model.helth.MealType </h1>
+        </div>
+    </div>
+
+</div>
+
+<div class="container mt-3" style="font-size:13px;">
+    <div class="row">
+        <p class="fs-6 p-4">
+            الرئيسية
+            <img src="~/user/images/ic_expand_more_24px.png" />
+            خدماتنا
+            <img src="~/user/images/ic_expand_more_24px.png" />
+            وصفات صحية
+            <img src="~/user/images/ic_expand_more_24px.png" />
+            @Model.helth.MealType
+            <img src="~/user/images/ic_expand_more_24px.png" />
+            @Model.helth.Title
+        </p>
+        <div class="col-lg-7  align-self-center">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/user/images/pexels-toni-cuenca-616833.png" class="d-block carouselImages" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/user/images/224347.png" class="d-block carouselImages" alt="...">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/user/images/224664.png" class="d-block carouselImages" alt="...">
+
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-5 justify-content-center align-items-center shadow">
+            <div class="p-3">
+                <div class="d-flex justify-content-between">
+                    <h3>@Model.helth.Title</h3>
+                    <div>
+                        <img width="25" src="~/user/images/Path 1698.png" />
+                        <img width="25" src="~/user/images/Group 1740.png" />
+                    </div>
+                </div>
+                <hr />
+                <div class="d-flex">
+                    <div class="d-flex ms-3">
+                        <img height="15" class="mt-1 ms-1" src="~/user/images/timer-svgrepo-com.png" />
+                        <p class="textPurple">
+
+                            تاريخ النشر :
+                            <span class="fw-bold">@Model.helth.CreatedDate</span>
+                        </p>
+                    </div>
+                    <div class="d-flex mx-3">
+                        <p class="textPurple">الصنف:</p>
+                        <p>@Model.helth.MealType</p>
+                    </div>
+
+
+                    <p class="textPurple">التقييم:</p>
+                    @for (int i = 0; i <=Model.helth.RatePercentage;i++){
+                    <img height="15" width="15" src="~/user/images/star-svgrepo-com.png" />
+                    }
+                    <p>(80)</p>
+                </div>
+                <hr />
+                <div>
+                    <p class="fs-6">
+                        @Model.helth.Description
+                    </p>
+                </div>
+                <hr />
+                <div class="d-flex ps-md-5 justify-content-between">
+                    <div class="d-flex">
+                        <img height="20" class="ms-2" src="~/user/images/timer-svgrepo.png" />
+                        <p class="fw-bold"> @Model.helth.PrepTime  دقيقة </p>
+                    </div>
+                    <div class="d-flex">
+                        <img height="20" class="ms-2" src="~/user/images/cooking-pot-thin-svgrepo-com.png" />
+                        <p class="fw-bold">متوسط</p>
+                    </div>
+                    <div class="d-flex">
+                        <img height="20" class="ms-2" src="~/user/images/calories-svgrepo-com.png" />
+                        <p class="fw-bold">
+                            @{
+                                var x = double.Parse(Model.helth.Total_Carbohydrate.ToString()) + double.Parse(Model.helth.Protein.ToString()) + double.Parse(Model.helth.Calories.ToString());
+                            }
+                            @x
+                            سعرة حرارية 
+                        </p>
+                    </div>
+
+                </div>
+                <div class="d-flex">
+                    <h5>القيمة الغذائية لكامل الوجبة </h5>
+                    <div class="d-flex mt-3 p-2 w-50 justify-content-evenly me-md-3" style="background-color: #F0EFF8;">
+                        <div>
+                            <p>كالوري</p>
+                            <p>@Model.helth.Calories</p>
+                        </div>
+                       
+                        <div>
+                            <p>كارب</p>
+                            <p>g @Model.helth.Total_Carbohydrate </p>
+                        </div>
+                        <div>
+                            <p>بروتين</p>
+                            <p>g @Model.helth.Protein</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row justify-content-around">
+        <div class="col-md-3">
+            <div class="d-flex">
+                <img height="27" width="25" class="mx-2" src="~/user/images/list-clipboard-svgrepo-com.png" />
+                <h4>المكونات</h4>
+            </div>
+            <p>@Model.helth.Ingredients</p>
+            <hr />
+        </div>
+        <div class="col-md-8">
+            <div class="d-flex">
+                <img height="27" width="25" class="mx-2" src="~/user/images/list-clipboard-svgrepo-com.png" />
+                <h4 class="mb-3">طريقة التحضير</h4>
+            </div>
+          <p>@Model.helth.PreparationMethod</p>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex mt-5 align-content-center">
+    <div class="mt-4 mx-4 col mt-3"
+         style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+    <div class=" shadow d-md-flex p-3 justify-content-evenly" style="width:35%;">
+        <p class="fs-6 ms-2">لان رأيك يهمنا, يرجى تقييم هذه الوصفة</p>
+        <div>
+            <img height="20" width="20" src="~/user/images/star-svgrepo-com.png" />
+            <img height="20" width="20" src="~/user/images/star-svgrepo-com.png" />
+            <img height="20" width="20" src="~/user/images/star-svgrepo-com.png" />
+            <img height="20" width="20" src="~/user/images/star-svgrepo-com.png" />
+        </div>
+    </div>
+    <div class="mt-4 mx-4 col mt-3"
+         style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-around">
+        <div class="col-md-6">
+            <p class="text-center" style="text-decoration:underline;">أضف تعليقك</p>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputName" class="form-label">الاسم</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <span id="namelHelp" class="text-danger">من فضلك ادخل اسمك.</span>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">الايميل</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <span id="emailHelp" class="text-danger">من فضلك ادخل ايميلك.</span>
+                </div>
+
+                <div class="">
+                    <label class="mb-4">التعليق</label>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2"></label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn_Exercises_duration col-auto text-white rounded-3 fw-bold d-inline-block border-0 py-1 px-4 mb-3">
+                        ارسل
+                    </button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-4 m-4" style="background-image: url('~/user/images/pexels-oleksandr-pidvalnyi-2837005.png'); padding:4%;">
+            <div class="bgcolor fw-bolder text-center" style="padding:18% 8%; width:100%;height:100%;">
+                <p class="text-white">
+                    اشترك معنا لمعرفة آخر الوصفات الصحية في لياقتي
+
+                </p>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"></label>
+                    <input placeholder="البريد الالكتروني" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <button type="submit" class="btn_Exercises_duration col-auto text-white rounded-3 fw-bold d-inline-block border-0 py-1 px-4 mb-3">
+                    اشترك
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" id="rowForCardLoop">
+        <div class="col-sm-6 col-lg-3 p-3" id="cardLoop">
+            <div class="card">
+                <div class="position-relative">
+                    <img class="card-img-top" src="~/user/images/d391db9a34c69d770598fa6951b50b079305b99f-101221164448.png" />
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="d-flex w-100 justify-content-between">
+
+                        <h6 class="card-title text-black ">ديتوكس التوت بالليمون </h6>
+
+                        <div class="">
+                            <img width="25" src="~/user/images/Path 1698.png" />
+                            <img width="20" src="~/user/images/heart-outlin.png" />
+                        </div>
+
+
+                    </div>
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img height="15" width="15" src="~/user/images/star-svgrepo-com.png" />
+                            <img height="15" width="15" src="~/user/images/star-svgrepo-com.png" />
+                            <img height="15" width="15" src="~/user/images/star-svgrepo-com.png" />
+                            <img height="15" width="15" src="~/user/images/star-svgrepo-com.png" />
+                            <p class=" lh-sm">(80)</p>
+                        </div>
+                        <div class="d-flex">
+                            <img height="20" width="20" class="m-1" src="~/user/images/timer-svgrepo-com.png" />
+                            <p>30 دقيقة</p>
+                        </div>
+                        <div class="d-flex">
+                            <img height="20" width="20" src="~/user/images/cooking-pot-thin-svgrepo-com.png" />
+                            <p>متوسط</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="container-fluid p-5  text-center mt-5 mb-5" style="background-image: url('~/user/images/BgInput.png');">
+
+    <div class="row justify-content-center  ">
+        <div class="col ">
+            <p class="text-center fw-bold">إشترك فى النشرة البريدية ليصلك كل جديد</p>
+            <div class="p-0 g-0 row d-flex  justify-content-center ">
+                <div class="col-12 col-md-6  my-2 my-md-0 my-lg-0  col-lg-6">
+                    <input style=" width:100%; height:3.4rem; color: #B9AFF5;"
+                           type="email" class="form-control  shadow  inputborderAll" placeholder="البريد الالكتروني" />
+                </div>
+
+                <button class="btn text-white col-12 col-md-6"
+                        style="background-color: #B9AFF5; width:7rem; height:3.4rem;">
+                    اشترك الآن
+                </button>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</section>
+<script>
+    function repeatCard() {
+        let rowForCardLoop = document.getElementById("rowForCardLoop");
+        let cardLoop = document.getElementById("cardLoop");
+        for (let i = 0; i <= 6; i++) {
+            let array = [];
+            let newCard = cardLoop.cloneNode(true);
+            cardLoop.after(newCard);
+            array.push(newCard);
+        }
+    }
+    repeatCard()
+    console.log(cardLoop);
+    console.log(rowForCardLoop);
+</script>

@@ -15,7 +15,7 @@
             modelBuilder.Entity<Tracking>().HasData(Database.GetListOfTracking());
             modelBuilder.Entity<Exercies_program>().HasData(Database.GetListOfExerciesprogram());
             modelBuilder.Entity<Exercise>().HasData(Database.GetListOfExercise());
-            modelBuilder.Entity<HealthyRecipe>().HasData(Database.GetListHealthyRecipe().Concat(Database.GetListHealthyRecipe2()));
+            modelBuilder.Entity<HealthyRecipe>().HasData(Database.GetListHealthyRecipe2());
 
         }
     }

@@ -42,14 +42,16 @@ function RenderCards(HealthyRecipe) {
     let card = document.createElement("div");
     card.className = "col p-3";
     card.innerHTML = `
+     <a asp-page="HealthyRecipes/HealthyRecipesDetiles" asp-route-id="${HealthyRecipe.id} ">
+<div class="col p-3">
     <div class="card rounded-0 shadow-sm">
         <div class="position-relative  overflow-hidden image-box" style="height:300px">
-            <img src="https://img.delicious.com.au/EEJ2ozkv/del/2020/10/green-tea-noodles-with-sticky-sweet-chilli-salmon-140868-2.jpg" class="card-img-top rounded-0 object-fit-cover position-absolute w-100 start-0 top-0 h-100" alt="...">
+            <img src="${HealthyRecipe.image}" class="card-img-top rounded-0 object-fit-cover position-absolute w-100 start-0 top-0 h-100" alt="...">
         </div>
         <div class="card-body p-0">
             <div class="d-flex justify-content-between align-items-center  px-2 title-box">
                 <h6 class="card-title text-black fw-bold  m-0">
-                    شيش طاووق مشوي
+                        ${HealthyRecipe.title}
                 </h6>
                 <div class="d-flex justify-content-center align-items-center gap-2">
                     <a title="share" class=" border-0 bg-transparent " href="#">
@@ -71,7 +73,7 @@ function RenderCards(HealthyRecipe) {
                                 <i class="bi bi-star-fill text-black-50"></i>
                                 <i class="bi bi-star-fill text-black-50"></i>
                             </div>
-                            <div class="rating-lower d-flex  position-absolute top-0 start-0 overflow-hidden  w-10">
+                            <div class="rating-lower d-flex  position-absolute top-0 start-0 overflow-hidden  w-${HealthyRecipe.ratePercentage}">
                                 <i class="bi bi-star-fill text-warning"></i>
                                 <i class="bi bi-star-fill text-warning"></i>
                                 <i class="bi bi-star-fill text-warning"></i>
@@ -81,13 +83,15 @@ function RenderCards(HealthyRecipe) {
                         </div>
                     </div>
                     <div>
-                        <p class="m-0">(80)</p>
+                        <p class="m-0">
+                                ${(HealthyRecipe.ratePercentage)}
+                        </p>
                     </div>
                 </div>
                 <div class="d-flex">
                     <i class="bi bi-alarm mx-1"></i>
                     <p class="m-0">
-                        <span>40</span>
+                            <span> ${(HealthyRecipe.prepTime)}</span>
                         دقيقة
                     </p>
                 </div>
@@ -98,6 +102,8 @@ function RenderCards(HealthyRecipe) {
             </div>
         </div>
     </div>
+</div>
+</a>
 `;
 
     HealthyRecipeContainer.appendChild(card);

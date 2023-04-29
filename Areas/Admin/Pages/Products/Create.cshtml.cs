@@ -27,7 +27,7 @@ namespace liaqati_master.Pages.Products
         public IFormFileCollection Images { get; set; }
 
         [BindProperty]
-        public Product Products { get; set; }
+        public liaqati_master.Models.Product Products { get; set; }
 
         public IActionResult OnGet() => Page();
         public async Task<IActionResult> OnPostAsync()

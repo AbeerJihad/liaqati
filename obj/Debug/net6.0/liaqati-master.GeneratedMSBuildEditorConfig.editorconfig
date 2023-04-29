@@ -9,409 +9,421 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = liaqati_master
 build_property.RootNamespace = liaqati_master
-build_property.ProjectDir = D:\Graduation Project\LastUpdate\liaqati\
+build_property.ProjectDir = C:\Users\LENOVO\Desktop\liaqati\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = D:\Graduation Project\LastUpdate\liaqati
+build_property.MSBuildProjectDirectory = C:\Users\LENOVO\Desktop\liaqati
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Achievements/Create.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Achievements/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Achievements/Delete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Achievements/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Achievements/Details.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Achievements/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Achievements/Edit.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Achievements/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Achievements/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Achievements/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWNoaWV2ZW1lbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Articles/Create.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Articles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Articles/Delete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Articles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Articles/Details.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Articles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Articles/Edit.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Articles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Articles/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Articles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQXJ0aWNsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Categories/IndexAll.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Categories/IndexAll.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQ2F0ZWdvcmllc1xJbmRleEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Dashboard/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Exercises/Create.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Exercises/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Exercises/Delete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Exercises/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Exercises/Edit.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Exercises/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Exercises/Exercie.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Exercises/Exercie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEV4ZXJjaWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Exercises/ExerciesDetails.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Exercises/ExerciesDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEV4ZXJjaWVzRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Exercises/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXEluZGV4LmNzaHRtbA==
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Exercises/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcRXhlcmNpc2VzXGluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/HealthyReicpe/Create.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/HealthyReicpe/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/HealthyReicpe/Delete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/HealthyReicpe/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/HealthyReicpe/Details.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/HealthyReicpe/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/HealthyReicpe/Edit.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/HealthyReicpe/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/HealthyReicpe/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxJbmRleC5jc2h0bWw=
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/HealthyReicpe/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSGVhbHRoeVJlaWNwZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/MealPlan/Create.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/MealPlan/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWVhbFBsYW5cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/MealPlan/Delete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/MealPlan/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWVhbFBsYW5cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/MealPlan/Edit.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/MealPlan/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWVhbFBsYW5cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/MealPlan/index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/MealPlan/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcTWVhbFBsYW5caW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Products/Create.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Products/Delete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Products/Edit.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Products/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Shared/_ConfirmDelete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Shared/_ConfirmDelete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9Db25maXJtRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Shared/_ConfirmDeleteModel.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Shared/_ConfirmDeleteModel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9Db25maXJtRGVsZXRlTW9kZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Shared/_ImageViewer.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Shared/_ImageViewer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9JbWFnZVZpZXdlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Shared/_Layout.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Shared/_Manage__data.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Shared/_Manage__data.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF9NYW5hZ2VfX2RhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Shared/_tables.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Shared/_tables.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU2hhcmVkXF90YWJsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/SportPrograms/Calender.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/SportPrograms/Calender.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3BvcnRQcm9ncmFtc1xDYWxlbmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/SportPrograms/card.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/SportPrograms/card.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3BvcnRQcm9ncmFtc1xjYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/SportPrograms/Create.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/SportPrograms/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3BvcnRQcm9ncmFtc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/SportPrograms/Delete.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/SportPrograms/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3BvcnRQcm9ncmFtc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/SportPrograms/Edit.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/SportPrograms/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3BvcnRQcm9ncmFtc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/SportPrograms/EditAdd.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/SportPrograms/EditAdd.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3BvcnRQcm9ncmFtc1xFZGl0QWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/SportPrograms/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/SportPrograms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcU3BvcnRQcm9ncmFtc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/Users/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/_ViewImports.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Areas/Admin/Pages/_ViewStart.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Areas/Admin/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Accounts/lockout.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Accounts/lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudHNcbG9ja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Accounts/Login.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Accounts/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudHNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Accounts/SignUp.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Accounts/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudHNcU2lnblVwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Accounts/SignUpConfirm.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Accounts/SignUpConfirm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudHNcU2lnblVwQ29uZmlybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Articles/Components/MostViewedArticles/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Articles/Components/MostViewedArticles/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZXNcQ29tcG9uZW50c1xNb3N0Vmlld2VkQXJ0aWNsZXNcZGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Articles/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Articles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Calender/Calender.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Calender/Calender.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FsZW5kZXJcQ2FsZW5kZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/ContactUs/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/ContactUs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdFVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Error.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Exercises3/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Exercises3/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhlcmNpc2VzM1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Exercises/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Exercises/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhlcmNpc2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Components/GenericComponentHealthyRecipes/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Experts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhwZXJ0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Experts/_ExpertsSkeletonCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhwZXJ0c1xfRXhwZXJ0c1NrZWxldG9uQ2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/liaqati/Pages/HealthyRecipes/Components/GenericComponentHealthyRecipes/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcQ29tcG9uZW50c1xHZW5lcmljQ29tcG9uZW50SGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Components/MostViewedHealthyRecipes/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/HealthyRecipes/Components/MostViewedHealthyRecipes/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcQ29tcG9uZW50c1xNb3N0Vmlld2VkSGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/HealthyRecipes/HealthyRecipesDetiles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcSGVhbHRoeVJlY2lwZXNEZXRpbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Desktop/liaqati/Pages/HealthyRecipes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/HealthyRecipes/_HealthyRecipeCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcX0hlYWx0aHlSZWNpcGVDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeSkeletonCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/HealthyRecipes/_HealthyRecipeSkeletonCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcX0hlYWx0aHlSZWNpcGVTa2VsZXRvbkNhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeSmallCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/HealthyRecipes/_HealthyRecipeSmallCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcX0hlYWx0aHlSZWNpcGVTbWFsbENhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Home/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/MealPlan/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/MealPlan/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVhbFBsYW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/MealPlan/_MealPlanCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/MealPlan/_MealPlanCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVhbFBsYW5cX01lYWxQbGFuQ2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Privacy.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Products/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/Exercises/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/Exercises/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcRXhlcmNpc2VzXGRlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/HealthyRecipes/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/HealthyRecipes/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcSGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/LastestArticles/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/LastestArticles/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGFzdGVzdEFydGljbGVzXGRlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/LastestMealPlans/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/LastestMealPlans/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGFzdGVzdE1lYWxQbGFuc1xkZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/LastestPrograms/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/LastestPrograms/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGFzdGVzdFByb2dyYW1zXGRlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/LiaqatiStatistic/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/LiaqatiStatistic/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTGlhcWF0aVN0YXRpc3RpY1xkZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/MostSoughtProducts/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/MostSoughtProducts/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcTW9zdFNvdWdodFByb2R1Y3RzXGRlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/Trainers/default.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Components/Trainers/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXENvbXBvbmVudHNcVHJhaW5lcnNcZGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/DesktopNav.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/DesktopNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXERlc2t0b3BOYXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Footer.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXEZvb3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/FooterBefore.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/FooterBefore.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXEZvb3RlckJlZm9yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/HeaderLogo.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/HeaderLogo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXEhlYWRlckxvZ28uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/MobileNav.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/MobileNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXE1vYmlsZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_ArticlesCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_ArticlesCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BcnRpY2xlc0NhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_coachsCardDesgin1.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_coachsCardDesgin1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9jb2FjaHNDYXJkRGVzZ2luMS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_coachsCardDesgin2.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_coachsCardDesgin2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9jb2FjaHNDYXJkRGVzZ2luMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_exerciseCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_exerciseCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9leGVyY2lzZUNhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_HealthyRecipesCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_HealthyRecipesCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9IZWFsdGh5UmVjaXBlc0NhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_LayoutAccounts.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_LayoutAccounts.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRBY2NvdW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_LoginPartial.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_MealPlansCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_MealPlansCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9NZWFsUGxhbnNDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_ProductCard.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_ProductCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Qcm9kdWN0Q2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/SportProgram/Clender.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/SportProgram/Clender.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvcnRQcm9ncmFtXENsZW5kZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/SportProgram/Details.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/SportProgram/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvcnRQcm9ncmFtXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/SportProgram/Index.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/SportProgram/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvcnRQcm9ncmFtXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/SportProgram/ToDaycshtml.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/SportProgram/ToDaycshtml.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvcnRQcm9ncmFtXFRvRGF5Y3NodG1sLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/_ViewImports.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/_ViewStart.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_Layout.cshtml]
+[C:/Users/LENOVO/Desktop/liaqati/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8hcrq4x10x

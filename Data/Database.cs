@@ -890,56 +890,56 @@ namespace liaqati_master.Data
 
             };
         }
-        public static List<HealthyRecipe> GetListHealthyRecipe()
-        {
-            return new List<HealthyRecipe>()
-            {
+        //public static List<HealthyRecipe> GetListHealthyRecipe()
+        //{
+        //    return new List<HealthyRecipe>()
+        //    {
 
 
 
-                new HealthyRecipe { Id = "41", Image = "1.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35},
-                //الثوم الطازج والليمون,سمك السلمون,طماطم كرزية,صلصة 
-                new HealthyRecipe { Id = "42", Image = "2.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4},
-                //موزولوز
-                new HealthyRecipe { Id = "43", Image = "3.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 379, Total_Carbohydrate = 47, Protein = 32},
-                // الدجاج المشويةوصلصة الباربكيو و وتوابل الصوديوم المنخفضةوالسكروالطماطم و شريحتين من خبز القمح الكامل المحمص و خل التفاح
-                new HealthyRecipe { Id = "44", Image = "4.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 19 ,Total_Carbohydrate = 37, Protein = 5 },
-                //100 جرام زيت كانولا, 1كوب لبن, 2بيضة,1 ملعقة صغيرةبيكنج باودر,رشةفانيلا,6 باكتسكر دايت,نصف كوبكاكاو خام,1كوب دقيق كامل الحبة,1 ملعقة صغيرةبيكنج صودا, رشةملح
-                new HealthyRecipe { Id = "45", Image = "5.png", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 60, Calories = 170, Total_Carbohydrate = 43, Protein = 5},
-                //150جرام  مكرونة,1بصلة,رشةفلفل,كوب ونصفلبن, ملعقتين دقيق, 2جبنة مثلثات خفيفة,ربع لحمة مفروم احمر, رشةملح, ملعقتين زيت, كوب ماء, 50جرامجبنة حلوم, كوب ونصف لبن,
-                new HealthyRecipe { Id = "46", Image = "6.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 180, Total_Carbohydrate = 44, Protein = 4 },
-                //كوب ارز بسمتي,100 جرامجزر, 2 ملعقةشوفان مطحون,رشةفلفل,كوب شوربة, ربع ملعقةزبد, 1ثومة,100 جرامبسلة,100 جرامفلفل الوان, رشة ملح,رشةقرفة, 50 جرامجبن حلوم, كوب لبن
-                new HealthyRecipe { Id = "47", Image = "7.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 35, Calories = 538, Total_Carbohydrate = 79, Protein = 37 },
-                //صدور الدجاج والجلد,الأرز البني, زبادي يوناني قليل الدسم ,الثوم, فتات خبز القمح الكامل المقرمش,طبقة البارميزان,
-                new HealthyRecipe { Id = "48", Image = "8.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 10, Calories = 30, Total_Carbohydrate = 10, Protein = 5  },
-                //50 جرام بقدونس,1الليمون,1الخيار, 1التفاح,20 جرام النعناع
-                new HealthyRecipe { Id = "49", Image = "9.png", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 110, Total_Carbohydrate = 10, Protein = 5 , },
-                //ربع ملعقةزيت زيتون,1فلفل, ربع كوبزيتون, رشةفلفل اسود, قطعةريكفورد
-                new HealthyRecipe { Id = "50", Image = "10.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 40, Total_Carbohydrate = 20, Protein = 8  },
-                //1جزر, 1 خرشوف,100 جرامكوسة,100 جرامذرة حب,ربع ملعقة نشأ, 1 بطاطس,100 جرامبسلة,100 جرامفاصوليا, نصف كوب لبن, ملعقة دقيق
-                new HealthyRecipe { Id = "51", Image = "11.png", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 50, Calories = 125, Total_Carbohydrate = 30, Protein = 5 , },
-                // ملعقةخميرة,ملعقتان دقيق ابيض,50 جرامشوفان مطحون,ملعقةخل,رشة بيكنج بودر,50 جرامطماطم,50 جرامفلفل الوا,50 جرامبصل,50 جرامزيتون,50 جرامذرة مسلوق,100 جرامجبن حلوم,فصثوم مفروم,ملعقةسكر,ملعقتانزيت زيتون,
-                new HealthyRecipe { Id = "52", Image = "12.png", MealType = MealTypeTypeStatus.Snack.ToString()    , DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 66, Total_Carbohydrate = 36, Protein = 5 , },
-                //كوب دقيق ذرة اصفر,نصف كوب دقيق ابيض,1 بيضه,كوب لبن,رشه ملح,3معالقزيت كانولا او زيت نباتي,3 معالق سكر بني او دايت,معلقةبيكنج بودر,نصف معلقةفانيليا سائلة
-                new HealthyRecipe { Id = "53", Image = "13.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 110, Total_Carbohydrate = 45, Protein = 7 , },
-                //250 جرام دجاج,2فلفل الوان,1بصلة,ملعقتين صلصلة صحية,100 جراممكرونة
-                new HealthyRecipe { Id = "54", Image = "14.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString()   , PrepTime = 60, Calories = 145, Total_Carbohydrate = 30, Protein = 17 , },
-                // كوبارز بني,1بصلة,1دجاجة,رشة بهارات صحيحة,رشة ملح,رشة كمون,رشة فلفل اسود,رشة بهارات مشكلة,رشة بصل بودر,رشة قرفه مطحونه,رشةلومي مطحون,رشةكزبرة مطحونه,30 جرام مكسرات
-                new HealthyRecipe { Id = "55", Image = "15.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 25, Total_Carbohydrate = 10, Protein = 8     },
-                //كوب فاصوليا حمراء,كوب فاصوليا بيضاء,كوب فاصوليا خضراء,1بصلة خضراء,2 ملعقةبقدونس,ملعقةزيت زيتون,ملعقةخل,1ثومة,ملعقةماستردة,ملعقةفلفل اسود,ملعقةملح
-                new HealthyRecipe { Id = "56", Image = "16.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 150, Total_Carbohydrate = 25, Protein = 5 },
-                // نصف لتر لبن,4 باكيتسكر دايت,2 ملعقةجوز الهند,2 ملعقة ماء ورد,ملعقةنشا,1فانيليا
-                new HealthyRecipe { Id = "57", Image = "17.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 20, Calories = 50, Total_Carbohydrate = 15, Protein = 4 },
-                //1ملفوف,1جزر,3المايونيز الصحي,1زبادي كبير,ملعقة صغيرة عسل ابيض,3 ملعقاتخل,ربع ملعقةملح
-                new HealthyRecipe { Id = "58", Image = "18.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 65, Total_Carbohydrate = 40, Protein = 15 },
-                //1بصلة,300 جراملحمة المفرومة,1بيضة, رشة فلفل أسمر,ملعقتانزيت,ملعقةبصل بودر,حسب الرغبةبهارات,حسب الرغبةبقدونس
-                new HealthyRecipe { Id = "59", Image = "19.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 15, Calories = 34, Total_Carbohydrate = 15, Protein = 0 },
-                // ملعقةسكر دايت,1تفاح,2القرنفل ,عودالقرفة
-                new HealthyRecipe { Id = "6-", Image = "20.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 }
-                //نصف كيلوكريز,3 معالقسكر ستيفيا,نصف ملعقة صغيرةفانيلا سائلة,رشة قرفة,ربع كوبعصير ليمونة,ملعقةعسل
+        //        new HealthyRecipe { Id = "41", Image = "1.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35},
+        //        //الثوم الطازج والليمون,سمك السلمون,طماطم كرزية,صلصة 
+        //        new HealthyRecipe { Id = "42", Image = "2.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4},
+        //        //موزولوز
+        //        new HealthyRecipe { Id = "43", Image = "3.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 379, Total_Carbohydrate = 47, Protein = 32},
+        //        // الدجاج المشويةوصلصة الباربكيو و وتوابل الصوديوم المنخفضةوالسكروالطماطم و شريحتين من خبز القمح الكامل المحمص و خل التفاح
+        //        new HealthyRecipe { Id = "44", Image = "4.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 19 ,Total_Carbohydrate = 37, Protein = 5 },
+        //        //100 جرام زيت كانولا, 1كوب لبن, 2بيضة,1 ملعقة صغيرةبيكنج باودر,رشةفانيلا,6 باكتسكر دايت,نصف كوبكاكاو خام,1كوب دقيق كامل الحبة,1 ملعقة صغيرةبيكنج صودا, رشةملح
+        //        new HealthyRecipe { Id = "45", Image = "5.png", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 60, Calories = 170, Total_Carbohydrate = 43, Protein = 5},
+        //        //150جرام  مكرونة,1بصلة,رشةفلفل,كوب ونصفلبن, ملعقتين دقيق, 2جبنة مثلثات خفيفة,ربع لحمة مفروم احمر, رشةملح, ملعقتين زيت, كوب ماء, 50جرامجبنة حلوم, كوب ونصف لبن,
+        //        new HealthyRecipe { Id = "46", Image = "6.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 180, Total_Carbohydrate = 44, Protein = 4 },
+        //        //كوب ارز بسمتي,100 جرامجزر, 2 ملعقةشوفان مطحون,رشةفلفل,كوب شوربة, ربع ملعقةزبد, 1ثومة,100 جرامبسلة,100 جرامفلفل الوان, رشة ملح,رشةقرفة, 50 جرامجبن حلوم, كوب لبن
+        //        new HealthyRecipe { Id = "47", Image = "7.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 35, Calories = 538, Total_Carbohydrate = 79, Protein = 37 },
+        //        //صدور الدجاج والجلد,الأرز البني, زبادي يوناني قليل الدسم ,الثوم, فتات خبز القمح الكامل المقرمش,طبقة البارميزان,
+        //        new HealthyRecipe { Id = "48", Image = "8.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 10, Calories = 30, Total_Carbohydrate = 10, Protein = 5  },
+        //        //50 جرام بقدونس,1الليمون,1الخيار, 1التفاح,20 جرام النعناع
+        //        new HealthyRecipe { Id = "49", Image = "9.png", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 110, Total_Carbohydrate = 10, Protein = 5 , },
+        //        //ربع ملعقةزيت زيتون,1فلفل, ربع كوبزيتون, رشةفلفل اسود, قطعةريكفورد
+        //        new HealthyRecipe { Id = "50", Image = "10.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 40, Total_Carbohydrate = 20, Protein = 8  },
+        //        //1جزر, 1 خرشوف,100 جرامكوسة,100 جرامذرة حب,ربع ملعقة نشأ, 1 بطاطس,100 جرامبسلة,100 جرامفاصوليا, نصف كوب لبن, ملعقة دقيق
+        //        new HealthyRecipe { Id = "51", Image = "11.png", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 50, Calories = 125, Total_Carbohydrate = 30, Protein = 5 , },
+        //        // ملعقةخميرة,ملعقتان دقيق ابيض,50 جرامشوفان مطحون,ملعقةخل,رشة بيكنج بودر,50 جرامطماطم,50 جرامفلفل الوا,50 جرامبصل,50 جرامزيتون,50 جرامذرة مسلوق,100 جرامجبن حلوم,فصثوم مفروم,ملعقةسكر,ملعقتانزيت زيتون,
+        //        new HealthyRecipe { Id = "52", Image = "12.png", MealType = MealTypeTypeStatus.Snack.ToString()    , DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 66, Total_Carbohydrate = 36, Protein = 5 , },
+        //        //كوب دقيق ذرة اصفر,نصف كوب دقيق ابيض,1 بيضه,كوب لبن,رشه ملح,3معالقزيت كانولا او زيت نباتي,3 معالق سكر بني او دايت,معلقةبيكنج بودر,نصف معلقةفانيليا سائلة
+        //        new HealthyRecipe { Id = "53", Image = "13.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 110, Total_Carbohydrate = 45, Protein = 7 , },
+        //        //250 جرام دجاج,2فلفل الوان,1بصلة,ملعقتين صلصلة صحية,100 جراممكرونة
+        //        new HealthyRecipe { Id = "54", Image = "14.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString()   , PrepTime = 60, Calories = 145, Total_Carbohydrate = 30, Protein = 17 , },
+        //        // كوبارز بني,1بصلة,1دجاجة,رشة بهارات صحيحة,رشة ملح,رشة كمون,رشة فلفل اسود,رشة بهارات مشكلة,رشة بصل بودر,رشة قرفه مطحونه,رشةلومي مطحون,رشةكزبرة مطحونه,30 جرام مكسرات
+        //        new HealthyRecipe { Id = "55", Image = "15.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 25, Total_Carbohydrate = 10, Protein = 8     },
+        //        //كوب فاصوليا حمراء,كوب فاصوليا بيضاء,كوب فاصوليا خضراء,1بصلة خضراء,2 ملعقةبقدونس,ملعقةزيت زيتون,ملعقةخل,1ثومة,ملعقةماستردة,ملعقةفلفل اسود,ملعقةملح
+        //        new HealthyRecipe { Id = "56", Image = "16.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 150, Total_Carbohydrate = 25, Protein = 5 },
+        //        // نصف لتر لبن,4 باكيتسكر دايت,2 ملعقةجوز الهند,2 ملعقة ماء ورد,ملعقةنشا,1فانيليا
+        //        new HealthyRecipe { Id = "57", Image = "17.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 20, Calories = 50, Total_Carbohydrate = 15, Protein = 4 },
+        //        //1ملفوف,1جزر,3المايونيز الصحي,1زبادي كبير,ملعقة صغيرة عسل ابيض,3 ملعقاتخل,ربع ملعقةملح
+        //        new HealthyRecipe { Id = "58", Image = "18.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 65, Total_Carbohydrate = 40, Protein = 15 },
+        //        //1بصلة,300 جراملحمة المفرومة,1بيضة, رشة فلفل أسمر,ملعقتانزيت,ملعقةبصل بودر,حسب الرغبةبهارات,حسب الرغبةبقدونس
+        //        new HealthyRecipe { Id = "59", Image = "19.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 15, Calories = 34, Total_Carbohydrate = 15, Protein = 0 },
+        //        // ملعقةسكر دايت,1تفاح,2القرنفل ,عودالقرفة
+        //        new HealthyRecipe { Id = "6-", Image = "20.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 }
+        //        //نصف كيلوكريز,3 معالقسكر ستيفيا,نصف ملعقة صغيرةفانيلا سائلة,رشة قرفة,ربع كوبعصير ليمونة,ملعقةعسل
 
-            };
-        }
+        //    };
+        //}
         public static List<HealthyRecipe> GetListHealthyRecipe2()
         {
             return new List<HealthyRecipe>()

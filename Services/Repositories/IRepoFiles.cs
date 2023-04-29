@@ -1,4 +1,6 @@
-﻿namespace liaqati_master.Services.Repositories
+﻿using System.Linq;
+
+namespace liaqati_master.Services.Repositories
 {
     public class IRepoFiles
     {
@@ -89,5 +91,12 @@
                 return new Files();
             }
         }
+
+        public async Task<IEnumerable<Files?>> GetByServiceIDAsync(string ServiceId )
+        {
+            return  _context.TblFiles.Where(a => a.ServiceId == ServiceId );
+        }
+
+
     }
 }

@@ -19,7 +19,7 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
     options.UseLazyLoadingProxies()
     .UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConntection")
+        builder.Configuration.GetConnectionString("Rana")
         )
     );
 

@@ -19,7 +19,7 @@ namespace liaqati_master.Pages.ProductsPages
         [BindProperty(SupportsGet = true)]
         public ProductQueryParamters Parameters { get; set; }
 
-        public QueryPageResult<Product> queryPageResult { get; set; }
+        public QueryPageResult<liaqati_master.Models.Product> queryPageResult { get; set; }
 
 
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {

@@ -6,5 +6,10 @@
         public string? ServiceId { get; set; }
         [ForeignKey(nameof(ServiceId))]
         public virtual Service? Service { get; set; }
+
+        public static implicit operator List<object>(Files? v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -101,8 +101,9 @@ namespace liaqati_master.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Target")
-                        .HasColumnType("int");
+                    b.Property<string>("Target")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -113,37 +114,37 @@ namespace liaqati_master.Migrations
                         {
                             Id = "1",
                             Name = "طبق رئيسي",
-                            Target = 1
+                            Target = "الوجبات"
                         },
                         new
                         {
                             Id = "2",
                             Name = "أكل صحي",
-                            Target = 1
+                            Target = "الوجبات"
                         },
                         new
                         {
                             Id = "3",
                             Name = "المكملات الغذائية",
-                            Target = 4
+                            Target = "منتجات"
                         },
                         new
                         {
                             Id = "4",
                             Name = "الاجهزة الرياضية",
-                            Target = 4
+                            Target = "منتجات"
                         },
                         new
                         {
                             Id = "5",
                             Name = "حلوى",
-                            Target = 1
+                            Target = "الوجبات"
                         },
                         new
                         {
                             Id = "6",
                             Name = "الوجبات",
-                            Target = 0
+                            Target = "الوجبات"
                         });
                 });
 
@@ -863,269 +864,9 @@ namespace liaqati_master.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "41",
-                            Calories = 491,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4559),
-                            DietaryType = "Omnivore",
-                            Image = "1.jpg",
-                            MealType = "Dinner",
-                            PrepTime = 50,
-                            Protein = 35,
-                            Total_Carbohydrate = 43,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "42",
-                            Calories = 156,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4700),
-                            DietaryType = "Vegetarian",
-                            Image = "2.jpg",
-                            MealType = "Snack",
-                            PrepTime = 5,
-                            Protein = 4,
-                            Total_Carbohydrate = 17,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "43",
-                            Calories = 379,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4706),
-                            DietaryType = "Omnivore",
-                            Image = "3.jpg",
-                            MealType = "Lunch",
-                            PrepTime = 50,
-                            Protein = 32,
-                            Total_Carbohydrate = 47,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "44",
-                            Calories = 19,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4709),
-                            DietaryType = "Vegetarian",
-                            Image = "4.jpg",
-                            MealType = "Snack",
-                            PrepTime = 60,
-                            Protein = 5,
-                            Total_Carbohydrate = 37,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "45",
-                            Calories = 170,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4713),
-                            DietaryType = "Omnivore",
-                            Image = "5.png",
-                            MealType = "Snack",
-                            PrepTime = 60,
-                            Protein = 5,
-                            Total_Carbohydrate = 43,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "46",
-                            Calories = 180,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4717),
-                            DietaryType = "Vegetarian",
-                            Image = "6.jpg",
-                            MealType = "Lunch",
-                            PrepTime = 30,
-                            Protein = 4,
-                            Total_Carbohydrate = 44,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "47",
-                            Calories = 538,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4720),
-                            DietaryType = "Omnivore",
-                            Image = "7.jpg",
-                            MealType = "Dinner",
-                            PrepTime = 35,
-                            Protein = 37,
-                            Total_Carbohydrate = 79,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "48",
-                            Calories = 30,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4725),
-                            DietaryType = "Vegetarian",
-                            Image = "8.jpg",
-                            MealType = "Breakfast",
-                            PrepTime = 10,
-                            Protein = 5,
-                            Total_Carbohydrate = 10,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "49",
-                            Calories = 110,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4728),
-                            DietaryType = "Vegetarian",
-                            Image = "9.png",
-                            MealType = "Breakfast",
-                            PrepTime = 15,
-                            Protein = 5,
-                            Total_Carbohydrate = 10,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "50",
-                            Calories = 40,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4733),
-                            DietaryType = "Vegetarian",
-                            Image = "10.png",
-                            MealType = "SideDish",
-                            PrepTime = 60,
-                            Protein = 8,
-                            Total_Carbohydrate = 20,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "51",
-                            Calories = 125,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4736),
-                            DietaryType = "Vegetarian",
-                            Image = "11.png",
-                            MealType = "Lunch",
-                            PrepTime = 50,
-                            Protein = 5,
-                            Total_Carbohydrate = 30,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "52",
-                            Calories = 66,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4741),
-                            DietaryType = "Omnivore",
-                            Image = "12.png",
-                            MealType = "Snack",
-                            PrepTime = 30,
-                            Protein = 5,
-                            Total_Carbohydrate = 36,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "53",
-                            Calories = 110,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4745),
-                            DietaryType = "Vegetarian",
-                            Image = "13.jpg",
-                            MealType = "Lunch",
-                            PrepTime = 30,
-                            Protein = 7,
-                            Total_Carbohydrate = 45,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "54",
-                            Calories = 145,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4749),
-                            DietaryType = "Omnivore",
-                            Image = "14.jpg",
-                            MealType = "Lunch",
-                            PrepTime = 60,
-                            Protein = 17,
-                            Total_Carbohydrate = 30,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "55",
-                            Calories = 25,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4753),
-                            DietaryType = "Vegetarian",
-                            Image = "15.png",
-                            MealType = "SideDish",
-                            PrepTime = 15,
-                            Protein = 8,
-                            Total_Carbohydrate = 10,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "56",
-                            Calories = 150,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4756),
-                            DietaryType = "Omnivore",
-                            Image = "16.jpg",
-                            MealType = "Snack",
-                            PrepTime = 30,
-                            Protein = 5,
-                            Total_Carbohydrate = 25,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "57",
-                            Calories = 50,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4760),
-                            DietaryType = "Vegetarian",
-                            Image = "17.jpg",
-                            MealType = "Dinner",
-                            PrepTime = 20,
-                            Protein = 4,
-                            Total_Carbohydrate = 15,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "58",
-                            Calories = 65,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4764),
-                            DietaryType = "Omnivore",
-                            Image = "18.jpg",
-                            MealType = "Breakfast",
-                            PrepTime = 30,
-                            Protein = 15,
-                            Total_Carbohydrate = 40,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "59",
-                            Calories = 34,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4768),
-                            DietaryType = "Omnivore",
-                            Image = "19.jpg",
-                            MealType = "Breakfast",
-                            PrepTime = 15,
-                            Protein = 0,
-                            Total_Carbohydrate = 15,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
-                            Id = "6-",
-                            Calories = 45,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4771),
-                            DietaryType = "Omnivore",
-                            Image = "20.jpg",
-                            MealType = "Breakfast",
-                            PrepTime = 240,
-                            Protein = 7,
-                            Total_Carbohydrate = 15,
-                            ViewsNumber = 0
-                        },
-                        new
-                        {
                             Id = "61",
                             Calories = 250,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4775),
+                            CreatedDate = new DateTime(2023, 4, 28, 14, 53, 32, 983, DateTimeKind.Local).AddTicks(2943),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/1.jpg",
@@ -1145,7 +886,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "62",
                             Calories = 269,
-                            CreatedDate = new DateTime(2023, 4, 26, 20, 59, 55, 955, DateTimeKind.Local).AddTicks(4781),
+                            CreatedDate = new DateTime(2023, 4, 28, 14, 53, 32, 983, DateTimeKind.Local).AddTicks(2955),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/2.jpg",
@@ -2325,6 +2066,9 @@ namespace liaqati_master.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Specialization")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -2353,7 +2097,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "eac03cca-524e-45d4-bb0a-9f11855172ef",
+                            ConcurrencyStamp = "bedaa876-c920-4bf5-b4b8-08fb0262516b",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -2364,7 +2108,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "eb41803e-ce89-4f39-8795-4e5988593512",
+                            SecurityStamp = "33e02363-df67-4f30-8bf2-01eb3459b3d4",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });
