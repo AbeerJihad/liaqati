@@ -1,27 +1,23 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Areas.Admin.Pages.Exercises
 {
     public class ExerciesDetailsModel : PageModel
     {
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoExercise _repoExercise;
 
-        public ExerciesDetailsModel(UnitOfWork unitOfWork)
+        public ExerciesDetailsModel(IRepoExercise repoExercise)
         {
-            _UnitOfWork = unitOfWork;
+            _repoExercise = repoExercise;
         }
 
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public Exercise Exercise { set; get; }
 
 
         public async Task<IActionResult> OnGet()
         {
             string id = "5aa7b21d-8112-41fe-8607-80b255b45bce";
-
-            Exercise exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
-            if(exercise ==null)
+            var exercise = await _repoExercise.GetByIDAsync(id);
+            if (exercise == null)
             {
                 return NotFound();
             }

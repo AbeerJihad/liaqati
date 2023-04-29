@@ -64,13 +64,13 @@ namespace liaqati_master.Pages.ProductsPages
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
                 products = products.Where(p =>
-                    p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
+                    p.Services.LinkName.ToLower().Contains(Parameters.SearchTearm.ToLower())
                  );
             }
 
             if (!string.IsNullOrEmpty(Parameters.Tilte))
             {
-                products = products.Where(p => p.Services.Title.ToLower() == Parameters.Tilte.ToLower());
+                products = products.Where(p => p.Services.LinkName.ToLower() == Parameters.Tilte.ToLower());
             }
 
             //  products = products.OrderByCustom(Parameters.SortBy, Parameters.SortOrder);

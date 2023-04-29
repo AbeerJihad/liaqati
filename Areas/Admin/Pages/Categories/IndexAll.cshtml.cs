@@ -1,51 +1,52 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace liaqati_master.Areas.Administrator.Pages.Categories
+namespace liaqati_master.Areas.Admin.Pages.Categories
 {
     public class IndexAllModel : PageModel
     {
         public enum ShowModelCat { None, Edit, Add }
 
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IRepoCategory _repoCategory;
 
-        public IndexAllModel(UnitOfWork unitOfWork)
+        public IndexAllModel(IRepoCategory repoCategory)
         {
-            _unitOfWork = unitOfWork;
-
-            if (_unitOfWork.CategoryRepository != null)
-            {
-                LstCategory = _unitOfWork.CategoryRepository.Get().ToList();
-            }
+            _repoCategory = repoCategory;
         }
 
         [BindProperty]
         public Category Category { get; set; }
-        public IList<Category> LstCategory { get; set; } = default!;
+        public IList<Category> LstCategory { get; set; }
+        public List<SelectListItem> LstTargets { get; set; }
 
         public ShowModelCat showModel { get; set; } = ShowModelCat.None;
 
 
         public async Task OnGetAsync()
         {
+            LstCategory = (await _repoCategory.GetAllAsync()).ToList();
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            foreach (var item in Database.GetListOfTargets().Values)
+            {
+                selectListItems.Add(new SelectListItem() { Value = item, Text = item });
 
+            }
+            LstTargets = selectListItems;
         }
 
 
         public async Task<IActionResult> OnPostDeleteAsync(string? Id)
         {
-            if (Id == null || _unitOfWork.CategoryRepository == null)
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var category = _unitOfWork.CategoryRepository.GetByID(Id);
+            var category = await _repoCategory.GetByIDAsync(Id);
 
             if (category != null)
             {
                 Category = category;
-                _unitOfWork.CategoryRepository.Delete(category);
-                _unitOfWork.Save();
+                await _repoCategory.DeleteEntityAsync(category);
             }
 
 
@@ -60,26 +61,7 @@ namespace liaqati_master.Areas.Administrator.Pages.Categories
                 return Page();
             }
 
-            if (Category.Id == null)
-            {
-                ModelState.AddModelError("Student.Id", "Invalid Id");
-                showModel = ShowModelCat.Add;
-                return Page();
-            }
-
-            var student = _unitOfWork.CategoryRepository.GetByID(Category.Id);
-
-            if (student != null)
-            {
-                ModelState.AddModelError("Student.Id", "This id is aleady exsits, dupliation not allowed");
-                showModel = ShowModelCat.Add;
-                return Page();
-            }
-
-            _unitOfWork.CategoryRepository.Insert(Category);
-
-            _unitOfWork.Save();
-
+            await _repoCategory.AddEntityAsync(Category);
             return RedirectToPage();
         }
 
@@ -91,32 +73,13 @@ namespace liaqati_master.Areas.Administrator.Pages.Categories
                 showModel = ShowModelCat.Edit;
                 return Page();
             }
-
-            var category = _unitOfWork.CategoryRepository.GetByID(Category.Id);
-
+            var category = await _repoCategory.GetByIDAsync(Category?.Id);
             if (category != null)
             {
                 category.Name = Category.Name;
                 Category = category;
-                _unitOfWork.CategoryRepository.Update(Category);
+                await _repoCategory.UpdateEntityAsync(Category);
             }
-
-            try
-            {
-                _unitOfWork.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (_unitOfWork.CategoryRepository.GetByID(Category.Id) != null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
             return RedirectToPage();
         }
 

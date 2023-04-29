@@ -1,7 +1,4 @@
-﻿using liaqati_master.Services.Repositories;
-
-
-namespace liaqati_master.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -68,7 +65,7 @@ namespace liaqati_master.Controllers
         [HttpDelete("DeleteHealthyRecipe/{id}")]
         public async Task<ActionResult<HealthyRecipe>> DeleteHealthyRecipe(string id)
         {
-            HealthyRecipe item = _context.TblHealthyRecipe.Find(id);
+            var item = _context.TblHealthyRecipe.Find(id);
 
             if (item == null)
             {

@@ -62,7 +62,7 @@
             {
                 await _context.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (DbUpdateConcurrencyException)
             {
                 throw;
             }

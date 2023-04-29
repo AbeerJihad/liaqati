@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace liaqati_master.Areas.Administrator.Pages.Achievements
+﻿namespace liaqati_master.Areas.Admin.Pages.Achievements
 {
     public class EditModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IRepoAchievement _repoAchievement;
 
-        public EditModel(UnitOfWork unitOfWork)
+        public EditModel(IRepoAchievement repoAchievement)
         {
-            _unitOfWork = unitOfWork;
+            _repoAchievement = repoAchievement;
         }
 
         [BindProperty]
@@ -16,12 +14,12 @@ namespace liaqati_master.Areas.Administrator.Pages.Achievements
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _unitOfWork.AchievementsRepository == null)
+            if (id == null || _repoAchievement == null)
             {
                 return NotFound();
             }
 
-            var achievements = _unitOfWork.AchievementsRepository.GetByID(id);
+            var achievements = await _repoAchievement.GetByIDAsync(id);
             if (achievements == null)
             {
                 return NotFound();
@@ -30,8 +28,7 @@ namespace liaqati_master.Areas.Administrator.Pages.Achievements
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -39,22 +36,9 @@ namespace liaqati_master.Areas.Administrator.Pages.Achievements
                 return Page();
             }
             Achievements.UserId = "1";
-            _unitOfWork.AchievementsRepository.Update(Achievements);
-            try
-            {
-                _unitOfWork.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (Achievements == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _repoAchievement.UpdateEntityAsync(Achievements);
+
+
 
             return RedirectToPage("./Index");
         }

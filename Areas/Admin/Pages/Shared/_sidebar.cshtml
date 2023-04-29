@@ -1,0 +1,63 @@
+﻿@model List<Menu>
+<nav>
+    <div class="main-navbar">
+        <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+        <div id="mainnav">
+            <ul class="nav-menu custom-scrollbar">
+                <li class="back-btn">
+                    <div class="mobile-back text-end">
+                        <span>Back</span><i class="fa fa-angle-right ps-2"
+                                            aria-hidden="true"></i>
+                    </div>
+                </li>
+                @foreach (var item in Model)
+                {
+                    if (item.PageLink?.LinkURL is not null && item.SubMenus is null)
+                    {
+                        <li class="dropdown  p-2">
+                            <a class="nav-link menu-title" asp-page="@item.PageLink?.LinkURL">
+                                <i class="bi @item.PageLink?.LinkIcon h5 me-2"></i>
+                                <span>
+                                    @item.PageLink?.LinkName
+                                </span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+
+
+                        <li class="dropdown  p-2">
+                            <a class="nav-link menu-title " href="javascript:void(0)">
+                                <i class="bi @item.PageLink?.LinkIcon h5 me-2"></i>
+                                <span>
+                                    @item.PageLink?.LinkName
+                                </span>
+                            </a>
+                            <ul class="nav-submenu menu-content" style="display: block;">
+                                @foreach (var sub in item.SubMenus!)
+                                {
+                                    <li class="p-2 d-flex align-items-center">
+                                        <i class="bi bi-circle-fill  h6 m-0 ms-3" style="color:#A566C8;"></i>
+                                        <a asp-page="@sub.LinkURL">
+                                            <span>
+                                                @sub.LinkName
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </li>
+
+                    }
+
+                }
+
+
+            </ul>
+        </div>
+        <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
+    </div>
+</nav>
+

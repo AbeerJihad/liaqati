@@ -9,11 +9,14 @@
     <div class="ingredients">
         <h2>المكونات :</h2>
         <ul>
-            @foreach (var item in Model.Ingredients)
+            @if (Model.Ingredients is not null)
             {
-                <li>
-                    <a><img src="https://rashaqa.net/imgs/layer_2-3x.webp" width="20" /><span> 1 </span> @item.Name </a>
-                </li>
+                foreach (var item in Model.Ingredients)
+                {
+                    <li>
+                        <a><img src="https://rashaqa.net/imgs/layer_2-3x.webp" width="20" /><span> 1 </span> @item.Name </a>
+                    </li>
+                }
             }
 
 
@@ -22,11 +25,15 @@
     </div>
     <h2>طريقة التحضير؟</h2>
     <ol>
-        @foreach (var item in Model.PreparationMethod)
+        @if (Model.PreparationMethod is not null)
         {
-            <li>@item</li>
+            foreach (var item in Model.PreparationMethod)
+            {
+                <li>@item</li>
 
+            }
         }
+
     </ol>
 
 </div>

@@ -1,34 +1,42 @@
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace liaqati_master.Pages.Programs
 {
     public class EditProgramModel : PageModel
     {
 
+
+        private readonly IRepoProgram _repoProgram;
+        private readonly IRepoExercise _repoExercise;
+        private readonly IRepoCategory _repoCategory;
+        private readonly IRepoService _repoService;
+        private readonly IRepoProgramExercies _repoProgramExercies;
+        private readonly IFormFileMang _repoFile;
+        private readonly UnitOfWork _UnitOfWork;
         private readonly LiaqatiDBContext _context;
 
-        private readonly UnitOfWork _UnitOfWork;
-        public readonly IRepoProgram _repo;
 
 
-        public EditProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IRepoProgram repo)
+
+        public EditProgramModel(IRepoProgram repoProgram, IRepoExercise repoExercise, IRepoCategory repoCategory, IRepoService repoService, IFormFileMang repoFile, IRepoProgramExercies repoProgramExercies, UnitOfWork unitOfWork, LiaqatiDBContext context)
         {
-            _context = context;
+            _repoProgram = repoProgram;
+            _repoExercise = repoExercise;
+            _repoCategory = repoCategory;
+            _repoService = repoService;
+            _repoFile = repoFile;
+            _repoProgramExercies = repoProgramExercies;
             _UnitOfWork = unitOfWork;
-            _repo = repo;
+            _context = context;
         }
 
-        public Exercise getExercise(string id)
+        public async Task<Exercise?> getExercise(string id)
         {
-            Exercise exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
+            var exercise = await _repoExercise.GetByIDAsync(id);
 
             return exercise;
         }
 
 
-        public List<SelectListItem> CatogeryName { get; set; }
+        public SelectList CatogeryName { get; set; }
         public List<SelectListItem> ExerciesName { get; set; }
 
 
@@ -47,7 +55,7 @@ namespace liaqati_master.Pages.Programs
                 return NotFound();
             }
 
-            SportsProgram sportsProgram = await _repo.GetProgram(id);
+            SportsProgram sportsProgram = await _repoProgram.GetProgram(id);
 
 
             //  SportsProgram sportsProgram =_UnitOfWork.SportsProgramRepository.GetByID(id);
@@ -78,16 +86,12 @@ namespace liaqati_master.Pages.Programs
 
 
 
-            CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
-                                       new SelectListItem
-                                       {
-                                           Value = a.Id.ToString(),
-                                           Text = a.Name
-                                       }).ToList();
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(SportProgram)]), nameof(Category.Id), nameof(Category.Name));
 
 
 
-            ExerciesName = _UnitOfWork.ExerciseRepository.GetAllEntity().Select(a =>
+
+            ExerciesName = (await _repoExercise.GetAllAsync()).Select(a =>
                                        new SelectListItem
                                        {
                                            Value = a.Id.ToString(),
@@ -108,8 +112,12 @@ namespace liaqati_master.Pages.Programs
             //}
 
             var id = SportsProgram.Id;
+            SportsProgram item = await _repoProgram.GetProgram(id);
+            if (item is null)
+            {
+                return NotFound();
+            }
 
-            var item = _UnitOfWork.SportsProgramRepository.GetByID(id);
             item.Services!.Title = SportsProgram.Services!.Title;
             item.Services.Price = SportsProgram.Services.Price;
             item.Services.Description = SportsProgram.Services.Description;
@@ -119,39 +127,11 @@ namespace liaqati_master.Pages.Programs
             item.Equipment = "";
             item.TrainingType = SportsProgram.TrainingType;
             item.Services.CategoryId = SportsProgram.Services.CategoryId;
-
             for (int x = 0; x < SportsProgram.Exercies_Programs!.Count; x++)
             {
                 item.Exercies_Programs![x] = SportsProgram.Exercies_Programs[x];
-
-
             }
-
-
-
-
-
-
-
-
-
-            _UnitOfWork.SportsProgramRepository.Update(item);
-
-
-
-            try
-            {
-                _UnitOfWork.Save();
-            }
-
-
-
-
-            catch (DbUpdateConcurrencyException)
-            {
-
-            }
-
+            await _repoProgram.UpdateProgram(item);
             return RedirectToPage("./Index");
         }
 

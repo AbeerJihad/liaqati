@@ -1,26 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace liaqati_master.Areas.Administrator.Pages.Achievements
+﻿
+namespace liaqati_master.Areas.Admin.Pages.Achievements
 {
     public class DetailsModel : PageModel
     {
-        private readonly liaqati_master.Data.LiaqatiDBContext _context;
+        private readonly IRepoAchievement _repoAchievement;
 
-        public DetailsModel(liaqati_master.Data.LiaqatiDBContext context)
+        public DetailsModel(IRepoAchievement repoAchievement)
         {
-            _context = context;
+            _repoAchievement = repoAchievement;
         }
 
         public Achievement Achievements { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _context == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var achievements = await _context.TblAchievements.FirstOrDefaultAsync(m => m.Id == id);
+            var achievements = await _repoAchievement.GetByIDAsync(id);
             if (achievements == null)
             {
                 return NotFound();

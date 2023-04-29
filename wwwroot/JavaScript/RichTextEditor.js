@@ -18,12 +18,12 @@ const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 tinymce.init({
     directionality: 'rtl',
     language: 'ar',
-    selector: 'textarea',
+    selector: 'textarea.rich-editor',
     plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
     editimage_cors_hosts: ['picsum.photos'],
     menubar: 'file edit view insert format tools table help',
     toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-    toolbar_sticky: true,
+    toolbar_sticky: false,
     toolbar_sticky_offset: isSmallScreen ? 102 : 108,
     autosave_ask_before_unload: true,
     autosave_interval: '30s',
@@ -64,9 +64,10 @@ tinymce.init({
     skin: useDarkMode ? 'oxide-dark' : 'oxide',
     content_css: useDarkMode ? 'dark' : 'default',
     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+}).then(() => {
+    document.querySelector(".tox-notification__dismiss").click();
+
 });
-
-
 
 
 //link_list: [

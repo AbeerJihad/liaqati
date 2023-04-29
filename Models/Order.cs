@@ -5,7 +5,7 @@
     {
 
         //  [Required, Display(Tilte = "Last Tilte"), StringLength(50, MinimumLength = 2, ErrorMessage = "Please enter at least two characters")]
-        //  public string Title { get; set; }
+        //  public string LinkName { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب"), Display(Name = "تاريخ الطلبية"), DataType(DataType.Date)]
         public DateTime? OrderDate { get; set; }
         [Required(ErrorMessage = "هذا الحقل مطلوب")]

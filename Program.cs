@@ -1,48 +1,69 @@
-﻿using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Identity;
-using SportProductsWeb.Services;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Services to the container.
 //builder.Services.AddSingleton<Service>();
-EmailSetting emailSetting = builder.Configuration.GetSection("EmailSetting").Get<EmailSetting>();
+EmailSettings emailSetting = builder.Configuration.GetSection(nameof(EmailSettings)).Get<EmailSettings>();
 builder.Services.AddSingleton(emailSetting);
-builder.Services.AddScoped<AppEmailService>();
+builder.Services.AddScoped<MyEmailService>();
 
-builder.Services.AddControllers().AddJsonOptions(op => { op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; });
+builder.Services.AddControllers()
+    .AddJsonOptions(op =>
+    {
+        op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 //builder.Services.AddDbContext<LiaqatiDBContext>(options => options.UseLazyLoadingProxies().UseInMemoryDatabase("LiaqatiDB"));
-
+var connectionString = builder.Configuration.GetConnectionString("DefaultConntection");
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
-    options.UseLazyLoadingProxies()
-    .UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConntection")
-        )
-    );
+    options.UseLazyLoadingProxies().UseSqlServer(connectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
 builder.Services.Configure<IdentityOptions>((options =>
 {
+
+    //lockout options
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
     options.Lockout.MaxFailedAccessAttempts = 5;
     options.Lockout.AllowedForNewUsers = true;
+
+    //Password options
     options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
     options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;
     options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 6;
+
+    //singIn options
     options.SignIn.RequireConfirmedAccount = false;
     options.SignIn.RequireConfirmedEmail = false;
-    options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890@.ضصثقفغعهخحجدشسيبلاتنمكطئء ؤرلاىةوزظإآ";
+
+    // Default User settings.
+
+    //options.User.AllowedUserNameCharacters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890@.ضصثقفغعهخحجدشسيبلاتنمكطئء ؤرلاىةوزظإآ";
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    options.User.RequireUniqueEmail = true;
+
 }));
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+    options.Cookie.Name = "YourAppCookieName";
+    options.Cookie.HttpOnly = false;
+    options.ExpireTimeSpan = TimeSpan.FromDays(1);
+    options.LoginPath = "/Identity/Account/Login";
+    options.SlidingExpiration = true;
+});
 
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddScoped<IRepoProgram, ProgramMang>();
 builder.Services.AddScoped<IRepoProgramExercies, ProgramExerciesMang>();
 builder.Services.AddScoped<IFormFileMang, RepoFile>();
+builder.Services.AddScoped<IRepoMeal_Healthy>();
 builder.Services.AddScoped<IRepoMealPlans>();
 builder.Services.AddScoped<IRepoFiles>();
 builder.Services.AddScoped<IRepoArticles>();
@@ -79,14 +100,13 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 
-    app.UseSwagger();
-    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); c.RoutePrefix = ""; });
-
 }
 else
 {
     app.UseSwagger();
     app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); c.RoutePrefix = ""; });
+
+    app.UseMigrationsEndPoint();
 }
 
 app.UseHttpsRedirection();
@@ -103,6 +123,7 @@ app.UseCors(builder =>
 );
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapRazorPages();

@@ -1,30 +1,24 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
 namespace liaqati_master.Pages.MealPlan
 {
     public class DeleteModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoMealPlans _repoMealPlans;
 
-        public DeleteModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public DeleteModel(IRepoMealPlans repoMealPlans)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoMealPlans = repoMealPlans;
         }
 
         [BindProperty]
         public MealPlans MealPlans { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            if (id == null || _context.TblMealPlans == null)
+            if (id == null || _repoMealPlans == null)
             {
                 return NotFound();
             }
 
-            var meal = await _context.TblMealPlans.FirstOrDefaultAsync(m => m.Id == id);
+            var meal = await _repoMealPlans.GetByIDAsync(id);
 
             if (meal == null)
             {
@@ -39,21 +33,20 @@ namespace liaqati_master.Pages.MealPlan
 
         public async Task<IActionResult> OnPostAsync(string? id)
         {
-            if (id == null || _context.TblMealPlans == null)
+            if (id == null || _repoMealPlans == null)
             {
                 return NotFound();
             }
 
-            var meal = await _context.TblMealPlans.FindAsync(id);
+            var meal = await _repoMealPlans.GetByIDAsync(id);
 
             if (meal != null)
             {
                 MealPlans = meal;
 
-                _UnitOfWork.MealPlansRepository.Delete(meal);
-                _UnitOfWork.Save();
+                await _repoMealPlans.DeleteEntityAsync(MealPlans);
 
-            
+
             }
 
             return RedirectToPage("./Index");

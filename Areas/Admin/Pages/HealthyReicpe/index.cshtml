@@ -1,84 +1,26 @@
 ﻿@page
 @model liaqati_master.Pages.HealthyReicpe.IndexHealthyModel
 @{
+    ViewData["Title"] = "قائمة الأصناف";
+    ViewData["LinkName"] = "Categories";
 }
 
+
 @section Styles{
-    <link href="~/assets/css/Tables.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
     <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 }
 
 <div class="container-lg ">
     <div class=" ">
-        <div class="row justify-content-center">
-
-            <div class="col  py-2 ">
-                <div class="products-total d-flex gap-2">
-                    <div class="square-product-setting d-inline-block">
-                        <a class="icon-grid m-0 grid-layout-view"
-                           href="javascript:void(0)" title=""><i class="bi bi-grid"></i>                        </a>
-                    </div>
-                    <div class="square-product-setting d-inline-block">
-                        <a class="icon-grid m-0  list-layout-view" title="" href="javascript:void(0)">
-                            <i class="bi bi-list-ul"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col   py-2  d-flex justify-content-end gap-2">
-                <button class="btn btn-outline-primary" type="button">استيراد<i class="bi bi-download ms-2"></i></button>
-                <button class="btn btn-outline-primary" type="button">تصدير<i class="bi bi-upload ms-2"></i></button>
-                <button class="btn btn-primary" type="button">إضافة<i class="bi bi-plus-circle-dotted ms-2"></i></button>
-            </div>
-
-            <div class="col-md-12 project-list">
-                <div class="card p-3">
-                    <div class="row m-0">
-                        <div class="col-md-6 p-0">
-                            <ul class="nav" id="top-tab">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-activity="all" href="#top-home" role="tab">
-                                        <i class="bi bi-people-fill h5 my-0 mx-2"></i>
-                                        الكل
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#top-profile" data-activity="active">
-                                        <i class="bi bi-person-check h5 my-0 mx-2"></i>
-                                        نشط
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#top-profile" data-activity="inactive">
-                                        <i class="bi bi-person-fill-x h5 my-0 mx-2"></i>
-                                        غير نشط
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col">
-
-                            <div class="feature-products">
-                                <form>
-                                    <div class="form-group m-0">
-                                        <input class="form-control m-0" type="search" placeholder="Search.." data-original-title=""
-                                               title="" data-bs-original-title=""><i class="bi bi-search"></i>
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <div class="row ">
             <div class="col-sm-12">
-                <div class="card  border-raduis">
+                <div class="card p-3 border-raduis">
                     <div class="card-header bg-transparent px-0 py-4 ">
-
-                        <h5>المستخدمين</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>@ViewData["Title"]</h5>
+                            <a class="btn btn-primary" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+                        </div>
 
                     </div>
                     <div class="table-responsive table-hover">
@@ -163,7 +105,7 @@
     <script src="~/javascript/script.js"></script>
     <script src="~/javascript/Table.js"></script>
     <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
-    }
+}
 
 
 

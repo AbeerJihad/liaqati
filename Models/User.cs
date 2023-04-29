@@ -33,6 +33,9 @@ namespace liaqati_master.Models
         [Display(Name = "الصورة الشخصية")]
         public string? Photo { get; set; }
 
+        [Display(Name = "تاريخ الميلاد"), DataType(DataType.Date)]
+        public DateTime? DateOfBirth { get; set; }
+
         [Display(Name = "صورة الغلاف")]
         public string? Cover_photo { get; set; }
 

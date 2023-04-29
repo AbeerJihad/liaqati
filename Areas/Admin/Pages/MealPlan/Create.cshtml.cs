@@ -1,32 +1,28 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Linq;
-
 namespace liaqati_master.Pages.MealPlan
 {
     public class CreateModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
-
-        public CreateModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        private readonly IRepoMealPlans _repoMealPlans;
+        private readonly IRepoHealthyRecipe _repoHealthyRecipe;
+        private readonly IRepoService _repoService;
+        private readonly IRepoCategory _repoCategory;
+        private readonly IRepoMeal_Healthy _repoMeal_Healthy;
+        public CreateModel(IRepoMealPlans repoMealPlans, IRepoHealthyRecipe repoHealthyRecipe, IRepoCategory repoCategory, IRepoService repoService, IRepoMeal_Healthy repoMeal_Healthy)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoMealPlans = repoMealPlans;
+            _repoHealthyRecipe = repoHealthyRecipe;
+            _repoCategory = repoCategory;
+            _repoService = repoService;
+            _repoMeal_Healthy = repoMeal_Healthy;
         }
+        public SelectList CatogeryName { get; set; }
 
-        public List<SelectListItem> CatogeryName { get; set; }
-
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public List<VmCheckBox> lstCheckBox { get; set; }
 
 
         [BindProperty(SupportsGet = true)]
         public List<VmCheckBox> lstCheckBoxDietaryType { get; set; }
-
-
-
-        
 
         public List<string> MealType { get; set; } = Database.GetListOfMealType().Select(b => b.Value).ToList();
         public List<string> DietaryType { get; set; } = Database.GetListOfDietaryType().Select(b => b.Value).ToList();
@@ -36,10 +32,10 @@ namespace liaqati_master.Pages.MealPlan
 
         public int btnSave { get; set; }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGet()
         {
 
-           foreach (var item in MealType)
+            foreach (var item in MealType)
             {
                 lstCheckBox.Add(new VmCheckBox() { Name = item });
 
@@ -64,20 +60,17 @@ namespace liaqati_master.Pages.MealPlan
             btnSave = 0;
 
 
-            CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
-                                         new SelectListItem
-                                         {
-                                             Value = a.Id.ToString(),
-                                             Text = a.Name
-                                         }).ToList();
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(
+                 c => c.Target == Database.GetListOfTargets()[nameof(MealPlans)]),
+                 nameof(Category.Id), nameof(Category.Name));
 
 
             return Page();
         }
 
-        public HealthyRecipe getHealthyRecipe(string id)
+        public async Task<HealthyRecipe?> getHealthyRecipe(string id)
         {
-            HealthyRecipe HealthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+            HealthyRecipe? HealthyRecipe = await _repoHealthyRecipe.GetByIDAsync(id);
 
             return HealthyRecipe;
         }
@@ -98,53 +91,25 @@ namespace liaqati_master.Pages.MealPlan
         {
 
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
-
-           
-
-
-
-            
-
-
-
-
-
-
-
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(
+                 c => c.Target == Database.GetListOfTargets()[nameof(MealPlans)]),
+                 nameof(Category.Id), nameof(Category.Name));
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             btnSave = 1;
-
-
             MealPlans.Id = CommonMethods.Id_Guid();
 
             MealPlans.Services!.Id = MealPlans.Id;
             MealPlans.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
-
             MealPlans.DietaryType = string.Join(',', lstCheckBoxDietaryType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
-
-
-
-
-
             MealPlans.Services.CategoryId = MealPlans.Services.CategoryId;
 
-
-
-
-
-
-            _UnitOfWork.MealPlansRepository.Insert(MealPlans);
-            _UnitOfWork.ServiceRepository.Insert(MealPlans.Services);
-
-
-            _UnitOfWork.Save();
-
+            await _repoService.AddEntityAsync(MealPlans.Services);
+            await _repoMealPlans.AddEntityAsync(MealPlans);
             Display = "d-block";
-
             return Page();
         }
 
@@ -153,26 +118,26 @@ namespace liaqati_master.Pages.MealPlan
             btnSave = 1;
 
 
-            MealPlans meals = _UnitOfWork.MealPlansRepository.GetByID(id);
-
-            List<Meal_Healthy> list = new List<Meal_Healthy>();
-
-            foreach (Meal_Healthy x in _context.TblMeal_Healthy.ToList())
+            MealPlans? meals = await _repoMealPlans.GetByIDAsync(id);
+            if (meals is null)
             {
-                if (x.MealPlansId == id)
-                {
-                    list.Add(x);
-                }
-
+                return NotFound();
             }
+
+            //List<Meal_Healthy> list = new List<Meal_Healthy>();
+
+            //foreach (Meal_Healthy x in _context.TblMeal_Healthy.ToList())
+            //{
+            //    if (x.MealPlansId == id)
+            //    {
+            //        list.Add(x);
+            //    }
+
+            //}
             MealPlans = meals;
-            MealPlans.Meal_Healthy = list;
-
+            MealPlans.Meal_Healthy = (await _repoMeal_Healthy.GetByMealPlansIDAsync(id)).ToList();
             MealPlans.Meal_Healthy = MealPlans.Meal_Healthy!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
-
-
             Display = "d-block";
-
             return Page();
         }
 

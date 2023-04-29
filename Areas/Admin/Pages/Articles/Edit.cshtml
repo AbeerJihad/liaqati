@@ -1,24 +1,21 @@
 ﻿@page
-@model liaqati_master.Pages.Articles.EditModel
+@model liaqati_master.Areas.Admin.Pages.Articles.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "إضافة إنجاز";
+    ViewData["LinkName"] = "Categories";
 }
 
-<h1>Edit</h1>
-
-<h4>Articles</h4>
-<hr />
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="pb-3">@ViewData["Title"]</h3>
                     <div class="form theme-form">
                         <form method="post">
                             <div asp-validation-summary="All" class="text-danger"></div>
                             <input asp-for="Articles.Id" hidden class="form-control" />
-
                             <div class="row">
                                 <div class="col">
                                     <div class="mb-3">
@@ -35,6 +32,7 @@
                                     <div class="mb-3">
                                         <label asp-for="Articles.CategoryId" class="control-label"></label>
                                         <select asp-for="Articles.CategoryId" class="form-control" asp-items="Model.CategoriesSelect"></select>
+                                        <span asp-validation-for="Articles.CategoryId" class="text-danger"></span>
                                     </div>
                                 </div>
 
@@ -43,16 +41,19 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label asp-for="Articles.Description" class="control-label"></label>
-                                        <input asp-for="Articles.Description" class="form-control" />
+                                        <textarea asp-for="Articles.Description" class="form-control rich-editor"></textarea>
                                         <span asp-validation-for="Articles.Description" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="text-end"><input type="submit" class="btn btn-secondary me-3" value="Add" /><a class="btn btn-danger" href="#">Cancel</a></div>
+                            <div class="row justify-content-end ">
+                                <div class="col-sm-4 justify-content-end d-flex">
+                                    <div class="mb-3">
+                                        <button class="btn-primary btn  mx-auto col-auto" type="submit"> حقظ التعديلات <i class="bi bi-plus-square-dotted"></i> </button>
+                                        <a class="btn-danger btn  mx-auto col-auto" asp-page="./Index"> الغاء <i class="bi bi-arrow-90deg-down"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </form>

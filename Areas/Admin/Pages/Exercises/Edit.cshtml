@@ -1,35 +1,31 @@
 ﻿@page
 @model liaqati_master.Areas.Admin.Pages.Exercises.EditExerciseModel
 @{
+    ViewData["Title"] = "إضافة إنجاز";
+    ViewData["LinkName"] = "Categories";
 }
-
-<h4>Meal Plane</h4>
-<hr />
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="pb-3">@ViewData["Title"]</h3>
                     <form enctype="multipart/form-data" asp-page-handler="Add" method="post" class="form theme-form">
                         <div asp-validation-summary="All" class="text-danger"></div>
-                        <input hidden asp-for="Exercise.Id" class="form-control" placeholder="">
+                        <input asp-for="Exercise.Id">
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
                                     <label asp-for="Exercise.Title"></label>
                                     <input asp-for="Exercise.Title" class="form-control" placeholder="">
+                                    <span asp-validation-for="Exercise.Title" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label asp-for="Exercise.TraningType"></label>
                                     <input asp-for="Exercise.TraningType" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label asp-for="Exercise.Detail"></label>
-                                    <input asp-for="Exercise.Detail" class="form-control" placeholder="">
+                                    <span asp-validation-for="Exercise.TraningType" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
@@ -38,43 +34,63 @@
                                 <div class="mb-3">
                                     <label asp-for="Exercise.Price"></label>
                                     <input asp-for="Exercise.Price" class="form-control" placeholder="">
+                                    <span asp-validation-for="Exercise.Price" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="Exercise.Duration"></label>
                                     <input asp-for="Exercise.Duration" class="form-control" placeholder="">
+                                    <span asp-validation-for="Exercise.Duration" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="Exercise.Equipments"></label>
                                     <input asp-for="Exercise.Equipments" class="form-control" placeholder="">
+                                    <span asp-validation-for="Exercise.Equipments" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="Exercise.Difficulty"></label>
                                     <input asp-for="Exercise.Difficulty" class="form-control" placeholder="">
+                                    <span asp-validation-for="Exercise.Difficulty" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="Image"></label>
                                     <input asp-for="Image" class="form-control" placeholder="">
+                                    <span asp-validation-for="Image" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="Video"></label>
                                     <input asp-for="Video" class="form-control" placeholder="">
+                                    <span asp-validation-for="Video" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label asp-for="Exercise.Detail"></label>
+                                    <textarea asp-for="Exercise.Detail" class="form-control rich-editor" placeholder=""></textarea>
+                                    <span asp-validation-for="Exercise.Detail" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">
+                        <div class="row justify-content-end ">
+                            <div class="col-sm-4 justify-content-end d-flex">
                                 <div class="mb-3">
-                                    <button class="mx-auto col-auto" type="submit"> Save </button>
+                                    <button class="btn-primary btn  mx-auto col-auto" type="submit"> حقظ التعديلات <i class="bi bi-plus-square-dotted"></i> </button>
+                                    <a class="btn-danger btn  mx-auto col-auto" asp-page="./Index"> الغاء <i class="bi bi-arrow-90deg-down"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -91,6 +107,8 @@
 </div>
 
 @section Scripts {
-    @*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-*@
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
 }

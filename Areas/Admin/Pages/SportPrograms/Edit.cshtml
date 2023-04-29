@@ -133,19 +133,19 @@
                                             @for (int x = 0; x < Model.SportsProgram.Exercies_Programs!.Count; x++)
                                             {
 
-                                                string id = @Model.SportsProgram.Exercies_Programs[x].ExerciseId;
-                                                Exercise exercise = @Model.getExercise(id);
+                                                string? id = Model.SportsProgram.Exercies_Programs[x].ExerciseId;
+                                                var exercise = await Model.getExercise(id);
 
 
 
                                                 <tr class="bg-Success">
                                                     <td> الاسبوع @Model.SportsProgram.Exercies_Programs[x].Week   </td>
                                                     <td> اليوم @Model.SportsProgram.Exercies_Programs[x].Day   </td>
-                                                    <td>@exercise.Title</td>
+                                                    <td>@exercise?.Title</td>
 
                                                     <td>
                                                         @{
-                                                            var item = @Model.SportsProgram.Exercies_Programs[x];
+                                                            var item = Model.SportsProgram.Exercies_Programs[x];
                                                             item.SportsProgram = null;
                                                             item.Exercise = null;
                                                         }
@@ -153,16 +153,11 @@
                                                            style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;">
                                                             <i class="bi bi-pencil-square"></i>
                                                         </a>
-
                                                     </td>
-
                                                     <td>
                                                         <form id="formDeleteProgramExercies" method="post" asp-page-handler="DeleteProgExer" asp-route-id="@Model.SportsProgram.Exercies_Programs[x].Id">
                                                             <button hidden type="submit"></button>
                                                             <a id="xxx" onclick="DeleteFun(this)" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
-
-
-
                                                         </form>
 
 
@@ -171,19 +166,9 @@
                                                 </tr>
 
                                             }
-                                            }
-
-
-
-
                                         </tbody>
                                     </table>
-
-
                                 }
-
-
-
                             }
                         </div>
 
@@ -211,16 +196,16 @@
 
 
                         @*   <div class="row">
-                            <div class="col-sm-4">
-                            <div class="mb-3">
-                            <label> اختر التمارين الخاصة بالنظام الرياضي</label>
-                            <select id="SelectExercise" aria-label="Default select example" class="js-example-rtl " multiple="multiple">
-                            </select>
+                        <div class="col-sm-4">
+                        <div class="mb-3">
+                        <label> اختر التمارين الخاصة بالنظام الرياضي</label>
+                        <select id="SelectExercise" aria-label="Default select example" class="js-example-rtl " multiple="multiple">
+                        </select>
 
 
-                            </div>
-                            </div>
-                            </div>
+                        </div>
+                        </div>
+                        </div>
 
                         *@
 
@@ -364,10 +349,10 @@
                             <label class="d-block" asp-for="Exercies_program.Week"></label>
                             <select style="height:35px;" class="col-12 border border-light rounded-3" id="selectLength" asp-for="Exercies_program.Week">
                                 <option value="-1">ادخل عدد اسابيع النظام الرياضي</option>
-                                <option value="1">  الاسبوع الاول</option>
+                                <option value="1">الاسبوع الاول</option>
                                 <option value="2">الاسيوع الثاني</option>
-                                <option value="3">   الاسيوع الثالث</option>
-                                <option value="4">  الاسيوع الرابع </option>
+                                <option value="3">الاسيوع الثالث</option>
+                                <option value="4">الاسيوع الرابع </option>
                             </select>
                             <span class="text-danger" asp-validation-for="SportsProgram.Length"></span>
 
@@ -403,7 +388,9 @@
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 
 
 

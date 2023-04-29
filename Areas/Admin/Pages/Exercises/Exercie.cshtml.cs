@@ -1,24 +1,23 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Areas.Admin.Pages.Exercises
 {
     public class ExercieModel : PageModel
     {
+        private readonly IRepoExercise _repoExercise;
+        private readonly IFormFileMang _repoFile;
 
-        private readonly UnitOfWork _unitOfWork;
-
-        public ExercieModel(UnitOfWork UnitOfWork)
+        public ExercieModel(IRepoExercise repoExercise, IFormFileMang repoFile)
         {
-            _unitOfWork = UnitOfWork;
+            _repoExercise = repoExercise;
+            _repoFile = repoFile;
         }
 
         public IList<Exercise> Exercises { get; set; }
         public async Task OnGetAsync()
         {
-            if (_unitOfWork != null)
+            if (_repoExercise != null)
             {
 
-                Exercises = _unitOfWork.ExerciseRepository.GetAllEntity();
+                Exercises = (await _repoExercise.GetAllAsync()).ToList();
             }
         }
     }

@@ -98,10 +98,7 @@
                                                 <label asp-for="Exercises.Equipments" class="control-label"></label>
                                                 <input required name="Equipments" asp-for="Exercises.Equipments" class="form-control">
                                             </div>
-                                            @*   <div class="form-group">
-                                            <label asp-for="Exercise." class="control-label"></label>
-                                            <input asp-for="Exercise.TraningType" class="form-control">
-                                            </div>*@
+
                                             <button onclick="FinishAddExercises(this)" class="btn btn-secondary pull-right" type="button">Finish!</button>
                                         </div>
                                     </div>
@@ -240,12 +237,12 @@
                                             @for (int x = 0; x < Model.SportsProgram.Exercies_Programs!.Count; x++)
                                             {
 
-                                                string id = @Model.SportsProgram.Exercies_Programs[x].ExerciseId;
-                                                Exercise exercise = Model.getExercise(id);
+                                                string? id = Model.SportsProgram.Exercies_Programs[x].ExerciseId;
+                                                Exercise? exercise = await Model.getExercise(id);
                                                 <tr>
                                                     <td>@Model.SportsProgram.Exercies_Programs[x].Week   الاسبوع</td>
                                                     <td>@Model.SportsProgram.Exercies_Programs[x].Day  اليوم </td>
-                                                    <td>@exercise.Title</td>
+                                                    <td>@exercise?.Title</td>
                                                 </tr>
 
                                             }
@@ -328,10 +325,7 @@
                     {
 
                         string id = @Model.SportsProgram.Exercies_Programs[x].ExerciseId;
-                        Exercise exercise = @Model.getExercise(id);
-
-
-
+                        Exercise? exercise = await Model.getExercise(id);
                         <tr class="bg-Success">
                             <td> الاسبوع @Model.SportsProgram.Exercies_Programs[x].Week   </td>
                             <td> اليوم @Model.SportsProgram.Exercies_Programs[x].Day   </td>
@@ -350,13 +344,7 @@
 
 
                         </tr>
-
                     }
-                    }
-
-
-
-
                 </tbody>
             </table>
 
@@ -479,24 +467,7 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
-
-
-
-
-
     <script>
-
-
-
-
-
-
-
-
-
-
-
-
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
@@ -517,14 +488,7 @@
                     }, false)
                 })
         })()
-
-
-
     </script>
-
-
-
-
 }
 
 

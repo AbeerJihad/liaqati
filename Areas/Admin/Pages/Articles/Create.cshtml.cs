@@ -1,25 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace liaqati_master.Areas.Admin.Pages.Articles
+﻿namespace liaqati_master.Areas.Admin.Pages.Articles
 {
     public class CreateModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
         private readonly IFormFileMang _formFileMang;
+        private readonly IRepoArticles _repoArticles;
+        private readonly IRepoCategory _repoCategory;
 
-        public CreateModel(UnitOfWork unitOfWork, IFormFileMang formFileMang)
+        public CreateModel(IFormFileMang formFileMang, IRepoArticles repoArticles)
         {
-            _unitOfWork = unitOfWork;
             _formFileMang = formFileMang;
-            CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get(), nameof(Category.Id), nameof(Category.Name));
+            _repoArticles = repoArticles;
         }
 
 
         public SelectList CategoriesSelect { get; set; }
-        public IActionResult OnGet()
+        public async Task OnGet()
         {
-            return Page();
+            CategoriesSelect = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Article)]), nameof(Category.Id), nameof(Category.Name));
+
         }
 
         [BindProperty]
@@ -35,26 +33,14 @@ namespace liaqati_master.Areas.Admin.Pages.Articles
         public async Task<IActionResult> OnPostAsync()
         {
 
+            CategoriesSelect = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Article)]), nameof(Category.Id), nameof(Category.Name));
             Articles.Id = CommonMethods.Id_Guid();
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            Articles.PostDate = DateTime.Now;
             Articles.Image = await _formFileMang.Upload(Image, "Images", "Articles");
-            _unitOfWork.ArticleRepository.Insert(Articles);
-            try
-            {
-                _unitOfWork.Save();
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
+            await _repoArticles.AddEntityAsync(Articles);
             return RedirectToPage("./Index");
         }
     }

@@ -1,6 +1,4 @@
-﻿using liaqati_master.Services.Repositories;
-
-namespace liaqati_master.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -71,7 +69,7 @@ namespace liaqati_master.Controllers
         [HttpDelete("Delete/{id}")]
         public async Task<ActionResult<Product>> DeleteProducts(int id)
         {
-            Product item = _context.TblProducts.Find(id);
+            var item = _context.TblProducts.Find(id);
 
             if (item == null)
             {
@@ -168,13 +166,13 @@ namespace liaqati_master.Controllers
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
                 products = products.Where(p =>
-                    p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
+                    p.Services.LinkName.ToLower().Contains(Parameters.SearchTearm.ToLower())
                  );
             }
 
             if (!string.IsNullOrEmpty(Parameters.Tilte))
             {
-                products = products.Where(p => p.Services.Title.ToLower() == Parameters.Tilte.ToLower());
+                products = products.Where(p => p.Services.LinkName.ToLower() == Parameters.Tilte.ToLower());
             }
 
             if (!string.IsNullOrEmpty(Parameters.SortBy))
