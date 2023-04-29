@@ -1,18 +1,14 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Areas.Admin.Pages.Exercises
 {
     public class EditExerciseModel : PageModel
     {
-
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoExercise _repoExercise;
         private readonly IFormFileMang _repoFile;
 
-        public EditExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang repoFile)
+
+        public EditExerciseModel(IRepoExercise repoExercise, IFormFileMang repoFile)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoExercise = repoExercise;
             _repoFile = repoFile;
         }
         [BindProperty(SupportsGet = true)]
@@ -28,7 +24,7 @@ namespace liaqati_master.Areas.Admin.Pages.Exercises
                 return NotFound();
             }
 
-            var exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
+            var exercise = await _repoExercise.GetByIDAsync(id);
             if (exercise == null)
             {
                 return NotFound();
@@ -50,8 +46,11 @@ namespace liaqati_master.Areas.Admin.Pages.Exercises
 
             var id = Exercise.Id;
 
-            var item = _UnitOfWork.ExerciseRepository.GetByID(id);
-
+            var item = await _repoExercise.GetByIDAsync(id);
+            if (item is null)
+            {
+                return NotFound();
+            }
             item.Title = Exercise.Title;
             item.Detail = Exercise.Detail;
             item.Duration = Exercise.Duration;
@@ -76,35 +75,15 @@ namespace liaqati_master.Areas.Admin.Pages.Exercises
             {
                 Exercise.Video = oldurlvideo;
             }
-
-            _UnitOfWork.ExerciseRepository.Update(item);
+            await _repoExercise.UpdateEntityAsync(item);
 
 
             //  _context.Attach(MealPlans).State = EntityState.Modified;
 
-            try
-            {
-                _UnitOfWork.Save();
-            }
-
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(Exercise.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
             return RedirectToPage("./Index");
         }
 
-        private bool StudentExists(string id)
-        {
-            return _context.TblMealPlans.Any(e => e.Id == id);
-        }
+
     }
 }

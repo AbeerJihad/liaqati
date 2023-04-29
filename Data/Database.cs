@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
 namespace liaqati_master.Data
 {
     public static class Database
@@ -69,33 +70,69 @@ namespace liaqati_master.Data
 
             };
         }
-       public static List<Category> GetListOfCategories() => new()
+        public static List<Category> GetListOfCategories() => new()
         {
-                      
+            /*
+عامة
+الصيام المتقطع
+وصفات صحية
+رياضة
+رجيم الشتاء
+الكرش
+أنظمة غذائية
+مرض السكري
+شرب المياة
+خرافات شائعة
+رحلتى مع الدايت
+وصفات رمضانية
+نصائح رمضانية*/
             new Category
             {
-                Id = "1", Name = "طبق رئيسي", Target = "الوجبات"
+                Id = "1", Name = "طبق رئيسي", Target = GetListOfTargets()[nameof(HealthyRecipe)]
             },
             new Category
             {
-                Id = "2", Name = "أكل صحي", Target = "الوجبات"
+                Id = "2", Name = "أكل صحي", Target =GetListOfTargets()[nameof(HealthyRecipe)]
             },
              new Category
             {
-                Id = "3", Name = "المكملات الغذائية", Target =  "منتجات"
+                Id = "3", Name = "المكملات الغذائية", Target =  GetListOfTargets()[nameof(Product)]
             },
             new Category
             {
-                Id = "4", Name = "الاجهزة الرياضية", Target =  "منتجات"
+                Id = "4", Name = "الاجهزة الرياضية", Target =  GetListOfTargets()[nameof(Product)]
             },
             new Category
             {
-                Id = "5", Name = "حلوى", Target ="الوجبات"
+                Id = "5", Name = "حلوى", Target =GetListOfTargets()[nameof(HealthyRecipe)]
             },
             new Category
             {
-                Id = "6", Name = "الوجبات", Target ="الوجبات"
+                Id = "6", Name = "الأنظمة الحديثة", Target =GetListOfTargets()[nameof(MealPlans)]
+            }, new Category
+            {
+                Id = "8", Name = "عامة", Target =GetListOfTargets()[nameof(Product)]
+            }, new Category
+            {
+                Id = "9", Name = "الصيام المتقطع", Target =GetListOfTargets()[nameof(Article)]
+            }, new Category
+            {
+                Id = "10", Name = "رياضة", Target =GetListOfTargets()[nameof(Product)]
+            }, new Category
+            {
+                Id = "11", Name = "مرض السكري", Target =GetListOfTargets()[nameof(Product)]
+            }, new Category
+            {
+                Id = "12", Name = "شرب المياة", Target =GetListOfTargets()[nameof(Product)]
             },
+        };
+        public static Dictionary<string, string> GetListOfTargets() => new() {
+            { nameof(Product), "المنتجات" },
+            { nameof(SportsProgram), "البرامج الرياضية" },
+            { nameof(HealthyRecipe), "الوصفات الصحية" },
+            { nameof(MealPlans), "الأنظمة الرياضية" },
+            { nameof(Exercise), "التمارين" },
+            { nameof(Article), "المقالات" },
         };
         public static List<SelectListItem> GetListOfMealType() => new()
         {
@@ -682,7 +719,7 @@ namespace liaqati_master.Data
                     // new Service()
                     //{
                     //     Id = "42",
-                    //     Title = "ماذا تأكل أثناء تدريب القوة؟",
+                    //     LinkName = "ماذا تأكل أثناء تدريب القوة؟",
                     //     Price = 11,
                     //     CategoryId = "3",
                     //     ShortDescription="وصفات للتزود بالوقود والتعافي بعد تمارين القوة",

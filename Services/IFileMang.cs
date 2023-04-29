@@ -1,8 +1,10 @@
-﻿namespace liaqati_master.Services
+﻿#nullable disable
+namespace liaqati_master.Services
 {
     public interface IFormFileMang
     {
         public Task<string> Upload(IFormFile fm, string BaseFolderName, string filename);
+        public IFormFile DownLoad(string path);
         public void DeleteFile(string OldFileName);
     }
     public class RepoFile : IFormFileMang
@@ -20,6 +22,15 @@
             {
                 File.Delete(_web.WebRootPath + OldFileName);
             }
+        }
+
+        public IFormFile DownLoad(string path)
+        {
+            path = _web.WebRootPath + path;
+            string fileName = Path.GetFileName(path);
+            using Stream stream = new FileStream(path, FileMode.Open);
+            IFormFile file = new FormFile(stream, 0, stream.Length, null, fileName);
+            return file;
         }
 
         public async Task<string> Upload(IFormFile fm, string BaseFolderName, string Foldername)
@@ -43,6 +54,8 @@
             fs.Close();
             return $"/{BaseFolderName}//{Foldername}//{filename}";
         }
+
+
     }
 
 

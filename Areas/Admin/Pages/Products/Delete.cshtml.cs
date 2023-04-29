@@ -1,20 +1,16 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Pages.Products
 {
     public class DeleteProductModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoProducts _repoProducts;
 
-        public DeleteProductModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public DeleteProductModel(IRepoProducts repoProducts)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoProducts = repoProducts;
         }
 
         [BindProperty]
-        public Product Product { get; set; }
+        public Product? Product { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (id == null)
@@ -23,7 +19,7 @@ namespace liaqati_master.Pages.Products
             }
 
 
-            var product = _UnitOfWork.ProductsRepository.GetByID(id);
+            var product = await _repoProducts.GetByIDAsync(id);
 
             if (product == null)
             {
@@ -38,21 +34,18 @@ namespace liaqati_master.Pages.Products
 
         public async Task<IActionResult> OnPostAsync(string? id)
         {
-            if (id == null || _context.TblMealPlans == null)
+            if (id == null || _repoProducts == null)
             {
                 return NotFound();
             }
 
-            var product = _UnitOfWork.ProductsRepository.GetByID(id);
+            var product = await _repoProducts.GetByIDAsync(id);
 
             if (product != null)
             {
                 Product = product;
 
-                _UnitOfWork.ProductsRepository.Delete(product);
-                _UnitOfWork.Save();
-
-
+                await _repoProducts.DeleteEntityAsync(product);
             }
 
             return RedirectToPage("./Index");

@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace liaqati_master.Pages.Articles
+﻿namespace liaqati_master.Areas.Admin.Pages.Articles
 {
     public class EditModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IRepoArticles _repoArticles;
+        private readonly IRepoCategory _repoCategory;
 
-        public EditModel(UnitOfWork unitOfWork)
+        public EditModel(IRepoArticles repoArticles, IRepoCategory repoCategory)
         {
-            _unitOfWork = unitOfWork;
+            _repoArticles = repoArticles;
+            _repoCategory = repoCategory;
+
         }
 
         [BindProperty]
@@ -20,15 +19,16 @@ namespace liaqati_master.Pages.Articles
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get(), nameof(Category.Id), nameof(Category.Name));
+            CategoriesSelect = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Article)]), nameof(Category.Id), nameof(Category.Name));
 
 
-            if (id == null || _unitOfWork.ArticleRepository == null)
+            if (id == null || _repoArticles == null)
             {
                 return NotFound();
             }
 
-            var articles = _unitOfWork.ArticleRepository.GetByID(id);
+            var articles = await _repoArticles.GetByIDAsync(id);
+
             if (articles == null)
             {
                 return NotFound();
@@ -41,31 +41,12 @@ namespace liaqati_master.Pages.Articles
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get(), nameof(Category.Id), nameof(Category.Name));
-
+            CategoriesSelect = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Article)]), nameof(Category.Id), nameof(Category.Name));
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            _unitOfWork.ArticleRepository.Update(Articles);
-
-            try
-            {
-                _unitOfWork.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (_unitOfWork.ArticleRepository.GetByID(Articles.Id) == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _repoArticles.UpdateEntityAsync(Articles);
             return RedirectToPage("./Index");
         }
 

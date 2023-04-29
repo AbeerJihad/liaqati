@@ -1,22 +1,17 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace liaqati_master.Pages.MealPlan
 {
     public class EditModel : PageModel
     {
+        private readonly IRepoMealPlans _repoMealPlans;
+        private readonly IRepoCategory _repoCategory;
 
-        private readonly LiaqatiDBContext _context;
-
-        private readonly UnitOfWork _UnitOfWork;
-
-        public EditModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public EditModel(IRepoMealPlans repoMealPlans, IRepoCategory repoCategory)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoMealPlans = repoMealPlans;
+            _repoCategory = repoCategory;
         }
 
-        public List<SelectListItem> CatogeryName { get; set; }
+        public SelectList CatogeryName { get; set; }
 
 
         [BindProperty(SupportsGet = true)]
@@ -29,19 +24,17 @@ namespace liaqati_master.Pages.MealPlan
                 return NotFound();
             }
 
-            var meal = _UnitOfWork.MealPlansRepository.GetByID(id);
+            var meal = await _repoMealPlans.GetByIDAsync(id);
             if (meal == null)
             {
                 return NotFound();
             }
             MealPlans = meal;
 
-            CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
-                                       new SelectListItem
-                                       {
-                                           Value = a.Id.ToString(),
-                                           Text = a.Name
-                                       }).ToList();
+
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(
+                 c => c.Target == Database.GetListOfTargets()[nameof(MealPlan)]),
+                 nameof(Category.Id), nameof(Category.Name));
 
 
             return Page();
@@ -59,55 +52,22 @@ namespace liaqati_master.Pages.MealPlan
 
             var id = MealPlans.Id;
 
-            var item = _UnitOfWork.MealPlansRepository.GetByID(id);
+            var item = await _repoMealPlans.GetByIDAsync(id);
+            if (item is null)
+            {
+                return NotFound();
+            }
             item.Services!.Title = MealPlans.Services!.Title;
             item.Services.Price = MealPlans.Services.Price;
             item.Services.Description = MealPlans.Services.Description;
             item.Length = MealPlans.Length;
             item.MealType = MealPlans.MealType;
-
-
-            var cid = MealPlans.Services!.Category!.Id;
-            if (id != null)
-            {
-                MealPlans.Services.CategoryId = id;
-
-            }
-
-            item.Services.Category = null;
-
-
-            _UnitOfWork.MealPlansRepository.Update(item);
-
-
+            await _repoMealPlans.UpdateEntityAsync(item);
             //  _context.Attach(MealPlans).State = EntityState.Modified;
-
-            try
-            {
-                _UnitOfWork.Save();
-            }
-
-
-
-
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(MealPlans.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
             return RedirectToPage("./Index");
         }
 
-        private bool StudentExists(string id)
-        {
-            return _context.TblMealPlans.Any(e => e.Id == id);
-        }
+
     }
 }

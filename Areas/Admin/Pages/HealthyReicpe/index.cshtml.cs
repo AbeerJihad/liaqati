@@ -1,24 +1,20 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-
 namespace liaqati_master.Pages.HealthyReicpe
 {
     public class IndexHealthyModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IRepoHealthyRecipe _repoHealthyRecipe;
 
-        public IndexHealthyModel(UnitOfWork UnitOfWork)
+        public IndexHealthyModel(IRepoHealthyRecipe repoHealthyRecipe)
         {
-            _unitOfWork = UnitOfWork;
+            _repoHealthyRecipe = repoHealthyRecipe;
         }
 
-        public IList<HealthyRecipe> HealthyRecipes { get; set; }
+        public IList<HealthyRecipe>? HealthyRecipes { get; set; }
         public async Task OnGetAsync()
         {
-            if (_unitOfWork != null)
+            if (_repoHealthyRecipe != null)
             {
-
-                HealthyRecipes = _unitOfWork.HealthyRecipesRepository.GetAllEntity();
+                HealthyRecipes = (await _repoHealthyRecipe.GetAllAsync()).ToList();
             }
         }
     }

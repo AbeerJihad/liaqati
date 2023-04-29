@@ -1,17 +1,13 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Areas.Admin.Pages.Exercises
 {
     public class CreateExerciseModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoExercise _repoExercise;
         private readonly IFormFileMang _repoFile;
 
-        public CreateExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang repoFile)
+        public CreateExerciseModel(IRepoExercise repoExercise, IFormFileMang repoFile)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoExercise = repoExercise;
             _repoFile = repoFile;
         }
 
@@ -54,8 +50,7 @@ namespace liaqati_master.Areas.Admin.Pages.Exercises
                 Exercise.Video = oldurlvideo;
             }
 
-            _UnitOfWork.ExerciseRepository.Insert(Exercise);
-            _UnitOfWork.Save();
+            await _repoExercise.AddEntityAsync(Exercise);
             return RedirectToPage("./Index");
         }
     }

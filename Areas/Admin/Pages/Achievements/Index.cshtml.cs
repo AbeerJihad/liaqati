@@ -1,37 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace liaqati_master.Areas.Administrator.Pages.Achievements
+﻿namespace liaqati_master.Areas.Admin.Pages.Achievements
 {
     public class IndexModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IRepoAchievement _repoAchievement;
 
-        public IndexModel(UnitOfWork unitOfWork)
+        public IndexModel(IRepoAchievement repoAchievement)
         {
-            _unitOfWork = unitOfWork;
+            _repoAchievement = repoAchievement;
         }
-
         public IList<Achievement> Achievements { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_unitOfWork.AchievementsRepository != null)
+            if (_repoAchievement != null)
             {
-                Achievements = _unitOfWork.AchievementsRepository.Get().ToList();
+                Achievements = (await _repoAchievement.GetAllAsync()).ToList();
             }
         }
-        public async Task<IActionResult> OnPostAsync(int? Id)
+        public async Task<IActionResult> OnPostAsync(string? Id)
         {
-            if (Id == null || _unitOfWork.AchievementsRepository.Get() == null)
+            if (Id == null || _repoAchievement == null)
             {
                 return NotFound();
             }
-            var articles = _unitOfWork.AchievementsRepository.GetByID(Id);
+            var articles = await _repoAchievement.GetByIDAsync(Id);
 
             if (articles != null)
             {
-                _unitOfWork.AchievementsRepository.Delete(articles);
-                _unitOfWork.Save();
+                await _repoAchievement.DeleteEntityAsync(articles);
             }
 
             return RedirectToPage("./Index");

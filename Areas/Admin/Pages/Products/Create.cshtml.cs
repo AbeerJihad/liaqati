@@ -1,58 +1,53 @@
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿#nullable disable
 
 namespace liaqati_master.Pages.Products
 {
     public class CreateProductModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoProducts _repoProducts;
+        private readonly IRepoCategory _repoCategory;
+        private readonly IRepoService _repoService;
         private readonly IFormFileMang _IFormFileMang;
         private readonly IRepoFiles _RepoFiles;
 
 
-        public CreateProductModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang iFormFileMang, IRepoFiles repoFiles)
+        public CreateProductModel(IFormFileMang iFormFileMang, IRepoFiles repoFiles, IRepoProducts repoProducts, IRepoCategory repoCategory, IRepoService repoService)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
-            CatogeryName = new SelectList(_UnitOfWork.CategoryRepository.GetAllEntity(), nameof(Category.Id), nameof(Category.Name));
             _IFormFileMang = iFormFileMang;
             _RepoFiles = repoFiles;
+            _repoProducts = repoProducts;
+            _repoCategory = repoCategory;
+            _repoService = repoService;
         }
 
         public SelectList CatogeryName { get; set; }
 
-        [BindProperty, Required]
+        [BindProperty, Required(ErrorMessage = "أضف صورة واحدة على الأقل"), Display(Name = "أصف صور المنتج")]
         public IFormFileCollection Images { get; set; }
 
         [BindProperty]
         public Product Products { get; set; }
+        public async Task OnGet()
+        {
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(
+                c => c.Target == Database.GetListOfTargets()[nameof(Products)]),
+                nameof(Category.Id), nameof(Category.Name));
 
-        public IActionResult OnGet() => Page();
+        }
         public async Task<IActionResult> OnPostAsync()
         {
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Products)]), nameof(Category.Id), nameof(Category.Name));
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
             string Id = CommonMethods.Id_Guid();
             Products.Id = Id;
             Products.Services!.Id = Id;
-            var id = Products.Services!.Category!.Id;
-            if (id != null)
-            {
-                Products.Services.CategoryId = id;
-
-            }
-            Products.Services.Category = null;
-            _UnitOfWork.ProductsRepository.Insert(Products);
-            _UnitOfWork.ServiceRepository.Insert(Products.Services);
-            _UnitOfWork.Save();
-
+            await _repoService.AddEntityAsync(Products.Services);
+            await _repoProducts.AddEntityAsync(Products);
             List<Files> ImagesPaths = new();
-
             foreach (var item in Images)
             {
                 ImagesPaths.Add(new Files() { Id = CommonMethods.Id_Guid(), ServiceId = Id, Path = await _IFormFileMang.Upload(item, "images", "products") });
@@ -61,10 +56,8 @@ namespace liaqati_master.Pages.Products
             {
                 Products.ImgUrl = ImagesPaths[0].Path;
             }
+            await _repoProducts.UpdateEntityAsync(Products);
             await _RepoFiles.AddRangeOfFiles(ImagesPaths);
-            await _RepoFiles.SaveAsync();
-
-
             return RedirectToPage("./Index");
         }
     }

@@ -1,17 +1,13 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace liaqati_master.Pages.Exercises
+namespace liaqati_master.Areas.Admin.Pages.Exercises
 {
     public class DeleteExerciseModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoExercise _repoExercise;
         private readonly IFormFileMang _repoFile;
 
-        public DeleteExerciseModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang repoFile)
+        public DeleteExerciseModel(IRepoExercise repoExercise, IFormFileMang repoFile)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoExercise = repoExercise;
             _repoFile = repoFile;
         }
 
@@ -25,7 +21,7 @@ namespace liaqati_master.Pages.Exercises
             }
 
 
-            var exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
+            var exercise = await _repoExercise.GetByIDAsync(id);
 
             if (exercise == null)
             {
@@ -45,15 +41,15 @@ namespace liaqati_master.Pages.Exercises
                 return NotFound();
             }
 
-            var exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
+            var exercise = await _repoExercise.GetByIDAsync(id);
 
             if (exercise != null)
             {
                 Exercise = exercise;
                 _repoFile.DeleteFile(Exercise.Image);
                 _repoFile.DeleteFile(Exercise.Video);
-                _UnitOfWork.ExerciseRepository.Delete(Exercise);
-                _UnitOfWork.Save();
+                await _repoExercise.DeleteEntityAsync(Exercise);
+
             }
 
             return RedirectToPage("./Index");

@@ -1,27 +1,26 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
-
+﻿
 body {
     background-color: #f5f6f1;
 }
 
 table thead tr {
-    background-color: #8763b3;
+    background-color: #A566C8;
 }
 
     table thead tr th:nth-child(1) {
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
         overflow: hidden;
     }
 
     table thead tr th:last-child {
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
         overflow: hidden;
     }
 
     table thead tr th {
-        padding: 20px !important;
+        padding: 15px !important;
         color: white !important;
     }
 
@@ -30,9 +29,6 @@ table tr td {
     vertical-align: middle;
 }
 
-* {
-    font-family: 'Almarai', sans-serif;
-}
 
 th input[type="checkbox"] {
     height: 1.3rem;
@@ -41,10 +37,11 @@ th input[type="checkbox"] {
 
 .form-check-input:indeterminate,
 .form-check-input:checked {
-    background-color: #8763b3 !important;
-    border-color: #8763b3 !important;
+    background-color: #A566C8 !important;
+    accent-color: #A566C8;
+    border-color: white !important;
+    border-width: 2px;
 }
-
 
 .img__box {
     width: 50px;
@@ -86,6 +83,6 @@ th input[type="checkbox"] {
 }
 
 .border-raduis {
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 5px;
 }

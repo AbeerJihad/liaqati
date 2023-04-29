@@ -1,38 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace liaqati_master.Areas.Admin.Articles
+﻿namespace liaqati_master.Areas.Admin.Articles
 {
     public class IndexModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IRepoArticles _repoArticles;
 
-        public IndexModel(UnitOfWork unitOfWork)
+        public IndexModel(IRepoArticles repoArticles)
         {
-            _unitOfWork = unitOfWork;
+            _repoArticles = repoArticles;
         }
 
         public IList<Article> Articles { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_unitOfWork.ArticleRepository.Get() != null)
+            if (_repoArticles != null)
             {
-                Articles = _unitOfWork.ArticleRepository.GetAllEntity().ToList();
+                Articles = (await _repoArticles.GetAllAsync()).ToList();
             }
         }
         public async Task<IActionResult> OnPostAsync(string? id)
 
         {
-            if (id == null || _unitOfWork.ArticleRepository.Get() == null)
+            if (id == null || _repoArticles == null)
             {
                 return NotFound();
             }
-            Article? articles = _unitOfWork.ArticleRepository.GetByID(id);
+            Article? articles = await _repoArticles.GetByIDAsync(id);
 
             if (articles != null)
             {
-                _unitOfWork.ArticleRepository.Delete(articles);
-                _unitOfWork.Save();
+                await _repoArticles.DeleteEntityAsync(articles);
             }
 
             return RedirectToPage("./Index");

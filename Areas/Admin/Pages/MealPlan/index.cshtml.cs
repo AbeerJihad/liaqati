@@ -1,26 +1,21 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-
 namespace liaqati_master.Pages.MealPlan
 {
     public class indexModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
-        
-        public indexModel(UnitOfWork UnitOfWork)
+        private readonly IRepoMealPlans _repoMealPlans;
+
+        public indexModel(IRepoMealPlans repoMealPlans)
         {
-            _unitOfWork = UnitOfWork;
+            _repoMealPlans = repoMealPlans;
         }
 
         public IList<MealPlans> MealPlans { get; set; }
         public async Task OnGetAsync()
         {
-            if (_unitOfWork != null)
+            if (_repoMealPlans != null)
             {
 
-                MealPlans =  _unitOfWork.MealPlansRepository.GetAllEntity();
+                MealPlans = (await _repoMealPlans.GetAllAsync()).ToList();
             }
         }
     }

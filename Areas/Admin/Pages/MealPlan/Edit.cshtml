@@ -1,24 +1,24 @@
 ﻿@page
 @model liaqati_master.Pages.MealPlan.EditModel
 @{
+    ViewData["Title"] = "إضافة إنجاز";
+    ViewData["LinkName"] = "Categories";
 }
-
-<h4>Meal Plane</h4>
-<hr />
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form asp-page-handler="Add" method="post" class="form theme-form">
-                        @*     <div asp-validation-summary="All">
+                    <h3 class="pb-3">@ViewData["Title"]</h3>
 
-                        </div>*@
+                    <form asp-page-handler="Add" method="post" class="form theme-form">
+                        <div asp-validation-summary="All"></div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.Services!.Title"></label>
                                     <input asp-for="MealPlans.Services!.Title" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlans.Services!.Title" class="text-danger"></span>
 
                                 </div>
                             </div>
@@ -26,6 +26,8 @@
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.Services!.Price"></label>
                                     <input asp-for="MealPlans.Services!.Price" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlans.Services!.Price" class="text-danger"></span>
+
                                 </div>
                             </div>
 
@@ -33,6 +35,8 @@
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.Services!.Description"></label>
                                     <input asp-for="MealPlans.Services!.Description" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlans.Services!.Description" class="text-danger"></span>
+
                                 </div>
                             </div>
 
@@ -42,12 +46,16 @@
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.MealType"></label>
                                     <input asp-for="MealPlans.MealType" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlans.MealType" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.DietaryType"></label>
                                     <input asp-for="MealPlans.DietaryType" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlans.DietaryType" class="text-danger"></span>
+
                                 </div>
                             </div>
 
@@ -55,91 +63,39 @@
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.Length"></label>
                                     <input asp-for="MealPlans.Length" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlans.Length" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.AvgRecipeTime"></label>
                                     <input asp-for="MealPlans.AvgRecipeTime" class="form-control" placeholder="">
+
+                                    <span asp-validation-for="MealPlans.AvgRecipeTime" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
                                     <label asp-for="MealPlans.Services!.Category!.Name"></label>
-                                    <select asp-for="MealPlans.Services!.Category!.Id" asp-items="Model.CatogeryName">
+                                    <select asp-for="MealPlans.Services!.CategoryId" asp-items="Model.CatogeryName">
                                         <option disabled value="-1">Please Select Catogery Name</option>
 
                                     </select>
+                                    <span asp-validation-for=" MealPlans.Services!.CategoryId" class="text-danger"></span>
+
                                 </div>
                             </div>
                         </div>
 
-
-                        <div class="row">
-                            <div class="col-sm-4">
+                        <div class="row justify-content-end ">
+                            <div class="col-sm-4 justify-content-end d-flex">
                                 <div class="mb-3">
-                                    <button class="mx-auto col-auto" type="submit"> Save </button>
+                                    <button class="btn-primary btn  mx-auto col-auto" type="submit"> حقظ التعديلات <i class="bi bi-plus-square-dotted"></i> </button>
+                                    <a class="btn-danger btn  mx-auto col-auto" asp-page="./Index"> الغاء <i class="bi bi-arrow-90deg-down"></i></a>
                                 </div>
                             </div>
                         </div>
-
-
-
-
-                        @* <div class="row">
-                        <div class="col-sm-4">
-                        <div class="mb-3">
-                        <label>Project Size</label>
-                        <select class="form-select">
-                        <option>Small</option>
-                        <option>Medium</option>
-                        <option>Big</option>
-                        </select>
-                        </div>
-                        </div>
-                        <div class="col-sm-4">
-                        <div class="mb-3">
-                        <label>Starting date</label>
-                        <input class="datepicker-here form-control" type="text" data-language="en">
-                        </div>
-                        </div>
-                        <div class="col-sm-4">
-                        <div class="mb-3">
-                        <label>Ending date</label>
-                        <input class="datepicker-here form-control" type="text" data-language="en">
-                        </div>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col">
-                        <div class="mb-3">
-                        <label>Enter some Details</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-                        </div>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col">
-                        <div class="mb-3">
-                        <label>Upload project file</label>
-                        <form class="dropzone dz-clickable " id="singleFileUpload">
-                        <div class="dz-message needsclick">
-                        <i class="icon-cloud-up"></i>
-                        <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
-                        </div>
-
-                        </form>
-                        </div>
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col">
-                        <div class="text-end"><a class="btn btn-secondary me-3" href="#">Add</a><a class="btn btn-danger" href="#">Cancel</a></div>
-                        </div>
-                        </div>
-                        *@
-
-
                     </form>
                 </div>
             </div>
@@ -154,10 +110,9 @@
 </div>
 
 @section Scripts {
-    @*    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-*@
-
-
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
 }

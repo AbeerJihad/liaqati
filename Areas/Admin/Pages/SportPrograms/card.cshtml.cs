@@ -1,42 +1,33 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-
 namespace liaqati_master.Pages.Programs
 {
-    public class cardModel : PageModel
+    public class CardModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
-        
-        public cardModel(UnitOfWork UnitOfWork)
+        private readonly IRepoProgram _repoProgram;
+
+        public CardModel(IRepoProgram repoProgram)
         {
-            _unitOfWork = UnitOfWork;
+            _repoProgram = repoProgram;
         }
 
         public IList<SportsProgram> Programs { get; set; }
         public async Task OnGetAsync()
         {
-            if (_unitOfWork != null)
+            if (_repoProgram != null)
             {
 
-                Programs =  _unitOfWork.SportsProgramRepository.GetAllEntity();
+                Programs = await _repoProgram.GetAllProgram();
             }
         }
-  
-    
-    public async Task<IActionResult> OnPostAsync(string id)
-        {
+
+
+        //public async Task<IActionResult> OnPostAsync(string id)
+        //{
+        //    return Page();
+        //}
 
 
 
 
-           return Page();
-        }
-    
-    
-    
-    
-    
+
     }
 }

@@ -1,31 +1,25 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
 namespace liaqati_master.Pages.HealthyReicpe
 {
     public class DeleteHealthyModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoHealthyRecipe _repoHealthyRecipe;
 
-        public DeleteHealthyModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public DeleteHealthyModel(IRepoHealthyRecipe repoHealthyRecipe)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoHealthyRecipe = repoHealthyRecipe;
         }
 
         [BindProperty]
         public HealthyRecipe HealthyRecipe { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
 
 
-            HealthyRecipe healthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+            var healthyRecipe = await _repoHealthyRecipe.GetByIDAsync(id);
 
             if (healthyRecipe == null)
             {
@@ -40,21 +34,20 @@ namespace liaqati_master.Pages.HealthyReicpe
 
         public async Task<IActionResult> OnPostAsync(string? id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
 
-            HealthyRecipe healthyRecipe = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+            var healthyRecipe = await _repoHealthyRecipe.GetByIDAsync(id);
 
             if (healthyRecipe != null)
             {
                 HealthyRecipe = healthyRecipe;
 
-                _UnitOfWork.HealthyRecipesRepository.Delete(HealthyRecipe);
-                _UnitOfWork.Save();
+                await _repoHealthyRecipe.DeleteEntityAsync(healthyRecipe);
 
-            
+
             }
 
             return RedirectToPage("./Index");

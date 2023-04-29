@@ -1,21 +1,14 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace liaqati_master.Pages.HealthyReicpe
 {
     public class EditHealthyModel : PageModel
     {
 
-        private readonly LiaqatiDBContext _context;
+        private readonly IRepoHealthyRecipe _repoHealthyRecipe;
 
-        private readonly UnitOfWork _UnitOfWork;
-
-        public EditHealthyModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public EditHealthyModel(IRepoHealthyRecipe repoHealthyRecipe)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _repoHealthyRecipe = repoHealthyRecipe;
         }
-
         public List<SelectListItem> CatogeryName { get; set; }
 
 
@@ -29,19 +22,12 @@ namespace liaqati_master.Pages.HealthyReicpe
                 return NotFound();
             }
 
-            var healthyRecipes = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+            var healthyRecipes = await _repoHealthyRecipe.GetByIDAsync(id);
             if (healthyRecipes == null)
             {
                 return NotFound();
             }
             HealthyRecipes = healthyRecipes;
-
-            CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
-                                       new SelectListItem
-                                       {
-                                           Value = a.Id.ToString(),
-                                           Text = a.Name
-                                       }).ToList();
             return Page();
         }
 
@@ -56,7 +42,7 @@ namespace liaqati_master.Pages.HealthyReicpe
             //}
 
             var id = HealthyRecipes.Id;
-            var item = _UnitOfWork.HealthyRecipesRepository.GetByID(id);
+            var item = await _repoHealthyRecipe.GetByIDAsync(id);
             item!.Title = HealthyRecipes.Title;
             item.Price = HealthyRecipes.Price;
             item.Description = HealthyRecipes.Description;
@@ -75,30 +61,13 @@ namespace liaqati_master.Pages.HealthyReicpe
             //    HealthyRecipes.CategoryId = id;
 
             //}
-            _UnitOfWork.HealthyRecipesRepository.Update(item);
+            await _repoHealthyRecipe.UpdateEntityAsync(item);
             //  _context.Attach(MealPlans).State = EntityState.Modified;
-            try
-            {
-                _UnitOfWork.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(HealthyRecipes.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+
 
             return RedirectToPage("./Index");
         }
 
-        private bool StudentExists(string id)
-        {
-            return _context.TblMealPlans.Any(e => e.Id == id);
-        }
+
     }
 }

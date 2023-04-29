@@ -1,16 +1,15 @@
 ﻿@page
 @model liaqati_master.Areas.Admin.Pages.Articles.CreateModel
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "إضافة مقالة";
+    ViewData["LinkName"] = "Categories";
 }
-
-<h4>إضافة مقالة</h4>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="pb-3">@ViewData["Title"]</h3>
                     <div class="form theme-form">
                         <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                             @*<div asp-validation-summary="All" class="text-danger"></div>*@
@@ -29,6 +28,8 @@
                                         <select asp-for="Articles.CategoryId" class="form-control" asp-items="@Model.CategoriesSelect">
                                             <option value="-1"></option>
                                         </select>
+                                        <span asp-validation-for="Articles.CategoryId" class="text-danger"></span>
+
                                     </div>
                                 </div>
 
@@ -46,16 +47,16 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label asp-for="Articles.Description" class="control-label"></label>
-                                        <textarea asp-for="Articles.Description" class="form-control"></textarea>
+                                        <textarea asp-for="Articles.Description" class="form-control rich-editor"></textarea>
                                         <span asp-validation-for="Articles.Description" class="text-danger"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="text-end">
-                                        <a class="btn btn-danger  me-3" asp-page="./index">الغاء</a>
-                                        <input type="submit" class="btn btn-primary" value="إضافة" />
+                            <div class="row justify-content-end ">
+                                <div class="col-sm-4 justify-content-end d-flex">
+                                    <div class="mb-3">
+                                        <button class="btn-primary btn  mx-auto col-auto" type="submit"> حقظ التعديلات <i class="bi bi-plus-square-dotted"></i> </button>
+                                        <a class="btn-danger btn  mx-auto col-auto" asp-page="./Index"> الغاء <i class="bi bi-arrow-90deg-down"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -77,6 +78,6 @@
     }
 
 
-          <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-        <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
 }

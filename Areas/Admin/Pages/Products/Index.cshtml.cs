@@ -1,20 +1,13 @@
-﻿using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace liaqati_master.Areas.Admin.Pages.Products
+﻿namespace liaqati_master.Areas.Admin.Pages.Products
 {
     public class IndexProductModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
-        private readonly IRepoProducts _IRepoProducts;
+        private readonly IRepoProducts _repoProducts;
 
-        public IndexProductModel(UnitOfWork UnitOfWork, IRepoProducts IRepoProducts)
+        public IndexProductModel(IRepoProducts repoProducts)
         {
-            _unitOfWork = UnitOfWork;
-            _IRepoProducts = IRepoProducts;
+            _repoProducts = repoProducts;
         }
-
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
             new SelectListItem(){Value="MinPrice",Text="الأقل سعرا"},
             new SelectListItem(){Value="MaxPrice",Text="الأعلى سعرا"},
@@ -26,30 +19,30 @@ namespace liaqati_master.Areas.Admin.Pages.Products
         public ProductQueryParamters ProductQueryParamters { get; set; }
         public QueryPageResult<Product> QueryPageResult { get; set; }
         public bool IsGrid { get; set; }
-        public async Task OnGetAsync(int grid = 0)
+        public async Task OnGetAsync()
         {
-            if (grid == 1)
-            {
-                IsGrid = true;
+            //int grid = 0
+            //if (grid == 1)
+            //{
+            //    IsGrid = true;
+            //}
+            //else
+            //{
+            //    IsGrid = false;
+            //}
 
-
-            }
-            else
-            {
-                IsGrid = false;
-            }
-            if (_unitOfWork != null)
+            if (_repoProducts != null)
             {
                 ProductQueryParamters.Size = 7;
-                QueryPageResult = await _IRepoProducts.SearchProduct(ProductQueryParamters);
+                QueryPageResult = await _repoProducts.SearchProduct(ProductQueryParamters);
             }
         }
         public async Task OnPost()
         {
-            if (_unitOfWork != null)
+            if (_repoProducts != null)
             {
                 ProductQueryParamters.Size = 7;
-                QueryPageResult = await _IRepoProducts.SearchProduct(ProductQueryParamters);
+                QueryPageResult = await _repoProducts.SearchProduct(ProductQueryParamters);
             }
 
             //return RedirectToPage("./index");

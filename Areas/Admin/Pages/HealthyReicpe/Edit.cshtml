@@ -1,6 +1,8 @@
 ﻿@page
 @model liaqati_master.Pages.HealthyReicpe.EditHealthyModel
 @{
+    ViewData["Title"] = "إضافة إنجاز";
+    ViewData["LinkName"] = "Categories";
 }
 <link href="~/assets/css/Tables.css" rel="stylesheet" />
 
@@ -24,7 +26,6 @@
     .ingredients {
         overflow-y: scroll;
     }
-
 </style>
 
 <h4></h4>
@@ -34,6 +35,8 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="pb-3">@ViewData["Title"]</h3>
+
                     <form asp-page-handler="Add" method="post" class="form theme-form">
                         <input asp-for="HealthyRecipes.Id" class="form-control" placeholder="">
                         <div class="row">
@@ -125,20 +128,10 @@
 
                                 </div>
                             </div>
-
-
-                            @*
-                            <div class="col-sm-4">
-                            <div class="mb-3">
-                            <label asp-for="HealthyRecipes.Category!.Id"></label>
-                            <select asp-for="HealthyRecipes.Category!.Id" asp-items="Model.CatogeryName" class="form-select">
-                            <option disabled value="-1">Please Select Catogery Name</option>
-                            </select>
-                            <span asp-validation-for="HealthyRecipes.Category!.Id" class="text-danger"></span>
-                            </div>
-                            </div>
-                            *@
                         </div>
+
+
+
 
 
                         <div class="row justify-content-center my-5">
@@ -241,14 +234,16 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-4">
+
+
+                        <div class="row justify-content-end ">
+                            <div class="col-sm-4 justify-content-end d-flex">
                                 <div class="mb-3">
-                                    <button class="mx-auto col-auto btn btn-primary" type="submit"> Save </button>
+                                    <button class="btn-primary btn  mx-auto col-auto" type="submit"> حقظ التعديلات <i class="bi bi-plus-square-dotted"></i> </button>
+                                    <a class="btn-danger btn  mx-auto col-auto" asp-page="./Index"> الغاء <i class="bi bi-arrow-90deg-down"></i></a>
                                 </div>
                             </div>
                         </div>
-
 
                     </form>
                 </div>
@@ -274,6 +269,6 @@
 
 
 
-      <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
 }

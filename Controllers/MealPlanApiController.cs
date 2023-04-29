@@ -1,6 +1,4 @@
-﻿using liaqati_master.Services.Repositories;
-
-namespace ProgectApi.Controllers
+﻿namespace ProgectApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -68,7 +66,7 @@ namespace ProgectApi.Controllers
 
         public async Task<ActionResult<MealPlans>> DeleteMealPlans(string id)
         {
-            MealPlans item = _context.TblMealPlans.Find(id);
+            var item = _context.TblMealPlans.Find(id);
 
             if (item == null)
             {

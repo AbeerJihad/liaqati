@@ -1,14 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using liaqati_master.Services.Repositories;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace liaqati_master.Pages.Achievements
+namespace liaqati_master.Areas.Pages.Achievements
 {
     public class DeleteModel : PageModel
     {
-        private readonly liaqati_master.Data.LiaqatiDBContext _context;
+        private readonly IRepoAchievement _repoAchievement;
 
-        public DeleteModel(liaqati_master.Data.LiaqatiDBContext context)
+        public DeleteModel(IRepoAchievement repoAchievement)
         {
-            _context = context;
+            _repoAchievement = repoAchievement;
         }
 
         [BindProperty]
@@ -16,13 +17,12 @@ namespace liaqati_master.Pages.Achievements
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null || _context.TblAchievements == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var achievements = await _context.TblAchievements.FirstOrDefaultAsync(m => m.Id == id);
-
+            var achievements = await _repoAchievement.GetByIDAsync(id);
             if (achievements == null)
             {
                 return NotFound();
@@ -36,17 +36,16 @@ namespace liaqati_master.Pages.Achievements
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null || _context.TblAchievements == null)
+            if (id == null)
             {
                 return NotFound();
             }
-            var achievements = await _context.TblAchievements.FindAsync(id);
+            var achievements = await _repoAchievement.GetByIDAsync(id);
 
             if (achievements != null)
             {
                 Achievements = achievements;
-                _context.TblAchievements.Remove(Achievements);
-                await _context.SaveChangesAsync();
+                await _repoAchievement.DeleteEntityAsync(Achievements);
             }
 
             return RedirectToPage("./Index");

@@ -1,27 +1,29 @@
 ﻿@page
 @model liaqati_master.Pages.Products.CreateProductModel
 @{
+    ViewData["Title"] = "إضافة إنجاز";
+    ViewData["LinkName"] = "Categories";
+
 }
-<style>
-    .delete-btn {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        top: -12px;
-        right: -12px;
-    }
-</style>
-<h4>Meal Plane</h4>
-<hr />
+@section Styles{
+    <style>
+        .delete-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            top: -12px;
+            right: -12px;
+        }
+    </style>
+}
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
+                    <h3 class="pb-3">@ViewData["Title"]</h3>
                     <form method="post" class="form theme-form" enctype="multipart/form-data">
-                        @*     <div asp-validation-summary="All">
-
-                        </div>*@
+                        <div asp-validation-summary="All"></div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
@@ -53,17 +55,16 @@
                                     <label asp-for="Products.Discount"></label>
                                     <input asp-for="Products.Discount" class="form-control" placeholder="">
                                     <span asp-validation-for="Products.Discount" class="text-danger"></span>
-
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
                                 <div class="mb-3">
                                     <label asp-for="Products.Services!.Category!.Name"></label>
-                                    <select asp-for="Products.Services!.Category!.Id" asp-items="Model.CatogeryName" class="form-select">
+                                    <select asp-for="Products.Services!.CategoryId" asp-items="Model.CatogeryName" class="form-select">
                                         <option disabled value="-1">Please Select Catogery Name</option>
                                     </select>
-                                    <span asp-validation-for="Products.Services!.Category!.Id" class="text-danger"></span>
+                                    <span asp-validation-for="Products.Services!.CategoryId" class="text-danger"></span>
 
                                 </div>
                             </div>
@@ -82,13 +83,15 @@
                         </div>
 
 
-                        <div class="row">
-                            <div class="col-sm-4">
+                        <div class="row justify-content-end ">
+                            <div class="col-sm-4 justify-content-end d-flex">
                                 <div class="mb-3">
-                                    <button class="btn btn-primary mx-auto col-auto" type="submit"> Save </button>
+                                    <button class="btn-primary btn  mx-auto col-auto" type="submit"> حقظ التعديلات <i class="bi bi-plus-square-dotted"></i> </button>
+                                    <a class="btn-danger btn  mx-auto col-auto" asp-page="./Index"> الغاء <i class="bi bi-arrow-90deg-down"></i></a>
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

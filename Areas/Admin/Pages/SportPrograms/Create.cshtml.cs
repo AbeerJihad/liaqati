@@ -1,41 +1,26 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace liaqati_master.Pages.Programs
 {
     public class CreatProgrameModel : PageModel
     {
-        private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoProgram _repoProgram;
+        private readonly IRepoExercise _repoExercise;
+        private readonly IRepoProgramExercies _repoProgramExercies;
+        private readonly IRepoCategory _repoCategory;
+        private readonly IRepoService _repoService;
         private readonly IFormFileMang _repoFile;
 
 
-        public CreatProgrameModel(LiaqatiDBContext context, UnitOfWork unitOfWork, IFormFileMang repoFile)
+        public CreatProgrameModel(IFormFileMang repoFile, IRepoProgram repoProgram, IRepoCategory repoCategory, IRepoExercise repoExercise, IRepoService repoService, IRepoProgramExercies repoProgramExercies)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
             _repoFile = repoFile;
+            _repoProgram = repoProgram;
+            _repoCategory = repoCategory;
+            _repoExercise = repoExercise;
+            _repoService = repoService;
+            _repoProgramExercies = repoProgramExercies;
         }
 
-        public List<SelectListItem> CatogeryName
-        {
-            get
-            {
-                return _UnitOfWork.CategoryRepository.GetAllEntity().Select
-                    (a => new SelectListItem
-                    {
-                        Value = a.Id.ToString(),
-                        Text = a.Name
-                    }).ToList();
-            }
-            set
-            {
-            }
-        }
-
-
-
-
+        public SelectList CatogeryName { get; set; }
 
         public List<SelectListItem> LstExercies { get; set; }
         [BindProperty]
@@ -44,11 +29,7 @@ namespace liaqati_master.Pages.Programs
 
         public int index { get; set; } = -1;
         [BindProperty]
-        public List<Exercies_program> Exercies_program { get; set; } = null;
-
-
-
-
+        public List<Exercies_program> Exercies_program { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public SportsProgram SportsProgram { get; set; }
@@ -71,25 +52,27 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnGet([FromRoute] string? Id)
         {
 
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(SportsProgram)]), nameof(Category.Id), nameof(Category.Name));
+
             Display = "d-none";
             btnSave = 0;
 
 
-            SportsProgram sports = _UnitOfWork.SportsProgramRepository.GetByID(Id);
+            SportsProgram sports = await _repoProgram.GetProgram(Id);
             if (sports != null)
             {
                 SportsProgram = sports;
+                SportsProgram.Exercies_Programs = SportsProgram.Exercies_Programs!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
             }
 
 
-            SportsProgram.Exercies_Programs = SportsProgram.Exercies_Programs!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
 
 
 
 
 
 
-            LstExercies = _UnitOfWork.ExerciseRepository.GetAllEntity().Select(a =>
+            LstExercies = (await _repoExercise.GetAllAsync()).Select(a =>
                                         new SelectListItem
                                         {
                                             Value = a.Id.ToString(),
@@ -101,9 +84,9 @@ namespace liaqati_master.Pages.Programs
         }
 
 
-        public Exercise getExercise(string id)
+        public async Task<Exercise?> getExercise(string id)
         {
-            Exercise exercise = _UnitOfWork.ExerciseRepository.GetByID(id);
+            var exercise = await _repoExercise.GetByIDAsync(id);
 
             return exercise;
         }
@@ -140,7 +123,7 @@ namespace liaqati_master.Pages.Programs
 
 
 
-            string oldurl = SportsProgram.Image;
+            string? oldurl = SportsProgram.Image;
 
             if (Image != null)
             {
@@ -158,10 +141,8 @@ namespace liaqati_master.Pages.Programs
 
 
 
-            _UnitOfWork.SportsProgramRepository.Insert(SportsProgram);
-            _UnitOfWork.ServiceRepository.Insert(SportsProgram.Services);
-            _UnitOfWork.Save();
-
+            await _repoService.AddEntityAsync(SportsProgram.Services);
+            await _repoProgram.AddProgram(SportsProgram);
 
             Display = "d-block";
 
@@ -174,25 +155,10 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnPostAddSystemAsync(string? id)
         {
             btnSave = 1;
-
-
-            SportsProgram sports = _UnitOfWork.SportsProgramRepository.GetByID(id);
-
-            List<Exercies_program> list = new List<Exercies_program>();
-
-            foreach (Exercies_program x in _context.TblExercies_program.ToList())
-            {
-                if (x.SportsProgramId == id)
-                {
-                    list.Add(x);
-                }
-
-            }
+            SportsProgram sports = await _repoProgram.GetProgram(id);
             SportsProgram = sports;
-            SportsProgram.Exercies_Programs = list;
-
+            SportsProgram.Exercies_Programs = (await _repoProgramExercies.GetAllExercies_program()).Where(exp => exp.SportsProgramId == id).ToList();
             Display = "d-block";
-
             return Page();
         }
 

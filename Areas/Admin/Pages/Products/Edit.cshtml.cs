@@ -1,112 +1,98 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace liaqati_master.Pages.Product
+﻿#nullable disable
+namespace liaqati_master.Pages.Products
 {
     public class EditProductModel : PageModel
     {
 
-        private readonly LiaqatiDBContext _context;
-
-        private readonly UnitOfWork _UnitOfWork;
-
-        public EditProductModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        private readonly IRepoProducts _repoProducts;
+        private readonly IRepoCategory _repoCategory;
+        private readonly IRepoService _repoService;
+        private readonly IFormFileMang _IFormFileMang;
+        private readonly IRepoFiles _RepoFiles;
+        public EditProductModel(IFormFileMang iFormFileMang, IRepoFiles repoFiles, IRepoProducts repoProducts, IRepoCategory repoCategory, IRepoService repoService)
         {
-            _context = context;
-            _UnitOfWork = unitOfWork;
+            _IFormFileMang = iFormFileMang;
+            _RepoFiles = repoFiles;
+            _repoProducts = repoProducts;
+            _repoCategory = repoCategory;
+            _repoService = repoService;
         }
-
-        public List<SelectListItem> CatogeryName { get; set; }
+        public SelectList CatogeryName { get; set; }
 
 
         [BindProperty(SupportsGet = true)]
-        public Models.Product Product { get; set; }
+        public Product Product { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string? id)
+        [BindProperty, Required(ErrorMessage = "أضف صورة واحدة على الأقل"), Display(Name = "أصف صور المنتج")]
+        public IFormFileCollection Images { get; set; }
+        public List<string> paths { get; set; }
+        public async Task<IActionResult> OnGetAsync(string id)
         {
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Products)]), nameof(Category.Id), nameof(Category.Name));
+
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = _UnitOfWork.ProductsRepository.GetByID(id);
+            var product = await _repoProducts.GetByIDAsync(id);
+
+            paths = (await _RepoFiles.GetAllAsync()).Where(file => file.ServiceId == product.Id).Select(fil => fil.Path).ToList();
             if (product == null)
             {
                 return NotFound();
             }
             Product = product;
 
-            CatogeryName = _UnitOfWork.CategoryRepository.GetAllEntity().Select(a =>
-                                       new SelectListItem
-                                       {
-                                           Value = a.Id.ToString(),
-                                           Text = a.Name
-                                       }).ToList();
-
-
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPost()
         {
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Products)]), nameof(Category.Id), nameof(Category.Name));
 
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             var id = Product.Id;
-
-            var item = _UnitOfWork.ProductsRepository.GetByID(id);
+            var item = await _repoProducts.GetByIDAsync(id);
             item.Services!.Title = Product.Services!.Title;
             item.Services.Price = Product.Services.Price;
             item.Services.Description = Product.Services.Description;
             item.Discount = Product.Discount;
-
-
-            var cid = Product.Services!.Category!.Id;
-            if (id != null)
+            if (Images?.Count > 0)
             {
-                Product.Services.CategoryId = id;
+                List<Files> ImagesPaths = new();
+                foreach (var formFile in Images)
+                {
+                    ImagesPaths.Add(new Files() { Id = CommonMethods.Id_Guid(), ServiceId = id, Path = await _IFormFileMang.Upload(formFile, "images", "products") });
+                }
+                List<Files> images = (await _RepoFiles.GetAllAsync()).Where(file => file.ServiceId == Product.Id).ToList();
+                foreach (var image in images)
+                {
+                    await _RepoFiles.DeleteEntityAsync(image);
+                    _IFormFileMang.DeleteFile(image.Path);
+
+                }
+                await _RepoFiles.AddRangeOfFiles(ImagesPaths);
+                await _RepoFiles.SaveAsync();
+                if (ImagesPaths.Count > 0)
+                {
+                    Product.ImgUrl = ImagesPaths[0].Path;
+                }
+
 
             }
 
-            item.Services.Category = null;
+            await _repoProducts.UpdateEntityAsync(item);
 
-
-            _UnitOfWork.ProductsRepository.Update(item);
-
+            return RedirectToPage();
 
             //  _context.Attach(MealPlans).State = EntityState.Modified;
 
-            try
-            {
-                _UnitOfWork.Save();
-            }
-
-
-
-
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(Product.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool StudentExists(string id)
-        {
-            return _context.TblMealPlans.Any(e => e.Id == id);
         }
     }
 }

@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Areas.Admin.Pages.Programs
 {
     public class CalenderModel : PageModel
     {
-        readonly UnitOfWork _unitOfWork;
+        private readonly IRepoProgram _repoProgram;
+        private readonly IRepoExercise _repoExercise;
 
-        public CalenderModel(UnitOfWork unitOfWork)
+        public CalenderModel(IRepoProgram repoProgram, IRepoExercise repoExercise)
         {
-            _unitOfWork = unitOfWork;
+            _repoProgram = repoProgram;
+            _repoExercise = repoExercise;
         }
 
         [BindProperty(SupportsGet = true)]
@@ -16,21 +16,15 @@ namespace liaqati_master.Areas.Admin.Pages.Programs
 
         public List<object> data { get; set; }
 
-        public void OnGet()
+        public async Task OnGet()
         {
-            SportsProgram program = _unitOfWork.SportsProgramRepository.GetByID(id);
-
-            for (int i = 0; i < program.Exercies_Programs.Count; i++)
+            var program = await _repoProgram.GetProgram(id);
+            for (int i = 0; i < program?.Exercies_Programs?.Count; i++)
             {
-                Exercise exercise = _unitOfWork.ExerciseRepository.GetByID(program.Exercies_Programs[i]);
-
-                data.Add(new { Id = CommonMethods.Id_Guid(), name = exercise.Title });
+                Exercise? exercise = await _repoExercise.GetByIDAsync(program.Exercies_Programs[i].Id);
+                data.Add(new { Id = CommonMethods.Id_Guid(), name = exercise?.Title });
 
             }
-
-
-
-
         }
     }
 }
