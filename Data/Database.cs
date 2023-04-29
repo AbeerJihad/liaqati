@@ -69,9 +69,9 @@ namespace liaqati_master.Data
 
             };
         }
-       public static List<Category> GetListOfCategories() => new()
+        public static List<Category> GetListOfCategories() => new()
         {
-                      
+
             new Category
             {
                 Id = "1", Name = "طبق رئيسي", Target = "الوجبات"
@@ -986,6 +986,28 @@ namespace liaqati_master.Data
                 },
 
 
+                  new HealthyRecipe {
+                    Id = "63",
+                    Image = "/user/images/pexels-toni-cuenca-616833.png",
+                    MealType = "مشروبات",
+                    PrepTime = 30,
+                    Calories = 273,
+                    Total_Carbohydrate = 43,
+                    Protein = 20,
+                    Ingredients=" الريحان الطازج,2,غرام\n"+" خيارة,60,غرام\n"+
+                    " جبن كوخ قليل الدسم ,2,غرام\n"+"  كعكة القمح الكامل الإنجليزية ,20,غرام\n"+" الخل البلسمي ,20,غرام\n"
+                    +"  البارود الأسود,20,غرام\n"+"التوابل الإيطالية,15,غرام\n"+" صدر دجاج,15,غرام\n"+"زيت الزيتون,10,غرام\n",
+                    PreparationMethod="  <ol>\r\n                    <li>اغسلي جميع الخضار والفواكه وقطعيها لقطع متوسطة يسهل وضعها في الخلاط.</li>\r\n                    <li>ضعي الخضار والفواكه في العصارة أو الخلاط الكهربائي واحداً تلو الآخر واخلطيها لمدة أربع دقائق حتى تتجانس المكونات.</li>\r\n                    <li>قدمي العصير مبرداً واحفظيه في الثلاجة إذ يمكن تناوله خلال سبع أيام.</li>\r\n                  \r\n                </ol>",
+                    Description=" <p class=\"fs-6\">\r\n                            تساعد على تنظيف الجسم من السموم وتخليصه من الأمراض المختلفة، إذ يمكن عمله\r\n                            بطرق عدة باستخدام أنواع مختلفة من الخضار والفواكه، وهذه المشروبات تساعد في\r\n                            حميات إنقاص الوزن وتعزز الصحة العامة، هنا سنقدم طريقة عمل عصير ديتوكس\r\n                        </p>",
+                    DietaryType = "نباتي",
+
+                    Price=0,
+                    RatePercentage=5,
+                    ShortDescription="",
+                    Title="مشروب الديتوكس الأخضر",
+                },
+
+
             };
         }
         public static List<Tracking> GetListOfTracking()
@@ -1082,6 +1104,67 @@ namespace liaqati_master.Data
 
             };
         }
-    }
 
+        public static List<Files> GetListFiles()
+        {
+            return new List<Files>()
+            {
+                
+                 new Files()
+                {
+                    Id="1",
+                    Path="/Images/HealthyRecipes/1.jpg",
+                    HealthyId= "61",
+                },
+                  new Files()
+                {
+                    Id="2",
+                    Path="/Images/HealthyRecipes/img61.jpg",
+                    HealthyId= "61",
+                },
+                   new Files()
+                {
+                    Id="3",
+                    Path="/Images/HealthyRecipes/im61.jpg",
+                    HealthyId= "61",
+                },
+                    new Files()
+                {
+                    Id="4",
+                    Path="/Images/HealthyRecipes/2.jpg",
+                    HealthyId= "62",
+                },
+                     new Files()
+                {
+                    Id="5",
+                    Path="/Images/HealthyRecipes/img62.jpg",
+                    HealthyId= "62",
+                },
+                      new Files()
+                {
+                    Id="6",
+                    Path="/Images/HealthyRecipes/im62.jpg",
+                    HealthyId= "62",
+                }, new Files()
+                {
+                    Id="7",
+                    Path="/user/images/pexels-toni-cuenca-616833.png",
+                    HealthyId= "63",
+                }, new Files()
+                {
+                    Id="8",
+                    Path="~/user/images/224347.png",
+                    HealthyId= "63",
+                }, new Files()
+                {
+                    Id="9",
+                    Path="/user/images/224664.png",
+                    HealthyId= "63",
+                },
+            };
+        }
+
+
+
+    }
 }

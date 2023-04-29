@@ -783,6 +783,9 @@ namespace liaqati_master.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("HealthyId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Path")
                         .HasColumnType("nvarchar(max)");
 
@@ -791,9 +794,67 @@ namespace liaqati_master.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("HealthyId");
+
                     b.HasIndex("ServiceId");
 
                     b.ToTable("TblFiles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            HealthyId = "61",
+                            Path = "/Images/HealthyRecipes/1.jpg"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            HealthyId = "61",
+                            Path = "/Images/HealthyRecipes/img61.jpg"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            HealthyId = "61",
+                            Path = "/Images/HealthyRecipes/im61.jpg"
+                        },
+                        new
+                        {
+                            Id = "4",
+                            HealthyId = "62",
+                            Path = "/Images/HealthyRecipes/2.jpg"
+                        },
+                        new
+                        {
+                            Id = "5",
+                            HealthyId = "62",
+                            Path = "/Images/HealthyRecipes/img62.jpg"
+                        },
+                        new
+                        {
+                            Id = "6",
+                            HealthyId = "62",
+                            Path = "/Images/HealthyRecipes/im62.jpg"
+                        },
+                        new
+                        {
+                            Id = "7",
+                            HealthyId = "63",
+                            Path = "/user/images/pexels-toni-cuenca-616833.png"
+                        },
+                        new
+                        {
+                            Id = "8",
+                            HealthyId = "63",
+                            Path = "~/user/images/224347.png"
+                        },
+                        new
+                        {
+                            Id = "9",
+                            HealthyId = "63",
+                            Path = "/user/images/224664.png"
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.HealthyRecipe", b =>
@@ -866,7 +927,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "61",
                             Calories = 250,
-                            CreatedDate = new DateTime(2023, 4, 28, 14, 53, 32, 983, DateTimeKind.Local).AddTicks(2943),
+                            CreatedDate = new DateTime(2023, 4, 29, 15, 45, 2, 34, DateTimeKind.Local).AddTicks(4734),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/1.jpg",
@@ -886,7 +947,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "62",
                             Calories = 269,
-                            CreatedDate = new DateTime(2023, 4, 28, 14, 53, 32, 983, DateTimeKind.Local).AddTicks(2955),
+                            CreatedDate = new DateTime(2023, 4, 29, 15, 45, 2, 34, DateTimeKind.Local).AddTicks(4745),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/2.jpg",
@@ -900,6 +961,26 @@ namespace liaqati_master.Migrations
                             ShortDescription = "",
                             Title = "خيار وجبن كوخ وخبز محمص دجاج مشوي مع الخل البلسمي والأعشاب الإيطالية",
                             Total_Carbohydrate = 30,
+                            ViewsNumber = 0
+                        },
+                        new
+                        {
+                            Id = "63",
+                            Calories = 273,
+                            CreatedDate = new DateTime(2023, 4, 29, 15, 45, 2, 34, DateTimeKind.Local).AddTicks(4751),
+                            Description = " <p class=\"fs-6\">\r\n                            تساعد على تنظيف الجسم من السموم وتخليصه من الأمراض المختلفة، إذ يمكن عمله\r\n                            بطرق عدة باستخدام أنواع مختلفة من الخضار والفواكه، وهذه المشروبات تساعد في\r\n                            حميات إنقاص الوزن وتعزز الصحة العامة، هنا سنقدم طريقة عمل عصير ديتوكس\r\n                        </p>",
+                            DietaryType = "نباتي",
+                            Image = "/user/images/pexels-toni-cuenca-616833.png",
+                            Ingredients = " الريحان الطازج,2,غرام\n خيارة,60,غرام\n جبن كوخ قليل الدسم ,2,غرام\n  كعكة القمح الكامل الإنجليزية ,20,غرام\n الخل البلسمي ,20,غرام\n  البارود الأسود,20,غرام\nالتوابل الإيطالية,15,غرام\n صدر دجاج,15,غرام\nزيت الزيتون,10,غرام\n",
+                            MealType = "مشروبات",
+                            PrepTime = 30,
+                            PreparationMethod = "  <ol>\r\n                    <li>اغسلي جميع الخضار والفواكه وقطعيها لقطع متوسطة يسهل وضعها في الخلاط.</li>\r\n                    <li>ضعي الخضار والفواكه في العصارة أو الخلاط الكهربائي واحداً تلو الآخر واخلطيها لمدة أربع دقائق حتى تتجانس المكونات.</li>\r\n                    <li>قدمي العصير مبرداً واحفظيه في الثلاجة إذ يمكن تناوله خلال سبع أيام.</li>\r\n                  \r\n                </ol>",
+                            Price = 0.0,
+                            Protein = 20,
+                            RatePercentage = 80.0,
+                            ShortDescription = "",
+                            Title = "مشروب الديتوكس الأخضر",
+                            Total_Carbohydrate = 43,
                             ViewsNumber = 0
                         });
                 });
@@ -2097,7 +2178,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "bedaa876-c920-4bf5-b4b8-08fb0262516b",
+                            ConcurrencyStamp = "a9b87f60-a6d7-4df2-a88d-09507a098ff4",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -2108,7 +2189,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "33e02363-df67-4f30-8bf2-01eb3459b3d4",
+                            SecurityStamp = "f7c40121-f0df-4b69-a489-52c94bb72c36",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });
@@ -2378,9 +2459,15 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.Files", b =>
                 {
+                    b.HasOne("liaqati_master.Models.HealthyRecipe", "Healthy")
+                        .WithMany("Files")
+                        .HasForeignKey("HealthyId");
+
                     b.HasOne("liaqati_master.Models.Service", "Service")
                         .WithMany("Files")
                         .HasForeignKey("ServiceId");
+
+                    b.Navigation("Healthy");
 
                     b.Navigation("Service");
                 });
@@ -2640,6 +2727,8 @@ namespace liaqati_master.Migrations
 
             modelBuilder.Entity("liaqati_master.Models.HealthyRecipe", b =>
                 {
+                    b.Navigation("Files");
+
                     b.Navigation("Meal_Healthy");
 
                     b.Navigation("Rate");

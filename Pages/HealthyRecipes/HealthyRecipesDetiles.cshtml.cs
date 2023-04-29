@@ -14,21 +14,23 @@ namespace liaqati_master.Pages.HealthyRecipes
 
         public HealthyRecipe helth = new HealthyRecipe();
 
-        public HealthyRecipesDetilesModel(UnitOfWork unitOfWork, IRepoHealthyRecipe repoHealthy)
+        public HealthyRecipesDetilesModel(UnitOfWork unitOfWork, IRepoHealthyRecipe repoHealthy, IRepoFiles repoFiles)
         {
             _unitOfWork = unitOfWork;
             _repoHealthy = repoHealthy;
+            _repoFiles = repoFiles;
         }
 
         public string Message { get; set; }
-        public List<Files> File { get; set; }
+        public List<Files>? file { get; set; }
+
 
         public async Task OnGetAsync(string id)
         {
             if (id != null)
             {
                 helth = await _repoHealthy.GetByIDAsync(id); 
-                File = (await _repoFiles.GetByServiceIDAsync(id)).ToList();
+               file = (await _repoFiles.GetByHealthyRecipesIDAsync(id));
               
                 if (helth == null)
                 {

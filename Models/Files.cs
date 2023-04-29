@@ -7,6 +7,11 @@
         [ForeignKey(nameof(ServiceId))]
         public virtual Service? Service { get; set; }
 
+        public string? HealthyId { get; set; }
+        [ForeignKey(nameof(HealthyId))]
+        public virtual HealthyRecipe? Healthy { get; set; }
+
+
         public static implicit operator List<object>(Files? v)
         {
             throw new NotImplementedException();

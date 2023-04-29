@@ -42,15 +42,15 @@ function RenderCards(HealthyRecipe) {
     let card = document.createElement("div");
     card.className = "col p-3";
     card.innerHTML = `
-     <a asp-page="HealthyRecipes/HealthyRecipesDetiles" asp-route-id="${HealthyRecipe.id} ">
-<div class="col p-3">
+     <a href="/HealthyRecipes/HealthyRecipesDetiles/${HealthyRecipe.id}">
+<div class="col p-1">
     <div class="card rounded-0 shadow-sm">
         <div class="position-relative  overflow-hidden image-box" style="height:300px">
             <img src="${HealthyRecipe.image}" class="card-img-top rounded-0 object-fit-cover position-absolute w-100 start-0 top-0 h-100" alt="...">
         </div>
         <div class="card-body p-0">
             <div class="d-flex justify-content-between align-items-center  px-2 title-box">
-                <h6 class="card-title text-black fw-bold  m-0">
+                <h6 class="card-title text-black fw-bold  m-2">
                         ${HealthyRecipe.title}
                 </h6>
                 <div class="d-flex justify-content-center align-items-center gap-2">

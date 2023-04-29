@@ -92,9 +92,9 @@ namespace liaqati_master.Services.Repositories
             }
         }
 
-        public async Task<IEnumerable<Files?>> GetByServiceIDAsync(string ServiceId )
+        public async Task<List<Files>>? GetByHealthyRecipesIDAsync(string Id)
         {
-            return  _context.TblFiles.Where(a => a.ServiceId == ServiceId );
+            return  _context.TblFiles.Where(a => a.HealthyId == Id).ToList();
         }
 
 
