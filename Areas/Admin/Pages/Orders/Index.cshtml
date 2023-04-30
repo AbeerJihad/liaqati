@@ -1,61 +1,99 @@
 ﻿@page
 @model liaqati_master.Areas.Admin.Pages.Orders.IndexModel
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "قائمة الأصناف";
+    ViewData["LinkName"] = "Categories";
 }
 
-<h2>Index</h2>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].UserIdDelivery)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].UserIdResiver)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Order)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserIdDelivery)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserIdResiver)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.Id)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+}
+
+<div class="container-lg ">
+    <div class=" ">
+        <div class="row ">
+            <div class="col-sm-12">
+                <div class="card p-3 border-raduis">
+                    <div class="card-header bg-transparent px-0 py-4 ">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>@ViewData["Title"]</h5>
+                            <a class="btn btn-primary" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="table-responsive table-hover">
+                        <table class="table  table-borderless" id="Tbl">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="50">
+                                        <input class="form-check-input " type="checkbox" id="chk-all" value="">
+                                    </th>
+                                    <th scope="col" width="180">تاريخ الطلبية</th>
+                                    <th scope="col" width="180">السعر الكلي</th>
+                                    <th scope="col" width="180">الرقم التعريفي للديليفري</th>
+                                    <th scope="col" width="180">الرقم التعريفي للمستلم</th>
+                                    <th scope="col" width="180"> </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Orders)
+                                {
+
+                                    <tr>
+                                        <td scope="row">
+                                            <label class="d-block">
+                                                <input class="checkbox_animated" type="checkbox">
+                                            </label>
+                                        </td>
+                                        <td>@item.OrderDate</td>
+                                        <td>@item.TotalPrice.ToString("c")</td>
+                                        <td>@item.UserIdDelivery</td>
+                                        <td>@item.UserIdResiver</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
+                                                   style="background-color: #8763b320; color:#3c077d;  padding: 0.375rem 0.75rem;"
+                                                   type="button">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </a>
+                                                <form method="post" asp-page="Delete" asp-route-id="@item.Id">
+                                                    <a onclick="DeleteFun(this)" class="btn"
+                                                       style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
+                                                </form>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <partial name="_Manage__data" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <partial name="_ConfirmDeleteModel" />
+    <partial name="_ImageViewer" />
+
+</div>
+
+
+@section Scripts{
+    <script src="~/javascript/script.js"></script>
+    <script src="~/javascript/Table.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+}
+
+
+
+

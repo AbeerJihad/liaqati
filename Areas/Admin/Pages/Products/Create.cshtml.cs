@@ -30,14 +30,16 @@ namespace liaqati_master.Pages.Products
         public async Task OnGet()
         {
             CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(
-                c => c.Target == Database.GetListOfTargets()[nameof(Products)]),
+                c => c.Target == Database.GetListOfTargets()[nameof(Product)]),
                 nameof(Category.Id), nameof(Category.Name));
 
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Products)]), nameof(Category.Id), nameof(Category.Name));
 
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(
+                c => c.Target == Database.GetListOfTargets()[nameof(Product)]),
+                nameof(Category.Id), nameof(Category.Name));
             if (!ModelState.IsValid)
             {
                 return Page();

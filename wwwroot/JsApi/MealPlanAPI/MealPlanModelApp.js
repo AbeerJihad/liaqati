@@ -11,7 +11,6 @@ async function getdata(categoryid) {
     console.log(lstMealPlans);
 
 }
-//RenderSkeletonCards();
 getdata(null);
 
 function RenderCards(MealPlan) {
@@ -195,7 +194,6 @@ function RenderPagination(JsonData) {
     ul.appendChild(liFirst);
     Paging.firstElementChild.appendChild(nav);
 }
-//CurPage = (CurPage !== JsonData.totalPages && JsonData.totalPages !== 0) ? CurPage++;
 
 function NextPage(JsonData) {
     //alert(CurPage);
@@ -223,32 +221,3 @@ function GetPage(index) {
 
     getdata(null);
 }
-
-/*
-@{
-var perv = Model.queryPageResult.PreviousPage.HasValue ? "" : "disabled";
-var next = Model.queryPageResult.NextPage.HasValue ? "" : "disabled";
-var first = (Model.Parameters.CurPage != 1 && Model.queryPageResult.TotalPages != 0) ? "" : "disabled";
-var last = (Model.Parameters.CurPage != Model.queryPageResult.TotalPages && Model.queryPageResult.TotalPages != 0) ? "" : "disabled";
-var firstIndex = Math.Max(Model.Parameters.CurPage - 1, 1);
-var lastIndex = Math.Min(Model.Parameters.CurPage + 1, Model.queryPageResult.TotalPages);
-}
-<nav aria-label="Page navigation example ">
-<ul class="pagination  justify-content-end px-5">
-    @{
-        parms["CurPage"] = Model.queryPageResult.PreviousPage.ToString() ?? "";
-    }
-    <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms">الصفحة السابقة</a></li>
-
-    @for (int i = firstIndex; i <= lastIndex; i++)
-    {
-        parms["CurPage"] = i.ToString();
-        string a = Model.Parameters.CurPage == i ? "active" : "";
-        <li class="page-item"><a class="page-link @a" asp-all-route-data="parms">@i</a></li>
-    }
-    @{
-        parms["CurPage"] = Model.queryPageResult.NextPage.ToString() ?? "";
-    }
-    <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة التالية</a></li>
-</ul>
-</nav>*/

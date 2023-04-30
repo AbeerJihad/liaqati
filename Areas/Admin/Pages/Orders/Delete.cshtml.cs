@@ -2,15 +2,15 @@
 {
     public class DeleteModel : PageModel
     {
-        private readonly liaqati_master.Data.LiaqatiDBContext _context;
+        private readonly IRepoOrder _repoOrder;
 
-        public DeleteModel(liaqati_master.Data.LiaqatiDBContext context)
+        public DeleteModel(IRepoOrder repoOrder)
         {
-            _context = context;
+            _repoOrder = repoOrder;
         }
 
         [BindProperty]
-        public Order Order { get; set; }
+        public Order? Order { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -19,8 +19,7 @@
                 return NotFound();
             }
 
-            Order = await _context.TblOrder
-                .Include(o => o.User).FirstOrDefaultAsync(m => m.Id == id);
+            Order = await _repoOrder.GetByIDAsync(id);
 
             if (Order == null)
             {
@@ -36,12 +35,11 @@
                 return NotFound();
             }
 
-            Order = await _context.TblOrder.FindAsync(id);
+            Order = await _repoOrder.GetByIDAsync(id);
 
             if (Order != null)
             {
-                _context.TblOrder.Remove(Order);
-                await _context.SaveChangesAsync();
+                await _repoOrder.DeleteEntityAsync(Order);
             }
 
             return RedirectToPage("./Index");

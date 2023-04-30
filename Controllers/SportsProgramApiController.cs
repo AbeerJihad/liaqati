@@ -1,15 +1,20 @@
-﻿namespace liaqati_master.Controllers
+﻿using liaqati_master.Services.Repositories;
+using liaqati_master.ViewModels;
+
+namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class SportsProgramApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
+         readonly IRepoProgram _repoprogram;
 
 
-        public SportsProgramApiController(LiaqatiDBContext context)
+        public SportsProgramApiController(LiaqatiDBContext context , IRepoProgram repoprogram)
         {
             _context = context;
+            _repoprogram = repoprogram;
 
         }
 
@@ -155,7 +160,17 @@
         }
 
 
+        [HttpPost]
+        [Route("SearchForSportsProgram")]
+        public async Task<ActionResult> SearchForSportsProgram([FromBody] ProgramQueryParamters exqParameters)
+        {
+            return Ok(await _repoprogram.SearchSportsProgram(exqParameters));
 
+
+
+
+
+        }
 
 
 

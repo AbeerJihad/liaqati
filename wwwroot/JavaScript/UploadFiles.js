@@ -8,9 +8,17 @@ function ShowFiles() {
 
     files = [];
     for (var file of imageInput.files) {
+        console.log(file);
         files.push(file);
         var imageUrla = URL.createObjectURL(file);
         RenderImages(imageUrla, file.name)
+        //var reader = new FileReader();
+        //reader.readAsDataURL(file);
+        //reader.onload = () => {
+        //    console.log(reda)
+        //    // var imageUrla = URL.createObjectURL(file);
+        //    RenderImages(reader.result, file.name)
+        //}
     };
 
 }

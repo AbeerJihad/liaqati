@@ -21,8 +21,8 @@
             console.error(json);
             //`Error: ${json.title}`;
         }
-    } catch (error) {
-        console.error(error);
+    } catch (err) {
+        console.error(err);
     }
     return result;
 }

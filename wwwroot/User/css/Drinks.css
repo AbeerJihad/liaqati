@@ -1,0 +1,53 @@
+﻿* {
+    font-family: Almarai;
+}
+
+.sideArticlesImages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carouselImages {
+    height: 450px;
+    width: 100%;
+    opacity: 0.9;
+    object-fit: cover;
+}
+
+.textPurple {
+    color: #8703D3;
+    font-weight: 800;
+}
+
+.btn_Exercises_duration {
+    background-color: #b9aff5;
+}
+
+.imgHeader {
+    background-image: url('/user/images/pexels.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: scroll;
+    background-position: center;
+}
+
+.bgcolor {
+    background-color: #00000068;
+}
+
+.inputborderAll {
+    border-radius: 0% 1rem 1rem 0;
+}
+
+    .inputborderAll :: placeholder {
+        color: #B9AFF5 !important;
+    }
+
+@media (max-width:767.98px) {
+    .inputborderAll {
+        border-radius: 1rem;
+    }
+}
