@@ -6,6 +6,7 @@
 }
 @section Styles{
     <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
+    <link rel="stylesheet" type="text/css" href="~/lib/sweetalert2/sweetalert2.min.css" asp-append-version="true">
 }
 <div class="container-lg ">
     <div class="">
@@ -13,16 +14,14 @@
             <div class="col-12 col-xl-4 d-flex">
                 <div class="card border shadow-none w-100">
                     <div class="card-body">
-                        <form method="post" class="row g-3">
+                        <form method="post" class="row g-3" id="CategoryForm">
                             <div asp-validation-summary="All"></div>
                             <input asp-for="Category.Id" class="form-control">
                             <div class="col-12">
                                 <label class="form-label" asp-for="Category.Name"></label>
                                 <input type="text" asp-for="Category.Name" class="form-control" placeholder="إسم الصنف">
                                 <span asp-validation-for="Category.Name" class="text-danger"></span>
-
                             </div>
-
                             <div class="col-12">
                                 <label class="form-label" asp-for="Category.Target"></label>
                                 <select class="form-select" asp-for="Category.Target" asp-items="Model.LstTargets">
@@ -39,7 +38,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="d-grid">
-                                    <input type="submit" class="btn btn-primary" asp-page-handler="Add">إضافة الصنف</input>
+                                    <input type="submit" class="btn btn-primary" asp-page-handler="Add" id="btnAdd" value="إضافة الصنف">
+                                    <input type="submit" class="btn btn-primary d-none" asp-page-handler="Edit" id="btnEdit" value="حفظ التعديلات">
                                 </div>
                             </div>
                         </form>
@@ -51,7 +51,6 @@
                     <div class="card-header bg-transparent px-0 py-4 ">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5>@ViewData["Title"]</h5>
-                            <a class="btn btn-primary" onclick="ShowModelAddEdit('editModel',@System.Text.Json.JsonSerializer.Serialize(new Category()),false)">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
                         </div>
                     </div>
                     <div class="table-responsive table-hover">
@@ -80,13 +79,13 @@
                                         <td>
                                             <div class="d-flex gap-2">
 
-                                                <a asp-page="./Edit" asp-route-Id="@item.Id" class="btn"
-                                                   style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;">
+                                                <a onclick="ShowDetails('@item.Id','@item.Name','@item.Target','@item.Description');" class="btn"
+                                                   style="background-color: #8763b320; color:#3c077d;padding: 0.375rem 0.75rem;">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
                                                 <form asp-page-handler="Delete" method="post" asp-route-id="@item.Id">
                                                     <a class="btn"
-                                                       onclick="ConfirmDelete(this)"
+                                                       onclick="DeleteFun(this)"
                                                        style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;">
                                                         <i class="bi bi-trash"></i>
                                                     </a>
@@ -109,124 +108,35 @@
 </div>
 
 <!-- Modal -->
-<form id="frmCRUD" method="post">
-    <div class="modal fade" id="editModel" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Category.Id" class="control-label"></label>
-                        <input asp-for="Category.Id" class="form-control" />
-                        <span asp-validation-for="Category.Id" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Category.Name" class="control-label"></label>
-                        <input asp-for="Category.Name" class="form-control" />
-                        <span asp-validation-for="Category.Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Category.Target" class="control-label"></label>
-                        @*                        <select asp-items="Html.GetEnumSelectList<Target>()" class="form-control"></select>
-                        *@                        <span asp-validation-for="Category.Target" class="text-danger"></span>
-                    </div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/javascript/table.js" asp-append-version="true"></script>
+    <script src="~/javascript/script.js" asp-append-version="true"></script>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="ptnedit" type="submit" class="btn btn-primary" asp-page-handler="Edit">Save</button>
-                    <button id="ptnadd" type="submit" class="btn btn-primary" asp-page-handler="Add">Add</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-@section Scripts {
-    <link href="https://cdn.jsdelivr.net/npm/@@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        @{
-            await Html.RenderPartialAsync("_tables");
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-            await Html.RenderPartialAsync("_ConfirmDelete");
-
-        }
     <script>
-
-        function ShowModelDEtails(modelid, dataObj) {
-            let modelElm = document.getElementById(modelid);
-            var myModal = new bootstrap.Modal(modelElm, {
-                keyboard: false
-            })
-            if (dataObj !== null) {
-                alert("a")
-                modelElm.querySelector('#CategoryId').textContent = dataObj.Id;
-                modelElm.querySelector('#CategoryName').textContent = dataObj.Name
-                modelElm.querySelector('#CategoryTarget').textContent = dataObj.Target;
-            }
-            alert("a")
-
-            myModal.toggle()
+        var categoryform = document.getElementById("CategoryForm");
+        var btnAdd = document.getElementById("btnAdd");
+        var btnEdit = document.getElementById("btnEdit");
+        function ShowDetails(Id, Name, Target, Description) {
+            btnEdit.classList.remove('d-none');
+            btnAdd.classList.add('d-none');
+            categoryform.querySelector('#Category_Id').value = Id;
+            categoryform.querySelector('#Category_Name').value = Name;
+            categoryform.querySelector('#Category_Target').value = Target;
+            categoryform.querySelector('#Category_Description').value = Description;
         }
 
-        function ShowModelAddEdit(modelid, dataObj, isedit = false) {
-            let modelElm = document.getElementById(modelid);
-            var myModal = new bootstrap.Modal(modelElm, {
-                keyboard: false
-            })
-
-            modelElm.querySelectorAll('span.field-validation-error').forEach((obj, i, a) => a[i].innerHTML = '');
-
-
-            if (dataObj !== null) {
-                modelElm.querySelector('#Category_Id').value = dataObj.Id;
-                modelElm.querySelector('#Category_Name').value = dataObj.Name;
-                //modelElm.querySelector('#Category_Target').value = dataObj.Target;
-
-
-            }
-
-            if (!modelid.startsWith('Detail')) {
-
-                toggleModelAction(modelElm, isedit);
-            }
-
-            myModal.toggle()
-        }
-
-        function toggleModelAction(modelElm, isedit) {
-            if (isedit === true) {
-                //  modelElm.querySelector('#ptnadd').hidden = true;
-                //  modelElm.querySelector('#ptnedit').hidden = false;
-                //   modelElm.querySelector('div.modal-header h5.modal-title').innerHTML = "Edit Customer";
-
-                modelElm.querySelector('#Category_Id').readOnly = true;
-                modelElm.querySelector('#Category_Id').style.color = "#c0c0c0";
-
-            }
-            else {
-                //        modelElm.querySelector('#ptnadd').hidden = false;
-                //          modelElm.querySelector('#ptnedit').hidden = true;
-                //  modelElm.querySelector('div.modal-header h5.modal-title').innerHTML = "Add Customer";
-                modelElm.querySelector('#Category_Id').readOnly = false;
-                modelElm.querySelector('#Category_Id').style.color = "#000";
-            }
-        }
-
-        //$.validator.unobtrusive.parse("#frmCRUD");
     </script>
 
-        @if (Model.showModel != IndexAllModel.ShowModelCat.None)
-        {
+    @if (Model.showModel == IndexAllModel.ShowModelCat.Edit)
+    {
         <script>
-            let modelElm = document.getElementById('editModel');
-            var myModal = new bootstrap.Modal(modelElm, { keyboard: false });
-            myModal.show();
-            toggleModelAction(modelElm, @((Model.showModel == IndexAllModel.ShowModelCat.Edit).ToString().ToLower()));
+            btnEdit.classList.remove('d-none');
+            btnAdd.classList.add('d-none');
         </script>
-        }
+
+    }
 }

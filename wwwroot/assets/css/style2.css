@@ -43957,8 +43957,19 @@ span.twitter-typeahead .tt-suggestion {
 
 
 
-.form-conrtol, .form-select {
-    height: 50px !important;
+.form-control, .form-select {
+    height: 40px !important;
+    display: inline-block;
+    font-size: 1rem !important;
+}
+
+
+input::file-selector-button {
+    background-color: #A566C8 !important;
+    font-weight: bold;
+    color: white !important;
+    height: 40px !important;
+    font-size: 1rem !important;
 }
 /**=====================
     60. RTL CSS Ends

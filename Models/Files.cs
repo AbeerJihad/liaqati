@@ -6,5 +6,6 @@
         public string? ServiceId { get; set; }
         [ForeignKey(nameof(ServiceId))]
         public virtual Service? Service { get; set; }
+        public virtual HealthyRecipe? HealthyRecipe { get; set; }
     }
 }

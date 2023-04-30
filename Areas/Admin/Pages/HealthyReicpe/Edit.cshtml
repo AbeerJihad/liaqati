@@ -4,32 +4,34 @@
     ViewData["Title"] = "إضافة إنجاز";
     ViewData["LinkName"] = "Categories";
 }
-<link href="~/assets/css/Tables.css" rel="stylesheet" />
+@section Styles{
+    <link href="~/assets/css/Tables.css" rel="stylesheet" />
 
-<style>
+    <style>
 
-    body {
-        background-color: #f5f6f1;
-    }
+        body {
+            background-color: #f5f6f1;
+        }
 
-    * {
-        font-family: "Almarai", sans-serif;
-    }
+        * {
+            font-family: "Almarai", sans-serif;
+        }
 
-    .ingredient {
-        background: #dacdea;
-        color: #8763b3;
-        border-radius: 20px;
-        padding: 3px 15px;
-    }
+        .ingredient {
+            background: #dacdea;
+            color: #8763b3;
+            border-radius: 20px;
+            padding: 3px 15px;
+        }
 
-    .ingredients {
-        overflow-y: scroll;
-    }
-</style>
+        .ingredients {
+            overflow-y: scroll;
+        }
+    </style>
 
-<h4></h4>
-<hr />
+
+}
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -38,6 +40,7 @@
                     <h3 class="pb-3">@ViewData["Title"]</h3>
 
                     <form asp-page-handler="Add" method="post" class="form theme-form">
+                        <div asp-validation-summary="All" class="text-danger"></div>
                         <input asp-for="HealthyRecipes.Id" class="form-control" placeholder="">
                         <div class="row">
                             <div class="col">
@@ -252,23 +255,11 @@
     </div>
 </div>
 
-
-
-
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
-
     <script src="~/JavaScript/HealthyRecipecs.js"></script>
-
-
-
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
 }

@@ -15,32 +15,32 @@
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.Services!.Title"></label>
-                                    <input asp-for="MealPlans.Services!.Title" class="form-control" placeholder="">
-                                    <span asp-validation-for="MealPlans.Services!.Title" class="text-danger"></span>
+                                    <label asp-for="MealPlan.Services!.Title"></label>
+                                    <input asp-for="MealPlan.Services!.Title" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlan.Services!.Title" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.Services!.Price"></label>
-                                    <input asp-for="MealPlans.Services!.Price" class="form-control" placeholder="">
-                                    <span asp-validation-for="MealPlans.Services!.Price" class="text-danger"></span>
+                                    <label asp-for="MealPlan.Services!.Price"></label>
+                                    <input asp-for="MealPlan.Services!.Price" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlan.Services!.Price" class="text-danger"></span>
 
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.Services!.Description"></label>
-                                    <textarea asp-for="MealPlans.Services!.Description" class="form-control" placeholder=""></textarea>
-                                    <span asp-validation-for="MealPlans.Services!.Description" class="text-danger"></span>
+                                    <label asp-for="MealPlan.Services!.Description"></label>
+                                    <textarea asp-for="MealPlan.Services!.Description" class="form-control rich-editor" placeholder=""></textarea>
+                                    <span asp-validation-for="MealPlan.Services!.Description" class="text-danger"></span>
 
                                 </div>
                             </div> <div class="col-12">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.Services!.ShortDescription"></label>
-                                    <input asp-for="MealPlans.Services!.ShortDescription" class="form-control" placeholder="">
-                                    <span asp-validation-for="MealPlans.Services!.ShortDescription" class="text-danger"></span>
+                                    <label asp-for="MealPlan.Services!.ShortDescription"></label>
+                                    <input asp-for="MealPlan.Services!.ShortDescription" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlan.Services!.ShortDescription" class="text-danger"></span>
 
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.MealType"></label>
+                                    <label asp-for="MealPlan.MealType"></label>
                                     <br />
                                     @for (var index = 0; index < @Model.lstCheckBox.Count(); index++)
                                     {
@@ -71,17 +71,17 @@
 
 
 
-                                    @*                                    <input asp-for="MealPlans.MealType" class="form-control" placeholder="">
-                                    *@                                    <span asp-validation-for="MealPlans.MealType" class="text-danger"></span>
+                                    @*                                    <input asp-for="MealPlan.MealType" class="form-control" placeholder="">
+                                    *@                                    <span asp-validation-for="MealPlan.MealType" class="text-danger"></span>
 
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.DietaryType"></label>
-                                    @*                                  <input asp-for="MealPlans.DietaryType" class="form-control" placeholder="">
+                                    <label asp-for="MealPlan.DietaryType"></label>
+                                    @*                                  <input asp-for="MealPlan.DietaryType" class="form-control" placeholder="">
                                     *@
-                                    <label asp-for="MealPlans.DietaryType"></label>
+                                    <label asp-for="MealPlan.DietaryType"></label>
                                     <br />
                                     @for (var index = 0; index < @Model.lstCheckBoxDietaryType.Count(); index++)
                                     {
@@ -98,7 +98,7 @@
                                             <br />
                                         }
                                     }
-                                    <span asp-validation-for="MealPlans.DietaryType" class="text-danger"></span>
+                                    <span asp-validation-for="MealPlan.DietaryType" class="text-danger"></span>
 
                                 </div>
                             </div>
@@ -106,29 +106,29 @@
 
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.AvgRecipeTime"></label>
-                                    <input asp-for="MealPlans.AvgRecipeTime" class="form-control" placeholder="">
-                                    <span asp-validation-for="MealPlans.AvgRecipeTime" class="text-danger"></span>
+                                    <label asp-for="MealPlan.AvgRecipeTime"></label>
+                                    <input asp-for="MealPlan.AvgRecipeTime" class="form-control" placeholder="">
+                                    <span asp-validation-for="MealPlan.AvgRecipeTime" class="text-danger"></span>
 
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
-                                    <label class="d-block" asp-for="MealPlans.Length"></label>
-                                    <select style="height:35px;" class="col-12 border border-light rounded-3" id="selectLength" asp-for="MealPlans.Length">
+                                    <label class="d-block" asp-for="MealPlan.Length"></label>
+                                    <select style="height:35px;" class="col-12 border border-light rounded-3" id="selectLength" asp-for="MealPlan.Length">
                                         <option value="-1">ادخل عدد اسابيع النظام الرياضي</option>
                                         <option value="1">اسبوع</option>
                                         <option value="2">اسبوعين</option>
                                         <option value="4">  اربعة اسابيع</option>
                                     </select>
-                                    <span class="text-danger" asp-validation-for="MealPlans.Length"></span>
+                                    <span class="text-danger" asp-validation-for="MealPlan.Length"></span>
 
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="MealPlans.Services!.Category!.Name"></label>
-                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="MealPlans.Services!.CategoryId" asp-items="Model.CatogeryName">
+                                    <label asp-for="MealPlan.Services!.Category!.Name"></label>
+                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="MealPlan.Services!.CategoryId" asp-items="Model.CatogeryName">
                                         <option value="-1"> ادخل اسم الصنف الخاص بالنظام الرياضي</option>
 
                                     </select>
@@ -158,7 +158,7 @@
 <div class="container-fluid">
     <div>
         @{
-            if (Model.MealPlans.Meal_Healthy != null)
+            if (Model.MealPlan.Meal_Healthy != null)
             {
                 <table class="table table-striped table-hover table-bordered table-responsive">
                     <thead class="table-Secondary">
@@ -173,22 +173,22 @@
 
 
 
-                        @for (int x = 0; x < Model.MealPlans.Meal_Healthy!.Count; x++)
+                        @for (int x = 0; x < Model.MealPlan.Meal_Healthy!.Count; x++)
                         {
 
-                            string? id = Model.MealPlans.Meal_Healthy[x].HealthyRecdpeId;
+                            string? id = Model.MealPlan.Meal_Healthy[x].HealthyRecdpeId;
                             HealthyRecipe? HealthyRecipe = await Model.getHealthyRecipe(id!);
 
 
 
                             <tr class="bg-Success">
-                                <td> الاسبوع @Model.MealPlans.Meal_Healthy[x].Week   </td>
-                                <td> اليوم @Model.MealPlans.Meal_Healthy[x].Day   </td>
+                                <td> الاسبوع @Model.MealPlan.Meal_Healthy[x].Week   </td>
+                                <td> اليوم @Model.MealPlan.Meal_Healthy[x].Day   </td>
                                 <td>@HealthyRecipe?.Title</td>
 
                                 <td>
                                     @{
-                                        var item = @Model.MealPlans.Meal_Healthy[x];
+                                        var item = @Model.MealPlan.Meal_Healthy[x];
                                         item.MealPlan = null;
                                         item.HealthyRecipe = null;
                                     }
@@ -236,7 +236,7 @@
                                     <option disabled value="-1">اختر الاسبوع</option>
 
 
-                                    @for (int x = 1; x <= Model.MealPlans!.Length; x++)
+                                    @for (int x = 1; x <= Model.MealPlan!.Length; x++)
                                     {
                                         <option value="@x">  الاسبوع @x</option>
 
@@ -279,7 +279,7 @@
 
                         <div class="col-auto py-4">
                             <form id="formHealthySystem" method="post" asp-page="Create" asp-page-handler="AddSystem">
-                                <input name="Id" value="@Model.MealPlans.Id" id="MealIdSystem" name="id" asp-for="MealPlans.Id" hidden />
+                                <input name="Id" value="@Model.MealPlan.Id" id="MealIdSystem" name="id" asp-for="MealPlan.Id" hidden />
 
                                 <a id="BtnAddHealthyRecipe"
                                    class="text-nowrap bg-white fw-medium btn btn-outline-primary">

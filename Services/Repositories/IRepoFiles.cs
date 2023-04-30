@@ -89,5 +89,14 @@
                 return new Files();
             }
         }
+
+  public async Task<List<Files>>? GetByHealthyRecipesIDAsync(string Id)
+        {
+            return  _context.TblFiles.Where(a => a.HealthyId == Id).ToList();
+        }
+
+
+
+
     }
 }

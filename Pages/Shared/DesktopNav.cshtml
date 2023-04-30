@@ -10,7 +10,7 @@
             <div class="d-flex navLarge d-none d-lg-flex justify-content-between w-100">
                 <ul class="navbar-nav flex-lg-row mb-2 mb-lg-0">
                     <li class="nav-item active d-flex justify-content-center align-items-center">
-                        <a class="nav-link" aria-current="page" href="#">الرئيسية</a>
+                        <a class="nav-link" aria-current="page" asp-page="/home/index">الرئيسية</a>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center hoverabllink">
                         <a class="nav-link" href="#" role="button">
@@ -19,64 +19,42 @@
                         <ul class="bg-white subs-menu text-dark position-absolute start-0 end-0 justify-content-center align-items-center border-0">
                             <li class="d-flex justify-content-center align-items-center h-100">
                                 <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
-                                   href="#"> <img src="~/User/images/NavIcons/XMLID_47_@@2x.png" alt="" class="img-fluid"> تمارين رياضية</a>
+                                   asp-page="/exercises/index"> <img src="~/User/images/NavIcons/XMLID_47_@@2x.png" alt="" class="img-fluid"> تمارين رياضية</a>
                             </li>
                             <li class="d-flex justify-content-center align-items-center h-100">
                                 <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center  flex-column"
-                                   href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                   asp-page="/MealPlan/index"> <img src="~/images/home/2.jpeg" alt="" class="img-fluid" />  الانظمة الغذائية </a>
                             </li>
                             <li class="d-flex justify-content-center align-items-center h-100">
                                 <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
-                                   href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                   asp-page="/SportProgram/index"><img src="~/images/home/3.jpeg" alt="" class="img-fluid" /> الانظمة الرياضية</a>
                             </li>
                             <li class="d-flex justify-content-center align-items-center h-100">
                                 <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
-                                   href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
+                                   asp-page="/HealthyRecipes/index">
+                                    <img src="~/images/home/healthy.jpeg" alt="" class="img-fluid" />الوصفات الغذائية </a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="nav-item d-flex justify-content-center align-items-center hoverabllink">
-                        <a class="nav-link" href="#" role="button">
-                            المنتجات<i class="bi bi-chevron-down ms-2"></i>
+                        <a asp-page="/Products/index" class="nav-link" role="button">
+                            المنتجات
                         </a>
-                        <ul class="bg-white subs-menu text-dark position-absolute start-0 end-0 justify-content-center align-items-center border-0">
-                            <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center "
-                                   href="#"><i class="bi bi-chevron-down ms-2 h1"></i>أجهزة رياضية</a>
-                            </li>
-                            <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center "
-                                   href="#"><i class="bi bi-chevron-down ms-2 h1"></i></a>
-                            </li>
-                            <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center "
-                                   href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
-                            </li>
-                            <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
-                                   href="#"><i class="bi bi-chevron-down ms-2 h1"></i> aaaaaaaaaa</a>
-                            </li>
-                        </ul>
+
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center">
-                        <a class="nav-link" aria-current="page" href="#">مقالات</a>
+                        <a class="nav-link" aria-current="page" asp-page="/Articles/index">مقالات</a>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center">
-                        <a class="nav-link" aria-current="page" href="#">المدربين</a>
+                        <a class="nav-link" aria-current="page" asp-page="/Experts/index">  الخبراء</a>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center">
                         <a class="nav-link" aria-current="page" href="#">من نحن</a>
                     </li>
-
-                    @*@userManager.get(User)*@
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <li class="nav-item d-flex justify-content-center align-items-center">
-                            <a class="nav-link" aria-current="page" asp-area="admin" asp-page="/Dashboard/Index">لوحة التحكم</a>
-                        </li>
-                    }
-
+                    <li class="nav-item d-flex justify-content-center align-items-center">
+                        <a class="nav-link" aria-current="page" asp-area="admin" asp-page="/Dashboard/Index">لوحة التحكم</a>
+                    </li>
                 </ul>
                 <div class="d-flex justify-content-between gap-2 align-items-center">
                     <div class="fav-cart d-flex justify-content-between align-items-center">
@@ -85,9 +63,13 @@
                         </a>
                         <a href="" title="cart"><i class="bi bi-heart-fill h3"></i></a>
                     </div>
-                    <partial name="_LoginPartial" />
+                    <button class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3">
+                        تسجيل الدخول
+                    </button>
                 </div>
             </div>
+
+
         </div>
     </div>
 </nav>

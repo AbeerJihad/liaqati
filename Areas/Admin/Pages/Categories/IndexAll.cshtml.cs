@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace liaqati_master.Areas.Admin.Pages.Categories
 {
     public class IndexAllModel : PageModel
@@ -13,7 +11,7 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
             _repoCategory = repoCategory;
         }
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public Category Category { get; set; }
         public IList<Category> LstCategory { get; set; }
         public List<SelectListItem> LstTargets { get; set; }
@@ -24,7 +22,7 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
         public async Task OnGetAsync()
         {
             LstCategory = (await _repoCategory.GetAllAsync()).ToList();
-            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            List<SelectListItem> selectListItems = new();
             foreach (var item in Database.GetListOfTargets().Values)
             {
                 selectListItems.Add(new SelectListItem() { Value = item, Text = item });
@@ -36,6 +34,13 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
 
         public async Task<IActionResult> OnPostDeleteAsync(string? Id)
         {
+            List<SelectListItem> selectListItems = new();
+            foreach (var item in Database.GetListOfTargets().Values)
+            {
+                selectListItems.Add(new SelectListItem() { Value = item, Text = item });
+
+            }
+            LstTargets = selectListItems;
             if (Id == null)
             {
                 return NotFound();
@@ -55,12 +60,19 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
 
         public async Task<IActionResult> OnPostAddAsync()
         {
+            List<SelectListItem> selectListItems = new();
+            foreach (var item in Database.GetListOfTargets().Values)
+            {
+                selectListItems.Add(new SelectListItem() { Value = item, Text = item });
+
+            }
+            LstTargets = selectListItems;
             if (!ModelState.IsValid)
             {
                 showModel = ShowModelCat.Add;
                 return Page();
             }
-
+            Category.Id = CommonMethods.Id_Guid();
             await _repoCategory.AddEntityAsync(Category);
             return RedirectToPage();
         }
@@ -68,6 +80,13 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
 
         public async Task<IActionResult> OnPostEditAsync()
         {
+            List<SelectListItem> selectListItems = new();
+            foreach (var item in Database.GetListOfTargets().Values)
+            {
+                selectListItems.Add(new SelectListItem() { Value = item, Text = item });
+
+            }
+            LstTargets = selectListItems;
             if (!ModelState.IsValid)
             {
                 showModel = ShowModelCat.Edit;
@@ -77,6 +96,8 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
             if (category != null)
             {
                 category.Name = Category.Name;
+                category.Description = Category.Description;
+                category.Target = Category.Target;
                 Category = category;
                 await _repoCategory.UpdateEntityAsync(Category);
             }

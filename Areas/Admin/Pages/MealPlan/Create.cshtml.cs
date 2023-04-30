@@ -83,7 +83,7 @@ namespace liaqati_master.Pages.MealPlan
 
 
         [BindProperty(SupportsGet = true)]
-        public MealPlans MealPlans { get; set; }
+        public MealPlans MealPlan { get; set; }
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -100,15 +100,15 @@ namespace liaqati_master.Pages.MealPlan
             }
 
             btnSave = 1;
-            MealPlans.Id = CommonMethods.Id_Guid();
+            MealPlan.Id = CommonMethods.Id_Guid();
 
-            MealPlans.Services!.Id = MealPlans.Id;
-            MealPlans.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
-            MealPlans.DietaryType = string.Join(',', lstCheckBoxDietaryType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
-            MealPlans.Services.CategoryId = MealPlans.Services.CategoryId;
+            MealPlan.Services!.Id = MealPlan.Id;
+            MealPlan.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+            MealPlan.DietaryType = string.Join(',', lstCheckBoxDietaryType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+            MealPlan.Services.CategoryId = MealPlan.Services.CategoryId;
 
-            await _repoService.AddEntityAsync(MealPlans.Services);
-            await _repoMealPlans.AddEntityAsync(MealPlans);
+            await _repoService.AddEntityAsync(MealPlan.Services);
+            await _repoMealPlans.AddEntityAsync(MealPlan);
             Display = "d-block";
             return Page();
         }
@@ -134,9 +134,9 @@ namespace liaqati_master.Pages.MealPlan
             //    }
 
             //}
-            MealPlans = meals;
-            MealPlans.Meal_Healthy = (await _repoMeal_Healthy.GetByMealPlansIDAsync(id)).ToList();
-            MealPlans.Meal_Healthy = MealPlans.Meal_Healthy!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
+            MealPlan = meals;
+            MealPlan.Meal_Healthy = (await _repoMeal_Healthy.GetByMealPlansIDAsync(id)).ToList();
+            MealPlan.Meal_Healthy = MealPlan.Meal_Healthy!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
             Display = "d-block";
             return Page();
         }

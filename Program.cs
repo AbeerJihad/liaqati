@@ -8,11 +8,10 @@ EmailSettings emailSetting = builder.Configuration.GetSection(nameof(EmailSettin
 builder.Services.AddSingleton(emailSetting);
 builder.Services.AddScoped<MyEmailService>();
 
-builder.Services.AddControllers()
-    .AddJsonOptions(op =>
-    {
-        op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-    });
+builder.Services.AddControllers().AddJsonOptions(op =>
+{
+    op.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 //builder.Services.AddDbContext<LiaqatiDBContext>(options => options.UseLazyLoadingProxies().UseInMemoryDatabase("LiaqatiDB"));
@@ -60,8 +59,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddScoped<UnitOfWork>();
-builder.Services.AddScoped<IRepoProgram, ProgramMang>();
-builder.Services.AddScoped<IRepoProgramExercies, ProgramExerciesMang>();
+builder.Services.AddScoped<IRepoProgramExercies>();
+builder.Services.AddScoped<IRepoProgram>();
 builder.Services.AddScoped<IFormFileMang, RepoFile>();
 builder.Services.AddScoped<IRepoMeal_Healthy>();
 builder.Services.AddScoped<IRepoMealPlans>();
@@ -105,7 +104,6 @@ else
 {
     app.UseSwagger();
     app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); c.RoutePrefix = ""; });
-
     app.UseMigrationsEndPoint();
 }
 
@@ -115,7 +113,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseCors(builder =>
+app.UseCors(
+    builder =>
     builder
     .AllowAnyOrigin()
     .AllowAnyMethod()
