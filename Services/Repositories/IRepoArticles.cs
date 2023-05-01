@@ -83,5 +83,25 @@
                 return new Article();
             }
         }
+
+        public async Task<QueryPageResult<Article>> SearchArticles(ArticlesQueryParamters artParameters)
+        {
+            IQueryable<Article> articles = (await GetAllAsync()).AsQueryable();
+            if (!string.IsNullOrEmpty(artParameters.SearchTearm))
+            {
+                articles = articles.Where(art => art.Title.ToLower().Trim().Contains(artParameters.SearchTearm.Trim().ToLower()));
+            }
+            if (!string.IsNullOrEmpty(artParameters.Title))
+            {
+                articles = articles.Where(art => art.Title.ToLower().Trim().Contains(artParameters.Title.Trim().ToLower()));
+            }
+            if (!string.IsNullOrEmpty(artParameters.SortBy))
+            {
+                articles = articles.OrderByCustom(artParameters.SortBy, artParameters.SortOrder);
+            }
+
+            QueryPageResult<Article> qpResult = CommonMethods.GetPageResult(articles, artParameters);
+            return qpResult;
+        }
     }
 }

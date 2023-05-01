@@ -108,33 +108,39 @@
                     p.ShortDescription.ToLower().Contains(exqParameters.SearchTearm.ToLower())
                 );
             }
+            if (exqParameters.BodyFocus is not null)
 
-            if (exqParameters.BodyFocus.Count != 0)
-            {
-                exercises = exercises.Where(p => exqParameters.BodyFocus.Contains(p.BodyFocus.ToLower()));
-
-
-            }
-            if (exqParameters.TraningType.Count != 0)
-            {
-                exercises = exercises.Where(p => exqParameters.TraningType.Contains(p.TraningType.ToLower()));
-            }
-
-            if (exqParameters.Difficulty.Count != 0)
-            {
-                exercises = exercises.Where(p => exqParameters.Difficulty.Contains(p.Difficulty.Value));
-            }
-            if (exqParameters.Equipment.Count != 0)
-            {
-                List<Exercise> Exercises = new List<Exercise>();
-                for (int i = 0; i < exqParameters.Equipment.Count; i++)
+                if (exqParameters.BodyFocus.Count != 0)
                 {
+                    exercises = exercises.Where(p => exqParameters.BodyFocus.Contains(p.BodyFocus.ToLower()));
 
-                    Exercises.AddRange(exercises.Where(p => p.Equipments.Contains(exqParameters.Equipment[i])));
+
                 }
+            if (exqParameters.TraningType is not null)
 
-                exercises = Exercises.AsQueryable();
-            }
+                if (exqParameters.TraningType.Count != 0)
+                {
+                    exercises = exercises.Where(p => exqParameters.TraningType.Contains(p.TraningType.ToLower()));
+                }
+            if (exqParameters.Difficulty is not null)
+
+                if (exqParameters.Difficulty.Count != 0)
+                {
+                    exercises = exercises.Where(p => exqParameters.Difficulty.Contains(p.Difficulty.Value));
+                }
+            if (exqParameters.Equipment is not null)
+
+                if (exqParameters.Equipment.Count != 0)
+                {
+                    List<Exercise> Exercises = new List<Exercise>();
+                    for (int i = 0; i < exqParameters.Equipment.Count; i++)
+                    {
+
+                        Exercises.AddRange(exercises.Where(p => p.Equipments.Contains(exqParameters.Equipment[i])));
+                    }
+
+                    exercises = Exercises.AsQueryable();
+                }
 
             if (!string.IsNullOrEmpty(exqParameters.SortBy))
             {

@@ -21,14 +21,14 @@ namespace liaqati_master.Pages.Products
 
 
         [BindProperty(SupportsGet = true)]
-        public Product Product { get; set; }
+        public Product ProductItem { get; set; }
 
         [BindProperty, Required(ErrorMessage = "أضف صورة واحدة على الأقل"), Display(Name = "أصف صور المنتج")]
         public IFormFileCollection Images { get; set; }
         public List<string> paths { get; set; }
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Products)]), nameof(Category.Id), nameof(Category.Name));
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Product)]), nameof(Category.Id), nameof(Category.Name));
 
             if (id == null)
             {
@@ -42,14 +42,14 @@ namespace liaqati_master.Pages.Products
             {
                 return NotFound();
             }
-            Product = product;
+            ProductItem = product;
 
             return Page();
         }
 
         public async Task<IActionResult> OnPost()
         {
-            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Products)]), nameof(Category.Id), nameof(Category.Name));
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Product)]), nameof(Category.Id), nameof(Category.Name));
 
 
             if (!ModelState.IsValid)
@@ -57,12 +57,12 @@ namespace liaqati_master.Pages.Products
                 return Page();
             }
 
-            var id = Product.Id;
+            var id = ProductItem.Id;
             var item = await _repoProducts.GetByIDAsync(id);
-            item.Services!.Title = Product.Services!.Title;
-            item.Services.Price = Product.Services.Price;
-            item.Services.Description = Product.Services.Description;
-            item.Discount = Product.Discount;
+            item.Services!.Title = ProductItem.Services!.Title;
+            item.Services.Price = ProductItem.Services.Price;
+            item.Services.Description = ProductItem.Services.Description;
+            item.Discount = ProductItem.Discount;
             if (Images?.Count > 0)
             {
                 List<Files> ImagesPaths = new();
@@ -70,7 +70,7 @@ namespace liaqati_master.Pages.Products
                 {
                     ImagesPaths.Add(new Files() { Id = CommonMethods.Id_Guid(), ServiceId = id, Path = await _IFormFileMang.Upload(formFile, "images", "products") });
                 }
-                List<Files> images = (await _RepoFiles.GetAllAsync()).Where(file => file.ServiceId == Product.Id).ToList();
+                List<Files> images = (await _RepoFiles.GetAllAsync()).Where(file => file.ServiceId == ProductItem.Id).ToList();
                 foreach (var image in images)
                 {
                     await _RepoFiles.DeleteEntityAsync(image);
@@ -81,7 +81,7 @@ namespace liaqati_master.Pages.Products
                 await _RepoFiles.SaveAsync();
                 if (ImagesPaths.Count > 0)
                 {
-                    Product.ImgUrl = ImagesPaths[0].Path;
+                    ProductItem.ImgUrl = ImagesPaths[0].Path;
                 }
 
 

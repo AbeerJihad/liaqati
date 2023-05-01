@@ -35,7 +35,7 @@ namespace liaqati_master.Controllers
         [Route("searchforExperts")]
         public async Task<ActionResult> SearchForExperts([FromBody] UserQueryParamters exqParameters)
         {
-            return Ok(await _repoUser.SearchExpert(exqParameters));
+            return Ok(await _repoUser.SearchUser(exqParameters));
 
 
             

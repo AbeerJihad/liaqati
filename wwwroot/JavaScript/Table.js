@@ -67,21 +67,21 @@ function CheckBoxChecks() {
 
     noOfSelectedItem.innerHTML = IsChecked;
     BtnDelete.setAttribute('data-noOfSelected', IsChecked)
-    if (IsChecked == checkBoxes.length) {
-        checkAll.indeterminate = false;
-        checkAll.checked = true;
-        manageData.classList.remove('d-none')
 
+    if (IsChecked > 0 && IsChecked < checkBoxes.length) {
+        checkAll.indeterminate = true;
+        manageData.classList.remove('d-none');
 
     } else if (IsChecked == 0) {
         checkAll.indeterminate = false;
         checkAll.checked = false;
         manageData.classList.add('d-none');
+        alert("لا يوجد عناصر")
 
-
-    } else if (IsChecked > 0 && IsChecked < checkBoxes.length) {
-        checkAll.indeterminate = true;
-        manageData.classList.remove('d-none');
+    } else if (IsChecked == checkBoxes.length) {
+        checkAll.indeterminate = false;
+        checkAll.checked = true;
+        manageData.classList.remove('d-none')
     }
 }
 

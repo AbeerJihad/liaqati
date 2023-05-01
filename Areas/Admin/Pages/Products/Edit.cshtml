@@ -28,13 +28,13 @@
                     <form method="post" class="form theme-form" enctype="multipart/form-data">
                         <div class="text-danger" asp-validation-summary="All"> </div>
                         <div class="row">
-                            <input asp-for="Product.Id" class="form-control" placeholder="">
+                            <input asp-for="ProductItem.Id" class="form-control" placeholder="">
 
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="Product.Services!.Title"></label>
-                                    <input asp-for="Product.Services!.Title" class="form-control" placeholder="">
-                                    <span asp-validation-for="Product.Services!.Title" class="text-danger"></span>
+                                    <label asp-for="ProductItem.Services!.Title"></label>
+                                    <input asp-for="ProductItem.Services!.Title" class="form-control" placeholder="">
+                                    <span asp-validation-for="ProductItem.Services!.Title" class="text-danger"></span>
 
 
                                 </div>
@@ -43,9 +43,9 @@
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
-                                    <label asp-for="Product.Services!.Description"></label>
-                                    <textarea asp-for="Product.Services!.Description" class="form-control rich-editor" placeholder=""></textarea>
-                                    <span asp-validation-for="Product.Services!.Description" class="text-danger"></span>
+                                    <label asp-for="ProductItem.Services!.Description"></label>
+                                    <textarea asp-for="ProductItem.Services!.Description" class="form-control rich-editor" placeholder=""></textarea>
+                                    <span asp-validation-for="ProductItem.Services!.Description" class="text-danger"></span>
 
                                 </div>
                             </div>
@@ -53,29 +53,29 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="mb-3">
-                                    <label asp-for="Product.Services!.Price"></label>
-                                    <input asp-for="Product.Services!.Price" class="form-control" placeholder="">
-                                    <span asp-validation-for="Product.Services!.Price" class="text-danger"></span>
+                                    <label asp-for="ProductItem.Services!.Price"></label>
+                                    <input asp-for="ProductItem.Services!.Price" class="form-control" placeholder="">
+                                    <span asp-validation-for="ProductItem.Services!.Price" class="text-danger"></span>
 
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label asp-for="Product.Discount"></label>
-                                    <input asp-for="Product.Discount" class="form-control" placeholder="">
-                                    <span asp-validation-for="Product.Discount" class="text-danger"></span>
+                                    <label asp-for="ProductItem.Discount"></label>
+                                    <input asp-for="ProductItem.Discount" class="form-control" placeholder="">
+                                    <span asp-validation-for="ProductItem.Discount" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <label asp-for="Product.Services!.Category!.Name"></label>
-                                    <select asp-for="Product.Services!.CategoryId" asp-items="Model.CatogeryName" class="form-select">
+                                    <label asp-for="ProductItem.Services!.Category!.Name"></label>
+                                    <select asp-for="ProductItem.Services!.CategoryId" asp-items="Model.CatogeryName" class="form-select">
                                         <option disabled value="-1">Please Select Catogery Name</option>
 
                                     </select>
-                                    <span asp-validation-for="Product.Services!.Category!.Id" class="text-danger"></span>
+                                    <span asp-validation-for="ProductItem.Services!.Category!.Id" class="text-danger"></span>
 
                                 </div>
                             </div>

@@ -68,6 +68,74 @@
             }
         }
 
+        public async Task<QueryPageResult<MealPlans>> SearchMealPlan(MealPlansQueryParamters Parameters)
+        {
+            IQueryable<MealPlans> MealPlans = (await GetAllAsync()).AsQueryable();
+            if (Parameters.CategoryId != null)
+            {
+                MealPlans = MealPlans.Where(p => p.Services.CategoryId == Parameters.CategoryId);
+            }
+            if (Parameters.MinPrice != null)
+            {
+                MealPlans = MealPlans.Where(p => p.Services.Price >= Parameters.MinPrice);
+            }
+            if (Parameters.MaxPrice != null)
+            {
+                MealPlans = MealPlans.Where(p => p.Services.Price <= Parameters.MaxPrice);
+            }
+            if (!string.IsNullOrEmpty(Parameters.SearchTearm))
+            {
+                MealPlans = MealPlans.Where(p => p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(Parameters.Title))
+            {
+                MealPlans = MealPlans.Where(p => p.Services.Title.ToLower().Contains(Parameters.Title.ToLower()));
+            }
+            if (Parameters.DietaryType is not null)
+
+                if (Parameters.DietaryType.Count != 0)
+                {
+                    List<MealPlans> MealPlan = new();
+                    for (int i = 0; i < Parameters.DietaryType.Count; i++)
+                    {
+                        if (Parameters.DietaryType[i] is not null)
+                            MealPlan.AddRange(collection: MealPlans.Where(p => p.DietaryType.ToLower().Contains(Parameters.DietaryType[i])));
+                    }
+
+                    MealPlans = MealPlan.AsQueryable();
+
+                }
+
+            if (Parameters.MealType is not null)
+
+                if (Parameters.MealType.Count != 0)
+                {
+                    List<MealPlans> MealPlan = new();
+                    for (int i = 0; i < Parameters.MealType.Count; i++)
+                    {
+                        if (Parameters.MealType[i] is not null)
+                            MealPlan.AddRange(collection: MealPlans.Where(p => p.MealType.ToLower().Contains(Parameters.MealType[i])));
+                    }
+
+                    MealPlans = MealPlan.AsQueryable();
+
+                }
+
+            if (!string.IsNullOrEmpty(Parameters.SortBy))
+            {
+                //if (Parameters.SortOrder.ToLower() == "asc")
+                //{
+                //  MealPlans = MealPlans.OrderByCustom(Parameters.SortBy, Parameters.SortOrder);
+                //}
+                //else if (Parameters.SortOrder.ToLower() == "desc")
+                //{
+
+                //}
+            }
+            QueryPageResult<MealPlans> queryPageResult = CommonMethods.GetPageResult(MealPlans, Parameters);
+            return queryPageResult;
+
+        }
         public async Task<MealPlans> UpdateEntityAsync(MealPlans Entity)
         {
             MealPlans? MealPlans = await _context.TblMealPlans.FirstOrDefaultAsync(a => a.Id == Entity.Id);

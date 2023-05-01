@@ -2,7 +2,6 @@
 {
     public class Achievement : BaseEntity
     {
-
         [Required(ErrorMessage = "{0}  الحقل مطلوب")]
         [Display(Name = "الانجاز")]
         public string? Title { get; set; }
@@ -19,7 +18,6 @@
 
         [Display(Name = "وثائق الانجازات")]
         public string File { get; set; }
-
         //ForignKsy User Model
         [Required(ErrorMessage = "{0}  الحقل مطلوب")]
         [Display(Name = "رقم المستخدم")]

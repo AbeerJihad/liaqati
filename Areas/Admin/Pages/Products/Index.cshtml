@@ -1,24 +1,32 @@
 ﻿@page
 @model liaqati_master.Areas.Admin.Pages.Products.IndexProductModel
 @{
-    ViewData["Title"] = "قائمة الأصناف";
-    ViewData["LinkName"] = "Categories";
+    ViewData["Title"] = "قائمة المنتجات";
+    ViewData["LinkName"] = "Products";
     var parms = new Dictionary<string, string>
     {
         {nameof(Model.ProductQueryParamters.CurPage),Model.ProductQueryParamters.CurPage.ToString()},
         {nameof(Model.ProductQueryParamters.SortBy),Model.ProductQueryParamters.SortBy},
         {nameof(Model.ProductQueryParamters.SortOrder),Model.ProductQueryParamters.SortOrder},
-        {nameof(Model.ProductQueryParamters.SearchTearm),Model.ProductQueryParamters.SearchTearm},
+        {nameof(Model.ProductQueryParamters.SearchTearm),Model.ProductQueryParamters.SearchTearm??""},
         {nameof(Model.ProductQueryParamters.Size),Model.ProductQueryParamters.Size.ToString()},
         {nameof(Model.ProductQueryParamters.CategoryId),Model.ProductQueryParamters.CategoryId??""},
     };
+    if (Model.ProductQueryParamters.SortOrder == "asc")
+        parms["SortOrder"] = "desc";
+    else
+        parms["SortOrder"] = "asc";
 }
 @section Styles{
     <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
     <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.rtl.min.css" rel="stylesheet" />
 }
 
-<form asp-page="./Index">
+<form method="get">
+    <input type="hidden" name="CurPage" asp-for="@Model.ProductQueryParamters.CurPage" />
+
     <div class="container-lg ">
         <div class=" ">
             <div class="row ">
@@ -27,8 +35,37 @@
                         <div class="card-header bg-transparent px-0 py-4 ">
 
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5>@ViewData["Title"]</h5>
+                                <h5>
+                                    @ViewData["Title"]
+                                </h5>
+                                <div class="d-flex gap-3">
+                                    <button type="button" class="btn btn-primary" id="single-select-field-clear">clear</button>
+                                    <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.ProductQueryParamters.Title" id="single-select-field" data-placeholder="من فضلك حدد اسم الصنف" onchange="submit()">
+                                        <option value="">من فضلك حدد اسم الصنف</option>
+                                    </select>
+                                    <select name="Size" class="form-select" asp-items="@Model.lstPageSize" asp-for="@Model.ProductQueryParamters.Size" onchange="submit()"></select>
+                                </div>
                                 <a class="btn btn-primary" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+                            </div>
+                            <div class="d-flex row justify-content-end align-items-center">
+                                <div class="d-flex col py-2">
+                                    <button class="btn btn-outline-primary me-1" type="submit">بحث</button>
+                                    <input class="form-control " asp-for="@Model.ProductQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
+                                </div>
+                                <div class="d-flex col gap-2">
+                                    <select name="SortOrder" class="form-select  " asp-for="@Model.ProductQueryParamters.SortOrder" onchange="submit()">
+                                        <option value="asc">أ-ب</option>
+                                        <option value="desc">ب-أ</option>
+                                    </select>
+                                    <select name="SortBy" class="form-select" asp-items="@Model.SortList" asp-for="@Model.ProductQueryParamters.SortBy" onchange="submit()"></select>
+                                </div>
+                                <div class="d-flex col-12 gap-2">
+
+                                    <select name="CategoryId" class="form-select" asp-items="@Model.Categoires" asp-for="@Model.ProductQueryParamters.CategoryId" onchange="submit()">
+                                        <option value="">من فضلك حدد اسم الصنف</option>
+                                    </select>
+
+                                </div>
                             </div>
 
                         </div>
@@ -112,7 +149,6 @@
         <partial name="_ConfirmDeleteModel" />
         <partial name="_ImageViewer" />
     </div>
-
     @{
         parms["CategoryId"] = Model.ProductQueryParamters.CategoryId ?? "";
         var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
@@ -122,6 +158,7 @@
         var firstIndex = Math.Max(Model.ProductQueryParamters.CurPage - 2, 1);
         var lastIndex = Math.Min(Model.ProductQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
     }
+
     <nav aria-label="Page navigation example ">
         <ul class="pagination  justify-content-end px-5">
             @{
@@ -142,7 +179,8 @@
             @{
                 parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
             }
-            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة التالية</a></li>  @{
+            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة التالية</a></li>
+            @{
                 parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
             }
             <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة الاخيرة</a></li>
@@ -166,6 +204,18 @@
     <script src="~/javascript/table.js" asp-append-version="true"></script>
     <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
     <script src="~/javascript/script.js" asp-append-version="true"></script>
+    <script src="~/javascript/script.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script>
+        $('#single-select-field').select2({
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).data('placeholder'),
+        });
+        $("#single-select-field-clear").on("click", function () {
+            $('#single-select-field').val(null).trigger("change");
+        });
+    </script>
   }
 
 

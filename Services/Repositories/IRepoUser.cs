@@ -1,9 +1,4 @@
-﻿using liaqati_master.Models;
-using liaqati_master.ViewModels;
-using Microsoft.AspNetCore.Identity;
-using System.Linq;
-
-namespace liaqati_master.Services.Repositories
+﻿namespace liaqati_master.Services.Repositories
 {
     public class IRepoUser
     {
@@ -13,17 +8,22 @@ namespace liaqati_master.Services.Repositories
         public IRepoUser(LiaqatiDBContext context, UserManager<User> userManager)
         {
             _context = context;
-            _userManager= userManager;
+            _userManager = userManager;
         }
 
-     
+
         public async Task<IEnumerable<User>> GetAllTrainerAsync()
         {
             //.Include(Category => Category.Category).Include(com => com.comments)
-            return (IEnumerable<User>)await _userManager.GetUsersInRoleAsync("Trainer");
+            return await _userManager.GetUsersInRoleAsync("Trainer");
+        }
+        public async Task<IEnumerable<User>> GetAllAsync()
+        {
+            //.Include(Category => Category.Category).Include(com => com.comments)
+            return await _userManager.Users.ToListAsync();
         }
 
-      
+
 
         public async Task SaveAsync()
         {
@@ -37,57 +37,77 @@ namespace liaqati_master.Services.Repositories
             }
         }
 
-       public async Task<QueryPageResult<User>> SearchExpert(UserQueryParamters exqParameters)
+        public async Task<QueryPageResult<User>> SearchUser(UserQueryParamters userqParameters)
         {
-            IQueryable<User> Trainer = (await GetAllTrainerAsync()).AsQueryable();
-
-
-
-            if (!string.IsNullOrEmpty(exqParameters.Name))
+            IQueryable<User> Users = (await GetAllAsync()).AsQueryable();
+            if (!string.IsNullOrEmpty(userqParameters.Role))
             {
-                Trainer = Trainer.Where(p =>
-                    p.Fname.ToLower().Contains(exqParameters.Name.ToLower()) ||
-                    p.Lname.ToLower().Contains(exqParameters.Name.ToLower())
+                Users = (await GetAllAsync()).AsQueryable();
+            }
+            else if (userqParameters.Role == "Traniers")
+            {
+                Users = (await GetAllTrainerAsync()).AsQueryable();
+
+            }
+            if (!string.IsNullOrEmpty(userqParameters.Name))
+            {
+                Users = Users.Where(p =>
+                    p.Fname!.ToLower().Contains(userqParameters.Name.ToLower()) ||
+                    p.Lname!.ToLower().Contains(userqParameters.Name.ToLower())
                 );
             }
 
-            if (!string.IsNullOrEmpty(exqParameters.Specialization))
+            if (!string.IsNullOrEmpty(userqParameters.Specialization))
             {
-                Trainer = Trainer.Where(p =>
-                    p.Specialization.ToLower().Trim() == exqParameters.Specialization.ToLower().Trim()
+                Users = Users.Where(p =>
+                    p.Specialization!.ToLower().Trim() == userqParameters.Specialization.ToLower().Trim()
                 );
             }
 
-
-
-
-
-
-            if (!string.IsNullOrEmpty(exqParameters.SortBy))
+            if (!string.IsNullOrEmpty(userqParameters.SortBy))
             {
-                if (exqParameters.SortBy.Equals("Fname", StringComparison.OrdinalIgnoreCase))
+                if (userqParameters.SortBy.Equals(nameof(Models.User.Fname), StringComparison.OrdinalIgnoreCase))
                 {
-                    // if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                    Trainer = Trainer.OrderByDescending(p => p.Fname);
-                    //else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                    //    Trainer = Trainer.OrderByDescending(p => p.RateId);
+                    if (userqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderBy(p => p.Fname);
+                    else if (userqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderByDescending(p => p.Fname);
 
                 }
-                if (exqParameters.SortBy.Equals("Exp_Years", StringComparison.OrdinalIgnoreCase))
+                else if (userqParameters.SortBy.Equals(nameof(Models.User.Lname), StringComparison.OrdinalIgnoreCase))
                 {
-                    // if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                    Trainer = Trainer.OrderByDescending(p => p.Exp_Years);
-                    //else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                    //    Trainer = Trainer.OrderByDescending(p => p.RateId);
+                    if (userqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderBy(p => p.Lname);
+                    else if (userqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderByDescending(p => p.Lname);
+
+                }
+                else if (userqParameters.SortBy.Equals(nameof(Models.User.DateOfBirth), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (userqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderBy(p => p.DateOfBirth);
+                    else if (userqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderByDescending(p => p.DateOfBirth);
+                }
+                else if (userqParameters.SortBy.Equals(nameof(Models.User.Email), StringComparison.OrdinalIgnoreCase))
+                {
+
+                    if (userqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderBy(p => p.Email);
+                    else if (userqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderByDescending(p => p.Email);
+
+                }
+                else if (userqParameters.SortBy.Equals(nameof(Models.User.Exp_Years), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (userqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderBy(p => p.Exp_Years);
+                    else if (userqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        Users = Users.OrderByDescending(p => p.Exp_Years);
 
                 }
             }
-
-        
-        
-            QueryPageResult<User> qpres = CommonMethods.GetPageResult(Trainer, exqParameters);
-
-
+            QueryPageResult<User> qpres = CommonMethods.GetPageResult(Users, userqParameters);
             return qpres;
         }
 
