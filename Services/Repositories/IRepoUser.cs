@@ -42,12 +42,11 @@
             IQueryable<User> Users = (await GetAllAsync()).AsQueryable();
             if (!string.IsNullOrEmpty(userqParameters.Role))
             {
-                Users = (await GetAllAsync()).AsQueryable();
-            }
-            else if (userqParameters.Role == "Traniers")
-            {
-                Users = (await GetAllTrainerAsync()).AsQueryable();
+                if (userqParameters.Role == "Traniers")
+                {
+                    Users = (await GetAllTrainerAsync()).AsQueryable();
 
+                }
             }
             if (!string.IsNullOrEmpty(userqParameters.Name))
             {
@@ -56,13 +55,26 @@
                     p.Lname!.ToLower().Contains(userqParameters.Name.ToLower())
                 );
             }
-
             if (!string.IsNullOrEmpty(userqParameters.Specialization))
             {
-                Users = Users.Where(p =>
-                    p.Specialization!.ToLower().Trim() == userqParameters.Specialization.ToLower().Trim()
-                );
+                Users = Users.Where(p => p.Specialization != null && p.Specialization.ToLower().Trim().Contains(userqParameters.Specialization.ToLower().Trim()));
             }
+
+            //if (!string.IsNullOrEmpty(userqParameters.Specialization))
+            //{
+            //    List<User> Userss = new();
+            //    foreach (var item in Users)
+            //    {
+            //        if (item.Specialization is not null)
+            //            if (item.Specialization.ToLower().Trim().Contains(userqParameters.Specialization.ToLower().Trim()))
+            //            {
+            //                Userss.Add(item);
+            //            }
+            //    }
+            //    Users = Userss.AsQueryable();
+
+
+            //}
 
             if (!string.IsNullOrEmpty(userqParameters.SortBy))
             {

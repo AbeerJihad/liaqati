@@ -3,22 +3,22 @@
     public class SportsProgram : BaseEntity
     {
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "المدة")]
         public int Length { get; set; }
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "مستوى الصعوبة")]
         public int? Difficulty { get; set; }
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "مستوى الصعوبة")]
         public int Duration { get; set; }
-        [Required]
+        [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "الجزءالذي يركز عليه النظام من الجسم")]
         public string? BodyFocus { get; set; }
         [Required]
         [Display(Name = "المعدات")]
         public string? Equipment { get; set; }
-        [Required]
+        [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "نوع التدريب")]
         public string? TrainingType { get; set; }
         [Display(Name = "صورة")]

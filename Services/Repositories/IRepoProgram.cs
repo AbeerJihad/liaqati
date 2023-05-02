@@ -73,9 +73,7 @@
 
             if (!string.IsNullOrEmpty(sportProgramQueryParams.Title))
             {
-                ListOfSportsProgram = ListOfSportsProgram.Where(p =>
-                    p.Services!.Title!.ToLower().Trim() == sportProgramQueryParams.Title.ToLower().Trim()
-                );
+                ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Services!.Title!.ToLower().Trim() == sportProgramQueryParams.Title.ToLower().Trim());
             }
             if (sportProgramQueryParams.MinDuration != null)
             {
@@ -85,8 +83,6 @@
             if (sportProgramQueryParams.MaxDuration != null)
             {
                 ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Duration <= sportProgramQueryParams.MaxDuration);
-
-
             }
             if (sportProgramQueryParams.BodyFocus is not null)
 
@@ -141,7 +137,6 @@
                         if (item is not null)
                             ListOfSportsPrograms.AddRange(ListOfSportsProgram.Where(p => p.Equipment!.ToLower().Trim().Contains(item.ToLower().Trim())));
                     }
-
                     ListOfSportsProgram = ListOfSportsPrograms.AsQueryable();
                 }
 
@@ -185,7 +180,8 @@
             List<string> bodyfocus = Database.GetListOfBodyFocus().Select(b => b.Value).ToList();
             for (int i = 0; i < bodyfocus.Count; i++)
             {
-                BodyfocusCounters.Add(ListOfSportsProgram.Count(ex => ex.BodyFocus.Contains(bodyfocus[i])));
+                BodyfocusCounters.Add(ListOfSportsProgram.Count(ex => ex.BodyFocus!.ToLower().Trim().Contains(bodyfocus[i].ToLower().Trim())));
+
 
             }
             List<int> TraningTypeCounters = new();

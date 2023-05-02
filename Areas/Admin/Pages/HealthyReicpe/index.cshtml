@@ -215,11 +215,29 @@
     </nav>
 </form>
 
+
 @section Scripts{
-    <script src="~/javascript/script.js"></script>
-    <script src="~/javascript/Table.js"></script>
+    <script src="~/javascript/table.js" asp-append-version="true"></script>
     <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
-}
+    <script src="~/javascript/script.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script>
+        $('#multiple-select-MealType').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), closeOnSelect: false, });
+        $('#multiple-select-DietaryType').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), closeOnSelect: false, });
+        $('#single-select-field').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), });
+        $("#single-select-field-clear").on("click", function () {
+            $('#single-select-field').val(null).trigger("change");
+            $('#multiple-select-DietaryType').val(null).trigger("change");
+            $('#multiple-select-MealType').val(null).trigger("change");
+        });
+
+
+
+    </script>
+  }
+
+
+
 
 
 

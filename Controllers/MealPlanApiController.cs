@@ -166,8 +166,25 @@
         [Route("search")]
         public async Task<ActionResult> SearchForMealPlans([FromQuery] MealPlansQueryParamters Parameters)
         {
-
-            return Ok((await _IRepoMealPlans.SearchMealPlan(Parameters)));
+            IQueryable<MealPlans> products = (await _IRepoMealPlans.GetAllAsync()).AsQueryable();
+            if (Parameters.CategoryId != null)
+            {
+                products = products.Where(p => p.Services.CategoryId == Parameters.CategoryId);
+            }
+            if (Parameters.MinPrice != null)
+            {
+                products = products.Where(p => p.Services.Price >= Parameters.MinPrice);
+            }
+            if (Parameters.MaxPrice != null)
+            {
+                products = products.Where(p => p.Services.Price <= Parameters.MaxPrice);
+            }
+            if (!string.IsNullOrEmpty(Parameters.SearchTearm))
+            {
+                products = products.Where(p => p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+            }
+            QueryPageResult<MealPlans> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
+            return Ok(queryPageResult);
 
         }
 

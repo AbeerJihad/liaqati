@@ -86,7 +86,7 @@ namespace liaqati_master.Pages.Programs
 
 
 
-            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(SportProgram)]), nameof(Category.Id), nameof(Category.Name));
+            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(SportsProgram)]), nameof(Category.Id), nameof(Category.Name));
 
 
 
@@ -124,7 +124,7 @@ namespace liaqati_master.Pages.Programs
             item.Length = SportsProgram.Length;
             item.BodyFocus = SportsProgram.BodyFocus;
             item.Difficulty = SportsProgram.Difficulty;
-            item.Equipment = "";
+            item.Equipment = SportsProgram.Equipment;
             item.TrainingType = SportsProgram.TrainingType;
             item.Services.CategoryId = SportsProgram.Services.CategoryId;
             for (int x = 0; x < SportsProgram.Exercies_Programs!.Count; x++)

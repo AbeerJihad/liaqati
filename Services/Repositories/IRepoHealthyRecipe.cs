@@ -86,30 +86,21 @@
         public async Task<HealthyRecipeQueryPageResult> SearchHealty(HealthyRecipeQueryParamters HealthyRecipeQueryParamters)
         {
             IQueryable<HealthyRecipe> HealthyRecipes = (await GetAllAsync()).AsQueryable();
-
-
-
             if (HealthyRecipeQueryParamters.MinCalories != null)
             {
                 HealthyRecipes = HealthyRecipes.Where(p => p.Calories >= HealthyRecipeQueryParamters.MinCalories);
             }
-
             if (HealthyRecipeQueryParamters.MaxCalories != null)
             {
                 HealthyRecipes = HealthyRecipes.Where(p => p.Calories <= HealthyRecipeQueryParamters.MaxCalories);
-
-
             }
             if (HealthyRecipeQueryParamters.MinPrepTime != null)
             {
                 HealthyRecipes = HealthyRecipes.Where(p => p.PrepTime >= HealthyRecipeQueryParamters.MinPrepTime);
             }
-
             if (HealthyRecipeQueryParamters.MaxPrepTime != null)
             {
                 HealthyRecipes = HealthyRecipes.Where(p => p.PrepTime <= HealthyRecipeQueryParamters.MaxPrepTime);
-
-
             }
             if (!string.IsNullOrEmpty(HealthyRecipeQueryParamters.SearchTearm))
             {

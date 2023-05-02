@@ -162,7 +162,7 @@ namespace liaqati_master.Controllers
 
         [HttpPost]
         [Route("SearchForSportsProgram")]
-        public async Task<ActionResult> SearchForSportsProgram([FromBody] SportProgramQueryParamters exqParameters)
+        public async Task<ActionResult> SearchForSportsProgram([FromBody] ProgramQueryParamters exqParameters)
         {
             return Ok(await _repoprogram.SearchSportsProgram(exqParameters));
 

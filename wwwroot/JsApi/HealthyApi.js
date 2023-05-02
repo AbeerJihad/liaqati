@@ -12,6 +12,7 @@ async function getHealthy(Healthy) {
         });
         if (response.status === 200) {
             result = await response.json();
+            console.log(result);
         }
         else {
             console.error(json);
@@ -49,4 +50,11 @@ function RenderSelect(Healthy) {
 
 }
 
+
+
+
+window.onload = function () {
+    getdataHealty("SelectHealthy");
+
+}
 

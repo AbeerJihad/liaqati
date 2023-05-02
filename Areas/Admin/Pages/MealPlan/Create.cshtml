@@ -267,10 +267,10 @@
                             </div>
 
                         </div>
-                        <div class="col">
+                        <div class="col-12">
                             <div class="mb-3">
                                 <label class="d-block"> اختر الوجبات الخاصة بالنظام الغذائي</label>
-                                <select onchange="SelectHealtyFun()" style="height:35px;" class="col-12 border border-light rounded-3" id="SelectgetdataHealties" multiple="multiple">
+                                <select onchange="SelectHealtyFun()" style="height:35px;" class="col-12 border border-light rounded-3 select2_Exercises" id="SelectgetdataHealties" multiple="multiple">
                                     <option value="-1">  اختر الوجبة  الغذائية</option>
                                 </select>
                             </div>
@@ -332,6 +332,23 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+@*
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+
+    <script>
+
+        $(".select2_Exercises").select2({
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).data('placeholder'),
+            closeOnSelect: false,
+            tags: true,
+            allowClear: true,
+        });
+    </script>*@
+
+
 
     <script src="~/jsapi/healthyapi.js"></script>
     <script src="~/javascript/healthycrud.js"></script>

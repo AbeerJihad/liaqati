@@ -1,5 +1,5 @@
 
-let lstExercise = [];
+let lstExercises = [];
 
 async function getExercise(SelectExercises) {
     var xxx = document.getElementById(SelectExercises);
@@ -26,8 +26,8 @@ async function getExercise(SelectExercises) {
 
 
 async function getdata(SelectExercises) {
-    lstExercise = await getExercise(SelectExercises);
-    lstExercise.forEach((p) =>
+    lstExercises = await getExercise(SelectExercises);
+    lstExercises.forEach((p) =>
         RenderSelect(SelectExercises));
 
 }
@@ -38,7 +38,7 @@ function RenderSelect(SelectExercises) {
     var xx = document.getElementById(SelectExercises);
     xx.innerHTML = "";
 
-    for (element of lstExercise) {
+    for (element of lstExercises) {
         let li = document.createElement("option");
         li.value = element.id;
 
@@ -81,6 +81,36 @@ function RenderSelect(SelectExercises) {
 
 //}
 
+
+
+async function addProgExerForm(data) {
+
+    try {
+
+        const response = await fetch("https://localhost:7232/api/ProgramExercies/AddProgramExercies",
+            {
+                method: "POST",
+
+                body: data,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            });
+
+        if ([200, 201, 202].indexOf(response.status) != -1) {
+            let result = await response.json();
+            return { status: 'ok', data: result };
+        } else {
+            let result = await response.json();
+            return { status: 'error', data: result };
+        }
+
+
+    } catch (err) {
+        console.error(err);
+    }
+
+}
 
 
 

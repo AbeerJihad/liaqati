@@ -89,11 +89,11 @@
             IQueryable<Article> articles = (await GetAllAsync()).AsQueryable();
             if (!string.IsNullOrEmpty(artParameters.SearchTearm))
             {
-                articles = articles.Where(art => art.Title.ToLower().Trim().Contains(artParameters.SearchTearm.Trim().ToLower()));
+                articles = articles.Where(art => art.Title != null && art.Title.ToLower().Trim().Contains(artParameters.SearchTearm.Trim().ToLower())); ;
             }
             if (!string.IsNullOrEmpty(artParameters.Title))
             {
-                articles = articles.Where(art => art.Title.ToLower().Trim().Contains(artParameters.Title.Trim().ToLower()));
+                articles = articles.Where(art => art.Title != null && art.Title.ToLower().Trim().Contains(artParameters.Title.Trim().ToLower()));
             }
             if (!string.IsNullOrEmpty(artParameters.SortBy))
             {

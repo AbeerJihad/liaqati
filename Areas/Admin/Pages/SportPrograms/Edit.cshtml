@@ -19,7 +19,7 @@
                     <form asp-page-handler="EditProgram" method="post" class="form theme-form">
 
                         <input name="Id" value="@Model.SportsProgram.Id" id="IdProg" hidden />
-                        <input name="Id" asp-for="SportsProgram.Id" hidden />
+                        <input  asp-for="SportsProgram.Id" hidden />
 
                         <div class="row">
                             <div class="col-12 col-md-6">
@@ -41,7 +41,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Services!.Description"></label>
-                                    <textarea asp-for="SportsProgram.Services!.Description" class="form-control" rows="3"></textarea>
+                                    <textarea asp-for="SportsProgram.Services!.Description" class="form-control rich-editor" rows="3"></textarea>
 
                                     <span class="text-danger" asp-validation-for="SportsProgram.Services!.Description"></span>
 
@@ -62,8 +62,8 @@
                             <div class="col-12 col-md-4">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.Difficulty"></label>
-                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Difficulty">
-                                        <option value="-1">ادخل مستوى صعوبة النظام الرياضي</option>
+                                    <select required style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Difficulty">
+                                        <option value="">ادخل مستوى صعوبة النظام الرياضي</option>
                                         <option value="1">سهل</option>
                                         <option value="2">متوسط </option>
                                         <option value="3">  صعب </option>
@@ -86,8 +86,8 @@
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label class="d-block" asp-for="SportsProgram.Length"></label>
-                                    <select style="height:35px;" class="col-12 border border-light rounded-3" id="selectLength" asp-for="SportsProgram.Length">
-                                        <option value="-1">ادخل عدد اسابيع النظام الرياضي</option>
+                                    <select required style="height:35px;" class="col-12 border border-light rounded-3" id="selectLength" asp-for="SportsProgram.Length">
+                                        <option value="">ادخل عدد اسابيع النظام الرياضي</option>
                                         <option value="1">اسبوع</option>
                                         <option value="2">اسبوعين</option>
                                         <option value="4">  اربعة اسابيع</option>
@@ -96,18 +96,18 @@
 
                                 </div>
                             </div>
-
+@*
                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label class="d-block" asp-for="SportsProgram.Services!.Category!.Name"></label>
-                                    <select style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Services!.CategoryId" asp-items="Model.CatogeryName">
-                                        <option value="-1"> ادخل اسم الصنف الخاص بالنظام الرياضي</option>
+                                    <select required style="height:35px;" class="col-12 border border-light rounded-3" asp-for="SportsProgram.Services!.CategoryId" asp-items="Model.CatogeryName">
+                                        <option value=""> ادخل اسم الصنف الخاص بالنظام الرياضي</option>
 
                                     </select>
                                     <span class="text-danger" asp-validation-for="SportsProgram.Services!.CategoryId"></span>
 
                                 </div>
-                            </div>
+                            </div>*@
 
 
                         </div>
@@ -149,7 +149,7 @@
                                                             item.SportsProgram = null;
                                                             item.Exercise = null;
                                                         }
-                                                        <a class="btn" onclick="ShowProgExerModelEdit('editProgExerModel',@System.Text.Json.JsonSerializer.Serialize(item))"
+                                                        <a class="btn" onclick="ShowProgExerModelEdit('editMealHealthyModel',@System.Text.Json.JsonSerializer.Serialize(item))"
                                                            style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;">
                                                             <i class="bi bi-pencil-square"></i>
                                                         </a>
@@ -277,7 +277,7 @@
                         </div>
 
                         <div class="col-auto py-4">
-                            <form id="formSystem" method="post" asp-page="Edit" asp-page-handler="AddSystem">
+                            <form id="formProgramSystem" method="post" asp-page="Edit" asp-page-handler="AddSystem">
                                 <input name="Id" value="@Model.SportsProgram.Id" id="IdProg" name="id" asp-for="SportsProgram.Id" hidden />
 
                                 <a id="BtnAdd"
@@ -409,12 +409,17 @@
     </script>
 
 
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/javascript/script.js"></script>
     <script src="~/javascript/programs.js"></script>
+
     <script src="~/jsapi/exerciseapi.js"></script>
     <script src="~/javascript/addex_progbyapi.js"></script>
+@*
     <script src="~/jsapi/programexcercies.js"></script>
-    <script src="~/javascript/jseditprogram.js"></script>
+
+    <script src="~/javascript/jseditprogram.js"></script>*@
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
 }
