@@ -8,11 +8,12 @@
         [Display(Name = "وصف الخدمة"), Column(TypeName = "NTEXT")]
         public string? Description { get; set; }
         [Display(Name = "وصف قصير")]
+
         public string? ShortDescription { get; set; }
         [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = " سعر الخدمة")]
         public double? Price { get; set; }
-        [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
+       // [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "رقم الصنف")]
         public string? CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]

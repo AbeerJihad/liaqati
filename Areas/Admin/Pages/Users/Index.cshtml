@@ -1,195 +1,253 @@
 ﻿@page
 @model liaqati_master.Areas.Administrator.Pages.Users.IndexModel
 @{
-    ViewData["Title"] = "قائمة الأصناف";
-    ViewData["LinkName"] = "Categories";
+
+    ViewData["Title"] = "قائمة المستخدمين";
+    ViewData["LinkName"] = "Users";
+
+
+    var parms = new Dictionary<string, string>
+    {
+        {nameof(Model.UserQueryParamters.CurPage),Model.UserQueryParamters.CurPage.ToString()},
+        {nameof(Model.UserQueryParamters.SortBy),Model.UserQueryParamters.SortBy},
+        {nameof(Model.UserQueryParamters.SortOrder),Model.UserQueryParamters.SortOrder},
+        {nameof(Model.UserQueryParamters.Name),Model.UserQueryParamters.Name??""},
+        {nameof(Model.UserQueryParamters.Size),Model.UserQueryParamters.Size.ToString()},
+    };
+    if (Model.UserQueryParamters.SortOrder == "asc")
+        parms["SortOrder"] = "desc";
+    else
+        parms["SortOrder"] = "asc";
 }
 @section Styles{
     <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
     <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.rtl.min.css" rel="stylesheet" />
 }
-<div class="container-lg ">
-    <div class="">
-        <div class="row justify-content-center">
-
-            <div class="col-md-12 project-list">
-                <div class="card p-3">
-                    <div class="row m-0">
-                        <div class="col-md-6 p-0">
-                            <ul class="nav" id="top-tab">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-activity="all" href="#top-home" role="tab">
-                                        <i class="bi bi-people-fill h5 my-0 mx-2"></i>
-                                        الكل
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#top-profile" data-activity="active">
-                                        <i class="bi bi-person-check h5 my-0 mx-2"></i>
-                                        نشط
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#top-profile" data-activity="inactive">
-                                        <i class="bi bi-person-fill-x h5 my-0 mx-2"></i>
-                                        غير نشط
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col">
-
-                            <div class="feature-products">
-                                <form>
-                                    <div class="form-group m-0">
-                                        <input class="form-control m-0" type="search" placeholder="Search.." data-original-title=""
-                                               title="" data-bs-original-title=""><i class="bi bi-search"></i>
-
-                                    </div>
-                                </form>
+<form method="get" class="">
+    <input type="hidden" name="CurPage" asp-for="@Model.UserQueryParamters.CurPage" />
+    <div class="container-lg ">
+        <div class="">
+            <div class="row ">
+                <div class="col-sm-12">
+                    <div class="card p-3 border-raduis">
+                        <div class="card-header bg-transparent px-0 py-4 ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5>
+                                    @ViewData["Title"]
+                                </h5>
+                                <div class="d-flex gap-3">
+                                    <button type="button" class="btn btn-primary" id="single-select-field-clear">clear</button>
+                                    <select name="Name" class="form-select" asp-items="@Model.Names" asp-for="@Model.UserQueryParamters.Name" id="single-select-Name" data-placeholder="من فضلك حدد اسم المستخدم" onchange="submit()">
+                                        <option value="">من فضلك حدد اسم الصنف</option>
+                                    </select>
+                                    <select name="Size" class="form-select" asp-items="@Model.lstPageSize" asp-for="@Model.UserQueryParamters.Size" onchange="submit()">
+                                    </select>
+                                </div>
+                                <a class="btn btn-primary" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
                             </div>
+                            <div class="d-flex row justify-content-end align-items-center">
+                                <div class="d-flex col py-2">
+                                    <button class="btn btn-outline-primary me-1" type="submit">بحث</button>
+                                    <input class="form-control " asp-for="@Model.UserQueryParamters.Name" id="Name" name="Name" type="search" placeholder="بحث" aria-label="Search">
+                                </div>
+                                <div class="d-flex col gap-2">
+                                    <select name="SortOrder" class="form-select  " asp-for="@Model.UserQueryParamters.SortOrder" onchange="submit()">
+                                        <option value="asc">أ-ب</option>
+                                        <option value="desc">ب-أ</option>
+                                    </select>
+                                    <select name="SortBy" class="form-select" asp-items="@Model.SortList" asp-for="@Model.UserQueryParamters.SortBy" onchange="submit()"></select>
+                                </div>
+                                <div class="d-flex col-12 gap-2">
+                                    <select name="Specialization" class="form-select w-100" asp-for="@Model.UserQueryParamters.Specialization" id="single-select-Specialization" data-placeholder="من فضلك حدد التخصص " onchange="submit()">
+                                        <option value="اخصائي تغذية"> اخصائي تغذية  </option>
+                                        <option value="مدرب لياقة"> مدرب لياقة  </option>
+                                        <option value="مدرب كارديو"> مدرب كارديو  </option>
+                                        <option value="مدرب قوة"> مدرب قوة   </option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+
                         </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="row ">
-            <div class="col-sm-12">
-                <div class="card p-3 border-raduis">
-                    <div class="card-header bg-transparent px-0 py-4 ">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5>@ViewData["Title"]</h5>
-                            <a class="btn btn-primary" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
-                        </div>
-
-
-                    </div>
-                    <div class="table-responsive table-hover">
-                        <table class="table  table-borderless" id="Tbl">
-                            <thead>
-                                <tr>
-                                    <th scope="col" width="50">
-                                        <input class="form-check-input " type="checkbox" id="chk-all" value="" id="flexCheckDefault">
-                                    </th>
-                                    <th scope="col" width="100">الصورة</th>
-                                    <th scope="col" width="200">الإسم الكامل</th>
-                                    <th scope="col">الإيميل</th>
-                                    <th scope="col" width="130">العمر</th>
-                                    <th scope="col" width="180">حالة النشاط</th>
-                                    <th scope="col" width="180">الجنس</th>
-                                    <th scope="col" width="150">العملية</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.Users)
-                                {
+                        <div class="table-responsive table-hover">
+                            <table class="table  table-borderless" id="Tbl">
+                                <thead>
                                     <tr>
-                                        <td scope="row">
-                                            <label class="d-block">
-                                                <input class="checkbox_animated" type="checkbox">
-                                            </label>
-                                        </td>
-                                        <td class="">
-                                            <div class="img__box position-relative m-0  rounded-circle">
-                                                <img alt="Mark" class="position-absolute "
-                                                     src="@item.Photo" />
-                                            </div>
-                                        </td>
-                                        <td>@string.Concat(item.Fname,' ',item.Lname)</td>
-                                        <td>@item.Email</td>
-                                        <td>@(DateTime.Now.Year - item.DateOfBirth?.Year)</td>
-                                        <td>@item.Active</td>
-                                        <td>@item.Gender.ToString()</td>
-                                        <td>
-                                            <div class="d-flex gap-2">
-                                                <button class="btn"
-                                                        style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
-                                                        type="button">
-                                                    <i class="bi bi-pencil-square"></i>
-                                                </button>
-                                                <button class="btn"
-                                                        style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"
-                                                        type="button">
-                                                    <i class="bi bi-trash"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                        <th scope="col" width="50">
+                                            <input class="form-check-input " type="checkbox" id="chk-all" value="" id="flexCheckDefault">
+                                        </th>
+                                        <th scope="col" width="100">الصورة</th>
+                                        <th scope="col" width="200">الإسم الكامل</th>
+                                        <th scope="col">الإيميل</th>
+                                        <th scope="col" width="130">العمر</th>
+                                        <th scope="col" width="180">حالة النشاط</th>
+                                        <th scope="col" width="180">الجنس</th>
+                                        <th scope="col" width="150">العملية</th>
                                     </tr>
-                                }
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.QueryPageResult.ListOfData)
+                                    {
+                                        <tr>
+                                            <td scope="row">
+                                                <label class="d-block">
+                                                    <input class="checkbox_animated" type="checkbox">
+                                                </label>
+                                            </td>
+                                            <td class="">
+                                                <div class="img__box position-relative m-0  rounded-circle">
+                                                    <img alt="Mark" class="position-absolute "
+                                                         src="@item.Photo" />
+                                                </div>
+                                            </td>
+                                            <td>@string.Concat(item.Fname,' ',item.Lname)</td>
+                                            <td>@item.Email</td>
+                                            <td>@(DateTime.Now.Year - item.DateOfBirth?.Year)</td>
+                                            <td>@item.Active</td>
+                                            <td>@item.Gender.ToString()</td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn"
+                                                            style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
+                                                            type="button">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </button>
+                                                    <button class="btn"
+                                                            style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"
+                                                            type="button">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
 
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="  d-none manage__data position-fixed    rounded-pill">
-                        <div class="h-100 p-20 d-flex gap-2 justify-content-between align-content-center align-items-center">
-                            <div class=" d-flex gap-2 justify-content-between align-content-center align-items-center">
-                                <span class=" badge rounded-pill bg-danger " id="noOfSelectedItem">0</span>
-                                <p class="text-white p-0 m-0 d-none  d-lg-inline">العناصر المحددة</p>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="  d-none manage__data position-fixed    rounded-pill">
+                            <div class="h-100 p-20 d-flex gap-2 justify-content-between align-content-center align-items-center">
+                                <div class=" d-flex gap-2 justify-content-between align-content-center align-items-center">
+                                    <span class=" badge rounded-pill bg-danger " id="noOfSelectedItem">0</span>
+                                    <p class="text-white p-0 m-0 d-none  d-lg-inline">العناصر المحددة</p>
+                                </div>
+                                <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 text-white"
+                                        style="background:#3c3b4a;" type="button">
+                                    تعديل
+                                    <i class="bi bi-pencil-square me-lg-2"></i>
+                                </button>
+                                <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
+                                        id="BtnDelete" data-name="مستخدم" type="button">
+                                    حذف
+                                    <i class="bi bi-trash  me-lg-2"></i>
+                                </button>
+                                <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
+                                        type="button" id="BtnCancelSelection">
+                                    إلغاء
+                                    <span class="d-none  d-lg-inline fw-bold"> تحديد </span><i class="bi bi-x-circle  me-lg-2"></i>
+                                </button>
                             </div>
-                            <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 text-white"
-                                    style="background:#3c3b4a;" type="button">
-                                تعديل
-                                <i class="bi bi-pencil-square me-lg-2"></i>
-                            </button>
-                            <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
-                                    id="BtnDelete" data-name="مستخدم" type="button">
-                                حذف
-                                <i class="bi bi-trash  me-lg-2"></i>
-                            </button>
-                            <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
-                                    type="button" id="BtnCancelSelection">
-                                إلغاء
-                                <span class="d-none  d-lg-inline fw-bold"> تحديد </span><i class="bi bi-x-circle  me-lg-2"></i>
-                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-    <div class="modal fade" id="modalConfirmation" tabindex="-1" aria-labelledby="modalConfirmation" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">تأكيد الجذف</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="confirm-massage"></p>
-                    <div class="mb-3">
-                        <label for="confirmText" class="fw-normal">اكتب <strong>تأكيد</strong> للمضي قدمًا في الطلب:</label>
-                        <input type="text" class="form-control" placeholder="تأكيد" id="confirmText">
+        <div class="modal fade" id="modalConfirmation" tabindex="-1" aria-labelledby="modalConfirmation" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">تأكيد الجذف</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="confirm-massage"></p>
+                        <div class="mb-3">
+                            <label for="confirmText" class="fw-normal">اكتب <strong>تأكيد</strong> للمضي قدمًا في الطلب:</label>
+                            <input type="text" class="form-control" placeholder="تأكيد" id="confirmText">
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                        <button type="button" class="btn btn-primary" id="BtnConfirmDelete" disabled>حذف</button>
                     </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-between">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                    <button type="button" class="btn btn-primary" id="BtnConfirmDelete" disabled>حذف</button>
+            </div>
+        </div>
+        <div class="image__viewer d-none flex-column justify-content-center align-items-center position-fixed min-vw-100 top-0 start-0 min-vh-100">
+            <div class="" style="width:600px;">
+                <div class="d-flex justify-content-between align-items-center p-3">
+                    <button id="BtnClose" class="btn bg-white rounded-circle "> <i class="bi bi-x"></i></button>
+                    <p class="title p-0 m-0 text-white h5"></p>
+                </div>
+                <div class="img__box2">
+                    <img src="" alt="" class="img-fluid">
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="image__viewer d-none flex-column justify-content-center align-items-center position-fixed min-vw-100 top-0 start-0 min-vh-100">
-        <div class="" style="width:600px;">
-            <div class="d-flex justify-content-between align-items-center p-3">
-                <button id="BtnClose" class="btn bg-white rounded-circle "> <i class="bi bi-x"></i></button>
-                <p class="title p-0 m-0 text-white h5"></p>
-            </div>
-            <div class="img__box2">
-                <img src="" alt="" class="img-fluid">
-            </div>
+
         </div>
 
     </div>
 
-</div>
+    @{
+        var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
+        var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
+        var first = (Model.UserQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+        var last = (Model.UserQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+        var firstIndex = Math.Max(Model.UserQueryParamters.CurPage - 2, 1);
+        var lastIndex = Math.Min(Model.UserQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
+    }
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination  justify-content-end ">
+            @{
+                parms["CurPage"] = "1" ?? "";
+            }
+            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms">الصفحة الاولى</a></li>
+            @{
+                parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
+            }
+            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms">الصفحة السابقة</a></li>
 
+            @for (int i = firstIndex; i <= lastIndex; i++)
+            {
+                parms["CurPage"] = i.ToString();
+                string a = Model.UserQueryParamters.CurPage == i ? "active" : "";
+                <li class="page-item"><a class="page-link @a" asp-all-route-data="parms">@i</a></li>
+            }
+            @{
+                parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
+            }
+            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة التالية</a></li>
+            @{
+                parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
+            }
+            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة الاخيرة</a></li>
+        </ul>
+    </nav>
 
+</form>
 
 
 @section Scripts{
     <script src="~/javascript/table.js" asp-append-version="true"></script>
     <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
     <script src="~/javascript/script.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script>
+        $('#single-select-Specialization').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), });
+        $('#single-select-Name').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), });
+        $("#single-select-field-clear").on("click", function () {
+            $('#single-select-Name').val(null).trigger("change");
+            $('#single-select-Specialization').val(null).trigger("change");
+        });
+
+
+
+    </script>
   }
+
+
+

@@ -42,13 +42,14 @@
             right: -12px;
         }
 
-        .is-valid + .select2-container--bootstrap-5 .select2-selection {
+        .is-valid + .select2-container--bootstrap-5 .select2-selection, .tox-tinymce.is-valid {
             border: 2px solid green !important;
         }
 
-        .is-invalid + .select2-container--bootstrap-5 .select2-selection {
+        .is-invalid + .select2-container--bootstrap-5 .select2-selection, .tox-tinymce.not-valid {
             border: 2px solid #dc3545 !important;
         }
+
 
     </style>
 }
@@ -61,7 +62,6 @@
                         <h3 class="pb-3 fw-bold text-center">@ViewData["Title"]</h3>
                     </div>
                     <form method="post" class="form theme-form" enctype="multipart/form-data">
-                        <div asp-validation-summary="All"></div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
@@ -115,7 +115,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label asp-for="Products.Services!.Description" class="h5 my-2 fw-bold"></label>
-                                    <textarea asp-for="Products.Services!.Description" class="form-control rich-editor" placeholder=""></textarea>
+                                    <textarea id="textarea" asp-for="Products.Services!.Description" class="form-control rich-editor" placeholder=""></textarea>
                                     <span asp-validation-for="Products.Services!.Description" class="text-danger"></span>
                                 </div>
                             </div>
@@ -156,21 +156,33 @@
     <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
     <script src="~/lib/select2/js/select2.full.min.js"></script>
     <script>
-        $('#single-select-field').select2({
-            theme: "bootstrap-5",
-            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-            placeholder: $(this).data('placeholder'),
-        });
+        //$('#single-select-field').select2({
+        //    theme: "bootstrap-5",
+        //    width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        //    placeholder: $(this).data('placeholder'),
+        //});
+        
 
+        //$("#single-select-field").on("change", function () {
+        //    var a = $('#single-select-field').select2('data');
+        //    console.log(a);
+        //    if (a[0].id === '-1')
+        //        $('#single-select-field').addClass('is-invalid');
+        //    else $('#single-select-field').addClass('is-valid');
 
-        $("#single-select-field").on("change", function () {
-            var a = $('#single-select-field').select2('data');
-            console.log(a);
-            if (a[0].id === '-1')
-                $('#single-select-field').addClass('is-invalid');
-            else $('#single-select-field').addClass('is-valid');
-
-        });
+        //});
+        $(".theme-form").on("submit", function (e) {
+            var myContent = tinymce.get("textarea").getContent();
+            console.log(myContent);
+            if (myContent.length > 0) {
+                $(".field-validation-valid").text("");
+                $(".tox-tinymce").addClass("is-valid");
+            }else{
+                e.preventDefault();
+                $(".field-validation-valid").text("أضف وصفا");
+                $(".tox-tinymce").addClass("not-valid");
+            }
+        })
     </script>
 
 }

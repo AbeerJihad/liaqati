@@ -1,6 +1,6 @@
 ﻿namespace liaqati_master.ViewModels
 {
-    public class ExerciseQueryParamters: QueryParameters
+    public class ExerciseQueryParamters : QueryParameters
     {
 
         public List<string>? BodyFocus { get; set; }
@@ -12,6 +12,7 @@
         public decimal? MaxDuration { get; set; }
 
         public string SearchTearm { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
 
     }
 }

@@ -3,49 +3,54 @@
     public class IndexProductModel : PageModel
     {
         private readonly IRepoProducts _repoProducts;
+        private readonly IRepoCategory _repoCategory;
 
-        public IndexProductModel(IRepoProducts repoProducts)
+        public IndexProductModel(IRepoProducts repoProducts, IRepoCategory repoCategory)
         {
             _repoProducts = repoProducts;
+            _repoCategory = repoCategory;
         }
-        public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
-            new SelectListItem(){Value="MinPrice",Text="الأقل سعرا"},
-            new SelectListItem(){Value="MaxPrice",Text="الأعلى سعرا"},
-            new SelectListItem(){Value="MaxRate",Text="الأغلى تقييما"},
-        };
+
 
         public IList<Product> Products { get; set; }
         [BindProperty(SupportsGet = true)]
         public ProductQueryParamters ProductQueryParamters { get; set; }
         public QueryPageResult<Product> QueryPageResult { get; set; }
         public bool IsGrid { get; set; }
+        public IEnumerable<SelectListItem> lstPageSize { get; set; } = new List<SelectListItem>()
+        {
+            new SelectListItem(){Value="5", Text="5"},
+            new SelectListItem(){Value="10", Text="10"},
+            new SelectListItem(){Value="20", Text="20"}
+        };
+        public IEnumerable<SelectListItem> Titles { get; set; }
+        public IEnumerable<SelectListItem> Categoires { get; set; }
+        public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
+            new SelectListItem(){Value=nameof(Product.Services.Title),Text="العنوان"},
+            new SelectListItem(){Value=nameof(Product.Services.Price),Text="السعر"},
+            new SelectListItem(){Value=nameof(Product.Services.Category.Name),Text="إسم الصنف"},
+        };
+
+
         public async Task OnGetAsync()
         {
-            //int grid = 0
-            //if (grid == 1)
-            //{
-            //    IsGrid = true;
-            //}
-            //else
-            //{
-            //    IsGrid = false;
-            //}
+            Categoires = (await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Product)]).Select(x => new SelectListItem() { Text = x.Name, Value = x.Id });
 
+            if (!string.IsNullOrEmpty(ProductQueryParamters.CategoryId))
+            {
+                Titles = (await _repoProducts.GetAllAsync()).Where(c => c.Services.CategoryId == ProductQueryParamters.CategoryId).Select(x => new SelectListItem() { Text = x.Services.Title, Value = x.Services.Title });
+
+            }
+            else
+            {
+                Titles = (await _repoProducts.GetAllAsync()).Select(x => new SelectListItem() { Text = x.Services.Title, Value = x.Services.Title });
+
+            }
             if (_repoProducts != null)
             {
-                ProductQueryParamters.Size = 7;
                 QueryPageResult = await _repoProducts.SearchProduct(ProductQueryParamters);
             }
         }
-        public async Task OnPost()
-        {
-            if (_repoProducts != null)
-            {
-                ProductQueryParamters.Size = 7;
-                QueryPageResult = await _repoProducts.SearchProduct(ProductQueryParamters);
-            }
 
-            //return RedirectToPage("./index");
-        }
     }
 }

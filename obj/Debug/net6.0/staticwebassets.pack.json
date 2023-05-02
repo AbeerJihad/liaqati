@@ -237,6 +237,22 @@
       "PackagePath": "staticwebassets\\Images\\HealthyRecipes\\3.jpg"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\HealthyRecipes\\im61.jpg",
+      "PackagePath": "staticwebassets\\Images\\HealthyRecipes\\im61.jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\HealthyRecipes\\im62.jpg",
+      "PackagePath": "staticwebassets\\Images\\HealthyRecipes\\im62.jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\HealthyRecipes\\img61.jpg",
+      "PackagePath": "staticwebassets\\Images\\HealthyRecipes\\img61.jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\HealthyRecipes\\img62.jpg",
+      "PackagePath": "staticwebassets\\Images\\HealthyRecipes\\img62.jpg"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Healthy\\10.png",
       "PackagePath": "staticwebassets\\Images\\Healthy\\10.png"
     },
@@ -489,12 +505,24 @@
       "PackagePath": "staticwebassets\\Images\\products\\66953795-0392-4a47-9194-cedfa182c4d9Mask Group 53.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\72c17006-6556-4900-bf64-2ba598deb4a9XMLID_47_.png",
+      "PackagePath": "staticwebassets\\Images\\products\\72c17006-6556-4900-bf64-2ba598deb4a9XMLID_47_.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\9849b3ce-adc1-49e5-8005-af76cd630a6f2.jpg",
+      "PackagePath": "staticwebassets\\Images\\products\\9849b3ce-adc1-49e5-8005-af76cd630a6f2.jpg"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\b3ec9c8b-5628-4c48-ba3e-944de66c95abpexels-marta-wave-6454051.png",
       "PackagePath": "staticwebassets\\Images\\products\\b3ec9c8b-5628-4c48-ba3e-944de66c95abpexels-marta-wave-6454051.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\c1c7b6c3-62b1-4b39-9d64-7172bd09f8042.jpg",
       "PackagePath": "staticwebassets\\Images\\products\\c1c7b6c3-62b1-4b39-9d64-7172bd09f8042.jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\d2f3a19d-542f-4270-b615-63dd56cee972XMLID_153_.png",
+      "PackagePath": "staticwebassets\\Images\\products\\d2f3a19d-542f-4270-b615-63dd56cee972XMLID_153_.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\db2b82f0-b17e-4dc0-a3e0-e49fb0d2c5522.jpg",
@@ -623,6 +651,10 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\Index2.html",
       "PackagePath": "staticwebassets\\User\\Index2.html"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\Drinks.css",
+      "PackagePath": "staticwebassets\\User\\css\\Drinks.css"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\FooterCSS.css",

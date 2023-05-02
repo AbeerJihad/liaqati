@@ -1,14 +1,24 @@
+using liaqati_master.Services;
+using liaqati_master.Services.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 namespace liaqati_master.Pages.MealPlan
 {
     public class EditModel : PageModel
     {
         private readonly IRepoMealPlans _repoMealPlans;
+        private readonly IRepoHealthyRecipe _repoHealthyRecipe;
         private readonly IRepoCategory _repoCategory;
+        private readonly IRepoMeal_Healthy _repoMeal_Healthy;
+        private readonly LiaqatiDBContext _context;
 
-        public EditModel(IRepoMealPlans repoMealPlans, IRepoCategory repoCategory)
+        public EditModel(IRepoMealPlans repoMealPlans, IRepoCategory repoCategory, IRepoHealthyRecipe repoHealthyRecipe, IRepoMeal_Healthy repoMeal_Healthy, LiaqatiDBContext context)
         {
             _repoMealPlans = repoMealPlans;
             _repoCategory = repoCategory;
+            _repoHealthyRecipe = repoHealthyRecipe;
+            _repoMeal_Healthy = repoMeal_Healthy;
+            _context = context;
         }
 
         public SelectList CatogeryName { get; set; }
@@ -16,6 +26,25 @@ namespace liaqati_master.Pages.MealPlan
 
         [BindProperty(SupportsGet = true)]
         public MealPlans MealPlans { get; set; }
+
+
+        [BindProperty(SupportsGet = true)]
+        public Meal_Healthy Meal_Healthy { get; set; }
+
+        public List<SelectListItem> HealthyName { get; set; }
+
+
+        public async Task<HealthyRecipe?> getHealthy(string id)
+        {
+            var Healthy = await _repoHealthyRecipe.GetByIDAsync(id);
+
+            return Healthy;
+        }
+
+
+
+
+
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
@@ -33,8 +62,16 @@ namespace liaqati_master.Pages.MealPlan
 
 
             CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(
-                 c => c.Target == Database.GetListOfTargets()[nameof(MealPlan)]),
+                 c => c.Target == Database.GetListOfTargets()[nameof(MealPlans)]),
                  nameof(Category.Id), nameof(Category.Name));
+
+
+            HealthyName = (await _repoHealthyRecipe.GetAllAsync()).Select(a =>
+                                       new SelectListItem
+                                       {
+                                           Value = a.Id.ToString(),
+                                           Text = a.Title
+                                       }).ToList();
 
 
             return Page();
@@ -67,6 +104,69 @@ namespace liaqati_master.Pages.MealPlan
 
             return RedirectToPage("./Index");
         }
+
+
+        public async Task<IActionResult> OnPostAddSystemAsync(string? id)
+        {
+
+
+            MealPlans sports =await _repoMealPlans.GetByIDAsync(id);
+            List<Meal_Healthy> list = new List<Meal_Healthy>();
+
+            foreach (Meal_Healthy x in _context.TblMeal_Healthy.ToList())
+            {
+                if (x.MealPlansId == id)
+                {
+                    list.Add(x);
+                }
+
+            }
+            MealPlans = sports;
+            MealPlans.Meal_Healthy = list;
+
+
+
+            return Page();
+        }
+
+
+        public async Task<IActionResult> OnPostDeleteMealHealthy(string id)
+        {
+
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Meal_Healthy x =await _repoMeal_Healthy.GetByIDAsync(id);
+
+
+            MealPlans sport =  await _repoMealPlans.GetByIDAsync(x.MealPlansId);
+
+
+
+            _repoMeal_Healthy.DeleteEntityAsync(id);
+            _repoMealPlans.SaveAsync();
+
+
+            return RedirectToPage("Edit", new { id = sport.Id });
+        }
+
+        public async Task<IActionResult> OnPostEditMealHealthy()
+        {
+            Meal_Healthy Meal_Health =await _repoMeal_Healthy.GetByIDAsync(Meal_Healthy.Id);
+
+            Meal_Health.Day = Meal_Healthy.Day;
+            Meal_Health.Week = Meal_Healthy.Week;
+            Meal_Health.HealthyRecdpeId = Meal_Healthy.HealthyRecdpeId;
+
+            _repoMeal_Healthy.UpdateEntityAsync(Meal_Health);
+            _repoMeal_Healthy.SaveAsync();
+
+            return RedirectToPage("Edit", new { id = Meal_Health.MealPlansId });
+        }
+
 
 
     }

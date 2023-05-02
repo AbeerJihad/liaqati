@@ -40,7 +40,7 @@ namespace liaqati_master.Pages.Experts
         public async void OnPost()
         {
 
-            queryPageResult = await _repocontextUser.SearchExpert(Parameters);
+            queryPageResult = await _repocontextUser.SearchUser(Parameters);
 
         }
 

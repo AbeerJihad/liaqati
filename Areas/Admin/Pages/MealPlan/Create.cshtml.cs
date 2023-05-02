@@ -28,7 +28,7 @@ namespace liaqati_master.Pages.MealPlan
         public List<string> DietaryType { get; set; } = Database.GetListOfDietaryType().Select(b => b.Value).ToList();
 
 
-        public string Display { get; set; } = "d-none";
+        public string Display { get; set; } = "d-block";
 
         public int btnSave { get; set; }
 
@@ -56,7 +56,7 @@ namespace liaqati_master.Pages.MealPlan
 
 
 
-            Display = "d-none";
+            Display = "d-block";
             btnSave = 0;
 
 

@@ -10,6 +10,7 @@
         public int? MinCalories { get; set; }
         public int? MaxCalories { get; set; }
         public string SearchTearm { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
 
     }
 }

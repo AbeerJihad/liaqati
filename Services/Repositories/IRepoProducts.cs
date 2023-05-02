@@ -110,9 +110,9 @@
                  );
             }
 
-            if (!string.IsNullOrEmpty(Parameters.Tilte))
+            if (!string.IsNullOrEmpty(Parameters.Title))
             {
-                products = products.Where(p => p.Services.Title.ToLower() == Parameters.Tilte.ToLower());
+                products = products.Where(p => p.Services.Title.ToLower() == Parameters.Title.ToLower());
             }
 
 
@@ -130,7 +130,6 @@
                 }
             }
             QueryPageResult<Product> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
-
             return queryPageResult;
 
         }

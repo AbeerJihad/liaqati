@@ -28,6 +28,7 @@ namespace liaqati_master.Data
         public DbSet<Category> TblCategory { get; set; }
         public DbSet<ContactUs> TblContactUs { get; set; }
         public DbSet<Notification> TblNotification { get; set; }
+        public DbSet<Ingredent> TblIngredent { get; set; }
         public DbSet<Coupon_redemption> TblCoupon_redemption { get; set; }
         public DbSet<Coupon> TblCoupon { get; set; }
         public DbSet<Files> TblFiles { get; set; }

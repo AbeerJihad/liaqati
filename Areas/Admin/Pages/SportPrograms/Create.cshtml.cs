@@ -45,6 +45,7 @@ namespace liaqati_master.Pages.Programs
         [BindProperty]
         public IFormFile Image { get; set; }
         public string Display { get; set; } = "d-none";
+        public string ReadOnly { get; set; } = "";
 
         public int btnSave { get; set; }
 
@@ -52,7 +53,7 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnGet([FromRoute] string? Id)
         {
 
-            CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(SportsProgram)]), nameof(Category.Id), nameof(Category.Name));
+            //CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(SportsProgram)]), nameof(Category.Id), nameof(Category.Name));
 
             Display = "d-none";
             btnSave = 0;
@@ -99,7 +100,7 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnPostAddAsync()
         {
             btnSave = 1;
-
+            ReadOnly = "readonly";
             //if (!ModelState.IsValid)
             //{
             //    return Page();

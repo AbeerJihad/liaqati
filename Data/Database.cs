@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace liaqati_master.Data
+﻿namespace liaqati_master.Data
 {
     public static class Database
     {
@@ -934,46 +932,106 @@ namespace liaqati_master.Data
 
 
 
-                new HealthyRecipe { Id = "41", Image = "1.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35},
+                new HealthyRecipe { Id = "41", Image = "/images/HealthyRecipes/1.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 491, Total_Carbohydrate = 43, Protein = 35},
                 //الثوم الطازج والليمون,سمك السلمون,طماطم كرزية,صلصة 
-                new HealthyRecipe { Id = "42", Image = "2.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4},
+                new HealthyRecipe { Id = "42", Image = "/images/HealthyRecipes/2.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 5, Calories = 156, Total_Carbohydrate = 17, Protein = 4},
                 //موزولوز
-                new HealthyRecipe { Id = "43", Image = "3.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 379, Total_Carbohydrate = 47, Protein = 32},
+                new HealthyRecipe { Id = "43", Image = "/images/HealthyRecipes/3.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 50, Calories = 379, Total_Carbohydrate = 47, Protein = 32},
                 // الدجاج المشويةوصلصة الباربكيو و وتوابل الصوديوم المنخفضةوالسكروالطماطم و شريحتين من خبز القمح الكامل المحمص و خل التفاح
-                new HealthyRecipe { Id = "44", Image = "4.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 19 ,Total_Carbohydrate = 37, Protein = 5 },
+                new HealthyRecipe { Id = "44", Image = "/images/HealthyRecipes/4.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 19 ,Total_Carbohydrate = 37, Protein = 5 },
                 //100 جرام زيت كانولا, 1كوب لبن, 2بيضة,1 ملعقة صغيرةبيكنج باودر,رشةفانيلا,6 باكتسكر دايت,نصف كوبكاكاو خام,1كوب دقيق كامل الحبة,1 ملعقة صغيرةبيكنج صودا, رشةملح
-                new HealthyRecipe { Id = "45", Image = "5.png", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 60, Calories = 170, Total_Carbohydrate = 43, Protein = 5},
+                new HealthyRecipe { Id = "45", Image = "/images/HealthyRecipes/5.png", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 60, Calories = 170, Total_Carbohydrate = 43, Protein = 5},
                 //150جرام  مكرونة,1بصلة,رشةفلفل,كوب ونصفلبن, ملعقتين دقيق, 2جبنة مثلثات خفيفة,ربع لحمة مفروم احمر, رشةملح, ملعقتين زيت, كوب ماء, 50جرامجبنة حلوم, كوب ونصف لبن,
-                new HealthyRecipe { Id = "46", Image = "6.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 180, Total_Carbohydrate = 44, Protein = 4 },
+                new HealthyRecipe { Id = "46", Image = "/images/HealthyRecipes/6.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 180, Total_Carbohydrate = 44, Protein = 4 },
                 //كوب ارز بسمتي,100 جرامجزر, 2 ملعقةشوفان مطحون,رشةفلفل,كوب شوربة, ربع ملعقةزبد, 1ثومة,100 جرامبسلة,100 جرامفلفل الوان, رشة ملح,رشةقرفة, 50 جرامجبن حلوم, كوب لبن
-                new HealthyRecipe { Id = "47", Image = "7.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 35, Calories = 538, Total_Carbohydrate = 79, Protein = 37 },
+                new HealthyRecipe { Id = "47", Image = "/images/HealthyRecipes/7.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 35, Calories = 538, Total_Carbohydrate = 79, Protein = 37 },
                 //صدور الدجاج والجلد,الأرز البني, زبادي يوناني قليل الدسم ,الثوم, فتات خبز القمح الكامل المقرمش,طبقة البارميزان,
-                new HealthyRecipe { Id = "48", Image = "8.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 10, Calories = 30, Total_Carbohydrate = 10, Protein = 5  },
+                new HealthyRecipe { Id = "48", Image = "/images/HealthyRecipes/8.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 10, Calories = 30, Total_Carbohydrate = 10, Protein = 5  },
                 //50 جرام بقدونس,1الليمون,1الخيار, 1التفاح,20 جرام النعناع
-                new HealthyRecipe { Id = "49", Image = "9.png", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 110, Total_Carbohydrate = 10, Protein = 5 , },
+                new HealthyRecipe { Id = "49", Image = "/images/HealthyRecipes/9.png", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 110, Total_Carbohydrate = 10, Protein = 5 , },
                 //ربع ملعقةزيت زيتون,1فلفل, ربع كوبزيتون, رشةفلفل اسود, قطعةريكفورد
-                new HealthyRecipe { Id = "50", Image = "10.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 40, Total_Carbohydrate = 20, Protein = 8  },
+                new HealthyRecipe { Id = "50", Image = "/images/HealthyRecipes/10.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 60, Calories = 40, Total_Carbohydrate = 20, Protein = 8  },
                 //1جزر, 1 خرشوف,100 جرامكوسة,100 جرامذرة حب,ربع ملعقة نشأ, 1 بطاطس,100 جرامبسلة,100 جرامفاصوليا, نصف كوب لبن, ملعقة دقيق
-                new HealthyRecipe { Id = "51", Image = "11.png", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 50, Calories = 125, Total_Carbohydrate = 30, Protein = 5 , },
+                new HealthyRecipe { Id = "51", Image = "/images/HealthyRecipes/11.png", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 50, Calories = 125, Total_Carbohydrate = 30, Protein = 5 , },
                 // ملعقةخميرة,ملعقتان دقيق ابيض,50 جرامشوفان مطحون,ملعقةخل,رشة بيكنج بودر,50 جرامطماطم,50 جرامفلفل الوا,50 جرامبصل,50 جرامزيتون,50 جرامذرة مسلوق,100 جرامجبن حلوم,فصثوم مفروم,ملعقةسكر,ملعقتانزيت زيتون,
-                new HealthyRecipe { Id = "52", Image = "12.png", MealType = MealTypeTypeStatus.Snack.ToString()    , DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 66, Total_Carbohydrate = 36, Protein = 5 , },
+                new HealthyRecipe { Id = "52", Image = "/images/HealthyRecipes/12.png", MealType = MealTypeTypeStatus.Snack.ToString()    , DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 66, Total_Carbohydrate = 36, Protein = 5 , },
                 //كوب دقيق ذرة اصفر,نصف كوب دقيق ابيض,1 بيضه,كوب لبن,رشه ملح,3معالقزيت كانولا او زيت نباتي,3 معالق سكر بني او دايت,معلقةبيكنج بودر,نصف معلقةفانيليا سائلة
-                new HealthyRecipe { Id = "53", Image = "13.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 110, Total_Carbohydrate = 45, Protein = 7 , },
+                new HealthyRecipe { Id = "53", Image = "/images/HealthyRecipes/13.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 30, Calories = 110, Total_Carbohydrate = 45, Protein = 7 , },
                 //250 جرام دجاج,2فلفل الوان,1بصلة,ملعقتين صلصلة صحية,100 جراممكرونة
-                new HealthyRecipe { Id = "54", Image = "14.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString()   , PrepTime = 60, Calories = 145, Total_Carbohydrate = 30, Protein = 17 , },
+                new HealthyRecipe { Id = "54", Image = "/images/HealthyRecipes/14.jpg", MealType = MealTypeTypeStatus.Lunch.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString()   , PrepTime = 60, Calories = 145, Total_Carbohydrate = 30, Protein = 17 , },
                 // كوبارز بني,1بصلة,1دجاجة,رشة بهارات صحيحة,رشة ملح,رشة كمون,رشة فلفل اسود,رشة بهارات مشكلة,رشة بصل بودر,رشة قرفه مطحونه,رشةلومي مطحون,رشةكزبرة مطحونه,30 جرام مكسرات
-                new HealthyRecipe { Id = "55", Image = "15.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 25, Total_Carbohydrate = 10, Protein = 8     },
+                new HealthyRecipe { Id = "55", Image = "/images/HealthyRecipes/15.png", MealType = MealTypeTypeStatus.SideDish.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 15, Calories = 25, Total_Carbohydrate = 10, Protein = 8     },
                 //كوب فاصوليا حمراء,كوب فاصوليا بيضاء,كوب فاصوليا خضراء,1بصلة خضراء,2 ملعقةبقدونس,ملعقةزيت زيتون,ملعقةخل,1ثومة,ملعقةماستردة,ملعقةفلفل اسود,ملعقةملح
-                new HealthyRecipe { Id = "56", Image = "16.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 150, Total_Carbohydrate = 25, Protein = 5 },
+                new HealthyRecipe { Id = "56", Image = "/images/HealthyRecipes/16.jpg", MealType = MealTypeTypeStatus.Snack.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 150, Total_Carbohydrate = 25, Protein = 5 },
                 // نصف لتر لبن,4 باكيتسكر دايت,2 ملعقةجوز الهند,2 ملعقة ماء ورد,ملعقةنشا,1فانيليا
-                new HealthyRecipe { Id = "57", Image = "17.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 20, Calories = 50, Total_Carbohydrate = 15, Protein = 4 },
+                new HealthyRecipe { Id = "57", Image = "/images/HealthyRecipes/17.jpg", MealType = MealTypeTypeStatus.Dinner.ToString(), DietaryType = DietaryTypeStatus.Vegetarian.ToString(), PrepTime = 20, Calories = 50, Total_Carbohydrate = 15, Protein = 4 },
                 //1ملفوف,1جزر,3المايونيز الصحي,1زبادي كبير,ملعقة صغيرة عسل ابيض,3 ملعقاتخل,ربع ملعقةملح
-                new HealthyRecipe { Id = "58", Image = "18.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 65, Total_Carbohydrate = 40, Protein = 15 },
+                new HealthyRecipe { Id = "58", Image = "/images/HealthyRecipes/18.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 30, Calories = 65, Total_Carbohydrate = 40, Protein = 15 },
                 //1بصلة,300 جراملحمة المفرومة,1بيضة, رشة فلفل أسمر,ملعقتانزيت,ملعقةبصل بودر,حسب الرغبةبهارات,حسب الرغبةبقدونس
-                new HealthyRecipe { Id = "59", Image = "19.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 15, Calories = 34, Total_Carbohydrate = 15, Protein = 0 },
+                new HealthyRecipe { Id = "59", Image = "/images/HealthyRecipes/19.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 15, Calories = 34, Total_Carbohydrate = 15, Protein = 0 },
                 // ملعقةسكر دايت,1تفاح,2القرنفل ,عودالقرفة
-                new HealthyRecipe { Id = "6-", Image = "20.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 }
+                new HealthyRecipe { Id = "60", Image = "/images/HealthyRecipes/20.jpg", MealType = MealTypeTypeStatus.Breakfast.ToString(), DietaryType = DietaryTypeStatus.Omnivore.ToString(), PrepTime = 240, Calories = 45, Total_Carbohydrate = 15, Protein = 7 },
                 //نصف كيلوكريز,3 معالقسكر ستيفيا,نصف ملعقة صغيرةفانيلا سائلة,رشة قرفة,ربع كوبعصير ليمونة,ملعقةعسل
+                
+                new HealthyRecipe {
+                    Id = "65",
+                    Image = "/Images/HealthyRecipes/1.jpg",
+                    MealType = "وجبة الإفطار",
+                    DietaryType = "حيواني",
+                    PrepTime = 12,
+                    Calories = 250,
+                    Total_Carbohydrate = 6,
+                    Protein = 24,
+                    Ingredients="بيضات كاملة,100,غرام\n"+" الديك الرومي المطحون الخالي من الد,60,غرام\n"+
+                    "توابل التاكو ,2,غرام\n"+" الفلفل الأخضر الجرس,20,غرام\n"+" الفلفل الأحمر,20,غرام\n"
+                    +" البصل الأحمر,20,غرام\n"+"صلصة,15,غرام\n"+" زبادي يوناني قليل الدسم,15,غرام\n"+" البصل الأخضر,10,غرام\n",
+                    PreparationMethod="دهن مقلاة غير لاصقة بقليل من بخاخ تحرير المقلاة وقم بالتسخين المسبق على حرارة متوسطة إلى عالية.\r\nبمجرد أن يسخن , افرم الديك الرومي المطحون في المقلاة ورشي توابل التاكو مع التقليب حتى تمتزج. يُطهى لمدة 3-4 دقائق مع التحريك من حين لآخر أو حتى ينضج تمامًا ويصبح لونه بنيًا جيدًا. بمجرد طهيه , باستخدام ملعقة مثقوبة , أخرج الديك الرومي من المقلاة وضعه جانبًا على طبق.\r\n, دهن المقلاة برفق مرة أخرى وعاد إلى درجة حرارة متوسطة إلى عالية. يُضاف الفلفل والبصل ويُطهى لمدة 3-4 دقائق أو حتى ينضج.\r\n, بمجرد أن تصبح الخضار طرية , أعد الديك الرومي المطحون إلى المقلاة وقلّب المزيج. باستخدام ملعقة مشقوقة , تُرفع الخضار والديك الرومي المفروم من المقلاة , ويُترك جانباً على الطبق , ويُتبل قليلاً بالملح والفلفل حسب الرغبة.\r\n, أعد المقلاة إلى درجة حرارة متوسطة إلى عالية. بمجرد أن يسخن , أضف البيض ولفه لتغطي قاع المقلاة.\r\n,يُغطّى ويُطهى لمدة 2-3 دقائق أو حتى يصبح البيض متماسكًا وينضج تمامًا. أخرج البيضة من المقلاة بحذر وانقلها إلى طبق التقديم.\r\nوزعي البيض بالديك الرومي والخضار والصلصة. دولوب مع الزبادي ورش البصل الأخضر قبل التقديم.",
+                    Description="<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
+                    Price=0,
+                    RatePercentage=0,
+                    ShortDescription="",
+                    Title=" فاهيتا أوميليت مفتوح الوجه مع تركيا المطحونة والفلفل والبصل",
+                },
+
+                 new HealthyRecipe {
+                    Id = "66",
+                    Image = "/Images/HealthyRecipes/2.jpg",
+                    MealType = "طبق جانبي,وجبة غداء",
+                    DietaryType = "حيواني",
+                    PrepTime = 15,
+                    Calories = 269,
+                    Total_Carbohydrate = 30,
+                    Protein = 26,
+                    Ingredients=" الريحان الطازج,2,غرام\n"+" خيارة,60,غرام\n"+
+                    " جبن كوخ قليل الدسم ,2,غرام\n"+"  كعكة القمح الكامل الإنجليزية ,20,غرام\n"+" الخل البلسمي ,20,غرام\n"
+                    +"  البارود الأسود,20,غرام\n"+"التوابل الإيطالية,15,غرام\n"+" صدر دجاج,15,غرام\n"+"زيت الزيتون,10,غرام\n",
+                    PreparationMethod=", قم بالتسخين المسبق لشواية الغاز إلى درجة حرارة متوسطة إلى عالية أو الفحم المسبق لشواية الفحم., صدر الدجاج يجفف بالمناشف الورقية ويوضع على طبق ويتبل قليلا بالتوابل الإيطالية والفلفل الأسود والخل البلسمي ورشة ملح., ضع الدجاج جانبًا لينقع لمدة 10 دقائق بينما تسخن الشواية مسبقًا., بمجرد أن تصبح الشواية ساخنة ، أضيفي الدجاج واطهيها لمدة 2-3 دقائق لكل جانب أو حتى تفحم قليلاً وتنضج بالكامل. تُرفع عن الشواية وتترك جانباً لترتاح قبل التقطيع., ملعقة وافرد الجبن القريش على الكعك الإنجليزي المحمص. يُغطى التوست المُجهز بشرائح الدجاج وشرائح الخيار والريحان الطازج. الموسم الى الذوق مع الملح والفلفل.",
+                    Description="<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
+                    Price=0,
+                    RatePercentage=0,
+                    ShortDescription="",
+                    Title="خيار وجبن كوخ وخبز محمص دجاج مشوي مع الخل البلسمي والأعشاب الإيطالية",
+                },
+                  new HealthyRecipe {
+                    Id = "67",
+                    Image = "/user/images/pexels-toni-cuenca-616833.png",
+                    MealType = "مشروبات",
+                    PrepTime = 30,
+                    Calories = 273,
+                    Total_Carbohydrate = 43,
+                    Protein = 20,
+                    Ingredients=" الريحان الطازج,2,غرام\n"+" خيارة,60,غرام\n"+
+                    " جبن كوخ قليل الدسم ,2,غرام\n"+"  كعكة القمح الكامل الإنجليزية ,20,غرام\n"+" الخل البلسمي ,20,غرام\n"
+                    +"  البارود الأسود,20,غرام\n"+"التوابل الإيطالية,15,غرام\n"+" صدر دجاج,15,غرام\n"+"زيت الزيتون,10,غرام\n",
+                    PreparationMethod="  <ol>\r\n                    <li>اغسلي جميع الخضار والفواكه وقطعيها لقطع متوسطة يسهل وضعها في الخلاط.</li>\r\n                    <li>ضعي الخضار والفواكه في العصارة أو الخلاط الكهربائي واحداً تلو الآخر واخلطيها لمدة أربع دقائق حتى تتجانس المكونات.</li>\r\n                    <li>قدمي العصير مبرداً واحفظيه في الثلاجة إذ يمكن تناوله خلال سبع أيام.</li>\r\n                  \r\n                </ol>",
+                    Description=" <p class=\"fs-6\">\r\n                            تساعد على تنظيف الجسم من السموم وتخليصه من الأمراض المختلفة، إذ يمكن عمله\r\n                            بطرق عدة باستخدام أنواع مختلفة من الخضار والفواكه، وهذه المشروبات تساعد في\r\n                            حميات إنقاص الوزن وتعزز الصحة العامة، هنا سنقدم طريقة عمل عصير ديتوكس\r\n                        </p>",
+                    DietaryType = "نباتي",
+
+                    Price=0,
+                    RatePercentage=5,
+                    ShortDescription="",
+                    Title="مشروب الديتوكس الأخضر",
+                },
 
             };
         }
@@ -1032,6 +1090,65 @@ namespace liaqati_master.Data
                 new Tracking(){Id="1",Iscomplete=true , Exercies_programId="1" , Order_DetailsId="1"},
 
 
+            };
+        }
+
+        public static List<Files> GetListFiles()
+        {
+            return new List<Files>()
+            {
+
+                 new Files()
+                {
+                    Id="1",
+                    Path="/Images/HealthyRecipes/1.jpg",
+                    HealthyId= "61",
+                },
+                  new Files()
+                {
+                    Id="2",
+                    Path="/Images/HealthyRecipes/img61.jpg",
+                    HealthyId= "61",
+                },
+                   new Files()
+                {
+                    Id="3",
+                    Path="/Images/HealthyRecipes/im61.jpg",
+                    HealthyId= "61",
+                },
+                    new Files()
+                {
+                    Id="4",
+                    Path="/Images/HealthyRecipes/2.jpg",
+                    HealthyId= "62",
+                },
+                     new Files()
+                {
+                    Id="5",
+                    Path="/Images/HealthyRecipes/img62.jpg",
+                    HealthyId= "62",
+                },
+                      new Files()
+                {
+                    Id="6",
+                    Path="/Images/HealthyRecipes/im62.jpg",
+                    HealthyId= "62",
+                }, new Files()
+                {
+                    Id="7",
+                    Path="/user/images/pexels-toni-cuenca-616833.png",
+                    HealthyId= "63",
+                }, new Files()
+                {
+                    Id="8",
+                    Path="~/user/images/224347.png",
+                    HealthyId= "63",
+                }, new Files()
+                {
+                    Id="9",
+                    Path="/user/images/224664.png",
+                    HealthyId= "63",
+                },
             };
         }
 
@@ -1118,6 +1235,7 @@ namespace liaqati_master.Data
                 //},
 
             };
+
         }
     }
 

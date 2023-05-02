@@ -1,11 +1,11 @@
 ﻿
 var forms = document.getElementById("FormProgramAdd");
-var formSystem = document.getElementById("formSystem");
+var formSystem = document.getElementById("formProgramSystem");
 var DivSystem = document.getElementById("DivSystem");
 var SelectExercises = document.getElementById("SelectExercises");
 var btnSave = document.getElementById("btnSave");
 var IdProg = document.getElementById("IdProg").value;
-
+var IdMeal = document.getElementById("IdMeal").value;
 
 
 function SaveProg(event) {
@@ -43,10 +43,12 @@ var selectDays = document.getElementById("selectDays");
 
 
 var BtnAdd = document.getElementById("BtnAdd");
+var BtnAddHealtyMeal = document.getElementById("BtnAddHealtyMeal");
 BtnAdd.addEventListener("click", AddDaysPrograms);
+BtnAddHealtyMeal.addEventListener("click", AddDaysHealtyMeal);
 
 
-selectLength.addEventListener("change", LengthProgram);
+//selectLength.addEventListener("change", LengthProgram);
 
 selectLengthWeek.addEventListener("change", selectLengthWeekFun);
 selectDays.addEventListener("change", selectDaysFun);
@@ -101,7 +103,7 @@ function AddDaysPrograms(event) {
 
     for (var x = 0; x < Exercies.length; x++) {
 
-    
+
         var payload = {
             Id: IdProg + Math.random(),
             isComplete: false,
@@ -110,13 +112,13 @@ function AddDaysPrograms(event) {
             Day: parseInt(day),
             Week: parseInt(week),
 
-         
+
 
         };
 
-        var payloadstringify =  JSON.stringify(payload);
+        var payloadstringify = JSON.stringify(payload);
 
-       
+
 
 
         addProgExerForm(payloadstringify).then((d) => {
@@ -146,4 +148,101 @@ function AddDaysPrograms(event) {
 
 
 }
+
+function AddDaysHealtyMeal(event) {
+
+    Calend.push({
+        Day: day,
+        Week: week,
+        Exercies: [Exercies]
+    });
+
+    for (var x = 0; x < Exercies.length; x++) {
+
+
+        var payload = {
+            Id: IdProg + Math.random(),
+            isComplete: false,
+            HealthyRecdpeId: Exercies[x],
+            MealPlanId: IdMeal,
+            Day: parseInt(day),
+            Week: parseInt(week),
+
+
+
+        };
+
+        var payloadstringify = JSON.stringify(payload);
+
+
+
+
+        addMealHealthyForm(payloadstringify).then((d) => {
+
+            console.table(d);
+
+            if (d !== undefined && d.status === 'ok') {
+
+
+                console.log("true");
+                return;
+
+
+            }
+            else {
+                console.log("false");
+
+            }
+
+        });
+
+
+    }
+
+    formSystem.submit();
+
+
+
+}
+
+
+
+
+
+
+
+function ShowProgExerModelEdit(modelid, dataObj) {
+
+
+
+    let modelElm = document.getElementById(modelid);
+    var myModal = new bootstrap.Modal(modelElm, {
+        keyboard: false
+    })
+
+    modelElm.querySelectorAll('span.field-validation-error').forEach((obj, i, a) => a[i].innerHTML = '');
+
+
+    if (dataObj !== null) {
+
+
+        modelElm.querySelector('#ExerciesprogramID').value = dataObj.Id;
+        modelElm.querySelector('#Exercies_ProgramsportsProgramId').value = dataObj.SportsProgramId;
+
+
+        modelElm.querySelector('#selectDays').value = dataObj.Day;
+
+        modelElm.querySelector('#selectLength').value = dataObj.Week;
+        modelElm.querySelector('#Exercie').value = dataObj.ExerciseId;
+
+        getdata("SelectExercises");
+
+
+    }
+
+
+    myModal.toggle()
+}
+
+
 
