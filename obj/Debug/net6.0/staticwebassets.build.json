@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Vk5Wemmew6xaj0CnCvR4fMhreHRXHUN6xobKKI+OfOo=",
+  "Hash": "1w2ofJ2rGWUQ2j3UdKI3pklBIsyx5lZwsE+iPiopLig=",
   "Source": "liaqati-master",
   "BasePath": "_content/liaqati-master",
   "Mode": "Default",
@@ -19684,6 +19684,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\User\\images\\Consultation\\ic_expand_more_24px.png"
+    },
+    {
+      "Identity": "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\wwwroot\\User\\images\\Consultation\\Mask Group 52.png",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "User/images/Consultation/Mask Group 52.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\User\\images\\Consultation\\Mask Group 52.png"
     },
     {
       "Identity": "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\wwwroot\\User\\images\\Consultation\\Path 1698.png",

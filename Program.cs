@@ -65,6 +65,7 @@ builder.Services.AddScoped<IRepoOrder_Details>();
 builder.Services.AddScoped<IRepoRate>();
 builder.Services.AddScoped<IRepoService>();
 builder.Services.AddScoped<IRepoUser>();
+builder.Services.AddScoped<IRepoConsultation>();
 
 
 builder.Services.AddSwaggerGen();
