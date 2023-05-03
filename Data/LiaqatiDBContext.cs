@@ -31,6 +31,8 @@ namespace liaqati_master.Data
         public DbSet<Coupon_redemption> TblCoupon_redemption { get; set; }
         public DbSet<Coupon> TblCoupon { get; set; }
         public DbSet<Files> TblFiles { get; set; }
+        public DbSet<Consultation> TblConsultation { get; set; }
+        public DbSet<Replyconsultation> TblReplyconsultation { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

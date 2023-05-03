@@ -40,6 +40,8 @@ namespace liaqati_master.Models
         public virtual List<Order>? Orders { get; set; }
 
         public virtual List<ChatUser>? ChatUser { get; set; }
+        public virtual List<Replyconsultation> Replyconsultation { get; set; }
+        public virtual List<Consultation>? Consultation { get; set; }
         public User()
         {
             Gender = Gender.Male;

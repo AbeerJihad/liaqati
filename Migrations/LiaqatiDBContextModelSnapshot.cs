@@ -145,6 +145,18 @@ namespace liaqati_master.Migrations
                             Id = "6",
                             Name = "الوجبات",
                             Target = "الوجبات"
+                        },
+                        new
+                        {
+                            Id = "7",
+                            Name = "لياقة بدنية",
+                            Target = "استشارات"
+                        },
+                        new
+                        {
+                            Id = "8",
+                            Name = "تغذية",
+                            Target = "استشارات"
                         });
                 });
 
@@ -251,6 +263,76 @@ namespace liaqati_master.Migrations
                     b.HasIndex("articlesId");
 
                     b.ToTable("TblComment");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Consultation", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PostDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TblConsultation");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            CategoryId = "7",
+                            Description = "عمري 32 سنة، عاطل أعزب، توقفت عن لعب كرة القدم لمدة شهر، والحمد لله أشعر بتحسن كبير في الركبة، واختفاء الألم، ولكن لاحظت أنني حينما أمارس تمرين تقوية الفخذ (بوضع ثقل على القدم ورفع القدم لمنتصف الساق المنثنية وإخراجها)، أشعر بألم خفيف من حين لآخر لمدة يوم أو يومين، وعندما أتوقف عن التمارين لأيام يختفي الألم بصورة كبيرة جداً.\r\n\r\nفهل لقلة الحركة وكثرة الجلوس دور في الإصابات المختلفة، مثل إصابة القدم والركبة والكتف والكعب والتي أتعرض لها؟ فأنا كثير الاستلقاء على السرير، وقليل الحركة جداً. وفي الفترة الأخيرة أصبحت أمشي من نصف ساعة لساعة ونصف في اليوم، وهل لطريقة المشي من فرد الجسم ورفع الرأس وسرعة المشي دور في الاستفادة من المشي؟",
+                            PostDate = new DateTime(2023, 5, 3, 23, 11, 40, 630, DateTimeKind.Local).AddTicks(6499),
+                            Title = "عند وضع ثقل على القدم ورفعه أشعر بألم في الركبة، فهل السبب قلة الحركة؟",
+                            UserId = "5"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            CategoryId = "7",
+                            Description = "<p>أسأل عن الرياضة، حيث إني قرأت وسمعت عن فوائدها، ولكني لا أجد المكان الملائم لممارسة الرياضة، وهي (الجري) إلا في البيت، حيث إني أجري حول الحديقة، وهي على شكل مستطيل، وبطول خمس وأربعين خطوة، أي طول المسافة التي حول المستطيل أي مجموع الأربعة أضلاع، يساوي خمساً وأربعين خطوة.<br><br>هل يمكن الجري في هذه المسافة؟ علماً بأن نصف المسافة أرض صلبة من الإسمنت، فهل الجري على الإسمنت يسبب لي أضراراً؟ خاصة في مفاصل الركبة.<br><br>إذا كان يسبب أضراراً فهل المشي على الإسمنت يسبب أضراراً كذلك؟ وما هي السرعة والمدة الزمنية التي يجب أن أستغرقها في المشي للحصول على الفوائد الصحية؟<br><br>أيهما أفضل المشي أم الجري؟ وما مدة وسرعة كل منهما؟ وهل إذا مارست الجري في الصباح وفي يوم من الأيام لم أتمكن من الجري، هل يمكن أن أجري في المساء لأعوض أم يجب أن أستمر على وقت معين؟<br><br>ما هي مواصفات حذاء الجري؟ هل الحذاء الواطي أم العالي أفضل؟ حيث إني لم أجد حذاء ذا مرونة جيدة.</p>",
+                            PostDate = new DateTime(2023, 5, 3, 23, 11, 40, 630, DateTimeKind.Local).AddTicks(6510),
+                            Title = "رياضة المشي والجري..المدة والمسافة والحذاء المناسب!",
+                            UserId = "5"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            CategoryId = "8",
+                            Description = "عمري 29 سنةً، وطولي 155 سم، وزني 66 كجم، أجريت حميةً غذائيةً، ونزل وزني من 75 إلى 66 كجم، وأحاول الآن أن أصل إلى وزني الطبيعي 54 كجم، لكن أحياناً أشتهي تناول الحلوى، فما هو مقدار الحلوى الذي أستطيع أن أتناوله كل مرة أو أسبوعياً؟ وهل أستطيع أن آكل القشطة مع ملعقة عسل طبيعي في الصباح الباكر، أم أن هذا يزيد الوزن؟ وهل يمكن أن آكل في أوقات متباعدة قطعة بيتزا أو همبرجر؟",
+                            PostDate = new DateTime(2023, 5, 3, 23, 11, 40, 630, DateTimeKind.Local).AddTicks(6546),
+                            Title = "إمكانية أكل الحلويات والوجبات السريعة بكميات قليلة لمن يعالجون بالحمية الغذائية",
+                            UserId = "5"
+                        },
+                        new
+                        {
+                            Id = "4",
+                            CategoryId = "8",
+                            Description = "ما هو الطعام الصحي للعمال الذين يعملون أعمالاً شاقة بشكل مستمر؟",
+                            PostDate = new DateTime(2023, 5, 3, 23, 11, 40, 630, DateTimeKind.Local).AddTicks(6551),
+                            Title = "ما هو الطعام الصحي للعمال الذين يعملون أعمالاً شاقة بشكل مستمر؟",
+                            UserId = "4"
+                        });
                 });
 
             modelBuilder.Entity("liaqati_master.Models.ContactUs", b =>
@@ -927,7 +1009,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "61",
                             Calories = 250,
-                            CreatedDate = new DateTime(2023, 4, 29, 15, 45, 2, 34, DateTimeKind.Local).AddTicks(4734),
+                            CreatedDate = new DateTime(2023, 5, 3, 23, 11, 40, 630, DateTimeKind.Local).AddTicks(6393),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/1.jpg",
@@ -947,7 +1029,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "62",
                             Calories = 269,
-                            CreatedDate = new DateTime(2023, 4, 29, 15, 45, 2, 34, DateTimeKind.Local).AddTicks(4745),
+                            CreatedDate = new DateTime(2023, 5, 3, 23, 11, 40, 630, DateTimeKind.Local).AddTicks(6408),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/2.jpg",
@@ -967,7 +1049,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "63",
                             Calories = 273,
-                            CreatedDate = new DateTime(2023, 4, 29, 15, 45, 2, 34, DateTimeKind.Local).AddTicks(4751),
+                            CreatedDate = new DateTime(2023, 5, 3, 23, 11, 40, 630, DateTimeKind.Local).AddTicks(6415),
                             Description = " <p class=\"fs-6\">\r\n                            تساعد على تنظيف الجسم من السموم وتخليصه من الأمراض المختلفة، إذ يمكن عمله\r\n                            بطرق عدة باستخدام أنواع مختلفة من الخضار والفواكه، وهذه المشروبات تساعد في\r\n                            حميات إنقاص الوزن وتعزز الصحة العامة، هنا سنقدم طريقة عمل عصير ديتوكس\r\n                        </p>",
                             DietaryType = "نباتي",
                             Image = "/user/images/pexels-toni-cuenca-616833.png",
@@ -977,7 +1059,7 @@ namespace liaqati_master.Migrations
                             PreparationMethod = "  <ol>\r\n                    <li>اغسلي جميع الخضار والفواكه وقطعيها لقطع متوسطة يسهل وضعها في الخلاط.</li>\r\n                    <li>ضعي الخضار والفواكه في العصارة أو الخلاط الكهربائي واحداً تلو الآخر واخلطيها لمدة أربع دقائق حتى تتجانس المكونات.</li>\r\n                    <li>قدمي العصير مبرداً واحفظيه في الثلاجة إذ يمكن تناوله خلال سبع أيام.</li>\r\n                  \r\n                </ol>",
                             Price = 0.0,
                             Protein = 20,
-                            RatePercentage = 80.0,
+                            RatePercentage = 5.0,
                             ShortDescription = "",
                             Title = "مشروب الديتوكس الأخضر",
                             Total_Carbohydrate = 43,
@@ -1657,6 +1739,60 @@ namespace liaqati_master.Migrations
                     b.ToTable("TblRate");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Replyconsultation", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Reply")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("consId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("consId");
+
+                    b.ToTable("TblReplyconsultation");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Reply = "<p>بسم الله الرحمن الرحيم<br>السلام عليكم ورحمة الله وبركاته، وبعد:<br><br>كونك تمشي في الآونة الأخيرة من نصف ساعة إلى ساعة ونصف دون الشعور بالألم، فهذا أمر جيد، عليك المداومة عليه، والألم الذي تشعر به عند وضع ثقل على قدمك ورفعه أمر مرتبط بضعف اللياقة البدنية، وليس بإصابة في الركبة أو القدم، وأي شخص في النادي الرياضي إذا وضع ثقلًا على قدمه سوف يشعر بنوع من الألم قل أو كثر.<br><br>والمشي في اليوم 10000 خطوة يكفي جدًا لزيادة اللياقة البدنية، ولتحريك المفاصل والشفاء من الإصابات، ولا بأس بتحريك الذراعين، والنظر إلى الأمام أثناء المشي، والالتزام بالصلوات والنوافل، فهي رياضة في حد ذاتها، ونؤكد دائماً على ضبط مستوى فيتامين D، وفحص صورة الدم CBC، والتغذية الجيدة، والاستحمام بالماء البارد، إذا استطعت ذلك لكي تنشط الدورة الدموية.<br><br>وفقك الله لما فيه الخير.</p>",
+                            UserId = "2",
+                            consId = "1"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Reply = "<p>بسم الله الرحمن الرحيم<br>الأخ الفاضل/ سامي حفظه الله.<br>السلام عليكم ورحمة الله وبركاته، وبعد:<br><br>فإن المشي من الرياضات المتوسطة الإجهاد التي تساعد الناس على المحافظة على لياقتهم ورشاقتهم بحرق الطاقة الزائدة، ويقوي الجهاز الدوري، ويحسن من استخدام الأكسجين والطاقة في الجسم.<br><br>لذلك يقلل من المخاطر المرتبطة بالسمنة، والسكري، وارتفاع الضغط، وأمراض القلب، ويقوي العضلات في الأرجل والبطن والظهر، ويقوي العظام، ويقلل من إصابتها بالهشاشة.<br><br>من ناحية أخرى: فإن المشي يفيد في التخلص من الضغوط النفسية، والقلق والإجهاد اليومي، ويحسن من الوضع النفسي، ومن تجاوب الجهاز العصبي، ويساعد المشي على التخلص من الوزن الزائد، وهذا بالطبع يعتمد على مدة المشي وسرعته.<br><br>إذا مشيت بمعدل 4 كم/ ساعة فإن جسمك يحرق ما بين 200 &ndash; 250 سعراً حرارياً في الساعة (22 &ndash; 28 جرام من الدهون).<br><br>يمكنك مزاولة المشي في أي مكان وزمان بدون تجهيزات أو ملابس خاصة، ويمكن أن يكون جزءاً من الحياة اليومية، ويمكن أن يكون في أي وقت من النهار، ومن الأفضل تحديد وقت معين خلال اليوم للمشي، بحيث يكون جزءاً من جدولك في اليوم، وذلك للمحافظة على موعد المشي.<br><br>إذا كان غرض المشي مجرد اللياقة البدنية فيكفي المشي مدة 30 دقيقة على الأقل يومياً، أو ثلاث مرات أسبوعياً.<br><br>أما إذا كان الغرض تخفيف الوزن واللياقة البدنية فيلزمك المشي 30 دقيقة على الأقل يومياً، أو خمس مرات في الأسبوع.<br><br>يمكنك زيادة مدة المشي إلى ساعة يومياً لكسب مزيد من اللياقة، وتخفيف الوزن.<br><br>المشي من أقل التمارين الرياضية ضرراً على المفاصل، والأقل في احتمالات الإصابة خلال التمارين.<br><br>عندما تمشي ابق رأسك مرفوعاً، وانظر على بعد بضع خطوات أمامك، وحافظ على الفك السفلي في مكانه دون شد بل اجعل عضلاته منبسطة وابق الكتفين إلى الخلف دون شد، ولا تجعلهما منحنيين إلى الأمام، وحافظ على الصدر مرتفعاً والظهر مستقيماً وقائماً، ويجب أن تكون عضلات البطن مشدودة قليلاً إلى الداخل، وعضلات الورك والعجيزة (المؤخرة) مشدودة قليلاً إلى الداخل أيضاً.<br><br>لا بد أن يكون مفصل الركبة مرناً للحركة فلا تجعله مشدوداً بحيث يتحرك الساق والفخذ معاً.<br><br>اثن أصابع اليد للداخل بدون تكوين قبضة كاملة وبدون ضغط عليها، ولا تجعل يديك تتدلى والكف مفتوحة، اجعل الذراع بشكل زاوية قائمة من عند المرفق، وحرك يديك إلى الأمام والخلف بحيث ترتفع قبضة الكف إلى أعلى في حركة اليد إلى الأمام وتصل إلى محاذاة الورك في حركتها إلى الخلف، ولا تجعلها تتأرجح أمام جسمك، ومع حركة المشي ارجع ذراعيك إلى الخلف نحو الورك ولا تجعلهما يرتفعان في الهواء، وحركة الأذرع تأتي من الكتف وليس من المرفق.<br><br>إذا أردت المشي بسرعة فلا تجعل خطوتك واسعة، بل قم بزيادة عدد الخطوات (زيادة السرعة)، ولا تقصر من الخطوات بل الأفضل السير بالخطوات الطبيعية المريحة لك.<br><br>يختلف حذاء المشي عن الأحذية الأخرى التي تستخدم عادة، كما أنه يختلف عن بقية الأحذية الرياضية الخاصة بالجري أو التنس أو كرة القدم مثلاً؛ وذلك لأن آلية حركة القدم خلال المشي تختلف عنها في الرياضات الأخرى.<br><br>يجب أن يكون حذاء المشي ذا كعب عريض، ونعل مرن في الوسط، وأن يكون حاضناً للكعب دون أن يكون ضيقاً عليه، وأن تكون حركة أصابع الرجل في الطرف الأمامي للحذاء ممكنة.<br><br>كما يجب تغيير الحذاء إذا تآكل جزء من نعله، وعند شرائه يجب التأكد من أنه مريح من أول تجربة لبس له، وصفاته مطابقة لما تم ذكره.<br><br>هناك جوارب خاصة بالمشي وتمتاز أنها تسمح بتهوية القدمين وبالتخلص من العرق، ويجب أن يكون حجم الجوارب مناسباً لمقاس القدم بحيث لا تنطوي أو تكوّن زوائد تؤدي إلى رفع درجة حرارة القدم، وإلى الإصابة بالنفطات.<br><br>يجب أن تقوم بعملية التسخين قبل رياضة المشي، ويجرى التسخين بأداء بعض الحركات لليدين، والقفز والجري في المكان، أو المشي البطيء مدة 5 &ndash; 10 دقائق قبل المشي السريع.</p>",
+                            UserId = "2",
+                            consId = "2"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            Reply = "<p>إن أردت أن تحافظي على وزنك فعليك أن تحافظي على أن يكون مقدار ما تأخذينه من طاقة من الطعام مساوياً للطاقة التي تحتاجينها يومياً، وتقدر بالنسبة لسنك بـ2200 كالوري بالمتوسط، وإن أردت أن تكوني دقيقةً أكثر فيمكنك مراجعة أخصائي تغذية، فيحسب لك بالتمام مقدار السعرات الحرارية اللازمة لك، والمناسبة لطولك، ووزنك، وعملك، والطاقة اللازمة لك، ويحتاج الجسم الطبيعي هذه المصادر لإنتاج الطاقة بنسب مختلفة:<br /><br />- الكربوهيدرات ( النشويات ) 50%.<br />- الدهون 35%.<br />- البروتينات 15%.<br /><br />الإنسان يحتاج لكمية مُحددة من السعرات الحرارية يومياً، وتزداد حسب نشاط الشخص وحجم جسده (الطول والوزن) وكذلك العمر، فالأطفال والشبان في طور النمو يحتاجون لكميات أكبر من السعرات الحرارية، ويجب أن يكون هناك توازن ما بين السعرات الحرارية التي نأخذها من الطعام والسعرات الحرارية التي نحرقها، حتى لا يزداد وزننا، حيث إن الجسم يُخزن السعرات الحرارية الزائدة عن حاجته على هيئة شحوم، ليستخدمها فيما بعد إذا اُضطر لذلك (في حال نقص السعرات الحرارية المأخوذة عن طريق الأكل)، وإذا أفرطنا في الأكل تزداد كمية الشحوم، وإذا قللنا الأكل فإن الجسم يستخدم الشحوم لإنتاج الطاقة ويحرقها، وبالتالي تقل الشحوم لدينا.<br />ولا يوجد ما يمنع أن تتناولي البيتزا أو الحلويات مرةً كل عدة أيام، بشرط أن تأخذي بعين الاعتبار كمية السعرات الحرارية التي تحويها هذه الأطعمة، وتحسب من ضمن السعرات الحرارية المسموح بها ذلك اليوم؛ لأن كل زيادة في الداخل من الطاقة إذا لم يقابلها حرق لهذه الطاقة، فإن ما يزيد يتحول إلى دهون وشحوم يجمعها الجسم في أماكن تخزين الدهون وهو البطن والأرداف، وأماكن أخرى من الجسم، ومتى قلت كمية الطعام الداخلة عن احتياج الجسم، فإن الجسم يبدأ باستهلاك الدهون في الجسم.</p>",
+                            UserId = "2",
+                            consId = "3"
+                        },
+                        new
+                        {
+                            Id = "4",
+                            Reply = "<p>بسم الله الرحمن الرحيم<br />السلام عليكم ورحمة الله وبركاته، وبعد:<br /><br />فإن السعرات الحرارية التي نحتاجها يومياً تقدر : 5000-5600 سعرة حرارية.<br />والطعام الصحي هو الطعام المتوازن المعتدل في الكمية والمختلف في النوع، وتختلف الأطعمة حسب كمية ونوعية المواد الغذائية التي تحتوي عليها، لذلك فمن المهم عند تنظيم التغذية اختيار أطعمة من كافة الأصناف ما أمكن ذلك.<br /><br />وأصناف الطعام الرئيسية هي:<br /><br />الحبوب/ الخضار والفواكه /اللحوم والأسماك /مشتقات الحليب/الدسم والزيوت/<br /><br /><br />ولذلك عليك حساب كمية السعرات الحرارية التي تلزمك، ثم تقسيمها على المواد الغذائية من الأطعمة المختلفة والمتنوعة.</p>",
+                            UserId = "1",
+                            consId = "4"
+                        });
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
                 {
                     b.Property<string>("Id")
@@ -2178,7 +2314,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "a9b87f60-a6d7-4df2-a88d-09507a098ff4",
+                            ConcurrencyStamp = "f9f62d55-5edd-463e-bda0-d10363df70dc",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -2189,9 +2325,84 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "f7c40121-f0df-4b69-a489-52c94bb72c36",
+                            SecurityStamp = "7cad60ab-7d49-4162-a6aa-9d0b0a7ae403",
                             TwoFactorEnabled = false,
                             Wieght = 120
+                        },
+                        new
+                        {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "4113237f-ce83-4c21-8247-db47916ca968",
+                            EmailConfirmed = false,
+                            Fname = "اماني",
+                            Gender = 1,
+                            Lname = "محمد",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Photo = "/user/images/download.jpg",
+                            SecurityStamp = "faf7c790-1ac2-49b3-8db7-af52a12c42f2",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "67f0600c-0b46-4a92-b203-8dff81fd1296",
+                            EmailConfirmed = false,
+                            Fname = "احمد",
+                            Gender = 1,
+                            Lname = "سعيد",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Photo = "/user/images/download.jpg",
+                            SecurityStamp = "4f7b5a4a-02c3-486c-8220-3867b219101e",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e4f8e889-8dae-434a-b22b-1350d5796adb",
+                            EmailConfirmed = false,
+                            Fname = "ماجد",
+                            Gender = 1,
+                            Lname = "خالد",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Photo = "/user/images/download.jpg",
+                            SecurityStamp = "739efcf1-906c-4eed-84f7-1f1dfdfd0e32",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f45d887f-5375-436d-86da-99dc1d272d2e",
+                            EmailConfirmed = false,
+                            Fname = "رشا",
+                            Gender = 1,
+                            Lname = "محمود",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Photo = "/user/images/download.jpg",
+                            SecurityStamp = "8b6a4c92-590f-43df-8136-2550049d5434",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5138cd15-8a69-4904-ae00-980394e5f684",
+                            EmailConfirmed = false,
+                            Fname = "ريهام",
+                            Gender = 1,
+                            Lname = "احمد",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            Photo = "/user/images/download.jpg",
+                            SecurityStamp = "22332f04-b8bf-45a2-82f1-0a3a2b234e56",
+                            TwoFactorEnabled = false
                         });
                 });
 
@@ -2387,6 +2598,23 @@ namespace liaqati_master.Migrations
                         .HasForeignKey("articlesId");
 
                     b.Navigation("articles");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Consultation", b =>
+                {
+                    b.HasOne("liaqati_master.Models.Category", "Category")
+                        .WithMany("Consultation")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("liaqati_master.Models.User", "User")
+                        .WithMany("Consultation")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.ContactUs", b =>
@@ -2589,6 +2817,21 @@ namespace liaqati_master.Migrations
                     b.Navigation("Order_Details");
                 });
 
+            modelBuilder.Entity("liaqati_master.Models.Replyconsultation", b =>
+                {
+                    b.HasOne("liaqati_master.Models.User", "User")
+                        .WithMany("Replyconsultation")
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("liaqati_master.Models.Consultation", "Consultation")
+                        .WithMany("Replyconsultation")
+                        .HasForeignKey("consId");
+
+                    b.Navigation("Consultation");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("liaqati_master.Models.Service", b =>
                 {
                     b.HasOne("liaqati_master.Models.Category", "Category")
@@ -2701,6 +2944,8 @@ namespace liaqati_master.Migrations
                 {
                     b.Navigation("Articles");
 
+                    b.Navigation("Consultation");
+
                     b.Navigation("HealthyRecipes");
 
                     b.Navigation("Services");
@@ -2711,6 +2956,11 @@ namespace liaqati_master.Migrations
                     b.Navigation("ChatUser");
 
                     b.Navigation("Message");
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Consultation", b =>
+                {
+                    b.Navigation("Replyconsultation");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Exercise", b =>
@@ -2781,7 +3031,11 @@ namespace liaqati_master.Migrations
 
                     b.Navigation("ChatUser");
 
+                    b.Navigation("Consultation");
+
                     b.Navigation("Orders");
+
+                    b.Navigation("Replyconsultation");
                 });
 #pragma warning restore 612, 618
         }

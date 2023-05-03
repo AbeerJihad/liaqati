@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\Desktop\\liaqati\\liaqati-master.csproj": {}
+    "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\liaqati-master.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\Desktop\\liaqati\\liaqati-master.csproj": {
+    "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\liaqati-master.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\liaqati\\liaqati-master.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\liaqati-master.csproj",
         "projectName": "liaqati-master",
-        "projectPath": "C:\\Users\\LENOVO\\Desktop\\liaqati\\liaqati-master.csproj",
+        "projectPath": "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\liaqati-master.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Desktop\\liaqati\\obj\\",
+        "outputPath": "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",

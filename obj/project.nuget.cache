@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uP4r84263PrfBbvm6BaMnxdvcsfF0+VOD+PlD4upnskbmaVlYxOO1XmU6/UJqD2dOqrnfAcmwIp72T5ZKz5V0g==",
+  "dgSpecHash": "CRTVvhBWB7SutbX+0+M/bMDWc4OJA4aAa6SVGbWI5JLTq+bHYA40ESz19/JEzWvRGr7ZmiywWvqnqIAS01LQWg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\liaqati\\liaqati-master.csproj",
+  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Gproject\\liaqati\\liaqati-master.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\bouncycastle.cryptography\\2.1.1\\bouncycastle.cryptography.2.1.1.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
