@@ -22,7 +22,7 @@
                 <img src="~/user/images/consultation/ic_expand_more_24px.png" />
                 الاستشارات
                 <img src="~/user/images/consultation/ic_expand_more_24px.png" />
-                استشارات لياقة بدنية
+                استشارات لياقتي
             </p>
         </div>
 
@@ -36,13 +36,13 @@
                         <div class="card my-2">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <p>الاسم: محمد</p>
-                                    <p class="mx-2">العمر:  40</p>
-                                    <p>فبراير 2023</p>
+                                    <p>الاسم: @Model.cons.User?.Fname</p>
+                                    <p class="mx-2">العمر: @Model.cons.User?.Specialization</p>
+                                    <p>@Model.cons.PostDate</p>
                                 </div>
-                                <h5 class="card-title">ما هو حل لمن يعاني من ضعف في اللياقة البدنية ويجهد بسرعة من التمارين الرياضية</h5>
+                                <h5 class="card-title">@Html.Raw(Model.cons.Title)</h5>
                                 <hr />
-                                <p>ما هو حل لمن يعاني من ضعف في اللياقة البدنية ويجهد بسرعة من التمارين الرياضية</p>
+                                <p>@Html.Raw(Model.cons.Description)</p>
                             </div>
                         </div>
 
@@ -56,19 +56,16 @@
 
                                 <div class="d-flex my-2">
 
-                                    <img width="50" class="rounded-circle m-2" src="~/user/images/consultation/person.jpg" />
+                                    <img width="50" class="rounded-circle m-2" src="@Model.repcons.User.Photo" />
 
                                     <div class="">
-                                        <p class="card-title txtcolor">احمد موسى </p>
+                                        <p class="card-title txtcolor">@Model.repcons.User.Fname </p>
                                         <p class="card-title text-black "> اخصائي لياقة بدنية</p>
                                     </div>
 
                                 </div>
                                 <div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                                    <p>@Html.Raw(Model.repcons.Reply)</p>
                                 </div>
 
                             </div>

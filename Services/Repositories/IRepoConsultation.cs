@@ -87,29 +87,57 @@
                 }
             }
 
-        public async Task<QueryPageResult<Consultation>> SearchProduct(ConsultationQueryParamters Parameters)
+        public async Task<QueryPageResult<Consultation>> Searchconsult(ConsultationQueryParamters Parameters)
         {
-            IQueryable<Consultation> products = (await GetAllAsync()).AsQueryable();
+            IQueryable<Consultation> con = (await GetAllAsync()).AsQueryable();
 
             if (Parameters.CategoryId != null)
             {
-                products = products.Where(p => p.CategoryId == Parameters.CategoryId);
+                con = con.Where(p => p.CategoryId == Parameters.CategoryId);
             }
 
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
-                products = products.Where(p =>
+                con = con.Where(p =>
                     p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
                  );
             }
 
             if (!string.IsNullOrEmpty(Parameters.Tilte))
             {
-                products = products.Where(p => p.Title.ToLower() == Parameters.Tilte.ToLower());
+                con = con.Where(p => p.Title.ToLower() == Parameters.Tilte.ToLower());
             }
 
+            if (!string.IsNullOrEmpty(Parameters.Type))
+            {
+                con = con.Where(p => p.Category.Name.ToLower() == Parameters.Type.ToLower());
+            }
 
-            QueryPageResult<Consultation> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
+            if (!string.IsNullOrEmpty(Parameters.SortBy))
+            {
+                //if (Parameters.SortBy.Equals("Type", StringComparison.OrdinalIgnoreCase))
+                //{
+                //    con = con.OrderBy(p => p.Category.Name);
+
+                //}
+                //else if (Parameters.SortBy.Equals("Type", StringComparison.OrdinalIgnoreCase))
+                //{
+                //    con = con.OrderByDescending(p => p.Category.Name);
+
+                //}
+                if (Parameters.SortBy.Equals("Oostdat", StringComparison.OrdinalIgnoreCase))
+                {
+                    con = con.OrderBy(p => p.PostDate);
+
+                }
+                else if (Parameters.SortBy.Equals("Oostdat", StringComparison.OrdinalIgnoreCase))
+                {
+                    con = con.OrderByDescending(p => p.PostDate);
+
+                }
+            }
+
+            QueryPageResult<Consultation> queryPageResult = CommonMethods.GetPageResult(con, Parameters);
 
             return queryPageResult;
 
