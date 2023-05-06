@@ -1,8 +1,9 @@
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace liaqati_master.Pages.Calender
 {
+    [AllowAnonymous]
+
     public class CalenderModel : PageModel
     {
 

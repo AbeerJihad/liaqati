@@ -1,5 +1,8 @@
 ﻿#nullable disable
 
+
+using AspNetCoreHero.ToastNotification.Abstractions;
+
 namespace liaqati_master.Pages.Products
 {
     public class CreateProductModel : PageModel
@@ -7,17 +10,19 @@ namespace liaqati_master.Pages.Products
         private readonly IRepoProducts _repoProducts;
         private readonly IRepoCategory _repoCategory;
         private readonly IRepoService _repoService;
+        private readonly INotyfService _toastNotification;
         private readonly IFormFileMang _IFormFileMang;
         private readonly IRepoFiles _RepoFiles;
 
 
-        public CreateProductModel(IFormFileMang iFormFileMang, IRepoFiles repoFiles, IRepoProducts repoProducts, IRepoCategory repoCategory, IRepoService repoService)
+        public CreateProductModel(IFormFileMang iFormFileMang, IRepoFiles repoFiles, IRepoProducts repoProducts, IRepoCategory repoCategory, IRepoService repoService, INotyfService toastNotification)
         {
             _IFormFileMang = iFormFileMang;
             _RepoFiles = repoFiles;
             _repoProducts = repoProducts;
             _repoCategory = repoCategory;
             _repoService = repoService;
+            _toastNotification = toastNotification;
         }
 
         public SelectList CatogeryName { get; set; }
@@ -48,7 +53,17 @@ namespace liaqati_master.Pages.Products
             Products.Id = Id;
             Products.Services!.Id = Id;
             await _repoService.AddEntityAsync(Products.Services);
-            await _repoProducts.AddEntityAsync(Products);
+            if ((await _repoProducts.AddEntityAsync(Products)).Id != null)
+            {
+                _toastNotification.Success("Same for success message");
+
+            }
+            else
+            {
+                _toastNotification.Error("Same for success message");
+
+            }
+
             List<Files> ImagesPaths = new();
             foreach (var item in Images)
             {

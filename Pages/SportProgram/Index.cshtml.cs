@@ -1,8 +1,7 @@
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Pages.SportProgram
 {
+    [AllowAnonymous]
+
     public class IndexModel : PageModel
     {
         readonly IRepoProgram _context;

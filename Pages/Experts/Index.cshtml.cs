@@ -1,17 +1,14 @@
-﻿using liaqati_master.Services.Repositories;
-using liaqati_master.ViewModels;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace liaqati_master.Pages.Experts
+﻿namespace liaqati_master.Pages.Experts
 {
+    [AllowAnonymous]
+
     public class IndexModel : PageModel
     {
         readonly IRepoUser _repocontextUser;
 
         public IndexModel(IRepoUser repocontextUser)
         {
-           _repocontextUser= repocontextUser;
+            _repocontextUser = repocontextUser;
 
             //Specialization _repocontextUser.GetAllTrainerAsync();
             //Specialization =Specialization.Select(b => b.S).ToList();
@@ -30,7 +27,7 @@ namespace liaqati_master.Pages.Experts
 
         public List<string> Specialization { get; set; }
 
-      
+
 
         [BindProperty(SupportsGet = true)]
         public UserQueryParamters Parameters { get; set; }

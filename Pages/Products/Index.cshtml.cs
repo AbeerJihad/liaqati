@@ -1,9 +1,8 @@
-﻿using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace liaqati_master.Pages.ProductsPages
+﻿namespace liaqati_master.Pages.ProductsPages
 {
+
+    [AllowAnonymous]
+
     public class IndexModel : PageModel
     {
         private readonly UnitOfWork _unitOfWork;

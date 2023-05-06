@@ -580,3 +580,11 @@ D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\refint\liaqati-master.
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.pdb
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.genruntimeconfig.cache
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\ref\liaqati-master.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.DiagnosticSource.dll

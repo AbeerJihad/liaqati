@@ -2,28 +2,85 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-page="/Index" title="Manage">Hello @User.Identity?.Name!</a>
-        </li>
-        <li class="nav-item">
-            <form method="post" asp-page="/accounts/login" asp-page-handler="Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
-                <button class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3">
-                    تسجيل الخروج
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <div class="accordion-item border-0 shadow-none">
+            <h2 class="accordion-header border-0 p-0">
+                <button class="accordion-button border-0 px-0"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseThere"
+                        aria-expanded="true"
+                        aria-controls="collapseThere">
+                    <div class="d-flex justify-content-center align-items-center">
+
+                        <div class="position-relative rounded-circle overflow-hidden me-2" style="width: 50px; height:50px">
+                            <img src="@User.FindFirstValue("Image")" class="position-absolute w-100 h-100 " alt="">
+                        </div>
+                        <div>
+                            <p class="m-0">
+                                مرحبا
+                                <span>@User.FindFirstValue("FirstName")</span>
+                            </p>
+
+                        </div>
+                    </div>
                 </button>
-            </form>
+            </h2>
+            <div id="collapseThere"
+                 class="accordion-collapse collapse"
+                 aria-labelledby="headingOne"
+                 data-bs-parent="#accordionExample">
+                <div class="accordion-body p-0">
+                    <ul class="sub-menu">
+                        <li><a class="sub-menu-item" href="#">Action</a></li>
+                        <li>
+                            <a class="sub-menu-item" href="#">Another action</a>
+                        </li>
+                        <li>
+                            <form class="is-inline" method="post" asp-page="/Account/logout" asp-area="Identity" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
+                                <button type="submit" class="btn btn-danger rounded-pill d-flex    justify-content-center align-items-center ">
+                                    <i class="bx bx-log-out  m-0 "></i>
+                                    تسجيل الخروج
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </li>
 
-        </li>
-    }
-    else
-    {
+}
+else
+{
+    <li class="nav-item">
+        <a class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3" asp-page="/accounts/login">
+            تسجيل الدخول
+        </a>
+    </li>
+}
+@*
+            <li class="nav-item">
+            <div class="d-flex justify-content-center align-items-center">
 
-        <li class="nav-item">
-            <a class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3" asp-page="/accounts/login">
-                تسجيل الدخول
-            </a>
+                <div class="position-relative rounded-circle overflow-hidden me-2" style="width: 50px; height:50px">
+                    <img src="@User.FindFirstValue("Image")" class="position-absolute w-100 h-100 " alt="">
+                </div>
+                <div>
+                    <p class="m-0">
+                        مرحبا
+                        <span>@User.FindFirstValue("FirstName")</span>
+                        <i class="bi bi-chevron-down ms-2"></i>
+                    </p>
+
+                </div>
+            </div>
         </li>
-    }
-</ul>
+<form method="post" asp-page="/accounts/login" asp-page-handler="Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
+        <button class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3">
+        تسجيل الخروج
+        </button>
+        </form>
+        *@

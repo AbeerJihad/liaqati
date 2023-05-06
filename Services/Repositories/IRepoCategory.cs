@@ -83,6 +83,27 @@
                 return new Category();
             }
         }
+
+        public async Task<QueryPageResult<Category>> SearchCategory(CategoriesQueryParamters Parameters)
+
+        {
+            IQueryable<Category> categories = (await GetAllAsync()).AsQueryable();
+            if (Parameters.catName != null)
+            {
+                categories = categories.Where(x => x.Name.Contains(Parameters.catName));
+            }
+            if (Parameters.catDescription != null)
+            {
+                categories = categories.Where(x => x.Description.ToLower().Contains(Parameters.catDescription.ToLower()));
+            }
+            if (Parameters.catTarget != null && Parameters.catTarget != "-1")
+            {
+                categories = categories.Where(x => x.Target == Parameters.catTarget);
+            }
+
+            QueryPageResult<Category> queryPageResult = CommonMethods.GetPageResult(categories, Parameters);
+            return queryPageResult;
+        }
     }
 }
 

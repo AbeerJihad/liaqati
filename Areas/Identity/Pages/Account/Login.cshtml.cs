@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace liaqati_master.Pages.Accounts
 {
+    [AllowAnonymous]
     public class LoginModel : PageModel
     {
         public SignInManager<User> SignInManager;

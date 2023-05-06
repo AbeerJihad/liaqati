@@ -898,9 +898,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "41",
                             Calories = 491,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8469),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1119),
                             DietaryType = "Omnivore",
-                            Image = "1.jpg",
+                            Image = "/images/HealthyRecipes/1.jpg",
                             MealType = "Dinner",
                             PrepTime = 50,
                             Protein = 35,
@@ -911,9 +911,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "42",
                             Calories = 156,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8617),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1215),
                             DietaryType = "Vegetarian",
-                            Image = "2.jpg",
+                            Image = "/images/HealthyRecipes/2.jpg",
                             MealType = "Snack",
                             PrepTime = 5,
                             Protein = 4,
@@ -924,9 +924,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "43",
                             Calories = 379,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8654),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1220),
                             DietaryType = "Omnivore",
-                            Image = "3.jpg",
+                            Image = "/images/HealthyRecipes/3.jpg",
                             MealType = "Lunch",
                             PrepTime = 50,
                             Protein = 32,
@@ -937,9 +937,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "44",
                             Calories = 19,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8659),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1224),
                             DietaryType = "Vegetarian",
-                            Image = "4.jpg",
+                            Image = "/images/HealthyRecipes/4.jpg",
                             MealType = "Snack",
                             PrepTime = 60,
                             Protein = 5,
@@ -950,9 +950,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "45",
                             Calories = 170,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8664),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1227),
                             DietaryType = "Omnivore",
-                            Image = "5.png",
+                            Image = "/images/HealthyRecipes/5.png",
                             MealType = "Snack",
                             PrepTime = 60,
                             Protein = 5,
@@ -963,9 +963,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "46",
                             Calories = 180,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8669),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1232),
                             DietaryType = "Vegetarian",
-                            Image = "6.jpg",
+                            Image = "/images/HealthyRecipes/6.jpg",
                             MealType = "Lunch",
                             PrepTime = 30,
                             Protein = 4,
@@ -976,9 +976,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "47",
                             Calories = 538,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8674),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1235),
                             DietaryType = "Omnivore",
-                            Image = "7.jpg",
+                            Image = "/images/HealthyRecipes/7.jpg",
                             MealType = "Dinner",
                             PrepTime = 35,
                             Protein = 37,
@@ -989,9 +989,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "48",
                             Calories = 30,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8681),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1267),
                             DietaryType = "Vegetarian",
-                            Image = "8.jpg",
+                            Image = "/images/HealthyRecipes/8.jpg",
                             MealType = "Breakfast",
                             PrepTime = 10,
                             Protein = 5,
@@ -1002,9 +1002,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "49",
                             Calories = 110,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8686),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1271),
                             DietaryType = "Vegetarian",
-                            Image = "9.png",
+                            Image = "/images/HealthyRecipes/9.png",
                             MealType = "Breakfast",
                             PrepTime = 15,
                             Protein = 5,
@@ -1015,9 +1015,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "50",
                             Calories = 40,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8692),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1275),
                             DietaryType = "Vegetarian",
-                            Image = "10.png",
+                            Image = "/images/HealthyRecipes/10.png",
                             MealType = "SideDish",
                             PrepTime = 60,
                             Protein = 8,
@@ -1028,9 +1028,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "51",
                             Calories = 125,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8696),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1280),
                             DietaryType = "Vegetarian",
-                            Image = "11.png",
+                            Image = "/images/HealthyRecipes/11.png",
                             MealType = "Lunch",
                             PrepTime = 50,
                             Protein = 5,
@@ -1041,9 +1041,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "52",
                             Calories = 66,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8701),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1285),
                             DietaryType = "Omnivore",
-                            Image = "12.png",
+                            Image = "/images/HealthyRecipes/12.png",
                             MealType = "Snack",
                             PrepTime = 30,
                             Protein = 5,
@@ -1054,9 +1054,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "53",
                             Calories = 110,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8737),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1289),
                             DietaryType = "Vegetarian",
-                            Image = "13.jpg",
+                            Image = "/images/HealthyRecipes/13.jpg",
                             MealType = "Lunch",
                             PrepTime = 30,
                             Protein = 7,
@@ -1067,9 +1067,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "54",
                             Calories = 145,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8742),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1292),
                             DietaryType = "Omnivore",
-                            Image = "14.jpg",
+                            Image = "/images/HealthyRecipes/14.jpg",
                             MealType = "Lunch",
                             PrepTime = 60,
                             Protein = 17,
@@ -1080,9 +1080,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "55",
                             Calories = 25,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8762),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1295),
                             DietaryType = "Vegetarian",
-                            Image = "15.png",
+                            Image = "/images/HealthyRecipes/15.png",
                             MealType = "SideDish",
                             PrepTime = 15,
                             Protein = 8,
@@ -1093,9 +1093,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "56",
                             Calories = 150,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8776),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1299),
                             DietaryType = "Omnivore",
-                            Image = "16.jpg",
+                            Image = "/images/HealthyRecipes/16.jpg",
                             MealType = "Snack",
                             PrepTime = 30,
                             Protein = 5,
@@ -1106,9 +1106,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "57",
                             Calories = 50,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8786),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1302),
                             DietaryType = "Vegetarian",
-                            Image = "17.jpg",
+                            Image = "/images/HealthyRecipes/17.jpg",
                             MealType = "Dinner",
                             PrepTime = 20,
                             Protein = 4,
@@ -1119,9 +1119,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "58",
                             Calories = 65,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8831),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1306),
                             DietaryType = "Omnivore",
-                            Image = "18.jpg",
+                            Image = "/images/HealthyRecipes/18.jpg",
                             MealType = "Breakfast",
                             PrepTime = 30,
                             Protein = 15,
@@ -1132,9 +1132,9 @@ namespace liaqati_master.Migrations
                         {
                             Id = "59",
                             Calories = 34,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8836),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1310),
                             DietaryType = "Omnivore",
-                            Image = "19.jpg",
+                            Image = "/images/HealthyRecipes/19.jpg",
                             MealType = "Breakfast",
                             PrepTime = 15,
                             Protein = 0,
@@ -1143,11 +1143,11 @@ namespace liaqati_master.Migrations
                         },
                         new
                         {
-                            Id = "6-",
+                            Id = "60",
                             Calories = 45,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8840),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1314),
                             DietaryType = "Omnivore",
-                            Image = "20.jpg",
+                            Image = "/images/HealthyRecipes/20.jpg",
                             MealType = "Breakfast",
                             PrepTime = 240,
                             Protein = 7,
@@ -1156,9 +1156,69 @@ namespace liaqati_master.Migrations
                         },
                         new
                         {
+                            Id = "65",
+                            Calories = 250,
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1317),
+                            Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
+                            DietaryType = "حيواني",
+                            Image = "/Images/HealthyRecipes/1.jpg",
+                            Ingredients = "بيضات كاملة,100,غرام\n الديك الرومي المطحون الخالي من الد,60,غرام\nتوابل التاكو ,2,غرام\n الفلفل الأخضر الجرس,20,غرام\n الفلفل الأحمر,20,غرام\n البصل الأحمر,20,غرام\nصلصة,15,غرام\n زبادي يوناني قليل الدسم,15,غرام\n البصل الأخضر,10,غرام\n",
+                            MealType = "وجبة الإفطار",
+                            PrepTime = 12,
+                            PreparationMethod = "دهن مقلاة غير لاصقة بقليل من بخاخ تحرير المقلاة وقم بالتسخين المسبق على حرارة متوسطة إلى عالية.\r\nبمجرد أن يسخن , افرم الديك الرومي المطحون في المقلاة ورشي توابل التاكو مع التقليب حتى تمتزج. يُطهى لمدة 3-4 دقائق مع التحريك من حين لآخر أو حتى ينضج تمامًا ويصبح لونه بنيًا جيدًا. بمجرد طهيه , باستخدام ملعقة مثقوبة , أخرج الديك الرومي من المقلاة وضعه جانبًا على طبق.\r\n, دهن المقلاة برفق مرة أخرى وعاد إلى درجة حرارة متوسطة إلى عالية. يُضاف الفلفل والبصل ويُطهى لمدة 3-4 دقائق أو حتى ينضج.\r\n, بمجرد أن تصبح الخضار طرية , أعد الديك الرومي المطحون إلى المقلاة وقلّب المزيج. باستخدام ملعقة مشقوقة , تُرفع الخضار والديك الرومي المفروم من المقلاة , ويُترك جانباً على الطبق , ويُتبل قليلاً بالملح والفلفل حسب الرغبة.\r\n, أعد المقلاة إلى درجة حرارة متوسطة إلى عالية. بمجرد أن يسخن , أضف البيض ولفه لتغطي قاع المقلاة.\r\n,يُغطّى ويُطهى لمدة 2-3 دقائق أو حتى يصبح البيض متماسكًا وينضج تمامًا. أخرج البيضة من المقلاة بحذر وانقلها إلى طبق التقديم.\r\nوزعي البيض بالديك الرومي والخضار والصلصة. دولوب مع الزبادي ورش البصل الأخضر قبل التقديم.",
+                            Price = 0.0,
+                            Protein = 24,
+                            RatePercentage = 0.0,
+                            ShortDescription = "",
+                            Title = " فاهيتا أوميليت مفتوح الوجه مع تركيا المطحونة والفلفل والبصل",
+                            Total_Carbohydrate = 6,
+                            ViewsNumber = 0
+                        },
+                        new
+                        {
+                            Id = "66",
+                            Calories = 269,
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1321),
+                            Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
+                            DietaryType = "حيواني",
+                            Image = "/Images/HealthyRecipes/2.jpg",
+                            Ingredients = " الريحان الطازج,2,غرام\n خيارة,60,غرام\n جبن كوخ قليل الدسم ,2,غرام\n  كعكة القمح الكامل الإنجليزية ,20,غرام\n الخل البلسمي ,20,غرام\n  البارود الأسود,20,غرام\nالتوابل الإيطالية,15,غرام\n صدر دجاج,15,غرام\nزيت الزيتون,10,غرام\n",
+                            MealType = "طبق جانبي,وجبة غداء",
+                            PrepTime = 15,
+                            PreparationMethod = ", قم بالتسخين المسبق لشواية الغاز إلى درجة حرارة متوسطة إلى عالية أو الفحم المسبق لشواية الفحم., صدر الدجاج يجفف بالمناشف الورقية ويوضع على طبق ويتبل قليلا بالتوابل الإيطالية والفلفل الأسود والخل البلسمي ورشة ملح., ضع الدجاج جانبًا لينقع لمدة 10 دقائق بينما تسخن الشواية مسبقًا., بمجرد أن تصبح الشواية ساخنة ، أضيفي الدجاج واطهيها لمدة 2-3 دقائق لكل جانب أو حتى تفحم قليلاً وتنضج بالكامل. تُرفع عن الشواية وتترك جانباً لترتاح قبل التقطيع., ملعقة وافرد الجبن القريش على الكعك الإنجليزي المحمص. يُغطى التوست المُجهز بشرائح الدجاج وشرائح الخيار والريحان الطازج. الموسم الى الذوق مع الملح والفلفل.",
+                            Price = 0.0,
+                            Protein = 26,
+                            RatePercentage = 0.0,
+                            ShortDescription = "",
+                            Title = "خيار وجبن كوخ وخبز محمص دجاج مشوي مع الخل البلسمي والأعشاب الإيطالية",
+                            Total_Carbohydrate = 30,
+                            ViewsNumber = 0
+                        },
+                        new
+                        {
+                            Id = "67",
+                            Calories = 273,
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1324),
+                            Description = " <p class=\"fs-6\">\r\n                            تساعد على تنظيف الجسم من السموم وتخليصه من الأمراض المختلفة، إذ يمكن عمله\r\n                            بطرق عدة باستخدام أنواع مختلفة من الخضار والفواكه، وهذه المشروبات تساعد في\r\n                            حميات إنقاص الوزن وتعزز الصحة العامة، هنا سنقدم طريقة عمل عصير ديتوكس\r\n                        </p>",
+                            DietaryType = "نباتي",
+                            Image = "/user/images/pexels-toni-cuenca-616833.png",
+                            Ingredients = " الريحان الطازج,2,غرام\n خيارة,60,غرام\n جبن كوخ قليل الدسم ,2,غرام\n  كعكة القمح الكامل الإنجليزية ,20,غرام\n الخل البلسمي ,20,غرام\n  البارود الأسود,20,غرام\nالتوابل الإيطالية,15,غرام\n صدر دجاج,15,غرام\nزيت الزيتون,10,غرام\n",
+                            MealType = "مشروبات",
+                            PrepTime = 30,
+                            PreparationMethod = "  <ol>\r\n                    <li>اغسلي جميع الخضار والفواكه وقطعيها لقطع متوسطة يسهل وضعها في الخلاط.</li>\r\n                    <li>ضعي الخضار والفواكه في العصارة أو الخلاط الكهربائي واحداً تلو الآخر واخلطيها لمدة أربع دقائق حتى تتجانس المكونات.</li>\r\n                    <li>قدمي العصير مبرداً واحفظيه في الثلاجة إذ يمكن تناوله خلال سبع أيام.</li>\r\n                  \r\n                </ol>",
+                            Price = 0.0,
+                            Protein = 20,
+                            RatePercentage = 5.0,
+                            ShortDescription = "",
+                            Title = "مشروب الديتوكس الأخضر",
+                            Total_Carbohydrate = 43,
+                            ViewsNumber = 0
+                        },
+                        new
+                        {
                             Id = "61",
                             Calories = 250,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8847),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1327),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/1.jpg",
@@ -1178,7 +1238,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "62",
                             Calories = 269,
-                            CreatedDate = new DateTime(2023, 4, 30, 16, 34, 5, 278, DateTimeKind.Local).AddTicks(8853),
+                            CreatedDate = new DateTime(2023, 5, 4, 17, 31, 39, 690, DateTimeKind.Local).AddTicks(1331),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/2.jpg",
@@ -1194,6 +1254,28 @@ namespace liaqati_master.Migrations
                             Total_Carbohydrate = 30,
                             ViewsNumber = 0
                         });
+                });
+
+            modelBuilder.Entity("liaqati_master.Models.Ingredent", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TblIngredent");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Meal_Healthy", b =>
@@ -1874,7 +1956,6 @@ namespace liaqati_master.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CategoryId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
@@ -2392,7 +2473,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "32d858b5-d71e-477c-a11e-f74e353275b3",
+                            ConcurrencyStamp = "44364db7-d4a9-4897-8a23-dd043907b0db",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -2403,7 +2484,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "0ca08439-06f6-46b2-b10c-6da52febd33c",
+                            SecurityStamp = "593b162c-3794-45c9-9d55-317ff9e8adce",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });
@@ -2807,9 +2888,7 @@ namespace liaqati_master.Migrations
                 {
                     b.HasOne("liaqati_master.Models.Category", "Category")
                         .WithMany("Services")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
                 });

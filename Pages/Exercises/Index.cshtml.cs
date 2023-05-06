@@ -1,9 +1,9 @@
-﻿using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿
 
 namespace liaqati_master.Pages.Exercises
 {
+    [AllowAnonymous]
+
     public class IndexModel : PageModel
     {
         readonly IRepoExercise _repocontextExer;

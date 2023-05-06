@@ -106,6 +106,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
 
+* {
+    font-family: 'Cairo', sans-serif;
+}
 
 html {
     max-width: 100vw;
@@ -3410,7 +3413,7 @@ table tbody .border-bottom-warning td {
             left: calc(50vw - 75px);
         }
 
-            .loader-wrapper .theme-loader .loader-p:before {
+            .loader-wrapper .theme-loader .loader-p::before {
                 content: '';
                 border: 1em solid #A566C8;
                 border-radius: 50%;
@@ -3426,7 +3429,7 @@ table tbody .border-bottom-warning td {
                 animation-delay: 0.5s;
             }
 
-            .loader-wrapper .theme-loader .loader-p:after {
+            .loader-wrapper .theme-loader .loader-p::after {
                 content: '';
                 border: 1em solid #A566C8;
                 border-radius: 50%;
@@ -7484,7 +7487,7 @@ table tbody .border-bottom-warning td {
                 }
 
                     .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu > li .nav-link.active, .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu > li .nav-link:hover {
-                        background-color: #A566C8;
+                        background-image: linear-gradient(to right, #a566c8 0%, #5e3276 51%, #a566c8 100%);
                         color: white;
                         -webkit-transition: all 0.5s ease;
                         transition: all 0.5s ease;
@@ -8315,8 +8318,8 @@ table tbody .border-bottom-warning td {
     }
 
 .btn-primary-gradien {
-    background-image: -webkit-gradient(linear, left top, right top, from(#2e8777), color-stop(51%, #1a4b41), to(#2e8777));
-    background-image: linear-gradient(to right, #2e8777 0%, #1a4b41 51%, #2e8777 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#a566c8), color-stop(51%, #5e3276), to(#a566c8));
+    background-image: linear-gradient(to right, #a566c8 0%, #5e3276 51%, #a566c8 100%);
     border: none;
     color: #fff;
     background-size: auto 200%;
@@ -8324,16 +8327,14 @@ table tbody .border-bottom-warning td {
     transition: all 0.3s ease;
 }
 
-    .btn-primary-gradien:hover {
-        color: #242934 !important;
-    }
+
 
     .btn-primary-gradien:focus, .btn-primary-gradien:active, .btn-primary-gradien.active {
         -webkit-transition: 1.5s;
         transition: 1.5s;
         background-position: right center;
-        background-image: -webkit-gradient(linear, left top, right top, from(#2e8777), color-stop(0%), color-stop(#1a4b41), color-stop(100%), to(#fff)) !important;
-        background-image: linear-gradient(to right, #2e8777, 0%, #1a4b41, 100%, #fff) !important;
+        background-image: -webkit-gradient(linear, left top, right top, from(#a566c8), color-stop(0%), color-stop(#5e3276), color-stop(100%), to(#fff)) !important;
+        background-image: linear-gradient(to right, #a566c8, 0%, #5e3276, 100%, #fff) !important;
     }
 
 .btn-secondary-gradien {
@@ -43955,7 +43956,7 @@ span.twitter-typeahead .tt-suggestion {
 }
 
 
-.form-control, .form-select {
+.form-control:not(textarea), .form-select {
     height: 40px !important;
     display: inline-block;
     font-size: 1rem !important;
@@ -43994,3 +43995,8 @@ input::file-selector-button {
     60. RTL CSS Ends
 ==========================**/
 /*# sourceMappingURL=style.css.map */
+
+
+.swal2-styled.swal2-default-outline:focus, .swal2-styled.swal2-confirm:focus {
+    box-shadow: 0 0 0 3px rgba(165, 102, 200,.5) !important;
+}

@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "u2sJi4rCpedRSV+2pr/rIIqeo5cIXywS1XO1of3fc9kh7tZm+RjaIRWHU8hni36eTAlakBEN9rODaGTfC919tw==",
+  "dgSpecHash": "M6PmDpgGBWhk7LC+6CZdJhCEePMMwG/k9CBf0QjY0NHgkmjjeo5IxiCiFZAECBFM8DrxIrEf45x/PB6vfCALtA==",
   "success": true,
   "projectFilePath": "D:\\Graduation Project\\LastUpdate\\liaqati\\liaqati-master.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\SUBEH\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\bouncycastle.cryptography\\2.1.1\\bouncycastle.cryptography.2.1.1.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\SUBEH\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\mailkit\\4.0.0\\mailkit.4.0.0.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
@@ -207,7 +209,8 @@
     "C:\\Users\\SUBEH\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\SUBEH\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\SUBEH\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\SUBEH\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\SUBEH\\.nuget\\packages\\toastr\\2.1.1\\toastr.2.1.1.nupkg.sha512"
   ],
   "logs": []
 }
