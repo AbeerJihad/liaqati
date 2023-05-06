@@ -89,10 +89,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="Areas\Admin\Pages\Categories\IndexAll.cshtml" />
+		<None Include="Areas\Admin\Pages\Orders\Create.cshtml" />
+		<None Include="Areas\Admin\Pages\Orders\Delete.cshtml" />
+		<None Include="Areas\Admin\Pages\Orders\Details.cshtml" />
+		<None Include="Areas\Admin\Pages\Orders\Edit.cshtml" />
+		<None Include="Areas\Admin\Pages\Orders\Index.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Create.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Delete.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Edit.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Index.cshtml" />
+		<None Include="Pages\HealthyRecipes\Components\GenericComponentHealthyRecipes\default.cshtml" />
+		<None Include="Pages\HealthyRecipes\Components\MostViewedHealthyRecipes\default.cshtml" />
+		<None Include="Pages\HealthyRecipes\HealthyRecipesDetiles.cshtml" />
+		<None Include="Pages\HealthyRecipes\Index.cshtml" />
+		<None Include="Pages\HealthyRecipes\_HealthyRecipeCard.cshtml" />
+		<None Include="Pages\HealthyRecipes\_HealthyRecipeSkeletonCard.cshtml" />
+		<None Include="Pages\HealthyRecipes\_HealthyRecipeSmallCard.cshtml" />
+		<None Include="Pages\Home\Index.cshtml" />
+		<None Include="Pages\Shared\Components\LastestMealPlans\default.cshtml" />
 		<None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
 		<None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
 		<None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
@@ -2443,6 +2458,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
 		<PackageReference Include="MailKit" Version="4.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.16" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
@@ -2459,6 +2475,7 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
 		<PackageReference Include="MimeKit" Version="4.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="toastr" Version="2.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>

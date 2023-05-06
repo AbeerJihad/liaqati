@@ -1,10 +1,7 @@
-﻿using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Identity;
-
-namespace liaqati_master.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
-  //  [ApiController]
+    //  [ApiController]
     public class UserApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
@@ -35,14 +32,7 @@ namespace liaqati_master.Controllers
         [Route("searchforExperts")]
         public async Task<ActionResult> SearchForExperts([FromBody] UserQueryParamters exqParameters)
         {
-            return Ok(await _repoUser.SearchExpert(exqParameters));
-
-
-            
-
-
+            return Ok(await _repoUser.SearchUser(exqParameters));
         }
-
-
     }
 }

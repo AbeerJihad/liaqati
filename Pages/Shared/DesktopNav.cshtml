@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity;
 @inject UserManager<User> userManager
 @inject SignInManager<User> signManager
+
 <nav class="navbar-container shadow bg-white-with-blur p-0 px-2 position-relative d-none d-lg-flex position-fixed w-100">
     <div class="container-xl p-0">
         <div class="d-flex">
@@ -32,7 +33,8 @@
                             <li class="d-flex justify-content-center align-items-center h-100">
                                 <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
                                    asp-page="/HealthyRecipes/index">
-                                    <img src="~/images/home/healthy.jpeg" alt="" class="img-fluid" />الوصفات الغذائية </a>
+                                    <img src="~/images/home/healthy.jpeg" alt="" class="img-fluid" />الوصفات الغذائية
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -52,9 +54,12 @@
                     <li class="nav-item d-flex justify-content-center align-items-center">
                         <a class="nav-link" aria-current="page" href="#">من نحن</a>
                     </li>
-                    <li class="nav-item d-flex justify-content-center align-items-center">
-                        <a class="nav-link" aria-current="page" asp-area="admin" asp-page="/Dashboard/Index">لوحة التحكم</a>
-                    </li>
+                    @if (User.FindFirstValue(Database.Admin) == "true")
+                    {
+                        <li class="nav-item d-flex justify-content-center align-items-center">
+                            <a class="nav-link" aria-current="page" asp-area="admin" asp-page="/Dashboard/Index">لوحة التحكم</a>
+                        </li>
+                    }
                 </ul>
                 <div class="d-flex justify-content-between gap-2 align-items-center">
                     <div class="fav-cart d-flex justify-content-between align-items-center">
@@ -63,13 +68,10 @@
                         </a>
                         <a href="" title="cart"><i class="bi bi-heart-fill h3"></i></a>
                     </div>
-                    <button class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3">
-                        تسجيل الدخول
-                    </button>
+
+                    <partial name="_LoginPartialDesktopNav" />
                 </div>
             </div>
-
-
         </div>
     </div>
 </nav>

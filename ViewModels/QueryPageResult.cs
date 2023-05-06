@@ -8,6 +8,7 @@
         public int LastRowOnPage { get; set; }
         public int? PreviousPage { get; set; }
         public int? NextPage { get; set; }
+        public List<(string, string)>? ListOfSelectedFilters { get; set; }
         public IQueryable<T> ListOfData { get; set; }
     }
 

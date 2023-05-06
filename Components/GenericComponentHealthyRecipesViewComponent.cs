@@ -1,6 +1,4 @@
-﻿using liaqati_master.Services.Repositories;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class GenericComponentHealthyRecipesViewComponent : ViewComponent
     {
@@ -19,21 +17,16 @@ namespace liaqati_master.Components
             {
                 ViewData["ComponentTitle"] = "أحدث الوصفات";
                 ListOfHealthyRecipe = (await _repoHealthyRecipe.GetAllAsync()).OrderByDescending(article => article.CreatedDate).Take(4).ToList();
-
             }
             else if (flag == 1)
             {
                 ViewData["ComponentTitle"] = "الأكثر تقيماً";
-
                 ListOfHealthyRecipe = (await _repoHealthyRecipe.GetAllAsync()).OrderByDescending(article => article.RatePercentage).Take(4).ToList();
-
             }
             else if (flag == 2)
             {
                 ViewData["ComponentTitle"] = "مميزة";
-
                 ListOfHealthyRecipe = (await _repoHealthyRecipe.GetAllAsync()).Where(article => article.IsFeatured ?? false).Take(4).ToList();
-
             }
             return View(ListOfHealthyRecipe);
         }

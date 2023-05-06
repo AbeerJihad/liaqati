@@ -2,6 +2,16 @@
 {
     public static class Database
     {
+        public static string AdminPolicy => "AdminPolicy";
+        public static string ExpertPolicy => "ExpertPolicy";
+        public static string UserPolicy => "UserPolicy";
+        public static string Admin => "Admin";
+        public static string Expert => "Expert";
+        public static string User => "User";
+        public static string PerventDisabledPolicy => "PerventDisabledPolicy";
+        public static string LoggedInPolicy => "LoggedInPolicy";
+
+
         public static List<SportsProgram> GetListOfSportsProgram()
         {
             return new List<SportsProgram>()
@@ -183,7 +193,6 @@
         public static List<SelectListItem> GetListOfTrainingType() => new()
         {
             new SelectListItem() { Text = "HIIT" ,Value = "HIIT" },
-            new SelectListItem() { Text = "تدريب القوة" ,Value = "تدريب القوة" },
             new SelectListItem() { Text = "بيلاتيس" ,Value = "بيلاتيس" },
             new SelectListItem() { Text = "كيتل بيل" ,Value = "كيتل بيل" },
             new SelectListItem() { Text = "الكيك بوكسينغ" ,Value = "الكيك بوكسينغ" },
@@ -1237,6 +1246,11 @@
             };
 
         }
+
+
+
+
+
     }
 
 }

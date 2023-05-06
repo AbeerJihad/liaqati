@@ -86,6 +86,9 @@
         public async Task<ExerciseQueryPageResult> SearchExercies(ExerciseQueryParamters exqParameters)
         {
             IQueryable<Exercise> exercises = (await GetAllAsync()).AsQueryable();
+
+            List<(string, string)> ListOfSelectedFilters = new List<(string, string)>();
+
             if (exqParameters.MinDuration != null)
             {
                 exercises = exercises.Where(p => p.Duration >= exqParameters.MinDuration);
@@ -94,6 +97,7 @@
             {
                 exercises = exercises.Where(p => p.Duration <= exqParameters.MaxDuration);
             }
+
             if (!string.IsNullOrEmpty(exqParameters.SearchTearm))
             {
                 exercises = exercises.Where(p => p.Title != null && p.Title.ToLower().Contains(exqParameters.SearchTearm.ToLower()) || p.ShortDescription!.ToLower().Contains(exqParameters.SearchTearm.ToLower()));
@@ -265,7 +269,8 @@
                 BodyfocusCounters = BodyfocusCounters,
                 DifficultyCounters = DifficultyCounters,
                 EquipmentCounters = EquipmentCounters,
-                TraningTypeCounters = TraningTypeCounters
+                TraningTypeCounters = TraningTypeCounters,
+
             };
 
 

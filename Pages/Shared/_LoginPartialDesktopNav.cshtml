@@ -1,0 +1,61 @@
+﻿@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@if (!SignInManager.IsSignedIn(User))
+{
+    <a asp-page="/Account/login" asp-area="Identity" class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3">
+        تسجيل الدخول
+    </a>
+
+}
+else
+{
+    <ul class="account m-0 p-0">
+        <li class="nav-item  d-flex justify-content-center align-items-center hoverabllink position-relative">
+            <a class="nav-link" href="#" role="button">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="position-relative rounded-circle overflow-hidden me-2" style="width: 50px; height:50px">
+                        <img src="@User.FindFirstValue("Image")" class="position-absolute w-100 h-100 " alt="">
+                    </div>
+                    <div>
+                        <p class="m-0">
+                            مرحبا
+                            <span>@User.FindFirstValue("FirstName")</span>
+                        </p>
+                        <p class="m-0 text-truncate">
+                            <span>@User.FindFirstValue(ClaimTypes.Email)</span>
+                            <i class="bi bi-chevron-down ms-2"></i>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <ul class="bg-light w-auto flex-column px-2 login-menu text-dark position-absolute  justify-content-center align-items-center border-0">
+                <li class="d-flex justify-content-center align-items-center w-100 h-100">
+                    <a class="text-decoration-none text-black  px-4 w-100 h-100 d-flex justify-content-center align-items-center  p-3" href="#">
+                        <i class="bx bxs-dashboard h3 m-0 m-2"></i>
+                        تمارين رياضية
+                    </a>
+                </li>
+                <li class="d-flex justify-content-center align-items-center w-100 h-100">
+                    <a class="text-decoration-none text-black  px-4 w-100 h-100 d-flex justify-content-center align-items-center  p-3" href="#">
+                        <i class="bx bxs-dashboard h3 m-0 m-2"></i>
+                        تمارين رياضية
+                    </a>
+                </li>
+                <li class="d-flex justify-content-center align-items-center p-3 w-100 h-100" style="border-top:1px solid #e5e5e5;text-align: center;">
+                    <form class="is-inline" method="post" asp-page="/Account/logout" asp-area="Identity">
+                        <button type="submit" class="btn btn-danger rounded-pill d-flex   justify-content-center align-items-center ">
+                            <i class="bx bx-log-out  m-0 "></i>
+                            تسجيل الخروج
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+}
+@* <form method="post" asp-page="/accounts/login" asp-page-handler="Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
+        <button class="btn-main col-auto text-white rounded-4  d-inline-block border-0 py-2 px-3">
+        تسجيل الخروج
+        </button>
+        </form>
+        *@

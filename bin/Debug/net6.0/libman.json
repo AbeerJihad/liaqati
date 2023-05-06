@@ -21,6 +21,22 @@
     {
       "library": "select2@4.0.13",
       "destination": "wwwroot/lib/select2/"
+    },
+    {
+      "library": "boxicons@2.1.4",
+      "destination": "wwwroot/lib/boxicons/"
+    },
+    {
+      "library": "waypoints@4.0.1",
+      "destination": "wwwroot/lib/waypoints/"
+    },
+    {
+      "library": "apexcharts@3.40.0",
+      "destination": "wwwroot/lib/apexcharts/"
+    },
+    {
+      "library": "Counter-Up@1.0.0",
+      "destination": "wwwroot/lib/Counter-Up/"
     }
   ]
 }

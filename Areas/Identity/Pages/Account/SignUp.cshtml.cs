@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Security.Claims;
 using System.Text;
@@ -7,6 +7,7 @@ using System.Text.Encodings.Web;
 
 namespace liaqati_master.Pages.Accounts
 {
+    [AllowAnonymous]
     public class SignUpModel : PageModel
     {
 

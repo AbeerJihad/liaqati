@@ -1,10 +1,9 @@
 ﻿@page
+@using Microsoft.AspNetCore.Components;
 @model liaqati_master.Areas.Admin.Pages.Programs.IndexProgramModel
 @{
     ViewData["Title"] = "قائمة البرامج";
     ViewData["LinkName"] = "Programs";
-
-
     var parms = new Dictionary<string, string>
     {
         {nameof(Model.SportProgramQueryParamters.CurPage),Model.SportProgramQueryParamters.CurPage.ToString()},
@@ -12,7 +11,25 @@
         {nameof(Model.SportProgramQueryParamters.SortOrder),Model.SportProgramQueryParamters.SortOrder},
         {nameof(Model.SportProgramQueryParamters.SearchTearm),Model.SportProgramQueryParamters.SearchTearm??""},
         {nameof(Model.SportProgramQueryParamters.Size),Model.SportProgramQueryParamters.Size.ToString()},
+        {nameof(Model.SportProgramQueryParamters.Title),Model.SportProgramQueryParamters.Title??""},
+
     };
+    if (Model.SportProgramQueryParamters.BodyFocus is not null)
+    {
+        parms.Add(nameof(Model.BodyFocusParams), string.Join(',', Model.SportProgramQueryParamters.BodyFocus).ToString());
+    }
+    if (Model.SportProgramQueryParamters.TraningType is not null)
+    {
+        parms.Add(nameof(Model.TraningTypeParams), string.Join(',', Model.SportProgramQueryParamters.TraningType).ToString());
+    }
+    if (Model.SportProgramQueryParamters.Difficulty is not null)
+    {
+        parms.Add(nameof(Model.DifficultyParams), string.Join(',', Model.SportProgramQueryParamters.Difficulty).ToString());
+    }
+    if (Model.SportProgramQueryParamters.Equipment is not null)
+    {
+        parms.Add(nameof(Model.EquipmentParams), string.Join(',', Model.SportProgramQueryParamters.Equipment).ToString());
+    }
     if (Model.SportProgramQueryParamters.SortOrder == "asc")
         parms["SortOrder"] = "desc";
     else
@@ -25,6 +42,50 @@
     <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.rtl.min.css" rel="stylesheet" />
 }
 <form method="get" class="">
+    <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="staticBackdropLabel">تصفية</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pb-5">
+            <div class="d-flex flex-column gap-3">
+
+                <div class="d-flex  py-2">
+                    <input class="form-control " asp-for="@Model.SportProgramQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
+                </div>
+                <div class="d-flex ">
+                    <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.SportProgramQueryParamters.Title" id="single-select-field" data-placeholder="من فضلك حدد اسم الصنف">
+                        <option value="">من فضلك حدد اسم الصنف</option>
+                    </select>
+                </div>
+                <div class="d-flex ">
+                    <select name="BodyFocus" class="form-select w-100" asp-items="@Model.BodyFocus" asp-for="@Model.SportProgramQueryParamters.BodyFocus" id="multiple-select-BodyFocus" data-placeholder="من فضلك حدد اسم الصنف" multiple>
+                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    </select>
+                </div>
+                <div class="d-flex ">
+                    <select name="TraningType" class="form-select w-100" asp-items="@Model.TraningType" asp-for="@Model.SportProgramQueryParamters.TraningType" id="multiple-select-TraningType" data-placeholder="من فضلك حدد اسم الصنف" multiple>
+                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    </select>
+                </div>
+                <div class="d-flex  ">
+                    <select name="Equipment" class="form-select w-100" asp-items="@Model.Equipment" asp-for="@Model.SportProgramQueryParamters.Equipment" id="multiple-select-Equipment" data-placeholder="من فضلك حدد اسم الصنف" multiple>
+                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    </select>
+                </div>
+                <div class="d-flex  ">
+                    <select name="Difficulty" class="form-select w-100" asp-items="@Model.Difficulty" asp-for="@Model.SportProgramQueryParamters.Difficulty" id="multiple-select-Difficulty" data-placeholder="من فضلك حدد اسم الصنف" multiple>
+                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    </select>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary me-1" type="submit">إظهار النتائج</button>
+                    <button type="button" class="btn btn-primary-gradien" id="single-select-field-clear">إلغاء جميع الفلاتر</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <input type="hidden" name="CurPage" asp-for="@Model.SportProgramQueryParamters.CurPage" />
     <div class="container-lg ">
         <div class=" ">
@@ -34,68 +95,60 @@
                         <div class="card-header bg-transparent px-0 py-4 ">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5>
-                                    @ViewData["Title"]
+                                    @ViewData["Title"] <span style="color:#a566c8">(@Model.QueryPageResult.TotalCount)</span>
                                 </h5>
-                                <div class="d-flex gap-3">
-                                    <button type="button" class="btn btn-primary" id="single-select-field-clear">clear</button>
-                                    <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.SportProgramQueryParamters.Title" id="single-select-field" data-placeholder="من فضلك حدد اسم الصنف" onchange="submit()">
-                                        <option value="">من فضلك حدد اسم الصنف</option>
-                                    </select>
-                                    <select name="Size" class="form-select" asp-items="@Model.lstPageSize" asp-for="@Model.SportProgramQueryParamters.Size" onchange="submit()">
-                                    </select>
+                                <div>
+                                    <a class="btn   btn-air-primary btn-primary-gradien  shadow" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
                                 </div>
-                                <a class="btn btn-primary" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+
                             </div>
-                            <div class="d-flex row justify-content-end align-items-center">
-                                <div class="d-flex col py-2">
-                                    <button class="btn btn-outline-primary me-1" type="submit">بحث</button>
-                                    <input class="form-control " asp-for="@Model.SportProgramQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
-                                </div>
-                                <div class="d-flex col gap-2">
-                                    <select name="SortOrder" class="form-select  " asp-for="@Model.SportProgramQueryParamters.SortOrder" onchange="submit()">
+                        </div>
+                        <div class="d-flex justify-content-between mb-2 flex-wrap gap-2">
+                            <div class="  gap-2">
+                                <button class="btn  btn-square btn-edit shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                                    <div class="d-flex justify-content-center  align-items-center  gap-2">
+                                        <span>
+                                            تصفية البيانات
+                                        </span>
+                                        <i class='bx bx-filter h4 m-0'></i>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class=" d-flex justify-content-end align-items-center gap-2">
+                                <p class="m-0 h5"> ترتيب حسب :</p>
+                                <div class="d-flex justify-content-center  align-items-center  gap-2">
+                                    <select name="SortBy" class="form-select " style="min-width:200px" asp-items="@Model.SortList" asp-for="@Model.SportProgramQueryParamters.SortBy"></select>
+                                    <select name="SortOrder" class="form-select" asp-for="@Model.SportProgramQueryParamters.SortOrder">
                                         <option value="asc">أ-ب</option>
                                         <option value="desc">ب-أ</option>
                                     </select>
-                                    <select name="SortBy" class="form-select" asp-items="@Model.SortList" asp-for="@Model.SportProgramQueryParamters.SortBy" onchange="submit()"></select>
-                                </div>
-                                <div class="d-flex col-6 gap-2">
-
-                                    <select name="BodyFocus" class="form-select w-100" asp-items="@Model.BodyFocus" asp-for="@Model.SportProgramQueryParamters.BodyFocus" id="multiple-select-BodyFocus" data-placeholder="من فضلك حدد اسم الصنف" onchange="submit()" multiple>
-                                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
-                                    </select>
-
-                                </div>
-                                <div class="d-flex col-6 gap-2">
-
-                                    <select name="TraningType" class="form-select w-100" asp-items="@Model.TraningType" asp-for="@Model.SportProgramQueryParamters.TraningType" id="multiple-select-TraningType" data-placeholder="من فضلك حدد اسم الصنف" onchange="submit()" multiple>
-                                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
-                                    </select>
-
-                                </div>
-                                <div class="d-flex col-6 gap-2">
-
-                                    <select name="Equipment" class="form-select w-100" asp-items="@Model.Equipment" asp-for="@Model.SportProgramQueryParamters.Equipment" id="multiple-select-Equipment" data-placeholder="من فضلك حدد اسم الصنف" onchange="submit()" multiple>
-                                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
-                                    </select>
-
-                                </div>
-                                <div class="d-flex col-6 gap-2">
-
-                                    <select name="TraningType" class="form-select w-100" asp-items="@Model.Difficulty" asp-for="@Model.SportProgramQueryParamters.Difficulty" id="multiple-select-Difficulty" data-placeholder="من فضلك حدد اسم الصنف" onchange="submit()" multiple>
-                                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
-                                    </select>
-
                                 </div>
                             </div>
+                        </div>
+                        <div class="d-flex mb-2 flex-wrap gap-2 align-items-center">
+
+                            @if (Model.ListOfSelectedFilters is not null)
+                            {
+                                if (Model.ListOfSelectedFilters.Count > 0)
+                                {
+                                    <h5 class="m-0">الفلاتر المطبقة:</h5>
+                                    @foreach (var item in Model.ListOfSelectedFilters)
+                                    {
+                                        <a asp-all-route-data="parms" asp-route-key="@item.Item1" asp-route-value="@item.Item2" class="btn btn-light btn-sm">
+                                            @item.Item2
+                                            <i class="bi bi-x-lg"></i>
+                                        </a>
+                                    }
+                                }
+                            }
 
                         </div>
-
                         <div class="table-responsive table-hover">
                             <table class="table  table-borderless" id="Tbl">
                                 <thead>
                                     <tr>
                                         <th scope="col" width="50">
-                                            <input class="form-check-input " type="checkbox" id="chk-all" value="">
+                                            <input class="form-check-input" type="checkbox" id="chk-all" value="">
                                         </th>
                                         <th scope="col" width="100">الصورة</th>
                                         <th scope="col" width="350">العنوان</th>
@@ -115,20 +168,19 @@
                                                 <tr>
                                                     <td scope="row">
                                                         <label class="d-block">
-                                                            <input class="checkbox_animated" type="checkbox">
+                                                            <input class="checkbox_animated" value="@item.Id" type="checkbox">
                                                         </label>
                                                     </td>
                                                     <td class="">
                                                         <div class="img__box position-relative m-0  rounded-circle">
                                                             <img width="40" alt="Mark" class="position-absolute "
-                                                                 src="https://t4.ftcdn.net/jpg/03/64/21/11/240_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" />
+                                                                 src="/@item.Image" />
                                                         </div>
                                                     </td>
                                                     <td>@item.Services!.Title</td>
                                                     <td>@item.Services!.Price?.ToString("c")</td>
                                                     <td>@item.Length   اسابيع</td>
                                                     <td>
-
                                                         @if (item.Difficulty == 1)
                                                         {
                                                             <span> سهل </span>
@@ -136,30 +188,21 @@
                                                         else if (item.Difficulty == 2)
                                                         {
                                                             <span> متوسط </span>
-
                                                         }
                                                         else
                                                         {
                                                             <span> صعب </span>
-
                                                         }
-
-
-
-
-
                                                     </td>
-
                                                     <td>
                                                         <div class="d-flex gap-2">
-                                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
-                                                               style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
-                                                               type="button">
-                                                                <i class="bi bi-pencil-square"></i>
+                                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
+                                                                <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
                                                             </a>
                                                             <form method="post" asp-page="Delete" asp-route-id="@item.Id">
-                                                                <button hidden type="submit"></button>
-                                                                <a onclick="DeleteFun(this)" class="btn" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
+                                                                <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
+                                                                    <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
+                                                                </a>
                                                             </form>
                                                         </div>
                                                     </td>
@@ -189,9 +232,69 @@
                                         </tr>
                                     }
                                 </tbody>
+                                <tfoot>
+                                    <tr class="border-top bg-light">
+
+                                        <td colspan="10">
+                                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                                <div>
+                                                    <span class="d-inline-block me-3 text-sm">
+                                                        الحقول من @Model.QueryPageResult.FirstRowOnPage إالى  @Model.QueryPageResult.LastRowOnPage من @Model.QueryPageResult.TotalCount
+                                                    </span>
+                                                </div>
+                                                @{
+                                                    var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
+                                                    var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
+                                                    var first = (Model.SportProgramQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                    var last = (Model.SportProgramQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                    var firstIndex = Math.Max(Model.SportProgramQueryParamters.CurPage - 2, 1);
+                                                    var lastIndex = Math.Min(Model.SportProgramQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
+                                                }
+                                                <div class="d-flex gap-2 justify-content-center align-items-center ">
+
+
+                                                    <div class="d-flex justify-content-center gap-2 align-items-center">
+                                                        <label asp-for="@Model.SportProgramQueryParamters.Size" class="text-sm m-0">عدد الصفوف لكل صفحة</label>
+                                                        <select name="Size" class="form-select text-sm w-auto" asp-items="@Model.lstPageSize" asp-for="@Model.SportProgramQueryParamters.Size" onchange="submit()">
+                                                        </select>
+                                                    </div>
+                                                    <nav aria-label="Page navigation example ">
+                                                        <ul class="pagination  justify-content-end ">
+                                                            @{
+                                                                parms["CurPage"] = "1" ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
+                                                            <li class="page-item">
+                                                                <a class="page-link active">
+                                                                    <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
+                                                                        <span>  @Model.SportProgramQueryParamters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
+                                                                    </p>
+                                                                </a>
+                                                            </li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
+                                                        </ul>
+                                                    </nav>
+
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
-                        <partial name="_Manage__data" />
+                        @*       <partial name="_Manage__data" />*@
                     </div>
                 </div>
 
@@ -200,41 +303,6 @@
         <partial name="_ConfirmDeleteModel" />
         <partial name="_ImageViewer" />
     </div>
-    @{
-        var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
-        var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
-        var first = (Model.SportProgramQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
-        var last = (Model.SportProgramQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
-        var firstIndex = Math.Max(Model.SportProgramQueryParamters.CurPage - 2, 1);
-        var lastIndex = Math.Min(Model.SportProgramQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
-    }
-    <nav aria-label="Page navigation example ">
-        <ul class="pagination  justify-content-end ">
-            @{
-                parms["CurPage"] = "1" ?? "";
-            }
-            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms">الصفحة الاولى</a></li>
-            @{
-                parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
-            }
-            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms">الصفحة السابقة</a></li>
-
-            @for (int i = firstIndex; i <= lastIndex; i++)
-            {
-                parms["CurPage"] = i.ToString();
-                string a = Model.SportProgramQueryParamters.CurPage == i ? "active" : "";
-                <li class="page-item"><a class="page-link @a" asp-all-route-data="parms">@i</a></li>
-            }
-            @{
-                parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
-            }
-            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة التالية</a></li>
-            @{
-                parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
-            }
-            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms">الصفحة الاخيرة</a></li>
-        </ul>
-    </nav>
 
 </form>
 
@@ -267,4 +335,4 @@
 
 
 
-
+@*//for (int i = firstIndex; i <= lastIndex; i++)//{//    parms["CurPage"] = i.ToString();//    string a = Model.SportProgramQueryParamters.CurPage == i ? "active" : "";//    if (Model.SportProgramQueryParamters.CurPage == i)//    {//        <li class="page-item"><a class="page-link @a">@i</a></li>//    }//    else//    {//        <li class="page-item"><a class="page-link @a" asp-all-route-data="parms" asp-route-key="" asp-route-value="">@i</a></li>//    }//}*@

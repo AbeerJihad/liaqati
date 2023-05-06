@@ -10,7 +10,7 @@
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var listOfUsers = (await _userManager.GetUsersInRoleAsync("Trainer")).Except(await _userManager.GetUsersInRoleAsync("Admin"));
+            var listOfUsers = (await _userManager.GetUsersInRoleAsync("Expert")).Except(await _userManager.GetUsersInRoleAsync("Admin"));
             return View((listOfUsers).ToList());
         }
 

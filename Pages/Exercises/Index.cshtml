@@ -5,7 +5,7 @@
 
 }
 @section Styles{
-
+    <link href="~/lib/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <style>
@@ -21,13 +21,9 @@
             color: #d8d3f9;
         }
 
-        #divFilter .filter {
-            height: 300px !important;
-        }
 
-        .filter {
-            overflow-y: scroll;
-        }
+
+
 
         .pointer {
             cursor: pointer;
@@ -49,6 +45,8 @@
             border-radius: 10px;
         }
     </style>
+    <link href="~/user/css/filter.css" rel="stylesheet" asp-append-version="true" />
+
 }
 <div>
     <div class="position-relative w-100  overflow-hidden" style=" height: 70vh;background-image: linear-gradient(#00000060, #00000060),url(/images/Exercise/strong-man-training-gym.png)">
@@ -74,114 +72,56 @@
             </div>
         </div>
     </div>
-    <div class="container-lg">
-        <div class="row">
-            <p class="fs-6 p-4">
-                الرئيسية
-                <img src="/images/Exercise/ic_expand_more_24px.png" />
-                خدماتنا
-                <img src="/images/Exercise/ic_expand_more_24px.png" />
-                تمارين رياضية
-            </p>
-            <div class="row d-flex justify-content-between">
-                <div class="col-6 col-md-2 d-flex">
-                    <select class="form-select" asp-items="Model.SortList" name="SortBy" id="SortBy" onchange="sortFun()" asp-for="@Model.queryParameters.SortBy">
-                        <option value="" selected>ترتيب حسب</option>
-                    </select>
-                </div>
-                <div class="col-6 col-md-1 d-none d-md-block" onclick="document.querySelector('#divFilter').classList.toggle('d-md-block');" type="button">
-                    <button class="btn btn-light" style="background-color:#b9aff5"><img src="/Images/Exercise/filter-alt-regular-24.png" style="height:23px;" /></button>
-                </div>
-                <div class="col-6 col-md-1 d-md-none"
-                     data-bs-toggle="offcanvas"
-                     data-bs-target="#offcanvasExample"
-                     aria-controls="offcanvasExample"
-                     type="button">
-                    <button class="btn btn-light" style="background-color:#b9aff5"><img src="/Images/Exercise/filter-alt-regular-24.png" style="height:23px;" /></button>
-                </div>
+    <div class="container-fluid p-0">
 
-            </div>
-
-
-            <div class="offcanvas offcanvas-end p-0" style="max-width:300px !important;"
-                 tabindex="-1"
-                 id="offcanvasExample"
-                 aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">تصفية</h5>
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
+        <form id="form1" class="p-0">
+            <div class="container-fluid bg-white p-0 m-0 pt-5">
+                <p class="fs-6 p-4">
+                    الرئيسية
+                    <img src="/images/Exercise/ic_expand_more_24px.png" />
+                    خدماتنا
+                    <img src="/images/Exercise/ic_expand_more_24px.png" />
+                    تمارين رياضية
+                </p>
+                <div class="row p-0 g-0 d-flex justify-content-between">
+                    <div class="col-6 col-md-2 d-flex">
+                        <select class="form-select" asp-items="Model.SortList" name="SortBy" id="SortBy" onchange="sortFun()" asp-for="@Model.queryParameters.SortBy">
+                            <option value="" selected>ترتيب حسب</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="offcanvas-body p-0">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-controls="collapse1">
-                                    <div><h6>حرق السعرات الحرارية</h6></div>
-                                </button>
-                            </h2>
-                            <div id="collapse1"
-                                 class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="pointer">
-                                        <div class="px-5">
-                                            <div class="row mb-2">
-                                                <span class="text-secondary mb-1 small">السعرات الحرارية</span>
-                                                <div class="d-flex gap-2 justify-content-center align-items-center">
-                                                    <input id="MinCalorieBurn" class="col form-control me-1" type="number" placeholder="Min" /> <span>-</span>
-                                                    <input id="MaxCalorieBurn" class="col form-control" type="number" placeholder="Max" />
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="container-fluid p-0 border">
+                    <div class="container-xl p-0">
+                        <button title="toggle" type="button" class="btn bg-white main-color border rounded-0 p-3 px-3 d-flex justify-content-center align-items-center" id="btnToggleFilter">
+                            <i class="bx bx-filter h5 m-0 me-2"></i>
+                            تصفية
+                        </button>
+                    </div>
+                </div>
+                <div class="container-fluid position-relative d-none content-filter m-0 p-0">
+                    <!-- <div class="backdrop d-none position-fixed w-100 top-0 start-0  min-vh-100 "></div> -->
+                    <div class="filter d-none">
+                        <div class="filter-mobile-head d-lg-none d-flex p-3 justify-content-between align-items-center border-bottom">
+                            <h5 class="">تصفية</h5>
+                            <button class="btn btn-sm btn-primary">إلغاء جميع الفلاتر</button>
+                            <span class="filter-close p-2">
+                                <i class="bi bi-x-lg h5"></i>
+                            </span>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-controls="collapse2">
-                                    <div><h6>مدة التمرين</h6></div>
-                                </button>
-                            </h2>
-                            <div id="collapse2"
-                                 class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-
-                                    <div class="px-5">
-                                        <!--card card-body-->
-                                        <div class="row mb-2">
-                                            <span class="text-secondary mb-1  small">دقائق</span>
-                                            <div class="d-flex gap-2 justify-content-center align-items-center">
-                                                <input id="Minduration" class="col form-control me-1" type="number" onkeyup="mindurFun()" placeholder="Min" /> <span>-</span>
-                                                <input id="Maxduration" class="col form-control" type="number" onkeyup="maxdurFun()" placeholder="Max" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-controls="collapse3">
-                                    <div><h6>تركيز الجسم</h6></div>
-                                </button>
-                            </h2>
-                            <div id="collapse3"
-                                 class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class=" px-5">
+                        <div class="p-lg-3 d-flex align-items-lg-start g-0 bg-white filter-container pb-5 shadow flex-column flex-lg-row">
+                            <div class="p-3 d-flex align-items-lg-start">
+                                <div class="w-100">
+                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                        <strong>تركيز الجسم</strong>
+                                        <i class="bi bi-chevron-down d-lg-none"></i>
+                                    </p>
+                                    <div class="filter-level d-none d-lg-block">
                                         @{
                                             int Counter = 1;
                                         }
                                         @foreach (string bdoyfocusitem in Model.BodyFoucs)
                                         {
-                                            string id = $"MBodyFoucs{Counter}";
+                                            string id = $"BodyFoucs{Counter}";
 
                                             <div class="form-check my-3">
                                                 <input class="form-check-input" id="@id" name="bodyfocus" type="checkbox" value="@bdoyfocusitem">
@@ -192,35 +132,31 @@
                                             </div>
                                             Counter++;
                                         }
+
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-controls="collapse4">
-                                    <div> <h6> نوع التدريب </h6></div>
-                                </button>x
-                            </h2>
-                            <div id="collapse4"
-                                 class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="pointer">
-                                        <div class=" px-5">
+                            <div class="p-3 d-flex align-items-lg-start">
+                                <div class="w-100 h-100">
+                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                        <strong>نوع التدريب</strong>
+                                        <i class="bi bi-chevron-down d-lg-none"></i>
+                                    </p>
+                                    <div class="filter-level d-none py-3 d-lg-block h-100">
+                                        <div class="h-100 scroll">
+
                                             @{
                                                 Counter = 1;
                                             }
                                             @foreach (string bdoyfocusitem in Model.TraningType)
                                             {
-                                                string id = $"MTraningType{Counter}";
-
+                                                string id = $"TraningType{Counter}";
 
                                                 <div class=" form-check my-3 ">
                                                     <input class="form-check-input" id="@id" name="traningtype" type="checkbox" value="@bdoyfocusitem">
                                                     <label class="form-check-label" for="@id">
                                                         @bdoyfocusitem
-                                                        <span class="count">()</span>
+                                                        <span class="count"></span>
 
                                                     </label>
                                                 </div>
@@ -230,32 +166,59 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-controls="collapse5">
-                                    <div> <h6> معدات</h6></div>
-                                </button>
-                            </h2>
-                            <div id="collapse5"
-                                 class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="pointer">
-                                        <div class=" px-5">
+
+
+                            <div class="p-3 d-flex align-items-lg-start">
+                                <div class="w-100">
+                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                        <strong>الصعوبة</strong>
+                                        <i class="bi bi-chevron-down d-lg-none"></i>
+                                    </p>
+                                    <div class="filter-level d-none d-lg-block">
+                                        @{
+                                            Counter = 1;
+                                        }
+                                        @foreach (string DifficultyItem in Model.Difficulty)
+                                        {
+                                            string id = $"Difficulty{Counter}";
+
+                                            <div class="form-check my-3">
+                                                <input class="form-check-input" id="@id" name="difficulty" type="checkbox" value="@DifficultyItem">
+                                                <label class="form-check-label" for="@id">
+                                                    @DifficultyItem
+                                                    <span class="count"></span>
+
+                                                </label>
+                                            </div>
+                                            Counter++;
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 d-flex align-items-lg-start">
+                                <div class="w-100 h-100">
+                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                        <strong>المعدات</strong>
+                                        <i class="bi bi-chevron-down d-lg-none"></i>
+                                    </p>
+                                    <div class="filter-level d-none py-3 d-lg-block h-100">
+                                        <div class="h-100 scroll">
+
+
+
+
                                             @{
                                                 Counter = 1;
                                             }
                                             @foreach (string bdoyfocusitem in Model.Equipment)
                                             {
-                                                string id = $"MEquipment{Counter}";
+                                                string id = $"Equipment{Counter}";
 
-
-                                                <div class=" form-check my-3 ">
-                                                    <input class="form-check-input" id="@id" name="traningtype" type="checkbox" value="@bdoyfocusitem">
+                                                <div class="form-check my-3">
+                                                    <input class="form-check-input" id="@id" name="equipment" type="checkbox" value="@bdoyfocusitem">
                                                     <label class="form-check-label" for="@id">
                                                         @bdoyfocusitem
-                                                        <span class="count">()</span>
+                                                        <span class="count"></span>
 
                                                     </label>
                                                 </div>
@@ -265,38 +228,39 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-controls="collapse6">
-                                    <div>  <h6> الصعوبة </h6> </div>
-                                </button>
-                            </h2>
-                            <div id="collapse6"
-                                 class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="pointer">
-                                        <div class="collapse" id="collapse5">
-                                            <div class=" px-5">
-                                                @{
-                                                    Counter = 1;
-                                                }
-                                                @foreach (string bdoyfocusitem in Model.Difficulty)
-                                                {
-                                                    string id = $"Mdifficulty{Counter}";
-                                                    <div class="form-check my-3">
-                                                        <input class="form-check-input" id="@id"
-                                                               name="difficulty" type="checkbox" value="@bdoyfocusitem">
-                                                        <label class="form-check-label" for="@id">
-                                                            @bdoyfocusitem
-                                                            <span class="count">()</span>
-
-                                                        </label>
-                                                    </div>
-                                                    Counter++;
-                                                }
-
+                            <div class="p-3 d-flex align-items-lg-start">
+                                <div class="w-100">
+                                    <div class="row g-0 mb-2">
+                                        <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                            <strong> مدة التمرين</strong>
+                                            <i class="bi bi-chevron-down d-lg-none"></i>
+                                        </p>
+                                        <div class="filter-level d-none d-lg-block">
+                                            <span class="text-secondary mb-1 small">دقائق</span>
+                                            <div class="d-flex gap-2 justify-content-center align-items-center">
+                                                <input class="col form-control me-1" id="Minduration" type="number" onkeyup="mindurFun()" placeholder="Min">
+                                                <span>-</span>
+                                                <input class="col form-control" id="Maxduration" type="number" onkeyup="maxdurFun()" placeholder="Max">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 d-flex align-items-lg-start">
+                                <div class="w-100">
+                                    <div class="row g-0 mb-2">
+                                        <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                            <strong>حرق السعرات الحرارية</strong>
+                                            <i class="bi bi-chevron-down d-lg-none"></i>
+                                        </p>
+                                        <div class="filter-level d-none d-lg-block">
+                                            <span class="text-secondary mb-1 small">
+                                                السعرات الحرارية
+                                            </span>
+                                            <div class="d-flex gap-2 justify-content-center align-items-center">
+                                                <input class="col form-control me-1" id="MinCalorieBurn" type="number" placeholder="Min">
+                                                <span>-</span>
+                                                <input class="col form-control" id="MaxCalorieBurn" type="number" placeholder="Max">
                                             </div>
                                         </div>
                                     </div>
@@ -307,126 +271,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="container-fluid d-none  bg-white mt-4 p-2 rounded-4  overflow-hidden" id="divFilter">
-                <!--d-md-block d-sm-none-->
-                <form id="form1" action="" method="post">
-                    <div class="row h-100 d-flex justify-content-center g-0 ">
-
-                        <div class=" col-2 ">
-                            <p><strong>تركيز الجسم</strong></p>
-
-                            @{
-                                Counter = 1;
-                            }
-                            @foreach (string bdoyfocusitem in Model.BodyFoucs)
-                            {
-                                string id = $"BodyFoucs{Counter}";
-
-                                <div class="form-check my-3">
-                                    <input class="form-check-input" id="@id" name="bodyfocus" type="checkbox" value="@bdoyfocusitem">
-                                    <label class="form-check-label" for="@id">
-                                        @bdoyfocusitem
-                                        <span class="count">()</span>
-                                    </label>
-                                </div>
-                                Counter++;
-                            }
-                        </div>
-                        <div class="  col-2  ">
-                            <p><strong>نوع التدريب</strong></p>
-                            <div class=" filter overflow-y-scroll">
-                                @{
-                                    Counter = 1;
-                                }
-                                @foreach (string bdoyfocusitem in Model.TraningType)
-                                {
-                                    string id = $"TraningType{Counter}";
+        </form>
 
 
-                                    <div class=" form-check my-3 ">
-                                        <input class="form-check-input" id="@id" name="traningtype" type="checkbox" value="@bdoyfocusitem">
-                                        <label class="form-check-label" for="@id">
-                                            @bdoyfocusitem
-                                            <span class="count"></span>
-
-                                        </label>
-                                    </div>
-                                    Counter++;
-                                }
-
-                            </div>
-                        </div>
-                        <div class="  col-2 ">
-                            <p><strong>الصعوبة</strong></p>
-                            @{
-                                Counter = 1;
-                            }
-                            @foreach (string bdoyfocusitem in Model.Difficulty)
-                            {
-                                string id = $"difficulty{Counter}";
-                                <div class="form-check my-3">
-                                    <input class="form-check-input" id="@id"
-                                           name="difficulty" type="checkbox" value="@bdoyfocusitem">
-                                    <label class="form-check-label" for="@id">
-                                        @bdoyfocusitem
-                                        <span class="count"></span>
-
-                                    </label>
-                                </div>
-                                Counter++;
-                            }
-
-                        </div>
-                        <div class="   col-2  ">
-                            <p><strong>المعدات</strong></p>
-                            <div class="filter overflow-y-scroll">
-                                @{
-                                    Counter = 1;
-                                }
-                                @foreach (string bdoyfocusitem in Model.Equipment)
-                                {
-                                    string id = $"Equipment{Counter}";
-
-                                    <div class="form-check my-3">
-                                        <input class="form-check-input" id="@id" name="equipment" type="checkbox" value="@bdoyfocusitem">
-                                        <label class="form-check-label" for="@id">
-                                            @bdoyfocusitem
-                                            <span class="count"></span>
-
-                                        </label>
-                                    </div>
-                                    Counter++;
-                                }
-                            </div>
-                        </div>
-                        <div class=" col-2  ">
-                            <div class="row mb-2">
-                                <p class="mb-0">مدة التمرين</p>
-                                <span class="text-secondary mb-1  small">دقائق</span>
-                                <div class="d-flex gap-2 justify-content-center align-items-center">
-                                    <input id="Minduration" class="col form-control me-1" type="number" onkeyup="mindurFun()" placeholder="Min" /> <span>-</span>
-                                    <input id="Maxduration" class="col form-control" type="number" onkeyup="maxdurFun()" placeholder="Max" />
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <p class="mb-0">حرق السعرات الحرارية</p>
-                                <span class="text-secondary mb-1 small">السعرات الحرارية</span>
-                                <div class="d-flex gap-2 justify-content-center align-items-center">
-
-                                    <input id="MinCalorieBurn" class="col form-control me-1" type="number" placeholder="Min" /> <span>-</span>
-                                    <input id="MaxCalorieBurn" class="col form-control" type="number" placeholder="Max" />
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-        </div>
 
         <div class="container-lg ">
             <div id="rowExercisesIndex" class="row justify-content-center">
@@ -445,6 +292,7 @@
 
 @section Scripts{
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+    <script src="~/User/js/Filter.js" asp-append-version="true"></script>
     <script src="~/jsapi/ExerciseApi.js" asp-append-version="true"></script>
     <script src="~/JavaScript/Exercies.js" asp-append-version="true"></script>
 

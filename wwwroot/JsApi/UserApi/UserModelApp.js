@@ -6,8 +6,7 @@ let CurPage = 1;
 var Name;
 var Spec;
 
-function SearchExpertFun()
-{
+function SearchExpertFun() {
     Name = document.getElementById("name").value;
     Spec = document.getElementById("selectSpecExpert").options[document.getElementById("selectSpecExpert").selectedIndex].value;
     getdata();
@@ -102,8 +101,7 @@ function RenderSkeletonCards() {
     for (var i = 0; i < 9; i++) {
         let card = document.createElement("div");
         card.className = "col placeholder-wave p-3";
-        card.innerHTML = `  <div class="col-12 placeholder-wave col-md-6 col-lg-3 p-3">
-            <div class="card border-0 rounded-0 shadow">
+        card.innerHTML = `  <div class="card border-0 rounded-0 shadow">
                 <div class="position-relative  placeholder  hoverable-image" style="height: 250px"></div>
 
 
@@ -124,9 +122,7 @@ function RenderSkeletonCards() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-                              `;
+            </div>`;
         ExpertsContainer.appendChild(card);
     }
 }

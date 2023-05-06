@@ -11,44 +11,6 @@
     <link href="~/user/css/footercss.css" rel="stylesheet" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="~/User/css/index.css" asp-append-version="true" />
-    <style>
-        .subs-menu {
-            display: none !important;
-            width: 100vw;
-            height: 150px;
-            bottom: -150px;
-            border-top: 0.5px solid rgba(136, 133, 133, 0.427) !important;
-            border-bottom: 0.5px solid rgba(136, 133, 133, 0.427) !important;
-        }
-
-            .subs-menu li {
-                list-style: none;
-                width: 200px;
-            }
-
-                .subs-menu li a:hover {
-                    background-color: #9e92e2b0;
-                }
-
-        .hoverabllink:hover .subs-menu {
-            display: flex !important;
-        }
-
-        .navbar-container .nav-item {
-            padding: 0 10px;
-        }
-
-            .navbar-container .nav-item.active,
-            .navbar-container .nav-item:hover {
-                border-top: 3px solid #a864c8;
-                border-bottom: 3px solid #a864c8;
-            }
-
-        .bg-white-with-blur {
-            background-color: rgba(255, 255, 255);
-            backdrop-filter: blur(10px);
-        }
-    </style>
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>

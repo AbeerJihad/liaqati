@@ -10,6 +10,8 @@
 
         public decimal? MinDuration { get; set; }
         public decimal? MaxDuration { get; set; }
+        public decimal? Min { get; set; }
+        public decimal? Max { get; set; }
 
         public string SearchTearm { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;

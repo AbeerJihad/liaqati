@@ -39,9 +39,9 @@
                                 </h5>
                                 <div class="d-flex gap-3">
                                     <button type="button" class="btn btn-primary" id="single-select-field-clear">clear</button>
-                                    <select name="Name" class="form-select" asp-items="@Model.Names" asp-for="@Model.UserQueryParamters.Name" id="single-select-Name" data-placeholder="من فضلك حدد اسم المستخدم" onchange="submit()">
-                                        <option value="">من فضلك حدد اسم الصنف</option>
-                                    </select>
+                                    @*    <select name="Name" class="form-select" asp-items="@Model.Names" asp-for="@Model.UserQueryParamters.Name" id="single-select-Name" data-placeholder="من فضلك حدد اسم المستخدم" onchange="submit()">
+                                    <option value="">من فضلك حدد اسم الصنف</option>
+                                    </select>*@
                                     <select name="Size" class="form-select" asp-items="@Model.lstPageSize" asp-for="@Model.UserQueryParamters.Size" onchange="submit()">
                                     </select>
                                 </div>

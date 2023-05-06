@@ -1,8 +1,7 @@
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace liaqati_master.Pages.ProgramPages
 {
+    [AllowAnonymous]
+
     public class ToDaycshtmlModel : PageModel
     {
         readonly IRepoProgram _context;

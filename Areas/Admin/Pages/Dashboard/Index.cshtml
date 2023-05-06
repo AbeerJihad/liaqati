@@ -2,3 +2,650 @@
 @model liaqati_master.Areas.Admin.Pages.Dashboard.IndexModel
 @{
 }
+
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+<style>
+    * {
+        font-family: "Cairo", sans-serif;
+    }
+
+    .custom-border-radius {
+        border-radius: 10px;
+    }
+
+    .border-raduis {
+        border-radius: 10px !important;
+    }
+
+    .custom-border-radius-2 {
+        border-radius: 7px !important;
+    }
+
+    .counter-container {
+        padding-top: 35px !important;
+    }
+
+        .counter-container img {
+            margin-top: -30px !important;
+        }
+
+</style>
+<style type="text/css" media="print">
+    .no-print {
+        display: none;
+    }
+</style>
+<div class="container-fluid  p-0 m-0">
+    <div class="row">
+        <div class="col-12 no-print col-lg-5 row row-cols-1 row-cols-sm-2 p-0 m-0">
+            <div class="col p-2">
+                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
+                    </div>
+                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                             style="background-color: #fff9e1">
+                            <span class="counter fs-4 my-2">100</span>
+                            <img src="~/assets/Images/recipe.png" alt="" width="70" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
+                    </div>
+                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                             style="background-color: #e3ecff">
+                            <span class="counter fs-4 my-2">100</span>
+                            <img src="~/assets/Images/workout.png" width="70" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
+                    </div>
+                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                             style="background-color: #eaffe6">
+                            <span class="counter fs-4 my-2">100</span>
+                            <img src="~/assets/Images/dumbbells.png" alt="" width="70" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
+                    </div>
+                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                             style="background-color: #ffe1e2">
+                            <span class="counter fs-4 my-2">100</span>
+                            <img src="~/assets/Images/salad.png"
+                                 alt=""
+                                 style="margin-top: -30px"
+                                 width="70" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-7 p-0">
+            <div class="col p-2">
+                <div class="card overflow-hidden custom-border-radius m-0 shadow"
+                     style="min-height: 330px" id="chart11">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
+                            <div class="d-flex gap-4">
+                                <span class="fs-6 fs-lg-5">في الأسبوع</span>
+                                <span class="fs-6 fs-lg-5">في السنة</span>
+                                <span class="fs-6 fs-lg-5">جميع الإيرادات</span>
+                            </div>
+                            <div>
+                                <i class="bx bx-refresh h2" onclick="ToggleFullScreenForSpecificElement('chart11')"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-start g-0 p-0 m-0">
+        <div class="col-12 col-lg-7 row p-0 m-0">
+            <div class="row p-0 m-0 g-0 justify-content-center align-items-start a row-cols-xl-2 row-cols-sm-2 row-cols-1">
+                <div class="col p-2">
+                    <div class="card overflow-hidden custom-border-radius m-0 shadow">
+                        <div class="card-body py-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column w-100">
+                                    <p class="my-3">عدد المستخدمين</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
+                                           style="color: #75af62">
+                                            + 20 %
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center p-1"
+                                     style="background-color: #eaffe6">
+                                    <img class="p-2" src="~/assets/Images/group.png" alt="" width="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card overflow-hidden custom-border-radius m-0 shadow">
+                        <div class="card-body py-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column w-100">
+                                    <p class="my-3">عدد الخبراء</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
+                                           style="color: #75af62">
+                                            + 20 %
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center p-1"
+                                     style="background-color: #ffd8e6">
+                                    <img class="p-2"
+                                         src="~/assets/Images/avatar.png"
+                                         alt=""
+                                         width="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card overflow-hidden custom-border-radius m-0 shadow">
+                        <div class="card-body py-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column w-100">
+                                    <p class="my-3">مجموع الإيرادات</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
+                                           style="color: #75af62">
+                                            + 20 %
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center p-1"
+                                     style="background-color: #fff7e6">
+                                    <img class="p-2"
+                                         src="~/assets/Images/investing.png"
+                                         alt=""
+                                         width="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card overflow-hidden custom-border-radius m-0 shadow">
+                        <div class="card-body py-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column w-100">
+                                    <p class="my-3">عدد الطلبات</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
+                                           style="color: #75af62">
+                                            + 20 %
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-centerp-1"
+                                     style="background-color: #e9cdf2">
+                                    <img class="p-2"
+                                         src="~/assets/Images/shopping-bag.png"
+                                         alt=""
+                                         width="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card overflow-hidden custom-border-radius m-0 shadow">
+                        <div class="card-body py-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column w-100">
+                                    <p class="my-3">عدد المقالات</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
+                                           style="color: #75af62">
+                                            + 20 %
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center p-1"
+                                     style="background-color: #a7a7a7">
+                                    <img class="p-2"
+                                         src="~/assets/Images/copywriting.png"
+                                         alt=""
+                                         width="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card p-3 overflow-hidden border-raduis bg-white rounded m-0 shadow">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
+                            <span class="fs-6 fs-lg-5">
+                                عدد الطلبيات المبيعة اليوم:50
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-borderless text-center">
+                            <thead class="border-bottom">
+                                <tr>
+                                    <th scope="col">رقم المنتج</th>
+                                    <th scope="col">تاريخ الطلبية</th>
+                                    <th scope="col">العدد</th>
+                                    <th scope="col">كود الخصم</th>
+                                    <th scope="col">المجموع</th>
+                                    <th scope="col">حالة الطلب</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>05/05/2022</td>
+                                    <td>112</td>
+                                    <td>$112</td>
+                                    <td>$1241</td>
+                                    <td>
+                                        <div>
+                                            <div class="rounded fw-bold text-white py-1 shadow"
+                                                 style="background-color: #8bdec2">
+                                                تم التسليم
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>05/05/2022</td>
+                                    <td>112</td>
+                                    <td>$112</td>
+                                    <td>$1241</td>
+                                    <td>
+                                        <div>
+                                            <div class="rounded fw-bold text-white py-1 shadow"
+                                                 style="background-color: #deb588">
+                                                قيد الإنتظار
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>05/05/2022</td>
+                                    <td>112</td>
+                                    <td>$112</td>
+                                    <td>$1241</td>
+                                    <td>
+                                        <div>
+                                            <div class="rounded fw-bold text-white py-1 shadow"
+                                                 style="background-color: #64a1f1">
+                                                مرجع
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>05/05/2022</td>
+                                    <td>112</td>
+                                    <td>$112</td>
+                                    <td>$1241</td>
+                                    <td>
+                                        <div>
+                                            <div class="rounded fw-bold text-white py-1 shadow"
+                                                 style="background-color: #8bdec2">
+                                                تم التسليم
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-5 p-0">
+            <div class="col p-2">
+                <div class="card overflow-hidden custom-border-radius m-0 shadow"
+                     style="min-height: 340px">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-6 fs-lg-5">إيرادات الخدمات</span>
+                        </div>
+                    </div>
+                    <div id="chart2"></div>
+                </div>
+            </div>
+            <div class="col p-2">
+                <div class="card overflow-hidden border-raduis bg-white rounded m-0 shadow">
+                    <div class="card-header border-bottom p-2 pt-3 px-3">
+                        <div class="d-flex justify-content-between">
+                            <span class="fs-6 fs-lg-5"> أكثر الخبراء تفاعلا</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row row-cols-3 p-0 m-0 g-0">
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="position-relative rounded-circle overflow-hidden"
+                                         style="
+                                width: 60px;
+                                height: 60px;
+                                border: 1px #d05b7e solid;
+                              ">
+                                        <img class="w-100 h-100"
+                                             src="data:image/jpeg;base64,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"
+                                             alt=""
+                                             style="object-fit: cover" />
+                                    </div>
+                                    <div>
+                                        <p class="m-0">هديل محممد</p>
+                                        <p class="m-0 text-secondary"
+                                           style="font-size: 12px">
+                                            متوفر قبل 15 دقيقة
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="position-relative rounded-circle overflow-hidden"
+                                         style="
+                                width: 60px;
+                                height: 60px;
+                                border: 1px #d05b7e solid;
+                              ">
+                                        <img class="w-100 h-100"
+                                             src="data:image/jpeg;base64,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"
+                                             alt=""
+                                             style="object-fit: cover" />
+                                    </div>
+                                    <div>
+                                        <p class="m-0">هديل محممد</p>
+                                        <p class="m-0 text-secondary"
+                                           style="font-size: 12px">
+                                            متوفر قبل 15 دقيقة
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="position-relative rounded-circle overflow-hidden"
+                                         style="
+                                width: 60px;
+                                height: 60px;
+                                border: 1px #d05b7e solid;
+                              ">
+                                        <img class="w-100 h-100"
+                                             src="data:image/jpeg;base64,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"
+                                             alt=""
+                                             style="object-fit: cover" />
+                                    </div>
+                                    <div>
+                                        <p class="m-0">هديل محممد</p>
+                                        <p class="m-0 text-secondary"
+                                           style="font-size: 12px">
+                                            متوفر قبل 15 دقيقة
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="position-relative rounded-circle overflow-hidden"
+                                         style="
+                                width: 60px;
+                                height: 60px;
+                                border: 1px #d05b7e solid;
+                              ">
+                                        <img class="w-100 h-100"
+                                             src="data:image/jpeg;base64,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"
+                                             alt=""
+                                             style="object-fit: cover" />
+                                    </div>
+                                    <div>
+                                        <p class="m-0">هديل محممد</p>
+                                        <p class="m-0 text-secondary"
+                                           style="font-size: 12px">
+                                            متوفر قبل 15 دقيقة
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="position-relative rounded-circle overflow-hidden"
+                                         style="
+                                width: 60px;
+                                height: 60px;
+                                border: 1px #d05b7e solid;
+                              ">
+                                        <img class="w-100 h-100"
+                                             src="data:image/jpeg;base64,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"
+                                             alt=""
+                                             style="object-fit: cover" />
+                                    </div>
+                                    <div>
+                                        <p class="m-0">هديل محممد</p>
+                                        <p class="m-0 text-secondary"
+                                           style="font-size: 12px">
+                                            متوفر قبل 15 دقيقة
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="position-relative rounded-circle overflow-hidden"
+                                         style="
+                                width: 60px;
+                                height: 60px;
+                                border: 1px #d05b7e solid;
+                              ">
+                                        <img class="w-100 h-100"
+                                             src="data:image/jpeg;base64,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"
+                                             alt=""
+                                             style="object-fit: cover" />
+                                    </div>
+                                    <div>
+                                        <p class="m-0">هديل محممد</p>
+                                        <p class="m-0 text-secondary"
+                                           style="font-size: 12px">
+                                            متوفر قبل 15 دقيقة
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+
+    @*<script src="~/lib/waypoints/jquery.waypoints.min.js"></script>
+*@<script src="~/assets/js/counter/jquery.waypoints.min.js"></script>
+    <script src="~/assets/js/counter/jquery.counterup.min.js"></script>
+    <script src="~/assets/js/counter/counter-custom.js"></script>
+    <script src="~/lib/apexcharts/apexcharts.min.js"></script>
+
+    <script>
+        var options = {
+            series: [
+                {
+                    name: "الإيرادات",
+                    data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+                },
+            ],
+            chart: {
+                redrawOnWindowResize: true,
+                sparkline: {
+                    enabled: false,
+                },
+                height: 280,
+                type: "line",
+                fontFamily: "'Cairo', sans-serif",
+                zoom: {
+                    enabled: true,
+                },
+                dropShadow: {
+                    enabled: true,
+                    enabledOnSeries: undefined,
+                    top: 0,
+                    left: 0,
+                    blur: 3,
+                    color: "#08c4ea",
+                    opacity: 1,
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            grid: {
+                show: false,
+            },
+            stroke: {
+                show: true,
+                curve: "smooth",
+                lineCap: "butt",
+                colors: "#08c4ea",
+                width: 5,
+                dashArray: 0,
+            },
+            markers: {
+                size: 6,
+                hover: {
+                    size: 10,
+                },
+                colors: "#08c5dd",
+                strokeColors: "#000",
+                strokeWidth: 3,
+                strokeOpacity: 1,
+                strokeDashArray: 0,
+                fillOpacity: 0,
+            },
+            title: {
+                text: "الإيرادات",
+                align: "center",
+            },
+            xaxis: {
+                categories: [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep",
+                ],
+            },
+        };
+        var options1 = {
+            series: [
+                {
+                    name: "البرامج الرياضية",
+                    data: [44, 55, 57, 56, 61],
+                },
+                {
+                    name: "الوصفات",
+                    data: [76, 85, 101, 98, 87],
+                },
+                {
+                    name: "الأنظمة الغذائية",
+                    data: [35, 41, 36, 26, 45],
+                },
+                {
+                    name: "التمارين الرياضية",
+                    data: [35, 41, 36, 26, 45],
+                },
+            ],
+            chart: {
+                type: "bar",
+                fontFamily: "'Cairo', sans-serif",
+                height: 350,
+                toolbar: {
+                    show: false,
+                }, redrawOnWindowResize: true,
+
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: "70%",
+                    endingShape: "rounded",
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ["transparent"],
+            },
+            xaxis: {
+                categories: ["Feb", "Mar", "Apr", "May", "Jun"],
+            },
+
+            fill: {
+                opacity: 1,
+            },
+            colors: ["#4a8dfd", "#ff2165", "#02bd79", "#ffd650"],
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return "$ " + val + " thousands";
+                    },
+                },
+                x: {
+                    formatter: function (val) {
+                        return "$ " + val + " thousands";
+                    },
+                },
+            },
+        };
+        window.onload = () => {
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+            var chart = new ApexCharts(document.querySelector("#chart2"), options1);
+            chart.render();
+        }
+    </script>
+}

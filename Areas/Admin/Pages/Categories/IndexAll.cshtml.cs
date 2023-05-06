@@ -13,6 +13,24 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
 
         [BindProperty(SupportsGet = true)]
         public Category Category { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public CategoriesQueryParamters categoriesQueryParamters { get; set; }
+        public QueryPageResult<Category> QueryPageResult { get; set; }
+        public IEnumerable<SelectListItem> lstPageSize { get; set; } = new List<SelectListItem>()
+        {
+            new SelectListItem(){Value="5", Text="5"},
+            new SelectListItem(){Value="10", Text="10"},
+            new SelectListItem(){Value="20", Text="20"}
+        };
+
+        public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
+            new SelectListItem(){Value=nameof(liaqati_master.Models.Category.Name),Text="«”„ «·’‰›"},
+            new SelectListItem(){Value=nameof(liaqati_master.Models.Category.Target),Text=" «»⁄ ≈·Ï"},
+
+        };
+
+
         public IList<Category> LstCategory { get; set; }
         public List<SelectListItem> LstTargets { get; set; }
 
@@ -29,6 +47,13 @@ namespace liaqati_master.Areas.Admin.Pages.Categories
 
             }
             LstTargets = selectListItems;
+
+
+
+            if (_repoCategory != null)
+            {
+                QueryPageResult = await _repoCategory.SearchCategory(categoriesQueryParamters);
+            }
         }
 
 

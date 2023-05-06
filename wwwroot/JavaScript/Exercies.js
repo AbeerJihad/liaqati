@@ -5,8 +5,10 @@ var lstBodyfocus = [];
 var lsttraningtype = [];
 var lstdifficalty = [];
 var lstEquipment = [];
-var minDur;
-var maxDur;
+var MinDuration;
+var MaxDuration;
+var MinCalorieBurn;
+var MaxCalorieBurn;
 var txtsortBy;
 var txtsearchTerm;
 var CurPage = 1;
@@ -174,20 +176,75 @@ function renderList(checkboxesSelector) {
     return checkedList;
 }
 
+/*var MinDuration;
+var MaxDuration;
+var MinCalorieBurn;
+var MaxCalorieBurn;*/
 
-function mindurFun() {
+function MinCalorieBurnChange() {
+    var x = document.getElementById("MinCalorieBurn");
+    console.log(x.value);
+    if (x.value.length > 0) {
+        MinCalorieBurn = x.value;
+    } else {
+        MinCalorieBurn = null;
+    }
+    GetAll();
+}
+
+function MaxCalorieBurnChange() {
+    var x = document.getElementById("MaxCalorieBurn");
+    console.log(`x ${x.value}`);
+    if (x.value.length > 0) {
+        MaxCalorieBurn = x.value;
+    } else {
+        MaxCalorieBurn = null;
+    }
+    GetAll();
+}
+function MinDurationChange() {
     var x = document.getElementById("Minduration");
     console.log(x.value);
-    minDur = x.value;
-    GetAll();
-}
-function maxdurFun() {
-    var x = document.getElementById("Maxduration");
-    console.log(x.value);
-    maxDur = x.value;
+    if (x.value.length > 0) {
+        MinDuration = x.value;
+    } else {
+        MinDuration = null;
+    }
     GetAll();
 }
 
+function MaxDurationChange() {
+    var x = document.getElementById("Maxduration");
+    console.log(`x ${x.value}`);
+    if (x.value.length > 0) {
+        MaxDuration = x.value;
+    } else {
+        MaxDuration = null;
+    }
+    GetAll();
+}
+/*{
+  "curPage": 0,
+  "size": 0,
+  "sortBy": "string",
+  "sortOrder": "string",
+  "bodyFocus": [
+    "string"
+  ],
+  "traningType": [
+    "string"
+  ],
+  "difficulty": [
+    0
+  ],
+  "equipment": [
+    "string"
+  ],
+  "minDuration": 0,
+  "maxDuration": 0,
+  "searchTearm": "string",
+  "title": "string"
+}*/
 function GetAll() {
     RenderSkeletonCards('rowExercisesIndex');
     var parms = {
@@ -195,11 +252,12 @@ function GetAll() {
         traningType: lsttraningtype,
         difficulty: lstdifficalty,
         equipment: lstEquipment,
-        MinDuration: minDur,
-        MaxDuration: maxDur,
+        MinDuration: MinDuration,
+        MaxDuration: MaxDuration,
         SortBy: txtsortBy,
         SearchTearm: txtsearchTerm,
         CurPage: CurPage,
+        Size: 12,
     };
     console.table(parms);
     postData("https://localhost:7232/api/ExerciseApi/searchforExercise", parms).then((data) => {
@@ -352,98 +410,61 @@ function RenderCounters(JsonData) {
     var BodyFoucs = [];
     var TraningType = [];
     var Equipment = [];
-    var difficulty = [];
-    var MBodyFoucs = [];
-    var MTraningType = [];
-    var MEquipment = [];
-    var Mdifficulty = [];
-
+    var Difficulty = [];
     for (var i = 0; i < labels.length; i++) {
         if (labels[i].htmlFor != '') {
-            if (labels[i].htmlFor.startsWith('BodyFoucs'))
+            if (labels[i].htmlFor.startsWith('BodyFoucs')) {
                 BodyFoucs.push(labels[i]);
+            }
             else if (labels[i].htmlFor.startsWith('TraningType')) {
                 TraningType.push(labels[i]);
 
 
             } else if (labels[i].htmlFor.startsWith('Equipment')) {
                 Equipment.push(labels[i]);
-
-
-            } else if (labels[i].htmlFor.startsWith('difficulty')) {
-                difficulty.push(labels[i]);
-
-            } else if (labels[i].htmlFor.startsWith('MBodyFoucs'))
-                MBodyFoucs.push(labels[i]);
-            else if (labels[i].htmlFor.startsWith('MTraningType')) {
-                MTraningType.push(labels[i]);
-
-
-            } else if (labels[i].htmlFor.startsWith('MEquipment')) {
-                MEquipment.push(labels[i]);
-
-
-            } else if (labels[i].htmlFor.startsWith('Mdifficulty')) {
-                Mdifficulty.push(labels[i]);
+            } else if (labels[i].htmlFor.startsWith('Difficulty')) {
+                Difficulty.push(labels[i]);
 
             }
         }
     }
 
-
-
-    console.log(difficulty);
     for (var i = 0; i < BodyFoucs.length; i++) {
         if (JsonData.bodyfocusCounters[i] === 0) {
             BodyFoucs[i].control.disabled = true;
-            MBodyFoucs[i].control.disabled = true;
         }
         else {
             BodyFoucs[i].control.disabled = false;
-            MBodyFoucs[i].control.disabled = false;
-
         }
         BodyFoucs[i].lastElementChild.innerHTML = `(${JsonData.bodyfocusCounters[i]})`;
-        MBodyFoucs[i].lastElementChild.innerHTML = `(${JsonData.bodyfocusCounters[i]})`;
     }
     for (var i = 0; i < Equipment.length; i++) {
         if (JsonData.equipmentCounters[i] === 0) {
             Equipment[i].control.disabled = true;
-            MEquipment[i].control.disabled = true;
         }
         else {
             Equipment[i].control.disabled = false;
-            MEquipment[i].control.disabled = false;
-
         }
         Equipment[i].lastElementChild.innerHTML = `(${JsonData.equipmentCounters[i]})`;
-        MEquipment[i].lastElementChild.innerHTML = `(${JsonData.equipmentCounters[i]})`;
     }
     for (var i = 0; i < TraningType.length; i++) {
         if (JsonData.traningTypeCounters[i] === 0) {
             TraningType[i].control.disabled = true;
-            MTraningType[i].control.disabled = true;
         }
         else {
             TraningType[i].control.disabled = false;
-            MTraningType[i].control.disabled = false;
 
         }
         TraningType[i].lastElementChild.innerHTML = `(${JsonData.traningTypeCounters[i]})`;
-        MTraningType[i].lastElementChild.innerHTML = `(${JsonData.traningTypeCounters[i]})`;
     }
-    for (var i = 0; i < difficulty.length; i++) {
+    for (var i = 0; i < Difficulty.length; i++) {
         if (JsonData.difficultyCounters[i] === 0) {
-            difficulty[i].control.disabled = true;
-            Mdifficulty[i].control.disabled = true;
+            Difficulty[i].control.disabled = true;
         }
         else {
-            difficulty[i].control.disabled = false;
-            Mdifficulty[i].control.disabled = false;
-
+            Difficulty[i].control.disabled = false;
         }
-        difficulty[i].lastElementChild.innerHTML = `(${JsonData.difficultyCounters[i]})`;
-        Mdifficulty[i].lastElementChild.innerHTML = `(${JsonData.difficultyCounters[i]})`;
+        Difficulty[i].lastElementChild.innerHTML = `(${JsonData.difficultyCounters[i]})`;
     }
 
 }
