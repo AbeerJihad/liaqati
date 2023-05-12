@@ -32,6 +32,9 @@ namespace liaqati_master.Data
         public DbSet<Coupon_redemption> TblCoupon_redemption { get; set; }
         public DbSet<Coupon> TblCoupon { get; set; }
         public DbSet<Files> TblFiles { get; set; }
+        public DbSet<Consultation> TblConsultation { get; set; }
+        public DbSet<Replyconsultation> TblReplyconsultation { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -43,6 +46,7 @@ namespace liaqati_master.Data
             modelBuilder.Entity<Service>().HasOne(a => a.Products).WithOne(a => a.Services).HasForeignKey<Product>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.MealPlans).WithOne(a => a.Services).HasForeignKey<MealPlans>(c => c.Id);
             modelBuilder.Entity<Service>().HasOne(a => a.SportsProgram).WithOne(a => a.Services).HasForeignKey<SportsProgram>(c => c.Id);
+            modelBuilder.Entity<Replyconsultation>().HasOne(a => a.Consultations).WithMany(a => a.Replyconsultations).OnDelete(DeleteBehavior.Cascade);
 
 
             //AutoInclude

@@ -35,6 +35,7 @@
     else
         parms["SortOrder"] = "asc";
 }
+
 @section Styles{
     <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
     <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
@@ -54,28 +55,28 @@
                     <input class="form-control " asp-for="@Model.SportProgramQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
                 </div>
                 <div class="d-flex ">
-                    <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.SportProgramQueryParamters.Title" id="single-select-field" data-placeholder="من فضلك حدد اسم الصنف">
-                        <option value="">من فضلك حدد اسم الصنف</option>
+                    <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.SportProgramQueryParamters.Title" id="single-select-field" data-placeholder="  حدد اسم الصنف">
+                        <option value="">  حدد اسم التمرين</option>
                     </select>
                 </div>
                 <div class="d-flex ">
-                    <select name="BodyFocus" class="form-select w-100" asp-items="@Model.BodyFocus" asp-for="@Model.SportProgramQueryParamters.BodyFocus" id="multiple-select-BodyFocus" data-placeholder="من فضلك حدد اسم الصنف" multiple>
-                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    <select name="BodyFocus" class="form-select w-100" asp-items="@Model.BodyFocus" asp-for="@Model.SportProgramQueryParamters.BodyFocus" id="multiple-select-BodyFocus" data-placeholder="  حدد اسم الصنف" multiple>
+                        <option value="" disabled>  حدد تركيز الجسم</option>
                     </select>
                 </div>
                 <div class="d-flex ">
-                    <select name="TraningType" class="form-select w-100" asp-items="@Model.TraningType" asp-for="@Model.SportProgramQueryParamters.TraningType" id="multiple-select-TraningType" data-placeholder="من فضلك حدد اسم الصنف" multiple>
-                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    <select name="TraningType" class="form-select w-100" asp-items="@Model.TraningType" asp-for="@Model.SportProgramQueryParamters.TraningType" id="multiple-select-TraningType" data-placeholder="  حدد اسم الصنف" multiple>
+                        <option value="" disabled>  حدد نوع التمرين</option>
                     </select>
                 </div>
                 <div class="d-flex  ">
-                    <select name="Equipment" class="form-select w-100" asp-items="@Model.Equipment" asp-for="@Model.SportProgramQueryParamters.Equipment" id="multiple-select-Equipment" data-placeholder="من فضلك حدد اسم الصنف" multiple>
-                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    <select name="Equipment" class="form-select w-100" asp-items="@Model.Equipment" asp-for="@Model.SportProgramQueryParamters.Equipment" id="multiple-select-Equipment" data-placeholder="  حدد اسم الصنف" multiple>
+                        <option value="" disabled>  حدد المعدات</option>
                     </select>
                 </div>
                 <div class="d-flex  ">
-                    <select name="Difficulty" class="form-select w-100" asp-items="@Model.Difficulty" asp-for="@Model.SportProgramQueryParamters.Difficulty" id="multiple-select-Difficulty" data-placeholder="من فضلك حدد اسم الصنف" multiple>
-                        <option value="" disabled>من فضلك حدد اسم الصنف</option>
+                    <select name="Difficulty" class="form-select w-100" asp-items="@Model.Difficulty" asp-for="@Model.SportProgramQueryParamters.Difficulty" id="multiple-select-Difficulty" data-placeholder="  حدد اسم الصنف" multiple>
+                        <option value="" disabled>  حدد مستوى الصعوبة</option>
                     </select>
                 </div>
                 <div class="d-flex gap-2">
@@ -125,6 +126,7 @@
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="d-flex mb-2 flex-wrap gap-2 align-items-center">
 
                             @if (Model.ListOfSelectedFilters is not null)

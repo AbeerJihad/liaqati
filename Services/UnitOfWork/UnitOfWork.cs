@@ -25,6 +25,8 @@
         private GenericRepository<Exercise> exerciseRepository;
         private GenericRepository<Article> articleRepository;
         private GenericRepository<Exercies_program> programexerciseRepository;
+        private GenericRepository<Consultation> consultationRepository;
+        private GenericRepository<Replyconsultation> replyconsultationRepository;
 
         public UnitOfWork(LiaqatiDBContext context)
         {
@@ -38,6 +40,22 @@
 
                 productsRepository ??= new GenericRepository<Product>(context);
                 return productsRepository;
+            }
+        }
+        public GenericRepository<Replyconsultation> ReplyconsultationRepository
+        {
+            get
+            {
+                replyconsultationRepository ??= new GenericRepository<Replyconsultation>(context);
+                return replyconsultationRepository;
+            }
+        }
+        public GenericRepository<Consultation> ConsultationRepository
+        {
+            get
+            {
+                consultationRepository ??= new GenericRepository<Consultation>(context);
+                return consultationRepository;
             }
         }
         public GenericRepository<Article> ArticleRepository

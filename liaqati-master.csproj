@@ -89,16 +89,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="Areas\Admin\Pages\Categories\IndexAll.cshtml" />
-		<None Include="Areas\Admin\Pages\Orders\Create.cshtml" />
-		<None Include="Areas\Admin\Pages\Orders\Delete.cshtml" />
-		<None Include="Areas\Admin\Pages\Orders\Details.cshtml" />
-		<None Include="Areas\Admin\Pages\Orders\Edit.cshtml" />
-		<None Include="Areas\Admin\Pages\Orders\Index.cshtml" />
-		<None Include="Areas\Admin\Pages\SportPrograms\Create.cshtml" />
-		<None Include="Areas\Admin\Pages\SportPrograms\Delete.cshtml" />
-		<None Include="Areas\Admin\Pages\SportPrograms\Edit.cshtml" />
-		<None Include="Areas\Admin\Pages\SportPrograms\Index.cshtml" />
 		<None Include="Pages\HealthyRecipes\Components\GenericComponentHealthyRecipes\default.cshtml" />
 		<None Include="Pages\HealthyRecipes\Components\MostViewedHealthyRecipes\default.cshtml" />
 		<None Include="Pages\HealthyRecipes\HealthyRecipesDetiles.cshtml" />
@@ -2520,30 +2510,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Update="Areas\Admin\Pages\Exercises\Create.cshtml">
-	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </Content>
-	  <Content Update="Areas\Admin\Pages\Exercises\Delete.cshtml">
-	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </Content>
-	  <Content Update="Areas\Admin\Pages\Exercises\Edit.cshtml">
-	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </Content>
-	  <Content Update="Areas\Admin\Pages\Exercises\Exercie.cshtml">
-	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </Content>
-	  <Content Update="Areas\Admin\Pages\Exercises\ExerciesDetails.cshtml">
-	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </Content>
-	  <Content Update="Areas\Admin\Pages\Exercises\Index.cshtml">
-	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </Content>
 	  <Content Update="Areas\Identity\Pages\Account\Login.cshtml">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -2563,8 +2529,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Data\" />
-	  <Folder Include="Models\" />
 	  <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
 	  <Folder Include="wwwroot\lib\jquery-validation\" />
 	  <Folder Include="wwwroot\lib\jquery-validation\dist\" />

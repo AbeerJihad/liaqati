@@ -1,0 +1,38 @@
+﻿
+* {
+    font-family: Almarai;
+}
+
+.imgHeader {
+    background-image: url('/user/images/consultation/Mask Group 52.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: scroll;
+    background-position: center;
+}
+
+.bgcolor {
+    background-color: #ffffff8a;
+}
+
+.divcolor {
+    background-color: #E7CAF0;
+}
+
+.txtcolor {
+    color: #A566C8;
+}
+
+.colorbg {
+    background-color: #E7CAF0;
+}
+
+.colobg {
+    background-color: #EF8D44;
+}
+
+.bglight {
+    background-color: #F7F7F7;
+}

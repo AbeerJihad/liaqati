@@ -1,0 +1,23 @@
+﻿@*@model VmConsultation
+
+<div class="card my-2">
+
+    <div class="card-body">
+        <p> @Model.Category</p>
+
+        <h6 class="card-title text-black ">@Model.Title </h6>
+
+        <div class="d-flex">
+
+            <img width="50" class="rounded-circle m-2" src=@Model.imgUrl />
+
+            <div class="">
+                <p class="card-title text-black "> تمت الاجابة عليه بواسطة</p>
+                <p class="card-title txtcolor">اخصائية <span>@Model.Specialization</span> 
+                    <span>@Model.User</span></p>
+            </div>
+
+        </div>
+
+    </div>
+</div>*@

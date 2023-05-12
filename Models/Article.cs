@@ -23,7 +23,8 @@
 
         [ForeignKey(nameof(CategoryId))]
         public virtual Category? Category { get; set; }
-
+        [Display(Name = "متوسط القراءة ")]
+        public int avgReading { get; set; } = 10;
 
         public virtual List<Comments>? comments { get; set; }
 

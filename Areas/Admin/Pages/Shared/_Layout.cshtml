@@ -12,7 +12,7 @@
                 },
                 SubMenus = null
             });
-    menus.Add(new Menu()
+          menus.Add(new Menu()
             {
                 PageLink = new PageLink()
                 {
@@ -41,7 +41,7 @@
                       }
                 }
             });
-    menus.Add(new Menu()
+           menus.Add(new Menu()
             {
                 PageLink = new PageLink()
                 {
@@ -60,7 +60,7 @@
                       }
                 }
             });
-    menus.Add(new Menu()
+          menus.Add(new Menu()
             {
                 PageLink = new PageLink()
                 {
@@ -81,7 +81,7 @@
                       }
                 }
             });
-    menus.Add(new Menu()
+          menus.Add(new Menu()
             {
                 PageLink = new PageLink()
                 {
@@ -102,7 +102,7 @@
                       }
                 }
             });
-    menus.Add(new Menu()
+          menus.Add(new Menu()
             {
                 PageLink = new PageLink()
                 {
@@ -121,7 +121,7 @@
                       }
                 }
             });
-    menus.Add(new Menu()
+          menus.Add(new Menu()
             {
                 PageLink = new PageLink()
                 {
@@ -140,10 +140,53 @@
                       }
                 }
             });
-    menus.Add(new Menu()
+             menus.Add(new Menu()
             {
                 PageLink = new PageLink() { LinkName = "الأصناف", LinkURL = "/Categories/IndexAll", LinkIcon = "bi-tags-fill", },
                 SubMenus = null
+            });
+
+          menus.Add(new Menu()
+            {
+                PageLink = new PageLink()
+                {
+                    LinkName = "الطلبيات",
+                    LinkURL = null,
+                    LinkIcon = "bi-file-earmark-medical"
+                },
+                SubMenus = new List<PageLink>() {
+                     new PageLink()
+                     {
+                         LinkURL = "/Orders/Index",
+                         LinkName = "جميع الطلبيات"
+                     },
+                      new PageLink()
+                      {
+                          LinkURL = "/Orders/Create",
+                          LinkName = "إضافة طلبية"
+                      }
+                }
+            });
+    menus.Add(new Menu()
+            {
+                PageLink = new PageLink()
+                {
+                    LinkName = "الاستشارات",
+                    LinkURL = null,
+                    LinkIcon = "bi-file-earmark-medical"
+                },
+                SubMenus = new List<PageLink>() {
+                     new PageLink()
+                     {
+                         LinkURL = "/Consultations/Index",
+                         LinkName = "جميع الاستشارات"
+                     },
+                      new PageLink()
+                      {
+                          LinkURL = "/Consultations/Create",
+                          LinkName = "إضافة استشارة"
+                      }
+                }
             });
 }
 <!DOCTYPE html>
