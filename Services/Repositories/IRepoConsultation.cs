@@ -32,12 +32,12 @@
 
             public async Task<Consultation> DeleteEntityAsync(string Id)
             {
-                var healthyRecipe = await _context.TblConsultation.FindAsync(Id);
-                if (healthyRecipe != null)
+                var cons = await _context.TblConsultation.FindAsync(Id);
+                if (cons != null)
                 {
-                    _context.TblConsultation.Remove(healthyRecipe);
+                    _context.TblConsultation.Remove(cons);
                     await SaveAsync();
-                    return healthyRecipe;
+                    return cons;
                 }
                 else
                 {
@@ -77,8 +77,8 @@
 
             public async Task<Consultation> UpdateEntityAsync(Consultation Entity)
             {
-                Consultation? healthyRecipe = await _context.TblConsultation.FirstOrDefaultAsync(a => a.Id == Entity.Id);
-                if (healthyRecipe != null)
+                Consultation? consulat = await _context.TblConsultation.FirstOrDefaultAsync(a => a.Id == Entity.Id);
+                if (consulat != null)
                 {
                     _context.TblConsultation.Update(Entity);
                     await SaveAsync();

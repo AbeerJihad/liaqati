@@ -6,13 +6,11 @@ namespace liaqati_master.Areas.Admin.Pages.Consultations
 {
     public class EditModel : PageModel
     {
-        private readonly IRepoConsultation repoConsultation;
-        private readonly IRepoCategory _repoCategory;
+        private readonly UnitOfWork _unitOfWork;
 
-        public EditModel(IRepoConsultation repoConsultation, IRepoCategory repoCategory)
+        public EditModel(UnitOfWork unitOfWork)
         {
-            this.repoConsultation = repoConsultation;
-            _repoCategory = repoCategory;
+            _unitOfWork = unitOfWork;
         }
 
         [BindProperty]
@@ -22,16 +20,15 @@ namespace liaqati_master.Areas.Admin.Pages.Consultations
 
         public async Task<IActionResult> OnGetAsync(string? id)
         {
-            CategoriesSelect = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Consultation)]), nameof(Category.Id), nameof(Category.Name));
+            CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get().Where(c=>c.Target== "استشارات"), nameof(Category.Id), nameof(Category.Name));
 
 
-            if (id == null || repoConsultation == null)
+            if (id == null || _unitOfWork.ConsultationRepository == null)
             {
                 return NotFound();
             }
 
-            var articles = await repoConsultation.GetByIDAsync(id);
-
+            var articles = _unitOfWork.ConsultationRepository.GetByID(id);
             if (articles == null)
             {
                 return NotFound();
@@ -44,13 +41,32 @@ namespace liaqati_master.Areas.Admin.Pages.Consultations
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            CategoriesSelect = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(Consultation)]), nameof(Category.Id), nameof(Category.Name));
+            CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get(), nameof(Category.Id), nameof(Category.Name));
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            await repoConsultation.UpdateEntityAsync(Consultations);
-            return RedirectToPage("/Index");
+
+            _unitOfWork.ConsultationRepository.Update(Consultations);
+
+            try
+            {
+                _unitOfWork.Save();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (_unitOfWork.ConsultationRepository.GetByID(Consultations.Id) == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToPage("./Index");
         }
 
 
