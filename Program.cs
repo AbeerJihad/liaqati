@@ -17,7 +17,7 @@ builder.Services.AddControllers().AddJsonOptions(op =>
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 //builder.Services.AddDbContext<LiaqatiDBContext>(options => options.UseLazyLoadingProxies().UseInMemoryDatabase("LiaqatiDB"));
-var connectionString = builder.Configuration.GetConnectionString("DefaultConntection");
+var connectionString = builder.Configuration.GetConnectionString("Rana");
 builder.Services.AddDbContext<LiaqatiDBContext>(options =>
     options.UseLazyLoadingProxies().UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

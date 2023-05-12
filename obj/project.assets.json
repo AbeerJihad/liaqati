@@ -11902,24 +11902,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SUBEH\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\LENOVO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Graduation Project\\LastUpdate\\liaqati\\liaqati-master.csproj",
+      "projectUniqueName": "D:\\liaqati\\liaqati-master.csproj",
       "projectName": "liaqati-master",
-      "projectPath": "D:\\Graduation Project\\LastUpdate\\liaqati\\liaqati-master.csproj",
-      "packagesPath": "C:\\Users\\SUBEH\\.nuget\\packages\\",
-      "outputPath": "D:\\Graduation Project\\LastUpdate\\liaqati\\obj\\",
+      "projectPath": "D:\\liaqati\\liaqati-master.csproj",
+      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+      "outputPath": "D:\\liaqati\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\SUBEH\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
