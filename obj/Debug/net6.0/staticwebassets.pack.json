@@ -705,6 +705,10 @@
       "PackagePath": "staticwebassets\\User\\css\\Drinks.css"
     },
     {
+      "Id": "D:\\liaqati\\wwwroot\\User\\css\\ExercisesDetiles.css",
+      "PackagePath": "staticwebassets\\User\\css\\ExercisesDetiles.css"
+    },
+    {
       "Id": "D:\\liaqati\\wwwroot\\User\\css\\Filter.css",
       "PackagePath": "staticwebassets\\User\\css\\Filter.css"
     },
@@ -979,6 +983,46 @@
     {
       "Id": "D:\\liaqati\\wwwroot\\User\\images\\ContactUs.gif",
       "PackagePath": "staticwebassets\\User\\images\\ContactUs.gif"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\8.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\8.png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\Group 70.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\Group 70.png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\Group 701.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\Group 701.png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\Group 72.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\Group 72.png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\Mask Group 56.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\Mask Group 56.png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\cart-3-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\cart-3-svgrepo-com.png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\heart-svgrepo-com (1).png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\heart-svgrepo-com (1).png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\ic_expand_more_24px.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\ic_expand_more_24px.png"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\person.jpg",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\person.jpg"
+    },
+    {
+      "Id": "D:\\liaqati\\wwwroot\\User\\images\\Exercises\\star-svgrepo-com.png",
+      "PackagePath": "staticwebassets\\User\\images\\Exercises\\star-svgrepo-com.png"
     },
     {
       "Id": "D:\\liaqati\\wwwroot\\User\\images\\HealtyReicpe\\1.jpg",

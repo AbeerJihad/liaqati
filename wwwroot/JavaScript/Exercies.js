@@ -21,6 +21,7 @@ function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, dur
     let row = document.createElement('div');
     row.className = 'col-sm-6 col-lg-3 p-4 ';
     row.innerHTML = `
+    <a href="Exercises/ExercisesDetiles/${id}">
                <div class="card border-0 h-100 ">
             <div class="position-relative">
                 <img id="imgCard " src="${image}" style="width:100%;" />
@@ -70,6 +71,7 @@ function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, dur
                 </div>
             </div>
         </div>
+        </a>
 `;
 
 

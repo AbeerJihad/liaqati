@@ -1,0 +1,191 @@
+﻿@page "{id}"
+@model liaqati_master.Pages.Exercises.ExercisesDetilesModel
+@{
+}
+
+<link href="~/user/css/exercisesdetiles.css" rel="stylesheet" />
+
+<div class="container my-5">
+    <div class="row">
+
+        <div class="d-flex my-2">
+            <p class="p-1">الرئيسية</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/user/images/exercises/ic_expand_more_24px.png" />
+            <p class="p-1">خدماتنا</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/user/images/exercises/ic_expand_more_24px.png" />
+            <p class="p-1">تمارين رياضية</p>
+            <img class="p-1 mt-1" width="20" height="25" src="~/user/images/exercises/ic_expand_more_24px.png" />
+            <p class="p-1">@Model.exercise.Title</p>
+        </div>
+
+
+        <div style="width:100%; height:80%;">
+            <iframe style="width:100%; height:500px;" src="@Model.exercise.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <!--section1-->
+        <div class="row my-3 justify-content-between">
+            <div class="col-8 col-md-6">
+                <h4>@Model.exercise.Title</h4>
+                <p class="my-4">تمرين كامل لمدة <span>@Model.exercise.Duration</span>دقيقة </p>
+                <div class="d-flex my-auto">
+                    <img height="60" src="~/user/images/exercises/Group 701.png" />
+                    <p class="my-auto  fs-5 mx-2"> @Model.exercise.BurnEstimate سعرة حرارية </p>                    
+                </div>
+            </div>
+            <div class="col-4 col-md-2 p-0">
+                @for (int i = 0; i <= Model.exercise.RatePercentage / 20; i++)
+                {
+                    <img height="15" width="15" src="~/user/images/exercises/star-svgrepo-com.png" />
+                }
+            </div>
+        </div>
+       
+
+        <!--section3-->
+        <hr class="col-12" />
+        <div class="row my-2 justify-content-between">
+            <div class="col-12 col-md-8">
+                <h4 class="fw-bold">تفاصيل التمرين</h4>
+                <hr style="height: 3px;color: #CEBFE9; width: 13% " />
+                <div class="">
+                    <div class="d-flex m-2">
+                        <h5>نوع التدريب:</h5>
+                        <p class="mx-4"> @Model.exercise.TraningType</p>
+                    </div>
+                    <div class="d-flex  m-2">
+                        <h5>المعدات:</h5>
+                        <p class="mx-4">@Model.exercise.Equipments</p>
+                    </div>
+                   
+                </div>
+                <p class="lh-base">
+                    @Html.Raw(Model.exercise.Detail)
+                </p>
+               
+             
+            </div>
+
+
+            <!--card-->
+            <div class="col-md-4 ">
+                <div class="col-10 p-4 bgcolor me-5">
+                    <h5 class="fw-bold">اختار واحد من الأنظمة الغذائية المجانية للحصول على أفضل النتائج</h5>
+
+                    @await Component.InvokeAsync("MealPlans")
+
+                    
+
+                </div>
+
+            </div>
+        </div>
+
+        <!--section4-->
+
+
+        <div class=" m-3">
+            <div class="col-12 col-md-4 m-auto">
+                <h3 class="m-3">جرب هذه التمارين لبناء كتلة عضلية</h3>
+                <div class="m-auto hrcolor"></div>
+            </div>
+
+
+
+
+            <div class="row justify-content-around my-4">
+
+                @await Component.InvokeAsync("SportsPrograms")
+              
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+<!--section4-->
+<div class="container-fluid my-5 p-5  bgcolor">
+
+    <div class="col-12 justify-content-center">
+        <div class="col-7 mx-auto  col-md-2">
+            <h4 class="mx-auto  d-inline-block">تقييم العملاء</h4>
+            <hr class="hrcolor mx-2" />
+        </div>
+        <div class="col-12 d-flex mx-auto justify-content-around">
+
+            <p class="col-2 mx-auto  d-inline-block">تقييم(150)</p>
+
+            <div class="col-2">
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+            </div>
+
+            <p class="col-2 mx-auto">$4.90</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="row col-12 d-flex justify-content-around">
+
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/user/images/exercises/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/user/images/exercises/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP  my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+        <div class="col-12 col-md-3  my-4">
+            <div class="d-flex m-3">
+                <img class="rounded-circle" height="60" width="60" src="~/user/images/exercises/person.jpg" style="object-fit:cover" />
+
+                <p class="colorP  my-auto mx-1">#اماني محمد</p>
+            </div>
+
+            <div class="d-flex">
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+                <img class="m-0 p-0" width="10" height="10" src="~/user/images/exercises/star-svgrepo-com.png" />
+            </div>
+            <p> هذة الفيتامينات طعمها لذيذ ومنعش ولذيذ ولا يمكنني التخلي عنها في نظامي الغذائي</p>
+        </div>
+    </div>
+
+
+
+</div>
+

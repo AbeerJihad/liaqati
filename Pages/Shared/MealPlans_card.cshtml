@@ -1,0 +1,15 @@
+﻿@model MealPlans
+
+<div class="my-5  position-relative">
+    <img src="@Model.Image" class="img-fluid border rounded-2 w-100" />
+    <div class=" position-absolute detailsbox text-center rounded-pill px-4 py-2">
+        <a href="#" class="btn bg-white"> مزيد من التفاصيل ...</a>
+    </div>
+
+    <div class="d-flex justify-content-between my-auto colordiv p-2 w-100  position-absolute poss">
+        <p>@Model.Services.Title</p>
+        <a class="btn px-3 py-1 text-white rounded-3 shadow" style="background-color: #B9AFF5;">
+            اشنرك الآن
+        </a>
+    </div>
+</div>

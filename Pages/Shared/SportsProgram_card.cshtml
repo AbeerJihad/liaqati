@@ -1,0 +1,40 @@
+﻿@model SportsProgram
+
+<div class="col-10  col-md-5 col-lg-3 my-2 shadow rounded-top p-0">
+    <div class="card border-0 p-0 m-0">
+        <div class="position-relative">
+            <img src="@Model.Image" style="object-fit:fill"
+                 class="card-img-top p-0 m-0" alt="..." />
+            <img width="30" class="position-absolute " style="top: 10px; right: 10px"
+                 src="~/user/images/exercises/heart-svgrepo-com (1).png" alt="" srcset="" />
+
+        </div>
+
+        <div class="card-body">
+            <h6 class="card-text pcolor">
+               @Model.Length
+            </h6>
+            <p class="card-title fw-bold  mb-3">
+                @Model.Services.Title
+            </p>
+            <div class="d-flex justify-content-between">
+               @* <div class="d-flex">
+                   @foreach(var item in Model.ra)
+                    <img class="m-0 p-0" width="20" height="20" src="~/user/images/exercises/star-svgrepo-com.png" />
+                </div>*@
+                <div>
+                    <h5 class="d-inline-block text-danger align-middle ms-1">
+                      @Model.Services.Price
+                    </h5>
+                    <img width="30" src="~/user/images/exercises/cart-3-svgrepo-com.png" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
