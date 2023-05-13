@@ -22,10 +22,10 @@ body,
     box-sizing: border-box;
 }
 
-
+/*
 body {
     background-color: #eef3f4;
-}
+}*/
 
 .navbar-container {
     transition: 0.35s ease;
@@ -46,6 +46,10 @@ body {
 .btn-main,
 .btn-main:hover {
     background-color: var(--secondary-color, #e4dfff);
+}
+
+.text-main {
+    color: var(--secondary-color, #e4dfff);
 }
 
 .img-box {
@@ -713,4 +717,24 @@ a {
 
 .account.login-menu i {
     font-size: 1.3rem;
+}
+
+.pagination .page-link {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    color: black;
+}
+
+    .pagination .page-link.active {
+        border-radius: 4px !important;
+        color: white;
+        background: var(--primary-color);
+        border: none;
+    }
+
+
+.nice-select .current {
+    line-height: inherit;
 }

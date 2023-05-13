@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace liaqati_master.Models
+﻿namespace liaqati_master.Models
 {
     public class User : IdentityUser
     {
@@ -33,16 +31,29 @@ namespace liaqati_master.Models
         [Display(Name = "الصورة الشخصية")]
         public string? Photo { get; set; }
 
+        [Display(Name = "الفيس بوك")]
+        public string? WhatsApp { get; set; }
+
+        [Display(Name = " تويتر")]
+        public string? Twitter { get; set; }
+
+        [Display(Name = "الانستقرام  ")]
+        public string? Instagram { get; set; }
         [Display(Name = "تاريخ الميلاد"), DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
 
         [Display(Name = "صورة الغلاف")]
         public string? Cover_photo { get; set; }
+        public virtual List<Replyconsultation> Replyconsultation { get; set; }
+        public virtual List<Consultation>? Consultation { get; set; }
 
         public virtual List<Achievement>? Achievements { get; set; }
         public virtual List<Order>? Orders { get; set; }
 
         public virtual List<ChatUser>? ChatUser { get; set; }
+        public virtual List<CartItem>? Cart { get; set; }
+        public virtual List<Favorite>? Favorite { get; set; }
+
         public User()
         {
             Gender = Gender.Male;

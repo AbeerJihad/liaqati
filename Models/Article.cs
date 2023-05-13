@@ -17,6 +17,8 @@
         public int ViewsNumber { get; set; } = 0;
         [Display(Name = "عدد الاعجابات")]
         public int LikesNumber { get; set; } = 0;
+        [Display(Name = "متوسط  وقت القراءة ")]
+        public int avgReading { get; set; } = 10;
         [Required(ErrorMessage = " {0} حقل مطلوب")]
         [Display(Name = "رقم الصنف")]
         public string? CategoryId { get; set; }
@@ -26,6 +28,9 @@
 
 
         public virtual List<Comments>? comments { get; set; }
+
+        public virtual List<Favorite>? Favorite { get; set; }
+
 
     }
 }

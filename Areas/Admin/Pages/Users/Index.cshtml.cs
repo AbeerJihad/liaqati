@@ -19,6 +19,8 @@
             new SelectListItem(){Value="10", Text="10"},
             new SelectListItem(){Value="20", Text="20"}
         };
+        public List<(string, string)>? ListOfSelectedFilters { get; set; }
+
         public IEnumerable<SelectListItem> Names { get; set; }
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
             new SelectListItem(){Value=nameof(Models.User.Fname),Text="الإسم الأول"},

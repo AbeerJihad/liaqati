@@ -137,12 +137,11 @@
             }
             return Ok();
         }
-        [HttpGet]
-        [Route("search")]
-        public async Task<ActionResult> SearchForProduct([FromQuery] ProductQueryParamters Parameters)
+        [HttpPost]
+        [Route("SearchForProduct")]
+        public async Task<ActionResult> SearchForProduct([FromBody] ProductQueryParamters Parameters)
         {
-            QueryPageResult<Product> queryPageResult = await _repository.SearchProduct(Parameters);
-
+            QueryPageResult<ProductVM> queryPageResult = await _repository.SearchProductVM(Parameters);
             return Ok(queryPageResult);
 
         }

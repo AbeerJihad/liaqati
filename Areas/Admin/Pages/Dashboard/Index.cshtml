@@ -2,109 +2,111 @@
 @model liaqati_master.Areas.Admin.Pages.Dashboard.IndexModel
 @{
 }
-
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-<style>
-    * {
-        font-family: "Cairo", sans-serif;
-    }
-
-    .custom-border-radius {
-        border-radius: 10px;
-    }
-
-    .border-raduis {
-        border-radius: 10px !important;
-    }
-
-    .custom-border-radius-2 {
-        border-radius: 7px !important;
-    }
-
-    .counter-container {
-        padding-top: 35px !important;
-    }
-
-        .counter-container img {
-            margin-top: -30px !important;
+@section Styles{
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        * {
+            font-family: "Cairo", sans-serif;
         }
 
-</style>
-<style type="text/css" media="print">
-    .no-print {
-        display: none;
-    }
-</style>
+        .custom-border-radius {
+            border-radius: 10px;
+        }
+
+        .border-raduis {
+            border-radius: 10px !important;
+        }
+
+        .custom-border-radius-2 {
+            border-radius: 7px !important;
+        }
+
+        .counter-container {
+            padding-top: 35px !important;
+        }
+
+            .counter-container img {
+                margin-top: -30px !important;
+            }
+    </style>
+    <style type="text/css" media="print">
+        .no-print {
+            display: none;
+        }
+    </style>
+}
 <div class="container-fluid  p-0 m-0">
-    <div class="row">
-        <div class="col-12 no-print col-lg-5 row row-cols-1 row-cols-sm-2 p-0 m-0">
-            <div class="col p-2">
-                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
-                    <div class="card-header border-bottom p-2 pt-3 px-3">
-                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
-                    </div>
-                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
-                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
-                             style="background-color: #fff9e1">
-                            <span class="counter fs-4 my-2">100</span>
-                            <img src="~/assets/Images/recipe.png" alt="" width="70" />
-                        </div>
-                    </div>
+    <div class="no-print  row row-cols-1 row-cols-sm-2 row-cols-lg-4 p-0 m-0">
+        <div class="col p-2">
+
+            <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                <div class="card-header border-bottom p-2 pt-3 px-3">
+                    <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
                 </div>
-            </div>
-            <div class="col p-2">
-                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
-                    <div class="card-header border-bottom p-2 pt-3 px-3">
-                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
-                    </div>
-                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
-                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
-                             style="background-color: #e3ecff">
-                            <span class="counter fs-4 my-2">100</span>
-                            <img src="~/assets/Images/workout.png" width="70" alt="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col p-2">
-                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
-                    <div class="card-header border-bottom p-2 pt-3 px-3">
-                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
-                    </div>
-                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
-                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
-                             style="background-color: #eaffe6">
-                            <span class="counter fs-4 my-2">100</span>
-                            <img src="~/assets/Images/dumbbells.png" alt="" width="70" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col p-2">
-                <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
-                    <div class="card-header border-bottom p-2 pt-3 px-3">
-                        <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
-                    </div>
-                    <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
-                        <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
-                             style="background-color: #ffe1e2">
-                            <span class="counter fs-4 my-2">100</span>
-                            <img src="~/assets/Images/salad.png"
-                                 alt=""
-                                 style="margin-top: -30px"
-                                 width="70" />
-                        </div>
+                <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                    <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                         style="background-color: #fff9e1">
+                        <span class="counter fs-4 my-2">@Model.CountersModel.SportProgramCount</span>
+                        <img src="~/assets/Images/recipe.png" alt="" width="70" />
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-7 p-0">
+        <div class="col p-2">
+            <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                <div class="card-header border-bottom p-2 pt-3 px-3">
+                    <span class="fs-6 fs-lg-5"> الأنظمة الرياضية</span>
+                </div>
+                <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                    <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                         style="background-color: #e3ecff">
+                        <span class="counter fs-4 my-2">@Model.CountersModel.MealPlanCount</span>
+                        <img src="~/assets/Images/workout.png" width="70" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col p-2">
+            <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                <div class="card-header border-bottom p-2 pt-3 px-3">
+                    <span class="fs-6 fs-lg-5"> التمارين الغذائية</span>
+                </div>
+                <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                    <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                         style="background-color: #eaffe6">
+                        <span class="counter fs-4 my-2">@Model.CountersModel.ExersiesCount</span>
+                        <img src="~/assets/Images/dumbbells.png" alt="" width="70" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col p-2">
+            <div class="card h-100 overflow-hidden custom-border-radius m-0 shadow">
+                <div class="card-header border-bottom p-2 pt-3 px-3">
+                    <span class="fs-6 fs-lg-5">الوصفات</span>
+                </div>
+                <div class="card-body counter-container p-2 d-flex justify-content-end flex-column">
+                    <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center px-3 p-2"
+                         style="background-color: #ffe1e2">
+                        <span class="counter fs-4 my-2">@Model.CountersModel.HealthyCount</span>
+                        <img src="~/assets/Images/salad.png"
+                             alt=""
+                             style="margin-top: -30px"
+                             width="70" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  p-0 m-0">
+        <div class="col-12  p-0">
             <div class="col p-2">
                 <div class="card overflow-hidden custom-border-radius m-0 shadow"
                      style="min-height: 330px" id="chart11">
                     <div class="card-header border-bottom p-2 pt-3 px-3">
                         <div class="d-flex justify-content-between">
-                            <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
+                            <span class="fs-6 fs-lg-5">الإيرادات</span>
                             <div class="d-flex gap-4">
                                 <span class="fs-6 fs-lg-5">في الأسبوع</span>
                                 <span class="fs-6 fs-lg-5">في السنة</span>
@@ -122,7 +124,7 @@
     </div>
     <div class="row align-items-start g-0 p-0 m-0">
         <div class="col-12 col-lg-7 row p-0 m-0">
-            <div class="row p-0 m-0 g-0 justify-content-center align-items-start a row-cols-xl-2 row-cols-sm-2 row-cols-1">
+            <div class="row p-0 m-0 g-0 justify-content-center align-items-start  row-cols-xl-2 row-cols-sm-2 row-cols-1">
                 <div class="col p-2">
                     <div class="card overflow-hidden custom-border-radius m-0 shadow">
                         <div class="card-body py-1">
@@ -130,11 +132,8 @@
                                 <div class="d-flex flex-column w-100">
                                     <p class="my-3">عدد المستخدمين</p>
                                     <div class="d-flex justify-content-between align-items-end">
-                                        <p class="counter fs-4 m-0">100</p>
-                                        <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
-                                           style="color: #75af62">
-                                            + 20 %
-                                        </p>
+                                        <p class="counter fs-4 m-0">@Model.CountersModel.UsersCount</p>
+
                                     </div>
                                 </div>
                                 <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center p-1"
@@ -152,11 +151,8 @@
                                 <div class="d-flex flex-column w-100">
                                     <p class="my-3">عدد الخبراء</p>
                                     <div class="d-flex justify-content-between align-items-end">
-                                        <p class="counter fs-4 m-0">100</p>
-                                        <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
-                                           style="color: #75af62">
-                                            + 20 %
-                                        </p>
+                                        <p class="counter fs-4 m-0">@Model.CountersModel.ExpertsCount</p>
+
                                     </div>
                                 </div>
                                 <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center p-1"
@@ -175,9 +171,30 @@
                         <div class="card-body py-1">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-column w-100">
+                                    <p class="mt-3 h5 mb-2">المنتجات</p>
+                                    <div class="d-flex justify-content-between align-items-end">
+                                        <p class="counter fs-4 m-0">@Model.CountersModel.ProductsCount</p>
+                                    </div>
+                                </div>
+                                <div class="position-relative custom-border-radius-2 d-flex justify-content-between align-items-center p-1"
+                                     style="background-color: #e7c8f8">
+                                    <img class="p-2"
+                                         src="~/assets/IMages/treadmill.png"
+                                         alt=""
+                                         width="50" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card overflow-hidden custom-border-radius m-0 shadow">
+                        <div class="card-body py-1">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column w-100">
                                     <p class="my-3">مجموع الإيرادات</p>
                                     <div class="d-flex justify-content-between align-items-end">
-                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="counter fs-4 m-0">@Model.CountersModel.RevenuesTotal</p>
                                         <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
                                            style="color: #75af62">
                                             + 20 %
@@ -202,7 +219,7 @@
                                 <div class="d-flex flex-column w-100">
                                     <p class="my-3">عدد الطلبات</p>
                                     <div class="d-flex justify-content-between align-items-end">
-                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="counter fs-4 m-0">@Model.CountersModel.OrdersCount</p>
                                         <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
                                            style="color: #75af62">
                                             + 20 %
@@ -227,7 +244,7 @@
                                 <div class="d-flex flex-column w-100">
                                     <p class="my-3">عدد المقالات</p>
                                     <div class="d-flex justify-content-between align-items-end">
-                                        <p class="counter fs-4 m-0">100</p>
+                                        <p class="counter fs-4 m-0">@Model.CountersModel.ArticlesCount</p>
                                         <p class="fs-6 m-0 me-3 d-flex justify-content-center align-items-center gap-2"
                                            style="color: #75af62">
                                             + 20 %
@@ -246,92 +263,9 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="card p-3 overflow-hidden border-raduis bg-white rounded m-0 shadow">
-                    <div class="card-header border-bottom p-2 pt-3 px-3">
-                        <div class="d-flex justify-content-between">
-                            <span class="fs-6 fs-lg-5"> الأنظمة الغذائية</span>
-                            <span class="fs-6 fs-lg-5">
-                                عدد الطلبيات المبيعة اليوم:50
-                            </span>
-                        </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table table-borderless text-center">
-                            <thead class="border-bottom">
-                                <tr>
-                                    <th scope="col">رقم المنتج</th>
-                                    <th scope="col">تاريخ الطلبية</th>
-                                    <th scope="col">العدد</th>
-                                    <th scope="col">كود الخصم</th>
-                                    <th scope="col">المجموع</th>
-                                    <th scope="col">حالة الطلب</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>05/05/2022</td>
-                                    <td>112</td>
-                                    <td>$112</td>
-                                    <td>$1241</td>
-                                    <td>
-                                        <div>
-                                            <div class="rounded fw-bold text-white py-1 shadow"
-                                                 style="background-color: #8bdec2">
-                                                تم التسليم
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>05/05/2022</td>
-                                    <td>112</td>
-                                    <td>$112</td>
-                                    <td>$1241</td>
-                                    <td>
-                                        <div>
-                                            <div class="rounded fw-bold text-white py-1 shadow"
-                                                 style="background-color: #deb588">
-                                                قيد الإنتظار
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>05/05/2022</td>
-                                    <td>112</td>
-                                    <td>$112</td>
-                                    <td>$1241</td>
-                                    <td>
-                                        <div>
-                                            <div class="rounded fw-bold text-white py-1 shadow"
-                                                 style="background-color: #64a1f1">
-                                                مرجع
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>05/05/2022</td>
-                                    <td>112</td>
-                                    <td>$112</td>
-                                    <td>$1241</td>
-                                    <td>
-                                        <div>
-                                            <div class="rounded fw-bold text-white py-1 shadow"
-                                                 style="background-color: #8bdec2">
-                                                تم التسليم
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="row p-0 m-0 g-0">
+                <div class="col p-2">
+                    <partial name="LastOrders.cshtml" model="Model.LastestOrders" />
                 </div>
             </div>
         </div>
@@ -354,8 +288,8 @@
                             <span class="fs-6 fs-lg-5"> أكثر الخبراء تفاعلا</span>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="row row-cols-3 p-0 m-0 g-0">
+                    <div class="card-body p-2">
+                        <div class="row row-cols-2 p-0 m-0 g-0">
                             <div class="col mb-3">
                                 <div class="d-flex align-items-center gap-2">
                                     <div class="position-relative rounded-circle overflow-hidden"
@@ -498,13 +432,14 @@
 @section Scripts{
 
 
-    @*<script src="~/lib/waypoints/jquery.waypoints.min.js"></script>
-*@<script src="~/assets/js/counter/jquery.waypoints.min.js"></script>
-    <script src="~/assets/js/counter/jquery.counterup.min.js"></script>
+    @*<script src="~/lib/waypoints/jquery.waypoints.min.js"></script>/*@
+    <script src="~/node_modules/jquery.waypoints.min.js"></script>
+    <script src="~/node_modules/jquery.counterup.min.js"></script>
     <script src="~/assets/js/counter/counter-custom.js"></script>
     <script src="~/lib/apexcharts/apexcharts.min.js"></script>
-
     <script>
+        var colors = ["#B994EB", "#9471C5", "#7050A0", "#4D307C", "#2A125A"];
+
         var options = {
             series: [
                 {
@@ -516,6 +451,8 @@
                 redrawOnWindowResize: true,
                 sparkline: {
                     enabled: false,
+                }, toolbar: {
+                    show: false,
                 },
                 height: 280,
                 type: "line",
@@ -559,10 +496,7 @@
                 strokeDashArray: 0,
                 fillOpacity: 0,
             },
-            title: {
-                text: "الإيرادات",
-                align: "center",
-            },
+
             xaxis: {
                 categories: [
                     "Jan",
@@ -627,7 +561,8 @@
             fill: {
                 opacity: 1,
             },
-            colors: ["#4a8dfd", "#ff2165", "#02bd79", "#ffd650"],
+            //colors: ["#4a8dfd", "#ff2165", "#02bd79", "#ffd650"],
+            colors: colors,
             tooltip: {
                 y: {
                     formatter: function (val) {
@@ -642,10 +577,12 @@
             },
         };
         window.onload = () => {
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
-            var chart = new ApexCharts(document.querySelector("#chart2"), options1);
-            chart.render();
+            setTimeout(() => {
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+                var chart = new ApexCharts(document.querySelector("#chart2"), options1);
+                chart.render();
+            }, 500)
         }
     </script>
 }

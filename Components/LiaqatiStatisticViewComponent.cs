@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class LiaqatiStatisticViewComponent : ViewComponent
     {
@@ -18,6 +16,8 @@ namespace liaqati_master.Components
             int NumberOfUsers = (await dBContext.Users.ToListAsync()).Count;
             int NumberOfSerivces = (await dBContext.TblServices.ToListAsync()).Count;
             int NumberOfMealPlans = (await dBContext.TblMealPlans.ToListAsync()).Count;
+            int NumberOfSportProgram = (await dBContext.TblSportsProgram.ToListAsync()).Count;
+            int NumberOfRecipes = (await dBContext.TblHealthyRecipe.ToListAsync()).Count;
             int NumberOfCoachs = (await userManager.GetUsersInRoleAsync("Trainer")).Count;
             int NumberOfCustomer = (await userManager.GetUsersInRoleAsync("Customer")).Count;
             return View(new VMLiaqatiStatistic()
@@ -26,8 +26,10 @@ namespace liaqati_master.Components
                 NumberOfMealPans = NumberOfMealPlans,
                 PerNumberOfCoachs = NumberOfUsers == 0 ? 0 : NumberOfCoachs / NumberOfUsers,
                 PerNumberOfMealPans = NumberOfSerivces == 0 ? 0 : NumberOfMealPlans / NumberOfSerivces,
-                NumberOfNormalUsers = NumberOfCustomer,
-                PerNumberOfNormalUsers = NumberOfUsers == 0 ? 0 : NumberOfCustomer / NumberOfUsers
+                NumberOfNormalUsers = NumberOfUsers,
+                PerNumberOfNormalUsers = NumberOfUsers == 0 ? 0 : NumberOfCustomer / NumberOfUsers,
+                NumberOfSportProg = NumberOfSportProgram,
+                NumberOfRecipes = NumberOfRecipes,
             });
         }
     }

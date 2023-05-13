@@ -1,10 +1,12 @@
 ﻿@*@page "/"*@
-@page
+@page "/"
 @model liaqati_master.Pages.Home.IndexModel
 @{
 }
 @section Styles{
     <link rel="stylesheet" href="~/User/css/PieChart.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/aos/aos.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/counter/style.css" asp-append-version="true" />
 
 }
 
@@ -70,7 +72,7 @@
                                             دون حرمان
                                         </p>
                                         <div class="d-flex justify-content-end">
-                                            <a asp-page="/HealthyRecipes/index" class="btn btn-main">اذهب الان</a>
+                                            <button class="btn btn-main">اذهب الان</button>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +93,7 @@
                                             لجسمك
                                         </p>
                                         <div class="d-flex justify-content-end">
-                                            <a asp-page="/MealPlan/index" class="btn btn-main">اذهب الان</a>
+                                            <button class="btn btn-main">اذهب الان</button>
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +113,7 @@
                                             تمارين رياضية تساعدك على الحصول على جسم رشيق وصحة جيدة
                                         </p>
                                         <div class="d-flex justify-content-end">
-                                            <a asp-page="/exercises/index" class="btn btn-main">اذهب الان</a>
+                                            <button class="btn btn-main">اذهب الان</button>
                                         </div>
                                     </div>
                                 </div>
@@ -132,6 +134,9 @@
 @await Component.InvokeAsync("MostSoughtProducts")
 
 @section Scripts{
-    <script defer src="~/User/js/SwiperSliders.js"></script>
+    <script defer src="~/User/js/SwiperSliders.js" asp-append-version="true"></script>
+    <script defer src="~/lib/aos/aos.js" asp-append-version="true"></script>
+    <script defer src="~/lib/purecounter/purecounter_vanilla.js" asp-append-version="true"></script>
+    <script defer src="~/css/js/counter/main.js" asp-append-version="true"></script>
     <script src="~/User/js/Index.js" asp-append-version="true"></script>
 }

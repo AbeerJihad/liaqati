@@ -2,3 +2,121 @@
 @model liaqati_master.Pages.Articles.AllArticlesModel
 @{
 }
+
+<style>
+    body {
+        background-color: #F7F7F7;
+    }
+
+    .sideArticlesImages {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carouselImages {
+        height: 500px;
+        width: 100%;
+        opacity: 0.9;
+        object-fit: cover;
+    }
+
+    .overlay {
+        background-color: #8F8F8F50;
+        opacity: 1;
+        transition: .5s;
+        z-index: 2;
+    }
+
+    .carousel:hover .overlay {
+        opacity: 0;
+        display: none;
+    }
+
+</style>
+
+
+
+<div class="position-relative w-100  overflow-hidden" style="height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/articles bg.png');background-size:cover;">
+    <div class="h-100">
+        <div class="container-fluid h-100 p-0 position-absolute start-0 top-0 bg ">
+            <div class="container-xl h-100  d-flex flex-column justify-content-center align-items-center">
+                <div class="w-100">
+                    <h1 class="text-white text-center py-5 fw-bold">
+                        مقالات لياقتي
+                    </h1>
+                    <div class="p-0 g-0 row col-lg-10 justify-content-center mx-auto form-search">
+                        <div class="col-12 my-2 my-lg-0 col-lg-6">
+                            <input type="text" name="SearchTearm" class="form-control rounded-end-0" placeholder="الخدمة" />
+                        </div>
+                        <div class="col-12 my-2 my-lg-0 col-lg-3">
+                            <input placeholder="بحث" type="submit" value="بحث" class="form-control rounded-start-0 text-center" style="background-color: #e4dfff" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid  p-4">
+    <div class="row justify-content-center align-self-center">
+
+
+           @foreach (var item in Model.Articles)
+        {
+               <div class="col-md-5 m-1">
+            <div class="row bg-white">
+                <div class="col-4 g-0">
+                    <img style="height:150px" src="@item.Image" class="sideArticlesImages" />
+                </div>
+                <div class="col p-2 m-0">
+                    <div class="d-flex justify-content-between ">
+
+                        <div>
+                            <p class="fw-bold"> رشاقة وتغذية  </p>
+                        </div>
+                       <div class="my-1 d-flex">
+                                <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
+
+                               
+                                @{
+                                    Favorite favorite = new();
+                                }
+                                <form method="post" asp-area="admin" asp-page="/favorites/create">
+
+
+                                    <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
+                                    <input hidden value="مقالات" asp-for="@favorite.Type" />
+
+                                    <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
+                                        <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+
+                                    </button>
+
+                                </form>
+                            </div>
+
+
+
+
+                    </div>
+                        <p>  @CommonMethods.GetArabicDateTime(@item.PostDate)   </p>
+                    <p style="font-weight:bold;">  @item.Title </p>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+            
+}
+      
+    
+    
+    </div>
+
+</div>

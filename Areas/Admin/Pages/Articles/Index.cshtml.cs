@@ -8,6 +8,7 @@
         {
             _repoArticles = repoArticles;
         }
+        public List<(string, string)>? ListOfSelectedFilters { get; set; }
 
         public IList<Article> Articles { get; set; } = default!;
         [BindProperty(SupportsGet = true)]

@@ -1,9 +1,12 @@
 ﻿
+using System.Globalization;
+
 namespace liaqati_master.Services
 {
     public static class CommonMethods
     {
         public static string Id_Guid() => Guid.NewGuid().ToString();
+        public static string GetArabicDateTime(DateTime? dateTime) => dateTime?.ToString("dddd dd,MMMM,yyyy", new CultureInfo("ar-AE")) ?? "";
         public static QueryPageResult<T> GetPageResult<T>(IQueryable<T> ListOfData, QueryParameters qp) where T : class
         {
 

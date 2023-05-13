@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class ExercisesViewComponent : ViewComponent
     {

@@ -24,6 +24,8 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetC
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cors.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -107,11 +109,14 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensi
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Features.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Composite.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Physical.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileSystemGlobbing.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Hosting.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Http.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -157,6 +162,7 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Data.DataS
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Data.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.Contracts.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.Debug.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.DiagnosticSource.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.EventLog.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.FileVersionInfo.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.Process.dll
@@ -291,6 +297,8 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Xml.XPath.
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\WindowsBase.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Interop.Microsoft.Office.Interop.Excel.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
+D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\Castle.Core.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\Humanizer.dll
@@ -580,11 +588,3 @@ D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\refint\liaqati-master.
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.pdb
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.genruntimeconfig.cache
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\ref\liaqati-master.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Diagnostics.DiagnosticSource.dll

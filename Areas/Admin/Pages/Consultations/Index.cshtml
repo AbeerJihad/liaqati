@@ -1,0 +1,300 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model liaqati_master.Areas.Admin.Pages.Consultations.IndexModel
+@{
+    ViewData["Title"] = "قائمة الاستشارات";
+
+    var parms = new Dictionary<string, string>
+    {
+        {nameof(Model.ConsultationQueryParamters.CurPage),Model.ConsultationQueryParamters.CurPage.ToString()},
+        {nameof(Model.ConsultationQueryParamters.SortBy),Model.ConsultationQueryParamters.SortBy},
+        {nameof(Model.ConsultationQueryParamters.SortOrder),Model.ConsultationQueryParamters.SortOrder},
+        {nameof(Model.ConsultationQueryParamters.SearchTearm),Model.ConsultationQueryParamters.SearchTearm??""},
+        {nameof(Model.ConsultationQueryParamters.Size),Model.ConsultationQueryParamters.Size.ToString()},
+        {nameof(Model.ConsultationQueryParamters.CategoryId),Model.ConsultationQueryParamters.CategoryId??""},
+    };
+    if (Model.ConsultationQueryParamters.SortOrder == "asc")
+        parms["SortOrder"] = "desc";
+    else
+        parms["SortOrder"] = "asc";
+}
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.rtl.min.css" rel="stylesheet" />
+}
+
+
+<form method="get">
+    <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="staticBackdropLabel">تصفية</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pb-5">
+            <div class="d-flex flex-column gap-3">
+
+                <div class="d-flex  py-2">
+                    <input class="form-control " asp-for="@Model.ConsultationQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
+                </div>
+                <div class="d-flex ">
+                    <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.ConsultationQueryParamters.Tilte" id="single-select-field" data-placeholder="  حدد اسم الصنف" onchange="submit()">
+                        <option value=""> حدد اسم النظام الغذائي</option>
+                    </select>
+                </div>
+                <div class="d-flex ">
+                    <select name="CategoryId" class="form-select" asp-items="@Model.Categoires" asp-for="@Model.ConsultationQueryParamters.CategoryId" onchange="submit()">
+                        <option value="">  حدد اسم الصنف</option>
+                    </select>
+                </div>
+             
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary me-1" type="submit">إظهار النتائج</button>
+                    <button type="button" class="btn btn-primary-gradien" id="single-select-field-clear">إلغاء جميع الفلاتر</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="CurPage" asp-for="@Model.ConsultationQueryParamters.CurPage" />
+    <div class="container-lg ">
+        <div class=" ">
+            <div class="row ">
+                <div class="col-sm-12">
+                    <div class="card p-3 border-raduis">
+                        <div class="card-header bg-transparent px-0 py-4 ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5>
+                                    @ViewData["Title"] <span style="color:#a566c8">(@Model.QueryPageResult.TotalCount)</span>
+                                </h5>
+                                <div>
+                                    <a class="btn   btn-air-primary btn-primary-gradien  shadow" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2 flex-wrap gap-2">
+                            <div class="  gap-2">
+                                <button class="btn  btn-square btn-edit shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                                    <div class="d-flex justify-content-center  align-items-center  gap-2">
+                                        <span>
+                                            تصفية البيانات
+                                        </span>
+                                        <i class='bx bx-filter h4 m-0'></i>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class=" d-flex justify-content-end align-items-center gap-2">
+                                <p class="m-0 h5"> ترتيب حسب :</p>
+                                <div class="d-flex justify-content-center  align-items-center  gap-2">
+                                    <select name="SortBy" class="form-select " style="min-width:200px" asp-items="@Model.SortList" asp-for="@Model.ConsultationQueryParamters.SortBy"></select>
+                                    <select name="SortOrder" class="form-select" asp-for="@Model.ConsultationQueryParamters.SortOrder">
+                                        <option value="asc">أ-ي</option>
+                                        <option value="desc">ي-أ</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-2 flex-wrap gap-2 align-items-center">
+
+                            @if (Model.ListOfSelectedFilters is not null)
+                            {
+                                if (Model.ListOfSelectedFilters.Count > 0)
+                                {
+                                    <h5 class="m-0">الفلاتر المطبقة:</h5>
+                                    @foreach (var item in Model.ListOfSelectedFilters)
+                                    {
+                                        <a asp-all-route-data="parms" asp-route-key="@item.Item1" asp-route-value="@item.Item2" class="btn btn-light btn-sm">
+                                            @item.Item2
+                                            <i class="bi bi-x-lg"></i>
+                                        </a>
+                                    }
+                                }
+                            }
+
+                        </div>
+
+                        <div class="table-responsive table-hover">
+                            <table class="table  table-borderless" id="Tbl">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">
+                                            <input class="form-check-input" type="checkbox" id="chk-all" value="">
+                                        </th>
+                                        <th scope="col" width="180"></th>
+                                        <th scope="col" width="180">المستشير</th>
+                                        <th scope="col" width="180">العنوان</th>
+                                        <th scope="col" width="180">تاريخ النشر</th>
+                                        <th scope="col" width="250">نوع الاستشارة</th>
+                                        <th scope="col" width="250">العمليات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.QueryPageResult.ListOfData is not null)
+                                        @if (Model.QueryPageResult.ListOfData.Count() > 0)
+                                        {
+
+
+                                            @foreach (var item in Model.QueryPageResult.ListOfData)
+                                            {
+
+                                                <tr>
+                                                    <td scope="row">
+                                                        <label class="d-block">
+                                                            <input class="checkbox_animated" type="checkbox">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <div class="img__box position-relative m-0  rounded-circle">
+                                                            <img width="40" alt="" class="position-absolute " src="@item.User?.Photo" />
+                                                        </div>
+                                                    </td>
+
+                                                    <td>@item.User?.Fname   @item.User?.Lname</td>
+                                                    <td>@item.Title</td>
+                                                    <td>@item.PostDate</td>
+                                                    <td>@item.Category.Name</td>
+                                                    <td>
+                                                        <div class="d-flex gap-2">
+                                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
+                                                               style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
+                                                               type="button">
+                                                                <i class="bi bi-pencil-square"></i>
+                                                            </a>
+                                                            <form method="post" asp-page="Delete" asp-route-id="@item.Id">
+                                                                <button hidden type="submit"></button>
+                                                                <a class="btn" onclick="DeleteFun(this)" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
+                                                            </form>
+                                                            <a asp-page="/Replyconsultations/Create" asp-route-Id="@item.Id" class="btn m-0">
+                                                                <img src="~/user/images/consultation/add.png" />
+                                                            </a>
+                                                            <a asp-page="/Replyconsultations/index" asp-route-Id="@item.Id" class="btn m-0">
+                                                                <img height="30" src="~/user/images/consultation/reply.png" />
+                                                            </a>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="7">
+                                                    <div class="d-flex justify-content-center align-items-center flex-column">
+                                                        <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
+                                                        <p>لا يوجد بيانات</p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="7">
+                                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                                    <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
+                                                    <p>لا يوجد بيانات</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr class="border-top bg-light">
+
+                                        <td colspan="10">
+                                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                                <div>
+                                                    <span class="d-inline-block me-3 text-sm">
+                                                        الحقول من @Model.QueryPageResult.FirstRowOnPage إالى  @Model.QueryPageResult.LastRowOnPage من @Model.QueryPageResult.TotalCount
+                                                    </span>
+                                                </div>
+                                                @{
+                                                    var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
+                                                    var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
+                                                    var first = (Model.ConsultationQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                    var last = (Model.ConsultationQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                    var firstIndex = Math.Max(Model.ConsultationQueryParamters.CurPage - 2, 1);
+                                                    var lastIndex = Math.Min(Model.ConsultationQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
+                                                }
+                                                <div class="d-flex gap-2 justify-content-center align-items-center ">
+
+
+                                                    <div class="d-flex justify-content-center gap-2 align-items-center">
+                                                        <label asp-for="@Model.ConsultationQueryParamters.Size" class="text-sm m-0">عدد الصفوف لكل صفحة</label>
+                                                        <select name="Size" class="form-select text-sm w-auto" asp-items="@Model.lstPageSize" asp-for="@Model.ConsultationQueryParamters.Size" onchange="submit()">
+                                                        </select>
+                                                    </div>
+                                                    <nav aria-label="Page navigation example ">
+                                                        <ul class="pagination  justify-content-end ">
+                                                            @{
+                                                                parms["CurPage"] = "1" ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
+                                                            <li class="page-item">
+                                                                <a class="page-link active">
+                                                                    <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
+                                                                        <span>  @Model.ConsultationQueryParamters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
+                                                                    </p>
+                                                                </a>
+                                                            </li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
+                                                        </ul>
+                                                    </nav>
+
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <partial name="_Manage__data" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <partial name="_ConfirmDeleteModel" />
+        <partial name="_ImageViewer" />
+    </div>
+
+</form>
+
+
+@section Scripts{
+    <script src="~/javascript/table.js" asp-append-version="true"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/javascript/script.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script>
+        $('#multiple-select-MealType').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), closeOnSelect: false, });
+        $('#multiple-select-DietaryType').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), closeOnSelect: false, });
+        $('#single-select-field').select2({ theme: "bootstrap-5", width: '100%', placeholder: $(this).data('placeholder'), });
+        $("#single-select-field-clear").on("click", function () {
+            $('#single-select-field').val(null).trigger("change");
+            $('#multiple-select-DietaryType').val(null).trigger("change");
+            $('#multiple-select-MealType').val(null).trigger("change");
+        });
+
+
+
+    </script>
+  }

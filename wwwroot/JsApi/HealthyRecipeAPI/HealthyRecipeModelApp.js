@@ -12,14 +12,73 @@ async function getdata(categoryid) {
     };
     HealthyRecipesApiResult = await getHealthyRecipes(parms);
     HealthyRecipeContainer.innerHTML = "";
-    HealthyRecipesApiResult.listOfData.forEach((p) => RenderCards(p));
+    if (HealthyRecipesApiResult.listOfData && HealthyRecipesApiResult.listOfData.length > 0) {
+
+        HealthyRecipesApiResult.listOfData.forEach((p) => RenderCards(p));
+    } else {
+        RenderNoResult()
+    }
     RenderPagination(HealthyRecipesApiResult);
     console.log(HealthyRecipesApiResult);
 
 }
 //RenderSkeletonCards();
 getdata(null);
+
+
+function RenderNoResult() {
+    let card = document.createElement("div");
+    card.className = "card shadow-sm border";
+    card.style.maxWidth = 500;
+    card.innerHTML = ` 
+        <div class="card-body">
+          <div
+            class="d-flex justify-content-center align-items-center flex-column"
+          >
+            <i
+              class="bx bx-error-circle text-primary"
+              style="font-size: 100px"
+            ></i>
+            <h2 class="mb-4 text-primary">لا يوجد نتائج</h2>
+            <p class="h4 text-center mb-4">
+              حاول ضبط مرشحات البحث لمزيد من النتائج.
+            </p>
+            <div><a class="btn btn-primary">عرض الكل</a></div>
+          </div>
+      </div>
+                              `;
+    HealthyRecipeContainer.appendChild(card);
+
+}
+
+/*"listOfData": [
+    {
+      "imgUrl": "/Image/Product/Dumbbell3.jfif",
+      "discount": 20,
+      "services": {
+        "title": "طقم اوزان دمبل 30 كغم",
+        "description": "",
+        "shortDescription": null,
+        "price": 20,
+        "categoryId": "4",
+        "category": {
+          "name": "الاجهزة الرياضية",
+          "target": "المنتجات",
+          "description": null,
+          "id": "4"
+        },
+        "userId": null,
+        "user": null,
+        "id": "21"
+      },
+      "id": "21"
+    },*/
 function RenderCards(HealthyRecipe) {
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency', currency: 'USD',
+        minimumFractionDigits: 2
+    })
+
     console.log(HealthyRecipe);
     let card = document.createElement("div");
     card.className = "col p-3";
@@ -113,6 +172,7 @@ function RenderSkeletonCards() {
         HealthyRecipeContainer.appendChild(card);
     }
 }
+
 function NextPage(JsonData) {
 
     if (CurPage < JsonData.totalPages) {

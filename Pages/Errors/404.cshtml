@@ -1,0 +1,78 @@
+﻿@page
+@model SportProductsWeb.Pages.Errors._404Model
+@{
+}
+   <style>
+      .con_image {
+        background-image: url(./404\ صورة.png) !important;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 600px !important;
+      }
+      .cardError404 {
+        background-color: #f3f2f8;
+        margin-top: 20% !important;
+      }
+      @@media only screen and (max-width: 480px) {
+        .mediaBtn {
+          width: 75% !important;
+          margin-right: 12.5% !important;
+        }
+        .media-image {
+          margin-top: -100px !important;
+        }
+        .con_image {
+          background-image: none !important;
+        }
+        .cardError404 {
+          margin-right: 16px;
+        }
+      }
+      @@media only screen and (max-width: 990px) {
+        .con_image {
+          background-image: none !important;
+        }
+        .cardError404 {
+          margin-right: 10% !important;
+        }
+      }
+    </style>
+  
+    <div style="margin-bottom: 200px" class="container con_image">
+      <div class="row">
+        <div
+          class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-5 p-4 cardError404 rounded-5"
+        >
+          <div>
+            <h3 class="text-center">عذرا هذه الصفحة غير موجودة</h3>
+            <div>
+              <a
+                style="background-color: #e5c362; margin-right: 25%"
+                class="btn p-2 w-50 text-white fw-bold my-3 mediaBtn"
+                href=""
+              >
+                الرجوع الى الصفحة السابقة
+              </a>
+            </div>
+            <div>
+              <a
+                style="background-color: #be8adc; margin-right: 25%"
+                class="btn w-50 py-2 text-white fw-bold my-3 d-inline-block mediaBtn"
+                href=""
+              >
+                الصفحة الرئيسية
+              </a>
+            </div>
+            <div>
+              <a
+                style="margin-right: 25%; color: #be8adc"
+                class="w-50 fw-bold my-3 d-inline-block text-center h5"
+                href=""
+              >
+                تواصل مع الدعم الفني
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

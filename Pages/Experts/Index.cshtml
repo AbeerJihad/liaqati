@@ -36,9 +36,11 @@
             }
         }
     </style>
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.rtl.min.css" rel="stylesheet" />
 }
 
-<div class="position-relative w-100  overflow-hidden" style="background-size:cover; height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/pexels-ella-olsson-1640773 (2).jpg')">
+<div class="position-relative w-100  overflow-hidden" style="background-size:cover; height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/experts/header.jpeg')">
     <div class="h-100">
         <div class="container-fluid h-100 p-0 position-absolute start-0 top-0 ">
             <div class="container-xl h-100  d-flex flex-column justify-content-center align-items-center " style="padding-top:120px !important">
@@ -46,7 +48,26 @@
                     <h1 class="text-white text-center py-3 fw-bold">
                         المدربين
                     </h1>
+                    <div class="p-0 g-0 row mx-auto col-lg-10 form-search">
+                        <div class="col-12 my-2 my-lg-0 col-lg-5">
+                            <input type="text" id="name" name="name" class="form-control rounded-0" placeholder="الاسم" />
+                        </div>
+                        <div class="col-12 my-2 my-lg-0 col-lg-4">
 
+                            <select style="height:50px !important;" id="selectSpecExpert" class="form-control wide rounded-0">
+                                <option value="-1"> اختر التخصص </option>
+                                <option value="اخصائي تغذية"> اخصائي تغذية  </option>
+                                <option value="مدرب لياقة"> مدرب لياقة  </option>
+                                <option value="مدرب كارديو"> مدرب كارديو  </option>
+                                <option value="مدرب قوة"> مدرب قوة   </option>
+                            </select>
+
+                        </div>
+                        <div class="col-12 my-2 my-lg-0 col-lg-3">
+                            <input placeholder="بحث" onclick="SearchExpertFun()" value="بحث" class="form-control rounded-0 text-center" style="background-color: #e4dfff" />
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
@@ -59,30 +80,9 @@
 
 
 
-<div class=" container-90 mt-5 min-vh-100">
-
-    <div class="p-0 g-0 row form-search">
-        <div class="col-12 my-2 my-lg-0 col-lg-5">
-            <input type="text" id="name" name="name" class="form-control rounded-end-0" placeholder="الاسم" />
-        </div>
-        <div class="col-12 my-2 my-lg-0 col-lg-4">
-
-            <select style="height:50px;" id="selectSpecExpert" class="form-control rounded-end-0">
-                <option value="-1"> اختر التخصص </option>
-
-                <option value="اخصائي تغذية"> اخصائي تغذية  </option>
-                <option value="مدرب لياقة"> مدرب لياقة  </option>
-                <option value="مدرب كارديو"> مدرب كارديو  </option>
-                <option value="مدرب قوة"> مدرب قوة   </option>
-            </select>
+<div class=" container-90 mt-5 ">
 
 
-        </div>
-        <div class="col-12 my-2 my-lg-0 col-lg-3">
-            <input placeholder="بحث" onclick="SearchExpertFun()" value="بحث" class="form-control rounded-start-0 text-center" style="background-color: #e4dfff" />
-        </div>
-
-    </div>
 
 
     <div class="row mt-5  p-0 g-0">
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 p-0 g-0" id="ExpertsContainer">
-                @for (int i = 0; i < 9; i++)
+                @for (int i = 0; i < 12; i++)
                 {
                     <partial name="_ExpertsSkeletonCard.cshtml" />
                 }
@@ -126,6 +126,8 @@
 
 
 @section Scripts{
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
     <script src="~/jsapi/Pagination.js" asp-append-version="true"></script>
     <script src="~/jsapi/userapi/usermodel.js"></script>
     <script src="~/jsapi/userapi/usermodelapp.js"></script>

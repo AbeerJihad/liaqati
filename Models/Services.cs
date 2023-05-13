@@ -13,9 +13,16 @@
         [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = " سعر الخدمة")]
         public double? Price { get; set; }
-       // [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
+        // [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "رقم الصنف")]
         public string? CategoryId { get; set; }
+
+        [Display(Name = " التقييم"), Range(0, 100)]
+        public double? RatePercentage { get; set; }
+        public DateTime? CreatedDate { get; set; } = DateTime.Now;
+        public bool? IsFeatured { get; set; }
+
+
         [ForeignKey(nameof(CategoryId))]
         public virtual Category? Category { get; set; }
         [System.Text.Json.Serialization.JsonIgnore]
@@ -28,17 +35,20 @@
 
         [System.Text.Json.Serialization.JsonIgnore]
         public virtual SportsProgram? SportsProgram { get; set; }
+        public string? UserId { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public virtual User? User { get; set; }
         [System.Text.Json.Serialization.JsonIgnore]
         public virtual List<Comment_Servies>? CommentServies { get; set; }
         //[System.Text.Json.Serialization.JsonIgnore]
         //public virtual List<Tracking>? Traks { get; set; }
 
         [System.Text.Json.Serialization.JsonIgnore]
-
-        public virtual List<Favorite_Servies>? Favorites { get; set; }
+        public virtual List<Favorite>? Favorite { get; set; }
         [System.Text.Json.Serialization.JsonIgnore]
-
         public virtual List<Order_Details>? Order_Details { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore]
+        public virtual List<CartItem>? CartItems { get; set; }
         [System.Text.Json.Serialization.JsonIgnore]
         public virtual List<Files>? Files { get; set; }
     }

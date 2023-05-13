@@ -1,0 +1,11 @@
+﻿@model List<SportsProgram>
+
+ @if (Model.Count > 0)
+{
+    @foreach (var item in Model)
+    {
+        <partial name="SportsProgram_card" model="@item" />
+    }
+
+
+}

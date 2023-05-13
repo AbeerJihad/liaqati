@@ -135,11 +135,12 @@ builder.Services.AddScoped<IRepoOrder_Details>();
 builder.Services.AddScoped<IRepoRate>();
 builder.Services.AddScoped<IRepoService>();
 builder.Services.AddScoped<IRepoUser>();
+builder.Services.AddScoped<IRepoCart>();
 
 
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 
-builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddNotyf(config =>
 {
     config.DurationInSeconds = 7;
@@ -160,8 +161,8 @@ if (!app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); c.RoutePrefix = ""; });
+    // app.UseSwagger();
+    // app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); c.RoutePrefix = "api"; });
     app.UseMigrationsEndPoint();
 }
 

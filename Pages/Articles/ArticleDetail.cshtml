@@ -1,0 +1,199 @@
+﻿@page
+@model liaqati_master.Pages.Articles.ArticleDetailModel
+@{
+}
+
+
+<style>
+    * {
+        font-family: Almarai;
+    }
+
+    .sideArticlesImages {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .btn_Exercises_duration {
+        background-color: #b9aff5;
+    }
+
+    .Exercises_duration_Color {
+        color: #B9AFF5;
+        font-size: 14px;
+    }
+
+    .bgcolor {
+        background-color: #F0EFF8;
+    }
+
+    .purpleColor {
+        color: #A566C8;
+    }
+</style>
+
+
+
+<p class="fs-6 p-4">
+    الرئيسية
+    <img src="/images/Articles/ic_expand_more_24px.png" />
+    مقالات
+    <img src="/images/Articles/ic_expand_more_24px.png" />
+    مشروبات تساعدك على النوم
+</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 d-flex justify-content-between">
+            <div class="">
+                <h3> @Model.item.Title   </h3>
+            </div>
+            <div class="d-flex">
+                <p class="fw-bold mx-2" style="font-size:14px;">مشاركة</p>
+                <img class="" width="22" height="25" src="/images/Articles/share-button-svgrepo-com.png" />
+                <img width="22" height="20" src="/images/Articles/heart-svgrepo-com (1).png" />
+            </div>
+        </div>
+        <p style="font-size:10px; margin:0 3px">تاريخ النشر   @CommonMethods.GetArabicDateTime(@Model.item.PostDate)  |    @Model.item.avgReading  دقيقة قراءة</p>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row" id="rowForCardLoop">
+        <div class="col-lg-8">
+            <hr />
+            <img class="w-100 mb-5" src="@Model.item.Image" />
+
+            <p> @Html.Raw(@Model.item.Description)  </p>
+
+           
+        </div>
+        <div id="rowForCardLoop" class="col-lg-4 justify-content-center py-lg-0 py-4 align-items-center bgcolor">
+             @foreach (var item in Model.Articles)
+          {
+            
+            <div class="row col-lg-12 col-md-10 mt-3 mx-1 bg-white shadow" id="cardLoop">
+                <div class="col-5 g-0">
+                    <img style="height:150px" src="@item.Image" class="sideArticlesImages" />
+
+                </div>
+                <div class="col">
+                    <div class="pt-2">
+                        <p class="text-black-50">رشاقة وتغذية</p>
+                        <p style="font-weight:bold;">  @item.Title</p>
+
+                    </div>
+                    <div class="text-start mb-1">
+                            @{
+                                Favorite favorite = new();
+                            }
+                            <form method="post" asp-area="admin" asp-page="/favorites/create">
+
+
+                                <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
+                                <input hidden value="مقالات" asp-for="@favorite.Type" />
+
+                                <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
+                                    <img width="20" class="my-2" src="/images/Articles/heart-outlin.png" />
+
+                                </button>
+
+                            </form>
+                    </div>
+                </div>
+
+            </div>
+            }
+
+
+
+            <div class="d-flex mt-4">
+                <div class=" m-1"
+                     style="height: 35px; width: 8px; background-color: #b9aff5"></div>
+                <p class="col-auto fw-bold mt-1" style="font-size:20px;">تمارين رياضية</p>
+                <div class="mt-4 mx-4 col"
+                     style="height: 2px; width: 25%; background-color: #b9aff5"></div>
+            </div>
+           
+               @foreach (var item in Model.Exercises)
+          {
+            
+
+            <div class="row mt-3 mx-1 bg-white shadow" id="cardLoop2">
+                <div class="col-5 g-0 position-relative">
+                    <img src="@item.Image" class="sideArticlesImages" />
+                    <img width="40"
+                         class="position-absolute"
+                         style="bottom: 20px; right: 20px; object-fit: cover;"
+                         src=".//images/Articles/ic_play_circle_outline_24px.png"
+                         alt=""
+                         srcset="" />
+                </div>
+                <div class="col">
+                    <div class="pt-2">
+                        <p class=" Exercises_duration_Color fw-bold">
+                            دقيقة اليوم[Time]--  أسابيع @item.Duration  برنامج
+                        </p>
+                        <p style="font-weight:bold;">       @item.Title</p>
+
+                    </div>
+                    <div class="d-flex justify-content-between my-2">
+                        <div>
+                            <h4 class="d-inline-block fw-bold text-danger align-middle">
+                                $ @item.Price
+                            </h4>
+                        </div>
+                        <div>
+                            <button class="btn_Exercises_duration col-auto text-white rounded-3 fw-bold d-inline-block border-0 py-1 px-3 justify-content-between">
+                                ابدا الان
+
+                                <img width="22" height="18" src="/images/Articles/cart-3-svgrepo-com.png" />
+
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            }
+
+
+        </div>
+
+        <script src="js/bootstrap.bundle.min.js"></script>
+       @* <script>
+            function repeatCard() {
+                let rowForCardLoop = document.getElementById("rowForCardLoop");
+                let cardLoop = document.getElementById("cardLoop");
+                for (let i = 0; i <= 2; i++) {
+                    let array = [];
+                    let newCard = cardLoop.cloneNode(true);
+                    cardLoop.after(newCard);
+                    array.push(newCard);
+                }
+            }
+            repeatCard()
+            console.log(cardLoop);
+            console.log(rowForCardLoop);
+        </script>
+        <script>
+            function repeatCard() {
+                let rowForCardLoop = document.getElementById("rowForCardLoop");
+                let cardLoop = document.getElementById("cardLoop2");
+                for (let i = 0; i <= 1; i++) {
+                    let array = [];
+                    let newCard = cardLoop.cloneNode(true);
+                    cardLoop.after(newCard);
+                    array.push(newCard);
+                }
+            }
+            repeatCard()
+            console.log(cardLoop);
+            console.log(rowForCardLoop);
+        </script>*@
+    </div>
+</div>
+

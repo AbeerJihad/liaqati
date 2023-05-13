@@ -1,6 +1,6 @@
 ﻿@using liaqati_master.ViewModels;
 @model VMLiaqatiStatistic
-<div class="container mt-5">
+@*<div class="container mt-5">
     <div class="container">
         <div class="container">
             <div class="row">
@@ -30,4 +30,54 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
+
+
+     <section id="facts" class="facts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2 class="col-auto">عن لياقتي</h2>
+          <h3>
+إذا أردت أن تعيش حياة صحية متكاملة تدرب مع لياقتي 
+</h3>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="count-box">
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="@Model.NumberOfNormalUsers" data-purecounter-duration="1" class="purecounter"></span>
+              <p>عدد المستخدمين</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="count-box">
+              <i class="bi bi-journal-richtext"></i>
+              <span data-purecounter-start="0" data-purecounter-end="@Model.NumberOfSportProg" data-purecounter-duration="1" class="purecounter"></span>
+              <p>الأنظمةالرياضية</p>    
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+            <i class="bi bi-egg-fried"></i>          
+          <span data-purecounter-start="0" data-purecounter-end="@Model.NumberOfRecipes" data-purecounter-duration="1" class="purecounter"></span>
+              <p>الوصفات الصحية</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="count-box">
+            <i class="bi bi-person-vcard"></i>
+            <span data-purecounter-start="0" data-purecounter-end="@Model.NumberOfCoachs" data-purecounter-duration="1" class="purecounter"></span>
+              <p>عدد المدربين</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>

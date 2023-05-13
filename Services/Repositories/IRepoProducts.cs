@@ -133,5 +133,85 @@
             return queryPageResult;
 
         }
+        public async Task<QueryPageResult<ProductVM>> SearchProductVM(ProductQueryParamters Parameters)
+        {
+            IQueryable<ProductVM> products = (await GetAllAsync()).Select(p =>
+            new ProductVM()
+            {
+                CategoryName = p.Services?.Category?.Name,
+                Id = p.Id,
+                Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
+                CategoryId = p.Services?.CategoryId,
+                Discount = p.Discount,
+                PercentageRate = p.Services?.RatePercentage,
+                Price = p.Services?.Price,
+                Title = p.Services?.Title
+
+            }
+
+            ).AsQueryable();
+
+            if (!string.IsNullOrEmpty(Parameters.CategoryId))
+            {
+                products = products.Where(p => p.CategoryId == Parameters.CategoryId);
+            }
+
+            if (Parameters.MinPrice != null)
+            {
+                products = products.Where(p => p.Price >= Parameters.MinPrice);
+            }
+
+            if (Parameters.MaxPrice != null)
+            {
+                products = products.Where(p => p.Price <= Parameters.MaxPrice);
+            }
+
+            if (!string.IsNullOrEmpty(Parameters.SearchTearm))
+            {
+                products = products.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+            }
+
+            if (!string.IsNullOrEmpty(Parameters.Title))
+            {
+                products = products.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.Title.ToLower()));
+            }
+
+
+            if (!string.IsNullOrEmpty(Parameters.SortBy))
+            {
+                if (Parameters.SortBy.Equals("Price", StringComparison.OrdinalIgnoreCase))
+                {
+                    products = products.OrderBy(p => p.Price);
+
+                }
+                else if (Parameters.SortBy.Equals("Price", StringComparison.OrdinalIgnoreCase))
+                {
+                    products = products.OrderByDescending(p => p.Price);
+
+                }
+            }
+            if (!string.IsNullOrEmpty(Parameters.SortBy))
+            {
+                if (Parameters.SortBy.Equals(nameof(Service.RatePercentage), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        products = products.OrderBy(p => p!.PercentageRate);
+                    else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        products = products.OrderByDescending(p => p!.PercentageRate);
+                }
+                else if (Parameters.SortBy.Equals(nameof(Service.Price), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        products = products.OrderBy(p => p!.Price);
+                    else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        products = products.OrderByDescending(p => p!.Price);
+                }
+
+            }
+
+            QueryPageResult<ProductVM> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
+            return queryPageResult;
+
+        }
     }
 }

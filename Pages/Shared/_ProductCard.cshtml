@@ -3,53 +3,69 @@
 @{
     string image = string.IsNullOrEmpty(Model.ImgUrl) ? "/images/default.png" : Model.ImgUrl;
 }
-<div class="col p-2">
-    <div class="card overflow-hidden h-100  boradius border p-0">
-        <div class="position-relative box-img w-100">
-            <img src="@image"
-                 height="200"
-                 class="position-absolute w-100 h-100 start-0 top-0 rounded-top"
-                 alt=""
-                 style="object-fit: cover" />
-            <button style="width: 50px; height: 50px; top: 10px; right: 10px"
-                    class="rounded-pill btn-favourite   text-secondary btn position-absolute border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
-            </button>
-        </div>
-        <div class="card-body g-2 p-2 mt-0">
-            <div class="d-flex m-2 justify-content-between">
-                <p class="card-text">@Model.Services?.Category?.Name </p>
-                <div class="rating">
-                    <div class="rating position-relative">
-                        <div class="rating-upper d-flex ">
-                            <i class="bi bi-star-fill text-black-50"></i>
-                            <i class="bi bi-star-fill text-black-50"></i>
-                            <i class="bi bi-star-fill text-black-50"></i>
-                            <i class="bi bi-star-fill text-black-50"></i>
-                            <i class="bi bi-star-fill text-black-50"></i>
-                        </div>
-                        <div class="rating-lower d-flex  position-absolute top-0 start-0 overflow-hidden  w-10">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
+<a asp-page="/Products/ProductDetails" asp-route-id="@Model.Id">
+
+    <div class="col p-2">
+        <div class="card overflow-hidden h-100  boradius border p-0">
+            <div class="position-relative box-img w-100">
+                <img src="@image"
+                     height="200"
+                     class="position-absolute w-100 h-100 start-0 top-0 rounded-top"
+                     alt=""
+                     style="object-fit: cover" />
+
+
+                @{
+                    Favorite favorite = new();
+                    <form method="post" asp-route-returnUrl="@Url.Page("/", new { area = "" })" asp-page="/favorites/create">
+                        <input hidden value="@Model.Services!.Id" asp-for="@favorite.ServicesId" />
+                        <input hidden value="منتجات" asp-for="@favorite.Type" />
+
+                        <button type="submit" style="width: 50px; height: 50px; top: 10px; right: 10px"
+                                class="rounded-pill btn-favourite   text-secondary btn position-absolute border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                            <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
+                        </button>
+
+                    </form>
+                }
+
+
+            </div>
+            <div class="card-body g-2 p-2 mt-0">
+                <div class="d-flex m-2 justify-content-between">
+                    <p class="card-text">@Model.Services?.Category?.Name </p>
+                    <div class="rating">
+                        <div class="rating position-relative">
+                            <div class="rating-upper d-flex ">
+                                <i class="bi bi-star-fill text-black-50"></i>
+                                <i class="bi bi-star-fill text-black-50"></i>
+                                <i class="bi bi-star-fill text-black-50"></i>
+                                <i class="bi bi-star-fill text-black-50"></i>
+                                <i class="bi bi-star-fill text-black-50"></i>
+                            </div>
+                            <div class="rating-lower d-flex  position-absolute top-0 start-0 overflow-hidden  w-10">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="justify-content-between">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <p class="p-0 m-0 text-success">@Model.Services?.Title</p>
-                        <h5 class="fw-bold text-danger mt-3">@String.Format("{0:c}",Model.Services?.Price)</h5>
+                <div class="justify-content-between">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="p-0 m-0 text-success">@Model.Services?.Title</p>
+                            <h5 class="fw-bold text-danger mt-3">@String.Format("{0:c}",Model.Services?.Price)</h5>
+                        </div>
+                        <button style="width: 70px; height: 70px"
+                                class="rounded-pill btn imgBackground border shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                            <i class="bi bi-cart-fill h3 d-block m-0"></i>
+                        </button>
                     </div>
-                    <button style="width: 70px; height: 70px"
-                            class="rounded-pill btn imgBackground border shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                        <i class="bi bi-cart-fill h3 d-block m-0"></i>
-                    </button>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</a>

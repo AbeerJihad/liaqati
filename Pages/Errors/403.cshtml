@@ -1,0 +1,69 @@
+﻿@page
+@model SportProductsWeb.Pages.Errors._403Model
+@{
+}
+<style>
+    .cardError403 {
+        background-color: #f3f2f8;
+    }
+
+    @@media only screen and (max-width: 480px) {
+        .mediaBtn {
+            width: 75% !important;
+            margin-right: 12.5% !important;
+        }
+
+        .media-image {
+            margin-top: -100px !important;
+        }
+    }
+
+    @@media only screen and (max-width: 990px) {
+        .media-div {
+            right: 70% !important;
+            width: 70%;
+            left: -200px !important;
+        }
+    }
+</style>
+
+<div style="padding-top:400px !important;  margin-bottom: 200px" class="container">
+    <div class="row position-relative">
+        <div class="d-none col-2 d-md-block"></div>
+        <div class="col-12 m-0 m-md-2 m-md-0 col-md-9 col-lg-6 p-4 cardError403 rounded-5">
+            <img style="margin-top: -120px; margin-right: 25%"
+                 class="w-50 media-image"
+                 src="./403.png"
+                 alt=""
+                 srcset="" />
+            <div>
+                <h3 class="text-center">عذرا لا يمكن الوصول لهذه الصفحة</h3>
+                <div>
+                    <a style="background-color: #e5c362; margin-right: 25%"
+                       class="btn p-2 w-50 text-white fw-bold my-3 mediaBtn"
+                       href="">
+                        الرجوع الى الصفحة السابقة
+                    </a>
+                </div>
+                <div>
+                    <a style="background-color: #be8adc; margin-right: 25%"
+                       class="btn w-50 py-2 text-white fw-bold my-3 d-inline-block mediaBtn"
+                       href="">
+                        الصفحة الرئيسية
+                    </a>
+                </div>
+                <div>
+                    <a style="margin-right: 25%; color: #be8adc"
+                       class="w-50 fw-bold my-3 d-inline-block text-center h5"
+                       href="">
+                        تواصل مع الدعم الفني
+                    </a>
+                </div>
+            </div>
+            <div class="position-absolute d-none d-md-block media-div"
+                 style="bottom: -80px; right: 50%">
+                <img class="w-100" src="~/Images/Error/5224519.png" alt="" srcset="" />
+            </div>
+        </div>
+    </div>
+</div>
