@@ -1,8 +1,10 @@
-﻿
+﻿@model User
+
+
 <div class="coach-box pb-1 w-100 shadow">
     <div class="img-box2">
-        <img src="~/user/images/download.jpg" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" alt="">
+        <img src="@Model.Photo" class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" alt="">
     </div>
-    <p class="text-center m-0">محمد جمال</p>
-    <p class="text-center text-success">مدرب لياقة</p>
+    <p class="text-center m-0">@Model.Fname @Model.Lname </p>
+    <p class="text-center text-success">@Model.Specialization</p>
 </div>

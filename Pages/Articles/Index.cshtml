@@ -33,6 +33,8 @@
     }
 
 </style>
+
+
 <div class="position-relative w-100  overflow-hidden" style="height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/articles bg.png');background-size:cover;">
     <div class="h-100">
         <div class="container-fluid h-100 p-0 position-absolute start-0 top-0 bg ">
@@ -79,7 +81,7 @@
                             <img src="~/images/atricles/@Links[i]" class="d-block carouselImages" alt="...">
                             <div class="carousel-caption w-100 start-0 m-0 p-3 bottom-0   text-start d-none d-md-block" style="background-color:rgba(255,255,255,0.6);">
                                 <p class="text-black-50 fw-bold">رشاقة وتغذية</p>
-                                <h6 class="text-dark">تمارين بالمنزل للتغلب على خشونة الركبة .</h6>
+                                <h6 class="text-dark">@Model.Articles[i].Title      .</h6>
                             </div>
                         </div>
                     }
@@ -100,24 +102,41 @@
             @for (int i = 0; i < 3; i++)
             {
                 string[] Links = new string[] { "article1.png", "224058.png", "224756.png" };
-                <div class="row mx-1 bg-white">
+                <div class="row w-100 mx-1 bg-white">
                     <div class="col-4 g-0 ">
                         <img src="~/images/atricles/@Links[i]" class="sideArticlesImages" />
                     </div>
                     <div class="col">
                         <div class="pt-2">
-                            <p class="fw-bold">فبراير 18 2023</p>
+                            <p class="fw-bold"> @CommonMethods.GetArabicDateTime(@Model.Articles[i+3].PostDate)   </p>
                             <p class="text-black-50">رشاقة وتغذية</p>
-                            <p style="font-weight:bold;">كيف أستعمل الشوفان لانقاص الوزن؟.. طبيبة تغذية تجيب</p>
+                            <p style="font-weight:bold;">  @Model.Articles[i+3].Title </p>
                         </div>
                         <div class="d-flex justify-content-between ">
 
                             <div>
-                                <p>وقت القراءة 10 دقائق</p>
+                                <p>وقت القراءة  @Model.Articles[i+3].avgReading  دقائق</p>
                             </div>
-                            <div class="my-1">
+                            <div class="my-1 d-flex">
                                 <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
-                                <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+
+                                @{
+                                    Favorite favorite = new();
+                                }
+                                    <form method="post" asp-area="admin" asp-page="/favorites/create">
+
+
+                                        <input hidden value="@Model.Articles[i+3].Id" asp-for="@favorite.ArticleId" />
+                                        <input hidden value="مقالات" asp-for="@favorite.Type" />
+
+                                        <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
+                                        <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+                                        
+                                        </button>
+
+                                    </form>
+                               
+
                             </div>
 
 
@@ -137,23 +156,83 @@
 @await Component.InvokeAsync("MostViewedArticles")
 
 
-<h3 class="mx-5 mt-4 mb-0">المقالات الحديثة</h3>
+<h3 class="mx-5 mt-4 mb-0">جميع المقالات </h3>
 <div class="container-lg">
-    <div class="row g-0 p-0 justify-content-center align-self-center" id="rowData">
+    <div class="row  " id="rowData">
         @* @for (int i = 0; i < 4; i++)
         {
         string[] Links = new string[] { "224664.png", "221474.png", "224347.png", "223603.png" };
 
 
         }*@
+
+
+         @foreach (var item in Model.AllArticles)
+        {
+
+            <div class="col-12 col-md-6  p-2">
+                <div class="row bg-white w-100">
+                    <div class="col-4 g-0">
+                        <img style="height:150px" src="@item.Image" class="sideArticlesImages" />
+                    </div>
+                    <div class="col p-2 m-0">
+                        <div class="d-flex justify-content-between ">
+
+                            <div>
+                                <p class="fw-bold"> رشاقة وتغذية  </p>
+                            </div>
+                            <div class="my-1 d-flex">
+                                <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
+
+
+                                @{
+                                    Favorite favorite = new();
+                                }
+                                <form method="post" asp-area="admin" asp-page="/favorites/create">
+
+
+                                    <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
+                                    <input hidden value="مقالات" asp-for="@favorite.Type" />
+
+                                    <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
+                                        <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+
+                                    </button>
+
+                                </form>
+                            </div>
+
+
+
+
+                        </div>
+                        <p> @CommonMethods.GetArabicDateTime(@item.PostDate)     </p>
+                        <p style="font-weight:bold;">  @item.Title </p>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+}
+
+
+
+
+
+
     </div>
 
     <div class="row g-0 p-0 my-3">
         <div class="col d-flex justify-content-end ">
-            <button class="btn btn-main" type="button" onclick="fetchData();">
+            @* onclick="fetchData();"*@
+            <a asp-page="AllArticles" class="btn btn-main"  >
                 <span class="spinner-grow  spinner-grow-sm d-none" role="status" aria-hidden="true"></span>
                 عرض المزيد
-            </button>
+            </a>
         </div>
     </div>
 

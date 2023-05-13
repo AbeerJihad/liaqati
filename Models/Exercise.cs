@@ -40,6 +40,7 @@ namespace liaqati_master.Models
         public virtual List<Rate>? Rate { get; set; }
         [JsonIgnore]
         public virtual List<Exercies_program>? Exercies_Programs { get; set; }
+        public virtual List<Favorite>? Favorite { get; set; }
 
     }
 }

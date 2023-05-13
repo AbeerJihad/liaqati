@@ -11,6 +11,7 @@
             _repoCategory = repoCategory;
         }
 
+        public List<(string, string)>? ListOfSelectedFilters { get; set; }
 
         public IList<Product> Products { get; set; }
         [BindProperty(SupportsGet = true)]

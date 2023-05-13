@@ -147,7 +147,44 @@
                 <img height="27" width="25" class="mx-2" src="~/user/images/list-clipboard-svgrepo-com.png" />
                 <h4>المكونات</h4>
             </div>
-            <p>@Html.Raw(Model.helth.Ingredients)</p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"> الاسم</th>
+                        <th scope="col"> الكمية</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                     @for(int i=0; i < Model.Ingredent.Length-1; i++)
+            {
+              
+                        <tr>
+                            @{
+                                string[] spolites = Model.Ingredent[i].Split(',');
+                            }
+                            <td scope="row"> @spolites[0] </td>
+                            <td scope="row"> @spolites[1]  @spolites[2] </td>
+
+
+                           
+                       </tr>
+            }
+                
+                </tbody>
+            </table>
+
+
+            @*@for(int i=0; i < Model.Ingredent.Length-1; i++)
+            {
+                <p>   @Html.Raw(Model.Ingredent[i].Trim())</p>
+
+            }
+*@
+
+
+
             <hr />
         </div>
         <div class="col-md-8">
@@ -155,7 +192,14 @@
                 <img height="27" width="25" class="mx-2" src="~/user/images/list-clipboard-svgrepo-com.png" />
                 <h4 class="mb-3">طريقة التحضير</h4>
             </div>
-          <p>@Html.Raw(Model.helth.PreparationMethod)</p>
+            @for (int i = 0; i < Model.PreparationMethod.Length - 1; i++)
+            {
+                var ii = i + 1;
+                <p>  @ii -  @Html.Raw(Model.PreparationMethod[i].Trim())</p>
+
+            }
+
+
         </div>
     </div>
 </div>

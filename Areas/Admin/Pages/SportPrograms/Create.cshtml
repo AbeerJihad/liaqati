@@ -160,10 +160,32 @@
                             <div class="col-12 col-md-4  ">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.TrainingType"></label>
-                                    <input  asp-for="SportsProgram.TrainingType" class="form-control @Model.ReadOnly" placeholder="">
-                                    <span class="text-danger" asp-validation-for="SportsProgram.TrainingType"></span>
+                                    <br />
+                                    @for (var index = 0; index < @Model.lstCheckBoxTrainingType.Count(); index++)
+                                    {
+                                        <label class="form-check-label p">
+                                            @Model.TrainingType[index]
+                                        </label>
+                                        <input type="hidden" asp-for="@Model.lstCheckBoxTrainingType[index].Name" />
+
+                                        <input type="checkbox" asp-for="@Model.lstCheckBoxTrainingType[index].IsChecked" />
+
+
+                                        if ((index + 1) % 3 == 0)
+                                        {
+                                            <br />
+                                        }
+                                    }
+
+
+
+
+
+                                    @*                                    <input asp-for="MealPlan.MealType" class="form-control" placeholder="">
+                                    *@                                    <span asp-validation-for="SportsProgram.TrainingType" class="text-danger"></span>
 
                                 </div>
+
                             </div>
 
                             <div class="col-12 col-md-4">
@@ -185,10 +207,32 @@
                             <div class="col-12 col-md-4">
                                 <div class="mb-3">
                                     <label asp-for="SportsProgram.BodyFocus"></label>
-                                    <input asp-for="SportsProgram.BodyFocus" class="form-control  @Model.ReadOnly" placeholder="">
-                                    <span class="text-danger" asp-validation-for="SportsProgram.BodyFocus"></span>
+                                    <br />
+                                    @for (var index = 0; index < @Model.lstCheckBoxBodyFocus.Count(); index++)
+                                    {
+                                        <label class="form-check-label p">
+                                            @Model.BodyFocus[index]
+                                        </label>
+                                        <input type="hidden" asp-for="@Model.lstCheckBoxBodyFocus[index].Name" />
+
+                                        <input type="checkbox" asp-for="@Model.lstCheckBoxBodyFocus[index].IsChecked" />
+
+
+                                        if ((index + 1) % 3 == 0)
+                                        {
+                                            <br />
+                                        }
+                                    }
+
+
+
+
+
+                                    @*                                    <input asp-for="MealPlan.MealType" class="form-control" placeholder="">
+                                    *@                                    <span asp-validation-for="SportsProgram.BodyFocus" class="text-danger"></span>
 
                                 </div>
+
                             </div>
 
 

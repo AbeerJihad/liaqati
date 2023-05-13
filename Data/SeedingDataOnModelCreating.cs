@@ -16,6 +16,11 @@
             modelBuilder.Entity<Exercies_program>().HasData(Database.GetListOfExerciesprogram());
             modelBuilder.Entity<Exercise>().HasData(Database.GetListOfExercise());
             modelBuilder.Entity<HealthyRecipe>().HasData(Database.GetListHealthyRecipe().Concat(Database.GetListHealthyRecipe2()));
+            modelBuilder.Entity<Files>().HasData(Database.GetListFiles());
+            modelBuilder.Entity<Article>().HasData(Database.GetListOfArticle());
+            modelBuilder.Entity<Consultation>().HasData(Database.GetListOfConsultation());
+            modelBuilder.Entity<Replyconsultation>().HasData(Database.GetListOfReplyconsultation());
+
 
         }
     }

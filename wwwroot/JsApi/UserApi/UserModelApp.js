@@ -21,7 +21,6 @@ async function getdata() {
         size: 12,
         name: Name,
         Specialization: Spec,
-
     };
 
     ExpertsApiResult = await getUsers(parms);
@@ -34,26 +33,31 @@ async function getdata() {
 }
 //RenderSkeletonCards();
 getdata();
-/*calories
-description
-dietaryType
-id
-image
-ingredients
-mealType
-meal_Healthy
-prepTime
-preparationMethod
-price
-protein
-shortDescription
-title
-total_Carbohydrate
-*/
+
 function RenderCards(Expert) {
     console.log(Expert);
     let card = document.createElement("div");
     card.className = "col p-3";
+
+    let social = "";
+
+
+    if (Expert.instagram != null) {
+        social += ` <a title="instagram" class="btn social-media-icon border-0 bg-transparentp-0 m-0" href="${Expert.instagram}">
+                        <i class="bi bi-instagram h5 text-white"></i>
+                    </a>`
+    }
+    if (Expert.twitter != null) {
+        social += ` <a title="twitter" class="btn social-media-icon border-0 bg-transparent p-0 m-0" href="${Expert.twitter}">
+                        <i class="bi bi-twitter h5 text-white"></i>
+                    </a>`
+    }
+    if (Expert.whatsApp != null) {
+        social += ` <a title="whatsapp" class="btn social-media-icon border-0 bg-transparent p-0 m-0" href="${Expert.whatsApp}">
+                        <i class="bi bi-whatsapp h5 text-white"></i>
+                    </a>`
+    }
+
     card.innerHTML = `
     <div class="">
             <div class="card border-0 rounded-0 shadow">
@@ -61,20 +65,12 @@ function RenderCards(Expert) {
                     <img src="${Expert.photo}" class="card-img-top object-fit-cover w-100 h-100" alt="..." />
                 </div>
                 <div class="position-absolute top-0 end-0 p-3">
-                    <a title="whatsapp" class="btn social-media-icon border-0 bg-transparent p-0 m-0" href="#">
-                        <i class="bi bi-whatsapp h5 text-white"></i>
-                    </a>
-                    <a title="instagram" class="btn social-media-icon border-0 bg-transparentp-0 m-0" href="#">
-                        <i class="bi bi-instagram h5 text-white"></i>
-                    </a>
-                    <a title="twitter" class="btn social-media-icon border-0 bg-transparent p-0 m-0" href="#">
-                        <i class="bi bi-twitter h5 text-white"></i>
-                    </a>
+                    ${social}
                 </div>
                 <div class="card-body p-2 px-3">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-6">
-                            <h6 class="card-title text-black ">أ.  ${Expert.fname}   </h6>
+                            <h6 class="card-title text-black ">${Expert.fullName}</h6>
                             <p class="card-subtitle text-black-50 fw-normal">
                              ${Expert.specialization}
                             </p>
@@ -149,4 +145,10 @@ function GetPage(index) {
     CurPage = parseInt(index);
     getdata(null);
 }
+
+
+
+
+//var options = { searchable: false };
+//NiceSelect.bind(document.getElementById("selectSpecExpert"), options);
 

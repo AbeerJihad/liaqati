@@ -1,0 +1,71 @@
+﻿@using System.Globalization;
+@model LastOrdersViewModel
+
+<div class="card p-3 overflow-hidden border-raduis bg-white rounded m-0 shadow">
+    <div class="card-header border-bottom p-2 pt-3 px-3">
+        <div class="d-flex justify-content-between">
+            <span class="fs-6 fs-lg-5">أحدث الطلبات</span>
+            <span class="fs-6 fs-lg-5">
+                عدد الطلبيات المبيعة اليوم:@Model.NumderOfOrdersToday
+            </span>
+        </div>
+    </div>
+    <div class="card-body table-responsive p-0">
+        <table class="table table-borderless text-center">
+            <thead class="border-bottom">
+                <tr>
+                    <th scope="col">تاريخ الطلبية</th>
+                    <th scope="col">العدد</th>
+                    <th scope="col">كود الخصم</th>
+                    <th scope="col">المجموع</th>
+                    <th scope="col">حالة الطلب</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Orders is not null)
+                    @if (Model.Orders.Count > 0)
+                    {
+
+                        foreach (var item in Model.Orders)
+                        {
+                            <tr>
+                                <td scope="row">
+                                    @CommonMethods.GetArabicDateTime(item.OrderDate)
+                                </td>
+                                <td>@item.Order_Details?.Count</td>
+                                <td>@item.DiscountCode</td>
+                                <td>@item.TotalPrice?.ToString("c")</td>
+                                <td>
+                                    @switch (item.OrderStatus)
+                                    {
+                                        case 0:
+                                            <partial name="OrderStatusCases/Completed" />
+                                            break;
+                                        case 1:
+                                            <partial name="OrderStatusCases/Returned" />
+                                            break;
+                                        case 2:
+                                            <partial name="OrderStatusCases/Waited" />
+                                            break;
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <i class="bi bi-database-fill-slash text-secondary" style="font-size:60px"></i>
+                                    <p>لا يوجد بيانات</p>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

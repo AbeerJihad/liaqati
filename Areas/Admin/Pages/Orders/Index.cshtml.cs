@@ -17,7 +17,9 @@
             new SelectListItem(){Value="5", Text="5"},
             new SelectListItem(){Value="10", Text="10"},
             new SelectListItem(){Value="20", Text="20"}
-        };
+        }; 
+        public List<(string, string)>? ListOfSelectedFilters { get; set; }
+
         public IList<Order> Orders { get; set; }
 
         public async Task<IActionResult> OnGetAsync()

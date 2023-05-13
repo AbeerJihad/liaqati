@@ -53,6 +53,7 @@
         public virtual List<Rate>? Rate { get; set; }
         public virtual List<Meal_Healthy>? Meal_Healthy { get; set; }
         public virtual List<Files>? Files { get; set; }
+        public virtual List<Favorite>? Favorite { get; set; }
 
 
     }

@@ -20,7 +20,8 @@ function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, dur
 
     let row = document.createElement('div');
     row.className = 'col-sm-6 col-lg-3 p-4 ';
-    row.innerHTML = `
+    row.innerHTML = `   
+    <a href="Exercises/ExercisesDetiles/${id}">
                <div class="card border-0 h-100 ">
             <div class="position-relative">
                 <img id="imgCard " src="${image}" style="width:100%;" />
@@ -69,7 +70,7 @@ function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, dur
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    </a>
 `;
 
 
@@ -320,8 +321,6 @@ function RenderPagination(JsonData) {
     });
     aFirst.innerHTML = `</i><i class="bi bi-arrow-bar-left"></i>`;
     liFirst.appendChild(aFirst);
-
-
     let liLast = document.createElement("li");
     liLast.className = "page-item";
     let aLast = document.createElement("a");
@@ -332,9 +331,6 @@ function RenderPagination(JsonData) {
     });
     aLast.innerHTML = `</i><i class="bi bi-arrow-bar-right"></i>`;
     liLast.appendChild(aLast);
-
-
-
     let liPer = document.createElement("li");
     liPer.className = "page-item";
     let aPer = document.createElement("a");
@@ -405,7 +401,6 @@ function GetPage(index) {
 */
 function RenderCounters(JsonData) {
     console.log(JsonData)
-
     var labels = document.getElementsByTagName('LABEL');
     var BodyFoucs = [];
     var TraningType = [];
@@ -418,8 +413,6 @@ function RenderCounters(JsonData) {
             }
             else if (labels[i].htmlFor.startsWith('TraningType')) {
                 TraningType.push(labels[i]);
-
-
             } else if (labels[i].htmlFor.startsWith('Equipment')) {
                 Equipment.push(labels[i]);
             } else if (labels[i].htmlFor.startsWith('Difficulty')) {

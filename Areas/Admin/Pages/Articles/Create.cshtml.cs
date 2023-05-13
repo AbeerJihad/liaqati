@@ -6,10 +6,11 @@
         private readonly IRepoArticles _repoArticles;
         private readonly IRepoCategory _repoCategory;
 
-        public CreateModel(IFormFileMang formFileMang, IRepoArticles repoArticles)
+        public CreateModel(IFormFileMang formFileMang, IRepoArticles repoArticles, IRepoCategory repoCategory)
         {
             _formFileMang = formFileMang;
             _repoArticles = repoArticles;
+            _repoCategory = repoCategory;
         }
 
 
@@ -40,7 +41,7 @@
                 return Page();
             }
             Articles.Image = await _formFileMang.Upload(Image, "Images", "Articles");
-            await _repoArticles.AddEntityAsync(Articles);
+            await _repoArticles.AddEntityAsync(Entity: Articles);
             return RedirectToPage("./Index");
         }
     }

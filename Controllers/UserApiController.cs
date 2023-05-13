@@ -18,21 +18,14 @@
         [HttpGet("AllExperts")]
         public async Task<IEnumerable<User>> GetAllTrainerAsync()
         {
-            //.Include(Category => Category.Category).Include(com => com.comments)
-            return (IEnumerable<User>)await _userManager.GetUsersInRoleAsync("Trainer");
+            return await _userManager.GetUsersInRoleAsync("Trainer");
         }
-
-
-
-
-
-
 
         [HttpPost]
         [Route("searchforExperts")]
-        public async Task<ActionResult> SearchForExperts([FromBody] UserQueryParamters exqParameters)
+        public async Task<ActionResult> SearchForExperts([FromBody] ExpertQueryParamters exqParameters)
         {
-            return Ok(await _repoUser.SearchUser(exqParameters));
+            return Ok(await _repoUser.SearchExperts(exqParameters));
         }
     }
 }

@@ -1,0 +1,187 @@
+﻿@page
+@model liaqati_master.Pages.Cart.CartModel
+@{
+}
+
+@section Styles{
+    <link href="~/user/css/styleicart.css" rel="stylesheet" asp-append-version="true" />
+}
+<div class="container-fluid imgHeader position-relative">
+    <div class="row bgcolor">
+        <div style="padding: 60px; margin-top: 70px">
+            <p class="text-center" style="font-size: 55px">سلة المشتريات</p>
+
+            <form action=""
+                  method="get"
+                  class="p-0 g-0 row col-lg-10 mx-auto form-search justify-content-center">
+                <div class="col-12 my-2 my-lg-0 col-lg-6">
+                    <input type="text" class="form-control search rounded-0" name="te" placeholder="ابحث عن منتج" style="height: 3rem" />
+                </div>
+                <div class="col-12 my-lg-0 col-lg-2">
+                    <input placeholder="بحث" type="submit" value="بحث" class="form-control text-center rounded-0" style="background-color: #cebfe9; height: 3rem" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-xl pt-3">
+    <nav class="breadcrumb-nav py-3" aria-label="breadcrumb">
+        <ol class="breadcrumb d-flex align-items-center">
+            <li class="breadcrumb-item">
+                <a href="#" class="text-secondary text-decoration-none">الرئيسية</a>
+            </li>
+            <li class="d-flex justify-content-center align-items-center">
+                <i class="bx bxs-chevron-left mx-1 text-secondary"></i>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                سلة المشتريات
+            </li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="table-responsive">
+                <table class="table table-borderless cart-table">
+                    <thead class="border-0">
+                        <tr class="text-center">
+                            <th>المنتج</th>
+                            <th>الوصف</th>
+                            <th>السعر</th>
+                            <th>الكمية</th>
+                            <th>رقم الكوبون</th>
+                            <th>المجموع</th>
+                            <th>الغاء الطلب</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody">
+                        @if (Model.CartItems is not null)
+                        {
+                            if (Model.CartItems.Count > 0)
+                            {
+                                foreach (var item in Model.CartItems)
+                                {
+
+                                    <tr class="text-center overflow-hidden copy">
+                                        <td>
+                                            <img src="images/Screenshot 2023-02-18 174745.png" alt="" />
+                                        </td>
+                                        <td>@item.Service?.Title</td>
+                                        <td class="fw-bold">@item.UnitPrice</td>
+                                        <td class="m-3">
+
+
+                                            <div class="d-flex justify-content-center">
+                                                <form method="post" asp-page-handler="Increase" asp-route-id="@item.ServiceId">
+
+                                                    <button title="increase-quantity"
+                                                            class="btn-increase-quantity rounded-circle border-0 fs-5 px-2 d-flex justify-content-center align-items-center">
+                                                        <i class="bx bx-plus"></i>
+                                                    </button>
+                                                </form>
+                                                <input class="form-control border-0 quantity"
+                                                       title="quantity"
+                                                       readonly
+                                                       style="width: 50px; height: 30px"
+                                                       min="0" asp-for="@item.Quantity" />
+                                                <form method="post" asp-page-handler="Decrease" asp-route-id="@item.ServiceId">
+                                                    <button class="btn-decrease-quantity rounded-circle border-0 fs-5 px-2 d-flex justify-content-center align-items-center"
+                                                            title="decrease-quantity">
+                                                        <i class="bx bx-minus"></i>
+                                                    </button>
+                                                </form>
+
+                                            </div>
+
+
+                                        </td>
+                                        <td>ــــــــ</td>
+                                        <td class="fw-bold">@((item.UnitPrice * item.Quantity).ToString("c"))</td>
+                                        <td class="position-relative">
+                                            <form method="post" asp-page-handler="Delete" asp-route-id="@item.ServiceId">
+                                                <button class="btn position-absolute btn-delete-from-cart p-0"
+                                                        title="delete">
+                                                    <img src="~/user/images/Group 825.png" alt="" />
+                                                </button>
+                                            </form>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-4 pt-3">
+            <div class="cartDiv px-3 py-2">
+                <h4 class="text-black-50 my-4 fw-bold">اجمالي سلة المشتريات</h4>
+                <div class="d-flex justify-content-between">
+                    <p class="fw-bold m-0">مجموع المشتريات</p>
+                    <p class="fw-bold m-0">@Model.Total?.ToString("c")</p>
+                </div>
+                <hr />
+                <div class="">
+                    <p class="fw-bold h5 m-0">الشحن</p>
+                    <div class="text-black-50 d-flex justify-content-between align-items-center">
+                        <span class="text-small"> شحن الي فلسطين</span>
+
+                        <p class="fw-bold m-0 text-dark">
+
+                            $20
+
+                        </p>
+                    </div>
+                    <a href="#" class="p-0 text-black-50 text-decoration-underline"> تغيير عنوان</a>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between">
+                    <p class="fw-bold">المجموع الكلي</p>
+                    <p class="fw-bold">@((Model.Total + 20)?.ToString("c"))</p>
+                </div>
+            </div>
+            <button class="btn-complete-pay col-auto fw-bolder d-inline-block mt-4 border-0 w-100 p-3">
+                <div class="d-flex w-100 px-3 justify-content-between align-items-center">
+                    <span class="d-block fw-bold h5 m-0"> إتمام الدفع</span>
+                    <i class="bx bx-check-circle h4 bg-white rounded-circle p-0 m-0"></i>
+                </div>
+            </button>
+            <a href="" class="text-dark text-decoration-none mt-3 d-block">
+                <div class="d-flex justify-content-end align-items-center">
+                    <span class="d-block fw-bold">المزيد من المنتجات</span>
+                    <i class="bx bx-arrow-back m-0 d-block fw-bold ms-3"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        let BtnIncreaseQuantity = document.querySelectorAll(
+            ".btn-increase-quantity"
+        );
+        let BtnDecreaseQuantity = document.querySelectorAll(
+            ".btn-decrease-quantity"
+        );
+
+        BtnIncreaseQuantity.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                var value = parseInt(btn.parentElement.querySelector("input").value);
+                if (value < 50) {
+                    btn.parentElement.querySelector("input").value = value + 1;
+                }
+            });
+        });
+        BtnDecreaseQuantity.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                var value = parseInt(btn.parentElement.querySelector("input").value);
+                if (value > 0) {
+                    btn.parentElement.querySelector("input").value = value - 1;
+                }
+            });
+        });
+    </script>
+ }

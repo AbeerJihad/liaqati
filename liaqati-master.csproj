@@ -8,6 +8,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="Pages\Products\Components\GenericComponentProduct\default.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <COMReference Include="Microsoft.Office.Interop.Excel">
 	    <WrapperTool>tlbimp</WrapperTool>
 	    <VersionMinor>9</VersionMinor>
@@ -89,6 +93,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Include="Areas\Admin\Pages\Consultations\Create.cshtml" />
+		<None Include="Areas\Admin\Pages\Consultations\Delete.cshtml" />
+		<None Include="Areas\Admin\Pages\Consultations\Details.cshtml" />
+		<None Include="Areas\Admin\Pages\Consultations\Edit.cshtml" />
+		<None Include="Areas\Admin\Pages\Consultations\Index.cshtml" />
 		<None Include="Areas\Admin\Pages\Categories\IndexAll.cshtml" />
 		<None Include="Areas\Admin\Pages\Orders\Create.cshtml" />
 		<None Include="Areas\Admin\Pages\Orders\Delete.cshtml" />
@@ -99,6 +108,24 @@
 		<None Include="Areas\Admin\Pages\SportPrograms\Delete.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Edit.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Index.cshtml" />
+		<None Include="Areas\Admin\Pages\Replyconsultations\Create.cshtml" />
+		<None Include="Areas\Admin\Pages\Replyconsultations\Delete.cshtml" />
+		<None Include="Areas\Admin\Pages\Replyconsultations\Edit.cshtml" />
+		<None Include="Areas\Admin\Pages\Replyconsultations\Index.cshtml" />
+		<None Include="Pages\Articles\AllArticles.cshtml" />
+		<None Include="Pages\Articles\Components\MostViewedArticles\default.cshtml" />
+		<None Include="Pages\Articles\Index.cshtml" />
+		<None Include="Pages\Consultations\Components\LastestConsultation\default.cshtml" />
+		<None Include="Pages\Consultations\Components\MostViewedConsultation\default.cshtml" />
+		<None Include="Pages\Consultations\Index.cshtml" />
+		<None Include="Pages\Consultations\Replyconsultation.cshtml" />
+		<None Include="Pages\Consultations\_ConsultationCard.cshtml" />
+		<None Include="Pages\Consultations\_ConsultationSmallCard.cshtml" />
+		<None Include="Pages\Errors\401.cshtml" />
+		<None Include="Pages\Errors\403.cshtml" />
+		<None Include="Pages\Errors\404.cshtml" />
+		<None Include="Pages\Favorites\Create.cshtml" />
+		<None Include="Pages\Favorites\Index.cshtml" />
 		<None Include="Pages\HealthyRecipes\Components\GenericComponentHealthyRecipes\default.cshtml" />
 		<None Include="Pages\HealthyRecipes\Components\MostViewedHealthyRecipes\default.cshtml" />
 		<None Include="Pages\HealthyRecipes\HealthyRecipesDetiles.cshtml" />
@@ -107,7 +134,14 @@
 		<None Include="Pages\HealthyRecipes\_HealthyRecipeSkeletonCard.cshtml" />
 		<None Include="Pages\HealthyRecipes\_HealthyRecipeSmallCard.cshtml" />
 		<None Include="Pages\Home\Index.cshtml" />
+		<None Include="Pages\Products\Components\GenericComponentProduct\default.cshtml" />
 		<None Include="Pages\Shared\Components\LastestMealPlans\default.cshtml" />
+		<None Include="Pages\Shared\Components\MealPlans\default.cshtml" />
+		<None Include="Pages\Shared\Components\SportsPrograms\default.cshtml" />
+		<None Include="wwwroot\css\js\counter\main.js" />
+		<None Include="wwwroot\JsApi\Consultations\ConsultationModelApp.js" />
+		<None Include="wwwroot\JsApi\Consultations\ConsultationsModel.js" />
+		<None Include="wwwroot\lib\aos\aos.js" />
 		<None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
 		<None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
 		<None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
@@ -118,6 +152,8 @@
 		<None Include="wwwroot\lib\jquery\dist\jquery.js" />
 		<None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
 		<None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+		<None Include="wwwroot\lib\purecounter\purecounter_vanilla.js" />
+		<None Include="wwwroot\lib\purecounter\purecounter_vanilla.js.map" />
 		<None Include="wwwroot\lib\tinymce\icons\default\icons.min.js" />
 		<None Include="wwwroot\lib\tinymce\models\dom\model.min.js" />
 		<None Include="wwwroot\lib\tinymce\plugins\advlist\plugin.js" />
@@ -2139,6 +2175,8 @@
 		<None Include="wwwroot\node_modules\bootstrap-icons\icons\zoom-out.svg" />
 		<None Include="wwwroot\node_modules\bootstrap-icons\LICENSE.md" />
 		<None Include="wwwroot\node_modules\bootstrap-icons\README.md" />
+		<None Include="wwwroot\node_modules\jquery.counterup.min.js" />
+		<None Include="wwwroot\node_modules\jquery.waypoints.min.js" />
 		<None Include="wwwroot\node_modules\jquery\dist\jquery.js" />
 		<None Include="wwwroot\node_modules\jquery\dist\jquery.min.js" />
 		<None Include="wwwroot\node_modules\jquery\dist\jquery.min.map" />
@@ -2564,7 +2602,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Data\" />
-	  <Folder Include="Models\" />
 	  <Folder Include="wwwroot\lib\jquery-validation-unobtrusive\" />
 	  <Folder Include="wwwroot\lib\jquery-validation\" />
 	  <Folder Include="wwwroot\lib\jquery-validation\dist\" />

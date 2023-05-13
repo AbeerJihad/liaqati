@@ -25,7 +25,7 @@ namespace liaqati_master.Areas.Identity.Pages.Account
 
             [Required]
             [EmailAddress]
-            public string Email { get; set; }
+            public string? Email { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -38,13 +38,13 @@ namespace liaqati_master.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
             [Required]
-            public string Code { get; set; }
+            public string? Code { get; set; }
 
         }
 
-        public IActionResult OnGet(string code = null)
+        public IActionResult OnGet(string? code = null , string? Email =null)
         {
-            if (code == null)
+            if (code == null || Email == null)
             {
                 return BadRequest("A code must be supplied for password reset.");
             }
@@ -54,6 +54,9 @@ namespace liaqati_master.Areas.Identity.Pages.Account
                 {
                     Code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code))
                 };
+
+                Email = Email;
+
                 return Page();
             }
         }

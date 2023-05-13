@@ -33,6 +33,21 @@ namespace liaqati_master.Pages.MealPlan
 
         public List<SelectListItem> HealthyName { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBox { get; set; }
+
+
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBoxDietaryType { get; set; }
+
+        public List<string> MealType { get; set; } = Database.GetListOfMealType().Select(b => b.Value).ToList();
+        public List<string> DietaryType { get; set; } = Database.GetListOfDietaryType().Select(b => b.Value).ToList();
+
+
+
+
+
+
 
         public async Task<HealthyRecipe?> getHealthy(string id)
         {
@@ -52,6 +67,8 @@ namespace liaqati_master.Pages.MealPlan
             {
                 return NotFound();
             }
+
+
 
             var meal = await _repoMealPlans.GetByIDAsync(id);
             if (meal == null)
@@ -74,6 +91,28 @@ namespace liaqati_master.Pages.MealPlan
                                        }).ToList();
 
 
+            foreach (var item in DietaryType)
+            {
+
+                bool checksed = MealPlans.DietaryType.Contains(item);
+
+                lstCheckBoxDietaryType.Add(new VmCheckBox() { Name = item ,IsChecked=checksed });
+
+            }
+
+            foreach (var item in MealType)
+            {
+                bool checksed = MealPlans.MealType.Contains(item);
+
+                lstCheckBox.Add(new VmCheckBox() { Name = item, IsChecked = checksed });
+
+            }
+
+         
+
+
+
+
             return Page();
         }
 
@@ -82,10 +121,10 @@ namespace liaqati_master.Pages.MealPlan
         public async Task<IActionResult> OnPost()
         {
 
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
 
             var id = MealPlans.Id;
 
@@ -99,6 +138,12 @@ namespace liaqati_master.Pages.MealPlan
             item.Services.Description = MealPlans.Services.Description;
             item.Length = MealPlans.Length;
             item.MealType = MealPlans.MealType;
+
+            item.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+            item.DietaryType = string.Join(',', lstCheckBoxDietaryType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+
+
+
             await _repoMealPlans.UpdateEntityAsync(item);
             //  _context.Attach(MealPlans).State = EntityState.Modified;
 

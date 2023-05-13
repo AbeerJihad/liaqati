@@ -124,5 +124,21 @@
         }
 
 
+        public async Task<QueryPageResult<ExpertsViewModel>> SearchExperts(ExpertQueryParamters userqParameters)
+        {
+            IQueryable<ExpertsViewModel> Users = (await _userManager.GetUsersForClaimAsync(new System.Security.Claims.Claim(Database.Expert, "true"))).Select(user => new ExpertsViewModel() { FullName = string.Concat(user.Fname, " ", user.Lname), Instagram = user.Instagram, WhatsApp = user.WhatsApp, Photo = user.Photo, Specialization = user.Specialization, Twitter = user.Twitter }).AsQueryable(); ;
+
+            if (!string.IsNullOrEmpty(userqParameters.Name))
+            {
+                Users = Users.Where(p => p.FullName!.ToLower().Contains(userqParameters.Name.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(userqParameters.Specialization))
+            {
+                Users = Users.Where(p => p.Specialization != null && p.Specialization.ToLower().Trim().Contains(userqParameters.Specialization.ToLower().Trim()));
+            }
+            QueryPageResult<ExpertsViewModel> qpres = CommonMethods.GetPageResult(Users, userqParameters);
+            return qpres;
+        }
+
     }
 }

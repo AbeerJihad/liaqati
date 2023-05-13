@@ -45,15 +45,16 @@
                         {
                             var active = i == 0 ? "active" : "";
                             <div class="carousel-item @active">
-                                <img src="~/user/images/221796.png"
+                                <img src="@Model[i].Image"
                                      class="d-block carouselImages"
                                      alt="..." />
                                 <div class="carousel-caption m-0 text-start d-none d-md-block">
-                                    <p class="text-black-50 fw-bold">رشاقة وتغذية</p>
-                                    <h6 class="text-dark">
-                                        تمارين بالمنزل للتغلب على خشونة الركبة .
-                                    </h6>
+                                    <p class="text-black-50 fw-bold"> @Model[i].Title </p>
+                                    @* <h6 class="text-dark">
+                            @Model[i].Description
+                            </h6>*@
                                 </div>
+
                             </div>
                         }
                     </div>

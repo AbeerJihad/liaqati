@@ -48,6 +48,22 @@ namespace liaqati_master.Pages.Programs
         public Exercies_program Exercies_program { get; set; }
 
 
+
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBoxBodyFocus { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBoxTrainingType { get; set; }
+
+        public List<string> BodyFocus { get; set; } = Database.GetListOfBodyFocus().Select(b => b.Value).ToList();
+        public List<string> TrainingType { get; set; } = Database.GetListOfTrainingType().Select(b => b.Value).ToList();
+
+
+
+
+
+
+
         public async Task<IActionResult> OnGetAsync(string? id)
         {
             if (id == null)
@@ -67,8 +83,23 @@ namespace liaqati_master.Pages.Programs
             //}
 
 
+            foreach (var item in BodyFocus)
+            {
 
+                bool checksed = sportsProgram.BodyFocus.Contains(item);
 
+                lstCheckBoxBodyFocus.Add(new VmCheckBox() { Name = item, IsChecked = checksed });
+
+            }
+
+            foreach (var item in TrainingType)
+            {
+
+                bool checksed = sportsProgram.TrainingType.Contains(item);
+
+                lstCheckBoxTrainingType.Add(new VmCheckBox() { Name = item, IsChecked = checksed });
+
+            }
 
 
 
@@ -122,11 +153,20 @@ namespace liaqati_master.Pages.Programs
             item.Services.Price = SportsProgram.Services.Price;
             item.Services.Description = SportsProgram.Services.Description;
             item.Length = SportsProgram.Length;
-            item.BodyFocus = SportsProgram.BodyFocus;
+            //item.BodyFocus = SportsProgram.BodyFocus;
             item.Difficulty = SportsProgram.Difficulty;
             item.Equipment = SportsProgram.Equipment;
-            item.TrainingType = SportsProgram.TrainingType;
+            //item.TrainingType = SportsProgram.TrainingType;
             item.Services.CategoryId = SportsProgram.Services.CategoryId;
+
+
+            item.BodyFocus = string.Join(',', lstCheckBoxBodyFocus.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+            item.TrainingType = string.Join(',', lstCheckBoxTrainingType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+
+
+
+
+
             for (int x = 0; x < SportsProgram.Exercies_Programs!.Count; x++)
             {
                 item.Exercies_Programs![x] = SportsProgram.Exercies_Programs[x];

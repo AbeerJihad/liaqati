@@ -56,6 +56,110 @@
             return await _context.TblFavorite.FirstOrDefaultAsync(a => a.Id == EntityId);
         }
 
+        public async Task<List<Favorite>?> GetByUserIDAsync(string UserId)
+        {
+            return await _context.TblFavorite.Where(a => a.UserId == UserId).ToListAsync();
+        }
+
+        public async Task<Favorite?> GetByServiesIDAsync(string EntityId)
+        {
+            return await _context.TblFavorite.FirstOrDefaultAsync(a => a.ServicesId == EntityId);
+        }
+
+
+
+        public async Task<bool> DeleteByExerIdAsync(string EntityId)
+        {
+            if (EntityId != null)
+            {
+                Favorite? favorite = await _context.TblFavorite.FirstOrDefaultAsync(a => a.ExerciseId == EntityId);
+
+                if (favorite != null)
+                {
+                    _context.TblFavorite.Remove(favorite);
+                    await SaveAsync();
+                    return true;
+                }
+
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public async Task<bool> DeleteByHealIdAsync(string EntityId)
+        {
+            if (EntityId != null)
+            {
+                Favorite? favorite = await _context.TblFavorite.FirstOrDefaultAsync(a => a.HealthyRecipeId == EntityId);
+
+                if (favorite != null)
+                {
+                    _context.TblFavorite.Remove(favorite);
+                    await SaveAsync();
+                    return true;
+                }
+
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteBySerIdAsync(string EntityId)
+        {
+            if (EntityId != null)
+            {
+                Favorite? favorite = await _context.TblFavorite.FirstOrDefaultAsync(a => a.ServicesId == EntityId);
+
+                if (favorite != null)
+                {
+                    _context.TblFavorite.Remove(favorite);
+                    await SaveAsync();
+                    return true;
+                }
+
+                return false;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteByArticalIdAsync(string EntityId)
+        {
+            if (EntityId != null)
+            {
+                Favorite? favorite = await _context.TblFavorite.FirstOrDefaultAsync(a => a.ArticleId == EntityId);
+
+                if (favorite != null)
+                {
+                    _context.TblFavorite.Remove(favorite);
+                    await SaveAsync();
+                    return true;
+                }
+
+                return false;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+
+
+
         public async Task SaveAsync()
         {
             try

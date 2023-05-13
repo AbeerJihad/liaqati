@@ -1,3 +1,6 @@
+using Castle.DynamicProxy.Generators;
+using liaqati_master.Models;
+
 namespace liaqati_master.Pages.Programs
 {
     public class CreatProgrameModel : PageModel
@@ -50,6 +53,22 @@ namespace liaqati_master.Pages.Programs
         public int btnSave { get; set; }
 
 
+      
+
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBoxBodyFocus { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public List<VmCheckBox> lstCheckBoxTrainingType { get; set; }
+
+        public List<string> BodyFocus { get; set; } = Database.GetListOfBodyFocus().Select(b => b.Value).ToList();
+        public List<string> TrainingType { get; set; } = Database.GetListOfTrainingType().Select(b => b.Value).ToList();
+        
+
+
+
+
+
         public async Task<IActionResult> OnGet([FromRoute] string? Id)
         {
 
@@ -66,7 +85,17 @@ namespace liaqati_master.Pages.Programs
                 SportsProgram.Exercies_Programs = SportsProgram.Exercies_Programs!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
             }
 
+            foreach (var item in BodyFocus)
+            {
+                lstCheckBoxBodyFocus.Add(new VmCheckBox() { Name = item });
 
+            }
+
+            foreach (var item in TrainingType)
+            {
+                lstCheckBoxTrainingType.Add(new VmCheckBox() { Name = item });
+
+            }
 
 
 
@@ -138,7 +167,8 @@ namespace liaqati_master.Pages.Programs
 
 
 
-
+            SportsProgram.TrainingType = string.Join(',', lstCheckBoxTrainingType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+            SportsProgram.BodyFocus = string.Join(',', lstCheckBoxBodyFocus.Where(ch => ch.IsChecked).Select(ch => ch.Name));
 
 
 

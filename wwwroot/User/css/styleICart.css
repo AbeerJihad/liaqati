@@ -1,0 +1,105 @@
+﻿thead {
+    background-color: #F0EFF8;
+}
+
+td {
+    vertical-align: middle;
+}
+
+.cartDiv {
+    background-color: #F0EFF8;
+    border-radius: 15px;
+}
+
+.btn-increase-quantity {
+    background-color: #CBC6EC;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.btn-complete-pay {
+    background-color: #CBC6EC;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.btn-decrease-quantity {
+    background-color: #F0EFF8;
+    -o-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+* {
+    font-family: Almarai;
+}
+
+.imgHeader {
+    background-image: url('/user/images/BGCart.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: scroll;
+    background-position: center;
+}
+
+table.cart-table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+.cart-table th,
+.cart-table td {
+    border-top: 2px solid #f3f3f3 !important;
+    border-bottom: 2px solid #f3f3f3 !important;
+    width: 150px;
+    text-align: center;
+    padding: 5px;
+}
+
+.cart-table th {
+    padding: 10px;
+}
+
+.cart-table td:first-child {
+    border-right: 2px solid #f3f3f3 !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.cart-table td:last-child {
+    border-left: 2px solid #f3f3f3 !important;
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+
+h2 {
+    color: #4287f5;
+}
+/* .breadcrumb-nav {
+    --bs-breadcrumb-divider: url("");
+  } */
+
+.btn-delete-from-cart {
+    top: 10px;
+    left: 10px;
+}
+
+.text-small {
+    font-size: 14px;
+}

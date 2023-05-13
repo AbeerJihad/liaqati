@@ -1,0 +1,73 @@
+﻿@page
+@model SportProductsWeb.Pages.Errors._401Model
+@{
+}
+<style>
+    .cardError403 {
+        background-color: #f3f2f8;
+        margin-right: 15% !important;
+    }
+
+    @@media only screen and (max-width: 480px) {
+        .mediaBtn {
+            width: 75% !important;
+            margin-right: 12.5% !important;
+        }
+
+        .con_image {
+            background-image: none;
+        }
+    }
+
+    @@media only screen and (max-width: 990px) {
+        .con_image {
+            background-image: url('/Images/Error/401two.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 600px !important;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    }
+</style>
+
+<div style="padding-top: 50px; margin-bottom: 50px"
+     class="container con_image">
+    <div class="row position-relative mt-5">
+        <div style="margin-top: 150px !important"
+             class="col-12 m-0 m-md-2 m-md-0 col-md-9 col-lg-5 p-4 cardError403 rounded-5">
+            <div>
+                <h3 class="text-center mt-4">عذرا لا يمكن الوصول لهذه الصفحة</h3>
+                <div>
+                    <a style="background-color: #e5c362; margin-right: 25%"
+                       class="btn p-2 w-50 text-white fw-bold my-3 mediaBtn"
+                       href="">
+                        الرجوع الى الصفحة السابقة
+                    </a>
+                </div>
+                <div>
+                    <a style="background-color: #be8adc; margin-right: 25%"
+                       class="btn w-50 py-2 text-white fw-bold my-3 d-inline-block mediaBtn"
+                       href="">
+                        الصفحة الرئيسية
+                    </a>
+                </div>
+                <div>
+                    <a style="margin-right: 25%; color: #be8adc"
+                       class="w-50 fw-bold my-3 d-inline-block text-center h5"
+                       href="">
+                        تواصل مع الدعم الفني
+                    </a>
+                </div>
+            </div>
+            <div class="position-absolute d-none d-lg-block media-div"
+                 style="bottom: -50px; right: 42%">
+                <img style="height: 500px"
+                     class="w-100"
+                     src="~/Images/Error/صورة 401.png"
+                     alt=""
+                     srcset="" />
+            </div>
+        </div>
+    </div>
+</div>

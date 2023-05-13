@@ -1,0 +1,53 @@
+﻿@page
+@model liaqati_master.Areas.Admin.Pages.Replyconsultations.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>إضافة </h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form theme-form">
+                        <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+                            
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label asp-for="Replyconsultations.Reply" class="control-label"></label>
+                                        <textarea asp-for="Replyconsultations.Reply" class="form-control"></textarea>
+                                        <span asp-validation-for="Replyconsultations.Reply" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="text-end">
+                                        <a class="btn btn-danger  me-3" asp-page="./index">الغاء</a>
+                                        <input type="submit" class="btn btn-primary" value="إضافة" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="~/javascript/richtexteditor.js" asp-append-version="true"></script>
+}

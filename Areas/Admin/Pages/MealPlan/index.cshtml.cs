@@ -20,6 +20,8 @@
             new SelectListItem(){Value="10", Text="10"},
             new SelectListItem(){Value="20", Text="20"}
         };
+        public List<(string, string)>? ListOfSelectedFilters { get; set; }
+
         public IEnumerable<SelectListItem> Titles { get; set; }
         public IEnumerable<SelectListItem> Categoires { get; set; }
         public IEnumerable<SelectListItem> DietaryType { get; set; } = Database.GetListOfDietaryType();

@@ -1,13 +1,14 @@
 ﻿@model Article
 <div class="row mt-3 mx-1 bg-white">
     <div class="col-5 g-0">
-        <img src="~/user/images/article1.png" alt="" class="sideArticlesImages" />
+        <img src="@Model.Image" alt="" class="sideArticlesImages" />
     </div>
     <div class="col">
         <div class="pt-2">
-            <p class="fw-bold">فبراير 18 2023</p>
-            <p class="text-black-50">رشاقة وتغذية</p>
-            <p style="font-weight: bold">كيف أستعمل الشوفان لانقاص الوزن؟.. طبيبة تغذية تجيب</p>
+            <p class="fw-bold">@CommonMethods.GetArabicDateTime(Model.PostDate)</p>
+            <p class="text-black-50">@Model.Title</p>
+            @*            <p style="font-weight: bold">@Model.Description</p>
+            *@
         </div>
         <div class="d-flex justify-content-between">
             <div>
