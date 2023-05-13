@@ -382,7 +382,7 @@ namespace liaqati_master.Migrations
                             Id = "5",
                             CategoryId = "13",
                             Description = "أنا نحيفة جداً، حيث أن طولي 152 ووزني 43 وأنا بعمر 25 سنة، أخجل من نحافتي، تناولت حبوب ميساغور لمدة سنة، وتناولت الخميرة، ولم أستفد منها.\r\n\r\nأنا الآن أتناول حبوب زيت كبد الحوت، وكذلك الدبس، تعبت من نحافتي، فقد كنت سابقاً نحيفة لكن جسمي مقبول، ويمدحني الكثير، لكن الآن زادت نحافتي، أرجوكم أريد أسماء حبوب تزيد من وزني، وأسماء مكملات تمد جسمي بالطاقة والنشاط، ودعواتكم لي.",
-                            PostDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(1125),
+                            PostDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6636),
                             Title = "أريد أسماء حبوب ومكملات غذائية تزيد من وزني",
                             UserId = "6",
                             ViewsNumber = 0
@@ -392,7 +392,7 @@ namespace liaqati_master.Migrations
                             Id = "6",
                             CategoryId = "13",
                             Description = "أنا فتاة أبلغ من العمر 15 سنةً تقريباً، وطولي 1.73 ، ووزني 65 كغم، وأقوم بعمل حمية غذائية لأصل إلى 58 كغم، مشكلتي هي أنني أريد حلاً لطولي -أريد أن أقصر-؛ فكل الفتيات اللواتي بعمري أقصر مني، وأنا بصراحة لا أحب طولي، وهل سأطول أكثر أم لا؟\r\n\r\nوجزاكم الله خيراً.",
-                            PostDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(1131),
+                            PostDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6646),
                             Title = "قامتي طويلة وكل صديقاتي أقصر مني، فهل يمكن تقليل طولي؟\r\n",
                             UserId = "6",
                             ViewsNumber = 0
@@ -402,7 +402,7 @@ namespace liaqati_master.Migrations
                             Id = "7",
                             CategoryId = "14",
                             Description = "<p>السلام عليكم ورحمة الله وبركاته.<br />\r\nرزقني الله طفلاً منذ أسبوعين، ولكن زوجتي تشتكي أن وزنها زاد جداً؛ لأنها في فترة الحمل كانت تأكل كثيراً حتى زاد وزنها، وتريد أن يعود جسمها كما كان، فقلت لها اشربي شاياً أخضر في الصباح، ولكنها تعتقد أن ما أصابها بسبب الرضاعة، فبماذا تنصحون؟<br />\r\nوما هي الأطعمة التي يفضل تناولها حتى يعود جسمها كما كان؟ وما هي الأطعمة التي تزيد من إفراز اللبن للطفل؟<br />\r\n&nbsp;</p>",
-                            PostDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(1136),
+                            PostDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6654),
                             Title = "ما هي الأطعمة التي تساعد على عودة جسم المرضع كما كان؟\r\n",
                             UserId = "5",
                             ViewsNumber = 0
@@ -412,7 +412,7 @@ namespace liaqati_master.Migrations
                             Id = "8",
                             CategoryId = "14",
                             Description = "لقد تعبت من أطباء التغذية ومن نصائحهم المتناقضة، فكل طبيب ينقض كلام الذي سبقه، فأريد منكم نصائح يسيرة لتخفيف الوزن، والكرش، والصدر المترهل، علماً بأن وزني 68 كيلو، وطولي 160 سنتميتر.",
-                            PostDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(1140),
+                            PostDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6659),
                             Title = "النصائح النافعة للتخلص من الوزن الزائد",
                             UserId = "5",
                             ViewsNumber = 0
@@ -422,7 +422,7 @@ namespace liaqati_master.Migrations
                             Id = "9",
                             CategoryId = "14",
                             Description = "<p>عمري 27 سنة، ووزني 86 كجم، وطولي 175سم.<br />\r\nأمارس رياضة المشي يومياً بمعدل ساعة ونصف يومياً موزعة بين بعد الفجر وبعد العصر، بالإضافة إلى ممارستي لكرة القدم بالأسبوع بمعدل 10 ساعات.<br />\r\nعلى ضوء هذه البيانات كم سعرة حرارية لازمة لجسمي بحيث لا يحدث زيادة في الوزن؟ حيث إنني سريع التغير في الجسم إن لم أحافظ على الرياضة المتواصلة؟ وما هي المشروبات المفيدة لإزالة الدهون من الجسم؟<br />",
-                            PostDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(1145),
+                            PostDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6664),
                             Title = "عدد السعرات الحرارية لإعطاء التوازن للجسم",
                             UserId = "3",
                             ViewsNumber = 0
@@ -432,7 +432,7 @@ namespace liaqati_master.Migrations
                             Id = "10",
                             CategoryId = "14",
                             Description = "أنا فتاة عمري 24 عاما, أعاني من نقص الوزن, وأريد أن يزيد وزني، جربت بعض الأدوية ولكن لم أر أي فائدة, مع العلم أنني لا أشكو من أي مرض والحمد لله.\r\n\r\nوزني 41 كيلو, وطولي 150 سم, سمعت عن حبوب اسمها سبروفيتا (cypro-vita)\r\nما رأيكم فيها؟ وهل لها أضرار؟\r\n",
-                            PostDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(1152),
+                            PostDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6672),
                             Title = "هل دواء سبروفيتا ناجع لزيادة الوزن؟",
                             UserId = "6",
                             ViewsNumber = 0
@@ -1056,7 +1056,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "41",
                             Calories = 491,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(470),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6014),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/1.jpg",
                             MealType = "Dinner",
@@ -1069,7 +1069,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "42",
                             Calories = 156,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(530),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6074),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/2.jpg",
                             MealType = "Snack",
@@ -1082,7 +1082,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "43",
                             Calories = 379,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(580),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6088),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/3.jpg",
                             MealType = "Lunch",
@@ -1095,7 +1095,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "44",
                             Calories = 19,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(589),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6097),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/4.jpg",
                             MealType = "Snack",
@@ -1108,7 +1108,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "45",
                             Calories = 170,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(625),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6107),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/5.png",
                             MealType = "Snack",
@@ -1121,7 +1121,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "46",
                             Calories = 180,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(636),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6121),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/6.jpg",
                             MealType = "Lunch",
@@ -1134,7 +1134,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "47",
                             Calories = 538,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(645),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6132),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/7.jpg",
                             MealType = "Dinner",
@@ -1147,7 +1147,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "48",
                             Calories = 30,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(654),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6145),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/8.jpg",
                             MealType = "Breakfast",
@@ -1160,7 +1160,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "49",
                             Calories = 110,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(663),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6155),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/9.png",
                             MealType = "Breakfast",
@@ -1173,7 +1173,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "50",
                             Calories = 40,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(673),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6167),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/10.png",
                             MealType = "SideDish",
@@ -1186,7 +1186,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "51",
                             Calories = 125,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(681),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6178),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/11.png",
                             MealType = "Lunch",
@@ -1199,7 +1199,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "52",
                             Calories = 66,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(690),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6186),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/12.png",
                             MealType = "Snack",
@@ -1212,7 +1212,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "53",
                             Calories = 110,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(698),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6195),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/13.jpg",
                             MealType = "Lunch",
@@ -1225,7 +1225,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "54",
                             Calories = 145,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(706),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6207),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/14.jpg",
                             MealType = "Lunch",
@@ -1238,7 +1238,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "55",
                             Calories = 25,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(715),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6217),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/15.png",
                             MealType = "SideDish",
@@ -1251,7 +1251,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "56",
                             Calories = 150,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(738),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6223),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/16.jpg",
                             MealType = "Snack",
@@ -1264,7 +1264,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "57",
                             Calories = 50,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(757),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6238),
                             DietaryType = "Vegetarian",
                             Image = "/images/HealthyRecipes/17.jpg",
                             MealType = "Dinner",
@@ -1277,7 +1277,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "58",
                             Calories = 65,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(822),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6252),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/18.jpg",
                             MealType = "Breakfast",
@@ -1290,7 +1290,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "59",
                             Calories = 34,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(833),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6413),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/19.jpg",
                             MealType = "Breakfast",
@@ -1303,7 +1303,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "60",
                             Calories = 45,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(841),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6424),
                             DietaryType = "Omnivore",
                             Image = "/images/HealthyRecipes/20.jpg",
                             MealType = "Breakfast",
@@ -1316,7 +1316,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "65",
                             Calories = 250,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(849),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6435),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/1.jpg",
@@ -1336,7 +1336,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "66",
                             Calories = 269,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(956),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6444),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/2.jpg",
@@ -1356,7 +1356,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "67",
                             Calories = 273,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(967),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6451),
                             Description = " <p class=\"fs-6\">\r\n                            تساعد على تنظيف الجسم من السموم وتخليصه من الأمراض المختلفة، إذ يمكن عمله\r\n                            بطرق عدة باستخدام أنواع مختلفة من الخضار والفواكه، وهذه المشروبات تساعد في\r\n                            حميات إنقاص الوزن وتعزز الصحة العامة، هنا سنقدم طريقة عمل عصير ديتوكس\r\n                        </p>",
                             DietaryType = "نباتي",
                             Image = "/user/images/pexels-toni-cuenca-616833.png",
@@ -1376,7 +1376,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "61",
                             Calories = 250,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(976),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6463),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> فاهيتا على الفطور؟ تتحدى! مستوحاة من تلك الفاهيتا الأزيز على غرار المطاعم ، قمنا بإعادة إنشاء نسخة مبسطة مثالية لصباح أيام الأسبوع المزدحمة - كاملة مع خيارات الإعداد المسبق لتوفير المزيد من الوقت. بدلاً من التورتيلا ، ابتكرنا مفهوم الأومليت المفتوح الوجه. الأومليت مليء بالديك الرومي المحمر والمتبل بالإضافة إلى الفلفل والبصل المقلي. القليل من الصلصة والزبادي قليل الدسم والبصل الأخضر يكمل جمالية الفاهيتا. إذا كنت ترغب في جعل فاهيتا الإفطار نباتيًا ، فلا تتردد في استبدال الديك الرومي ببديل اللحم المفروم المفضل لديك (أو التوفو المفتت). </p>\r\n<p> <strong> نصائح للتحضير المسبق / لتوفير الوقت </strong> </p>\r\n<p> يمكن طهي الديك الرومي والخضار (الفلفل والبصل) وتبريدهما قبل يوم أو يومين. أثناء طهي البيض ، قم بإعادة تسخين مزيج الديك الرومي والخضروات في الميكروويف (أو في مقلاة أخرى) ، ثم قم بتجميعها حسب التعليمات. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/1.jpg",
@@ -1396,7 +1396,7 @@ namespace liaqati_master.Migrations
                         {
                             Id = "62",
                             Calories = 269,
-                            CreatedDate = new DateTime(2023, 5, 12, 15, 13, 46, 888, DateTimeKind.Local).AddTicks(990),
+                            CreatedDate = new DateTime(2023, 5, 13, 15, 40, 16, 626, DateTimeKind.Local).AddTicks(6471),
                             Description = "<p> <strong> الطبق </strong> </p>\r\n<p> مستوحاة من شطائر الشاي الإنجليزي التقليدية ، تستخدم هذه النسخة اللطيفة الخيار الكلاسيكي والجبن بينما يتم تعزيزها بالبروتين من خلال صدور الدجاج الخالية من الدهون والمشوية والمتبل. يكمن السر في بناء وجبة ديناميكية ولذيذة في إضافة طبقة من النكهة والقوام. يتناقض الجبن الدسم قليل الدسم بشكل جيد مع شرائح الخيار الطازجة. الدجاج - المتبل بالخل البلسمي والتوابل الإيطالية - هو إضافة لذيذة لهذه الخبز المحمص ، يضفي نكهة حلوة ومالحة ومدخنة رائعة. قم بإقران هذه الوصفة مع أي نوع من أنواع الحساء أو السلطات التي تركز على الخضار للحصول على وجبة متوازنة - مثالية للغداء أو العشاء! </ p>\r\n<p> <strong> الاستعداد للأمام ونصيحة لتوفير الوقت </strong> </p>\r\n<p> لتوفير الوقت أو كخيار مسبق ، لا تتردد في نقع الدجاج طوال الليل. يمكنك أيضًا تتبيل صدور الدجاج وشويها وتبريدها وتقطيعها إلى شرائح لتوفير المزيد من الوقت. </p>",
                             DietaryType = "حيواني",
                             Image = "/Images/HealthyRecipes/2.jpg",
@@ -2087,6 +2087,9 @@ namespace liaqati_master.Migrations
                     b.Property<int>("Review")
                         .HasColumnType("int");
 
+                    b.Property<string>("SportsProgramId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("review_date")
                         .HasColumnType("datetime2");
 
@@ -2104,6 +2107,8 @@ namespace liaqati_master.Migrations
                     b.HasIndex("Order_DetailsId")
                         .IsUnique()
                         .HasFilter("[Order_DetailsId] IS NOT NULL");
+
+                    b.HasIndex("SportsProgramId");
 
                     b.ToTable("TblRate");
                 });
@@ -2517,6 +2522,9 @@ namespace liaqati_master.Migrations
                     b.Property<int>("Length")
                         .HasColumnType("int");
 
+                    b.Property<double?>("RatePercentage")
+                        .HasColumnType("float");
+
                     b.Property<string>("TrainingType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -2738,7 +2746,7 @@ namespace liaqati_master.Migrations
                             AccessFailedCount = 0,
                             Active = false,
                             Birthdate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "900c6ab5-3e79-4199-b99c-18075791cc57",
+                            ConcurrencyStamp = "720c6b9b-bf3d-4bc3-b6be-2f199a73bb77",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -2749,7 +2757,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "56974e9a-88bc-4e87-a707-0493b3d430df",
+                            SecurityStamp = "9f1854ec-f9af-4ee0-a379-f708ade74374",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         },
@@ -2758,7 +2766,7 @@ namespace liaqati_master.Migrations
                             Id = "2",
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(2000, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "df7d54f6-5aca-4b9d-89d9-173ab92c9fa4",
+                            ConcurrencyStamp = "b35acb31-dcc1-43da-b431-ac1b6bff105e",
                             EmailConfirmed = false,
                             Fname = "اماني",
                             Gender = 1,
@@ -2766,7 +2774,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "/user/images/download.jpg",
-                            SecurityStamp = "b6ff18d4-0e7b-453e-8735-97ecda4207b9",
+                            SecurityStamp = "ea310237-b8de-4c77-9f25-7a81869e8f37",
                             Specialization = "لياقة بدنية",
                             TwoFactorEnabled = false
                         },
@@ -2775,7 +2783,7 @@ namespace liaqati_master.Migrations
                             Id = "7",
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(2000, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "01de8933-e90b-4990-bba3-5419a3e2dde0",
+                            ConcurrencyStamp = "2f2594b1-1984-4a1c-b349-b38a7c46cd29",
                             EmailConfirmed = false,
                             Fname = "خالد",
                             Gender = 1,
@@ -2783,7 +2791,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "/user/images/download.jpg",
-                            SecurityStamp = "2163c49e-a04f-4586-a914-37a58c81d469",
+                            SecurityStamp = "b6e8d029-31cc-4b78-95e3-f5321cddfc6b",
                             Specialization = "لياقة بدنية",
                             TwoFactorEnabled = false
                         },
@@ -2792,7 +2800,7 @@ namespace liaqati_master.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(2001, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "6a1c828d-6fba-4128-9b43-7d23a6ec2ef0",
+                            ConcurrencyStamp = "218a01e1-b673-4e9a-b08d-413f561b5457",
                             EmailConfirmed = false,
                             Fname = "احمد",
                             Gender = 1,
@@ -2800,7 +2808,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "/user/images/download.jpg",
-                            SecurityStamp = "c1daee4a-de78-470d-9077-ad5907192567",
+                            SecurityStamp = "58404979-59c6-4792-90b4-7c263e8016c9",
                             Specialization = "نغذية",
                             TwoFactorEnabled = false
                         },
@@ -2809,7 +2817,7 @@ namespace liaqati_master.Migrations
                             Id = "9",
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(2001, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "e94fc6b4-03d1-41e7-8a25-d992a1f2767d",
+                            ConcurrencyStamp = "bd1b80ff-516e-4347-ad9d-0f6a7686039d",
                             EmailConfirmed = false,
                             Fname = "سالي",
                             Gender = 1,
@@ -2817,7 +2825,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "/user/images/download.jpg",
-                            SecurityStamp = "ea4603b6-165b-497d-b204-ad1a0883ea44",
+                            SecurityStamp = "e900b184-9ae8-4232-8543-aabbb7d35f2d",
                             Specialization = "نغذية",
                             TwoFactorEnabled = false
                         },
@@ -2826,7 +2834,7 @@ namespace liaqati_master.Migrations
                             Id = "4",
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(2002, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "be17b9f7-053b-40af-8d2c-7502b2487f9a",
+                            ConcurrencyStamp = "4a297138-2c04-493b-b34b-994a3c90ec94",
                             EmailConfirmed = false,
                             Fname = "ماجد",
                             Gender = 1,
@@ -2834,7 +2842,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "/user/images/download.jpg",
-                            SecurityStamp = "68455915-b527-4fbb-8e50-fe20984cca47",
+                            SecurityStamp = "f2fc7858-78c2-4c49-bbd8-1028b4a093db",
                             TwoFactorEnabled = false
                         },
                         new
@@ -2842,7 +2850,7 @@ namespace liaqati_master.Migrations
                             Id = "5",
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(1999, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "94d9898e-60e6-4f1b-b7f3-dca1f71b2719",
+                            ConcurrencyStamp = "7de79b9c-444f-4840-966c-7c867915127c",
                             EmailConfirmed = false,
                             Fname = "رشا",
                             Gender = 1,
@@ -2850,7 +2858,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "/user/images/download.jpg",
-                            SecurityStamp = "60b5c67c-b577-4a31-a17b-ff84f42f734e",
+                            SecurityStamp = "1a6b0ee8-e2bb-4fdd-b2b0-0ccafde121bd",
                             TwoFactorEnabled = false
                         },
                         new
@@ -2858,7 +2866,7 @@ namespace liaqati_master.Migrations
                             Id = "6",
                             AccessFailedCount = 0,
                             Birthdate = new DateTime(1989, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "11615c1e-f8d1-4b5a-9299-0cc6963b89b3",
+                            ConcurrencyStamp = "23747f45-cbb5-49c0-b96d-80778d3b8d15",
                             EmailConfirmed = false,
                             Fname = "ريهام",
                             Gender = 1,
@@ -2866,7 +2874,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "/user/images/download.jpg",
-                            SecurityStamp = "6bcd8adf-95d3-4ab2-98b0-f8e9cc603af5",
+                            SecurityStamp = "2eeca42b-a852-42d4-ad7e-36da09e0a50c",
                             TwoFactorEnabled = false
                         });
                 });
@@ -3275,11 +3283,17 @@ namespace liaqati_master.Migrations
                         .WithOne("Rate")
                         .HasForeignKey("liaqati_master.Models.Rate", "Order_DetailsId");
 
+                    b.HasOne("liaqati_master.Models.SportsProgram", "SportsProgram")
+                        .WithMany("Rate")
+                        .HasForeignKey("SportsProgramId");
+
                     b.Navigation("Exercise");
 
                     b.Navigation("HealthyRecipe");
 
                     b.Navigation("Order_Details");
+
+                    b.Navigation("SportsProgram");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.Replyconsultation", b =>
@@ -3487,6 +3501,8 @@ namespace liaqati_master.Migrations
             modelBuilder.Entity("liaqati_master.Models.SportsProgram", b =>
                 {
                     b.Navigation("Exercies_Programs");
+
+                    b.Navigation("Rate");
                 });
 
             modelBuilder.Entity("liaqati_master.Models.User", b =>

@@ -12,16 +12,20 @@
 
         <div class="card-body">
             <h6 class="card-text pcolor">
-               @Model.Length
+                برنامج لمدة
+                <span> @Model.Length</span>
+                اسابيع
             </h6>
             <p class="card-title fw-bold  mb-3">
                 @Model.Services.Title
             </p>
             <div class="d-flex justify-content-between">
-               @* <div class="d-flex">
-                   @foreach(var item in Model.ra)
+                <div class="d-flex">
+                   @for (int i = 0; i <= Model.RatePercentage / 20; i++)
+                {
                     <img class="m-0 p-0" width="20" height="20" src="~/user/images/exercises/star-svgrepo-com.png" />
-                </div>*@
+                }
+                </div>
                 <div>
                     <h5 class="d-inline-block text-danger align-middle ms-1">
                       @Model.Services.Price

@@ -23,6 +23,11 @@
         public string? TrainingType { get; set; }
         [Display(Name = "صورة")]
         public string? Image { get; set; }
+
+        [Display(Name = " التقييم")]
+        public double? RatePercentage { get; set; }
+        public virtual List<Rate>? Rate { get; set; }
+
         [ForeignKey(nameof(Id))]
         public virtual Service? Services { get; set; }
         public virtual List<Exercies_program>? Exercies_Programs { get; set; }

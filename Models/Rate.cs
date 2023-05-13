@@ -23,5 +23,6 @@
         public virtual Exercise? Exercise { get; set; }
         public string? HealthyRecipeId { get; set; }
         public virtual HealthyRecipe? HealthyRecipe { get; set; }
+        public virtual SportsProgram? SportsProgram { get; set; }
     }
 }
