@@ -12,7 +12,6 @@
         {nameof(Model.SportProgramQueryParamters.SearchTearm),Model.SportProgramQueryParamters.SearchTearm??""},
         {nameof(Model.SportProgramQueryParamters.Size),Model.SportProgramQueryParamters.Size.ToString()},
         {nameof(Model.SportProgramQueryParamters.Title),Model.SportProgramQueryParamters.Title??""},
-
     };
     if (Model.SportProgramQueryParamters.BodyFocus is not null)
     {
@@ -49,7 +48,6 @@
         </div>
         <div class="offcanvas-body pb-5">
             <div class="d-flex flex-column gap-3">
-
                 <div class="d-flex  py-2">
                     <input class="form-control " asp-for="@Model.SportProgramQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
                 </div>
@@ -134,8 +132,8 @@
                                     <h5 class="m-0">الفلاتر المطبقة:</h5>
                                     @foreach (var item in Model.ListOfSelectedFilters)
                                     {
-                                        <a asp-all-route-data="parms" asp-route-key="@item.Item1" asp-route-value="@item.Item2" class="btn btn-light btn-sm">
-                                            @item.Item2
+                                        <a asp-all-route-data="parms" asp-route-key="@item.PropartyName" asp-route-value="@item.PropartyValue" class="btn btn-light btn-sm">
+                                            @item.PropartyValue
                                             <i class="bi bi-x-lg"></i>
                                         </a>
                                     }
@@ -177,8 +175,8 @@
                                                                  src="/@item.Image" />
                                                         </div>
                                                     </td>
-                                                    <td>@item.Services!.Title</td>
-                                                    <td>@item.Services!.Price?.ToString("c")</td>
+                                                    <td>@item.Title</td>
+                                                    <td>@item.Price?.ToString("c")</td>
                                                     <td>@item.Length   اسابيع</td>
                                                     <td>
                                                         @if (item.Difficulty == 1)
@@ -294,7 +292,6 @@
                                 </tfoot>
                             </table>
                         </div>
-                        @*       <partial name="_Manage__data" />*@
                     </div>
                 </div>
 
@@ -305,8 +302,6 @@
     </div>
 
 </form>
-
-
 @section Scripts{
     <script src="~/javascript/table.js" asp-append-version="true"></script>
     <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>

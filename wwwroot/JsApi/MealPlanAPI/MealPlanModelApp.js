@@ -14,6 +14,34 @@ async function getdata(categoryid) {
 getdata(null);
 
 function RenderCards(MealPlan) {
+
+
+    var btn2 = ``;
+
+
+
+
+
+    if (MealPlan.isFavorite == 2) {
+
+        btn2 = ` <button title="add to Favorite" onclick="AddFavoriteMealPlan('${MealPlan.id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                </button>`;
+
+
+    }
+    else {
+        btn2 = `  <button title="add to Favorite" onclick="AddFavoriteMealPlan('${MealPlan.id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+
+                </button>`;
+    }
+
+
+
+
+
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency', currency: 'USD',
         minimumFractionDigits: 2
@@ -23,7 +51,7 @@ function RenderCards(MealPlan) {
     card.className = "col-12 col-md-6 col-lg-4 p-3";
     card.innerHTML = `<div class="card  shadow-sm meal-plan overflow-hidden">
             <div class="card-header bg-transparent">
-                <p class="text-center  p-0 m-0">#${MealPlan.services.category.name}</p>
+                <p class="text-center  p-0 m-0">#${MealPlan.categoryName}</p>
             </div>
             <div class="position-relative  hoverable-image" style="height: 200px">
                 <img src="${MealPlan.image}" class=" w-100 position-absolute h-100 top-0 start-0 object-fit-cover" alt="...">
@@ -35,12 +63,16 @@ function RenderCards(MealPlan) {
                 </div>
             </div>
             <div class="card-body">
-                <h5 class="card-title fw-bold text-black ">${MealPlan.services.title}</h5>
+                         <div class="d-flex justify-content-between"> 
+                          <h6 class="card-title fw-bold text-black ">${MealPlan.title}</h6>
+                            ${btn2}
+                         </div>
+
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="card-subtitle">
-                                    ${MealPlan.services.shortDescription}       
+                                    ${MealPlan.shortDescription}       
                       </p>
-                    <p class="text-danger text-start h3 fw-bold me-3">${formatter.format(MealPlan.services.price)}</p>
+                    <p class="text-danger text-start h3 fw-bold me-3">${formatter.format(MealPlan.price)}</p>
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center mt-2">
@@ -220,4 +252,24 @@ function GetPage(index) {
     //alert(CurPage);
 
     getdata(null);
+}
+
+
+async function AddFavoriteMealPlan(id) {
+    var IsAdd = await AddFavoritesToMealPlan(id);
+    if (IsAdd = "true") {
+
+
+        getdata(null);
+
+    }
+    else if (IsAdd = "false") {
+
+        getdata(null);
+    }
+    else {
+        window.location = "";
+    }
+
+
 }

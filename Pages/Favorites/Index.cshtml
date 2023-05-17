@@ -1,8 +1,24 @@
 ﻿@page
 @model liaqati_master.Pages.Favorites.IndexModel
 @{
-}
+    ViewData["Title"] = "قائمة المفضلة";
+    ViewData["LinkName"] = "Favorites";
 
+    var parms = new Dictionary<string, string>
+    {
+        {nameof( Model.Parameters.CurPage), Model.Parameters.CurPage.ToString()},
+        {nameof( Model.Parameters.SortBy), Model.Parameters.SortBy},
+        {nameof( Model.Parameters.SortOrder), Model.Parameters.SortOrder},
+        {nameof( Model.Parameters.SearchTearm), Model.Parameters.SearchTearm??""},
+        {nameof( Model.Parameters.Size), Model.Parameters.Size.ToString()},
+
+    };
+
+    if (Model.Parameters.SortOrder == "asc")
+        parms["SortOrder"] = "desc";
+    else
+        parms["SortOrder"] = "asc";
+}
 @section Styles{
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet" />
@@ -10,172 +26,285 @@
     <link rel="stylesheet" href="./StartSection.css" />
     <link rel="stylesheet" href="./FooterCSS.css" />
     <link href="~/css/favaretes.css" rel="stylesheet" />
+    <link href="~/user/css/styleicart.css" rel="stylesheet" asp-append-version="true" />
+    <style>
+        .box-img, .box-img1 {
+            height: 200px;
+        }
+
+            .box-img img {
+                transition: 0.5s;
+            }
+
+            .box-img:hover img:nth-child(2) {
+                opacity: 0;
+                /* transform: scale(0); */
+            }
+
+            .box-img img:nth-child(1) {
+                opacity: 0;
+                /* transform: scale(0); */
+            }
+
+            .box-img:hover img:nth-child(1) {
+                opacity: 1;
+                /* transform: scale(1); */
+            }
+
+        .add-to-bag-btn {
+            width: 60px;
+            height: 60px;
+        }
+
+            .add-to-bag-btn.added {
+                background: #198754 !important;
+                color: white;
+            }
+
+        .btn-favorite {
+            width: 40px;
+            height: 40px;
+            top: 7px;
+            right: 7px;
+        }
+
+        .product-card {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: .2s;
+        }
+
+            .product-card:hover {
+                transform: translateY(-10px);
+            }
+    </style>
+
 }
 
-
-
-<div class="container-fluid imgHeader position-relative"
-     style="background-image: url('~/images/Favorite/Group 2011.png')">
+<div class="container-fluid imgHeader position-relative">
     <div class="row bgcolor">
         <div style="padding: 60px; margin-top: 70px">
-            <p class="text-center" style="font-size: 55px">المفضلة</p>
+            <p class="text-center" style="font-size: 55px"> المفضلة</p>
 
-            <form action=""
-                  method="get"
-                  class="p-0 g-0 row col-lg-10 mx-auto form-search justify-content-center">
+            <form class="p-0 g-0 row col-lg-10 mx-auto form-search justify-content-center" method="get">
                 <div class="col-12 my-2 my-lg-0 col-lg-6">
-                    <input type="text"
-                           class="form-control"
-                           name="te"
-                           placeholder="ابحث عن منتج"
-                           style="height: 3rem" />
+                    <input id="SearchTearm" class="form-control search rounded-0" name="SearchTearm" asp-for="Parameters.SearchTearm" placeholder="ابحث" style="height: 3rem" />
                 </div>
-
                 <div class="col-12 my-lg-0 col-lg-2">
-                    <input placeholder="بحث"
-                           type="submit"
-                           value="بحث"
-                           class="form-control text-center"
-                           style="background-color: #cebfe9; height: 3rem" />
+                    <input placeholder="بحث" type="submit" value="بحث" class="form-control text-center rounded-0" style="background-color: #cebfe9; height: 3rem;" />
                 </div>
             </form>
         </div>
     </div>
 </div>
 
+
+
 <div class="container mt-3">
     <div class="row">
-        <div class="d-flex my-2">
-            <p class="p-1 fw-bold text-secondary">الرئيسية</p>
-            <img class="p-1 mt-1"
-                 width="20"
-                 height="25"
-                 src="~/images/Favorite/ic_expand_more_24px.png" />
-            <p class="p-1 fw-bold text-secondary">المفضلة</p>
-        </div>
+        <nav class="breadcrumb-nav py-3" aria-label="breadcrumb">
+            <ol class="breadcrumb d-flex align-items-center">
+                <li class="breadcrumb-item">
+                    <a class="text-secondary text-decoration-none" asp-page="/home/index">الرئيسية</a>
+                </li>
+                <li class="d-flex justify-content-center align-items-center">
+                    <i class="bx bxs-chevron-left mx-1 text-secondary"></i>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    المفضلة
+                </li>
+            </ol>
+        </nav>
         <div class="">
+
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-borderless cart-table">
                     <thead class="border-0">
-                        <tr class="text-center text-secondary"
-                            style="background-color: #f0eff8">
+                        <tr class="text-center">
                             <th>المنتج</th>
-                            <th>الوصف</th>
+                            <th>العنوان</th>
                             <th>السعر</th>
-                            <th>رقم الكوبون</th>
-                            <th>إضافة الى السلة</th>
-                            <th>الغاء الطلب</th>
+                            <th> إضافة إلى السلة</th>
+                            <th>حذف من المفضلة</th>
                         </tr>
                     </thead>
-                    <tbody>
-
-                        @foreach (var item in Model.Services)
+                    <tbody class="tbody">
+                        @if (Model.QueryPageResult.ListOfData is not null)
                         {
-                            <tr class="text-center">
-                                <td>
-                                    <img width="90"
-                                         src="~/images/Favorite/Screenshot 2023-02-18 174745.png" />
-                                </td>
-                                <td>  @item.Title  </td>
-                                <td> @item.Price?.ToString("c")</td>
-                                <td>ــــــــ</td>
-                                <td>
-                                    <button class="btn">
-                                        <img src="~/images/Favorite/cart-3-svgrepo-com.png" />
-                                    </button>
-                                </td>
-                                <td>
+                            if (Model.QueryPageResult.ListOfData.Count() > 0)
+                            {
+                                foreach (var item in Model.QueryPageResult.ListOfData)
+                                {
 
-                                    <form asp-page-handler="RemoveFavorite" method="post" asp-route-id="@item.Id">
+                                    <tr class="text-center overflow-hidden copy">
+                                        <td>
+                                            <img width="90"
+                                                 src="@item.imgUrl" />
+                                        </td>
+                                        <td>  @item.Title  </td>
+                                        <td> @item.Price?.ToString("c")</td>
+                                        <td>
+                                            <button class="btn">
+                                                <img src="~/images/Favorite/cart-3-svgrepo-com.png" width="30" />
+                                            </button>
+                                        </td>
+                                        <td class="position-relative">
+                                            <form asp-page-handler="RemoveFavorite" method="post" asp-route-id="@item.Id">
 
-                                        <button class="btn">
-                                            <img src="~/images/Favorite/Group 784.png" />
-                                        </button>
-                                    </form>
-
-
-
-                                </td>
-                            </tr>
-
+                                                <button class="btn">
+                                                    <img src="~/images/Favorite/Group 784.png" />
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
                         }
-
-
-
-
-
                     </tbody>
+
+                    <tfoot>
+                        <tr class="border-top bg-light">
+                            <td colspan="10">
+                                <nav aria-label="Page navigation example ">
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                        <div>
+                                            <span class="d-inline-block me-3 text-sm">
+                                                الحقول من @Model.QueryPageResult.FirstRowOnPage إالى  @Model.QueryPageResult.LastRowOnPage من @Model.QueryPageResult.TotalCount
+                                            </span>
+                                        </div>
+                                        @{
+                                            var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
+                                            var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
+                                            var first = (Model.Parameters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                            var last = (Model.Parameters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                            var firstIndex = Math.Max(Model.Parameters.CurPage - 2, 1);
+                                            var lastIndex = Math.Min(Model.Parameters.CurPage + 2, Model.QueryPageResult.TotalPages);
+                                        }
+                                        <div class="d-flex gap-2 justify-content-center align-items-center ">
+
+                                            <nav aria-label="Page navigation example ">
+                                                <ul class="pagination  justify-content-end ">
+                                                    @{
+                                                        parms["CurPage"] = "1" ?? "";
+                                                    }
+                                                    <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
+                                                    @{
+                                                        parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
+                                                    }
+                                                    <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
+                                                    <li class="page-item">
+                                                        <a class="page-link active">
+                                                            <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
+                                                                <span>  @Model.Parameters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
+                                                            </p>
+                                                        </a>
+                                                    </li>
+                                                    @{
+                                                        parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
+                                                    }
+                                                    <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
+                                                    @{
+                                                        parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
+                                                    }
+                                                    <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
+                                                </ul>
+                                            </nav>
+
+
+                                        </div>
+                                    </div>
+                                </nav>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
+
             </div>
         </div>
     </div>
 </div>
 
-<div class="p-5">
+@await Component.InvokeAsync("AnotherProducts",null)
+@*
+<div class="container-xl p-5">
     <div class="col-4 col-md-2">
-        <h3 class="m-3 p-3"
-            style="border-bottom: 7px solid #b9aff5; width: auto">
-            منتجات اخرى
-        </h3>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h4 class="p-2 fw-bold">
+                منتجات اخرى
+            </h4>
+            <div style="background-color:#b9aff5;width:100px;height:3px;"></div>
+        </div>
     </div>
 
-    <div class="row p-5 pt-1 justify-content-around mt-3">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 p-lg-3 pt-1 justify-content-around mt-3">
 
         @foreach (var item in Model.Products)
         {
-            <!--card1-->
-            <div class="col p-3 col-md-6 col-lg-3">
-                <div class="shadow p-4 pb-0 position-relative"
-                     style="border-radius: 20px">
-                    <img src="~/images/Favorite/Screenshot 2023-02-18 174745.png"
-                         height="200"
-                         class="card-img-top rounded-top"
-                         alt="..."
-                         style="object-fit: contain" />
-                    <img width="28"
-                         class="position-absolute"
-                         style="top: 10px; right: 10px"
-                         src="@item.ImgUrl"
-                         alt=""
-                         srcset="" />
-                    <div class="card-body mt-0 mb-0 px-1">
-                        <div class="d-flex justify-content-between">
-                            <p class="card-text">#مكملات غذائية</p>
-                            <div>
-                                <img class="m-0 p-0"
-                                     width="10"
-                                     height="10"
-                                     src="~/images/Favorite/star-svgrepo-com.png" />
-                                <img class="m-0 p-0"
-                                     width="10"
-                                     height="10"
-                                     src="~/images/Favorite/star-svgrepo-com.png" />
-                                <img class="m-0 p-0"
-                                     height="10"
-                                     src="~/images/Favorite/star-svgrepo-com.png" />
-                                <img class="m-0 p-0"
-                                     height="10"
-                                     src="~/images/Favorite/star-svgrepo-com.png" />
-                                <img class="m-0 p-0"
-                                     height="10"
-                                     src="~/images/Favorite/star-svgrepo-com.png" />
-                            </div>
+            <div class="col p-2 p-xl-4">
+                <div class="card h-100 shadow-sm overflow-hidden h-100 product-card  border p-0">
+                    @if (item.Images?.Count > 1)
+                    {
+                        <div class="position-relative box-img shadow-sm border-0 w-100">
+
+                            <img src="@item.Images?.FirstOrDefault()" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                            <img src="@item.Images?.ElementAt(1)" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                            <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+                            </button>
                         </div>
-                        <div class="justify-content-between p-0">
-                            <div class="d-flex p-0 justify-content-between">
-                                <p class=""> @item.Services!.Title  </p>
-                                <div style="background-color: #ffff"
-                                     class="rounded-pill shadow rounded d-inline-block fw-bold align-middle">
-                                    <img width="28"
-                                         height="28"
-                                         class="m-3"
-                                         src="~/images/Favorite/layer1.png"
-                                         alt=""
-                                         srcset="" />
+                    }
+                    else if (item.Images?.Count > 0)
+                    {
+                        <div class="position-relative box-img1 shadow-sm border-0 w-100">
+                            <img src="${Product.images[0]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                            <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+                            </button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="position-relative box-img1 shadow-sm border-0 w-100">
+                            <img src="/images/default.png" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                            <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+                            </button>
+                        </div>
+                    }
+                    <div class="card-body g-2 p-2 mt-0">
+                        <div class="d-flex m-2 justify-content-between">
+                            <p class="card-text m-0">@item.CategoryName</p>
+                            <div class="rating">
+                                <div class="rating position-relative">
+                                    <div class="rating-upper d-flex">
+                                        <i class="bi bi-star-fill text-black-50"></i>
+                                        <i class="bi bi-star-fill text-black-50"></i>
+                                        <i class="bi bi-star-fill text-black-50"></i>
+                                        <i class="bi bi-star-fill text-black-50"></i>
+                                        <i class="bi bi-star-fill text-black-50"></i>
+                                    </div>
+                                    <div class="rating-lower d-flex position-absolute top-0 start-0 overflow-hidden w-@(item.PercentageRate??0)">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <h5 class="fw-bold text-danger">  $ @item.Services!.Price  </h5>
-                            <div></div>
+                        </div>
+                        <div class="justify-content-between">
+                            <div>
+                                <div>
+                                    <p class="p-0 m-0 text-success" style="font-size:14px !important;">@item.Title</p>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="fw-bold text-danger m-0">@item.Price?.ToString("c")</h5>
+                                    <button title="إضافة إلى السلة" class="rounded-pill btn imgBackground add-to-bag-btn border shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                        <i class="bx bx-cart-add h3 d-block m-0"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,4 +315,13 @@
 
 
     </div>
+    <div class="d-flex justify-content-end align-items-center ">
+        <a class=" text-black d-flex justify-content-center align-items-center gap-3 h5" asp-page="/Products/Index">
+            <span>
+                المزيد من المنتجات
+            </span>
+            <i class='bx bx-left-arrow-alt'></i>
+        </a>
+    </div>
 </div>
+*@

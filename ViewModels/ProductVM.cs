@@ -12,6 +12,8 @@
         public double? PercentageRate { get; set; }
         public double Discount { get; set; }
 
+        public int IsFavorite { get; set; }
+
 
     }
 }

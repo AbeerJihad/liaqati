@@ -18,8 +18,18 @@ namespace liaqati_master.Data
             //{
             //    await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfSportsProgram());
             //}
-            await SeedRoles(RoleManager);
-            await SeedUsers(userManager, RoleManager);
+            if (RoleManager != null)
+                await SeedRoles(roleManager: RoleManager);
+            if (userManager != null && RoleManager != null)
+                await SeedUsers(userManager, roleManager: RoleManager);
+            if (!await liaqatiDBContext.TblConsultation.AnyAsync())
+            {
+                await liaqatiDBContext.TblConsultation.AddRangeAsync(Database.GetListOfConsultation());
+            }
+            if (!await liaqatiDBContext.TblReplyconsultation.AnyAsync())
+            {
+                await liaqatiDBContext.TblReplyconsultation.AddRangeAsync(Database.GetListOfReplyconsultation());
+            }
         }
         private static async Task SeedUsers(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {

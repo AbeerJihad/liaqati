@@ -1,0 +1,107 @@
+﻿@model List<ProductVM>
+
+<link rel="stylesheet" href="~/User/css/Products.css" asp-append-version="true" />
+
+
+@if (Model.Count > 0)
+{
+    <div class="container-xl p-5">
+        <div class="col-4 col-md-2">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h4 class="p-2 fw-bold">
+                    منتجات اخرى
+                </h4>
+                <div style="background-color:#b9aff5;width:100px;height:3px;"></div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 p-lg-3 pt-1 justify-content-around mt-3">
+
+            @foreach (var item in Model)
+            {
+                <div class="col p-2 p-xl-4">
+                    <div class="card h-100 shadow-sm overflow-hidden h-100 product-card  border p-0">
+                        @if (item.Images?.Count > 1)
+                        {
+                            <div class="position-relative box-img shadow-sm border-0 w-100">
+
+                                <img src="@item.Images?.FirstOrDefault()" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                                <img src="@item.Images?.ElementAt(1)" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                                <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+                                </button>
+                            </div>
+                        }
+                        else if (item.Images?.Count > 0)
+                        {
+                            <div class="position-relative box-img1 shadow-sm border-0 w-100">
+                                <img src="${Product.images[0]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                                <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="position-relative box-img1 shadow-sm border-0 w-100">
+                                <img src="/images/default.png" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+                                <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+                                </button>
+                            </div>
+                        }
+                        <div class="card-body g-2 p-2 mt-0">
+                            <div class="d-flex m-2 justify-content-between">
+                                <p class="card-text m-0">@item.CategoryName</p>
+                                <div class="rating">
+                                    <div class="rating position-relative">
+                                        <div class="rating-upper d-flex">
+                                            <i class="bi bi-star-fill text-black-50"></i>
+                                            <i class="bi bi-star-fill text-black-50"></i>
+                                            <i class="bi bi-star-fill text-black-50"></i>
+                                            <i class="bi bi-star-fill text-black-50"></i>
+                                            <i class="bi bi-star-fill text-black-50"></i>
+                                        </div>
+                                        <div class="rating-lower d-flex position-absolute top-0 start-0 overflow-hidden w-@(item.PercentageRate??0)">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="justify-content-between">
+                                <div>
+                                    <div>
+                                        <p class="p-0 m-0 text-success" style="font-size:14px !important;">@item.Title</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="fw-bold text-danger m-0">@item.Price?.ToString("c")</h5>
+                                        <button title="إضافة إلى السلة" class="rounded-pill btn imgBackground add-to-bag-btn border shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                            <i class="bx bx-cart-add h3 d-block m-0"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+
+        </div>
+        <div class="d-flex justify-content-end align-items-center ">
+            <a class=" text-black d-flex justify-content-center align-items-center gap-3 h5" asp-page="/Products/Index">
+                <span>
+                    المزيد من المنتجات
+                </span>
+                <i class='bx bx-left-arrow-alt'></i>
+            </a>
+        </div>
+    </div>
+
+}

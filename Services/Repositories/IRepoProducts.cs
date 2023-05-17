@@ -1,13 +1,19 @@
-﻿namespace liaqati_master.Services.Repositories
+﻿using System.Security.Claims;
+
+namespace liaqati_master.Services.Repositories
 {
 
     public class IRepoProducts
     {
-        private readonly LiaqatiDBContext _context;
 
-        public IRepoProducts(LiaqatiDBContext context)
+        private readonly LiaqatiDBContext _context;
+        readonly IHttpContextAccessor _HttpContextAccessor;
+        readonly IRepoFavorite _repoFavorite;
+        public IRepoProducts(LiaqatiDBContext context, IHttpContextAccessor httpContextAccessor, IRepoFavorite repoFavorite)
         {
             _context = context;
+            _HttpContextAccessor = httpContextAccessor;
+            _repoFavorite = repoFavorite;
         }
 
         public async Task<Product> AddEntityAsync(Product Entity)
@@ -16,7 +22,6 @@
             await SaveAsync();
             return Entity;
         }
-
         public async Task<Product> DeleteEntityAsync(Product Entity)
         {
             if (Entity != null)
@@ -30,7 +35,6 @@
                 return new Product();
             }
         }
-
         public async Task<Product> DeleteEntityAsync(string Id)
         {
             var product = await _context.TblProducts.FindAsync(Id);
@@ -45,18 +49,14 @@
                 return new Product();
             }
         }
-
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            //.Include(Category => Category.Category).Include(com => com.comments)
             return await _context.TblProducts.ToListAsync();
         }
-
         public async Task<Product?> GetByIDAsync(string EntityId)
         {
             return await _context.TblProducts.FirstOrDefaultAsync(a => a.Id == EntityId);
         }
-
         public async Task SaveAsync()
         {
             try
@@ -68,7 +68,6 @@
                 throw;
             }
         }
-
         public async Task<Product> UpdateEntityAsync(Product Entity)
         {
             Product? product = await _context.TblProducts.FirstOrDefaultAsync(a => a.Id == Entity.Id);
@@ -90,29 +89,29 @@
 
             if (Parameters.CategoryId != null)
             {
-                products = products.Where(p => p.Services.CategoryId == Parameters.CategoryId);
+                products = products.Where(p => p.Services != null && p.Services.CategoryId == Parameters.CategoryId);
             }
 
             if (Parameters.MinPrice != null)
             {
-                products = products.Where(p => p.Services.Price >= Parameters.MinPrice);
+                products = products.Where(p => p.Services != null && p.Services.Price >= Parameters.MinPrice);
             }
 
             if (Parameters.MaxPrice != null)
             {
-                products = products.Where(p => p.Services.Price <= Parameters.MaxPrice);
+                products = products.Where(p => p.Services != null && p.Services.Price <= Parameters.MaxPrice);
             }
 
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
                 products = products.Where(p =>
-                    p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
+                      p.Services != null && p.Services.Title != null && p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
                  );
             }
 
             if (!string.IsNullOrEmpty(Parameters.Title))
             {
-                products = products.Where(p => p.Services.Title.ToLower() == Parameters.Title.ToLower());
+                products = products.Where(p => p.Services != null && p.Services.Title != null && p.Services.Title.ToLower() == Parameters.Title.ToLower());
             }
 
 
@@ -135,21 +134,70 @@
         }
         public async Task<QueryPageResult<ProductVM>> SearchProductVM(ProductQueryParamters Parameters)
         {
+            List<ProductVM> products2 = new();
+
+
             IQueryable<ProductVM> products = (await GetAllAsync()).Select(p =>
-            new ProductVM()
+        new ProductVM()
+        {
+            CategoryName = p.Services?.Category?.Name,
+            Id = p.Id,
+            Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
+            CategoryId = p.Services?.CategoryId,
+            Discount = p.Discount,
+            PercentageRate = p.Services?.RatePercentage,
+            Price = p.Services?.Price,
+            Title = p.Services?.Title,
+            IsFavorite = 0
+
+        }
+
+        ).AsQueryable();
+
+            if (_HttpContextAccessor.HttpContext is not null)
             {
-                CategoryName = p.Services?.Category?.Name,
-                Id = p.Id,
-                Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
-                CategoryId = p.Services?.CategoryId,
-                Discount = p.Discount,
-                PercentageRate = p.Services?.RatePercentage,
-                Price = p.Services?.Price,
-                Title = p.Services?.Title
+
+
+                List<Favorite>? list = new List<Favorite>();
+                List<string?>? list2 = new();
+                var user = _HttpContextAccessor.HttpContext.User;
+                if (user is null)
+                {
+                    products2 = products.ToList();
+
+                    foreach (var item in products2)
+                    {
+                        item.IsFavorite = 0;
+
+
+                    }
+                }
+                else
+                {
+                    list = await _repoFavorite.GetByUserIDAsync(user.FindFirstValue(ClaimTypes.NameIdentifier));
+                    list2 = list?.Where(p => p.Type == "منتجات").Select(s => s.ServicesId).ToList();
+
+                    products2 = products.ToList();
+                    if (list2 is not null)
+                    {
+                        foreach (var item in products2)
+                        {
+                            if (list2.Contains(item.Id))
+                                item.IsFavorite = 2;
+                            else if (!list2.Contains(item.Id))
+                                item.IsFavorite = 1;
+
+
+                        }
+                    }
+
+
+                }
+
+                products = products2.AsQueryable();
 
             }
 
-            ).AsQueryable();
 
             if (!string.IsNullOrEmpty(Parameters.CategoryId))
             {

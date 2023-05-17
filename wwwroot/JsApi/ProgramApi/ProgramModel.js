@@ -27,3 +27,30 @@
     return result;
 }
 
+
+
+
+async function AddFavoritesToProgram(id) {
+
+    let result;
+    try {
+        const response = await fetch(`https://localhost:7232/api/SportsProgramApi/AddFavoritesSportsProgram/${id}`, {
+            method: "GET",
+        });
+        if (response.status === 200) {
+            result = await response.json();
+        }
+        else {
+            console.error(json);
+            //`Error: ${json.title}`;
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+    return result;
+}
+
+
+
+

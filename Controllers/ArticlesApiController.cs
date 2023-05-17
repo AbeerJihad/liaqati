@@ -5,10 +5,10 @@
     public class ArticlesApiController : ControllerBase
     {
         readonly LiaqatiDBContext _context;
-        readonly IRepository<Article> _repository;
+        readonly IRepoArticles _repository;
 
 
-        public ArticlesApiController(LiaqatiDBContext context, IRepository<Article> repository)
+        public ArticlesApiController(LiaqatiDBContext context, IRepoArticles repository)
         {
             _context = context;
             _repository = repository;

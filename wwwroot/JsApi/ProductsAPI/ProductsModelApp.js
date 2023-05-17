@@ -13,6 +13,9 @@ let Sortby = "";
 let CurPage = 1;
 
 
+
+
+
 lstCate.addEventListener('change', () => {
     selectListCategory = lstCate.value;
     getdata(null);
@@ -136,31 +139,111 @@ function RenderCards(Product) {
         minimumFractionDigits: 2
     })
 
+    console.log(Product);
+
+    var btn2 = `
+                 <button title="add to Favorite" onclick="AddFavorite('${Product.id}')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                </button>
+     `;
+
+    var btn1 = `
+                 <button title="add to Favorite" onclick="AddFavorite('${Product.id}')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+
+                </button>
+     `;
+
+
+
     var image = "";
     if (Product.images.length > 0) {
         if (Product.images.length > 1) {
-            image = ` <div class="position-relative box-img shadow-sm border-0 w-100">
+         
+          
+
+            if (Product.isFavorite == 2) {
+                ProdID = Product.id;
+                image = ` <div id="${Product.id}" class="position-relative box-img shadow-sm border-0 w-100">
               <img src="${Product.images[1]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
               <img src="${Product.images[0]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
-              <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
-              </button>
+
+             ${btn2}
+
             </div>`
-        } else {
-            image = ` <div class="position-relative box-img1 shadow-sm border-0 w-100">
+
+                
+             
+            }
+            else {
+                ProdID = Product.id;
+                image = ` <div id="${Product.id}" class="position-relative box-img shadow-sm border-0 w-100">
+              <img src="${Product.images[1]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
               <img src="${Product.images[0]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
-              <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
-              </button>
+
+             ${btn1}
             </div>`
+             
+              
+            }
+         
+        } else {
+            ProdID = Product.id;
+          
+
+            if (Product.isFavorite == 2) {
+                ProdID = Product.id;
+                image = ` <div id="${Product.id}" class="position-relative box-img1 shadow-sm border-0 w-100">
+              <img src="${Product.images[0]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+
+             ${btn2}
+            </div>`
+              
+
+            }
+            else {
+                ProdID = Product.id;
+                image = ` <div id="${Product.id}" class="position-relative box-img1 shadow-sm border-0 w-100">
+              <img src="${Product.images[0]}" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+
+             ${btn1}
+            </div>`
+               
+
+
+            }
+           
+
+
+
         }
     } else {
-        image = ` <div class="position-relative box-img1 shadow-sm border-0 w-100">
+        ProdID = Product.id;
+        
+        if (Product.isFavorite == 2) {
+            ProdID = Product.id;
+            image = ` <div id="${Product.id}" class="position-relative box-img1 shadow-sm border-0 w-100">
               <img src="/images/default.png" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
-              <button title="add to Favorite" onclick="alert('[id]')" class="rounded-pill btn-favorite text-secondary btn position-absolute  bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
-              </button>
+
+             ${btn2}
             </div>`
+          
+
+        }
+        else {
+            ProdID = Product.id;
+            image = ` <div id="${Product.id}" class="position-relative box-img1 shadow-sm border-0 w-100">
+              <img src="/images/default.png" class="position-absolute object-fit-cover w-100 h-100 start-0 top-0 rounded-top" alt="" onclick="">
+
+             ${btn1}
+            </div>`
+
+            
+
+        }
+       
+
     }
 
     let card = document.createElement("div");
@@ -287,4 +370,32 @@ function GetPage(index) {
 }
 
 
+async function AddFavorite(id) {
 
+    var IsAdd = await AddFavoritesToProduct(id);
+    var btn = document.querySelectorAll('.btn-favorite');
+    if (IsAdd="true") {
+
+        //for (var i = 0; i < btn.length;i++) {
+
+        //    btn[i].innerHTML = `
+        //                          ${btn2}
+        //                       `;
+        //}
+        getdata(null);
+       
+    }
+    else if (IsAdd = "false") {
+        //for (var i = 0; i < btn.length; i++) {
+
+        //    btn[i].innerHTML = `
+        //                        ${btn1}
+        //                       `;
+        //}
+        getdata(null);    }
+    else {
+        window.location = "";
+    }
+
+
+}

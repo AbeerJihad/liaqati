@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="~/User/css/PieChart.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/aos/aos.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/counter/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="~/user/css/style.css" rel="stylesheet" asp-append-version="true" />
+    <style>
+        * {
+            font-family: Almarai;
+        }
+
+        .pcolor {
+            color: #B9AFF5;
+        }
+
+        /* .swiper {
+                                                                                                    width: 80% !important;
+                                                                                                    height: 90% !important;
+
+                                                                                                }*/
+
+        .swiper-slide {
+            width: 450px !important;
+            height: 70% !important;
+        }
+    </style>
 
 }
 
@@ -129,14 +151,93 @@
 @await Component.InvokeAsync("LastestMealPlans")
 @await Component.InvokeAsync("HealthyRecipes")
 @await Component.InvokeAsync("Exercises")
-@await Component.InvokeAsync("LastestArticles")
-@await Component.InvokeAsync("Trainers")
+<div class="container-lg mt-3">
+
+    @await Component.InvokeAsync("LastestArticles")
+</div>
+@*@await Component.InvokeAsync("Trainers")
+*@
 @await Component.InvokeAsync("MostSoughtProducts")
+<div class="swiper mySwiper my-3 py-5">
+    <div class="swiper-wrapper">
+        @foreach (var item in Model.SportProgram)
+        {
+            <div class="swiper-slide">
+                <div class="card border-0 p-0 shadow rounded-top m-0" style="border-radius:15px 0  15px 0;">
+                    <div class="position-relative m-0 p-0">
+                        <img height="300" src="@item.Image" style="object-fit:fill ; border-radius:15px 0  15px 0;"
+                             class="card-img-top p-0 m-0 " alt="..." />
+                        <img width="30" height="30" class="position-absolute  " style="top: 30px; right: 10px"
+                             src="~/user/images/exercises/heart-svgrepo-com (1).png" alt="" srcset="" />
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                @for (int i = 0; i <= item.Services?.RatePercentage / 20; i++)
+                                {
+                                    <img class="m-0 p-0" width="20" height="20" src="~/user/images/exercises/star-svgrepo-com.png" />
+                                }
+                            </div>
+                            <div>
+                                <h5 class="d-inline-block text-danger align-middle ms-1">
+                                    @item.Services?.Price?.ToString("c")
+                                </h5>
+                            </div>
+                        </div>
+                        <p class="card-text pcolor">
+                            برنامج لمدة
+                            <span> @item.Length</span>
+                            اسابيع
+                        </p>
+                        <div class=" p-0  d-flex justify-content-between">
+
+                            <p class="card-title ">
+                                @item.Services?.Title
+                            </p>
+
+                            <a class="btn px-2 py-1  text-white rounded shadow" style="background-color: #B9AFF5;">
+                                ابدأ الآن
+                                <img class="me-1" height="20" src="~/user/images/exercises/mask group 56.png" />
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
 
 @section Scripts{
-    <script defer src="~/User/js/SwiperSliders.js" asp-append-version="true"></script>
-    <script defer src="~/lib/aos/aos.js" asp-append-version="true"></script>
+    @*    <script defer src="~/User/js/SwiperSliders.js" asp-append-version="true"></script>
+*@    <script defer src="~/lib/aos/aos.js" asp-append-version="true"></script>
     <script defer src="~/lib/purecounter/purecounter_vanilla.js" asp-append-version="true"></script>
     <script defer src="~/css/js/counter/main.js" asp-append-version="true"></script>
     <script src="~/User/js/Index.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            effect: "coverflow",
+            slidesPerView: "auto",
+            grabCursor: true,
+            //centeredSlides: true,
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+            },
+
+        });
+    </script>
 }

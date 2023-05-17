@@ -1,12 +1,19 @@
-﻿namespace liaqati_master.Services.Repositories
+﻿using NuGet.Packaging;
+using System.Security.Claims;
+
+namespace liaqati_master.Services.Repositories
 {
     public class IRepoExercise
     {
         private readonly LiaqatiDBContext _context;
+        readonly IHttpContextAccessor _HttpContextAccessor;
+        readonly IRepoFavorite _repoFavorite;
 
-        public IRepoExercise(LiaqatiDBContext context)
+        public IRepoExercise(LiaqatiDBContext context , IHttpContextAccessor HttpContextAccessor , IRepoFavorite repoFavorite)
         {
             _context = context;
+            _HttpContextAccessor = HttpContextAccessor;
+            _repoFavorite = repoFavorite;
         }
 
         public async Task<Exercise> AddEntityAsync(Exercise Entity)
@@ -85,7 +92,90 @@
         }
         public async Task<ExerciseQueryPageResult> SearchExercies(ExerciseQueryParamters exqParameters)
         {
-            IQueryable<Exercise> exercises = (await GetAllAsync()).AsQueryable();
+
+
+            List<ExerciseVM> exercises2 = new List<ExerciseVM>();
+
+
+            IQueryable<ExerciseVM> exercises = (await GetAllAsync()).Select(p =>
+        new ExerciseVM()
+        {
+            Id = p.Id,
+            Image = p.Image,
+            Price = p.Price,
+            Title = p.Title,
+            BodyFocus= p.BodyFocus,
+            BurnEstimate= p.BurnEstimate,
+            Detail= p.Detail,
+            ShortDescription= p.ShortDescription,
+            Difficulty= p.Difficulty,
+            Duration= p.Duration,
+            Equipments= p.Equipments,
+            Video= p.Video,
+            TraningType= p.TraningType,
+           
+          
+            IsFavorite = 0
+
+        }
+
+        ).AsQueryable();
+
+
+            List<Favorite>? list;
+            List<string>? list2 = new();
+            var user = _HttpContextAccessor.HttpContext.User;
+            exercises2 = exercises.ToList();
+
+            if (user is null)
+            {
+
+                foreach (var item in exercises2)
+                {
+                    item.IsFavorite = 0;
+
+
+                }
+            }
+            else
+            {
+                list = await _repoFavorite.GetByUserIDAsync(user.FindFirstValue(ClaimTypes.NameIdentifier));
+                list2 = list.Where(p => p.Type == "تمارين").Select(s => s.ExerciseId).ToList();
+
+
+                foreach (var item in exercises2)
+                {
+                    if (list2.Contains(item.Id))
+                        item.IsFavorite = 2;
+                    else if (!list2.Contains(item.Id))
+                        item.IsFavorite = 1;
+
+
+                }
+
+            }
+
+            exercises = exercises2.AsQueryable();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             List<(string, string)> ListOfSelectedFilters = new List<(string, string)>();
 
@@ -113,7 +203,7 @@
                     foreach (var item in exqParameters.BodyFocus)
                     {
                         if (item is not null)
-                            ListOfExercises.AddRange(exercises.Where(p => p.BodyFocus != null && p.BodyFocus.ToLower().Trim().Contains(item.ToLower().Trim())));
+                            ListOfExercises.AddRange((IEnumerable<Exercise>)exercises.Where(p => p.BodyFocus != null && p.BodyFocus.ToLower().Trim().Contains(item.ToLower().Trim())));
                     }
                     exercises = exercises.AsQueryable();
 
@@ -125,9 +215,9 @@
                     foreach (var item in exqParameters.TraningType)
                     {
                         if (item is not null)
-                            ListOfExercises.AddRange(exercises.Where(p => p.TraningType != null && p.TraningType.ToLower().Trim().Contains(item.ToLower().Trim())));
+                            ListOfExercises.AddRange((IEnumerable<Exercise>)exercises.Where(p => p.TraningType != null && p.TraningType.ToLower().Trim().Contains(item.ToLower().Trim())));
                     }
-                    exercises = ListOfExercises.AsQueryable();
+                    exercises = (IQueryable<ExerciseVM>)ListOfExercises.AsQueryable();
 
                 }
             if (exqParameters.Difficulty is not null)
@@ -138,9 +228,9 @@
                     foreach (var item in exqParameters.Difficulty)
                     {
                         if (item.ToString() is not null)
-                            ListOfExercises.AddRange(exercises.Where(p => p.Difficulty != null && p.Difficulty.ToString()!.ToLower().Trim().Contains(item.ToString().ToLower().Trim())));
+                            ListOfExercises.AddRange((IEnumerable<Exercise>)exercises.Where(p => p.Difficulty != null && p.Difficulty.ToString()!.ToLower().Trim().Contains(item.ToString().ToLower().Trim())));
                     }
-                    exercises = ListOfExercises.AsQueryable();
+                    exercises = (IQueryable<ExerciseVM>)ListOfExercises.AsQueryable();
 
                 }
 
@@ -152,7 +242,7 @@
                     foreach (var item in exqParameters.Equipment)
                     {
                         if (item is not null)
-                            ListOfExercises.AddRange(exercises.Where(p => p.Equipments!.ToLower().Trim().Contains(item.ToLower().Trim())));
+                            ListOfExercises.AddRange((IEnumerable<Exercise>)exercises.Where(p => p.Equipments!.ToLower().Trim().Contains(item.ToLower().Trim())));
                     }
 
                     exercises = exercises.AsQueryable();
@@ -256,7 +346,12 @@
             {
                 EquipmentCounters.Add(exercises.Count(ex => ex.Equipments!.ToLower().Trim().Contains(item.ToLower().Trim())));
             }
-            QueryPageResult<Exercise> qpres = CommonMethods.GetPageResult(exercises, exqParameters);
+            QueryPageResult<ExerciseVM> qpres = CommonMethods.GetPageResult(exercises, exqParameters);
+
+
+
+
+
             ExerciseQueryPageResult exqpres = new()
             {
                 ListOfData = qpres.ListOfData,

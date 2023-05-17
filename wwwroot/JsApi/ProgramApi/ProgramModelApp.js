@@ -52,6 +52,42 @@ title6
 total_Carbohydrate
 */
 function RenderCards(Program) {
+
+    
+
+
+    var btn2 = ``;
+
+
+
+
+
+    if (Program.isFavorite == 2) {
+
+        btn2 = ` <button title="add to Favorite" onclick="AddFavoriteProgram('${Program.id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                </button>`;
+
+
+    }
+    else {
+        btn2 = `  <button title="add to Favorite" onclick="AddFavoriteProgram('${Program.id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+
+                </button>`;
+    }
+
+
+
+
+
+
+
+
+
+
+
     console.log(Program);
     let card = document.createElement("div");
     card.className = "col p-3";
@@ -73,13 +109,15 @@ function RenderCards(Program) {
         </div>
 
         <div class="card-body">
-            <h5 class="card-title fw-bold text-black text-end"> ${Program.services.title}
+                  ${btn2}
+
+            <h5 class="card-title fw-bold text-black text-end"> ${Program.title}
             </h5>
             <div class="d-flex justify-content-between align-items-center">
                 <p class="card-subtitle">
                     يعتمد على تقليل الكربوهيدرات ومنع السكر المصنع والبطاطا
                 </p>
-                <p class="text-danger text-start h3 fw-bold me-3">$ ${Program.services.price}</p>
+                <p class="text-danger text-start h3 fw-bold me-3">$ ${Program.price}</p>
             </div>
 
             <div class="d-flex justify-content-between align-items-center mt-2">
@@ -158,3 +196,24 @@ function GetPage(index) {
     getdata(null);
 }
 
+
+
+
+async function AddFavoriteProgram(id) {
+    var IsAdd = await AddFavoritesToProgram(id);
+    if (IsAdd = "true") {
+
+
+        getdata(null);
+
+    }
+    else if (IsAdd = "false") {
+
+        getdata(null);
+    }
+    else {
+        window.location = "";
+    }
+
+
+}

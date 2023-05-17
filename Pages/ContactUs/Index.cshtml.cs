@@ -17,6 +17,18 @@ namespace liaqati_master.Pages.ContactUs
 
         [BindProperty]
         public Models.ContactUs ContactUs { get; set; }
+
+
+
+        public class ContactUsInputModel
+        {
+            public string FullName { get; set; }
+            public string Email { get; set; }
+            public string PhoneIntro { get; set; }
+            public string Phone { get; set; }
+            public string MessageContent { get; set; }
+
+        }
         public void OnGet()
         {
         }

@@ -325,6 +325,10 @@
       "PackagePath": "staticwebassets\\Images\\Atricles\\share-button-svgrepo-com.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\ContactUsImage.png",
+      "PackagePath": "staticwebassets\\Images\\ContactUsImage.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Error\\401.png",
       "PackagePath": "staticwebassets\\Images\\Error\\401.png"
     },
@@ -881,6 +885,10 @@
       "PackagePath": "staticwebassets\\Images\\google.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\heart-solid-24.png",
+      "PackagePath": "staticwebassets\\Images\\heart-solid-24.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\landing.css",
       "PackagePath": "staticwebassets\\Images\\landing.css"
     },
@@ -1079,6 +1087,14 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\pexels-ella-olsson-1640773 (2).jpg",
       "PackagePath": "staticwebassets\\Images\\pexels-ella-olsson-1640773 (2).jpg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\pexels-marta-wave-6454071.png",
+      "PackagePath": "staticwebassets\\Images\\pexels-marta-wave-6454071.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\photo.jpg",
+      "PackagePath": "staticwebassets\\Images\\photo.jpg"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\00e846e9-5e9d-4d17-9758-1bdedbd89cf6man.jpg",
@@ -1355,6 +1371,10 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\owl.theme.default.min.css",
       "PackagePath": "staticwebassets\\User\\css\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\style.css",
+      "PackagePath": "staticwebassets\\User\\css\\style.css"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\User\\css\\styleICart.css",
@@ -3851,6 +3871,10 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\counter\\style.css",
       "PackagePath": "staticwebassets\\css\\counter\\style.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\dropDown\\style.css",
+      "PackagePath": "staticwebassets\\css\\dropDown\\style.css"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\js\\counter\\main.js",

@@ -16,12 +16,39 @@ var sortedByValue = document.getElementById("SortBy");
 var SearchTearmValue = document.getElementById("SearchTearm");
 
 
-function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, duration, equipments, id, image, price, shortDescription, title, traningType, video }) {
+function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, duration, equipments, id, image, price, shortDescription, title, traningType, video, isFavorite }) {
+
+
+    var btn2 = ``;
+
+
+
+
+
+    if (isFavorite == 2) {
+
+        btn2 = ` <button title="add to Favorite" onclick="AddFavoriteExercises('${id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                </button>`;
+
+
+    }
+    else {
+        btn2 = `  <button title="add to Favorite" onclick="AddFavoriteExercises('${id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+
+                </button>`;
+    }
+
+
+
+
 
     let row = document.createElement('div');
     row.className = 'col-sm-6 col-lg-3 p-4 ';
     row.innerHTML = `   
-    <a href="Exercises/ExercisesDetiles/${id}">
+
                <div class="card border-0 h-100 ">
             <div class="position-relative">
                 <img id="imgCard " src="${image}" style="width:100%;" />
@@ -41,6 +68,7 @@ function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, dur
                 <p class="card-text  Exercises_duration_Color fw-bold">
                    ${duration} دقيقة/اليوم
                 </p>
+                          ${btn2}
                 <h6 class="card-title mb-3"> ${title}   </h6>
                 <div class="">
                      <div class="rating-section">
@@ -59,18 +87,18 @@ function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, dur
                             </h4>
                         </div>
                         <div>
-                            <button class="btn_Exercises_duration col-auto text-white rounded-3 fw-bold d-inline-block border-0 py-1 px-2">
-                                ابدا الان
+    <a href="Exercises/ExercisesDetiles/${id}">    ابدا الان
 
                                 <img src="/images/Exercise/cart.png" />
+</a>
 
-                            </button>
+                          
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>    </a>
+        </div>   
 `;
 
 
@@ -461,3 +489,54 @@ function RenderCounters(JsonData) {
     }
 
 }
+
+
+
+async function AddFavoriteExercises(id) {
+
+    var IsAdd = await AddFavoritesToExercises(id);
+    if (IsAdd == "true") {
+
+
+        GetAll();
+
+    }
+    else if (IsAdd = "false") {
+
+        GetAll();
+    }
+    else {
+        window.location = "";
+    }
+
+
+
+
+
+}
+
+
+
+
+async function AddFavoritesToExercises(id) {
+
+    let result;
+    try {
+        const response = await fetch(`https://localhost:7232/api/ExerciseApi/AddFavoritesExercises/${id}`, {
+            method: "GET",
+        });
+        if (response.status === 200) {
+            result = await response.json();
+        }
+        else {
+            console.error(json);
+            //`Error: ${json.title}`;
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+    return result;
+}
+
+

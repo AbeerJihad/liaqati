@@ -1,78 +1,53 @@
 ﻿@page
 @model liaqati_master.Pages.SportProgram.IndexModel
 <link href="~/css/programdetails.css" rel="stylesheet" />
+@section Styles{
+    <style>
+        @@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
 
-@*
-
-<div class="container " style="padding-top:200px">
-    <div id="" class="row justify-content-around my-5">
-
-
-        @foreach (var item in Model.Sports)
-        {
-
-
-            <div class="col-12 col-md-3 shadow rounded-top p-2">
-                <div class="card border-0 p-0 m-0 h-100">
-                    <div class="position-relative">
-                        <a asp-page="clender" asp-route-id="@item.Id">
-                            <img src="@item.Image" style="object-fit:fill"
-                                 class="card-img-top p-0 m-0" alt="..." />
-                        </a>
-                        <img width="30" class="position-absolute " style="top: 10px; right: 10px"
-                             src="~/images/exercise/heart-svgrepo-com (1).png" alt="" srcset="" />
-
-                    </div>
-
-                    <div class="card-body">
-                        <h6 class="card-text pcolor">
-                            دقيقة اليوم30-- أسابيع8 برنامج
-                        </h6>
-                        <h6 class="card-title fw-bold  mb-3">
-                            @item.Services!.Title
-                        </h6>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex">
-                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
-                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
-                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
-                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
-                                <img class="m-0 p-0" width="20" height="20" src="~/images/exercise/star-svgrepo-com.png" />
-                            </div>
-                            <div>
-                                <h5 class="d-inline-block text-danger align-middle ms-1">
-                                    $ @item.Services.Price
-                                </h5>
-                                <a asp-page="clender" asp-route-id="@item.Id">  <img width="30" src="~/images/exercise/cart-3-svgrepo-com.png" />  </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-
-
+        * {
+            font-family: "Almarai", sans-serif;
         }
-    </div>
-</div>*@
 
+        .bg-white-with-transparent {
+            background-color: rgba(255, 255, 255, 0.7) !important;
+        }
 
-<div class="position-relative w-100  overflow-hidden" style="background-size:cover; height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/experts/header.jpeg')">
+        .overlay {
+            transition: 0.3s;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hoverable-image:hover .overlay {
+            opacity: 0;
+        }
+
+        .more-details-btn {
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .hoverable-image:hover .more-details-btn {
+            opacity: 1;
+        }
+
+        .meal-plan {
+            transition: 0.3s;
+        }
+
+            .meal-plan:hover {
+                border: 1px dashed #cb8cef;
+            }
+    </style>
+}
+
+<div class="position-relative w-100  overflow-hidden" style="background-size:cover; height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/pexels-marta-wave-6454071.png')">
     <div class="h-100">
         <div class="container-fluid h-100 p-0 position-absolute start-0 top-0 ">
             <div class="container-xl h-100  d-flex flex-column justify-content-center align-items-center " style="padding-top:120px !important">
                 <div class="w-100 mx-auto">
                     <h1 class="text-white text-center py-3 fw-bold">
-                       الانظمة الرياضية
+                        الانظمة الرياضية
                     </h1>
 
 

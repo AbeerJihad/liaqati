@@ -1,7 +1,12 @@
+using liaqati_master.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
 
 namespace liaqati_master.Areas.Admin.Pages.Favorites
 {
+
 
     public class CreateModel : PageModel
     {
@@ -10,10 +15,10 @@ namespace liaqati_master.Areas.Admin.Pages.Favorites
         public CreateModel(IRepoFavorite repoFavorite)
         {
             _repoFavorite = repoFavorite;
-
+           
         }
 
-        [BindProperty(SupportsGet = true)]
+        [BindProperty(SupportsGet =true)]
         public Favorite favorite { get; set; }
 
 
@@ -35,7 +40,7 @@ namespace liaqati_master.Areas.Admin.Pages.Favorites
 
 
 
-            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+          var userid=  User.FindFirstValue(ClaimTypes.NameIdentifier);
 
 
             if (userid is null)
@@ -45,7 +50,7 @@ namespace liaqati_master.Areas.Admin.Pages.Favorites
 
 
 
-            favorite.Id = CommonMethods.Id_Guid();
+            favorite.Id= CommonMethods.Id_Guid();
             favorite.UserId = userid;
 
 
@@ -54,11 +59,11 @@ namespace liaqati_master.Areas.Admin.Pages.Favorites
 
             returnUrl ??= Url.Content("~/");
 
+            
 
 
-
-
-            return RedirectToPage(returnUrl);
+                
+            return LocalRedirect(returnUrl);
         }
 
 

@@ -1,6 +1,10 @@
 ﻿@model List<Article>
 
 <style>
+    body {
+        background-color: #F7F7F7;
+    }
+
     .sideArticlesImages {
         width: 100%;
         height: 100%;
@@ -8,77 +12,115 @@
     }
 
     .carouselImages {
-        height: 570px;
+        height: 500px;
         width: 100%;
         opacity: 0.9;
         object-fit: cover;
     }
 
-    .carousel-indicators {
-        bottom: 0 !important;
+    .overlay {
+        background-color: #8F8F8F50;
+        opacity: 1;
+        transition: .5s;
+        z-index: 2;
     }
+
+    .carousel:hover .overlay {
+        opacity: 0;
+        display: none;
+    }
+
 </style>
+
 @if (Model.Count > 0)
 {
 
-
-    <div class="container  my-5" style="font-size: 13px">
-        <div class="d-flex my-4">
-            <div class="mx-3" style="height: 40px; width: 4px; background-color: #b9aff5"></div>
-            <h2 class="col-auto">أحدث المقالات</h2>
-            <div class="mt-4 mx-4 col" style="height: 2px; width: 50%; background-color: #b9aff5"></div>
+    <div class="d-flex justify-content-between align-items-center py-3">
+        <div class="d-flex align-items-center">
+            <div style="width:5px;background-color:#be8adc;height:40px;"></div>
+            <h4 class="fw-bold m-0 m-2 ">أحدث المقالات</h4>
         </div>
-        <div class="row">
-            <div class="col-lg-8 align-self-center">
-                <div id="carouselExampleCaptions"
-                     class="carousel slide"
-                     data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        @for (int i = 0; i < Model.Count; i++)
-                        {
-                            var active = i == 0 ? "active" : "";
-                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="@active" aria-current="@active" aria-label="Slide @i"></button>
-                        }
-                    </div>
-                    <div class="carousel-inner">
-                        @for (int i = 0; i < Model.Count; i++)
-                        {
-                            var active = i == 0 ? "active" : "";
-                            <div class="carousel-item @active">
-                                <img src="@Model[i].Image"
-                                     class="d-block carouselImages"
-                                     alt="..." />
-                                <div class="carousel-caption m-0 text-start d-none d-md-block">
-                                    <p class="text-black-50 fw-bold"> @Model[i].Title </p>
-                                    @* <h6 class="text-dark">
-                            @Model[i].Description
-                            </h6>*@
-                                </div>
+        <div>
+            <i class="bi bi-arrow-left h4"></i>
+        </div>
+    </div>
+    <div class="row">
 
+        <div class="col-lg-6 h-100 align-self-center">
+            <div id="carouselExampleCaptions" class="carousel h-100 slide carousel-fade" data-bs-ride="carousel">
+
+                <div class="carousel-inner h-100">
+                    <div class="h-100 w-100 position-absolute top-0 start-0 overlay"></div>
+                    @for (int i = 0; i < Model.Take(3).Count(); i++)
+                    {
+                        var active = @i == 0 ? "active" : "";
+                        <div class='carousel-item  h-100 @active'>
+                            <img src="@Model[i].Image" class="d-block carouselImages" alt="...">
+                            <div class="carousel-caption w-100 start-0 m-0 p-3 bottom-0   text-start d-none d-md-block" style="background-color:rgba(255,255,255,0.6);">
+                                <p class="text-black-50 fw-bold">@Model[i].Category?.Name</p>
+                                <h6 class="text-dark">@Model[i].Title</h6>
                             </div>
-                        }
-                    </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
-                    </button>
+                        </div>
+                    }
                 </div>
-            </div>
-            <div class="col-lg-4 justify-content-center align-items-center">
-                @foreach (var item in Model)
-                {
-                    <partial name="_ArticlesCard" model="@item"></partial>
-                }
-            </div>
-            <div class="d-flex mt-4">
-                <div class="mt-4 mx-4 col" style="height: 2px; width: 50%; background-color: #b9aff5"></div>
-                <button style="background-color: #E4DFFF" class="col-auto text-black rounded-4 h4 fw-bold d-inline-block border-0 py-3 px-4">
-                    لمشاهدة جميع مقالاتنا
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
             </div>
+
+        </div>
+
+        <div class="col-lg-6 d-flex gap-2 flex-column justify-content-between align-items-center">
+            @for (int i = 0; i < Model.Skip(3).Count(); i++)
+            {
+                <div class="row w-100 mx-1 bg-white">
+                    <div class="col-4 g-0 h-100 position-relative">
+                        <img src="@(Model.Skip(3).ToList()[i].Image)" class="sideArticlesImages h-100 w-100 position-absolute top-0 start-0 object-fit-cover" />
+                    </div>
+                    <div class="col">
+                        <div class="pt-2">
+                            <p class="fw-bold"> @CommonMethods.GetArabicDateTime((Model.Skip(3).ToList())[i].PostDate)   </p>
+                            <p class="text-black-50">@(Model.Skip(3).ToList()[i].Category?.Name)</p>
+                            <p style="font-weight:bold;"> @(Model.Skip(3).ToList()[i].Title) </p>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+
+                            <div>
+                                <p>وقت القراءة  @(Model.Skip(3).ToList()[i].avgReading)  دقائق</p>
+                            </div>
+                            <div class="my-1 d-flex">
+                                <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
+
+                                @{
+                                    Favorite favorite = new();
+                                }
+                                <form method="post" asp-area="admin" asp-page="/favorites/create">
+                                    <input hidden value="@Model[i].Id" asp-for="@favorite.ArticleId" />
+                                    <input hidden value="مقالات" asp-for="@favorite.Type" />
+                                    <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
+                                        <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+
+                                    </button>
+
+                                </form>
+
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            }
         </div>
 
     </div>

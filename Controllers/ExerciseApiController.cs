@@ -1,4 +1,4 @@
-﻿using liaqati_master.Services.Repositories;
+﻿using System.Security.Claims;
 
 namespace liaqati_master.Controllers
 {
@@ -6,13 +6,14 @@ namespace liaqati_master.Controllers
     [ApiController]
     public class ExerciseApiController : ControllerBase
     {
-        readonly LiaqatiDBContext _context;
+        private readonly LiaqatiDBContext _context;
         private readonly IRepoExercise _repoExercise;
-
-        public ExerciseApiController(LiaqatiDBContext context, IRepoExercise repoExercise)
+        private readonly IRepoFavorite _IRepoFavorite;
+        public ExerciseApiController(LiaqatiDBContext context, IRepoExercise repoExercise, IRepoFavorite iRepoFavorite)
         {
             _context = context;
             _repoExercise = repoExercise;
+            _IRepoFavorite = iRepoFavorite;
         }
 
         [HttpGet("AllExercise")]
@@ -20,17 +21,12 @@ namespace liaqati_master.Controllers
         {
             return Ok(await _context.TblExercises.ToArrayAsync());
         }
-
         [HttpGet("GetExerciseById/{id}")]
-
         public async Task<ActionResult<List<Exercise>>> GetExerciseById(int id)
         {
 
             return Ok(await _context.TblExercises.FindAsync(id));
         }
-
-
-
 
         [HttpGet("LatesExercise")]
         public async Task<ActionResult<List<Exercise>>> LatesExercise()
@@ -39,8 +35,8 @@ namespace liaqati_master.Controllers
             return Ok(await _context.TblExercises.OrderByDescending(x => x.Id).ToArrayAsync());
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Exercise>> AddArticles([FromForm] Exercise Exercise)
+        [HttpPost("AddExercise")]
+        public async Task<ActionResult<Exercise>> AddExercise([FromForm] Exercise Exercise)
         {
 
 
@@ -94,8 +90,6 @@ namespace liaqati_master.Controllers
         }
 
         [HttpDelete("{DeleteToList}")]
-
-
         public async Task<ActionResult<List<Exercise>>> DeleteMultiExercise([FromForm] int[] ids)
         {
             var plist = new List<Exercise>();
@@ -140,9 +134,6 @@ namespace liaqati_master.Controllers
             {
                 return BadRequest();
             }
-
-
-            //  _context.Product.Update(product);
             _context.Entry(Exercise).State = EntityState.Modified;
 
             try
@@ -159,44 +150,57 @@ namespace liaqati_master.Controllers
 
         }
 
-
-
         [HttpPost]
         [Route("searchforExercise")]
         public async Task<ActionResult> Search([FromBody] ExerciseQueryParamters exqParameters)
         {
             return Ok(await _repoExercise.SearchExercies(exqParameters));
+        }
+        [HttpGet("AddFavoritesExercises/{id}")]
+        public async Task<ActionResult<string>> AddFavorites(string id)
+        {
+            string IsAdd = "";
+            List<Favorite> Favorites = new();
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null && id is not null)
+            {
+
+                var lstoffav = await _IRepoFavorite.GetByUserIDAsync(userid);
+                if (lstoffav is not null)
+                {
+                    Favorites = lstoffav.Where(p => p.ExerciseId == id).ToList();
+                }
+                if (!Favorites.Any())
+                {
+
+                    Favorite favorite = new Favorite()
+                    {
+                        ExerciseId = id,
+                        Type = "تمارين",
+                        Id = CommonMethods.Id_Guid(),
+                        UserId = userid
+                    };
+
+                    await _IRepoFavorite.AddEntityAsync(favorite);
+                    IsAdd = "true";
+                }
+                else
+                {
+                    await _IRepoFavorite.DeleteByExerIdAsync(id);
+                    IsAdd = "false";
+                }
+
+            }
+            else
+            {
+                IsAdd = "null";
+            }
 
 
-            //   if (exqParameters.BodyFocus.Count != 0 && exqParameters.TraningType.Count != 0
-            //&& exqParameters.Difficulty.Count != 0 && exqParameters.Equipment.Count != 0)
-            //   {
-            //       {
-            //           ex = exercises.Where(p => exqParameters.BodyFocus.Contains(p.BodyFocus.ToLower())
-            //           && exqParameters.TraningType.Contains(p.TraningType)
-
-            //           && exqParameters.Difficulty.Contains(p.Difficulty.Value)
-            //           && exqParameters.Equipment.Contains(p.Equipments)
-
-            //           //&& exqParameters.Duration.Contains(p.Duration.Value)
-            //           ).ToList();
-
-            //           if (ex.Count == 0)
-            //           {
-            //               ex = _context.TblExercises.ToList();
-            //           }
-            //           return Ok(ex);
-
-            //       }
-            //   }
-            //   //
 
 
 
-
-            //   QueryPageResult< Exercise> queryPageResult=CommonMethods.GetPageResult(exercises, exqParameters);
-
-
+            return Ok(IsAdd);
         }
 
 
