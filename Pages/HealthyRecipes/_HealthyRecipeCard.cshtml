@@ -1,6 +1,6 @@
 ﻿@model HealthyRecipe
 <div class="col p-3">
-    <div class="card rounded-0 shadow-sm">
+    <div class="card rounded-0 shadow-sm h-100">
         <div class="position-relative  overflow-hidden image-box" style="height:300px">
             <a asp-route-id="@Model.Id" asp-page="HealthyRecipesDetiles">  <img src="@Model.Image" class="card-img-top rounded-0 object-fit-cover position-absolute w-100 start-0 top-0 h-100" alt="..."></a>
         </div>
@@ -15,20 +15,65 @@
                     </a>
 
                     @{
-                        Favorite favorite = new();
-
-                        <form method="post" asp-area="admin" asp-page="/favorites/create">
 
 
-                            <input hidden value="@Model.Id" asp-for="@favorite.HealthyRecipeId" />
-                            <input hidden value="وصفات غذائية" asp-for="@favorite.Type" />
 
-                            <button type="submit" stitle="heart" class=" border-0 bg-transparent"
-                                    >
-                                <i class="bi bi-heart fs-4 text-dark"></i>
-                            </button>
 
-                        </form>
+
+                        List<Favorite> Favorites = (List<Favorite>)ViewData["listFavoritesHealthy"];
+
+        
+
+
+
+                        if (Favorites is null)
+                        {
+                            <a asp-area="identity" asp-page="/account/login" style="width: 50px; height: 50px; top: 10px; right: 10px"
+                       class="rounded-pill btn-favourite   text-secondary btn  border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
+
+                            </a>
+
+                        }
+
+                        else
+                        {
+                            List<Favorite> list = Favorites.Where(p => p.HealthyRecipeId == Model.Id).ToList();
+
+                            if (list.Count == 0)
+                            {
+                                Favorite favorite = new();
+
+                                <form method="post" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/create">
+
+
+                                    <input hidden value="@Model.Id" asp-for="@favorite.HealthyRecipeId" />
+                                    <input hidden value="وصفات" asp-for="@favorite.Type" />
+
+                                    <button title="add to Favorite" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                        <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+
+                                    </button>
+
+                                </form>
+
+                            }
+                            else
+                            {
+                                <form asp-route-id="@Model.Id" method="post" asp-page-handler="RemoveFavorite" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/index">
+
+
+
+                                    <button title="add to Favorite" onclick="AddFavorite('${Product.id}')" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                        <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                                    </button>
+
+                                </form>
+                            }
+
+
+                        }
                     }
 
                    

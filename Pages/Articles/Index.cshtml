@@ -120,22 +120,63 @@
                             <div class="my-1 d-flex">
                                 <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
 
-                                @{
-                                    Favorite favorite = new();
-                                }
-                                    <form method="post" asp-area="admin" asp-page="/favorites/create">
+                             
 
 
-                                        <input hidden value="@Model.Articles[i+3].Id" asp-for="@favorite.ArticleId" />
-                                        <input hidden value="مقالات" asp-for="@favorite.Type" />
+                                    @{
+                                     Favorite favorite =new Favorite();
 
-                                        <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
-                                        <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
-                                        
-                                        </button>
+                                        if (Model.Favorites is null)
+                                        {
+                                             <a asp-area="identity" asp-page="/account/login" style="width: 50px; height: 50px; top: 10px; right: 10px"
+                                              class="rounded-pill btn-favourite   text-secondary btn  border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
 
-                                    </form>
-                               
+                                            </a>
+
+                                        }
+
+                                        else
+                                        {
+                                            List<Favorite> list = Model.Favorites.Where(p => p.ArticleId == @Model.Articles[i + 3].Id).ToList();
+
+                                            if (list.Count == 0)
+                                            {
+
+
+                                                <form method="post" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/create">
+
+
+                                                    <input hidden value="@Model.Articles[i+3].Id" asp-for="@favorite.ArticleId" />
+                                                <input hidden value="مقالات" asp-for="@favorite.Type" />
+
+                                                    <button title="add to Favorite" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                        <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+
+                                                    </button>
+
+                                                </form>
+
+                                            }
+                                            else
+                                            {
+                                                <form asp-route-id="@Model.Articles[i+3].Id" method="post" asp-page-handler="RemoveFavorite" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/index">
+
+
+
+                                                    <button title="add to Favorite" onclick="AddFavorite('${Product.id}')" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                        <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                                                    </button>
+
+                                                </form>
+                                            }
+
+
+                                        }
+                                    }
+
+
 
                             </div>
 
@@ -186,20 +227,61 @@
 
 
                                 @{
-                                    Favorite favorite = new();
+                                    if (Model.Favorites is null)
+                                    {
+                                        <a asp-area="identity" asp-page="/account/login" style="width: 50px; height: 50px; top: 10px; right: 10px"
+                               class="rounded-pill btn-favourite   text-secondary btn  border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                            <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
+                                      
+                                        </a>
+
+                                    }
+
+                                    else
+                                    {
+                                        List<Favorite> list = Model.Favorites.Where(p => p.ArticleId == item.Id).ToList();
+
+                                        if (list.Count == 0)
+                                        {
+                                            Favorite favorite = new();
+
+                                            <form method="post" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/create">
+
+
+                                                <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
+                                                <input hidden value="مقالات" asp-for="@favorite.Type" />
+
+                                                <button title="add to Favorite"  class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
+
+                                                </button>
+
+                                            </form>
+
+                                        }
+                                        else
+                                        {
+                                            <form asp-route-id="@item.Id" method="post" asp-page-handler="RemoveFavorite" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/index">
+
+
+
+                                                <button title="add to Favorite" onclick="AddFavorite('${Product.id}')" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                    <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                                                </button>
+
+                                            </form>
+                                        }
+
+
+                                    }
+
+
+
+
+
+
                                 }
-                                <form method="post" asp-area="admin" asp-page="/favorites/create">
-
-
-                                    <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
-                                    <input hidden value="مقالات" asp-for="@favorite.Type" />
-
-                                    <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
-                                        <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
-
-                                    </button>
-
-                                </form>
                             </div>
 
 

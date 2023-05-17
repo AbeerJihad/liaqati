@@ -11,7 +11,7 @@
         public IList<Exercise> Exercises { get; set; }
         [BindProperty(SupportsGet = true)]
         public ExerciseQueryParamters ExerciseQueryParamters { get; set; }
-        public QueryPageResult<Exercise> QueryPageResult { get; set; }
+        public QueryPageResult<ExerciseVM> QueryPageResult { get; set; }
         public bool IsGrid { get; set; }
         public IEnumerable<SelectListItem> lstPageSize { get; set; } = new List<SelectListItem>()
         {

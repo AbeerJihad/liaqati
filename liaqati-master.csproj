@@ -141,6 +141,15 @@
 		<None Include="wwwroot\css\js\counter\main.js" />
 		<None Include="wwwroot\JsApi\Consultations\ConsultationModelApp.js" />
 		<None Include="wwwroot\JsApi\Consultations\ConsultationsModel.js" />
+		<None Include="wwwroot\JsApi\HealthyRecipeAPI\GetHealthy.js" />
+		<None Include="wwwroot\JsApi\HealthyRecipeAPI\HealthyRecipeModel.js" />
+		<None Include="wwwroot\JsApi\HealthyRecipeAPI\HealthyRecipeModelApp.js" />
+		<None Include="wwwroot\JsApi\MealPlanAPI\MealPlanModel.js" />
+		<None Include="wwwroot\JsApi\MealPlanAPI\MealPlanModelApp.js" />
+		<None Include="wwwroot\JsApi\ProductsAPI\ProductsModel.js" />
+		<None Include="wwwroot\JsApi\ProductsAPI\ProductsModelApp.js" />
+		<None Include="wwwroot\JsApi\ProgramApi\ProgramModel.js" />
+		<None Include="wwwroot\JsApi\ProgramApi\ProgramModelApp.js" />
 		<None Include="wwwroot\lib\aos\aos.js" />
 		<None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
 		<None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />

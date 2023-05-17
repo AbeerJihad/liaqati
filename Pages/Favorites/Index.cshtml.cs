@@ -2,7 +2,6 @@ using System.Security.Claims;
 
 namespace liaqati_master.Pages.Favorites
 {
-    [AllowAnonymous]
     public class IndexModel : PageModel
     {
 
@@ -34,14 +33,30 @@ namespace liaqati_master.Pages.Favorites
 
 
         [BindProperty(SupportsGet = true)]
-        public List<Product> Products { get; set; }
+        public List<ProductVM> Products { get; set; }
 
 
 
+        [BindProperty(SupportsGet = true)]
+        public string returnUrl { get; set; }
 
 
-        public async Task<IActionResult> OnGet()
+
+        public QueryPageResult<VmFavorite> QueryPageResult { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public FavoritesQueryParamters Parameters { get; set; }
+
+        public async Task<IActionResult> OnGet(string ids)
         {
+            //if (ids == null)
+            //{
+            //    return RedirectToPage("/Errors/404");
+            //}
+
+
+
+
             // id = "98127abb-de9d-40db-82a3-809f85a6866d";
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -50,8 +65,19 @@ namespace liaqati_master.Pages.Favorites
             {
                 RedirectToPage("./identity/account/login"); ;
             }
-            Products = ((await _repoProduct.GetAllAsync()).Skip(0).Take(3)).ToList();
+            Products = ((await _repoProduct.GetAllAsync()).Select(p =>
+            new ProductVM()
+            {
+                CategoryName = p.Services?.Category?.Name,
+                Id = p.Id,
+                Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
+                CategoryId = p.Services?.CategoryId,
+                Discount = p.Discount,
+                PercentageRate = p.Services?.RatePercentage,
+                Price = p.Services?.Price,
+                Title = p.Services?.Title
 
+            }).Take(4)).ToList();
 
             List<Favorite>? list = await _repoFavorite.GetByUserIDAsync(id);
 
@@ -95,6 +121,14 @@ namespace liaqati_master.Pages.Favorites
 
 
 
+                    if (!string.IsNullOrEmpty(Parameters.SearchTearm))
+                    {
+                        Services = Services.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()) || p.Title!.ToLower().Contains(Parameters.SearchTearm.ToLower())).ToList();
+
+                    }
+
+                    QueryPageResult = CommonMethods.GetPageResult(Services.AsQueryable(), Parameters);
+
 
 
                 }
@@ -125,9 +159,10 @@ namespace liaqati_master.Pages.Favorites
 
 
 
+            returnUrl ??= Url.Content("~/");
 
 
-            return RedirectToPage("index");
+            return LocalRedirect(returnUrl);
         }
 
 

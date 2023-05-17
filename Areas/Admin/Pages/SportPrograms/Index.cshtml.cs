@@ -11,7 +11,7 @@
         public IList<Exercise> Exercises { get; set; }
         [BindProperty(SupportsGet = true)]
         public SportProgramQueryParamters SportProgramQueryParamters { get; set; }
-        public QueryPageResult<SportsProgram> QueryPageResult { get; set; }
+        public QueryPageResult<SportProgramVM> QueryPageResult { get; set; }
         public IEnumerable<SelectListItem> lstPageSize { get; set; } = new List<SelectListItem>()
         {
             new SelectListItem(){Value="5", Text="5"},
@@ -41,7 +41,7 @@
             new SelectListItem(){Value=nameof(SportsProgram.Difficulty),Text="الصعوبة"},
             new SelectListItem(){Value=nameof(SportsProgram.Duration),Text="المدة"},
         };
-        public List<(string, string)>? ListOfSelectedFilters { get; set; }
+        public List<AppliedFilters>? ListOfSelectedFilters { get; set; }
 
         public async Task OnGetAsync(string key, string value)
         {

@@ -9,5 +9,9 @@
         public string? Title { get; set; } = string.Empty;
         public List<string>? DietaryType { get; set; }
         public List<string>? MealType { get; set; }
+
+
+
+
     }
 }

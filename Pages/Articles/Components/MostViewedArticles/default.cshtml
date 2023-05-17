@@ -2,6 +2,15 @@
 <h3 class="mx-5 mt-4 mb-3">الأكثر مشاهدة</h3>
 <div class="container-lg px-5 ">
     <div class="row">
+
+        
+        @{
+
+
+            List<Favorite> Favorites = (List<Favorite>)ViewData["listFavorites"];
+
+        }
+
         @foreach (var item in Model)
         {
             <div class="col-lg-3 col-sm-6 mt-2">
@@ -19,21 +28,54 @@
                         <div class="text-start">
                             <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
                             @{
-                                Favorite favorite = new();
+                                if (Favorites is null)
+                                {
+                                    <a asp-area="identity" asp-page="/account/login" style="width: 50px; height: 50px; top: 10px; right: 10px"
+                           class="rounded-pill btn-favourite   text-secondary btn  border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                        <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
 
-                                <form method="post" asp-area="admin" asp-page="/favorites/create">
+                                    </a>
+
+                                }
+
+                                else
+                                {
+                                    List<Favorite> list = Favorites.Where(p => p.ArticleId == item.Id).ToList();
+
+                                    if (list.Count == 0)
+                                    {
+                                        Favorite favorite = new();
+
+                                        <form method="post" asp-route-returnUrl="@Url.Page("index/", new { area = "" })" asp-page="/favorites/create">
 
 
-                                    <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
-                                    <input hidden value="مقالات" asp-for="@favorite.Type" />
+                                            <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
+                                            <input hidden value="مقالات" asp-for="@favorite.Type" />
 
-                                    <button type="submit" style="width: 50px; height: 50px; top: 10px; right: 10px"
-                                        class="rounded-pill btn-favourite   text-secondary btn position-absolute border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                                        <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
+                                            <button title="add to Favorite" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
 
-                                    </button>
+                                            </button>
 
-                                </form>
+                                        </form>
+
+                                    }
+                                    else
+                                    {
+                                        <form asp-route-id="@item.Id" method="post" asp-page-handler="RemoveFavorite" asp-route-returnUrl="@Url.Page("index/", new { area = "" })" asp-page="/favorites/index">
+
+
+
+                                            <button title="add to Favorite" onclick="AddFavorite('${Product.id}')" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                <img width="25" height="25" src="/Images/heart-solid-24.png" />
+
+                                            </button>
+
+                                        </form>
+                                    }
+
+
+                                }
                             }
                         </div>
                     </div>

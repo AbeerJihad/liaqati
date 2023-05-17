@@ -1,6 +1,6 @@
 ﻿namespace liaqati_master.ViewModels
 {
-    public class ExerciseQueryPageResult : QueryPageResult<Exercise>
+    public class ExerciseQueryPageResult : QueryPageResult<ExerciseVM>
     {
         public List<int> BodyfocusCounters { get; set; }
         public List<int> TraningTypeCounters { get; set; }

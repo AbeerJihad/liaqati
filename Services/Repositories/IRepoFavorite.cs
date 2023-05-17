@@ -110,7 +110,7 @@
                 return false;
             }
         }
-
+       // a57f446b-5ffa-4538-afb1-a8ffe040b081
         public async Task<bool> DeleteBySerIdAsync(string EntityId)
         {
             if (EntityId != null)
@@ -156,6 +156,21 @@
         }
 
 
+
+
+        public async Task<bool> DeleteFavoriteAsync(string id)
+        {
+          
+
+            await   DeleteBySerIdAsync(id);
+            await DeleteByExerIdAsync(id);
+            await DeleteByHealIdAsync(id);
+            await DeleteByArticalIdAsync(id);
+
+
+            return true;
+
+        }
 
 
 

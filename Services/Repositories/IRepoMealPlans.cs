@@ -71,69 +71,138 @@
         public async Task<QueryPageResult<MealPlans>> SearchMealPlan(MealPlansQueryParamters Parameters)
         {
             IQueryable<MealPlans> MealPlans = (await GetAllAsync()).AsQueryable();
+            List<AppliedFilters>? ListOfSelectedFilters = new();
+
             if (Parameters.CategoryId != null)
             {
-                MealPlans = MealPlans.Where(p => p.Services.CategoryId == Parameters.CategoryId);
+                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.CategoryId == Parameters.CategoryId);
+                ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
+
             }
             if (Parameters.MinPrice != null)
             {
-                MealPlans = MealPlans.Where(p => p.Services.Price >= Parameters.MinPrice);
+                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Price >= Parameters.MinPrice);
+                ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MinPrice), Parameters.MinPrice.ToString() ?? ""));
+
             }
             if (Parameters.MaxPrice != null)
             {
-                MealPlans = MealPlans.Where(p => p.Services.Price <= Parameters.MaxPrice);
+                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Price <= Parameters.MaxPrice);
+                ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MaxPrice), Parameters.MaxPrice.ToString() ?? ""));
+
             }
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
-                MealPlans = MealPlans.Where(p => p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Title != null && p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+
+                ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.SearchTearm), Parameters.SearchTearm.ToString() ?? ""));
             }
             if (!string.IsNullOrEmpty(Parameters.Title))
             {
-                MealPlans = MealPlans.Where(p => p.Services.Title.ToLower().Contains(Parameters.Title.ToLower()));
+                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Title != null && p.Services.Title.ToLower().Contains(Parameters.Title.ToLower()));
+                ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.Title), Parameters.Title.ToString() ?? ""));
+
             }
             if (Parameters.DietaryType is not null)
-
                 if (Parameters.DietaryType.Count != 0)
                 {
                     List<MealPlans> MealPlan = new();
-                    for (int i = 0; i < Parameters.DietaryType.Count; i++)
+                    foreach (var item in Parameters.DietaryType)
                     {
-                        if (Parameters.DietaryType[i] is not null)
-                            MealPlan.AddRange(collection: MealPlans.Where(p => p.DietaryType.ToLower().Contains(Parameters.DietaryType[i])));
+                        if (item is not null)
+                        {
+                            MealPlan.AddRange(collection: MealPlans.Where(p => p.DietaryType != null && p.DietaryType.ToLower().Contains(item)));
+                            ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.DietaryType), item.ToString() ?? ""));
+                        }
                     }
-
                     MealPlans = MealPlan.AsQueryable();
-
                 }
 
             if (Parameters.MealType is not null)
-
                 if (Parameters.MealType.Count != 0)
                 {
                     List<MealPlans> MealPlan = new();
-                    for (int i = 0; i < Parameters.MealType.Count; i++)
+                    foreach (var item in Parameters.MealType)
                     {
-                        if (Parameters.MealType[i] is not null)
-                            MealPlan.AddRange(collection: MealPlans.Where(p => p.MealType.ToLower().Contains(Parameters.MealType[i])));
+                        if (item is not null)
+                        {
+                            MealPlan.AddRange(collection: MealPlans.Where(p => p.MealType != null && p.MealType.ToLower().Contains(item)));
+                            ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MealType), item.ToString() ?? ""));
+                        }
                     }
-
                     MealPlans = MealPlan.AsQueryable();
-
                 }
 
             if (!string.IsNullOrEmpty(Parameters.SortBy))
             {
-                //if (Parameters.SortOrder.ToLower() == "asc")
-                //{
-                //  MealPlans = MealPlans.OrderByCustom(Parameters.SortBy, Parameters.SortOrder);
-                //}
-                //else if (Parameters.SortOrder.ToLower() == "desc")
-                //{
+                if (Parameters.SortBy.Equals(nameof(Service.Title), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderBy(p => p.Services!.Title);
+                    else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderByDescending(p => p.Services!.Title);
 
-                //}
+                }
+                else if (Parameters.SortBy.Equals(nameof(Service.Price), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderBy(p => p.Services!.Price);
+                    else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderByDescending(p => p.Services!.Price);
+
+                }
+                else if (Parameters.SortBy.Equals(nameof(Models.MealPlans.MealType), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderBy(p => p.MealType);
+                    else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderByDescending(p => p.MealType);
+                }
+                else if (Parameters.SortBy.Equals(nameof(Models.MealPlans.DietaryType), StringComparison.OrdinalIgnoreCase))
+                {
+
+                    if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderBy(p => p.DietaryType);
+                    else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderByDescending(p => p.DietaryType);
+
+                }
+            }
+
+            List<int> MealTypeCounters = new();
+            List<string> MealType = Database.GetListOfMealType().Select(b => b.Value).ToList();
+            foreach (var item in MealType)
+            {
+                if (item is not null)
+                {
+                    MealTypeCounters.Add(MealPlans.Count(ex => ex.MealType != null && ex.MealType.ToLower().Trim().Contains(item.ToLower().Trim())));
+                }
+
+            }
+            List<int> DietaryTypeCounters = new();
+            List<string> DietaryType = Database.GetListOfDietaryType().Select(b => b.Value).ToList();
+            foreach (var item in DietaryType)
+            {
+                if (item is not null)
+                {
+                    DietaryTypeCounters.Add(MealPlans.Count(ex => ex.DietaryType != null && ex.DietaryType.ToString()!.ToLower().Trim().Contains(item.ToLower().Trim())));
+
+                }
             }
             QueryPageResult<MealPlans> queryPageResult = CommonMethods.GetPageResult(MealPlans, Parameters);
-            return queryPageResult;
+            MealPlanQueryPageResult mealPlanQueryPageResult = new()
+            {
+                DietaryTypeCounters = DietaryTypeCounters,
+                ListOfData = MealPlans,
+                NextPage = queryPageResult.NextPage,
+                TotalCount = queryPageResult.TotalCount,
+                TotalPages = queryPageResult.TotalPages,
+                PreviousPage = queryPageResult.PreviousPage,
+                LastRowOnPage = queryPageResult.LastRowOnPage,
+                FirstRowOnPage = queryPageResult.FirstRowOnPage,
+                ListOfSelectedFilters = ListOfSelectedFilters
+            };
+            return mealPlanQueryPageResult;
 
         }
         public async Task<MealPlans> UpdateEntityAsync(MealPlans Entity)
