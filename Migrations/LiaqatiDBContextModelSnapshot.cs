@@ -795,8 +795,7 @@ namespace liaqati_master.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
@@ -1229,7 +1228,7 @@ namespace liaqati_master.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Active = false,
-                            ConcurrencyStamp = "d2df91c1-4ce1-43be-8cb1-1219c68269d7",
+                            ConcurrencyStamp = "a4012462-ec33-4829-aa0f-f1d758dee5a7",
                             Cover_photo = "sssssssssssssssa",
                             EmailConfirmed = false,
                             Exp_Years = 10,
@@ -1240,7 +1239,7 @@ namespace liaqati_master.Migrations
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
                             Photo = "ssssssssssssssss",
-                            SecurityStamp = "f003f61b-3012-45d8-a3a5-cf427566f902",
+                            SecurityStamp = "0f2f3ae3-e327-4510-8942-3cce3742cfb5",
                             TwoFactorEnabled = false,
                             Wieght = 120
                         });

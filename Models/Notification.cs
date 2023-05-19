@@ -17,7 +17,7 @@
         [DataType(DataType.DateTime)]
         public DateTime Time { get; set; }
 
-        [Required, StringLength(50, MinimumLength = 2, ErrorMessage = "رجاءًأدخل حرفين على الاقل")]
+        [Required]
         [Display(Name = "المحتوى")]
         public string Text { get; set; }
 

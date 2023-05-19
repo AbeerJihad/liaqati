@@ -1,4 +1,12 @@
-﻿let HealthyRecipesApiResult;
+﻿var lstMealType = [];
+var lstDietaryType = [];
+var txtsearchTerm;
+var MinDuration;
+var MaxDuration;
+var MinCalorieBurn;
+var MaxCalorieBurn;
+
+let HealthyRecipesApiResult;
 let HealthyRecipeContainer = document.querySelector("#HealthyRecipeContainer");
 let Paging = document.querySelector("#Paging");
 let CurPage = 1;
@@ -7,8 +15,13 @@ async function getdata(categoryid) {
     var parms = {
         CurPage: CurPage,
         size: 12,
-        dietaryType: [],
-        mealType: [],
+        dietaryType: lstDietaryType,
+        mealType: lstMealType,
+        SearchTearm: txtsearchTerm,
+        MinPrepTime: MinDuration,
+        MaxPrepTime: MaxDuration,
+        MinCalories: MinCalorieBurn,
+        MaxCalories: MaxCalorieBurn,
     };
     HealthyRecipesApiResult = await getHealthyRecipes(parms);
     HealthyRecipeContainer.innerHTML = "";
@@ -19,12 +32,85 @@ async function getdata(categoryid) {
         RenderNoResult()
     }
     RenderPagination(HealthyRecipesApiResult);
+    RenderCounters(HealthyRecipesApiResult);
+
     console.log(HealthyRecipesApiResult);
 
 }
 //RenderSkeletonCards();
 getdata(null);
 
+
+function MinCalorieBurnChange() {
+    var x = document.getElementById("MinCalorieBurn");
+    console.log(x.value);
+    if (x.value.length > 0) {
+        MinCalorieBurn = x.value;
+    } else {
+        MinCalorieBurn = null;
+    }
+    getdata(null);
+}
+
+function MaxCalorieBurnChange() {
+    var x = document.getElementById("MaxCalorieBurn");
+    console.log(`x ${x.value}`);
+    if (x.value.length > 0) {
+        MaxCalorieBurn = x.value;
+    } else {
+        MaxCalorieBurn = null;
+    }
+    getdata(null);
+}
+function MinDurationChange() {
+    var x = document.getElementById("Minduration");
+    console.log(x.value);
+    if (x.value.length > 0) {
+        MinDuration = x.value;
+    } else {
+        MinDuration = null;
+    }
+    getdata(null);
+}
+
+function MaxDurationChange() {
+    var x = document.getElementById("Maxduration");
+    console.log(`x ${x.value}`);
+    if (x.value.length > 0) {
+        MaxDuration = x.value;
+    } else {
+        MaxDuration = null;
+    }
+    getdata(null);
+}
+var MealTypeCheckboxes = document.getElementsByName("MealType");
+MealTypeCheckboxes.forEach((chBox) => {
+    chBox.addEventListener("change", () => {
+        lstMealType = renderList(MealTypeCheckboxes);
+        getdata(null);
+    });
+});
+
+var DietaryTypeCheckboxes = document.getElementsByName("DietaryType");
+DietaryTypeCheckboxes.forEach((chBox) => {
+    chBox.addEventListener("change", () => {
+        lstDietaryType = renderList(DietaryTypeCheckboxes);
+        getdata(null);
+    });
+});
+function renderList(checkboxesSelector) {
+    let checkedList = [];
+    for (var checkbox of checkboxesSelector) {
+        if (checkbox.checked) { checkedList.push(checkbox.value) };
+    }
+    return checkedList;
+}
+
+function SearchFun() {
+    var Name = document.getElementById("SearchTearm").value;
+    txtsearchTerm = Name;
+    getdata(null);
+}
 
 function RenderNoResult() {
     let card = document.createElement("div");
@@ -194,3 +280,42 @@ function GetPage(index) {
 
 
 
+
+function RenderCounters(JsonData) {
+    console.log(JsonData)
+    var labels = document.getElementsByTagName('LABEL');
+    var mealtype = [];
+    var dietarytype = [];
+    var ProgramLength = [];
+    for (var i = 0; i < labels.length; i++) {
+        if (labels[i].htmlFor != '') {
+            if (labels[i].htmlFor.startsWith('MealType')) {
+                mealtype.push(labels[i]);
+            }
+            else if (labels[i].htmlFor.startsWith('DietaryType')) {
+                dietarytype.push(labels[i]);
+            }
+
+        }
+    }
+
+    for (var i = 0; i < mealtype.length; i++) {
+        if (JsonData.mealTypeCounters[i] === 0) {
+            mealtype[i].control.disabled = true;
+        }
+        else {
+            mealtype[i].control.disabled = false;
+        }
+        mealtype[i].lastElementChild.innerHTML = `(${JsonData.mealTypeCounters[i]})`;
+    }
+    for (var i = 0; i < dietarytype.length; i++) {
+        if (JsonData.dietaryTypeCounters[i] === 0) {
+            dietarytype[i].control.disabled = true;
+        }
+        else {
+            dietarytype[i].control.disabled = false;
+        }
+        dietarytype[i].lastElementChild.innerHTML = `(${JsonData.dietaryTypeCounters[i]})`;
+    }
+
+}
