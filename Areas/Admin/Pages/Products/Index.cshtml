@@ -46,7 +46,7 @@
                         <option value="">من فضلك حدد اسم الصنف</option>
                     </select>
                 </div>
-               
+
                 <div class="d-flex gap-2">
                     <button class="btn btn-outline-primary me-1" type="submit">إظهار النتائج</button>
                     <button type="button" class="btn btn-primary-gradien" id="single-select-field-clear">إلغاء جميع الفلاتر</button>
@@ -117,56 +117,55 @@
 
                         <div class="table-responsive table-hover">
                             <table class="table  table-borderless" id="Tbl">
-                                    <thead>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="50">
+                                            <input class="form-check-input " type="checkbox" id="chk-all" value="">
+                                        </th>
+                                        <th scope="col" width="100">الصورة</th>
+                                        <th scope="col" width="180">العنوان</th>
+                                        <th scope="col" width="180">السعر</th>
+                                        <th scope="col" width="120">الخصم</th>
+                                        <th scope="col" width="120">العمليات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.QueryPageResult.ListOfData)
+                                    {
                                         <tr>
-                                            <th scope="col" width="50">
-                                                <input class="form-check-input " type="checkbox" id="chk-all" value="">
-                                            </th>
-                                            <th scope="col" width="100">الصورة</th>
-                                            <th scope="col" width="180">العنوان</th>
-                                            <th scope="col" width="180">السعر</th>
-                                            <th scope="col" width="120">الخصم</th>
-                                            <th scope="col" width="120">العمليات</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model.QueryPageResult.ListOfData)
-                                        {
-                                            <tr>
-                                                <td scope="row">
-                                                    <label class="d-block">
-                                                        <input class="checkbox_animated" type="checkbox">
-                                                    </label>
-                                                </td>
-                                                <td class="">
-                                                    <div class="img__box position-relative m-0  rounded-circle">
-                                                        <img width="40" alt="Mark" class="position-absolute "
-                                                             src="@item.ImgUrl" />
-                                                    </div>
-                                                </td>
+                                            <td scope="row">
+                                                <label class="d-block">
+                                                    <input class="checkbox_animated" type="checkbox">
+                                                </label>
+                                            </td>
+                                            <td class="">
+                                                <div class="img__box position-relative m-0  rounded-circle">
+                                                    <img width="40" alt="Mark" class="position-absolute "
+                                                         src="@item.ImgUrl" />
+                                                </div>
+                                            </td>
 
-                                                <td>@item.Services!.Title</td>
-                                                <td>@item.Services!.Price?.ToString("c")</td>
-                                                <td>@item.Discount.ToString("c")</td>
+                                            <td>@item.Services!.Title</td>
+                                            <td>@item.Services!.Price?.ToString("c")</td>
+                                            <td>@item.Discount.ToString("c")</td>
 
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
-                                                           style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
-                                                           type="button">
-                                                            <i class="bi bi-pencil-square"></i>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
+                                                        <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
+                                                    </a>
+                                                    <form method="post" asp-page="Delete" asp-route-id="@item.Id">
+                                                        <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
+                                                            <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
                                                         </a>
-                                                        <form method="post" asp-page="Delete">
-                                                            <input name="id" asp-for="@item.Id" type="hidden" />
-                                                            <a class="btn" onclick="DeleteFun(this)" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
-                                                        </form>
+                                                    </form>
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        }
-                                              
-                                    </tbody>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
                                 <tfoot>
                                     <tr class="border-top bg-light">
 
@@ -227,10 +226,10 @@
                                         </td>
                                     </tr>
                                 </tfoot>
-                                </table>
-                            </div>
-                       
-                      
+                            </table>
+                        </div>
+
+
 
                     </div>
                     <partial name="_Manage__data" />
@@ -240,9 +239,9 @@
         <partial name="_ConfirmDeleteModel" />
         <partial name="_ImageViewer" />
     </div>
-  
 
-  
+
+
 </form>
 
 

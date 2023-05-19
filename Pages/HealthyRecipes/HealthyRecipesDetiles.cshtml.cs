@@ -1,58 +1,53 @@
-using liaqati_master.Services;
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
+#nullable disable
 namespace liaqati_master.Pages.HealthyRecipes
 {
     public class HealthyRecipesDetilesModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
         private readonly IRepoHealthyRecipe _repoHealthy;
         private readonly IRepoFiles _repoFiles;
 
 
-        public HealthyRecipe helth = new HealthyRecipe();
+        public HealthyRecipe HealthyRecipe { get; set; }
 
-        public HealthyRecipesDetilesModel(UnitOfWork unitOfWork, IRepoHealthyRecipe repoHealthy, IRepoFiles repoFiles)
+        public HealthyRecipesDetilesModel(IRepoHealthyRecipe repoHealthy, IRepoFiles repoFiles)
         {
-            _unitOfWork = unitOfWork;
             _repoHealthy = repoHealthy;
             _repoFiles = repoFiles;
         }
 
         public string Message { get; set; }
-        public List<Files>? file { get; set; }
+        public List<Files> Files { get; set; }
 
         public string[] Ingredent { get; set; }
         public string[] PreparationMethod { get; set; }
 
-        public async Task OnGetAsync(string? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
-            id = "61";
             if (id != null)
             {
-                helth = await _repoHealthy.GetByIDAsync(id);
+                HealthyRecipe = await _repoHealthy.GetByIDAsync(id);
+                if (HealthyRecipe is null)
+                {
+                    return NotFound();
+                }
+                if (HealthyRecipe.Ingredients is not null)
+                {
+                    Ingredent = HealthyRecipe.Ingredients.Split('\n');
+                }
+                if (HealthyRecipe.PreparationMethod is not null)
+                {
+                    PreparationMethod = HealthyRecipe.PreparationMethod.Split(',');
+                }
+                //   string [] Ingredent = HealthyRecipe..Split(',');
 
-                Ingredent = helth.Ingredients.Split('\n');
-                PreparationMethod = helth.PreparationMethod.Split(',');
-
-
-
-
-
-             //   string [] Ingredent = helth..Split(',');
-
-
-               file = (await _repoFiles.GetByHealthyRecipesIDAsync(id));
-              
-                if (helth == null)
+                Files = (await _repoFiles.GetByHealthyRecipesIDAsync(id));
+                if (HealthyRecipe == null)
                 {
                     Message = "NotFound";
                 }
-              
 
             }
+            return Page();
 
 
         }

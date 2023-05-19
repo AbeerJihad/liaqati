@@ -69,7 +69,7 @@
             {
                 await _context.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (DbUpdateConcurrencyException)
             {
                 throw;
             }
@@ -102,14 +102,14 @@
 
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
-                con = con.Where(p =>
+                con = con.Where(p => p.Title != null &&
                     p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
                  );
             }
 
             if (!string.IsNullOrEmpty(Parameters.Tilte))
             {
-                con = con.Where(p => p.Title.ToLower() == Parameters.Tilte.ToLower());
+                con = con.Where(p => p.Title != null && p.Title.ToLower() == Parameters.Tilte.ToLower());
             }
 
 

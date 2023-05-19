@@ -2,7 +2,7 @@
     let url = '';
     let result;
     try {
-        const response = await fetch('https://localhost:7232/api/UserApi/searchforExperts', {
+        const response = await fetch('/api/UserApi/searchforExperts', {
             method: "POST",
             mode: "cors",
             cache: "no-cache",

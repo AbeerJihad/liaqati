@@ -1,0 +1,57 @@
+﻿@page
+@model liaqati_master.Pages.Notifications.IndexModel
+@{
+}
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title></title>
+    <style>
+
+
+
+        .profile {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            width: 75px;
+            float: right;
+            margin-inline-end:1rem;
+        }
+
+        .txt {
+            vertical-align: top;
+            font-size: 1.25rem;
+            margin-right:2rem;
+        }
+
+        .sub {
+            font-size: 1rem;
+            color: grey;
+        }
+
+
+
+
+
+
+    </style>
+
+<div class="container-fluid p-5">
+    <div class="row  shadow-sm" style="border: 1px #F4F4F4 solid; border-radius:30px">
+        <div class="py-3 text-center" style="border: 1px #F4F4F4 solid; border-radius:30px 30px 0px 0px ;background-color:#f4f4f4" class="p-3">
+            <div class="float-end me-3 txt fs-4">الاشعارات</div>
+            <div class="float-start ms-3"> <i class='bx bx-dots-vertical-rounded fs-3'></i></div>
+           
+        </div>
+        <div class="col mt-3">
+          
+            @await Html.PartialAsync("_Notification",Model.List)
+            
+         
+
+        </div>
+        <div class="col-4 d-none d-lg-block my-auto mx-auto">
+            <img src="~/Images/Notification .png" width="400" height="350" style="display:inline-block; padding-left:3rem" />
+        </div>
+    </div>
+</div>

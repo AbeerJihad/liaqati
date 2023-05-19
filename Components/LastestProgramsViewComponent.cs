@@ -1,21 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class LastestProgramsViewComponent : ViewComponent
     {
-
-
-        private readonly UnitOfWork _unitOfWork;
-
-
-        public LastestProgramsViewComponent(UnitOfWork unitOfWork)
+        private readonly IRepoProgram _IRepoProgram;
+        public LastestProgramsViewComponent(IRepoProgram repoProgram)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoProgram = repoProgram;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var AthleticPrograms = _unitOfWork.SportsProgramRepository.Get().ToList();
+            var AthleticPrograms = (await _IRepoProgram.GetAllProgram()).ToList();
             return View(AthleticPrograms);
         }
     }

@@ -60,7 +60,7 @@ namespace liaqati_master.Pages.SportProgram
                             Exercise ex = await _repocontextExer.GetByIDAsync(exercies.ExerciseId);
 
 
-                            Events.Add(new Event() { Id = ex.Id, title = "", start = DateOnly.FromDateTime(date).ToString("yyyy-MM-dd") });
+                            Events.Add(new Event() { Id = id, title = "", start = DateOnly.FromDateTime(date).ToString("yyyy-MM-dd") });
 
                         }
                     }

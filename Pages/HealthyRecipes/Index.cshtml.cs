@@ -1,42 +1,32 @@
-ï»¿using liaqati_master.Services.Repositories;
-using System.Security.Claims;
-
 namespace liaqati_master.Pages.HealthyRecipes
 {
     [AllowAnonymous]
 
     public class IndexModel : PageModel
     {
-      readonly  IRepoFavorite _repoFavorite;
-      readonly  IRepoHealthyRecipe _repoHealthyRecipe;
+        readonly IRepoHealthyRecipe _repoHealthyRecipe;
 
-        public IndexModel(IRepoHealthyRecipe repoHealthyRecipe, IRepoFavorite repoFavorite)
+
+        public IndexModel(IRepoHealthyRecipe _repoHealthyRecipe)
         {
-            _repoHealthyRecipe = repoHealthyRecipe;
-            _repoFavorite= repoFavorite;
+            _repoHealthyRecipe = _repoHealthyRecipe;
+            DietaryType = Database.GetListOfDietaryType().Select(b => b.Value).ToList();
+            MealType = Database.GetListOfMealType().Select(b => b.Value).ToList();
         }
 
 
+        public List<string> DietaryType { get; set; }
+        public List<string> MealType { get; set; }
+        public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
+            new SelectListItem(){Value="RateId",Text="ÇáÃÚáì ÊŞíãÇğ"},
+            new SelectListItem(){Value="exerciseDate",Text="ÇáÃÍÏË"},
+        };
+
         [BindProperty(SupportsGet = true)]
-        public List<Favorite> Favorites { get; set; }
+        public MealPlansQueryParamters queryParameters { get; set; }
 
-
-        public async Task OnGet()
+        public void OnGet()
         {
-
-                var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userid is not null)
-            {
-
-                Favorites = ((await _repoFavorite.GetByUserIDAsync(userid)).Where(p => p.Type == "ÙˆØµÙØ§Øª").ToList());
-
-            }
-            else Favorites = null;
-
-            ViewData["listFavoritesHealthy"] = Favorites;
-
-
-
         }
     }
 }

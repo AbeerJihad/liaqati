@@ -1,6 +1,3 @@
-using Castle.DynamicProxy.Generators;
-using liaqati_master.Models;
-
 namespace liaqati_master.Pages.Programs
 {
     public class CreatProgrameModel : PageModel
@@ -53,7 +50,7 @@ namespace liaqati_master.Pages.Programs
         public int btnSave { get; set; }
 
 
-      
+
 
         [BindProperty(SupportsGet = true)]
         public List<VmCheckBox> lstCheckBoxBodyFocus { get; set; }
@@ -63,7 +60,7 @@ namespace liaqati_master.Pages.Programs
 
         public List<string> BodyFocus { get; set; } = Database.GetListOfBodyFocus().Select(b => b.Value).ToList();
         public List<string> TrainingType { get; set; } = Database.GetListOfTrainingType().Select(b => b.Value).ToList();
-        
+
 
 
 
@@ -78,7 +75,7 @@ namespace liaqati_master.Pages.Programs
             btnSave = 0;
 
 
-            SportsProgram sports = await _repoProgram.GetProgram(Id);
+            SportsProgram? sports = await _repoProgram.GetProgram(Id);
             if (sports != null)
             {
                 SportsProgram = sports;
@@ -105,7 +102,7 @@ namespace liaqati_master.Pages.Programs
             LstExercies = (await _repoExercise.GetAllAsync()).Select(a =>
                                         new SelectListItem
                                         {
-                                            Value = a.Id.ToString(),
+                                            Value = a.Id?.ToString(),
                                             Text = a.Title
                                         }).ToList();
 
@@ -137,22 +134,10 @@ namespace liaqati_master.Pages.Programs
 
             //      SportsProgram.Exercises = _UnitOfWork.ExerciseRepository.GetByMultiID(list);
 
-
-
             SportsProgram.Id = CommonMethods.Id_Guid();
-
             SportsProgram.Services!.Id = SportsProgram.Id;
-
-
-
-
-
             SportsProgram.Equipment = "";
-
             SportsProgram.Services.CategoryId = SportsProgram.Services.CategoryId;
-
-
-
             string? oldurl = SportsProgram.Image;
 
             if (Image != null)
@@ -164,14 +149,8 @@ namespace liaqati_master.Pages.Programs
             {
                 SportsProgram.Image = oldurl;
             }
-
-
-
             SportsProgram.TrainingType = string.Join(',', lstCheckBoxTrainingType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
             SportsProgram.BodyFocus = string.Join(',', lstCheckBoxBodyFocus.Where(ch => ch.IsChecked).Select(ch => ch.Name));
-
-
-
             await _repoService.AddEntityAsync(SportsProgram.Services);
             await _repoProgram.AddProgram(SportsProgram);
 
@@ -186,7 +165,11 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnPostAddSystemAsync(string? id)
         {
             btnSave = 1;
-            SportsProgram sports = await _repoProgram.GetProgram(id);
+            SportsProgram? sports = await _repoProgram.GetProgram(id);
+            if (sports is null)
+            {
+                return Page();
+            }
             SportsProgram = sports;
             SportsProgram.Exercies_Programs = (await _repoProgramExercies.GetAllExercies_program()).Where(exp => exp.SportsProgramId == id).ToList();
             Display = "d-block";

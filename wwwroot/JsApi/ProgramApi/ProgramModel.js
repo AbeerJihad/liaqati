@@ -2,7 +2,7 @@
     let url = '';
     let result;
     try {
-        const response = await fetch('https://localhost:7232/api/SportsProgramApi/SearchForSportsProgram', {
+        const response = await fetch('/api/SportsProgramApi/SearchForSportsProgram', {
             method: "POST",
             mode: "cors",
             cache: "no-cache",
@@ -28,13 +28,11 @@
 }
 
 
-
-
 async function AddFavoritesToProgram(id) {
 
     let result;
     try {
-        const response = await fetch(`https://localhost:7232/api/SportsProgramApi/AddFavoritesSportsProgram/${id}`, {
+        const response = await fetch(`/api/SportsProgramApi/AddFavoritesSportsProgram/${id}`, {
             method: "GET",
         });
         if (response.status === 200) {

@@ -28,8 +28,6 @@ namespace liaqati_master.Areas.Admin.Pages.Replyconsultations
             {
                 return Page();
             }
-
-
             _unitOfWork.ReplyconsultationRepository.Insert(Replyconsultations);
             try
             {

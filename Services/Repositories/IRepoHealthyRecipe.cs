@@ -123,7 +123,7 @@
 
                 }
 
-            healthyRecipes.Clear();
+            //       healthyRecipes.Clear();
 
             if (HealthyRecipeQueryParamters.DietaryType != null)
                 if (HealthyRecipeQueryParamters.DietaryType.Count != 0)
@@ -194,7 +194,6 @@
 
             return exqpres;
         }
-
     }
 }
 

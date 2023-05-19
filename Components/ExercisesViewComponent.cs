@@ -2,15 +2,15 @@
 {
     public class ExercisesViewComponent : ViewComponent
     {
-        private readonly UnitOfWork _unitOfWork;
-        public ExercisesViewComponent(UnitOfWork unitOfWork)
+        private readonly IRepoExercise _IRepoExercise;
+        public ExercisesViewComponent(IRepoExercise repoExercise)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoExercise = repoExercise;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            List<Exercise>? ListOfExercises = _unitOfWork.ExerciseRepository.Get().Take(4).ToList();
+            List<Exercise>? ListOfExercises = (await _IRepoExercise.GetAllAsync()).Take(4).ToList();
             return View(ListOfExercises);
         }
 

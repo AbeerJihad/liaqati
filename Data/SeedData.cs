@@ -22,13 +22,71 @@ namespace liaqati_master.Data
                 await SeedRoles(roleManager: RoleManager);
             if (userManager != null && RoleManager != null)
                 await SeedUsers(userManager, roleManager: RoleManager);
-            if (!await liaqatiDBContext.TblConsultation.AnyAsync())
+
+            if (!await liaqatiDBContext.TblServices.AnyAsync())
             {
-                await liaqatiDBContext.TblConsultation.AddRangeAsync(Database.GetListOfConsultation());
+                await liaqatiDBContext.TblServices.AddRangeAsync(Database.GetListOfOServies());
             }
-            if (!await liaqatiDBContext.TblReplyconsultation.AnyAsync())
+            if (!await liaqatiDBContext.TblSportsProgram.AnyAsync())
             {
-                await liaqatiDBContext.TblReplyconsultation.AddRangeAsync(Database.GetListOfReplyconsultation());
+                await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfSportsProgram());
+            }
+            if (!await liaqatiDBContext.TblProducts.AnyAsync())
+            {
+                await liaqatiDBContext.TblProducts.AddRangeAsync(Database.GetListOfProducts());
+            }
+            if (!await liaqatiDBContext.TblOrder.AnyAsync())
+            {
+                await liaqatiDBContext.TblOrder.AddRangeAsync(Database.GetListOfOrders());
+            }
+            if (!await liaqatiDBContext.TblCategory.AnyAsync())
+            {
+                await liaqatiDBContext.TblCategory.AddRangeAsync(Database.GetListOfCategories());
+            }
+            if (!await liaqatiDBContext.TblMealPlans.AnyAsync())
+            {
+                await liaqatiDBContext.TblMealPlans.AddRangeAsync(Database.GetListOfMealPlan());
+            }
+            if (!await liaqatiDBContext.TblOrder_Details.AnyAsync())
+            {
+                await liaqatiDBContext.TblOrder_Details.AddRangeAsync(Database.GetListOfOrdersDetails());
+            }
+            if (!await liaqatiDBContext.TblTracking.AnyAsync())
+            {
+                await liaqatiDBContext.TblTracking.AddRangeAsync(Database.GetListOfTracking());
+            }
+            if (!await liaqatiDBContext.TblExercises.AnyAsync())
+            {
+                await liaqatiDBContext.TblExercises.AddRangeAsync(Database.GetListOfExercise());
+            }
+            if (!await liaqatiDBContext.TblExercies_program.AnyAsync())
+            {
+                await liaqatiDBContext.TblExercies_program.AddRangeAsync(Database.GetListOfExerciesprogram());
+            }
+            if (!await liaqatiDBContext.TblHealthyRecipe.AnyAsync())
+            {
+                await liaqatiDBContext.TblHealthyRecipe.AddRangeAsync(Database.GetListHealthyRecipe().Concat(Database.GetListHealthyRecipe2()));
+            }
+            if (!await liaqatiDBContext.TblFiles.AnyAsync())
+            {
+                await liaqatiDBContext.TblFiles.AddRangeAsync(Database.GetListFiles());
+            }
+            if (!await liaqatiDBContext.TblArticles.AnyAsync())
+            {
+                await liaqatiDBContext.TblArticles.AddRangeAsync(Database.GetListOfArticle());
+            }
+            if (!await liaqatiDBContext.TblNotification.AnyAsync())
+            {
+                await liaqatiDBContext.TblNotification.AddRangeAsync(Database.GetListOfNotifications());
+            }
+            try
+            {
+                await liaqatiDBContext.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         private static async Task SeedUsers(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)

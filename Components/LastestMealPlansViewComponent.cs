@@ -1,20 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class LastestMealPlansViewComponent : ViewComponent
     {
 
-        private readonly UnitOfWork _unitOfWork;
-
-
-        public LastestMealPlansViewComponent(UnitOfWork unitOfWork)
+        private readonly IRepoMealPlans _IRepoMealPlans;
+        public LastestMealPlansViewComponent(IRepoMealPlans repoMealPlans)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoMealPlans = repoMealPlans;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var MealPlans = _unitOfWork.MealPlansRepository.Get().OrderBy(m => m.Id).Take(4).ToList();
+            var MealPlans = (await _IRepoMealPlans.GetAllAsync()).OrderBy(m => m.Id).Take(4).ToList();
             return View(MealPlans);
         }
     }

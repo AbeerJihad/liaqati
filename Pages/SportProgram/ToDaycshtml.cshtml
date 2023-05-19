@@ -2,18 +2,45 @@
 @model liaqati_master.Pages.ProgramPages.ToDaycshtmlModel
 @{
 }
+@using liaqati_master.Services.Repositories
+@inject IRepoExercise repo;
+<style>
+    .btn_Exercises_duration {
+        background-color: #F0EFF8;
+        border-radius: 13px;
+        vertical-align: middle;
+        color: #7E62AF;
+        border: 2px solid #7E62AF;
+    }
 
+    input {
+        box-shadow: none;
+    }
 
-<div class="container-lg " style="padding-top:100px">
+    .sideImages {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    input[type="radio"]:checked {
+        background-color: #7E62AF;
+    }
+</style>
+
+@*<div class="container-lg " style="padding-top:100px">
     <div id="rowExercisesIndex" class="row justify-content-center">
 
 
-        @foreach (var item in Model.Exercises)
+        @for (var index = 0; index < Model.Exercies_programs.Count; index++)
         {
+            Exercise Exer = await repo.GetByIDAsync(Model.Exercies_programs[index].ExerciseId);
+
+
             <div id="colClone" class="col-sm-6 col-lg-3 p-4 ">
                 <div class="card border-0 h-100">
                     <div class="position-relative">
-                        <a asp-route-id="@item.Id" asp-page="Details"> <img id="imgCard" src="@item.Image" style="width:100%;" /> </a>
+                        <a asp-route-id="@Exer.Id" asp-page="Details"> <img id="imgCard" src="@Exer.Image" style="width:100%;" /> </a>
                         <img width="40" class="position-absolute"
                          style="top: 20px; right: 20px" src="./Images/Exercise/heart-svgrepo-com (1).png"
                          alt=""
@@ -30,7 +57,7 @@
                         <p class="card-text  Exercises_duration_Color fw-bold">
                             دقيقة اليوم[Time]-- أسابيع   8 برنامج
                         </p>
-                        <h6 class="card-title mb-3"> @item.Title   </h6>
+                        <h6 class="card-title mb-3"> @Exer.Title   </h6>
                         <div class="">
                             <div>
                                 <img width="20" src="./Images/Exercise/star-svgrepo-com.png" alt="" srcset="" />
@@ -56,18 +83,24 @@
                                     <h4 class="d-inline-block text-danger align-middle">
 
 
-                                        @if (item.Price == 0)
+                                        @if (Exer.Price == 0)
                                         {
                                             <span>  مجانا</span>
                                         }
                                         else
                                         {
-                                            <span>  @item.Price $</span>
+                                            <span>  @Exer.Price $</span>
                                         }
 
                                     </h4>
                                 </div>
                                 <div>
+                                    <div>sss
+@*                                        asp-route-Iscomplete="@Model.Tracking[index].Iscomplete" asp-route-id="@Model.Tracking[index].Id" method="post"
+*@
+                              @*          <input asp-for="@Model.Tracking[index].Iscomplete" onchange="ChangeIsComplete(@Model.Tracking[index].Id,this)" />
+                                    </div>
+
                                     <button class="btn_Exercises_duration col-auto text-white rounded-3 fw-bold d-inline-block border-0 py-1 px-2">
                                         ابدا الان
 
@@ -93,5 +126,178 @@
 
     </div>
 
+</div>*@
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col d-flex justify-content-between shadow p-4">
+            <div>
+                <p>
+                    <img width="20" src="images/Group 657.png" />
+                    التاريخ
+
+                </p>
+            </div>
+            <div>
+                <p style="font-size:25px;">
+                    الجمعة 7 أبريل 2023
+                </p>
+            </div>
+            <div>
+                <p>
+                    السبت 8 أبريل 2023
+                    <img width="20" src="images/Group 656.png" />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<h4 class="mx-5 mt-4 mb-0"> اليوم الاول| الاسبوع الاول</h4>
+<div class="container-fluid  p-4">
+    <div class="row justify-content-center align-self-center" id="rowForCardLoop">
+
+
+        @for (var index = 0; index < Model.Exercies_programs.Count; index++)
+        {
+            Exercise Exer = await repo.GetByIDAsync(Model.Exercies_programs[index].ExerciseId);
+
+
+
+            <div class="col-md-5 m-1 shadow" id="cardLoop" style=" border-radius:15px;">
+                <div class="row bg-white h-100 hide" style=" border-radius:15px;">
+                    <div class="col-4 g-0 h-100">
+                        <img src="@Exer.Image" class="sideImages img-fluid" />
+                    </div>
+                    <div class="col m-0">
+
+                        <p class="text-black-50 m-3">فطور</p>
+                        <p class="m-3"> @Exer.Title </p>
+                        <div class=" d-flex justify-content-end  ">
+                            <button class="btn_Exercises_duration mt-4 mb-2 p-2" style="width:60%" id="checkBoxButton">
+                                <div class="d-flex w-100 px-3 justify-content-between ">
+                                    اكتمال التمرين
+                                    <input asp-for="@Model.Tracking[index].Iscomplete" onchange="ChangeIsComplete(@Model.Tracking[index].Id,this)" />
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        }
+
+
+
+
+
+    
+    </div>
+
 </div>
 
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class=" text-start">
+            <button class="btn_Exercises_duration d-inline-block mt-4  p-2" style="width:250px" id="checkBoxButton">
+                <div class="d-flex w-100 px-3 justify-content-between btnDiv">
+                    تم اكتمال اليوم
+                    <input type="checkbox" class="form-check-input exampleCheck1" />
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function repeatCard() {
+        let rowForCardLoop = document.getElementById("rowForCardLoop");
+        let cardLoop = document.getElementById("cardLoop");
+        let array = [];
+        for (let i = 0; i <= 4; i++) {
+            let newCard = cardLoop.cloneNode(true);
+            cardLoop.after(newCard);
+            array.push(newCard);
+        }
+    }
+    repeatCard()
+
+    //let checkBoxButton = document.getElementById("checkBoxButton");
+    //checkBoxButton.onclick = function (e)
+    //{
+    //    isChecked = !isChecked;
+    //    console.log(e.currentTarget);
+    //    console.log(e);
+    //    if (isChecked) {
+
+    //        checkBoxButton.style.backgroundColor = "#CEBFE9";
+    //        e.currentTarget.style.color = "white";
+    //        document.getElementById("exampleCheck1").checked = true;
+
+
+    //    } else {
+    //        checkBoxButton.style.backgroundColor = "#F0EFF8";
+    //        e.currentTarget.style.color = "#BE8ADC";
+    //        document.getElementById("exampleCheck1").checked = false;
+    //    }
+
+    //}
+
+    let checkBoxButton = document.querySelectorAll("#checkBoxButton");
+    checkBoxButton.forEach((i) => {
+        i.addEventListener("click", a);
+    });
+
+    function a(e) {
+
+        console.log(e.currentTarget);
+        console.log(e.currentTarget.tagName);
+        console.log(`${e.currentTarget.tagName.toLowerCase()} .exampleCheck1`);
+        console.log(document.querySelector(`${e.currentTarget.tagName.toLowerCase()} .exampleCheck1`).checked);
+
+        if (!e.currentTarget.querySelector(`.exampleCheck1`).checked) {
+            e.currentTarget.style.backgroundColor = "#CEBFE9";
+            e.currentTarget.style.color = "white";
+            e.currentTarget.querySelector(`.exampleCheck1`).checked = true;
+
+
+        } else {
+            e.currentTarget.style.backgroundColor = "#F0EFF8";
+            e.currentTarget.style.color = "#7E62AF";
+            e.currentTarget.querySelector(`.exampleCheck1`).checked = false;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+    <script>
+
+   async function ChangeIsComplete(id,tag)
+    {
+        var IsComplete = await UpdateTrakingToProgram(id);
+        alert(IsComplete);
+
+
+         tag.checked = IsComplete;
+
+
+
+    }
+
+</script>
+<script src="~/jsapi/programapi/programmodel.js"></script>

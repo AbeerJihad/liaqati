@@ -6,6 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Services to the container.
 //builder.Services.AddSingleton<Service>();
+
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConntection");
+builder.Services.AddDbContext<LiaqatiDBContext>(options =>
+    options.UseLazyLoadingProxies().UseSqlServer(connectionString));
 EmailSettings emailSetting = builder.Configuration.GetSection(nameof(EmailSettings)).Get<EmailSettings>();
 builder.Services.AddSingleton(emailSetting);
 builder.Services.AddScoped<MyEmailService>();
@@ -17,9 +22,7 @@ builder.Services.AddControllers().AddJsonOptions(op =>
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 //builder.Services.AddDbContext<LiaqatiDBContext>(options => options.UseLazyLoadingProxies().UseInMemoryDatabase("LiaqatiDB"));
-var connectionString = builder.Configuration.GetConnectionString("DefaultConntection");
-builder.Services.AddDbContext<LiaqatiDBContext>(options =>
-    options.UseLazyLoadingProxies().UseSqlServer(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<LiaqatiDBContext>().AddDefaultTokenProviders();
@@ -75,7 +78,7 @@ builder.Services.AddRazorPages(options =>
     //options.Conventions.AuthorizeFolder("/Categories", "EditorPolicy");
     //options.Conventions.AuthorizeFolder("/Categories", "PerventDisabled");
     //options.Conventions.AllowAnonymousToPage("/Products/Index");
-    options.Conventions.AllowAnonymousToAreaFolder("Identity", "/Account");
+    //options.Conventions.AllowAnonymousToAreaFolder("Identity", "/Account");
     options.Conventions.AllowAnonymousToFolder("/Articles");
     options.Conventions.AllowAnonymousToFolder("/ContactUs");
     options.Conventions.AllowAnonymousToFolder("/Exercises");
@@ -85,6 +88,8 @@ builder.Services.AddRazorPages(options =>
     options.Conventions.AllowAnonymousToFolder("/MealPlan");
     options.Conventions.AllowAnonymousToFolder("/Products");
     options.Conventions.AllowAnonymousToFolder("/SportProgram");
+    options.Conventions.AuthorizeAreaFolder("identity", "/Account/Manage/profile");
+
 }
 );
 builder.Services.AddAuthorization(options =>
@@ -137,6 +142,7 @@ builder.Services.AddScoped<IRepoService>();
 builder.Services.AddScoped<IRepoUser>();
 builder.Services.AddScoped<IRepoConsultation>();
 builder.Services.AddScoped<IRepoCart>();
+builder.Services.AddScoped<IRepoTraking>();
 
 
 builder.Services.AddSwaggerGen();

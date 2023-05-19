@@ -296,7 +296,6 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Xml.XmlSer
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Xml.XPath.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\WindowsBase.dll
-D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\refs\Interop.Microsoft.Office.Interop.Excel.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.Views.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\AspNetCoreHero.ToastNotification.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
@@ -562,8 +561,6 @@ D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\net6.
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Graduation Project\LastUpdate\liaqati\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.csproj.AssemblyReference.cache
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\Interop.Microsoft.Office.Interop.Excel.dll
-D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.csproj.ResolveComReference.cache
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.GeneratedMSBuildEditorConfig.editorconfig
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfoInputs.cache
 D:\Graduation Project\LastUpdate\liaqati\obj\Debug\net6.0\liaqati-master.AssemblyInfo.cs

@@ -6,17 +6,15 @@ namespace ProgectApi.Controllers
     [ApiController]
     public class MealPlanApiController : ControllerBase
     {
-        readonly LiaqatiDBContext _context;
-        readonly IRepoMealPlans _IRepoMealPlans;
-        readonly IRepoFavorite _IRepoFavorite;
-        readonly IHttpContextAccessor _HttpContextAccessor;
+        private readonly LiaqatiDBContext _context;
+        private readonly IRepoMealPlans _IRepoMealPlans;
+        private readonly IRepoFavorite _IRepoFavorite;
 
-        public MealPlanApiController(LiaqatiDBContext context, IRepoMealPlans iRepoMealPlans, IRepoFavorite iRepoFavorite, IHttpContextAccessor httpContextAccessor)
+        public MealPlanApiController(LiaqatiDBContext context, IRepoMealPlans iRepoMealPlans, IRepoFavorite iRepoFavorite)
         {
             _context = context;
             _IRepoMealPlans = iRepoMealPlans;
             _IRepoFavorite = iRepoFavorite;
-            _HttpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet("AllMealPlan")]
@@ -153,79 +151,18 @@ namespace ProgectApi.Controllers
         [Route("search")]
         public async Task<ActionResult> SearchForMealPlans([FromBody] MealPlansQueryParamters Parameters)
         {
-            IQueryable<MealPlanVM> products = (await _IRepoMealPlans.GetAllAsync()).Select(p =>
-               new MealPlanVM()
-               {
-                   CategoryName = p.Services?.Category?.Name,
-                   Id = p.Id,
-                   Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
-                   CategoryId = p.Services?.CategoryId,
-                   Length = p.Length,
-                   DietaryType = p.DietaryType,
-                   MealType = p.MealType,
-                   Price = p.Services?.Price,
-                   Title = p.Services?.Title,
-                   IsFavorite = 0,
-                   shortDescription = p.Services?.ShortDescription,
-               }).AsQueryable();
-
-            List<Favorite>? list = new();
-            List<MealPlanVM>? products2 = new();
-            List<string?>? list2 = new();
-            if (_HttpContextAccessor.HttpContext is not null)
-            {
-                var user = _HttpContextAccessor.HttpContext.User;
-                products2 = products.ToList();
-
-                if (user is null)
-                {
-
-                    foreach (var item in products2)
-                    {
-                        item.IsFavorite = 0;
-                    }
-                }
-                else
-                {
-                    list = await _IRepoFavorite.GetByUserIDAsync(user.FindFirstValue(ClaimTypes.NameIdentifier));
-                    if (list is not null)
-                    {
-                        list2 = list.Where(p => p.Type == "نظام غذائي").Select(s => s.ServicesId).ToList();
-                    }
-                    foreach (var item in products2)
-                    {
-                        if (list2.Contains(item.Id))
-                            item.IsFavorite = 2;
-                        else if (!list2.Contains(item.Id))
-                            item.IsFavorite = 1;
-                    }
-                }
-                products = products2.AsQueryable();
-            }
-
-            if (Parameters.CategoryId != null)
-            {
-                products = products.Where(p => p.CategoryId == Parameters.CategoryId);
-            }
-            if (Parameters.MinPrice != null)
-            {
-                products = products.Where(p => p.Price >= Parameters.MinPrice);
-            }
-            if (Parameters.MaxPrice != null)
-            {
-                products = products.Where(p => p.Price <= Parameters.MaxPrice);
-            }
-            if (!string.IsNullOrEmpty(Parameters.SearchTearm))
-            {
-                products = products.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
-            }
-            QueryPageResult<MealPlanVM> queryPageResult = CommonMethods.GetPageResult(products, Parameters);
-            return Ok(queryPageResult);
+            return Ok(await _IRepoMealPlans.SearchMealPlan(Parameters));
 
         }
+        [HttpGet("CountExersie")]
+        public async Task<ActionResult<VmMealsProgramDetails>> CountExersie(string id, int week, int day)
+        {
+            var list = _IRepoMealPlans.GetMultiMeal_Healthy(id, week, day);
+            var Count = list.Count;
+            VmMealsProgramDetails Exer = new() { list = list, Count = Count };
 
-
-
+            return Ok(Exer);
+        }
         [HttpGet("AddFavoritesMealPlan/{id}")]
         public async Task<ActionResult<string>> AddFavorites(string id)
         {

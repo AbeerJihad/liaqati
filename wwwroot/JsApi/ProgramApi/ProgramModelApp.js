@@ -1,4 +1,17 @@
-﻿let ProgramApiResult;
+﻿var lstBodyfocus = [];
+var lsttraningtype = [];
+var lstdifficalty = [];
+var lstEquipment = [];
+var lstProgramlength = [];
+var MinDuration;
+var MaxDuration;
+var MinCalorieBurn;
+var MaxCalorieBurn;
+var txtsortBy;
+var txtsearchTerm;
+var sortedByValue = document.getElementById("SortBy");
+var SearchTearmValue = document.getElementById("SearchTearm");
+let ProgramApiResult;
 let ProgramContainer = document.querySelector("#ProgramContainer");
 let Paging = document.querySelector("#Paging");
 let CurPage = 1;
@@ -6,8 +19,7 @@ let CurPage = 1;
 var Name;
 var Spec;
 
-function SearchExpertFun()
-{
+function SearchExpertFun() {
     Name = document.getElementById("name").value;
     Spec = document.getElementById("selectSpecExpert").options[document.getElementById("selectSpecExpert").selectedIndex].value;
     getdata();
@@ -22,6 +34,17 @@ async function getdata() {
         size: 12,
         name: "",
         Specialization: "",
+        bodyFocus: lstBodyfocus,
+        traningType: lsttraningtype,
+        difficulty: lstdifficalty,
+        equipment: lstEquipment,
+        MinDuration: MinDuration,
+        MaxDuration: MaxDuration,
+        SortBy: txtsortBy,
+        SearchTearm: txtsearchTerm,
+        length: lstProgramlength
+
+
 
     };
 
@@ -30,6 +53,7 @@ async function getdata() {
     console.log(ProgramApiResult.listOfData);
     ProgramApiResult.listOfData.forEach((p) => RenderCards(p));
     RenderPagination(ProgramApiResult);
+    RenderCounters(ProgramApiResult);
     console.log(ProgramApiResult);
 
 }
@@ -53,7 +77,10 @@ total_Carbohydrate
 */
 function RenderCards(Program) {
 
-    
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency', currency: 'USD',
+        minimumFractionDigits: 2
+    })
 
 
     var btn2 = ``;
@@ -117,7 +144,7 @@ function RenderCards(Program) {
                 <p class="card-subtitle">
                     يعتمد على تقليل الكربوهيدرات ومنع السكر المصنع والبطاطا
                 </p>
-                <p class="text-danger text-start h3 fw-bold me-3">$ ${Program.price}</p>
+                <p class="text-danger text-start h4 fw-bold me-3">${formatter.format(Program.services.price)}</p>
             </div>
 
             <div class="d-flex justify-content-between align-items-center mt-2">
@@ -175,6 +202,98 @@ function RenderSkeletonCards() {
 
 
 
+
+var bodyfocusCheckboxes = document.getElementsByName("bodyfocus");
+bodyfocusCheckboxes.forEach((chBox) => {
+    chBox.addEventListener("change", () => {
+        lstBodyfocus = renderList(bodyfocusCheckboxes);
+        getdata(null);
+    });
+});
+var traningtypeCheckboxes = document.getElementsByName("traningtype");
+traningtypeCheckboxes.forEach((chBox) => {
+    chBox.addEventListener("change", () => {
+        lsttraningtype = renderList(traningtypeCheckboxes);
+        getdata(null);
+    });
+});
+var ProgramLengthCheckboxes = document.getElementsByName("programlength");
+ProgramLengthCheckboxes.forEach((chBox) => {
+    chBox.addEventListener("change", () => {
+        lstProgramlength = renderList(ProgramLengthCheckboxes);
+        getdata(null);
+    });
+});
+var difficultyCheckboxes = document.getElementsByName("difficulty");
+difficultyCheckboxes.forEach((chBox) => {
+    chBox.addEventListener("change", () => {
+        lstdifficalty = renderList(difficultyCheckboxes);
+        getdata(null);
+    });
+});
+var equipmentCheckboxes = document.getElementsByName("equipment");
+equipmentCheckboxes.forEach((chBox) => {
+    chBox.addEventListener("change", () => {
+        lstEquipment = renderList(equipmentCheckboxes);
+        getdata(null);
+    });
+});
+function renderList(checkboxesSelector) {
+    let checkedList = [];
+    for (var checkbox of checkboxesSelector) {
+        if (checkbox.checked) { checkedList.push(checkbox.value) };
+    }
+    return checkedList;
+}
+
+/*var MinDuration;
+var MaxDuration;
+var MinCalorieBurn;
+var MaxCalorieBurn;*/
+
+function MinCalorieBurnChange() {
+    var x = document.getElementById("MinCalorieBurn");
+    console.log(x.value);
+    if (x.value.length > 0) {
+        MinCalorieBurn = x.value;
+    } else {
+        MinCalorieBurn = null;
+    }
+    getdata(null);
+}
+
+function MaxCalorieBurnChange() {
+    var x = document.getElementById("MaxCalorieBurn");
+    console.log(`x ${x.value}`);
+    if (x.value.length > 0) {
+        MaxCalorieBurn = x.value;
+    } else {
+        MaxCalorieBurn = null;
+    }
+    getdata(null);
+}
+function MinDurationChange() {
+    var x = document.getElementById("Minduration");
+    console.log(x.value);
+    if (x.value.length > 0) {
+        MinDuration = x.value;
+    } else {
+        MinDuration = null;
+    }
+    getdata(null);
+}
+
+function MaxDurationChange() {
+    var x = document.getElementById("Maxduration");
+    console.log(`x ${x.value}`);
+    if (x.value.length > 0) {
+        MaxDuration = x.value;
+    } else {
+        MaxDuration = null;
+    }
+    getdata(null);
+}
+
 function NextPage(JsonData) {
 
     if (CurPage < JsonData.totalPages) {
@@ -196,7 +315,83 @@ function GetPage(index) {
     getdata(null);
 }
 
+function RenderCounters(JsonData) {
+    console.log(JsonData)
+    var labels = document.getElementsByTagName('LABEL');
+    var BodyFoucs = [];
+    var TraningType = [];
+    var Equipment = [];
+    var Difficulty = [];
+    var ProgramLength = [];
+    for (var i = 0; i < labels.length; i++) {
+        if (labels[i].htmlFor != '') {
+            if (labels[i].htmlFor.startsWith('BodyFoucs')) {
+                BodyFoucs.push(labels[i]);
+            }
+            else if (labels[i].htmlFor.startsWith('TraningType')) {
+                TraningType.push(labels[i]);
+            } else if (labels[i].htmlFor.startsWith('Equipment')) {
+                Equipment.push(labels[i]);
+            } else if (labels[i].htmlFor.startsWith('Difficulty')) {
+                Difficulty.push(labels[i]);
 
+            }
+            else if (labels[i].htmlFor.startsWith('programlength')) {
+                ProgramLength.push(labels[i]);
+
+            }
+        }
+    }
+
+    for (var i = 0; i < BodyFoucs.length; i++) {
+        if (JsonData.bodyfocusCounters[i] === 0) {
+            BodyFoucs[i].control.disabled = true;
+        }
+        else {
+            BodyFoucs[i].control.disabled = false;
+        }
+        BodyFoucs[i].lastElementChild.innerHTML = `(${JsonData.bodyfocusCounters[i]})`;
+    }
+    for (var i = 0; i < Equipment.length; i++) {
+        if (JsonData.equipmentCounters[i] === 0) {
+            Equipment[i].control.disabled = true;
+        }
+        else {
+            Equipment[i].control.disabled = false;
+        }
+        Equipment[i].lastElementChild.innerHTML = `(${JsonData.equipmentCounters[i]})`;
+    }
+    for (var i = 0; i < TraningType.length; i++) {
+        if (JsonData.traningTypeCounters[i] === 0) {
+            TraningType[i].control.disabled = true;
+        }
+        else {
+            TraningType[i].control.disabled = false;
+
+        }
+        TraningType[i].lastElementChild.innerHTML = `(${JsonData.traningTypeCounters[i]})`;
+    }
+    for (var i = 0; i < Difficulty.length; i++) {
+        if (JsonData.difficultyCounters[i] === 0) {
+            Difficulty[i].control.disabled = true;
+        }
+        else {
+            Difficulty[i].control.disabled = false;
+        }
+        Difficulty[i].lastElementChild.innerHTML = `(${JsonData.difficultyCounters[i]})`;
+    }
+
+    for (var i = 0; i < ProgramLength.length; i++) {
+        if (JsonData.programLengthCounters[i] === 0) {
+            ProgramLength[i].control.disabled = true;
+        }
+        else {
+            ProgramLength[i].control.disabled = false;
+        }
+        ProgramLength[i].lastElementChild.innerHTML = `(${JsonData.programLengthCounters[i]})`;
+    }
+
+}
 
 
 async function AddFavoriteProgram(id) {

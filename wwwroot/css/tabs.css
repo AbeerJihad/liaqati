@@ -162,3 +162,15 @@ a:visited {
 .cd-tabs-navigation a.selected, .cd-tabs-navigation a.selected:hover {
     color: #8663b3;
 }
+
+/*@media only screen and (min-width: 768px) {
+    .exRow {
+        flex-wrap: wrap;
+    }
+}*/
+
+@media only screen and (max-width: 900px) {
+    .exRow {
+        flex-wrap: wrap;
+    }
+}

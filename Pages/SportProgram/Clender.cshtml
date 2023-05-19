@@ -61,6 +61,7 @@
 
 
 
+        console.log(eventslst);
         console.log(dates);
 
         var exModel = document.getElementById('eventModal');
@@ -71,17 +72,7 @@
 
             draw(eventslst
 
-                //        eventslst.map(obj => {
-                //        return {
-                //            id: obj.eventId,
-                //            title: obj.title,
-                //            start: obj.startDate
-
-                //            //    end: obj.endDate
-                //        }
-                //    }))
-
-                //}
+              
             )
         });
 
@@ -119,38 +110,16 @@
 
                     //Sweet Alert
                     function (info) {
+                        
+
+                        window.location.href = "ToDaycshtml?DateDay=" + info.event.startStr + "&id=" + info.event.id + "&startProgram=" + eventslst[0].start;
 
 
 
-
-                        //var eventd = calendar.getEventById(event.id)
                         //alert(eventd);
                         info.jsEvent.preventDefault();
 
-                        console.log(info.event)
-                        //console.log(info.event.title)
-                        //console.log(info.event.id)
-                        //Swal.fire({
-                        //    title: info.event.title ,
-                        //    text: 'Id :'+ info.event.id,
-                        //    imageUrl: 'https://unsplash.it/400/200',
-                        //    imageWidth: 400,
-                        //    imageHeight: 200,
-                        //    imageAlt: 'Custom image',
-                        //})
-
-                        // ==> To Details
-                        //   window.location.href = "Details?id=" + info.event.id;
-
-                        //ShowModelExercises(info.event);
-
-
-
-
-
-
-
-
+                       
 
 
                     }
@@ -163,73 +132,6 @@
 
 
 
-                //      [
-                //  {
-                //      title: 'Meeting Alaa Yass',
-                //      start: '2023-03-06',
-                //      end:'2023-03-09',
-                //        color: 'red',
-
-
-                //    },
-                //    {
-                //      title: 'تمرين  1',
-                //      start: '2023-03-06',
-
-
-                //    },
-                //  {
-                //    title: 'Business Lunch',
-                //    start: '2023-03-03T13:00:00',
-                //   // end:
-                //    constraint: 'businessHours'
-                //  },
-                //  {
-                //    title: 'Meeting',
-                //    start: '2023-03-13T11:00:00',
-                //    constraint: 'availableForMeeting', // defined below
-                //    color: '#257e4a'
-                //  },
-                //  {
-                //    title: 'Conference',
-                //    start: '2023-03-18',
-                //    end: '2023-03-20'
-                //  },
-                //  {
-                //    title: 'Party',
-                //    start: '2023-03-29T20:00:00'
-                //  },
-
-                //  // areas where "Meeting" must be dropped
-                //  {
-                //    groupId: 'availableForMeeting',
-                //    start: '2020-09-11T10:00:00',
-                //    end: '2020-09-11T16:00:00',
-                //    display: 'background'
-                //  },
-                //  {
-                //    groupId: 'availableForMeeting',
-                //    start: '2020-09-13T10:00:00',
-                //    end: '2020-09-13T16:00:00',
-                //    display: 'background'
-                //  },
-
-                //  // red areas where no events can be dropped
-                //  {
-                //    start: '2020-09-24',
-                //    end: '2020-09-28',
-                //    overlap: false,
-                //    display: 'background',
-                //    color: '#ff9f89'
-                //  },
-                //  {
-                //    start: '2020-09-06',
-                //    end: '2020-09-08',
-                //    overlap: false,
-                //    display: 'background',
-                //    color: '#ff9f89'
-                //  }
-                //]
             });
 
             calendar.render();
@@ -266,16 +168,18 @@
          **/
         function addEventdd(start, end) {
             var selctedDay = [];
+            var SporExerId ;
             console.log(start);
             for (let i = 0; i < eventslst2.length; i++) {
                 if (eventslst2[i].start == start.startStr) {
                     console.log('==')
                     selctedDay.push(eventslst2[i].id);
+                    SporExerId=1;
 
                 }
             }
 
-            window.location.href = "ToDaycshtml?list=" + selctedDay;
+            window.location.href = "ToDaycshtml?id=" + SporExerId;
 
 
             //console.log(event);
@@ -289,56 +193,6 @@
 
 
 
-
-        //function updateEvent(event, element) {
-        //    currentEvent = event;
-
-        //    if ($(this).data("qtip")) $(this).qtip("hide");
-
-        //    $('#eventModalLabel').html('Edit Event');
-        //    $('#eventModalSave').html('Update Event');
-        //    $('#EventTitle').val(event.title);
-        //    $('#Description').val(event.description);
-        //    $('#isNewEvent').val(false);
-
-        //    const start = formatDate(event.start);
-        //    const end = formatDate(event.end);
-
-        //    fpStartTime.setDate(start);
-        //    fpEndTime.setDate(end);
-
-        //    $('#StartTime').val(start);
-        //    $('#EndTime').val(end);
-
-        //    if (event.allDay) {
-        //        $('#AllDay').prop('checked', 'checked');
-        //    } else {
-        //        $('#AllDay')[0].checked = false;
-        //    }
-
-        //    $('#eventModal').modal('show');
-        //}
-
-        //function addEvent(start, end) {
-        //    //$('#eventForm')[0].reset();
-
-        //    //$('#eventModalLabel').html('Add Event');
-        //    //$('#eventModalSave').html('Create Event');
-        //    //$('#isNewEvent').val(true);
-
-        //    //start = formatDate(start);
-        //    //end = formatDate(end);
-
-        //    //fpStartTime.setDate(start);
-        //    //fpEndTime.setDate(end);
-
-        //    /*   $('#eventModal').modal('show');*/
-        //    var myModal = new bootstrap.Modal(exModel, {
-        //        keyboard: false
-        //    })
-        //    console.log(start);
-        //    console.log(end);
-        //}
 
 
 
@@ -367,19 +221,18 @@
 
         }
 
-
-
-
-
-
-
-
     </script>
-    <link href="~/css/main.min.css" rel="stylesheet" />
-    <div class="container">
+   
+
+
+}
+    <link href="~/css/clender/main.min.css" rel="stylesheet" />
+
+
+     <div class="container" >
         <div class="row">
 
-            <div id='calendar' style="margin-top:100px;"></div>
+            <div id='calendar' style="margin-top:100px;" ></div>
 
         </div>
     </div>
@@ -449,13 +302,9 @@
     </div>
 
 
-
-}
-
 @section Scripts{
     <script src="~/JavaScript/clender/main.min.js" asp-append-version="true"></script>
-    @*    <script src="~/JavaScript/clender/script.js" asp-append-version="true"></script>
-*@
+ 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

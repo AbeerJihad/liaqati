@@ -1,12 +1,17 @@
-﻿namespace liaqati_master.Services.Repositories
+﻿using System.Security.Claims;
+
+namespace liaqati_master.Services.Repositories
 {
     public class IRepoMealPlans
     {
         private readonly LiaqatiDBContext _context;
-
-        public IRepoMealPlans(LiaqatiDBContext context)
+        readonly IRepoFavorite _IRepoFavorite;
+        readonly IHttpContextAccessor _HttpContextAccessor;
+        public IRepoMealPlans(LiaqatiDBContext context, IRepoFavorite iRepoFavorite, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _IRepoFavorite = iRepoFavorite;
+            _HttpContextAccessor = httpContextAccessor;
         }
 
         public async Task<MealPlans> AddEntityAsync(MealPlans Entity)
@@ -67,46 +72,115 @@
                 throw;
             }
         }
-
-        public async Task<QueryPageResult<MealPlans>> SearchMealPlan(MealPlansQueryParamters Parameters)
+        public List<Meal_Healthy> GetMultiMeal_Healthy(string id, int week, int day)
         {
-            IQueryable<MealPlans> MealPlans = (await GetAllAsync()).AsQueryable();
+
+            List<Meal_Healthy> list = _context.TblMeal_Healthy.ToList();
+            List<Meal_Healthy> list2 = new List<Meal_Healthy>();
+
+
+            foreach (Meal_Healthy program in list)
+            {
+
+                if (program.MealPlansId == id && program.Day == day && program.Week == week)
+                {
+                    list2.Add(program);
+                }
+
+            }
+
+
+
+
+            return list2;
+        }
+        public async Task<QueryPageResult<MealPlanVM>> SearchMealPlan(MealPlansQueryParamters Parameters)
+        {
+            IQueryable<MealPlanVM> MealPlans = (await GetAllAsync()).Select(p =>
+               new MealPlanVM()
+               {
+                   CategoryName = p.Services?.Category?.Name,
+                   Id = p.Id,
+                   Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
+                   Image = p.Services?.Image,
+                   CategoryId = p.Services?.CategoryId,
+                   Length = p.Length,
+                   DietaryType = p.DietaryType,
+                   MealType = p.MealType,
+                   Price = p.Services?.Price,
+                   Title = p.Services?.Title,
+                   IsFavorite = 0,
+                   shortDescription = p.Services?.ShortDescription,
+               }).AsQueryable();
             List<AppliedFilters>? ListOfSelectedFilters = new();
 
+            List<Favorite>? list = new();
+            List<MealPlanVM>? MealPlans2 = new();
+            List<string?>? list2 = new();
+            if (_HttpContextAccessor.HttpContext is not null)
+            {
+                var user = _HttpContextAccessor.HttpContext.User;
+                MealPlans2 = MealPlans.ToList();
+
+                if (user is null)
+                {
+
+                    foreach (var item in MealPlans2)
+                    {
+                        item.IsFavorite = 0;
+                    }
+                }
+                else
+                {
+                    list = await _IRepoFavorite.GetByUserIDAsync(user.FindFirstValue(ClaimTypes.NameIdentifier));
+                    if (list is not null)
+                    {
+                        list2 = list.Where(p => p.Type == "نظام غذائي").Select(s => s.ServicesId).ToList();
+                    }
+                    foreach (var item in MealPlans2)
+                    {
+                        if (list2.Contains(item.Id))
+                            item.IsFavorite = 2;
+                        else if (!list2.Contains(item.Id))
+                            item.IsFavorite = 1;
+                    }
+                }
+                MealPlans = MealPlans2.AsQueryable();
+            }
             if (Parameters.CategoryId != null)
             {
-                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.CategoryId == Parameters.CategoryId);
+                MealPlans = MealPlans.Where(p => p.CategoryId == Parameters.CategoryId);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
 
             }
             if (Parameters.MinPrice != null)
             {
-                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Price >= Parameters.MinPrice);
+                MealPlans = MealPlans.Where(p => p.Price >= Parameters.MinPrice);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MinPrice), Parameters.MinPrice.ToString() ?? ""));
 
             }
             if (Parameters.MaxPrice != null)
             {
-                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Price <= Parameters.MaxPrice);
+                MealPlans = MealPlans.Where(p => p.Price <= Parameters.MaxPrice);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MaxPrice), Parameters.MaxPrice.ToString() ?? ""));
 
             }
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
-                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Title != null && p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+                MealPlans = MealPlans.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
 
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.SearchTearm), Parameters.SearchTearm.ToString() ?? ""));
             }
             if (!string.IsNullOrEmpty(Parameters.Title))
             {
-                MealPlans = MealPlans.Where(p => p.Services != null && p.Services.Title != null && p.Services.Title.ToLower().Contains(Parameters.Title.ToLower()));
+                MealPlans = MealPlans.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.Title.ToLower()));
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.Title), Parameters.Title.ToString() ?? ""));
 
             }
             if (Parameters.DietaryType is not null)
                 if (Parameters.DietaryType.Count != 0)
                 {
-                    List<MealPlans> MealPlan = new();
+                    List<MealPlanVM> MealPlan = new();
                     foreach (var item in Parameters.DietaryType)
                     {
                         if (item is not null)
@@ -121,7 +195,7 @@
             if (Parameters.MealType is not null)
                 if (Parameters.MealType.Count != 0)
                 {
-                    List<MealPlans> MealPlan = new();
+                    List<MealPlanVM> MealPlan = new();
                     foreach (var item in Parameters.MealType)
                     {
                         if (item is not null)
@@ -138,17 +212,17 @@
                 if (Parameters.SortBy.Equals(nameof(Service.Title), StringComparison.OrdinalIgnoreCase))
                 {
                     if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                        MealPlans = MealPlans.OrderBy(p => p.Services!.Title);
+                        MealPlans = MealPlans.OrderBy(p => p.Title);
                     else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                        MealPlans = MealPlans.OrderByDescending(p => p.Services!.Title);
+                        MealPlans = MealPlans.OrderByDescending(p => p.Title);
 
                 }
                 else if (Parameters.SortBy.Equals(nameof(Service.Price), StringComparison.OrdinalIgnoreCase))
                 {
                     if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                        MealPlans = MealPlans.OrderBy(p => p.Services!.Price);
+                        MealPlans = MealPlans.OrderBy(p => p.Price);
                     else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                        MealPlans = MealPlans.OrderByDescending(p => p.Services!.Price);
+                        MealPlans = MealPlans.OrderByDescending(p => p.Price);
 
                 }
                 else if (Parameters.SortBy.Equals(nameof(Models.MealPlans.MealType), StringComparison.OrdinalIgnoreCase))
@@ -189,7 +263,7 @@
 
                 }
             }
-            QueryPageResult<MealPlans> queryPageResult = CommonMethods.GetPageResult(MealPlans, Parameters);
+            QueryPageResult<MealPlanVM> queryPageResult = CommonMethods.GetPageResult(MealPlans, Parameters);
             MealPlanQueryPageResult mealPlanQueryPageResult = new()
             {
                 DietaryTypeCounters = DietaryTypeCounters,

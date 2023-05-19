@@ -328,6 +328,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Graduation Project/LastUpdate/liaqati/Areas/Identity/Pages/Account/Manage/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Graduation Project/LastUpdate/liaqati/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -516,8 +520,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVhbFBsYW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Graduation Project/LastUpdate/liaqati/Pages/MealPlan/MealPlanDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVhbFBsYW5cTWVhbFBsYW5EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Graduation Project/LastUpdate/liaqati/Pages/MealPlan/_MealPlanCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVhbFBsYW5cX01lYWxQbGFuQ2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Notifications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90aWZpY2F0aW9uc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Privacy.cshtml]
@@ -530,6 +542,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Products/Index3.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcSW5kZXgzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Products/ProductDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcUHJvZHVjdERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/Components/AnotherProducts/default.cshtml]
@@ -616,6 +632,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9jb2FjaHNDYXJkRGVzZ2luMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_DeilveryInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9EZWlsdmVyeUluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_exerciseCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9leGVyY2lzZUNhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -640,6 +660,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9NZWFsUGxhbnNDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Shared/_ProductCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Qcm9kdWN0Q2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -658,6 +682,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/SportProgram/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvcnRQcm9ncmFtXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Graduation Project/LastUpdate/liaqati/Pages/SportProgram/ProgramDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3BvcnRQcm9ncmFtXFByb2dyYW1EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/SportProgram/ToDaycshtml.cshtml]

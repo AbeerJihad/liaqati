@@ -1,30 +1,26 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-
-namespace liaqati_master.Pages.Programs
+#nullable disable
+namespace liaqati_master.Areas.Admin.Pages.Programs
 {
     public class DeleteProgramModel : PageModel
     {
         private readonly LiaqatiDBContext _context;
-        private readonly UnitOfWork _UnitOfWork;
+        private readonly IRepoProgram _IRepoProgram;
 
-        public DeleteProgramModel(LiaqatiDBContext context, UnitOfWork unitOfWork)
+        public DeleteProgramModel(LiaqatiDBContext context, IRepoProgram iRepoProgram)
         {
             _context = context;
-            _UnitOfWork = unitOfWork;
+            _IRepoProgram = iRepoProgram;
         }
 
         [BindProperty]
         public SportsProgram SportsProgram { get; set; }
-        public async Task<IActionResult> OnGetAsync(string? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
-
-            var program = _UnitOfWork.SportsProgramRepository.GetByID(id);
+            var program = await _IRepoProgram.GetProgram(id);
 
             if (program == null)
             {
@@ -37,26 +33,18 @@ namespace liaqati_master.Pages.Programs
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string? id)
+        public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null )
+            if (id == null)
             {
                 return NotFound();
             }
-          var program=  _UnitOfWork.SportsProgramRepository.GetByID(id);
-
-
-
+            var program = await _IRepoProgram.GetProgram(id);
             if (program != null)
             {
                 SportsProgram = program;
-
-                _UnitOfWork.SportsProgramRepository.Delete(program);
-                _UnitOfWork.Save();
-
-            
+                await _IRepoProgram.DeleteProgram(id);
             }
-
             return RedirectToPage("./Index");
         }
     }

@@ -14,7 +14,7 @@
     <WebStackScaffolding_DbContextTypeFullName>liaqati_master.Data.LiaqatiDBContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
-    <NameOfLastUsedPublishProfile>D:\Graduation Project\LastUpdate\liaqati\Properties\PublishProfiles\FolderProfile.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>D:\Graduation Project\LastUpdate\liaqati\Properties\PublishProfiles\IISProfile.pubxml</NameOfLastUsedPublishProfile>
     <WebStackScaffolding_EnablerDialogWidth>650.4</WebStackScaffolding_EnablerDialogWidth>
     <_SelectedScaffolderID>ModelBasedCrudRazorPageScaffolder</_SelectedScaffolderID>
     <_SelectedScaffolderCategoryPath>root/Common</_SelectedScaffolderCategoryPath>

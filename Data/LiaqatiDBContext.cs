@@ -31,6 +31,7 @@ namespace liaqati_master.Data
         public DbSet<Ingredent> TblIngredent { get; set; }
         public DbSet<Coupon_redemption> TblCoupon_redemption { get; set; }
         public DbSet<Coupon> TblCoupon { get; set; }
+        public DbSet<Tracking> TblTracking { get; set; }
         public DbSet<Files> TblFiles { get; set; }
         public DbSet<CartItem> TblCartItem { get; set; }
         public DbSet<Consultation> TblConsultation { get; set; }

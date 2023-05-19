@@ -9,10 +9,11 @@
 
         public decimal? MinDuration { get; set; }
         public decimal? MaxDuration { get; set; }
-        public int? Length { get; set; }
+        public List<string>? Length { get; set; }
 
         public string SearchTearm { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
+
 
 
     }

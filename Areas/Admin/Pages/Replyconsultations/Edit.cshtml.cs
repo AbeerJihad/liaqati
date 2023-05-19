@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace liaqati_master.Areas.Admin.Pages.Replyconsultations
 {
     public class EditModel : PageModel
@@ -33,7 +29,7 @@ namespace liaqati_master.Areas.Admin.Pages.Replyconsultations
             Replyconsultations = articles;
             return Page();
         }
-         public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
 
             if (!ModelState.IsValid)

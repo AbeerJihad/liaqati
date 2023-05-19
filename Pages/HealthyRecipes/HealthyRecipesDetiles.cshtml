@@ -9,7 +9,7 @@
 <div class="container-fluid imgHeader position-relative">
     <div class="row bgcolor">
         <div>
-            <h1 class="text-white fw-bolder text-center" style="padding:155px;">@Model.helth.MealType </h1>
+            <h1 class="text-white fw-bolder text-center" style="padding:155px;">@Model.HealthyRecipe.MealType </h1>
         </div>
     </div>
 
@@ -24,9 +24,9 @@
             <img src="~/user/images/ic_expand_more_24px.png" />
             وصفات صحية
             <img src="~/user/images/ic_expand_more_24px.png" />
-            @Model.helth.MealType
+            @Model.HealthyRecipe.MealType
             <img src="~/user/images/ic_expand_more_24px.png" />
-            @Model.helth.Title
+            @Model.HealthyRecipe.Title
         </p>
         <div class="col-lg-7  align-self-center">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -36,13 +36,14 @@
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    @for(int i=0;i<Model.file.Count;i++){
-                        var ac="";
+                    @for (int i = 0; i < Model.Files.Count; i++)
+                    {
+                        var ac = "";
                         if (i == 1) ac = "active";
                         <div class="carousel-item   @ac">
-                        <img src="@Model.file[i].Path" class="d-block carouselImages" alt="...">
+                            <img src="@Model.Files[i].Path" class="d-block carouselImages" alt="...">
 
-                    </div>
+                        </div>
                     }
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -61,7 +62,7 @@
         <div class="col-lg-5 justify-content-center align-items-center shadow">
             <div class="p-3">
                 <div class="d-flex justify-content-between">
-                    <h3>@Model.helth.Title</h3>
+                    <h3>@Model.HealthyRecipe.Title</h3>
                     <div>
                         <img width="25" src="~/user/images/Path 1698.png" />
                         <img width="25" src="~/user/images/Group 1740.png" />
@@ -74,32 +75,33 @@
                         <p class="textPurple">
 
                             تاريخ النشر :
-                            <span class="fw-bold">@Model.helth.CreatedDate</span>
+                            <span class="fw-bold">@Model.HealthyRecipe.CreatedDate</span>
                         </p>
                     </div>
                     <div class="d-flex mx-3">
                         <p class="textPurple">الصنف:</p>
-                        <p>@Model.helth.MealType</p>
+                        <p>@Model.HealthyRecipe.MealType</p>
                     </div>
 
 
                     <p class="textPurple">التقييم:</p>
-                    @for (int i = 0; i <=Model.helth.RatePercentage;i++){
-                    <img height="15" width="15" src="~/user/images/star-svgrepo-com.png" />
+                    @for (int i = 0; i <= Model.HealthyRecipe.RatePercentage; i++)
+                    {
+                        <img height="15" width="15" src="~/user/images/star-svgrepo-com.png" />
                     }
                     <p>(80)</p>
                 </div>
                 <hr />
                 <div>
                     <p class="fs-6">
-                        @Html.Raw(Model.helth.Description)
+                        @Html.Raw(Model.HealthyRecipe.Description)
                     </p>
                 </div>
                 <hr />
                 <div class="d-flex ps-md-5 justify-content-between">
                     <div class="d-flex">
                         <img height="20" class="ms-2" src="~/user/images/timer-svgrepo.png" />
-                        <p class="fw-bold"> @Model.helth.PrepTime  دقيقة </p>
+                        <p class="fw-bold"> @Model.HealthyRecipe.PrepTime  دقيقة </p>
                     </div>
                     <div class="d-flex">
                         <img height="20" class="ms-2" src="~/user/images/cooking-pot-thin-svgrepo-com.png" />
@@ -109,10 +111,10 @@
                         <img height="20" class="ms-2" src="~/user/images/calories-svgrepo-com.png" />
                         <p class="fw-bold">
                             @{
-                                var x = double.Parse(Model.helth.Total_Carbohydrate.ToString()) + double.Parse(Model.helth.Protein.ToString()) + double.Parse(Model.helth.Calories.ToString());
+                                var x = double.Parse(Model.HealthyRecipe.Total_Carbohydrate.ToString()) + double.Parse(Model.HealthyRecipe.Protein.ToString()) + double.Parse(Model.HealthyRecipe.Calories.ToString());
                             }
                             @x
-                            سعرة حرارية 
+                            سعرة حرارية
                         </p>
                     </div>
 
@@ -122,16 +124,16 @@
                     <div class="d-flex mt-3 p-2 w-50 justify-content-evenly me-md-3" style="background-color: #F0EFF8;">
                         <div>
                             <p>كالوري</p>
-                            <p>@Model.helth.Calories</p>
+                            <p>@Model.HealthyRecipe.Calories</p>
                         </div>
-                       
+
                         <div>
                             <p>كارب</p>
-                            <p>g @Model.helth.Total_Carbohydrate </p>
+                            <p>g @Model.HealthyRecipe.Total_Carbohydrate </p>
                         </div>
                         <div>
                             <p>بروتين</p>
-                            <p>g @Model.helth.Protein</p>
+                            <p>g @Model.HealthyRecipe.Protein</p>
                         </div>
                     </div>
                 </div>
@@ -153,13 +155,13 @@
                     <tr>
                         <th scope="col"> الاسم</th>
                         <th scope="col"> الكمية</th>
-                       
+
                     </tr>
                 </thead>
                 <tbody>
-                     @for(int i=0; i < Model.Ingredent.Length-1; i++)
-            {
-              
+                    @for (int i = 0; i < Model.Ingredent.Length - 1; i++)
+                    {
+
                         <tr>
                             @{
                                 string[] spolites = Model.Ingredent[i].Split(',');
@@ -168,20 +170,20 @@
                             <td scope="row"> @spolites[1]  @spolites[2] </td>
 
 
-                           
-                       </tr>
-            }
-                
+
+                        </tr>
+                    }
+
                 </tbody>
             </table>
 
 
             @*@for(int i=0; i < Model.Ingredent.Length-1; i++)
             {
-                <p>   @Html.Raw(Model.Ingredent[i].Trim())</p>
+            <p>   @Html.Raw(Model.Ingredent[i].Trim())</p>
 
             }
-*@
+            *@
 
 
 

@@ -2,31 +2,37 @@
 {
     public class MostSoughtProductsViewComponent : ViewComponent
     {
-        private readonly UnitOfWork _unitOfWork;
-        public MostSoughtProductsViewComponent(UnitOfWork unitOfWork)
+        private readonly IRepoProducts _IRepoProducts;
+        private readonly IRepoCategory _IRepoCategory;
+        private readonly IRepoOrder_Details _IRepoOrder_Details;
+        public MostSoughtProductsViewComponent(IRepoProducts repoProducts, IRepoCategory iRepoCategory, IRepoOrder_Details iRepoOrder_Details)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoProducts = repoProducts;
+            _IRepoCategory = iRepoCategory;
+            _IRepoOrder_Details = iRepoOrder_Details;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
             //var a = _unitOfWork.Order_DetailsRepository.Get().GroupBy(o => o.ServiceId);
             VMMostSoughtProducts vMMostSoughtProducts = new();
-            List<Category> productCategories = _unitOfWork.CategoryRepository.GetAllEntity().Where(predicate: Category => Category.Target == "Product").ToList();
+            List<Category> productCategories = (await _IRepoCategory.GetAllAsync()).Where(predicate: Category => Category.Target == "Product").ToList();
             if (productCategories.Any() && productCategories.Count >= 2)
             {
-                vMMostSoughtProducts.ProductsOfCategorySupplementation = GetProducts(productCategories[0].Id);
-                vMMostSoughtProducts.ProductsOfCategorySportsEquipment = GetProducts(productCategories[1].Id);
-                vMMostSoughtProducts.ProductsCount = _unitOfWork.ProductsRepository.GetAllEntity().Count;
+                vMMostSoughtProducts.ProductsOfCategorySupplementation = await GetProducts(productCategories[0].Id);
+                vMMostSoughtProducts.ProductsOfCategorySportsEquipment = await GetProducts(productCategories[1].Id);
+                vMMostSoughtProducts.ProductsCount = (await _IRepoProducts.GetAllAsync()).Count();
             }
 
             return View(vMMostSoughtProducts);
         }
-        private List<Product> GetProducts(string CategoryID)
+        private async Task<List<Product?>> GetProducts(string CategoryID)
         {
-            List<Product> products = new();
+            List<Product?> products = new();
 
-            var a = _unitOfWork.Order_DetailsRepository.GetAllEntity().Where(s => s.Service?.CategoryId == CategoryID)
+            var a =
+                (await _IRepoOrder_Details.GetAllAsync())
+                .Where(s => s.Service?.CategoryId == CategoryID)
                .GroupBy(info => info.ServiceId)
             .Select(group => new
             {
@@ -38,7 +44,7 @@
 
             foreach (var prodIds in a)
             {
-                products.Add(_unitOfWork.ProductsRepository.GetByID(prodIds.ServiceId));
+                products.Add(await _IRepoProducts.GetByIDAsync(prodIds.ServiceId));
             }
             return products;
         }

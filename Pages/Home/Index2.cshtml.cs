@@ -1,9 +1,3 @@
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Drawing;
-
 namespace liaqati_master.Pages.Home
 {
     public class Index2Model : PageModel
@@ -16,19 +10,19 @@ namespace liaqati_master.Pages.Home
         readonly IRepoProgram _repoProgram;
         private readonly UserManager<User> _userManager;
         public Index2Model(
-                        IRepoArticles repoArticles , IRepoUser repoUser ,
+                        IRepoArticles repoArticles, IRepoUser repoUser,
                         IRepoMealPlans repoMealPlans, IRepoProducts repoProducts,
-                        IRepoHealthyRecipe repoHealthyRecipe , IRepoProgram repoProgram ,
+                        IRepoHealthyRecipe repoHealthyRecipe, IRepoProgram repoProgram,
                          UserManager<User> userManager
                          )
         {
-            _repoArticles= repoArticles;
-            _repoUser= repoUser;
+            _repoArticles = repoArticles;
+            _repoUser = repoUser;
             _repoMealPlans = repoMealPlans;
             _repoProducts = repoProducts;
             _repoHealthyRecipe = repoHealthyRecipe;
-            _repoProgram =repoProgram;
-            _userManager= userManager;
+            _repoProgram = repoProgram;
+            _userManager = userManager;
 
 
         }
@@ -56,13 +50,16 @@ namespace liaqati_master.Pages.Home
         {
 
 
-           articles =  ((await _repoArticles.GetAllAsync()).Skip(0).Take(3)).ToList();
+            articles = ((await _repoArticles.GetAllAsync()).Skip(0).Take(3)).ToList();
 
 
 
 
 
-            Users = ((await _userManager.GetUsersInRoleAsync("Trainer")).Skip(0).Take(3)).ToList();      /*.Except(await _userManager.GetUsersInRoleAsync("Admin"))*/
+            Users = ((await _repoUser.GetAllAsync()).Skip(0).Take(3)).ToList();
+
+
+            /*.Except(await _userManager.GetUsersInRoleAsync("Admin"))*/
             Customers = ((await _userManager.GetUsersInRoleAsync("Customer")).Skip(0).Take(3)).ToList();      /*.Except(await _userManager.GetUsersInRoleAsync("Admin"))*/
 
 
