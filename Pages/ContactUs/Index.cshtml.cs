@@ -1,5 +1,3 @@
-using System.Security.Claims;
-
 namespace liaqati_master.Pages.ContactUs
 {
     [AllowAnonymous]
@@ -20,15 +18,11 @@ namespace liaqati_master.Pages.ContactUs
 
 
 
-        public class ContactUsInputModel
-        {
-            public string FullName { get; set; }
-            public string Email { get; set; }
-            public string PhoneIntro { get; set; }
-            public string Phone { get; set; }
-            public string MessageContent { get; set; }
+        [Required]
+        public string PhoneIntro { get; set; }
+        [Required]
+        public string Phone { get; set; }
 
-        }
         public void OnGet()
         {
         }
@@ -38,16 +32,7 @@ namespace liaqati_master.Pages.ContactUs
             {
                 if (ContactUs != null)
                 {
-                    if (_signInManager.IsSignedIn(User))
-                    {
-                        ContactUs.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                        await _repoContactUs.AddEntityAsync(ContactUs);
 
-                    }
-                    else
-                    {
-                        return RedirectToPage("/Account/Login", new { area = "Identity" });
-                    }
                 }
             }
             return Page();

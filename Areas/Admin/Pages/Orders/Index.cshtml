@@ -57,7 +57,7 @@
         <div class=" ">
             <div class="row ">
                 <div class="col-sm-12">
-                    <div class="card p-3 border-raduis">
+                    <div class="card p-3 border-raduis ">
                         <div class="card-header bg-transparent px-0 py-4 ">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5>
@@ -93,7 +93,8 @@
                                     </th>
                                     <th scope="col" width="180">تاريخ الطلبية</th>
                                     <th scope="col" width="180">السعر الكلي</th>
-
+                                    <th scope="col" width="180">كود الخصم</th>
+                                    <th scope="col" width="180">حالة الطلب</th>
                                     <th scope="col" width="180"> </th>
 
                                 </tr>
@@ -112,19 +113,33 @@
                                                     </label>
                                                 </td>
                                                 <td>@item.OrderDate</td>
+                                                <td>@item.DiscountCode</td>
                                                 <td>@item.TotalPrice?.ToString("c")</td>
+                                                <td>
+                                                    <div style="max-width:150px">
+                                                        @switch (item.OrderStatus)
+                                                        {
+                                                            case 0:
+                                                                <partial name="OrderStatusCases/Completed" />
+                                                                break;
+                                                            case 1:
+                                                                <partial name="OrderStatusCases/Returned" />
+                                                                break;
+                                                            case 2:
+                                                                <partial name="OrderStatusCases/Waited" />
+                                                                break;
+                                                        }
+                                                    </div>
+                                                </td>
 
                                                 <td>
                                                     <div class="d-flex gap-2">
-                                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
-                                                           style="background-color: #8763b320; color:#3c077d;  padding: 0.375rem 0.75rem;"
-                                                           type="button">
-                                                            <i class="bi bi-pencil-square"></i>
+                                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
+                                                            <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
                                                         </a>
                                                         <form method="post" asp-page="Delete" asp-route-id="@item.Id">
-                                                            <a onclick="DeleteFun(this)" class="btn"
-                                                               style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;">
-                                                                <i class="bi bi-trash"></i>
+                                                            <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
+                                                                <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
                                                             </a>
                                                         </form>
 
@@ -221,17 +236,13 @@
                             </tfoot>
                         </table>
                     </div>
-                    <partial name="_Manage__data" />
                 </div>
             </div>
 
         </div>
     </div>
-    <partial name="_ConfirmDeleteModel" />
-    <partial name="_ImageViewer" />
 
-    </div>
-    </div>
+
 
 
 </form>
@@ -239,7 +250,7 @@
 
 @section Scripts{
     <script src="~/javascript/script.js"></script>
-    <script src="~/javascript/Table.js"></script>
+    @*<script src="~/javascript/Table.js"></script>*@
     <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
 
 

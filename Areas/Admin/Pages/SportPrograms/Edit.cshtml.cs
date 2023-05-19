@@ -7,24 +7,14 @@ namespace liaqati_master.Pages.Programs
         private readonly IRepoProgram _repoProgram;
         private readonly IRepoExercise _repoExercise;
         private readonly IRepoCategory _repoCategory;
-        private readonly IRepoService _repoService;
         private readonly IRepoProgramExercies _repoProgramExercies;
-        private readonly IFormFileMang _repoFile;
-        private readonly UnitOfWork _UnitOfWork;
         private readonly LiaqatiDBContext _context;
-
-
-
-
-        public EditProgramModel(IRepoProgram repoProgram, IRepoExercise repoExercise, IRepoCategory repoCategory, IRepoService repoService, IFormFileMang repoFile, IRepoProgramExercies repoProgramExercies, UnitOfWork unitOfWork, LiaqatiDBContext context)
+        public EditProgramModel(IRepoProgram repoProgram, IRepoExercise repoExercise, IRepoCategory repoCategory, IRepoProgramExercies repoProgramExercies, LiaqatiDBContext context)
         {
             _repoProgram = repoProgram;
             _repoExercise = repoExercise;
             _repoCategory = repoCategory;
-            _repoService = repoService;
-            _repoFile = repoFile;
             _repoProgramExercies = repoProgramExercies;
-            _UnitOfWork = unitOfWork;
             _context = context;
         }
 
@@ -71,7 +61,7 @@ namespace liaqati_master.Pages.Programs
                 return NotFound();
             }
 
-            SportsProgram sportsProgram = await _repoProgram.GetProgram(id);
+            SportsProgram? sportsProgram = await _repoProgram.GetProgram(id);
 
 
             //  SportsProgram sportsProgram =_UnitOfWork.SportsProgramRepository.GetByID(id);
@@ -85,25 +75,30 @@ namespace liaqati_master.Pages.Programs
 
             foreach (var item in BodyFocus)
             {
-
-                bool checksed = sportsProgram.BodyFocus.Contains(item);
-
-                lstCheckBoxBodyFocus.Add(new VmCheckBox() { Name = item, IsChecked = checksed });
+                if (sportsProgram is not null)
+                {
+                    bool checksed = false;
+                    if (sportsProgram.BodyFocus is not null)
+                    {
+                        checksed = sportsProgram.BodyFocus.Contains(item);
+                    }
+                    lstCheckBoxBodyFocus.Add(new VmCheckBox() { Name = item, IsChecked = checksed });
+                }
 
             }
 
             foreach (var item in TrainingType)
             {
-
-                bool checksed = sportsProgram.TrainingType.Contains(item);
-
-                lstCheckBoxTrainingType.Add(new VmCheckBox() { Name = item, IsChecked = checksed });
-
+                if (sportsProgram is not null)
+                {
+                    bool checksed = false;
+                    if (sportsProgram.TrainingType is not null)
+                    {
+                        checksed = sportsProgram.TrainingType.Contains(item);
+                    }
+                    lstCheckBoxTrainingType.Add(new VmCheckBox() { Name = item, IsChecked = checksed });
+                }
             }
-
-
-
-
             if (sportsProgram == null)
             {
                 return NotFound();
@@ -111,21 +106,11 @@ namespace liaqati_master.Pages.Programs
             SportsProgram = sportsProgram;
 
             SportsProgram.Exercies_Programs = SportsProgram.Exercies_Programs!.OrderBy(x => x.Week).ThenBy(y => y.Day).ToList();
-
-
-
-
-
-
             CatogeryName = new SelectList((await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(SportsProgram)]), nameof(Category.Id), nameof(Category.Name));
-
-
-
-
             ExerciesName = (await _repoExercise.GetAllAsync()).Select(a =>
                                        new SelectListItem
                                        {
-                                           Value = a.Id.ToString(),
+                                           Value = a.Id?.ToString(),
                                            Text = a.Title
                                        }).ToList();
 
@@ -143,7 +128,7 @@ namespace liaqati_master.Pages.Programs
             //}
 
             var id = SportsProgram.Id;
-            SportsProgram item = await _repoProgram.GetProgram(id);
+            SportsProgram? item = await _repoProgram.GetProgram(id);
             if (item is null)
             {
                 return NotFound();
@@ -178,24 +163,13 @@ namespace liaqati_master.Pages.Programs
 
         public async Task<IActionResult> OnPostDeleteProgExer(string id)
         {
-
-
             if (id == null)
             {
                 return NotFound();
             }
-
-            Exercies_program x = _UnitOfWork.ProgramexerciseRepository.GetByID(id);
-
-
-            SportsProgram sport = _UnitOfWork.SportsProgramRepository.GetByID(x.SportsProgramId);
-
-
-
-            _UnitOfWork.ProgramexerciseRepository.Delete(id);
-            _UnitOfWork.Save();
-
-
+            Exercies_program x = await _repoProgramExercies.GetExercies_program(id);
+            SportsProgram? sport = await _repoProgram.GetProgram(x.SportsProgramId);
+            await _repoProgram.DeleteProgram(id);
             return RedirectToPage("Edit", new { id = sport.Id });
         }
 
@@ -203,14 +177,13 @@ namespace liaqati_master.Pages.Programs
 
         public async Task<IActionResult> OnPostEditProgExer()
         {
-            Exercies_program exercies = _UnitOfWork.ProgramexerciseRepository.GetByID(Exercies_program.Id);
+            Exercies_program exercies = await _repoProgramExercies.GetExercies_program(Exercies_program.Id);
 
             exercies.Day = Exercies_program.Day;
             exercies.Week = Exercies_program.Week;
             exercies.ExerciseId = Exercies_program.ExerciseId;
 
-            _UnitOfWork.ProgramexerciseRepository.Update(exercies);
-            _UnitOfWork.Save();
+            await _repoProgramExercies.UpdateExercies_program(exercies);
 
             return RedirectToPage("Edit", new { id = Exercies_program.SportsProgramId });
         }
@@ -219,10 +192,9 @@ namespace liaqati_master.Pages.Programs
         public async Task<IActionResult> OnPostAddSystemAsync(string? id)
         {
 
+            SportsProgram? sports = await _repoProgram.GetProgram(id);
 
-            SportsProgram sports = _UnitOfWork.SportsProgramRepository.GetByID(id);
-
-            List<Exercies_program> list = new List<Exercies_program>();
+            List<Exercies_program> list = new();
 
             foreach (Exercies_program x in _context.TblExercies_program.ToList())
             {
@@ -232,6 +204,11 @@ namespace liaqati_master.Pages.Programs
                 }
 
             }
+            if (sports is null)
+            {
+                return Page();
+            }
+
             SportsProgram = sports;
             SportsProgram.Exercies_Programs = list;
 

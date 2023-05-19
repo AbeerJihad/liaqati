@@ -4,6 +4,12 @@
 <nav class="d-lg-none top-0 position-fixed w-100" style="z-index: 13">
     <div class="d-flex justify-content-between align-items-center navbar-brand-container">
         <partial name="HeaderLogo" />
+        <button class="d-lg-none btn"
+                id="navbarToggler"
+                type="button"
+                title="navbar-toggler">
+            <i class="bi bi-list h2"></i>
+        </button>
     </div>
 
     <div class="NavLinks-Container nav-small d-none w-100 position-fixed" id="navbarCollapse">
@@ -99,21 +105,8 @@
 
 
                 <li class="nav-item">
-
                     <div class="d-flex justify-content-between align-items-center">
                         <partial name="_LoginPartial" />
-
-
-                        <div class="fav-cart d-flex justify-content-between align-items-center">
-                            @*<a href="" class="btn" title="fav">
-                            <i class="bi bi-bag-dash h3"></i>
-                            </a>
-                            <a href="" title="cart">
-                            <i class="bi bi-heart-fill h3"></i>
-                            </a>*@
-
-
-                        </div>
                     </div>
                 </li>
             </ul>

@@ -31,9 +31,9 @@
 
 async function AddFavoritesToProduct(id) {
 
-    let result ;
+    let result;
     try {
-        const response = await fetch(`https://localhost:7232/api/FavoritesApi/AddFavorites/${id}`, {
+        const response = await fetch(`/api/FavoritesApi/AddFavorites/${id}`, {
             method: "GET",
         });
         if (response.status === 200) {

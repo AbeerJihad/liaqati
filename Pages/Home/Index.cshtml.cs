@@ -1,18 +1,18 @@
+#nullable disable
 namespace liaqati_master.Pages.Home
 {
     public class IndexModel : PageModel
     {
-        public List<SportsProgram> SportProgram = new List<SportsProgram>();
-        private readonly UnitOfWork _unitOfWork;
+        public List<SportsProgram> SportProgram { get; set; }
+        private readonly IRepoProgram _IRepoProgram;
 
-        public IndexModel(UnitOfWork unitOfWork)
+        public IndexModel(IRepoProgram IRepoProgram)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoProgram = IRepoProgram;
         }
-        public void OnGet()
+        public async Task OnGet()
         {
-            SportProgram = _unitOfWork.SportsProgramRepository.Get().ToList();
-
+            SportProgram = (await _IRepoProgram.GetAllProgram()).ToList();
         }
     }
 }

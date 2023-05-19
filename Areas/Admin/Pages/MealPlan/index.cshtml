@@ -28,7 +28,7 @@
 
 
 <form method="get">
-   <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="staticBackdropLabel">تصفية</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -67,7 +67,7 @@
             </div>
         </div>
     </div>
- 
+
     <input type="hidden" name="CurPage" asp-for="@Model.MealPlansQueryParamters.CurPage" />
     <div class="container-lg ">
         <div class=" ">
@@ -116,8 +116,8 @@
                                     <h5 class="m-0">الفلاتر المطبقة:</h5>
                                     @foreach (var item in Model.ListOfSelectedFilters)
                                     {
-                                        <a asp-all-route-data="parms" asp-route-key="@item.Item1" asp-route-value="@item.Item2" class="btn btn-light btn-sm">
-                                            @item.Item2
+                                        <a asp-all-route-data="parms" asp-route-key="@item.PropartyName" asp-route-value="@item.PropartyValue" class="btn btn-light btn-sm">
+                                            @item.PropartyValue
                                             <i class="bi bi-x-lg"></i>
                                         </a>
                                     }
@@ -125,7 +125,7 @@
                             }
 
                         </div>
-                         
+
                         <div class="table-responsive table-hover">
                             <table class="table  table-borderless" id="Tbl">
                                 <thead>
@@ -158,24 +158,23 @@
                                                     </td>
                                                     <td class="">
                                                         <div class="img__box position-relative m-0  rounded-circle">
-                                                            <img width="40" alt="" class="position-absolute " src="@item.Image" />
+                                                            <img width="40" alt="" class="position-absolute " src="@item.Images" />
                                                         </div>
                                                     </td>
 
-                                                    <td>@item.Services!.Title</td>
-                                                    <td>@item.Services!.Price?.ToString("c")</td>
+                                                    <td>@item.Title</td>
+                                                    <td>@item.Price?.ToString("c")</td>
                                                     <td>@item.Length</td>
                                                     <td>@item.MealType</td>
                                                     <td>
                                                         <div class="d-flex gap-2">
-                                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn"
-                                                               style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
-                                                               type="button">
-                                                                <i class="bi bi-pencil-square"></i>
+                                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
+                                                                <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
                                                             </a>
                                                             <form method="post" asp-page="Delete" asp-route-id="@item.Id">
-                                                                <button hidden type="submit"></button>
-                                                                <a class="btn" onclick="DeleteFun(this)" style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"> <i class="bi bi-trash"></i> </a>
+                                                                <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
+                                                                    <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
+                                                                </a>
                                                             </form>
 
                                                         </div>
@@ -279,7 +278,7 @@
         <partial name="_ConfirmDeleteModel" />
         <partial name="_ImageViewer" />
     </div>
-  
+
 </form>
 
 

@@ -28,7 +28,7 @@
 
         public override string FormatErrorMessage(string name)
         {
-            return string.Format($"{0} Maximum allowed file size is {1} bytes.", name, _maxFileSize);
+            return string.Format($"{0} Maximum allowed File size is {1} bytes.", name, _maxFileSize);
         }
         public string GetErrorMessage()
         {

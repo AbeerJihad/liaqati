@@ -1,3 +1,4 @@
+#nullable disable
 namespace liaqati_master.Areas.Admin.Pages.Replyconsultations
 {
     public class IndexModel : PageModel
@@ -12,29 +13,24 @@ namespace liaqati_master.Areas.Admin.Pages.Replyconsultations
         }
 
         public string Message { get; set; }
-        public Consultation cons = new Consultation();
+        public Consultation? Consultation { get; set; }
+        public List<Replyconsultation> ListOfReplyconsultation { get; set; }
 
-        public List<Replyconsultation> repcons = new List<Replyconsultation>();
 
         public async Task OnGetAsync(string id)
         {
             if (id != null)
             {
-                cons = await _repocons.GetByIDAsync(id);
-
-
-                if (cons != null)
+                Consultation = await _repocons.GetByIDAsync(id);
+                if (Consultation != null)
                 {
-                    repcons = await _repocons.GetAllReplyAsync(id);
+                    ListOfReplyconsultation = await _repocons.GetAllReplyAsync(id);
                 }
                 else
                 {
                     Message = "NotFound";
                 }
-
             }
-
-
         }
     }
 }

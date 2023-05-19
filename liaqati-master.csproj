@@ -12,18 +12,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <COMReference Include="Microsoft.Office.Interop.Excel">
-	    <WrapperTool>tlbimp</WrapperTool>
-	    <VersionMinor>9</VersionMinor>
-	    <VersionMajor>1</VersionMajor>
-	    <Guid>00020813-0000-0000-c000-000000000046</Guid>
-	    <Lcid>0</Lcid>
-	    <Isolated>false</Isolated>
-	    <EmbedInteropTypes>true</EmbedInteropTypes>
-	  </COMReference>
-	</ItemGroup>
-
-	<ItemGroup>
 		<Content Include="wwwroot\node_modules\.package-lock.json" />
 		<Content Include="wwwroot\node_modules\bootstrap-icons\font\bootstrap-icons.css" />
 		<Content Include="wwwroot\node_modules\bootstrap-icons\font\bootstrap-icons.json" />
@@ -112,6 +100,7 @@
 		<None Include="Areas\Admin\Pages\Replyconsultations\Delete.cshtml" />
 		<None Include="Areas\Admin\Pages\Replyconsultations\Edit.cshtml" />
 		<None Include="Areas\Admin\Pages\Replyconsultations\Index.cshtml" />
+		<None Include="Areas\Identity\Pages\Account\Manage\Profile\Index.cshtml" />
 		<None Include="Pages\Articles\AllArticles.cshtml" />
 		<None Include="Pages\Articles\Components\MostViewedArticles\default.cshtml" />
 		<None Include="Pages\Articles\Index.cshtml" />

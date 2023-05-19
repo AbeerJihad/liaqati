@@ -124,17 +124,18 @@
                                                     <td>
                                                         <div class="d-flex gap-2">
 
-                                                            <a onclick="ShowDetails('@item.Id','@item.Name','@item.Target','@item.Description');" class="btn"
+                                                            <a onclick="ShowDetails('@item.Id','@item.Name','@item.Target','@item.Description');" class="btn btn-square btn-edit"
                                                                style="background-color: #8763b320; color:#3c077d;padding: 0.375rem 0.75rem;">
                                                                 <i class="bi bi-pencil-square"></i>
                                                             </a>
                                                             <form asp-page-handler="Delete" method="post" asp-route-id="@item.Id">
-                                                                <a class="btn"
+                                                                <a class="btn btn-square btn-delete"
                                                                    onclick="DeleteFun(this)"
                                                                    style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;">
                                                                     <i class="bi bi-trash"></i>
                                                                 </a>
                                                             </form>
+
                                                         </div>
                                                     </td>
                                                 </tr>

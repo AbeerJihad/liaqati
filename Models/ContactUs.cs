@@ -2,16 +2,20 @@
 {
     public class ContactUs : BaseEntity
     {
+        [Required, Display(Name = "الإسم الكامل")]
+        public string? FullName { get; set; }
+        [Required, Display(Name = "الإسم الكامل")]
 
+        public string? Email { get; set; }
+        [Required]
 
-        [Required, Display(Name = "الملاحظات"), StringLength(200, MinimumLength = 10, ErrorMessage = " رجاءً ادخل ملاحظاتك")]
-        public string Title { get; set; }
+        public string? PhoneIntro { get; set; }
+        [Required, Display(Name = "الإسم الكامل")]
 
-        //ForignKsy User Model
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        [Display(Name = "رقم المستخدم")]
-        public string UserId { get; set; }
-        public virtual User User { get; set; }
+        public string? Phone { get; set; }
+        [Required, Display(Name = "الملاحظات"), StringLength(500, MinimumLength = 10, ErrorMessage = " رجاءً ادخل ملاحظاتك")]
+
+        public string? MessageContent { get; set; }
 
     }
 }

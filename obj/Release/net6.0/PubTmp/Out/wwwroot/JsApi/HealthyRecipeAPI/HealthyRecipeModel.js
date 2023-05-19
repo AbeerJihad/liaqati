@@ -1,0 +1,35 @@
+﻿async function getHealthyRecipes(data = {}) {
+    let url = '';
+    let result;
+    try {
+        const response = await fetch('/api/HealthyApi/searchforHealty', {
+            method: "POST",
+            mode: "cors",
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: { "Content-Type": "application/json" },
+            redirect: "follow",
+            referrerPolicy: "no-referrer",
+            body: JSON.stringify(data)
+
+        });
+        console.log(response.status);
+        console.log( await response.json());
+
+        if (response.status === 200) {
+            result = await response.json();
+            console.log(result);
+        }
+        else {
+            console.error(json);
+            //`Error: ${json.title}`;
+        }
+    } catch (error) {
+        console.error(error);
+    }
+    return result;
+}
+
+
+
+

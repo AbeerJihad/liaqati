@@ -1,4 +1,5 @@
-﻿namespace liaqati_master.Areas.Admin.Pages.MealPlan
+﻿#nullable disable
+namespace liaqati_master.Areas.Admin.Pages.MealPlan
 {
     public class IndexModel : PageModel
     {
@@ -12,7 +13,7 @@
         }
         [BindProperty(SupportsGet = true)]
         public MealPlansQueryParamters MealPlansQueryParamters { get; set; }
-        public QueryPageResult<MealPlans> QueryPageResult { get; set; }
+        public QueryPageResult<MealPlanVM> QueryPageResult { get; set; }
         public bool IsGrid { get; set; }
         public IEnumerable<SelectListItem> lstPageSize { get; set; } = new List<SelectListItem>()
         {
@@ -20,7 +21,7 @@
             new SelectListItem(){Value="10", Text="10"},
             new SelectListItem(){Value="20", Text="20"}
         };
-        public List<(string, string)>? ListOfSelectedFilters { get; set; }
+        public List<AppliedFilters> ListOfSelectedFilters { get; set; }
 
         public IEnumerable<SelectListItem> Titles { get; set; }
         public IEnumerable<SelectListItem> Categoires { get; set; }
@@ -37,10 +38,7 @@
 
         public async Task OnGetAsync()
         {
-
-
             Categoires = (await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(MealPlans)]).Select(x => new SelectListItem() { Text = x.Name, Value = x.Id });
-
             if (!string.IsNullOrEmpty(MealPlansQueryParamters.CategoryId))
             {
                 Titles = (await _repoMealPlans.GetAllAsync()).Where(c => c.Services!.CategoryId == MealPlansQueryParamters.CategoryId).Select(x => new SelectListItem() { Text = x.Services!.Title, Value = x.Services.Title });

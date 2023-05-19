@@ -1,43 +1,33 @@
-using liaqati_master.Services.Repositories;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
+#nullable disable
 namespace liaqati_master.Pages.Consultations
 {
     public class ReplyconsultationModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
         private readonly IRepoConsultation _repocons;
 
-        public ReplyconsultationModel(UnitOfWork unitOfWork, IRepoConsultation repocons)
+        public ReplyconsultationModel(IRepoConsultation repocons)
         {
-            _unitOfWork = unitOfWork;
             _repocons = repocons;
         }
 
         public string Message { get; set; }
-        public Consultation cons = new Consultation();
-        public Replyconsultation repcons = new Replyconsultation();
+        public Consultation Cons { get; set; }
+        public List<Replyconsultation> Repcons { get; set; }
 
         public async Task OnGetAsync(string id)
         {
             if (id != null)
             {
-                cons = await _repocons.GetByIDAsync(id);
-
-
-                if (cons != null)
+                Cons = await _repocons.GetByIDAsync(id);
+                if (Cons != null)
                 {
-                    repcons = await _repocons.GetReplyAsync(id);
+                    Repcons = await _repocons.GetAllReplyAsync(id);
                 }
                 else
-                {          
+                {
                     Message = "NotFound";
                 }
-
             }
-
-
         }
     }
 }

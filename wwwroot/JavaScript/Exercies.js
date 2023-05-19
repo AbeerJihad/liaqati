@@ -289,7 +289,7 @@ function GetAll() {
         Size: 12,
     };
     console.table(parms);
-    postData("https://localhost:7232/api/ExerciseApi/searchforExercise", parms).then((data) => {
+    postData("/api/ExerciseApi/searchforExercise", parms).then((data) => {
         console.log(data);
         document.getElementById("rowExercisesIndex").innerHTML = ""
         data.listOfData.forEach(p => {

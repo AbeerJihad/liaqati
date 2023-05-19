@@ -6,7 +6,7 @@
         {"CurPage",Model.Parameters.CurPage.ToString()},
         {"SortBy",Model.Parameters.SortBy},
         {"SortOrder",Model.Parameters.SortOrder},
-        {"SearchTearm",Model.Parameters?.SearchTearm},
+        {"SearchTearm",Model.Parameters.SearchTearm??""},
         {"Size",Model.Parameters.Size.ToString()},
         {"CategoryId",Model.Parameters.CategoryId??""},
     };
@@ -15,116 +15,116 @@
 <link href="~/user/css/Consulting.css" rel="stylesheet" />
 
 <form method="get">
-<div class="container-fluid imgHeader position-relative">
-    <div class="row bgcolor">
-        <div class="p-5">
-            <h1 class="text-white fw-bolder text-center mt-2 pt-5">الاستشارات </h1>
-        </div>
-        <div class="p-0 g-0 row col-lg-10 justify-content-center mx-auto p-3 form-search">
-            <div class="col-12 my-2 my-lg-0 col-lg-6">
-                <input type="text" asp-for="Parameters.SearchTearm" name="SearchTearm" class="form-control rounded-end-0" placeholder="الاستشارة" />
+    <div class="container-fluid imgHeader position-relative">
+        <div class="row bgcolor">
+            <div class="p-5">
+                <h1 class="text-white fw-bolder text-center mt-2 pt-5">الاستشارات </h1>
             </div>
-            <div class="col-12 my-2 my-lg-0 col-lg-3 ">
-                <input placeholder="بحث" type="submit" value="بحث" class="form-control rounded-start-0 text-center" style="background-color: #e4dfff" />
+            <div class="p-0 g-0 row col-lg-10 justify-content-center mx-auto p-3 form-search">
+                <div class="col-12 my-2 my-lg-0 col-lg-6">
+                    <input type="text" asp-for="Parameters.SearchTearm" name="SearchTearm" class="form-control rounded-end-0" placeholder="الاستشارة" />
+                </div>
+                <div class="col-12 my-2 my-lg-0 col-lg-3 ">
+                    <input placeholder="بحث" type="submit" value="بحث" class="form-control rounded-start-0 text-center" style="background-color: #e4dfff" />
+                </div>
             </div>
-    </div>
-    </div>
-
-</div>
-
-
-<div class="container">
-    <div class="row">
-        <div>
-            <p class="fs-6 p-4">
-                الرئيسية
-                <img src="~/user/images/consultation/ic_expand_more_24px.png" asp-append-version="true"/>
-                الاستشارات
-            </p>
         </div>
 
+    </div>
 
 
-        <div class=" container-90 mt-3">
-
-            <div class="row p-0 g-0  form-search">
-                <form method="get">
-                <div class="col-12 m-2 my-lg-0 col-md-3 col-lg-2">
-                    <label type="text" id="name" name="name" class=" rounded-end-0">ترتيب الاستشارات حسب</label>
-                </div>
-                <div class="col-4 col-md-2  m-2">
-                    <select id="lstSort" onchange="submit()" name="SortBy"
-                            class="form-select" asp-for="Parameters.SortBy" asp-items="Model.SortList">
-                        <option value="" selected>احدث الاستشارات</option>
-                    </select>
-                </div>
-               
-                <div class="col-4 col-md-2 m-2">
-                            <select id="lstType" onchange="submit()" name="CategoryId"
-                            class="form-select" asp-for="Parameters.CategoryId" asp-items="Model.TypeList">
-                        <option value="" selected>نوع الاستشارات</option>
-                    </select>
-                </div>
-
-            </form>
+    <div class="container">
+        <div class="row">
+            <div>
+                <p class="fs-6 p-4">
+                    الرئيسية
+                    <img src="~/user/images/consultation/ic_expand_more_24px.png" asp-append-version="true" />
+                    الاستشارات
+                </p>
             </div>
 
-            <div class=" row justify-content-evenly">
-                <div class="col-lg-7 justify-content-center my-5">
-                    <div class="bglight p-2 "id="ConsultationsContainer">
 
-                    <!--card-->
-                   
-                </div>
-            </div>
-                <div class="col-lg-4 ">
-                    <div class=" divcolor p-3 m-1">
-                        @*/////*@
-                        <div class="justify-content-center  my-4 mx-auto p-3" style="background-image: url('/user/images/consultation/164195.png');background-repeat:no-repeat;">
-                            <div class="bgcolor fw-bolder text-center p-3 mt-5 m-2">
-                                <h4 class="">
-                                    لديك استفسار؟؟
-                                </h4>
-                                <p>لدينا نخبة من المدربين المختصيين للاجابة عن استفسارات خلال 24 ساعة</p>
 
-                            </div>
+            <div class=" container-90 mt-3">
 
-                            <div class="d-flex justify-content-center ">
-                                <button type="submit" class="text-white  rounded-3 fw-bold  border-0 p-3 mt-5 colobg">
-                                    <h5> ادخل سؤالك الان</h5>
-                                </button>
-                            </div>
+                <div class="row p-0 g-0  form-search">
+                    <form method="get">
+                        <div class="col-12 m-2 my-lg-0 col-md-3 col-lg-2">
+                            <label type="text" id="name" name="name" class=" rounded-end-0">ترتيب الاستشارات حسب</label>
                         </div>
-                        <div>
-                            
+                        <div class="col-4 col-md-2  m-2">
+                            <select id="lstSort" onchange="submit()" name="SortBy"
+                                    class="form-select" asp-for="Parameters.SortBy" asp-items="Model.SortList">
+                                <option value="" selected>احدث الاستشارات</option>
+                            </select>
+                        </div>
+
+                        <div class="col-4 col-md-2 m-2">
+                            <select id="lstType" onchange="submit()" name="CategoryId"
+                                    class="form-select" asp-for="Parameters.CategoryId" asp-items="Model.TypeList">
+                                <option value="" selected>نوع الاستشارات</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class=" row justify-content-evenly">
+                    <div class="col-lg-7 justify-content-center my-5">
+                        <div class="bglight p-2 " id="ConsultationsContainer">
 
                             <!--card-->
-                            @await Component.InvokeAsync("MostViewedConsultation")
 
-                            <div>
-                                <div class="d-flex my-4">
-                                    <div class="mx-3 colorbg"
-                                         style="height: 40px; width: 6px;"></div>
-                                    <h4 class="col-auto">احدث الاستشارات </h4>
-                                    <div class="mt-4 colorbg col" style="height: 2px; width: 60%; "></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class=" divcolor p-3 m-1">
+                            @*/////*@
+                            <div class="justify-content-center  my-4 mx-auto p-3" style="background-image: url('/user/images/consultation/164195.png');background-repeat:no-repeat;">
+                                <div class="bgcolor fw-bolder text-center p-3 mt-5 m-2">
+                                    <h4 class="">
+                                        لديك استفسار؟؟
+                                    </h4>
+                                    <p>لدينا نخبة من المدربين المختصيين للاجابة عن استفسارات خلال 24 ساعة</p>
+
                                 </div>
 
-                                @await Component.InvokeAsync("LastestConsultation")
+                                <div class="d-flex justify-content-center ">
+                                    <button type="submit" class="text-white  rounded-3 fw-bold  border-0 p-3 mt-5 colobg">
+                                        <h5> ادخل سؤالك الان</h5>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+
+
+                                <!--card-->
+                                @await Component.InvokeAsync("MostViewedConsultation")
+
+                                <div>
+                                    <div class="d-flex my-4">
+                                        <div class="mx-3 colorbg"
+                                             style="height: 40px; width: 6px;"></div>
+                                        <h4 class="col-auto">احدث الاستشارات </h4>
+                                        <div class="mt-4 colorbg col" style="height: 2px; width: 60%; "></div>
+                                    </div>
+
+                                    @await Component.InvokeAsync("LastestConsultation")
+
+                                </div>
 
                             </div>
 
                         </div>
 
+
                     </div>
-
-
                 </div>
-            </div>
             </div>
         </div>
     </div>
 </form>
-    @*paging*@
+@*paging*@
 <div class="container-lg mt-3">
     <div class="row p-0 g-0" id="Paging">
         <div class="col p-3 d-flex justify-content-center align-items-center"></div>

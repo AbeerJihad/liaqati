@@ -2,15 +2,16 @@
 {
     public class SportsProgramsViewComponent : ViewComponent
     {
-        private readonly UnitOfWork _unitOfWork;
-        public SportsProgramsViewComponent(UnitOfWork unitOfWork)
+        private readonly IRepoProgram _IRepoProgram;
+        public SportsProgramsViewComponent(IRepoProgram repoProgram)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoProgram = repoProgram;
+
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            List<SportsProgram>? ListOfSportsProgram = _unitOfWork.SportsProgramRepository.Get().Take(3).ToList();
+            List<SportsProgram>? ListOfSportsProgram = (await _IRepoProgram.GetAllProgram()).Take(3).ToList();
             return View(ListOfSportsProgram);
         }
 

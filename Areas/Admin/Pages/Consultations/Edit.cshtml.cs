@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
+﻿#nullable disable
 namespace liaqati_master.Areas.Admin.Pages.Consultations
 {
     public class EditModel : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IRepoConsultation _IRepoConsultation;
+        private readonly IRepoCategory _IRepoCategory;
 
-        public EditModel(UnitOfWork unitOfWork)
+        public EditModel(IRepoConsultation iRepoConsultation, IRepoCategory iRepoCategory)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoConsultation = iRepoConsultation;
+            _IRepoCategory = iRepoCategory;
         }
 
         [BindProperty]
@@ -18,54 +17,29 @@ namespace liaqati_master.Areas.Admin.Pages.Consultations
         public SelectList CategoriesSelect { get; set; }
 
 
-        public async Task<IActionResult> OnGetAsync(string? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
-            CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get().Where(c=>c.Target== "استشارات"), nameof(Category.Id), nameof(Category.Name));
-
-
-            if (id == null || _unitOfWork.ConsultationRepository == null)
+            CategoriesSelect = new SelectList(await _IRepoCategory.GetAllAsync(), nameof(Category.Id), nameof(Category.Name));
+            if (id == null || _IRepoConsultation == null)
             {
                 return NotFound();
             }
-
-            var articles = _unitOfWork.ConsultationRepository.GetByID(id);
-            if (articles == null)
+            var consultation = await _IRepoConsultation.GetByIDAsync(id);
+            if (consultation == null)
             {
                 return NotFound();
             }
-            Consultations = articles;
+            Consultations = consultation;
             return Page();
         }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            CategoriesSelect = new SelectList(_unitOfWork.CategoryRepository.Get(), nameof(Category.Id), nameof(Category.Name));
-
             if (!ModelState.IsValid)
             {
+                CategoriesSelect = new SelectList(await _IRepoCategory.GetAllAsync(), nameof(Category.Id), nameof(Category.Name));
                 return Page();
             }
-
-            _unitOfWork.ConsultationRepository.Update(Consultations);
-
-            try
-            {
-                _unitOfWork.Save();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (_unitOfWork.ConsultationRepository.GetByID(Consultations.Id) == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _IRepoConsultation.UpdateEntityAsync(Consultations);
             return RedirectToPage("./Index");
         }
 

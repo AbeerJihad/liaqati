@@ -37,7 +37,7 @@
                 <div class="d-flex  py-2">
                     <input class="form-control " asp-for="@Model.UserQueryParamters.Name" id="Name" name="Name" type="search" placeholder="بحث" aria-label="Search">
                 </div>
-              
+
                 <div class="d-flex ">
                     <select name="Specialization" class="form-select w-100" asp-for="@Model.UserQueryParamters.Specialization" id="single-select-Specialization" data-placeholder="من فضلك حدد التخصص " onchange="submit()">
                         <option value="اخصائي تغذية"> اخصائي تغذية  </option>
@@ -119,7 +119,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" width="50">
-                                            <input class="form-check-input " type="checkbox" id="chk-all" value="" id="flexCheckDefault">
+                                            <input class="form-check-input " type="checkbox" id="chk-all">
                                         </th>
                                         <th scope="col" width="100">الصورة</th>
                                         <th scope="col" width="200">الإسم الكامل</th>
@@ -133,7 +133,7 @@
                                 <tbody>
                                     @foreach (var item in Model.QueryPageResult.ListOfData)
                                     {
-                                        <tr>
+                                        <tr class="@(item.Active??false?"":"is-selected")">
                                             <td scope="row">
                                                 <label class="d-block">
                                                     <input class="checkbox_animated" type="checkbox">
@@ -150,9 +150,9 @@
                                             <td>@(DateTime.Now.Year - item.DateOfBirth?.Year)</td>
 
                                             <td>
-                                                @if (item.Active==true)
+                                                @if (item.Active == true)
                                                 {
-                                                   <span>نشط</span>
+                                                    <span>نشط</span>
                                                 }
                                                 else
                                                 {
@@ -160,9 +160,9 @@
                                                 }
 
                                             </td>
-                                           
+
                                             <td>
-                                                @if (item.Gender ==Gender.Female)
+                                                @if (item.Gender == Gender.Female)
                                                 {
                                                     <span>انثى</span>
                                                 }
@@ -174,149 +174,97 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <button class="btn"
-                                                            style="background-color: #8763b320; color:#3c077d;   padding: 0.375rem 0.75rem;"
-                                                            type="button">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </button>
-                                                    <button class="btn"
-                                                            style=" background-color: #d22d3d20; color:#d22d3d;padding: 0.375rem 0.75rem;"
-                                                            type="button">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
+                                                    <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-details" type="button">
+                                                        <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
+                                                    </a>    <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
+                                                        <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
+                                                    </a>
+                                                    <form method="post" asp-page="Delete" asp-route-id="@item.Id">
+                                                        <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
+                                                            <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
+                                                        </a>
+                                                    </form>
+
                                                 </div>
                                             </td>
                                         </tr>
                                     }
 
-                            </tbody> <tfoot>
-                                <tr class="border-top bg-light">
+                                </tbody>
+                                <tfoot>
+                                    <tr class="border-top bg-light">
 
-                                    <td colspan="10">
-                                        <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                            <div>
-                                                <span class="d-inline-block me-3 text-sm">
-                                                    الحقول من @Model.QueryPageResult.FirstRowOnPage إالى  @Model.QueryPageResult.LastRowOnPage من @Model.QueryPageResult.TotalCount
-                                                </span>
-                                            </div>
-                                            @{
-                                                var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
-                                                var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
-                                                var first = (Model.UserQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
-                                                var last = (Model.UserQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
-                                                var firstIndex = Math.Max(Model.UserQueryParamters.CurPage - 2, 1);
-                                                var lastIndex = Math.Min(Model.UserQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
-                                            }
-                                            <div class="d-flex gap-2 justify-content-center align-items-center ">
-
-
-                                                <div class="d-flex justify-content-center gap-2 align-items-center">
-                                                    <label asp-for="@Model.UserQueryParamters.Size" class="text-sm m-0">عدد الصفوف لكل صفحة</label>
-                                                    <select name="Size" class="form-select text-sm w-auto" asp-items="@Model.lstPageSize" asp-for="@Model.UserQueryParamters.Size" onchange="submit()">
-                                                    </select>
+                                        <td colspan="10">
+                                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                                <div>
+                                                    <span class="d-inline-block me-3 text-sm">
+                                                        الحقول من @Model.QueryPageResult.FirstRowOnPage إالى  @Model.QueryPageResult.LastRowOnPage من @Model.QueryPageResult.TotalCount
+                                                    </span>
                                                 </div>
-                                                <nav aria-label="Page navigation example ">
-                                                    <ul class="pagination  justify-content-end ">
-                                                        @{
-                                                            parms["CurPage"] = "1" ?? "";
-                                                        }
-                                                        <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
-                                                        @{
-                                                            parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
-                                                        }
-                                                        <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
-                                                        <li class="page-item">
-                                                            <a class="page-link active">
-                                                                <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
-                                                                    <span>  @Model.UserQueryParamters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
-                                                                </p>
-                                                            </a>
-                                                        </li>
-                                                        @{
-                                                            parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
-                                                        }
-                                                        <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
-                                                        @{
-                                                            parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
-                                                        }
-                                                        <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
-                                                    </ul>
-                                                </nav>
+                                                @{
+                                                    var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
+                                                    var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
+                                                    var first = (Model.UserQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                    var last = (Model.UserQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                    var firstIndex = Math.Max(Model.UserQueryParamters.CurPage - 2, 1);
+                                                    var lastIndex = Math.Min(Model.UserQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
+                                                }
+                                                <div class="d-flex gap-2 justify-content-center align-items-center ">
 
 
+                                                    <div class="d-flex justify-content-center gap-2 align-items-center">
+                                                        <label asp-for="@Model.UserQueryParamters.Size" class="text-sm m-0">عدد الصفوف لكل صفحة</label>
+                                                        <select name="Size" class="form-select text-sm w-auto" asp-items="@Model.lstPageSize" asp-for="@Model.UserQueryParamters.Size" onchange="submit()">
+                                                        </select>
+                                                    </div>
+                                                    <nav aria-label="Page navigation example ">
+                                                        <ul class="pagination  justify-content-end ">
+                                                            @{
+                                                                parms["CurPage"] = "1" ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
+                                                            <li class="page-item">
+                                                                <a class="page-link active">
+                                                                    <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
+                                                                        <span>  @Model.UserQueryParamters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
+                                                                    </p>
+                                                                </a>
+                                                            </li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
+                                                            @{
+                                                                parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
+                                                            }
+                                                            <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
+                                                        </ul>
+                                                    </nav>
+
+
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                         </table>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                        <div class="  d-none manage__data position-fixed    rounded-pill">
-                            <div class="h-100 p-20 d-flex gap-2 justify-content-between align-content-center align-items-center">
-                                <div class=" d-flex gap-2 justify-content-between align-content-center align-items-center">
-                                    <span class=" badge rounded-pill bg-danger " id="noOfSelectedItem">0</span>
-                                    <p class="text-white p-0 m-0 d-none  d-lg-inline">العناصر المحددة</p>
-                                </div>
-                                <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 text-white"
-                                        style="background:#3c3b4a;" type="button">
-                                    تعديل
-                                    <i class="bi bi-pencil-square me-lg-2"></i>
-                                </button>
-                                <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
-                                        id="BtnDelete" data-name="مستخدم" type="button">
-                                    حذف
-                                    <i class="bi bi-trash  me-lg-2"></i>
-                                </button>
-                                <button class="btn btn-pill p-2 px-lg-3 d-flex justify-content-center align-items-center  py-lg-2 btn-danger"
-                                        type="button" id="BtnCancelSelection">
-                                    إلغاء
-                                    <span class="d-none  d-lg-inline fw-bold"> تحديد </span><i class="bi bi-x-circle  me-lg-2"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <partial name="_Manage__data" />
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="modal fade" id="modalConfirmation" tabindex="-1" aria-labelledby="modalConfirmation" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">تأكيد الجذف</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="confirm-massage"></p>
-                        <div class="mb-3">
-                            <label for="confirmText" class="fw-normal">اكتب <strong>تأكيد</strong> للمضي قدمًا في الطلب:</label>
-                            <input type="text" class="form-control" placeholder="تأكيد" id="confirmText">
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-between">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                        <button type="button" class="btn btn-primary" id="BtnConfirmDelete" disabled>حذف</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="image__viewer d-none flex-column justify-content-center align-items-center position-fixed min-vw-100 top-0 start-0 min-vh-100">
-            <div class="" style="width:600px;">
-                <div class="d-flex justify-content-between align-items-center p-3">
-                    <button id="BtnClose" class="btn bg-white rounded-circle "> <i class="bi bi-x"></i></button>
-                    <p class="title p-0 m-0 text-white h5"></p>
-                </div>
-                <div class="img__box2">
-                    <img src="" alt="" class="img-fluid">
-                </div>
-            </div>
-
-        </div>
-
+        <partial name="_ConfirmDeleteModel" />
+        <partial name="_ImageViewer" />
     </div>
 
-   
-   
+
+
 </form>
 
 

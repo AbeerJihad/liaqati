@@ -1,17 +1,14 @@
-﻿namespace liaqati_master.Pages.ProductsPages
+﻿#nullable disable
+namespace liaqati_master.Pages.ProductsPages
 {
-
     [AllowAnonymous]
-
     public class Index3Model : PageModel
     {
-        private readonly UnitOfWork _unitOfWork;
         private readonly IRepoProducts _IRepoProducts;
 
-        public Index3Model(UnitOfWork unitOfWork, IRepoProducts IRepoProducts)
+        public Index3Model(IRepoProducts IRepoProducts)
         {
 
-            _unitOfWork = unitOfWork;
             _IRepoProducts = IRepoProducts;
         }
 

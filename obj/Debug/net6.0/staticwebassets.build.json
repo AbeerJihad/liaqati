@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iOMJnYVXzR7MQEsE1vvXTzjKDz88d6lppT8dave2mOM=",
+  "Hash": "0TEZFiNYlOYP/JzxsxR2qAV/egy/ndt4jS6iEPtMeEU=",
   "Source": "liaqati-master",
   "BasePath": "_content/liaqati-master",
   "Mode": "Default",
@@ -6188,6 +6188,57 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\vector-map\\map-vector.js"
     },
     {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\aos.css",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "css/aos.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\aos.css"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\aos.js",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "css/aos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\aos.js"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\clender\\main.min.css",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "css/clender/main.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\clender\\main.min.css"
+    },
+    {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\counter\\style.css",
       "SourceId": "liaqati-master",
       "SourceType": "Discovered",
@@ -10217,6 +10268,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\landing\\xpvlzfimzgo18_article.png"
     },
     {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\MainBG.png",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "Images/MainBG.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MainBG.png"
+    },
+    {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\MealPlan\\1.jpg",
       "SourceId": "liaqati-master",
       "SourceType": "Discovered",
@@ -10317,6 +10385,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\meal-plan-bg-1.png"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Notification .png",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "Images/Notification .png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Notification .png"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Path 942.png",
@@ -11441,6 +11526,23 @@
       "OriginalItemSpec": "wwwroot\\JavaScript\\AddExercies.js"
     },
     {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\aos.js",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "JavaScript/aos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JavaScript\\aos.js"
+    },
+    {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\clender\\main.min.js",
       "SourceId": "liaqati-master",
       "SourceType": "Discovered",
@@ -11458,12 +11560,12 @@
       "OriginalItemSpec": "wwwroot\\JavaScript\\clender\\main.min.js"
     },
     {
-      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\clender\\script.js",
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\DetailsProgram.js",
       "SourceId": "liaqati-master",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
       "BasePath": "_content/liaqati-master",
-      "RelativePath": "JavaScript/clender/script.js",
+      "RelativePath": "JavaScript/DetailsProgram.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -11472,7 +11574,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\JavaScript\\clender\\script.js"
+      "OriginalItemSpec": "wwwroot\\JavaScript\\DetailsProgram.js"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\Exercies.js",
@@ -11524,6 +11626,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\JavaScript\\HealthyRecipecs.js"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\mealprogramDetails.js",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "JavaScript/mealprogramDetails.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JavaScript\\mealprogramDetails.js"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\Programs.js",

@@ -1,455 +1,392 @@
-﻿@page
+﻿@page "/"
 @model liaqati_master.Pages.Home.Index2Model
 @{
 }
 @section Styles{
     <link rel="stylesheet" href="~/User/css/PieChart.css" asp-append-version="true" />
-    <link href="~/css/landing.css" rel="stylesheet" />
-
+    <link href="~/css/landing.css" rel="stylesheet" asp-append-version="true" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/aos.css" />
 
 }
 
-
-
-
-<div class="position-relative w-100 min-vh-100 overflow-hidden ">
-    <video autoplay muted loop id="myVideo" class="d-none d-xl-block">
-        <source src="~/user/video/1.mp4" type="video/mp4" />
-        Your browser does not support HTML5 video.
-    </video>
-    <div class="content">
-        <div class="container-fluid p-0 min-vh-100 position-absolute start-0 top-0 header">
-            <div class="container-xl min-vh-100 d-flex flex-column justify-content-end align-items-center"
-                 style="padding-top: 120px !important">
-                <div class="w-100">
-                    <h1 class="text-white text-center py-3 fw-bold">
-                        لياقتي لحياة أفضل وجسم صحي سليم
-                    </h1>
-                    <form action=""
-                          method="get"
-                          class="p-0 g-0 row col-lg-10 mx-auto form-search">
-                        <div class="col-12 my-2 my-lg-0 col-lg-6">
-                            <input type="text"
-                                   class="form-control rounded-end-0"
-                                   name="te"
-                                   placeholder="الخدمة" />
-                        </div>
-                        <div class="col-12 my-2 my-lg-0 col-lg-3">
-                            <select title="Select Type Of Service"
-                                    id="MySelect"
-                                    name="select"
-                                    class="wide rounded-0" style="display:none;">
-                                <option value="نوع الخدمة">نوع الخدمة</option>
-                                <option value="1نوع الخدمة">1نوع الخدمة</option>
-                                <option value="2نوع الخدمة">نوع الخدمة1</option>
-                                <option value="3نوع الخدمة">نوع الخدمة1</option>
-                            </select>
-                        </div>
-                        <div class="col-12 my-2 my-lg-0 col-lg-3">
-                            <button placeholder="بحث"
-                                    type="submit"
-                                    class="btn rounded-start-0 w-100 text-center btn-main"
-                                    style="height:50px">
-                                بحث
-                            </button>
-                        </div>
-                    </form>
-                    <div>
-                        <div class=""></div>
-                        <h1 class="text-white text-center py-3 fw-bold">خدمات لياقتي</h1>
+<div class="min-vh-100 overflow-hidden main-header w-100">
+    <div class="min-vh-100 w-100 d-flex h-100 justify-content-center align-items-center">
+        <div class="row row-cols-1 row-cols-lg-2 w-100 h-100 g-0 p-0 m-0 flex-column-reverse flex-lg-row">
+            <div class="col position-relative h-100 px-5" data-aos="fade-left">
+                <div class="d-flex h-100 sec min-vh-100 justify-content-center raduisbg align-items-center position-relative p-5">
+                    <div class="">
+                        <h1 class="text-white text-center header-font fw-bold lh-lg">
+                            لياقتي
+                            <br />
+                            لحياة أفضل <br />
+                            وجسم صحي سليم
+                        </h1>
                     </div>
-                    <div class="row pb-5 row-cols-1 row-cols-md-2 row-cols-xl-3 g-0 p-0 justify-content-center">
-                        <div class="col p-3 ps-lg-0">
-                            <div class="p-3 h-100 bg-white">
-                                <div class="row align-items-center row-cols-2">
-                                    <div class="col d-flex justify-content-center align-items-center">
-                                        <img src="~/user/images/ourServices/3.png"
-                                             class="img-fluid"
-                                             alt="" />
-                                    </div>
-                                    <div class="col">
-                                        <h3>وصفات غذائية</h3>
-                                        <p>
-                                            وصفات متنوعة تساعدك على اتنباع النظام الغذائي الذي تحب
-                                            دون حرمان
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                            <a asp-page="/HealthyRecipes/index" class="btn btn-main">اذهب الان</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col p-3">
-                            <div class="p-3 h-100 bg-white">
-                                <div class="row align-items-center row-cols-2">
-                                    <div class="col d-flex justify-content-center align-items-center">
-                                        <img src="~/user/images/ourServices/2.png"
-                                             class="img-fluid"
-                                             alt="" />
-                                    </div>
-                                    <div class="col">
-                                        <h3>أنظمة غذائية</h3>
-                                        <p>
-                                            أنظمة غذائية صحية تساعدك على اتباع نظام غذائي مناسب
-                                            لجسمك
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                            <a asp-page="/MealPlan/index" class="btn btn-main">اذهب الان</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col p-3 pe-lg-0">
-                            <div class="p-3 h-100 bg-white">
-                                <div class="row align-items-center row-cols-2">
-                                    <div class="col d-flex justify-content-center align-items-center">
-                                        <img src="~/user/images/ourServices/1.png"
-                                             class="img-fluid"
-                                             alt="" />
-                                    </div>
-                                    <div class="col">
-                                        <h3>تمارين رياضية</h3>
-                                        <p>
-                                            تمارين رياضية تساعدك على الحصول على جسم رشيق وصحة جيدة
-                                        </p>
-                                        <div class="d-flex justify-content-end">
-                                            <a asp-page="/exercises/index" class="btn btn-main">اذهب الان</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="col position-relative h-100"
+                 data-aos="fade-right"
+                 data-aos-anchor-placement="top-center">
+                <div class="d-flex sec h-100 min-vh-100 justify-content-center align-items-center position-relative p-4">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <h1 class="text-white header-font text-decoration-underline">
+                            هيا لنبدأ من جديد
+                        </h1>
+                        <button class="btn my-2 btn-startnow text-white fs-3 fw-bold px-5">
+                            ابدأ الآن
+                        </button>
+                        <button class="btn my-2 bg-white btn-tas fs-3 fw-bold px-5">
+                            تسجيل
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-<!--section-->
-<div class="container">
+<div class="container pt-5">
     <div class="row justify-content-center">
-        @*        <img src="~/images/landing/food.png" />
-        *@        <div class=" col-md-6 justify-content-center m-auto">
-
-            <div class="col-8 col-md-5 col-lg-4 justify-content-center m-auto">
-                <hr class="hrcolor " />
-                <h1>من نحــن</h1>
-                <img class="my-3" src="~/images/landing/Mask Group 33.png" />
-            </div>
-            <div class="col-9 justify-content-center m-auto">
-                <p class="fs-5">
-                    نقدم لك المزيد من المعرفة حول الحياة والروتين الصحي
+        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center m-auto">
+            <div class="d-flex flex-column align-items-center justify-content-center px-lg-5">
+                <div class="hrcolor"></div>
+                <h1 class="fw-bold text-center"
+                    data-aos="fade-up"
+                    data-aos-delay="50">
+                    من نحــن
+                </h1>
+                <img class="my-3"
+                     src="~/images/landing/Mask Group 33.png"
+                     data-aos="fade-up"
+                     data-aos-delay="100"
+                     alt="" />
+                <p class="fs-4 text-center" data-aos="fade-up" data-aos-delay="140">
+                    نقدم لك المزيد من المعرفة حول الحياة والروتين الصحي لياقتي تهتم
+                    بالتغذية السليمة لأصحاب الأمراض المزمنة وكذلك الأطفار الذين يعانون
+                    من السمنة
                 </p>
-                <p class="fs-5 m-auto">
-                    لياقتي تهتم بالتغذية السليمة لأصحاب الأمراض المزمنة وكذلك الأطفار الذين
-                    يعانون من السمنة
-                </p>
-
             </div>
         </div>
     </div>
     <!--section2-->
-    <div class="row justify-content-between my-5">
-        <div class="col-md-5 my-5">
+    <div class="row d-flex justify-content-between align-items-center">
+        <div class="col-md-6 my-5 px-xl-5">
             <div class="d-flex my-3">
-                <div style="height: 40px; width: 4px; background-color: #FF725E"></div>
-                <h3 class="mx-2">ماذا نقدم</h3>
+                <div style="height: 40px; width: 4px; background-color: #ff725e"></div>
+                <h2 class="mx-2 fw-bold" data-aos="fade-up">ماذا نقدم</h2>
             </div>
             <ul>
-                <li class="fs-5 my-2"> فريق متميز من مدربين اللياقة البدنية وخبراء التغذية </li>
-                <li class="fs-5 my-2">برامج رياضية يمكنك الاشتراك بها بكل سهولة </li>
-                <li class="fs-5 my-2">أنظمة غذائية عالمية</li>
-                <li class="fs-5 my-2">وصفات صحية مدروسة على أيدي اخصائي التغذية</li>
-                <li class="fs-5 my-2">معدات واجهزة خاصة باللياقة البدنية بأسعار مميزة</li>
-                <li class="fs-5 my-2">مكملات غذائية لتقوية الجسم والحفاظ عليه من التغيرات </li>
+                <li class="fs-4 my-2" data-aos="fade-left" data-aos-delay="40">
+                    فريق متميز من مدربين اللياقة البدنية وخبراء التغذية
+                </li>
+                <li class="fs-4 my-2" data-aos="fade-left" data-aos-delay="40">
+                    برامج رياضية يمكنك الاشتراك بها بكل سهولة
+                </li>
+                <li class="fs-4 my-2" data-aos="fade-left" data-aos-delay="40">
+                    أنظمة غذائية عالمية
+                </li>
+                <li class="fs-4 my-2" data-aos="fade-left" data-aos-delay="40">
+                    وصفات صحية مدروسة على أيدي اخصائي التغذية
+                </li>
+                <li class="fs-4 my-2" data-aos="fade-left" data-aos-delay="40">
+                    معدات واجهزة خاصة باللياقة البدنية بأسعار مميزة
+                </li>
+                <li class="fs-4 my-2" data-aos="fade-left" data-aos-delay="40">
+                    مكملات غذائية لتقوية الجسم والحفاظ عليه من التغيرات
+                </li>
             </ul>
+            <a href="" class="text-dark text-decoration-none">
+                <div class="d-flex justify-content-end align-items-end">
+                    <span class="d-block fw-bold"> إقرأ المزيد </span>
+                    <i class="bx bx-arrow-back m-0 d-block fw-bold ms-3"></i>
+                </div>
+            </a>
         </div>
-        <div class="col-md-5">
-            <img class="w-100" src="~/images/landing/Online Personal Trainer-pana.png" />
+        <div class="col-md-6 px-xl-5">
+            <img class="w-100 p-xl-5"
+                 data-aos="zoom-in"
+                 src="~/images/landing/Online Personal Trainer-pana.png"
+                 alt="" />
         </div>
     </div>
 </div>
+<div class="container-xl Service">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center align-items-center">
+        <div class="col p-3 p-lg-5">
+            <div class="d-flex flex-column flex-lg-column-reverse justify-content-center align-items-center">
+                <div class="position-relative my-2 divhover" data-aos="zoom-in">
+                    <img src="~/images/landing/xpvlzfimzgo18_article.png"
+                         alt=""
+                         class="w-100 img-fluid" />
 
-@await Component.InvokeAsync("LiaqatiStatistic")
-
-
-
-
-<!--section3-->
-<div class="container my-5">
-    <div class="row justify-content-between">
-        <!--card1-->
-        <div class="d-none d-md-block col-md-3">
-            <p class="fs-5 m-auto">
-                اتبع النظام الغذائي المناسب لجسمك تحت اشراف أخصائي التغذية أنظمة خاصة بأصحاب
-                الأمراض المزمنة
-            </p>
-            <div class="d-flex justify-content-center m-3">
-                <a asp-page="/MealPlan/index"> <img width="20" src="~/images/landing/Group 937.png" />  </a>
-            </div>
-
-            <div class="position-relative my-2 divhover ">
-                <img src="~/images/landing/xpvlzfimzgo18_article.png" class="w-100  img-fluid" />
-
-                <div class="d-flex w-100 h-100  position-absolute poss">
-                    <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
-                        أنظمة
-                        غذائية
-                    </h1>
+                    <div class="d-flex w-100 h-100 position-absolute poss">
+                        <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
+                            أنظمة غذائية
+                        </h1>
+                    </div>
+                </div>
+                <div>
+                    <p class="fs-5 m-auto text-center" data-aos="fade-down">
+                        اتبع النظام الغذائي المناسب لجسمك تحت اشراف أخصائي التغذية أنظمة
+                        خاصة بأصحاب الأمراض المزمنة
+                    </p>
+                    <div class="d-flex justify-content-center m-3">
+                        <img width="20" src="~/images/landing/Group 937.png" alt="" />
+                    </div>
                 </div>
             </div>
-
+        </div>
+        <div class="col order-first order-md-0 p-3 p-lg-5">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div>
+                    <div class="hrcolor mb-3"></div>
+                    <h2 class="d-flex justify-content-center fw-bold mb-3">
+                        خدمات لياقتي
+                    </h2>
+                </div>
+                <div class="position-relative my-2 divhover" data-aos="zoom-in">
+                    <img s
+                         src="~/images/landing/Group 940.png"
+                         class="w-100 imgsize img-fluid"
+                         alt="" />
+                    <div class="d-flex w-100 h-100 position-absolute poss">
+                        <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
+                            وصفات صحية
+                        </h1>
+                    </div>
+                </div>
+                <div>
+                    <p class="fs-5 m-auto text-center" data-aos="fade-up">
+                        حضر وجبتك الآن من الوصفات الصحية لتمتع بجسم سليم وصفات سهلة
+                        وسريعة التحضير
+                    </p>
+                    <div class="d-flex justify-content-center m-3">
+                        <img width="20" src="~/images/landing/Group 937.png" alt="" />
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!--card2-->
-        <div class="col-md-3">
-            <hr class="hrcolor " />
-            <h2 class="d-flex justify-content-center fw-bold my-3">خدمات لياقتي</h2>
-            <div class="position-relative my-2 divhover">
-                <img s src="~/images/landing/Group 940.png" class="w-100 imgsize img-fluid " />
-                <div class="d-flex w-100 h-100  position-absolute poss">
-                    <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
-                        وصفات
-                        صحية
-                    </h1>
+        <div class="col p-3 p-lg-5">
+            <div class="d-flex flex-column flex-lg-column-reverse justify-content-center align-items-center">
+                <div class="position-relative my-2 divhover" data-aos="zoom-in">
+                    <img src="~/images/landing/Group 941.png"
+                         alt=""
+                         class="w-100 imgsize img-fluid" />
 
+                    <div class="d-flex w-100 h-100 position-absolute poss">
+                        <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
+                            برامج رياضية
+                        </h1>
+                    </div>
                 </div>
-            </div>
-            <p class="fs-5 m-auto">
-                حضر وجبتك الآن من الوصفات الصحية لتمتع بجسم سليم
-                وصفات سهلة وسريعة التحضير
-            </p>
-            <div class="d-flex justify-content-center m-3">
-                <a asp-page="/HealthyRecipes/index"> <img width="20" src="~/images/landing/Group 937.png" />  </a>
-            </div>
-
-        </div>
-
-        <!--card1-->
-        <div class="d-md-none">
-
-            <div class="position-relative my-2 divhover ">
-                <img src="~/images/landing/xpvlzfimzgo18_article.png" class="w-100  img-fluid " />
-
-                <div class="d-flex w-100 h-100  position-absolute poss">
-                    <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
-                        أنظمة
-                        غذائية
-                    </h1>
+                <div>
+                    <p class="fs-5 m-auto text-center" data-aos="fade-down">
+                        اتبع النظام الغذائي المناسب لجسمك تحت اشراف أخصائي التغذية أنظمة
+                        خاصة بأصحاب الأمراض المزمنة
+                    </p>
+                    <div class="d-flex justify-content-center m-3">
+                        <img width="20" src="~/images/landing/Group 937.png" alt="" />
+                    </div>
                 </div>
-            </div>
-
-            <p class="fs-5 m-auto">
-                اتبع النظام الغذائي المناسب لجسمك تحت اشراف أخصائي التغذية أنظمة خاصة بأصحاب
-                الأمراض المزمنة
-            </p>
-            <div class="d-flex justify-content-center m-3">
-                <a asp-page="/SportProgram/index"> <img width="20" src="~/images/landing/Group 937.png" />  </a>
-            </div>
-
-
-        </div>
-
-        <!--card3-->
-        <div class="col-md-3">
-
-            <div class="position-relative my-2 divhover">
-                <img src="~/images/landing/Group 941.png" class="w-100  imgsize  img-fluid " />
-
-                <div class="d-flex w-100 h-100  position-absolute poss">
-                    <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
-                        برامج
-                        رياضية
-                    </h1>
-
-                </div>
-            </div>
-            <p class="fs-5 m-auto">
-                اتبع النظام الغذائي المناسب لجسمك تحت اشراف أخصائي التغذية أنظمة خاصة بأصحاب
-                الأمراض المزمنة
-            </p>
-            <div class="d-flex justify-content-center m-3">
-                <a asp-page="/SportProgram/index"> <img width="20" src="~/images/landing/Group 937.png" />  </a>
             </div>
         </div>
     </div>
 </div>
+<div class="container-xl Service">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center align-items-center">
+        <div class="col p-3 p-lg-5">
+            <div class="d-flex flex-column flex-lg-column-reverse justify-content-center align-items-center">
+                <div class="position-relative my-2 divhover" data-aos="zoom-in">
+                    <img src="~/images/landing/xpvlzfimzgo18_article.png"
+                         alt=""
+                         class="w-100 img-fluid" />
 
+                    <div class="d-flex w-100 h-100 position-absolute poss">
+                        <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
+                            أنظمة غذائية
+                        </h1>
+                    </div>
+                </div>
+                <div data-aos="fade-down">
+                    <p class="fs-5 m-auto text-center" data-aos="fade-down">
+                        اتبع النظام الغذائي المناسب لجسمك تحت اشراف أخصائي التغذية أنظمة
+                        خاصة بأصحاب الأمراض المزمنة
+                    </p>
+                    <div class="d-flex justify-content-center m-3">
+                        <img width="20" src="~/images/landing/Group 937.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col order-first order-md-0 p-3 p-lg-5">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div>
+                    <div class="hrcolor mb-3"></div>
+                    <h2 class="d-flex justify-content-center fw-bold mb-3">
+                        خدمات لياقتي
+                    </h2>
+                </div>
+                <div class="position-relative my-2 divhover" data-aos="zoom-in">
+                    <img s
+                         src="~/images/landing/Group 940.png"
+                         class="w-100 imgsize img-fluid"
+                         alt="" />
+                    <div class="d-flex w-100 h-100 position-absolute poss">
+                        <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
+                            وصفات صحية
+                        </h1>
+                    </div>
+                </div>
+                <div data-aos="fade-up">
+                    <p class="fs-5 m-auto text-center">
+                        حضر وجبتك الآن من الوصفات الصحية لتمتع بجسم سليم وصفات سهلة
+                        وسريعة التحضير
+                    </p>
+                    <div class="d-flex justify-content-center m-3">
+                        <img width="20" src="~/images/landing/Group 937.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- ////// -->
+        <div class="col p-3 p-lg-5">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="position-relative my-2 divhover" data-aos="zoom-in">
+                    <img src="~/images/landing/Group 941.png"
+                         alt=""
+                         class="w-100 imgsize img-fluid" />
 
+                    <div class="d-flex w-100 h-100 position-absolute poss">
+                        <h1 class="text-white h-100 w-100 d-flex justify-content-center align-items-center m-auto">
+                            برامج رياضية
+                        </h1>
+                    </div>
+                </div>
+                <div data-aos="fade-up">
+                    <p class="fs-5 m-auto text-center">
+                        اتبع النظام الغذائي المناسب لجسمك تحت اشراف أخصائي التغذية أنظمة
+                        خاصة بأصحاب الأمراض المزمنة
+                    </p>
+                    <div class="d-flex justify-content-center m-3">
+                        <img width="20" src="~/images/landing/Group 937.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container-fluid Product mb-5 pt-0 p-5 my-5">
-
-
-    <div class="container w-100 Pro align-items-center justify-content-center pt-0 p-5 my-5">
-
-
-        <div class="row justify-content-center  ">
-            <h1 style="border-top: 7px solid #B9AFF5; width: auto;">منتجات لياقتي </h1>
+    <div class="container-lg w-100 Pro align-items-center justify-content-center p-lg-5 py-lg-0 my-5">
+        <div class="row justify-content-center">
+            <h1 class="mb-5"
+                style="border-top: 7px solid #b9aff5; width: auto"
+                data-aos="fade-up">
+                منتجات لياقتي
+            </h1>
         </div>
+        <div class="position-relative min-vh-100">
+            <div class="rectangle d-none d-md-block h-100 min-vh-100 row g-0 m-0 p-0">
+                <img class="d-none d-md-block position-absolute p-0 m-0 imgpo"
+                     height="200"
+                     alt=""
+                     src="~/images/landing/BackR.png" />
+            </div>
+            <div class="Products-index w-100 g-0 m-0 h-100 top-0 d-flex flex-column start-0">
+                <div class="d-flex flex-column flex-md-row col-lg-8 justify-content-center align-items-center gap-5">
+                    <div class="m-0 p-0">
+                        <div class="position-relative m-0 w-100" data-aos="fade-up">
+                            <img class="m-0 p-0"
+                                 height="280"
+                                 width="210"
+                                 alt=""
+                                 src="~/images/landing/pexels-jellybee-8940754.png" />
 
-        <div class="rectangle position-relative row">
-            <img class="d-none d-md-block position-absolute p-0 m-0 imgpo" height="200" src="~/images/landing/BackR.png" />
+                            <div class="imgpos m-0 d-none d-md-block position-absolute">
+                                <img class="m-0 p-0"
+                                     height="280"
+                                     width="210"
+                                     alt=""
+                                     src="~/images/landing/pexels-correxiko-collagen-6475111.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" ">
+                        <h4 class="text-dark my-3 text-center" data-aos="fade-up">
+                            نقدم لك المكملات الغذائية اللازمة التي تعمل على تقوية جسمك
+                            وتساعدك على الوصول الي جسم رشيق وصحي
+                        </h4>
+                    </div>
+                </div>
 
-            <div class="row">
-                <div class="col-12 col-md-3 m-0 p-0">
-                    <div class=" position-relative m-0 w-100 ">
-                        <img class="m-0 p-0" height="280" width="210" src="~/images/landing/pexels-jellybee-8940754.png">
+                <div class="d-flex flex-column-reverse flex-md-row col-lg-8 align-self-end justify-content-center align-items-center gap-5">
+                    <div class="">
+                        <h4 class="text-dark my-3 text-center" data-aos="fade-up">
+                            تم توفير جميع أجهزة وأدوات اللياقة البدنية والرياضية حتى
+                            تستطيع ممارسة جميع أنواع الرياضة
+                        </h4>
+                    </div>
+                    <div class="d-flex p-0 m-0">
+                        <div class="position-relative p-0 m-0" data-aos="fade-up">
+                            <img alt=""
+                                 height="280"
+                                 width="210"
+                                 src="~/images/landing/pexels-pixabay-39671.png" />
 
-
-                        <div class="imgpos m-0  d-none d-md-block position-absolute">
-                            <img class="m-0 p-0" height="280" width="210"
-                                 src="~/images/landing/pexels-correxiko-collagen-6475111.png">
+                            <div class="imgpos2 d-none d-md-block position-absolute">
+                                <img alt=""
+                                     height="280"
+                                     width="210"
+                                     src="~/images/landing/pexels-kseniia-lopyreva-4959811.png" />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 m-auto">
-                    <h4 class="text-dark my-5">
-                        نقدم لك المكملات الغذائية اللازمة التي تعمل على تقوية جسمك وتساعدك على الوصول
-                        الي جسم رشيق وصحي
-                    </h4>
-
-                </div>
-
-            </div>
-
-            <div class="row p-0 m-0 ">
-                <div class="col-2"></div>
-                <div class="col-md-4 m-auto">
-                    <h4 class="text-dark my-3">
-                        تم توفير جميع أجهزة وأدوات اللياقة البدنية والرياضية حتى تستطيع ممارسة جميع
-                        أنواع الرياضة
-                    </h4>
-                </div>
-
-                <div class="col-md-3 d-flex p-0 m-0  justify-content-end">
-                    <div class="position-relative p-0 m-0 ">
-                        <img height="280" width="210" src="~/images/landing/pexels-pixabay-39671.png">
-
-
-                        <div class="imgpos2 d-none d-md-block  ms-5 position-absolute">
-                            <img height="280" width="210" src="~/images/landing/pexels-kseniia-lopyreva-4959811.png">
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
         </div>
     </div>
-
-
-
-
-
 </div>
-
-
-
-
-<div class="container   my-5">
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 text-center">
-            <img src="~/images/landing/group 1740.png" />
-            <p class="">  شحن سريع </p>
-            <p class=""> يتم التسليم غضون 2-3 ايام العمل </p>
-
-        </div>
-
-
-        <div class="col-12 col-md-6 col-lg-4   text-center">
-            <img src="~/images/landing/group 1741.png" />
-            <p class="">امكامية الترجيع</p>
-            <p class="">   اذا لم تكن راضيا , يمكنك ارجاع المنتج في وقت خلال 30 يوما </p>
-
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4 text-center mx-md-auto mx-lg-0">
-
-            <img src="~/images/landing/group 1742.png" />
-            <p class=""> استقسار</p>
-            <p class="">  راسلنا و سنسعد بمساعدتك </p>
-
-        </div>
-
-    </div>
-
-
-</div>
-
-
-
-<!-- /// -->
 <div class="container-fluid Modawana">
-
-    <div class="container text-center">
-
-        <div class="row justify-content-center ">
-            <h1 style="border-top: 7px solid #B9AFF5; width: auto;">المدونة</h1>
-
-
-
+    <div class="container-xl pb-5 text-center">
+        <div class="row justify-content-center g-0 p-0">
+            <h1 style="border-top: 7px solid #b9aff5; width: auto">المدونة</h1>
         </div>
 
-        <h5 class=" lh-sm  fs-4 col-12 col-lg-4   m-auto mt-2 mb-5">مقالات مدعومة بالبحوث لمساعدتك على رعاية جسمك وعقلك</h5>
-        <div class=" row d-flex align-items-center text-dark justify-content-center">
+        <h5 class="lh-sm fs-4 col-12 col-lg-4 m-auto mt-2" data-aos="fade-up">
+            مقالات مدعومة بالبحوث لمساعدتك على رعاية جسمك وعقلك
+        </h5>
+        <div class="row pb-5 d-flex align-items-center text-dark justify-content-center">
+
 
             @foreach (var item in Model.articles)
             {
-
-                @*       <div class=" col-12 col-md-6 col-lg-4     p-4 " style="border-radius: 40px;">
-
-
-            <div class="my-5 divhover  position-relative p-0 m-0 " style="border-radius: 40px;">
-            <img src="@item.Image" style="border-radius: 40px;" class="img-fluid h-100  w-100" />
-            <div class=" py-3 position-absolute poss1 " style="border-radius: 0 0 40px 40px;">
-            <div class="row d-flex  px-3 justify-content-between">
-            <p class=" text-end text-secondary fw-bold" style="font-size: 20px;"> @item.Title</p>
-            <div class=" text-start ps-4 Divhidden ">
-            <img width="30" src="~/images/landing/Path 1698.png" />
-            <img width="20" src="~/images/landing/heart-svgrepo-com (1).png" />
-
-
-            </div>
-            </div>
-
-            <p class="w-100">@item.Description</p>
-            </div>
-
-
-            </div>
-            </div>
-
-            *@
-                <div class="col-lg-4 position-relative p-0" style="background-image:url(@item.Image); background-size:cover ; height:300px; border-radius:20px">
-
-                    <div style="background-color:rgba(255,255,255,0.6);border-radius:0 0 20px 20px" class="h-25 position-absolute  bottom-0 w-100">
-
-                        <div class=" d-flex px-3 justify-content-between">
-                            <p class="  text-secondary fw-bold"
-                               style="font-size: 20px">
-                                رشاقة وتغذية
-                            </p>
-                            <div class="  ">
-                                <img width="30" src="~/images/landing/Path 1698.png" />
-                                <img width="20" src="~/images/landing/heart-svgrepo-com (1).png" />
-                            </div>
+                <div class="col-12 col-md-6 col-lg-4 p-4 "
+                     data-aos="fade-up"
+                     data-aos-delay="50">
+                    <div class="shadow article-card-index overflow-hidden position-relative p-0 m-0 ">
+                        <div class="position-relative" style="height:350px">
+                            <img alt=""
+                                 src="@item.Image"
+                                 class="img-fluid h-100 w-100 position-absolute top-0 start-0 object-fit-cover" />
                         </div>
+                        <div class="py-3 position-absolute overlay-art w-100 bottom-0 border-radius-40px">
+                            <div class="d-flex px-3 justify-content-between">
+                                <p class="text-end text-secondary fw-bold"
+                                   style="font-size: 20px">
+                                    رشاقة وتغذية
+                                </p>
+                                <div class="text-start ps-4 Divhidden">
+                                    <img alt="" width="30" src="~/images/landing/Path 1698.png" />
+                                    <img alt=""
+                                         width="20"
+                                         src="~/images/landing/heart-svgrepo-com (1).png" />
+                                </div>
+                            </div>
 
-                        <p>@item.Description</p>
-
+                            <p> @item.Title</p>
+                        </div>
                     </div>
-
                 </div>
-
-
-
-
 
             }
 
@@ -460,215 +397,230 @@
     </div>
 </div>
 
-<!-- ///// -->
-<div class=" container-fluid text-center my-5 justify-content-center" style="background-color: #E8E7EC">
-    <h1 style="border-top: 5px solid #B9AFF5; width: 15%;" class="mx-auto"></h1>
-    <h2 class="py-3">خبراء لياقتي</h2>
-    <div class="row align-content-between m-auto col-9">
+<div class="container-fluid text-center my-5 pb-5 justify-content-center"
+     style="background-color: #e8e7ec">
+    <h1 style="border-top: 5px solid #b9aff5; width: 15%"
+        class="mx-auto"></h1>
+    <h2 class="py-3">مدربين لياقتي</h2>
+    <div class="container-xl p-0">
+        <div class="row">
+            <div class="row justify-content-center align-items-center col-xl-11 m-auto">
+                @foreach (var item in Model.Users)
+                {
+                    <div class="col-12 col-md-6 col-xl-4 pb-5" data-aos="fade-up">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="ih-item circle">
+                                <div class="div1">
+                                    <div class="img p-0 d-flex justify-content-center align-items-center rounded-circle overflow-hidden m-auto"
+                                         style="background-color: #b9aff5">
+                                        <img src="@item.Photo"
+                                             class="position-absolute w-100 h-100 top-0 start-0"
+                                             style="object-fit: cover"
+                                             alt="img" />
+                                    </div>
 
+                                    <div class="info m-auto d-flex justify-content-center align-items-center">
+                                        <div>
+                                            <div class="d-block pt-0 align-content-center">
+                                                <button class="bg-transparent border-0" title="a">
+                                                    <img src="~/images/landing/whatts.png" height="20" alt="" />
+                                                </button>
+                                                <button class="bg-transparent border-0" title="a">
+                                                    <img src="~/images/landing/insta.png" height="20" alt="" />
+                                                </button>
+                                                <button class="bg-transparent border-0" title="a">
+                                                    <img src="~/images/landing/twiter.png" height="20" alt="" />
+                                                </button>
+                                            </div>
 
-        @foreach (var item in Model.Users)
-        {
-            <div class="col-12 col-md-6 col-lg-4 pb-5">
-
-
-                <div class="ih-item circle effect6 scale_up">
-                    <div class="div1">
-                        <div class="img p-0 d-flex justify-content-center align-items-center m-auto"
-                             style="background-color: #B9AFF5">
-                            <img src="@item.Photo" class="m-auto w-100 h-100" style="border-radius:50%;" alt="img">
-                        </div>
-
-                        <div class="info m-auto d-flex justify-content-center align-items-center ">
-                            <div>
-                                <!--<h5 class="text-white mt-5"> للتواصل:</h5>-->
-
-                                <div class="d-block pt-0 align-content-center">
-
-                                    <button class="bg-transparent border-0">
-                                        <img src="~/images/landing/whatts.png"
-                                             height="20" />
-                                    </button>
-                                    <button class="bg-transparent border-0">
-                                        <img src="~/images/landing/insta.png"
-                                             height="20" />
-                                    </button>
-                                    <button class="bg-transparent border-0">
-                                        <img src="~/images/landing/twiter.png"
-                                             height="20" />
-                                    </button>
+                                            <p class="fs-5 mt-2">@item.Fname @item.Lname  </p>
+                                            <p class="fs-5 my-2"> @item.Specialization    </p>
+                                        </div>
+                                    </div>
                                 </div>
-
-
-                                <p class="fs-5 mt-2">
-                                    @item.Fname @item.Lname
-                                </p>
-                                <p class="fs-5 my-2">@item.Specialization  </p>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                }
+
+
+
             </div>
-
-
-        }
-
-
-
-
-
-
-
-
-
+            <div class="col-12 col-xl-1 my-3 mb-5 d-flex justify-content-center align-items-center">
+                <a href="" class="text-dark">
+                    <i class="bi bi-arrow-left h1"></i>
+                </a>
+            </div>
+        </div>
     </div>
+
+    <h4 data-aos="fade-up">
+        نحن هنا لمساعدتك في الوصول للوزن المثالي وجسم صحي سليم خالي من الأمراض
+    </h4>
+    <h4 data-aos="fade-up">
+        يمكنك التواصل معنا مباشرة والتحدث بكل ثقة وسرية تامة
+    </h4>
 </div>
 
-
-
-<!--//section two-->
-
-
-<div class=" container-fluid text-center my-5">
-    <h1 style="border-top: 5px solid #B9AFF5; width: 15%;" class="mx-auto"></h1>
-    <h2 class="pb-3 pt-1">اراء المشاركين </h2>
-    <img src="~/images/landing/M.png" class="w-25 h-50" />
-
-    <div class=" row align-content-center">
-
-
-        @foreach (var item in Model.Customers)
-        {
-
-            <div class="col-12 col-md-6 col-lg-4">
-
-                <div class="img p-0  mx-auto col-8">
-                    <img src="@item.Photo" class="m-auto w-50 h-50" style="border-radius:50%;" alt="img">
-                </div>
-
-                <div class="d-flex me-4">
-                    <button type="button" class="border-0 bg-transparent">
-                        <i class='bx bxs-star fs-5 text-warning'></i>
-                    </button>
-                    <button type="button" class="border-0 bg-transparent">
-                        <i class='bx bxs-star fs-5 text-warning'></i>
-                    </button>
-                    <button type="button" class="border-0 bg-transparent">
-                        <i class='bx bxs-star fs-5 text-warning'></i>
-                    </button>
-                    <button type="button" class="border-0 bg-transparent">
-                        <i class='bx bxs-star fs-5 text-warning'></i>
-                    </button>
-
-                </div>
+<div class="container-fluid text-center">
+    <h1 style="border-top: 5px solid #b9aff5; width: 15%"
+        class="mx-auto"></h1>
+    <h1 class="pb-3 pt-1 fw-bold" data-aos="fade-up">آراء المشتركين</h1>
+    <img src="~/images/landing/M.png" class="img-fluid" alt="" data-aos="fade-up" />
+    <div class="container-xl">
+        <div class="row align-content-center justify-content-center align-items-center">
+            <div class="col-12 col-md-6 col-lg-4 p-4 px-lg-5" data-aos="fade-up">
                 <div>
-                    <p class="text-center me-4 fw-bold">موقع رائع لقد ساعدني على نزول 18 كيلو</p>
-                    <p style="color: #B9AFF5;" class="text-center me-4 fw-bold"> @item.Fname @item.Lname</p>
+                    <img src="~/images/landing/b.png" class="w-25 d-block mx-auto" alt="" />
+                    <div class="d-flex me-4">
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                    </div>
+                    <div class="text-start mt-2">
+                        <p class="me-4 mb-0 fw-bold">
+                            موقع رائع لقد ساعدني على نزول 18 كيلو في شهرين وتحسن روتيني
+                            اليومي
+                        </p>
+                        <p style="color: #b9aff5" class="me-4 mt-2 fw-bold">
+                            محمد_عبدو
+                        </p>
+                    </div>
                 </div>
-
-
-
-
             </div>
-
-
-        }
-
-
-
-
-
-
+            <div class="col-12 col-md-6 col-lg-4 p-4 px-lg-5" data-aos="fade-up">
+                <div>
+                    <img src="~/images/landing/b.png" class="w-25 d-block mx-auto" alt="" />
+                    <div class="d-flex me-4">
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                    </div>
+                    <div class="text-start mt-2">
+                        <p class="me-4 mb-0 fw-bold">
+                            موقع رائع لقد ساعدني على نزول 18 كيلو في شهرين وتحسن روتيني
+                            اليومي
+                        </p>
+                        <p style="color: #b9aff5" class="me-4 mt-2 fw-bold">
+                            محمد_عبدو
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-4 px-lg-5" data-aos="fade-up">
+                <div>
+                    <img src="~/images/landing/b.png" class="w-25 d-block mx-auto" alt="" />
+                    <div class="d-flex me-4">
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                        <i class="bx bxs-star fs-5 text-warning"></i>
+                    </div>
+                    <div class="text-start mt-2">
+                        <p class="me-4 mb-0 fw-bold">
+                            موقع رائع لقد ساعدني على نزول 18 كيلو في شهرين وتحسن روتيني
+                            اليومي
+                        </p>
+                        <p style="color: #b9aff5" class="me-4 mt-2 fw-bold">
+                            محمد_عبدو
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
 </div>
-
-
-<div class="container-fluid position-relative my-5" style="background-color: #B1ACCF;">
+<div class="container-fluid position-relative py-5 min-vh-100"
+     style="background-color: #b1accf">
     <div class="container">
-
         <div class="row justify-content-between mb-0 pb-0">
-
-            <div class="col-12 col-md-5 mt-5 mb-0 pb-0">
-                <h1 class="display-4 fw-bold text-center" style="color: #8703D3">لياقتك أينما كنت</h1>
-                <h1 class="text-white  mt-5">حمل تطبيق لياقتي</h1>
+            <div class="col mt-5 mb-0 pb-0">
+                <h1 class="display-4 fw-bold text-center"
+                    style="color: #8703d3; font-size: 70px"
+                    data-aos="fade-up">
+                    لياقتك أينما كنت
+                </h1>
+                <h1 class="text-white text-xl-start text-center mt-5 fw-bold mb-3"
+                    style="font-size: 50px"
+                    data-aos="fade-up">
+                    حمل تطبيق لياقتي
+                </h1>
                 <div>
-                    <h5 class="m-2">واحتفظ بتمارينك ونظامك الغذائي  </h5>
-                    <h5 class="m-2"> تحدث مع مدربك في أي وقت </h5>
-
-
-                    <div class="text-center  pt-5 ">
-                        <div class="d-flex justify-content-between p-4 col-8 mx-auto mx-md-0 col-lg-6  align-items-center  mt-5 " style="border: solid 2px black; border-radius: 10px;">
-                            <div>
-                                <h5>GET IN ON</h5>
-                                <h1 class="fs-5 fw-bold">Google Play</h1>
+                    <h4 class="m-2 text-xl-start text-center fw-bold"
+                        data-aos="fade-up">
+                        واحتفظ بتمارينك ونظامك الغذائي
+                    </h4>
+                    <h4 class="m-2 text-xl-start text-center fw-bold"
+                        data-aos="fade-up">
+                        تحدث مع مدربك في أي وقت
+                    </h4>
+                    <div class="d-flex justify-content-center align-items-center justify-content-xl-start align-items-xl-start">
+                        <div class="d-flex gap-4 justify-content-center align-items-center justify-content-xl-start align-items-xl-start flex-column flex-md-row flex-xl-column">
+                            <div data-aos="fade-up"
+                                 class="d-flex gap-3 justify-content-between p-2 w-100 align-items-center mt-3"
+                                 style="border: solid 2px black; border-radius: 10px">
+                                <div>
+                                    <p class="m-0 text-end">GET IN ON</p>
+                                    <h2 class="fw-bold text-nowrap">Google Play</h2>
+                                </div>
+                                <div>
+                                    <img src="~/images/landing/pl.png" alt="" width="60" height="60" />
+                                </div>
                             </div>
-                            <div>
-                                <img src="~/images/landing/pl.png" />
+                            <div data-aos="fade-up"
+                                 class="d-flex gap-3 justify-content-between p-2 w-100 align-items-center mt-3"
+                                 style="border: solid 2px black; border-radius: 10px">
+                                <div>
+                                    <p class="m-0 text-end">Download on the</p>
+                                    <h2 class="fw-bold text-nowrap">App Store</h2>
+                                </div>
+                                <div>
+                                    <img src="~/images/landing/ap.png" alt="" width="60" height="60" />
+                                </div>
                             </div>
-
-
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between p-4  col-8 mx-auto mx-md-0 col-lg-6 align-items-center  mt-3 " style="border: solid 2px black; border-radius: 10px;">
-                        <div>
-                            <p>Download on the</p>
-                            <h1 class="fs-5 fw-bold">App Store</h1>
-                        </div>
-                        <div>
-                            <img src="~/images/landing/ap.png" />
-                        </div>
-
-
-                    </div>
-
                 </div>
-
             </div>
 
-
-            <div class="col-md-5 mt-4 ">
-                <img src="~/images/landing/img.png" class="w-100" height="700" />
+            <div class="col-xl-5 justify-content-center d-flex"
+                 data-aos="fade-up">
+                <img src="~/images/landing/img.png"
+                     class="img-"
+                     alt=""
+                     height="600"
+                     width="500" />
             </div>
         </div>
     </div>
-    <div class="d-none d-md-block position-absolute" style="bottom:25%; left:42%; ">
-        <img src="~/images/landing/now.png" width="240" />
+    <div class="d-none d-xl-block position-absolute"
+         style="bottom: 25%; left: 42%">
+        <img src="~/images/landing/now.png" width="240" alt="" />
     </div>
 </div>
 
 
 
-@*
-<section class="container-fluid p-5  text-center my-5" style="background-image: url('image/Group\ 886.png');">
-
-    <div class="row justify-content-center  ">
-        <div class="col ">
-            <h1 class="text-decoration-underline fw-bold ">ابدأ الآن</h1>
-            <p class="fs-4">كن من أسرة لياقتي وغير حياتك للأفضل </p>
-
-
-            <div class="p-0 g-0 row d-flex  justify-content-center ">
-                <div class="col-12 col-md-6  my-2 my-md-0 my-lg-0  col-lg-6">
-                    <input style=" width:100%; height:3.4rem; color: #B9AFF5;"
-                           type="email" class="form-control  shadow  inputborderAll" placeholder="البريد الالكتروني" />
-                </div>
-
-                <button class="btn text-white col-12 col-md-6"
-                        style="background-color: #B9AFF5; width:7rem; height:3.4rem;">
-                    اشترك الآن
-                </button>
-
-            </div>
-        </div>
-
-
-    </div>
-
-
-</section>
-*@
-<!--//////-->
+@section Scripts{
+    <script src="~/JavaScript/aos.js"></script>
+    <script>
+        AOS.init({
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+            offset: 200, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 1000, // values from 0 to 3000, with step 50ms
+            easing: "ease", // default easing for AOS animations
+            once: false, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+        });
+    </script>
+            }

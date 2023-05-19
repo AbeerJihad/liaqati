@@ -13,9 +13,6 @@
             body: JSON.stringify(data)
 
         });
-        console.log(response.status);
-        console.log( await response.json());
-
         if (response.status === 200) {
             result = await response.json();
             console.log(result);

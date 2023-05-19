@@ -3,16 +3,13 @@
 @{
 }
 <style>
-
     /* Styles for text box with more button */
     .limited {
         max-height: 100px;
         overflow: hidden;
         position: relative;
     }
-
     /* Add your sizes for text box */
-
     .read-more-checker:checked ~ .limited {
         max-height: none;
     }
@@ -40,45 +37,76 @@
                 <div class="card my-2">
                     <div class="card-body">
                         <div class="d-flex">
-                            <p>الاسم: @Model.cons.User?.Fname</p>
-                            <p class="mx-2">العمر: @(DateOnly.FromDateTime(DateTime.Now).Year - Model.cons.User?.DateOfBirth?.Year)</p>
-                            <p>@Model.cons.PostDate</p>
+                            <p>الاسم: @Model.Consultation?.User?.Fname</p>
+                            <p class="mx-2">العمر: @(DateOnly.FromDateTime(DateTime.Now).Year - Model.Consultation?.User?.DateOfBirth?.Year)</p>
+                            <p>@Model.Consultation?.PostDate</p>
                         </div>
-                        <h5 class="card-title">@Html.Raw(Model.cons.Title)</h5>
+                        <h5 class="card-title">@Html.Raw(Model.Consultation?.Title)</h5>
                         <hr />
-                        <p>@Html.Raw(Model.cons.Description)</p>
+                        <p>@Html.Raw(Model.Consultation?.Description)</p>
                     </div>
                 </div>
-                @foreach (var item in Model.repcons)
+                @if (Model.ListOfReplyconsultation is not null)
                 {
+                    @if (Model.ListOfReplyconsultation.Any())
+                    {
 
-                    <div class="card my-2">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="mx-3 colorbg"
-                                     style="height: 40px; width: 6px;"></div>
-                                <h5 class="col-auto">الاجابة عن الاستشارة</h5>
-                            </div>
+                        @foreach (var item in Model.ListOfReplyconsultation)
+                        {
 
-                            <div class="d-flex my-2">
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="mx-3 colorbg"
+                                             style="height: 40px; width: 6px;"></div>
+                                        <h5 class="col-auto">الاجابة عن الاستشارة</h5>
+                                    </div>
 
-                                <img width="50" class="rounded-circle m-2" src="@item.User.Photo" />
+                                    <div class="d-flex my-2">
 
-                                <div class="">
-                                    <p class="card-title txtcolor">@item.User.Fname </p>
-                                    <p class="card-title text-black ">@item.User.Specialization</p>
+                                        <img width="50" class="rounded-circle m-2" src="@item.User?.Photo" />
+
+                                        <div class="">
+                                            <p class="card-title txtcolor">@item.User?.Fname </p>
+                                            <p class="card-title text-black ">@item.User?.Specialization</p>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="read-more-checker" hidden id="read-more-checker" />
+                                        <div class="limited l-200">
+                                            <p>@Html.Raw(item.Reply)</p>
+                                        </div>
+                                        <label for="read-more-checker" class="read-more-button"></label>
+                                    </div>
+
+
                                 </div>
-
                             </div>
-                            <div>
-                                <input type="checkbox" class="read-more-checker" hidden id="read-more-checker" />
-                                <div class="limited l-200">
-                                    <p>@Html.Raw(item.Reply)</p>
+                        }
+                    }
+                    else
+                    {
+                        <div class="card shadow-sm my-5 border">
+                            <div class="card-body ">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <i class="bx bx-error-circle text-main"
+                                       style="font-size: 100px"></i>
+                                    <h2 class="mb-4 text-main">لا يوجد نتائج</h2>
                                 </div>
-                                <label for="read-more-checker" class="read-more-button"></label>
                             </div>
-
-
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="card shadow-sm my-5 border">
+                        <div class="card-body ">
+                            <div class="d-flex justify-content-center align-items-center flex-column">
+                                <i class="bx bx-error-circle text-main"
+                                   style="font-size: 100px"></i>
+                                <h2 class="mb-4 text-main">لا يوجد نتائج</h2>
+                            </div>
                         </div>
                     </div>
                 }

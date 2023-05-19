@@ -2,15 +2,14 @@
 {
     public class MealPlansViewComponent : ViewComponent
     {
-        private readonly UnitOfWork _unitOfWork;
-        public MealPlansViewComponent(UnitOfWork unitOfWork)
+        private readonly IRepoMealPlans _IRepoMealPlans;
+        public MealPlansViewComponent(IRepoMealPlans repoMealPlans)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoMealPlans = repoMealPlans;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            List<MealPlans>? ListOfMealPlans = _unitOfWork.MealPlansRepository.Get().Take(3).ToList();
+            List<MealPlans>? ListOfMealPlans = (await _IRepoMealPlans.GetAllAsync()).Take(3).ToList();
             return View(ListOfMealPlans);
         }
 

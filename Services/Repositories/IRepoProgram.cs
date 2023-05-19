@@ -122,10 +122,22 @@ namespace liaqati_master.Services.Repositories
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.SearchTearm), sportProgramQueryParams.SearchTearm ?? ""));
             }
             if (sportProgramQueryParams.Length is not null)
-            {
-                ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Length == sportProgramQueryParams.Length);
-                ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.Length), sportProgramQueryParams.Length.ToString() ?? ""));
-            }
+                if (sportProgramQueryParams.Length.Count != 0)
+                {
+                    List<SportProgramVM> ListOfSportsPrograms = new();
+
+                    foreach (var item in sportProgramQueryParams.Length)
+                    {
+                        if (item.ToString() is not null)
+                        {
+
+                            ListOfSportsPrograms.AddRange(ListOfSportsProgram.Where(p => p.Length!.ToString()!.ToLower().Trim().Contains(item.ToString().ToLower().Trim())));
+                            ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.Length), item.ToString() ?? ""));
+                        }
+                    }
+                    ListOfSportsProgram = ListOfSportsPrograms.AsQueryable();
+
+                }
             if (!string.IsNullOrEmpty(sportProgramQueryParams.Title))
             {
                 ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Title != null && p.Title.ToLower().Trim() == sportProgramQueryParams.Title.ToLower().Trim());
@@ -145,7 +157,10 @@ namespace liaqati_master.Services.Repositories
                 ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Duration <= sportProgramQueryParams.MaxDuration);
                 str += sportProgramQueryParams.MaxDuration.ToString() ?? "Max";
             }
-            ListOfSelectedFilters.Add(new AppliedFilters("Duration", str));
+            if (sportProgramQueryParams.MaxDuration != null && sportProgramQueryParams.MinDuration != null)
+            {
+                ListOfSelectedFilters.Add(new AppliedFilters("Duration", str));
+            }
             if (sportProgramQueryParams.MinDuration != null && sportProgramQueryParams.MaxDuration != null)
             {
                 ListOfSelectedFilters.Add(new AppliedFilters("Duration", $"{sportProgramQueryParams.MinDuration.ToString() ?? "0"} - {sportProgramQueryParams.MaxDuration.ToString() ?? "Max"}"));

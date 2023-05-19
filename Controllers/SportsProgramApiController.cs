@@ -6,31 +6,35 @@ namespace liaqati_master.Controllers
     [ApiController]
     public class SportsProgramApiController : ControllerBase
     {
-
         readonly LiaqatiDBContext _context;
         readonly IRepoProgram _repoprogram;
         readonly IRepoFavorite _IRepoFavorite;
         readonly IHttpContextAccessor _HttpContextAccessor;
-
-        public SportsProgramApiController(LiaqatiDBContext context, IRepoProgram repoprogram, IRepoFavorite iRepoFavorite, IHttpContextAccessor httpContextAccessor)
+        readonly IRepoTraking _repoTraking;
+        public SportsProgramApiController(LiaqatiDBContext context, IRepoProgram repoprogram, IRepoFavorite IRepoFavorite, IHttpContextAccessor HttpContextAccessor, IRepoTraking repoTraking)
         {
             _context = context;
             _repoprogram = repoprogram;
-            _IRepoFavorite = iRepoFavorite;
-            _HttpContextAccessor = httpContextAccessor;
+            _HttpContextAccessor = HttpContextAccessor;
+            _IRepoFavorite = IRepoFavorite;
+            _repoTraking = repoTraking;
         }
+
         [HttpGet("AllSportsProgram")]
         public async Task<ActionResult<List<SportsProgram>>> GetAllSportsProgram()
         {
+
             return Ok(await _context.TblSportsProgram.ToArrayAsync());
         }
 
         [HttpGet("GetSportsProgramById/{id}")]
+
         public async Task<ActionResult<List<SportsProgram>>> GetSportsProgramById(int id)
         {
 
             return Ok(await _context.TblSportsProgram.FindAsync(id));
         }
+
 
         [HttpGet("LatesSportsProgram")]
         public async Task<ActionResult<List<SportsProgram>>> LatesSportsProgram()
@@ -39,6 +43,7 @@ namespace liaqati_master.Controllers
             return Ok(await _context.TblSportsProgram.OrderByDescending(x => x.Id).ToArrayAsync());
         }
 
+        ///
         [HttpPost("AddSportsProgram")]
         public async Task<ActionResult<SportsProgram>> AddSportsProgram([FromForm] SportsProgram SportsProgram)
         {
@@ -70,10 +75,6 @@ namespace liaqati_master.Controllers
             {
                 return NotFound();
             }
-
-
-
-
             try
             {
                 _context.TblSportsProgram.Remove(item);
@@ -164,6 +165,8 @@ namespace liaqati_master.Controllers
             return Ok(await _repoprogram.SearchSportsProgram(exqParameters));
         }
 
+
+
         [HttpGet("AddFavoritesSportsProgram/{id}")]
         public async Task<ActionResult<string>> AddFavorites(string id)
         {
@@ -179,7 +182,7 @@ namespace liaqati_master.Controllers
                 }
                 if (!Favorites.Any())
                 {
-                    Favorite favorite = new Favorite()
+                    Favorite favorite = new()
                     {
                         ServicesId = id,
                         Type = "نظام رياضي",
@@ -204,8 +207,17 @@ namespace liaqati_master.Controllers
 
 
 
-
-
-
+        [HttpGet("UpdateTraking/{id}")]
+        public async Task<ActionResult<bool>> UpdateTraking(string id)
+        {
+            Tracking? tracking = await _repoTraking.GetByIDAsync(id);
+            if (tracking is null)
+            {
+                return NotFound();
+            }
+            tracking.Iscomplete = !tracking.Iscomplete;
+            await _repoTraking.UpdateEntityAsync(tracking);
+            return Ok(tracking.Iscomplete);
+        }
     }
 }

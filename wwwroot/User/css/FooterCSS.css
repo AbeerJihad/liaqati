@@ -1,3 +1,7 @@
+.btn:active {
+    transform: scale(.9);
+}
+
 footer a:hover {
     color: purple !important;
 }

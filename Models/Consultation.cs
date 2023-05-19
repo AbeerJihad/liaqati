@@ -8,11 +8,11 @@
         [Required(ErrorMessage = "  حقل مطلوب")]
         [Display(Name = " وصف الاستشارة")]
         public string? Description { get; set; }
-        
-       
+
+
         [Display(Name = "تاريخ النشر")]
         [DataType(DataType.DateTime)]
-        public DateTime PostDate { get; set; } = DateTime.Now;
+        public DateTime? PostDate { get; set; } = DateTime.Now;
         [Display(Name = "عدد المشاهدات")]
         public int ViewsNumber { get; set; } = 0;
 
@@ -30,7 +30,7 @@
         [ForeignKey(nameof(UserId))]
         public virtual User? User { get; set; }
 
-       public virtual List<Replyconsultation>? Replyconsultations { get; set; }
+        public virtual List<Replyconsultation>? Replyconsultations { get; set; }
 
     }
 }

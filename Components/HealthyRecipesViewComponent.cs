@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace liaqati_master.Components
+﻿namespace liaqati_master.Components
 {
     public class HealthyRecipesViewComponent : ViewComponent
     {
-        private readonly UnitOfWork _unitOfWork;
-        public HealthyRecipesViewComponent(UnitOfWork unitOfWork)
+        private readonly IRepoHealthyRecipe _IRepoHealthyRecipe;
+        public HealthyRecipesViewComponent(IRepoHealthyRecipe repoHealthyRecipe)
         {
-            _unitOfWork = unitOfWork;
+            _IRepoHealthyRecipe = repoHealthyRecipe;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var healthyRecipes = _unitOfWork.HealthyRecipesRepository.Get().Take(8).ToList();
+            var healthyRecipes = (await _IRepoHealthyRecipe.GetAllAsync()).Take(8).ToList();
             return View(healthyRecipes);
         }
 

@@ -1,0 +1,72 @@
+﻿@model VMListNotification 
+
+<div>
+    <h6 class="pb-3">اليوم</h6>
+
+    @foreach (var item in Model.Today)
+    {
+        <div class="sec p-4 pb-5" style="margin-bottom:-2rem">
+
+            <div><i class='bx bxs-circle float-end ms-2 mt-3' style="color: #f8ce40 ; font-size:small"></i></div>
+            <div>
+                <img style="width:50px;height:50px" class="profile" src="//c2.staticflickr.com/4/3397/3585544855_28442029a5_z.jpg?zz=1">
+            </div>
+            <div class="txt">  @item.Text </div>
+            <div class="txt sub"> @item.Title    </div>
+
+        </div>
+
+    }
+
+</div>
+
+<div>
+    <h6 class="pb-3">الأمس</h6>
+
+    @foreach (var item in Model.yesterday)
+    {
+
+        <div class="sec p-4 pb-5" style="margin-bottom:-2rem">
+
+            <div><i class='bx bxs-circle float-end ms-2 mt-3' style="color: #f8ce40 ; font-size:small"></i></div>
+            <div>
+                <img style="width:50px;height:50px" class="profile" src="//c2.staticflickr.com/4/3397/3585544855_28442029a5_z.jpg?zz=1">
+            </div>
+            <div class="txt">  @item.Text </div>
+            <div class="txt sub"> @item.Title    </div>
+
+        </div>
+
+
+    }
+
+
+
+</div>
+
+
+
+<div>
+    <h6 class="pb-3"> باقي الاشعارات </h6>
+
+    @foreach (var item in Model.Other)
+    {
+
+
+        <div class="sec p-4 pb-5" style="margin-bottom:-2rem">
+
+            <div><i class='bx bxs-circle float-end ms-2 mt-3' style="color: #f8ce40 ; font-size:small"></i></div>
+            <div>
+                <img style="width:50px;height:50px" class="profile" src="//c2.staticflickr.com/4/3397/3585544855_28442029a5_z.jpg?zz=1">
+            </div>
+            <div class="txt">  @item.Text </div>
+            <div class="txt sub"> @item.Title    </div>
+
+        </div>
+
+
+    }
+
+
+
+</div>

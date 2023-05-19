@@ -18,7 +18,7 @@ namespace liaqati_master.Controllers
 
         }
 
-        [HttpGet("AllOrder")]
+        [HttpGet("AllRate")]
         public async Task<ActionResult<List<Rate>>> GetAllOrder()
         {
 
