@@ -25,6 +25,10 @@
 
         [ForeignKey(nameof(CategoryId))]
         public virtual Category? Category { get; set; }
+        public string? UserId { get; set; }
+
+        [ForeignKey(nameof(UserId))]
+        public virtual User? User { get; set; }
 
 
         public virtual List<Comments>? comments { get; set; }

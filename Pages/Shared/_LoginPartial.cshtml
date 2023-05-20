@@ -6,14 +6,13 @@
 {
 
     <div class="d-flex">
-        <a href="#" class="dropdown-toggle nav-link ms-1" data-bs-toggle="dropdown">
+        <a href="#" style="max-width:200px !important" class="dropdown-toggle nav-link ms-1 d-flex gap-3  justify-content-center align-items-center" data-bs-toggle="dropdown">
 
 
             <span class="user-img" style="width: 52px;
                         height: 52px;
                         font-size: 24px;
                         background: #ebeff3;
-                        color: #1b00ff;
                         line-height: 52px;
                         text-align: center;
                         display: inline-block;
@@ -21,39 +20,44 @@
                         border-radius: 100%;
                         -webkit-box-shadow: 0 0 10px rgba(0,0,0,.18);
                          box-shadow: 0 0 10px rgba(0,0,0,.18);">
-                <img src="@User.FindFirstValue("Image")" alt="" style="
-                            width: auto;
-                            border: 0;
-                            vertical-align: top;
-                            max-width: 100%;
-                            height: auto">
-                <span class="status online"></span>
+                <img src="@(User.FindFirstValue("Image")??"/Images/user.jpg")" class="w-100 h-100" alt="">
 
             </span>
-            <span style="
+            <div class="d-flex  justify-content-center align-items-center flex-column">
+
+                <span style="
         font-weight: 500;
         display: inline-block;
         vertical-align: middle;
         color: #131e22;">
-                مرحبا
-                <span>@User.FindFirstValue("FirstName")</span>
-            </span>
+                    مرحبا
+                    <span>@User.FindFirstValue("FirstName")</span>
+                </span>
+                <span class="text-dark text-truncate " style="max-width:100px">
+                    @User.FindFirstValue(ClaimTypes.Name)
+                </span>
+            </div>
+
         </a>
         <div class="dropdown-menu mt-1" style="border-radius: 10px;">
             <a class="dropdown-item" href="profile.html">
                 <i class="bi bi-person me-1"></i>
                 الصفحة الشخصية
             </a>
-            <a class="dropdown-item" href="#"><i class="bi bi-heart me-1"></i>المفضلة</a>
-            <a class="dropdown-item" href="#"><i class="bi bi-cart3 me-1"></i>سلة المشتريات</a>
+            <a class="dropdown-item" asp-page="/Favorites/Index"><i class="bi bi-heart me-1"></i>المفضلة</a>
+            <a class="dropdown-item"><i class="bi bi-cart3 me-1"></i>سلة المشتريات</a>
             <a class="dropdown-item" href="#"><i class="bi bi-lock me-1"></i>تغيير كلمة المرور</a>
             <a class="dropdown-item" href="settings.html">
                 <i class="bi bi-gear me-1"></i>
                 الإعدادات
             </a>
-            <a class="dropdown-item" href="login.html">
+            <a class="dropdown-item">
                 <i class="bi bi-box-arrow-right me-1"></i>
-                تسجيل خروج
+                <form class="is-inline" method="post" asp-page="/Account/logout" asp-area="Identity">
+                    <button type="submit">
+                        تسجيل الخروج
+                    </button>
+                </form>
             </a>
 
         </div>

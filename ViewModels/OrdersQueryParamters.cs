@@ -8,5 +8,7 @@
 
         [DataType(DataType.Date)]
         public DateTime? ToDateOrder { get; set; }
+        public string? UserId { get; set; }
+
     }
 }

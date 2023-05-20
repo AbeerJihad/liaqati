@@ -3,10 +3,13 @@
     public class IndexExerciseModel : PageModel
     {
         private readonly IRepoExercise _repoExercise;
+        private readonly SignInManager<User> _signInManager;
 
-        public IndexExerciseModel(IRepoExercise repoExercise)
+        public IndexExerciseModel(IRepoExercise repoExercise, SignInManager<User> signInManager)
         {
             _repoExercise = repoExercise;
+            _signInManager = signInManager;
+
         }
         public IList<Exercise> Exercises { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -38,6 +41,16 @@
         {
             Titles = new SelectList((await _repoExercise.GetAllAsync()).ToList(), nameof(Exercise.Title), nameof(Exercise.Title)); if (_repoExercise != null)
             {
+                if (_signInManager.IsSignedIn(User))
+                {
+                    if (User.FindFirstValue(Database.Expert) != null)
+                    {
+                        var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        ExerciseQueryParamters.UserId = userid;
+                    }
+
+
+                }
                 QueryPageResult = await _repoExercise.SearchExercies(ExerciseQueryParamters);
             }
         }

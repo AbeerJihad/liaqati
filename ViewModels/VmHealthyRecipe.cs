@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-
-namespace liaqati_master.ViewModels
+﻿namespace liaqati_master.ViewModels
 {
     public class VmHealthyRecipe
     {
@@ -40,6 +37,7 @@ namespace liaqati_master.ViewModels
 
 
 
+        public string? UserId { get; set; }
 
         public string? Image { get; set; } = "";
 

@@ -63,8 +63,6 @@ body {
     border-radius: 40px;
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
-    -ms-border-radius: 40px;
-    -o-border-radius: 40px;
 }
 
     .img-box img {
@@ -379,7 +377,7 @@ body.disable-scroll {
 .dropdown-menu {
     transition: 0.5s;
     opacity: 0;
-    transform: translate3d(-9.5px, 100px, 0);
+    transform: translate3d(-800px, 100px, 0);
     position: absolute !important;
     display: block !important;
 }

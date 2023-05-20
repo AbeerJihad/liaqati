@@ -3,10 +3,12 @@
     public class IndexProgramModel : PageModel
     {
         private readonly IRepoProgram _repoProgram;
+        private readonly SignInManager<User> _signInManager;
 
-        public IndexProgramModel(IRepoProgram repoProgram)
+        public IndexProgramModel(IRepoProgram repoProgram, SignInManager<User> signInManager)
         {
             _repoProgram = repoProgram;
+            _signInManager = signInManager;
         }
         public IList<Exercise> Exercises { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -118,7 +120,19 @@
 
                 }
 
+
+                if (_signInManager.IsSignedIn(User))
+                {
+                    if (User.FindFirstValue(Database.Expert) != null)
+                    {
+                        var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        SportProgramQueryParamters.UserId = userid;
+                    }
+
+
+                }
                 QueryPageResult = await _repoProgram.SearchSportsProgram(SportProgramQueryParamters);
+
                 ListOfSelectedFilters = QueryPageResult.ListOfSelectedFilters;
             }
         }

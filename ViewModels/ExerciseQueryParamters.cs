@@ -7,6 +7,7 @@
         public List<string>? TraningType { get; set; }
         public List<int>? Difficulty { get; set; }
         public List<string>? Equipment { get; set; }
+        public string? UserId { get; set; }
 
         public decimal? MinDuration { get; set; }
         public decimal? MaxDuration { get; set; }

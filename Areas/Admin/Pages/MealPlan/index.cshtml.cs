@@ -1,15 +1,19 @@
 ﻿#nullable disable
+
 namespace liaqati_master.Areas.Admin.Pages.MealPlan
 {
     public class IndexModel : PageModel
     {
         private readonly IRepoMealPlans _repoMealPlans;
         private readonly IRepoCategory _repoCategory;
+        private readonly SignInManager<User> _signInManager;
 
-        public IndexModel(IRepoMealPlans repoMealPlans, IRepoCategory repoCategory)
+        public IndexModel(IRepoMealPlans repoMealPlans, IRepoCategory repoCategory, SignInManager<User> signInManager)
         {
             _repoMealPlans = repoMealPlans;
             _repoCategory = repoCategory;
+            _signInManager = signInManager;
+
         }
         [BindProperty(SupportsGet = true)]
         public MealPlansQueryParamters MealPlansQueryParamters { get; set; }
@@ -51,6 +55,16 @@ namespace liaqati_master.Areas.Admin.Pages.MealPlan
             }
             if (_repoMealPlans != null)
             {
+                if (_signInManager.IsSignedIn(User))
+                {
+                    if (User.FindFirstValue(Database.Expert) != null)
+                    {
+                        var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        MealPlansQueryParamters.UserId = userid;
+                    }
+
+
+                }
                 QueryPageResult = await _repoMealPlans.SearchMealPlan(MealPlansQueryParamters);
             }
         }

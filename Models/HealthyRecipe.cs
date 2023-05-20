@@ -50,6 +50,10 @@
         public double? RatePercentage { get; set; }
         public DateTime? CreatedDate { get; set; } = DateTime.Now;
         public bool? IsFeatured { get; set; }
+        public string? UserId { get; set; }
+
+        [ForeignKey(nameof(UserId))]
+        public virtual User? User { get; set; }
         public virtual List<Rate>? Rate { get; set; }
         public virtual List<Meal_Healthy>? Meal_Healthy { get; set; }
         public virtual List<Files>? Files { get; set; }

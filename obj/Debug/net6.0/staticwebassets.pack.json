@@ -877,8 +877,16 @@
       "PackagePath": "staticwebassets\\Images\\default.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\exchange.png",
+      "PackagePath": "staticwebassets\\Images\\exchange.png"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\facebook.png",
       "PackagePath": "staticwebassets\\Images\\facebook.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\fast-delivery.png",
+      "PackagePath": "staticwebassets\\Images\\fast-delivery.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\food.png",
@@ -895,6 +903,10 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\heart-solid-24.png",
       "PackagePath": "staticwebassets\\Images\\heart-solid-24.png"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\interrogation.png",
+      "PackagePath": "staticwebassets\\Images\\interrogation.png"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\landing.css",
@@ -1201,6 +1213,10 @@
       "PackagePath": "staticwebassets\\Images\\strong-man-training-gym.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\user.jpg",
+      "PackagePath": "staticwebassets\\Images\\user.jpg"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\AddEx_ProgByApi.js",
       "PackagePath": "staticwebassets\\JavaScript\\AddEx_ProgByApi.js"
     },
@@ -1255,6 +1271,10 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\script.js",
       "PackagePath": "staticwebassets\\JavaScript\\script.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JavaScript\\slick.min.js",
+      "PackagePath": "staticwebassets\\JavaScript\\slick.min.js"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JsApi\\ApiIndex.js",
@@ -3905,6 +3925,22 @@
       "PackagePath": "staticwebassets\\css\\dropDown\\style.css"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\fonts\\slick.eot",
+      "PackagePath": "staticwebassets\\css\\fonts\\slick.eot"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\fonts\\slick.svg",
+      "PackagePath": "staticwebassets\\css\\fonts\\slick.svg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\fonts\\slick.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\slick.ttf"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\fonts\\slick.woff",
+      "PackagePath": "staticwebassets\\css\\fonts\\slick.woff"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\js\\counter\\main.js",
       "PackagePath": "staticwebassets\\css\\js\\counter\\main.js"
     },
@@ -3915,6 +3951,14 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\slick-theme.css",
+      "PackagePath": "staticwebassets\\css\\slick-theme.css"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\slick.css",
+      "PackagePath": "staticwebassets\\css\\slick.css"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\css\\tabs.css",

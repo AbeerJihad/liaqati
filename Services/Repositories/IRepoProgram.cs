@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-
-namespace liaqati_master.Services.Repositories
+﻿namespace liaqati_master.Services.Repositories
 {
     public class IRepoProgram
     {
@@ -59,6 +57,7 @@ namespace liaqati_master.Services.Repositories
               new SportProgramVM()
               {
                   Id = p.Id,
+                  UserId = p.Services?.UserId,
                   Image = p.Image ?? "",
                   Price = p.Services?.Price,
                   Title = p.Services?.Title,
@@ -112,6 +111,10 @@ namespace liaqati_master.Services.Repositories
                 ListOfSportsProgram = program2.AsQueryable();
             }
 
+            if (!string.IsNullOrEmpty(sportProgramQueryParams.UserId))
+            {
+                ListOfSportsProgram = ListOfSportsProgram.Where(p => p.UserId == sportProgramQueryParams.UserId);
+            }
             if (!string.IsNullOrEmpty(sportProgramQueryParams.SearchTearm))
             {
                 ListOfSportsProgram = ListOfSportsProgram.Where(p =>

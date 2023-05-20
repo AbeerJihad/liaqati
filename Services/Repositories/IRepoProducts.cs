@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-
-namespace liaqati_master.Services.Repositories
+﻿namespace liaqati_master.Services.Repositories
 {
 
     public class IRepoProducts
@@ -148,7 +146,9 @@ namespace liaqati_master.Services.Repositories
             PercentageRate = p.Services?.RatePercentage,
             Price = p.Services?.Price,
             Title = p.Services?.Title,
-            IsFavorite = 0
+            IsFavorite = 0,
+            UserId = p.Services?.UserId,
+
 
         }
 
@@ -202,6 +202,10 @@ namespace liaqati_master.Services.Repositories
             if (!string.IsNullOrEmpty(Parameters.CategoryId))
             {
                 products = products.Where(p => p.CategoryId == Parameters.CategoryId);
+            }
+            if (!string.IsNullOrEmpty(Parameters.UserId))
+            {
+                products = products.Where(p => p.UserId == Parameters.UserId);
             }
 
             if (Parameters.MinPrice != null)

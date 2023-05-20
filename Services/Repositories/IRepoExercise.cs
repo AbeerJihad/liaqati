@@ -1,7 +1,4 @@
-﻿using NuGet.Packaging;
-using System.Security.Claims;
-
-namespace liaqati_master.Services.Repositories
+﻿namespace liaqati_master.Services.Repositories
 {
     public class IRepoExercise
     {
@@ -9,7 +6,7 @@ namespace liaqati_master.Services.Repositories
         readonly IHttpContextAccessor _HttpContextAccessor;
         readonly IRepoFavorite _repoFavorite;
 
-        public IRepoExercise(LiaqatiDBContext context , IHttpContextAccessor HttpContextAccessor , IRepoFavorite repoFavorite)
+        public IRepoExercise(LiaqatiDBContext context, IHttpContextAccessor HttpContextAccessor, IRepoFavorite repoFavorite)
         {
             _context = context;
             _HttpContextAccessor = HttpContextAccessor;
@@ -104,17 +101,19 @@ namespace liaqati_master.Services.Repositories
             Image = p.Image,
             Price = p.Price,
             Title = p.Title,
-            BodyFocus= p.BodyFocus,
-            BurnEstimate= p.BurnEstimate,
-            Detail= p.Detail,
-            ShortDescription= p.ShortDescription,
-            Difficulty= p.Difficulty,
-            Duration= p.Duration,
-            Equipments= p.Equipments,
-            Video= p.Video,
-            TraningType= p.TraningType,
-           
-          
+            BodyFocus = p.BodyFocus,
+            BurnEstimate = p.BurnEstimate,
+            Detail = p.Detail,
+            ShortDescription = p.ShortDescription,
+            Difficulty = p.Difficulty,
+            Duration = p.Duration,
+            Equipments = p.Equipments,
+            Video = p.Video,
+            UserId = p.UserId,
+
+            TraningType = p.TraningType,
+
+
             IsFavorite = 0
 
         }
@@ -178,6 +177,10 @@ namespace liaqati_master.Services.Repositories
 
 
             List<(string, string)> ListOfSelectedFilters = new List<(string, string)>();
+            if (!string.IsNullOrEmpty(exqParameters.UserId))
+            {
+                exercises = exercises.Where(p => p.UserId == exqParameters.UserId);
+            }
 
             if (exqParameters.MinDuration != null)
             {

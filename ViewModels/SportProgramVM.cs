@@ -9,6 +9,7 @@
         public string? Id { get; set; }
         public string? CategoryName { get; set; }
         public string? CategoryId { get; set; }
+        public string? UserId { get; set; }
         public int? Length { get; set; }
         public string? TrainingType { get; set; }
         public string? shortDescription { get; set; }

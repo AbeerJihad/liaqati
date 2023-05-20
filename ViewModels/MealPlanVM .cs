@@ -14,13 +14,9 @@
         public string? DietaryType { get; set; }
         public string? MealType { get; set; }
         public string? shortDescription { get; set; }
-
-
-
+        public double? RatePercentage { get; set; }
         public int IsFavorite { get; set; }
-
-
-
+        public string? UserId { get; set; }
 
 
 

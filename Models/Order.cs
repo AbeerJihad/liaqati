@@ -17,7 +17,6 @@
         [Display(Name = "رقم المستخدم")]
         public string? UserId { get; set; }
 
-
         [ForeignKey(nameof(UserId))]
         public virtual User? User { get; set; }
         public virtual List<Order_Details>? Order_Details { get; set; }

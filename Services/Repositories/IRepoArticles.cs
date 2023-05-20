@@ -87,6 +87,10 @@
         public async Task<QueryPageResult<Article>> SearchArticles(ArticlesQueryParamters artParameters)
         {
             IQueryable<Article> articles = (await GetAllAsync()).AsQueryable();
+            if (!string.IsNullOrEmpty(artParameters.UserId))
+            {
+                articles = articles.Where(p => p.UserId == artParameters.UserId);
+            }
             if (!string.IsNullOrEmpty(artParameters.SearchTearm))
             {
                 articles = articles.Where(art => art.Title != null && art.Title.ToLower().Trim().Contains(artParameters.SearchTearm.Trim().ToLower())); ;
