@@ -29,8 +29,11 @@ namespace liaqati_master.Models
         public double? Price { get; set; }
         [Display(Name = "تقدير الحرق")]
         public string? BurnEstimate { get; set; }
+        public string? UserId { get; set; }
 
 
+        [ForeignKey(nameof(UserId))]
+        public virtual User? User { get; set; }
 
         [Display(Name = "تاريخ اضافة التمرين")]
         [DataType(DataType.DateTime)]

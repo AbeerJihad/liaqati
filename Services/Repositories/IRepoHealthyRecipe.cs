@@ -86,6 +86,11 @@
         public async Task<HealthyRecipeQueryPageResult> SearchHealty(HealthyRecipeQueryParamters HealthyRecipeQueryParamters)
         {
             IQueryable<HealthyRecipe> HealthyRecipes = (await GetAllAsync()).AsQueryable();
+
+            if (!string.IsNullOrEmpty(HealthyRecipeQueryParamters.UserId))
+            {
+                HealthyRecipes = HealthyRecipes.Where(p => p.UserId == HealthyRecipeQueryParamters.UserId);
+            }
             if (HealthyRecipeQueryParamters.MinCalories != null)
             {
                 HealthyRecipes = HealthyRecipes.Where(p => p.Calories >= HealthyRecipeQueryParamters.MinCalories);

@@ -127,6 +127,7 @@
 		<None Include="Pages\Shared\Components\LastestMealPlans\default.cshtml" />
 		<None Include="Pages\Shared\Components\MealPlans\default.cshtml" />
 		<None Include="Pages\Shared\Components\SportsPrograms\default.cshtml" />
+		<None Include="wwwroot\css\fonts\slick.svg" />
 		<None Include="wwwroot\css\js\counter\main.js" />
 		<None Include="wwwroot\JsApi\Consultations\ConsultationModelApp.js" />
 		<None Include="wwwroot\JsApi\Consultations\ConsultationsModel.js" />

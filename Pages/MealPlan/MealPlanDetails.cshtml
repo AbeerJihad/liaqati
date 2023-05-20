@@ -432,17 +432,17 @@
         let text = convertNumberToWords(num);
         var ExerApi = await countHealthyMeal(@Model.mealplans.Id, week, day);
         col.innerHTML = `<div  onClick=" ShowExer(${@Model.mealplans.Id}, ${week} , ${day} )"
-                                                                      <button class="btn p-0  m-1"  type="button">
-                                                                    <div class="me-0 shadow border border-dark p-3 rounded-3">
-                                                                      <p class="fs-6"> اليوم </p>
-                                                                       <div class="bgsec mx-3 shadow d-flex justify-content-center rounded-circle">
-                                                                        <p class="p-3  fw-bold  m-auto"><span> ${ExerApi.count}</span>
-                                                                       </p>
-                                                                        </div>
-                                                                        </div>
-                                                                        </button>
-                                                                      </div>
-                                                                     `;
+                                                                          <button class="btn p-0  m-1"  type="button">
+                                                                        <div class="me-0 shadow border border-dark p-3 rounded-3">
+                                                                          <p class="fs-6"> اليوم </p>
+                                                                           <div class="bgsec mx-3 shadow d-flex justify-content-center rounded-circle">
+                                                                            <p class="p-3  fw-bold  m-auto"><span> ${ExerApi.count}</span>
+                                                                           </p>
+                                                                            </div>
+                                                                            </div>
+                                                                            </button>
+                                                                          </div>
+                                                                         `;
         rows.appendChild(col);
     }
     async function ShowExer(id, week, day) {
@@ -460,20 +460,20 @@
                 d.className = "col-12";
                 // d.style.backgroundColor = "red";
                 d.innerHTML = `  <!--<h5 class="my-3">اليوم الاول</h5>
-                                                                                                    <div class="card mb-3 col-md-6  shadow-sm">
-                                                                                                    <div class="row g-0">
-                                                                                                    <div class="col-4">
-                                                                                                    <img src="${ExerApi.list[m].Meal_Healthy.image}" class="img-fluid h-100" alt="...">
-                                                                                                    </div>
-                                                                                                    <div class="col-8 my-auto">
-                                                                                                    <div class="card-body ">
-                                                                                                    <p class="card-title fs-6  text-secondary fw-bold"></p>
-                                                                                                    <p class="card-text">حمص بالبيض مع صوص البندورة</p>
-                                                                                                    </div>
-                                                                                                    </div>
-                                                                                                    </div>
-                                                                                                    </div>
-                                                                        `;
+                                                                                                        <div class="card mb-3 col-md-6  shadow-sm">
+                                                                                                        <div class="row g-0">
+                                                                                                        <div class="col-4">
+                                                                                                        <img src="${ExerApi.list[m].Meal_Healthy.image}" class="img-fluid h-100" alt="...">
+                                                                                                        </div>
+                                                                                                        <div class="col-8 my-auto">
+                                                                                                        <div class="card-body ">
+                                                                                                        <p class="card-title fs-6  text-secondary fw-bold"></p>
+                                                                                                        <p class="card-text">حمص بالبيض مع صوص البندورة</p>
+                                                                                                        </div>
+                                                                                                        </div>
+                                                                                                        </div>
+                                                                                                        </div>
+                                                                            `;
                 rowShowExer.appendChild(d);
             }
             testConditionl = "" + week + "" + day;

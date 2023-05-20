@@ -64,59 +64,54 @@
     <div class="row justify-content-center align-self-center">
 
 
-           @foreach (var item in Model.Articles)
+        @foreach (var item in Model.Articles)
         {
-               <div class="col-md-5 m-1">
-            <div class="row bg-white">
-                <div class="col-4 g-0">
-                    <img style="height:150px" src="@item.Image" class="sideArticlesImages" />
-                </div>
-                <div class="col p-2 m-0">
-                    <div class="d-flex justify-content-between ">
+            <div class="col-md-5 m-1">
+                <div class="row bg-white">
+                    <div class="col-4 g-0">
+                        <img style="height:150px" src="@item.Image" class="sideArticlesImages" />
+                    </div>
+                    <div class="col p-2 m-0">
+                        <div class="d-flex justify-content-between ">
 
-                        <div>
-                            <p class="fw-bold"> رشاقة وتغذية  </p>
-                        </div>
-                       <div class="my-1 d-flex">
+                            <div>
+                                <p class="fw-bold"> رشاقة وتغذية  </p>
+                            </div>
+                            <div class="my-1 d-flex">
                                 <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
 
-                               
+
                                 @{
                                     Favorite favorite = new();
                                 }
                                 <form method="post" asp-area="admin" asp-page="/favorites/create">
-
-
                                     <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
                                     <input hidden value="مقالات" asp-for="@favorite.Type" />
-
                                     <button class="border-0 bg-white" type="submit" style="width: 25px; height: 25px; ">
                                         <img width="20" src="~/images/atricles/heart-svgrepo-com (1).png" />
-
                                     </button>
-
                                 </form>
                             </div>
 
 
 
 
+                        </div>
+                        <p>@CommonMethods.GetArabicDateTime(@item.PostDate)</p>
+                        <p style="font-weight:bold;">@item.Title </p>
+
+
+
                     </div>
-                        <p>  @CommonMethods.GetArabicDateTime(@item.PostDate)   </p>
-                    <p style="font-weight:bold;">  @item.Title </p>
-
-
 
                 </div>
-
             </div>
-        </div>
 
-            
-}
-      
-    
-    
+
+        }
+
+
+
     </div>
 
 </div>

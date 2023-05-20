@@ -269,7 +269,7 @@
                                                             <li class="page-item">
                                                                 <a class="page-link active">
                                                                     <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
-                                                                        <span>  @Model.SportProgramQueryParamters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
+                                                                        <span> @(Model.QueryPageResult.TotalPages > 0 ? Model.SportProgramQueryParamters.CurPage : Model.QueryPageResult.TotalPages.ToString())</span> من  <span>@Model.QueryPageResult.TotalPages</span>
                                                                     </p>
                                                                 </a>
                                                             </li>

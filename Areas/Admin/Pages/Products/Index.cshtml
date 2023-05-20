@@ -141,12 +141,12 @@
                                             <td class="">
                                                 <div class="img__box position-relative m-0  rounded-circle">
                                                     <img width="40" alt="Mark" class="position-absolute "
-                                                         src="@item.ImgUrl" />
+                                                         src="@item.Images.FirstOrDefault()" />
                                                 </div>
                                             </td>
 
-                                            <td>@item.Services!.Title</td>
-                                            <td>@item.Services!.Price?.ToString("c")</td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Price?.ToString("c")</td>
                                             <td>@item.Discount.ToString("c")</td>
 
                                             <td>
@@ -259,7 +259,6 @@
 @section Scripts{
     <script src="~/javascript/table.js" asp-append-version="true"></script>
     <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
-    <script src="~/javascript/script.js" asp-append-version="true"></script>
     <script src="~/javascript/script.js" asp-append-version="true"></script>
     <script src="~/lib/select2/js/select2.full.min.js"></script>
     <script>

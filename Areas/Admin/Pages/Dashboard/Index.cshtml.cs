@@ -38,6 +38,21 @@ namespace liaqati_master.Areas.Admin.Pages.Dashboard
                 NumderOfOrdersToday = await _dbContext.TblOrder.CountAsync(order => order.OrderDate == DateTime.Today)
             };
 
+            var a2 =
+                (await _dbContext.TblOrder.ToListAsync())
+                .AsQueryable().Where(order => order.OrderDate > DateTime.Now.AddMonths(-6));
+            var a3 = a2.GroupBy(a => new
+            {
+                Month = a.OrderDate.Value.Month,
+            })
+                .AsEnumerable()
+                .Select(q => new
+                {
+                    Month = q.Key.Month,
+                    Total = q.Select(a => a.TotalPrice).Sum(a => a)
+                }).ToList();
+
+
             DateTime timebeforesixmonth = DateTime.Now.AddMonths(-6);
             var a = (await _dbContext.TblOrder.ToListAsync())
                 .Where(o => o.OrderDate > timebeforesixmonth)

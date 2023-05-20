@@ -3,10 +3,13 @@
     public class IndexHealthyModel : PageModel
     {
         private readonly IRepoHealthyRecipe _repoHealthyRecipe;
+        private readonly SignInManager<User> _signInManager;
 
-        public IndexHealthyModel(IRepoHealthyRecipe repoHealthyRecipe)
+        public IndexHealthyModel(IRepoHealthyRecipe repoHealthyRecipe, SignInManager<User> signInManager)
         {
             _repoHealthyRecipe = repoHealthyRecipe;
+            _signInManager = signInManager;
+
         }
 
         public IList<HealthyRecipe>? HealthyRecipes { get; set; }
@@ -37,6 +40,16 @@
         {
             if (_repoHealthyRecipe != null)
             {
+                if (_signInManager.IsSignedIn(User))
+                {
+                    if (User.FindFirstValue(Database.Expert) != null)
+                    {
+                        var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        HealthyRecipeQueryParamters.UserId = userid;
+                    }
+
+
+                }
                 QueryPageResult = await _repoHealthyRecipe.SearchHealty(HealthyRecipeQueryParamters);
             }
         }

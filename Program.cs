@@ -72,7 +72,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeAreaFolder("Admin", "/Users", Database.AdminPolicy);
-    options.Conventions.AuthorizeAreaFolder("Admin", "/SportPrograms", Database.AdminPolicy);
+    //options.Conventions.AuthorizeAreaFolder("Admin", "/SportPrograms", Database.AdminPolicy);
     //options.Conventions.AuthorizeFolder("/Products", "EditorPolicy");
     //options.Conventions.AuthorizeFolder("/Products", "PerventDisabled");
     //options.Conventions.AuthorizeFolder("/Categories", "EditorPolicy");

@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-
-namespace liaqati_master.Services.Repositories
+﻿namespace liaqati_master.Services.Repositories
 {
     public class IRepoMealPlans
     {
@@ -101,9 +99,12 @@ namespace liaqati_master.Services.Repositories
                {
                    CategoryName = p.Services?.Category?.Name,
                    Id = p.Id,
+                   UserId = p.Services?.UserId,
+
                    Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
                    Image = p.Services?.Image,
                    CategoryId = p.Services?.CategoryId,
+                   RatePercentage = p.Services?.RatePercentage,
                    Length = p.Length,
                    DietaryType = p.DietaryType,
                    MealType = p.MealType,
@@ -147,26 +148,37 @@ namespace liaqati_master.Services.Repositories
                 }
                 MealPlans = MealPlans2.AsQueryable();
             }
-            if (Parameters.CategoryId != null)
+
+            if (!string.IsNullOrEmpty(Parameters.UserId))
             {
+                MealPlans = MealPlans.Where(p => p.UserId == Parameters.UserId);
+            }
+            if (!string.IsNullOrEmpty(Parameters.CategoryId))
+            {
+                Parameters.CurPage = 1;
                 MealPlans = MealPlans.Where(p => p.CategoryId == Parameters.CategoryId);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
 
             }
             if (Parameters.MinPrice != null)
             {
+                Parameters.CurPage = 1;
+
                 MealPlans = MealPlans.Where(p => p.Price >= Parameters.MinPrice);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MinPrice), Parameters.MinPrice.ToString() ?? ""));
 
             }
             if (Parameters.MaxPrice != null)
             {
+                Parameters.CurPage = 1;
+
                 MealPlans = MealPlans.Where(p => p.Price <= Parameters.MaxPrice);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MaxPrice), Parameters.MaxPrice.ToString() ?? ""));
 
             }
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
+                Parameters.CurPage = 1;
                 MealPlans = MealPlans.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
 
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.SearchTearm), Parameters.SearchTearm.ToString() ?? ""));
@@ -180,6 +192,8 @@ namespace liaqati_master.Services.Repositories
             if (Parameters.DietaryType is not null)
                 if (Parameters.DietaryType.Count != 0)
                 {
+                    Parameters.CurPage = 1;
+
                     List<MealPlanVM> MealPlan = new();
                     foreach (var item in Parameters.DietaryType)
                     {
@@ -195,6 +209,8 @@ namespace liaqati_master.Services.Repositories
             if (Parameters.MealType is not null)
                 if (Parameters.MealType.Count != 0)
                 {
+                    Parameters.CurPage = 1;
+
                     List<MealPlanVM> MealPlan = new();
                     foreach (var item in Parameters.MealType)
                     {
@@ -241,6 +257,15 @@ namespace liaqati_master.Services.Repositories
                         MealPlans = MealPlans.OrderByDescending(p => p.DietaryType);
 
                 }
+                else if (Parameters.SortBy.Equals(nameof(Service.RatePercentage), StringComparison.OrdinalIgnoreCase))
+                {
+
+                    if (Parameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderBy(p => p.RatePercentage);
+                    else if (Parameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        MealPlans = MealPlans.OrderByDescending(p => p.RatePercentage);
+
+                }
             }
 
             List<int> MealTypeCounters = new();
@@ -263,10 +288,22 @@ namespace liaqati_master.Services.Repositories
 
                 }
             }
+            List<int> ProgramLengthCounters = new();
+            List<string> ProgramLength = Database.GetListOfMealPlanLength().Select(b => b.Value).ToList();
+            foreach (var item in ProgramLength)
+            {
+                if (item is not null)
+                {
+                    ProgramLengthCounters.Add(MealPlans.Count(ex => ex.Length != null && ex.Length.ToString()!.ToLower().Trim() == item.ToLower().Trim()));
+
+                }
+            }
             QueryPageResult<MealPlanVM> queryPageResult = CommonMethods.GetPageResult(MealPlans, Parameters);
             MealPlanQueryPageResult mealPlanQueryPageResult = new()
             {
                 DietaryTypeCounters = DietaryTypeCounters,
+                MealTypeCounters = MealTypeCounters,
+                ProgramLengthCounters = ProgramLengthCounters,
                 ListOfData = MealPlans,
                 NextPage = queryPageResult.NextPage,
                 TotalCount = queryPageResult.TotalCount,

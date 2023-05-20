@@ -18,10 +18,10 @@
         public string? TraningType { get; set; }
 
 
+        public string? UserId { get; set; }
 
         public int IsFavorite { get; set; }
 
-        public List<Exercise> exercises { get; set; }
 
 
 

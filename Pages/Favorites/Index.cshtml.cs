@@ -1,4 +1,4 @@
-using System.Security.Claims;
+#nullable disable
 
 namespace liaqati_master.Pages.Favorites
 {
@@ -57,85 +57,83 @@ namespace liaqati_master.Pages.Favorites
 
 
 
-            // id = "98127abb-de9d-40db-82a3-809f85a6866d";
+            // id = "98127abb-de9d-40db-82a3-809f85a6866d";  
+            //Products = ((await _repoProduct.GetAllAsync()).Select(p =>
+            //new ProductVM()
+            //{
+            //    CategoryName = p.Services?.Category?.Name,
+            //    Id = p.Id,
+            //    Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
+            //    CategoryId = p.Services?.CategoryId,
+            //    Discount = p.Discount,
+            //    PercentageRate = p.Services?.RatePercentage,
+            //    Price = p.Services?.Price,
+            //    Title = p.Services?.Title
+
+            //}).Take(4)).ToList();
             var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
 
             if (id is null)
             {
-                RedirectToPage("./identity/account/login"); ;
+                return RedirectToPage("./identity/account/login"); ;
             }
-            Products = ((await _repoProduct.GetAllAsync()).Select(p =>
-            new ProductVM()
-            {
-                CategoryName = p.Services?.Category?.Name,
-                Id = p.Id,
-                Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
-                CategoryId = p.Services?.CategoryId,
-                Discount = p.Discount,
-                PercentageRate = p.Services?.RatePercentage,
-                Price = p.Services?.Price,
-                Title = p.Services?.Title
-
-            }).Take(4)).ToList();
-
-            List<Favorite>? list = await _repoFavorite.GetByUserIDAsync(id);
+            List<Favorite> list = await _repoFavorite.GetByUserIDAsync(id);
 
 
             if (list is not null)
             {
-
                 foreach (Favorite item in list)
                 {
-
-                    Service? servies = await _repoService.GetByIDAsync(item.ServicesId);
-
-                    if (servies is not null)
+                    if (item is not null)
                     {
-                        Services.Add(new VmFavorite() { Id = servies.Id, Price = servies.Price, imgUrl = "", Title = servies.Title });
+
+                        if (item.ServicesId is not null)
+                        {
+                            Service servies = await _repoService.GetByIDAsync(item.ServicesId);
+                            if (servies is not null)
+                            {
+                                Services.Add(new VmFavorite() { Id = servies.Id, Price = servies.Price, imgUrl = servies.Image, Title = servies.Title });
+                            }
+                        }
+
+                        if (item.HealthyRecipeId is not null)
+                        {
+                            HealthyRecipe HealthyRecipe = await _repoHealthyRecipe.GetByIDAsync(item.HealthyRecipeId);
+
+                            if (HealthyRecipe is not null)
+                            {
+                                Services.Add(new VmFavorite() { Id = HealthyRecipe.Id, Title = HealthyRecipe.Title, imgUrl = HealthyRecipe.Image, Price = HealthyRecipe.Price });
+                            }
+                        }
+
+                        if (item.ExerciseId is not null)
+                        {
+                            Exercise Exercise = await _repoExercise.GetByIDAsync(item.ExerciseId);
+
+                            if (Exercise is not null)
+                            {
+                                Services.Add(new VmFavorite() { Id = Exercise.Id, Title = Exercise.Title, imgUrl = Exercise.Image, Price = Exercise.Price });
+                            }
+                        }
+                        if (item.ArticleId is not null)
+                        {
+
+
+                            Article Article = await _repoArticles.GetByIDAsync(item.ArticleId);
+
+                            if (Article is not null)
+                            {
+                                Services.Add(new VmFavorite() { Id = Article.Id, Title = Article.Title, imgUrl = Article.Image, Price = 0 });
+                            }
+                        }
                     }
-
-
-                    HealthyRecipe? HealthyRecipe = await _repoHealthyRecipe.GetByIDAsync(item.HealthyRecipeId);
-
-                    if (HealthyRecipe is not null)
-                    {
-                        Services.Add(new VmFavorite() { Id = HealthyRecipe.Id, Title = HealthyRecipe.Title, imgUrl = HealthyRecipe.Image, Price = HealthyRecipe.Price });
-                    }
-
-                    Exercise? Exercise = await _repoExercise.GetByIDAsync(item.ExerciseId);
-
-                    if (Exercise is not null)
-                    {
-                        Services.Add(new VmFavorite() { Id = Exercise.Id, Title = Exercise.Title, imgUrl = Exercise.Image, Price = Exercise.Price });
-                    }
-
-
-                    Article? Article = await _repoArticles.GetByIDAsync(item.ArticleId);
-
-                    if (Article is not null)
-                    {
-                        Services.Add(new VmFavorite() { Id = Article.Id, Title = Article.Title, imgUrl = Article.Image, Price = 0 });
-                    }
-
-
-
-
-                    if (!string.IsNullOrEmpty(Parameters.SearchTearm))
-                    {
-                        Services = Services.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()) || p.Title!.ToLower().Contains(Parameters.SearchTearm.ToLower())).ToList();
-
-                    }
-
-                    QueryPageResult = CommonMethods.GetPageResult(Services.AsQueryable(), Parameters);
-
-
-
                 }
-
-
-
-
+                if (!string.IsNullOrEmpty(Parameters.SearchTearm))
+                {
+                    Services = Services.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()) || p.Title!.ToLower().Contains(Parameters.SearchTearm.ToLower())).ToList();
+                }
+                QueryPageResult = CommonMethods.GetPageResult(Services.AsQueryable(), Parameters);
             }
 
             return Page();
@@ -150,22 +148,12 @@ namespace liaqati_master.Pages.Favorites
             {
                 return NotFound();
             }
-
             await _repoFavorite.DeleteBySerIdAsync(id);
             await _repoFavorite.DeleteByExerIdAsync(id);
             await _repoFavorite.DeleteByHealIdAsync(id);
             await _repoFavorite.DeleteByArticalIdAsync(id);
-
-
-
-
             returnUrl ??= Url.Content("~/");
-
-
             return LocalRedirect(returnUrl);
         }
-
-
-
     }
 }

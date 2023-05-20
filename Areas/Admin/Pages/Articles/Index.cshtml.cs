@@ -3,10 +3,13 @@
     public class IndexModel : PageModel
     {
         private readonly IRepoArticles _repoArticles;
+        private readonly SignInManager<User> _signInManager;
 
-        public IndexModel(IRepoArticles repoArticles)
+        public IndexModel(IRepoArticles repoArticles, SignInManager<User> signInManager)
         {
             _repoArticles = repoArticles;
+            _signInManager = signInManager;
+
         }
         public List<(string, string)>? ListOfSelectedFilters { get; set; }
 
@@ -34,6 +37,16 @@
             Titles = new SelectList(await _repoArticles.GetAllAsync(), nameof(Article.Title), nameof(Article.Title));
             if (_repoArticles != null)
             {
+                if (_signInManager.IsSignedIn(User))
+                {
+                    if (User.FindFirstValue(Database.Expert) != null)
+                    {
+                        var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                        ArticlesQueryParamters.UserId = userid;
+                    }
+
+
+                }
                 QueryPageResult = (await _repoArticles.SearchArticles(ArticlesQueryParamters));
             }
         }

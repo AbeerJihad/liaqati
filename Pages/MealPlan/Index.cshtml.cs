@@ -1,4 +1,4 @@
-namespace liaqati_master.Pages.MealPlan
+﻿namespace liaqati_master.Pages.MealPlan
 {
     [AllowAnonymous]
 
@@ -22,10 +22,11 @@ namespace liaqati_master.Pages.MealPlan
         public List<string> MealType { get; set; }
         public List<string> MealPlanLength { get; set; }
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
-            new SelectListItem(){Value="RateId",Text="������ ������"},
-            new SelectListItem(){Value="exerciseDate",Text="������"},
+            new SelectListItem(){Value="MinPrice",Text="الأقل سعرا"},
+            new SelectListItem(){Value="MaxPrice",Text="الأعلى سعرا"},
+            new SelectListItem(){Value="MaxRatePercentage",Text="الأغلى تقييما"},
+            new SelectListItem(){Value="MinRatePercentage",Text="الأقل تقييما"},
         };
-
         [BindProperty(SupportsGet = true)]
         public MealPlansQueryParamters queryParameters { get; set; }
 

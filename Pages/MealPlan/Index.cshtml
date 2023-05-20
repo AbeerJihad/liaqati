@@ -52,15 +52,16 @@
                     <h1 class="text-white text-center py-3 fw-bold">
                         الأنظمة الغذائية
                     </h1>
-                 <div class="p-0 g-0 row col-lg-10 justify-content-center mx-auto form-search">
-              <div class="col-12 my-2 my-lg-0 col-lg-6">
-                                <input class="form-control rounded-end-0" placeholder="الخدمة" placeholder="Search" aria-label="Search" name="SearchTearm" id="SearchTearm"
-                                       asp-for="@Model.queryParameters.SearchTearm" />
-                            </div>
-                            <div class="col-12 my-2 my-lg-0 col-lg-3">
-                                <input placeholder="بحث" type="submit" value="بحث" class="form-control rounded-start-0 text-center" style="background-color: #b9aff5" onclick="SearchFun()" />
-                            </div>
-                 </div>
+
+                    <form id="formSearch" class="p-0 g-0 row col-lg-10 mx-auto form-search justify-content-center">
+                        <div class="col-12 my-2 my-lg-0 col-lg-6">
+                            <input type="text" id="searchTearm" class="form-control search rounded-0" placeholder="ابحث" style="height: 3rem" />
+                        </div>
+                        <div class="col-12 my-lg-0 col-lg-2">
+                            <input placeholder="بحث" type="submit" value="بحث" class="form-control text-center rounded-0" style="background-color: #cebfe9; height: 3rem;" />
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -71,148 +72,146 @@
 
 <div class="container-fluid p-0 px-4">
 
-        <form id="form1" class="p-0">
-            <div class="container-fluid bg-white p-0 m-0 pt-1">
-                <p class="fs-6 p-3">
-                    الرئيسية
-                    <img src="/images/Exercise/ic_expand_more_24px.png" />
-                    خدماتنا
-                    <img src="/images/Exercise/ic_expand_more_24px.png" />
-                    الأنظمة الغذائية
-                </p>
-                <div class="row p-0 g-0 d-flex justify-content-between">
+    <form id="form1" class="p-0">
+        <div class="container-fluid bg-white p-0 m-0 pt-1">
+            <p class="fs-6 p-3">
+                الرئيسية
+                <img src="/images/Exercise/ic_expand_more_24px.png" />
+                خدماتنا
+                <img src="/images/Exercise/ic_expand_more_24px.png" />
+                الأنظمة الغذائية
+            </p>
+            <div class="row p-0 g-0 d-flex justify-content-between">
+            </div>
+            <div class="container-fluid p-0 border">
+                <div class="container-xl p-0 d-flex justify-content-between">
+                    <button title="toggle" type="button" class="btn bg-white main-color border rounded-0 p-3 px-3 d-flex justify-content-center align-items-center" id="btnToggleFilter">
+                        <i class="bx bx-filter h5 m-0 me-2"></i>
+                        تصفية
+                    </button>
 
-                </div>
-                <div class="container-fluid p-0 border">
-                    <div class="container-xl p-0 d-flex justify-content-between">
-                       <button title="toggle" type="button" class="btn bg-white main-color border rounded-0 p-3 px-3 d-flex justify-content-center align-items-center" id="btnToggleFilter">
-                            <i class="bx bx-filter h5 m-0 me-2"></i>
-                            تصفية
-                        </button>
-
-                        <div class="col-6 col-md-2 d-flex">
-                            <select class="form-select" asp-items="Model.SortList" name="SortBy" id="SortBy" onchange="sortFun()" asp-for="@Model.queryParameters.SortBy">
-                                <option value="" selected>ترتيب حسب</option>
-                            </select>
-                        </div>
-
+                    <div class="col-6 col-md-2 d-flex">
+                        <select class="form-select" asp-items="Model.SortList" id="lstSort" name="SortBy" asp-for="@Model.queryParameters.SortBy">
+                            <option value="" selected>ترتيب حسب</option>
+                        </select>
                     </div>
-                </div>
-                <div class="container-fluid position-relative d-none content-filter m-0 p-0">
-                    <!-- <div class="backdrop d-none position-fixed w-100 top-0 start-0  min-vh-100 "></div> -->
-                    <div class="filter d-none">
-                        <div class="filter-mobile-head d-lg-none d-flex p-3 justify-content-between align-items-center border-bottom">
-                            <h5 class="">تصفية</h5>
-                            <button class="btn btn-sm btn-primary">إلغاء جميع الفلاتر</button>
-                            <span class="filter-close p-2">
-                                <i class="bi bi-x-lg h5"></i>
-                            </span>
-                        </div>
-                        <div class="p-lg-3 d-flex align-items-lg-start justify-content-lg-center g-0 bg-white filter-container pb-5 shadow flex-column flex-lg-row">
-              
-                            <div class="p-3 d-flex align-items-lg-start">
-                                <div class="w-100 h-100">
-                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
-                                        <strong>نوع الوجبة</strong>
-                                        <i class="bi bi-chevron-down d-lg-none"></i>
-                                    </p>
-                                    <div class="filter-level d-none py-3 d-lg-block h-100">
-                                        <div class="h-100 scroll">
 
-                                            @{
-                                              int  Counter = 1;
-                                            }
-                                            @foreach (string bdoyfocusitem in Model.MealType)
-                                            {
-                                                string id = $"MealType{Counter}";
-
-                                                <div class=" form-check my-3 ">
-                                                    <input class="form-check-input" id="@id" name="MealType" type="checkbox" value="@bdoyfocusitem">
-                                                    <label class="form-check-label" for="@id">
-                                                        @bdoyfocusitem
-                                                        <span class="count"></span>
-
-                                                    </label>
-                                                </div>
-                                                Counter++;
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                 <div class="p-3 d-flex align-items-lg-start">
-                                <div class="w-100 h-100">
-                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
-                                        <strong>عدد الأسابيع</strong>
-                                        <i class="bi bi-chevron-down d-lg-none"></i>
-                                    </p>
-                                    <div class="filter-level d-none py-3 d-lg-block h-100">
-                                            @{
-                                                Counter = 1;
-                                            }
-                                            @foreach (string lenghtitem in Model.MealPlanLength)
-                                            {
-                                                string id = $"programlength{Counter}";
-
-                                                <div class=" form-check my-3 ">
-                                                    <input class="form-check-input" id="@id" name="programlength" type="checkbox" value="@lenghtitem">
-                                                    <label class="form-check-label" for="@id">
-                                                        @lenghtitem
-                                                        <span class="count"></span>
-
-                                                    </label>
-                                                </div>
-                                                Counter++;
-                                            }
-                                    </div>
-                                </div>
-                            </div>
-                          
-                        <div class="p-3 d-flex align-items-lg-start">
-                                <div class="w-100 h-100">
-                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
-                                        <strong>النوع الغذائي</strong>
-                                        <i class="bi bi-chevron-down d-lg-none"></i>
-                                    </p>
-                                    <div class="filter-level d-none py-3 d-lg-block h-100">
-                                            @{
-                                                Counter = 1;
-                                            }
-                                            @foreach (string lenghtitem in Model.DietaryType)
-                                            {
-                                                string id = $"DietaryType{Counter}";
-
-                                                <div class=" form-check my-3 ">
-                                                    <input class="form-check-input" id="@id" name="DietaryType" type="checkbox" value="@lenghtitem">
-                                                    <label class="form-check-label" for="@id">
-                                                        @lenghtitem
-                                                        <span class="count"></span>
-
-                                                    </label>
-                                                </div>
-                                                Counter++;
-                                            }
-                                    </div>
-                                </div>
-                            </div>
-                          
-                
-                        </div>
-
-                    </div>
                 </div>
             </div>
-        </form>
+            <div class="container-fluid position-relative d-none content-filter m-0 p-0">
+                <!-- <div class="backdrop d-none position-fixed w-100 top-0 start-0  min-vh-100 "></div> -->
+                <div class="filter d-none">
+                    <div class="filter-mobile-head d-lg-none d-flex p-3 justify-content-between align-items-center border-bottom">
+                        <h5 class="">تصفية</h5>
+                        <button class="btn btn-sm btn-primary">إلغاء جميع الفلاتر</button>
+                        <span class="filter-close p-2">
+                            <i class="bi bi-x-lg h5"></i>
+                        </span>
+                    </div>
+                    <div class="p-lg-3 d-flex align-items-lg-start justify-content-lg-center g-0 bg-white filter-container pb-5 shadow flex-column flex-lg-row">
+
+                        <div class="p-3 d-flex align-items-lg-start">
+                            <div class="w-100 h-100">
+                                <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                    <strong>نوع الوجبة</strong>
+                                    <i class="bi bi-chevron-down d-lg-none"></i>
+                                </p>
+                                <div class="filter-level d-none py-3 d-lg-block h-100">
+                                    <div class="h-100 scroll">
+
+                                        @{
+                                            int Counter = 1;
+                                        }
+                                        @foreach (string bdoyfocusitem in Model.MealType)
+                                        {
+                                            string id = $"MealType{Counter}";
+
+                                            <div class=" form-check my-3 ">
+                                                <input class="form-check-input" id="@id" name="MealType" type="checkbox" value="@bdoyfocusitem">
+                                                <label class="form-check-label" for="@id">
+                                                    @bdoyfocusitem
+                                                    <span class="count"></span>
+
+                                                </label>
+                                            </div>
+                                            Counter++;
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 d-flex align-items-lg-start">
+                            <div class="w-100 h-100">
+                                <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                    <strong>عدد الأسابيع</strong>
+                                    <i class="bi bi-chevron-down d-lg-none"></i>
+                                </p>
+                                <div class="filter-level d-none py-3 d-lg-block h-100">
+                                    @{
+                                        Counter = 1;
+                                    }
+                                    @foreach (string lenghtitem in Model.MealPlanLength)
+                                    {
+                                        string id = $"programlength{Counter}";
+
+                                        <div class=" form-check my-3 ">
+                                            <input class="form-check-input" id="@id" name="programlength" type="checkbox" value="@lenghtitem">
+                                            <label class="form-check-label" for="@id">
+                                                @lenghtitem
+                                                <span class="count"></span>
+
+                                            </label>
+                                        </div>
+                                        Counter++;
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 d-flex align-items-lg-start">
+                            <div class="w-100 h-100">
+                                <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                    <strong>النوع الغذائي</strong>
+                                    <i class="bi bi-chevron-down d-lg-none"></i>
+                                </p>
+                                <div class="filter-level d-none py-3 d-lg-block h-100">
+                                    @{
+                                        Counter = 1;
+                                    }
+                                    @foreach (string lenghtitem in Model.DietaryType)
+                                    {
+                                        string id = $"DietaryType{Counter}";
+
+                                        <div class=" form-check my-3 ">
+                                            <input class="form-check-input" id="@id" name="DietaryType" type="checkbox" value="@lenghtitem">
+                                            <label class="form-check-label" for="@id">
+                                                @lenghtitem
+                                                <span class="count"></span>
+
+                                            </label>
+                                        </div>
+                                        Counter++;
+                                    }
+                                </div>
+                            </div>
+                        </div>
 
 
+                    </div>
 
-        <div class="container-fluid ">
-            <div id="rowExercisesIndex"  class="row justify-content-center m-5">
-
+                </div>
             </div>
         </div>
+    </form>
 
+
+
+    <div class="container-fluid ">
+        <div id="rowExercisesIndex" class="row justify-content-center m-5">
+        </div>
     </div>
+
+</div>
 
 
 
@@ -256,22 +255,26 @@
     </div>
 </div>
 <div class="container-lg mt-3">
+    <div class="d-flex  justify-content-center align-items-center  g-0" id="NoResult">
+    </div>
+
     <div class="row p-0 g-0" id="Paging">
         <div class="col p-3 d-flex justify-content-center align-items-center"></div>
     </div>
 </div>
 @section Scripts{
+    <script src="~/jsapi/Pagination.js" asp-append-version="true"></script>
 
     <script src="~/jsapi/mealplanapi/mealplanmodel.js" asp-append-version="true"></script>
-         <script src="~/User/js/Filter.js" asp-append-version="true"></script>
+    <script src="~/User/js/Filter.js" asp-append-version="true"></script>
 
     <script src="~/jsapi/mealplanapi/mealplanmodelapp.js" asp-append-version="true"></script>
 
-  }
+    }
 @*
-<i class="bi bi-arrow-bar-right"></i>
-<i class="bi bi-arrow-bar-left"></i>
-<ul class="pagination">
+    <i class="bi bi-arrow-bar-right"></i>
+    <i class="bi bi-arrow-bar-left"></i>
+    <ul class="pagination">
     <li tabindex="0" aria-label="Previous Page" style=""><a class="pagination-icon"><i aria-hidden="true" class="material-icons-outlined">navigate_before</i></a></li>
     <li tabindex="0" aria-label="First Page" style=""><a class="pagination-icon"><i aria-hidden="true" class="material-icons-outlined">first_page</i></a></li>
     <li tabindex="0" class=""><a>1</a></li>
@@ -281,4 +284,4 @@
     <li tabindex="0" class="" style=""><a>5</a></li>
     <li tabindex="0" aria-label="Last Page"><a class="pagination-icon"><i aria-hidden="true" class="material-icons-outlined">last_page</i></a></li>
     <li tabindex="0" aria-label="Next Page"><a class="pagination-icon"><i aria-hidden="true" class="material-icons-outlined">navigate_next</i></a></li>
-</ul>*@
+    </ul>*@

@@ -1,45 +1,138 @@
 ﻿var lstMealType = [];
 var lstDietaryType = [];
 var lstProgramlength = [];
+let lstMealPlans = [];
 var sortedByValue = document.getElementById("SortBy");
 var SearchTearmValue = document.getElementById("SearchTearm");
-var txtsearchTerm;
-
-let lstMealPlans = [];
 let MealPlansContainer = document.querySelector("#mealPlan");
 let Paging = document.querySelector("#Paging");
+let formSearch = document.querySelector("#formSearch");
+let searchTearmInput = document.querySelector("#searchTearm");
+let NoResult = document.querySelector("#NoResult");
+var searchTearm;
+let SortOrder = "";
+let Sortby = "";
 let CurPage = 1;
 async function getdata(categoryid) {
 
     RenderSkeletonCards();
     var parms = {
-        CurPage: CurPage,
+        curPage: CurPage,
         size: 12,
+        sortBy: Sortby,
+        sortOrder: SortOrder,
         Length: lstProgramlength,
         MealType: lstMealType,
         DietaryType: lstDietaryType,
-        SearchTearm: txtsearchTerm
+        SearchTearm: searchTearm
 
 
     };
+    if (navigator.onLine) {
+        lstMealPlans = await getMealPlans(parms);
+        MealPlansContainer.innerHTML = "";
+        lstMealPlans.listOfData.forEach((p) => RenderCards(p));
+        RenderPagination(lstMealPlans);
+        RenderCounters(lstMealPlans);
+        console.log(lstMealPlans);
+    } else {
+        MealPlansContainer.innerHTML = "";
 
-    lstMealPlans = await getMealPlans(parms);
-    MealPlansContainer.innerHTML = "";
-    lstMealPlans.listOfData.forEach((p) => RenderCards(p));
-    RenderPagination(lstMealPlans);
-    RenderCounters(lstMealPlans);
-    console.log(lstMealPlans);
+        NoResult.innerHTML = ` 
+            <div class="card shadow-sm border my-5" style="max-width: 500px">
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <i class="bx bx-error text-danger" style="font-size: 100px"></i>
+            <h2 class="mb-4 text-danger">لا يوجد انترنت</h2>
+            <p class="h4 text-center mb-4">
+تغقد اتصالك بالإنترنت ثم حاول مجددا            </p>
+            
+          </div>
+        </div>
+      </div>
+         `
+
+    }
 
 }
 getdata(null);
+lstSort.addEventListener('change', () => {
+    if (lstSort.value === "MinPrice") {
+        SortOrder = "asc";
+        Sortby = "Price";
+    } else if (lstSort.value === "MaxPrice") {
+        SortOrder = "desc";
+        Sortby = "Price";
 
-function SearchFun() {
-    Name = document.getElementById("SearchTearm").value;
-    txtsearchTerm = Name;
+    } else if (lstSort.value === "MaxRatePercentage") {
+        SortOrder = "asc";
+        Sortby = "RatePercentage";
+
+    } if (lstSort.value === "MinRatePercentage") {
+        SortOrder = "desc";
+        Sortby = "RatePercentage";
+    }
     getdata(null);
+})
+
+formSearch.addEventListener("submit", (e) => {
+    e.preventDefault();
+    CurPage = 1;
+
+    searchTearm = searchTearmInput.value;
+    getdata(null);
+})
+
+function getAll() {
+    CurPage = 1;
+    searchTearm = "";
+    getdata(null);
+
 }
 
+window.addEventListener('online', () => {
+    getAll()
+})
+function RenderNoResult() {
+    NoResult.innerHTML = "";
+    let card = document.createElement("div");
+    card.className = "card shadow-sm my-5 border";
+    card.style.maxWidth = 500;
+    card.innerHTML = ` 
+        <div class="card-body ">
+          <div
+            class="d-flex justify-content-center align-items-center flex-column"
+          >
+            <i
+              class="bx bx-error-circle text-main"
+              style="font-size: 100px"
+            ></i>
+            <h2 class="mb-4 text-main">لا يوجد نتائج</h2>
+            <p class="h4 text-center mb-4">
+              حاول ضبط مرشحات البحث لمزيد من النتائج.
+            </p>
+            <div><a class="btn btn-main text-white" onclick="getAll()">عرض الكل</a></div>
+          </div>
+      </div>
+                              `;
+    NoResult.appendChild(card);
 
+}
+window.addEventListener('offline', () => {
+    MealPlansContainer.innerHTML = "";
+    NoResult.innerHTML = ` 
+      <div class="card shadow-sm border my-5" style="max-width: 500px">
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <i class="bx bx-error text-danger" style="font-size: 100px"></i>
+            <h2 class="mb-4 text-danger">لا يوجد انترنت</h2>
+            <p class="h4 text-center mb-4">تغقد اتصالك بالإنترنت ثم حاول مجددا</p>
+          </div>
+        </div>
+      </div>
+         `
+
+})
 function RenderCards(MealPlan) {
 
 
@@ -84,10 +177,10 @@ function RenderCards(MealPlan) {
                 <img src="${MealPlan.image}" class=" w-100 position-absolute h-100 top-0 start-0 object-fit-cover" alt="...">
                 <div class="overlay w-100 position-absolute h-100 top-0 start-0"></div>
                 <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 p-3 top-0 start-0">
-                    <button class="btn bg-white-with-transparent more-details-btn rounded-pill shadow border-0 p-2 px-3 fw-bold" type="button">
+                    <a href="/MealPlan/MealPlanDetails?id=${MealPlan.id}" class="btn bg-white-with-transparent more-details-btn rounded-pill shadow border-0 p-2 px-3 fw-bold" type="button">
                         مزيد من التفاصيل
-                    </button>
-                </div>
+                    </a>
+                </div>  
             </div>
             <div class="card-body">
                          <div class="d-flex justify-content-between"> 
@@ -190,6 +283,8 @@ function GetPage(index) {
 var MealTypeCheckboxes = document.getElementsByName("MealType");
 MealTypeCheckboxes.forEach((chBox) => {
     chBox.addEventListener("change", () => {
+        CurPage = 1;
+
         lstMealType = renderList(MealTypeCheckboxes);
         getdata(null);
     });
@@ -197,6 +292,8 @@ MealTypeCheckboxes.forEach((chBox) => {
 var ProgramlengthCheckboxes = document.getElementsByName("programlength");
 ProgramlengthCheckboxes.forEach((chBox) => {
     chBox.addEventListener("change", () => {
+        CurPage = 1;
+
         lstProgramlength = renderList(ProgramlengthCheckboxes);
         getdata(null);
     });
@@ -204,6 +301,8 @@ ProgramlengthCheckboxes.forEach((chBox) => {
 var DietaryTypeCheckboxes = document.getElementsByName("DietaryType");
 DietaryTypeCheckboxes.forEach((chBox) => {
     chBox.addEventListener("change", () => {
+        CurPage = 1;
+
         lstDietaryType = renderList(DietaryTypeCheckboxes);
         getdata(null);
     });
