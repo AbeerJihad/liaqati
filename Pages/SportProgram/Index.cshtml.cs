@@ -50,26 +50,26 @@ namespace liaqati_master.Pages.SportProgram
         public async Task OnGet()
         {
 
-            Sports = await _context.GetAllProgram();
+            //Sports = await _context.GetAllProgram();
 
 
-            foreach (var s in Sports)
-            {
+            //foreach (var s in Sports)
+            //{
 
-                s.Services!.Category = null;
-                s.Services!.SportsProgram = null;
-                if (s.Exercies_Programs is not null)
-                {
-                    foreach (var ss in s.Exercies_Programs)
-                    {
+            //    s.Services!.Category = null;
+            //    s.Services!.SportsProgram = null;
+            //    if (s.Exercies_Programs is not null)
+            //    {
+            //        foreach (var ss in s.Exercies_Programs)
+            //        {
 
-                        ss.SportsProgram = null;
+            //            ss.SportsProgram = null;
 
-                    }
-                }
+            //        }
+            //    }
 
 
-            }
+            //}
 
         }
 

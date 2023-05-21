@@ -1,7 +1,4 @@
-﻿using liaqati_master.Services.Repositories;
-using System.Security.Claims;
-
-namespace liaqati_master.Pages.Articles
+﻿namespace liaqati_master.Pages.Articles
 {
     [AllowAnonymous]
 
@@ -9,11 +6,14 @@ namespace liaqati_master.Pages.Articles
     {
         readonly IRepoArticles _repoArticles;
         readonly IRepoFavorite _IRepoFavorite;
+        private readonly SignInManager<User> _signInManager;
 
-        public IndexModel(IRepoArticles repoArticles, IRepoFavorite iRepoFavorite)
+
+        public IndexModel(IRepoArticles repoArticles, IRepoFavorite iRepoFavorite, SignInManager<User> signInManager)
         {
             _repoArticles = repoArticles;
             _IRepoFavorite = iRepoFavorite;
+            _signInManager = signInManager;
         }
 
         [BindProperty(SupportsGet = true)]
@@ -26,7 +26,7 @@ namespace liaqati_master.Pages.Articles
         [BindProperty(SupportsGet = true)]
         public List<Favorite> Favorites { get; set; }
 
-
+        public List<VmArticles> articlesList { get; set; } = new List<VmArticles>();
 
 
         public async Task OnGet()
@@ -39,17 +39,80 @@ namespace liaqati_master.Pages.Articles
 
 
 
-            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (userid is not null)
-            {
 
-                Favorites = ((await _IRepoFavorite.GetByUserIDAsync(userid)).Where(p => p.Type == "مقالات").ToList());
+
+
+            foreach (Article article in Articles)
+            {
+                VmArticles articles = new VmArticles();
+                if (_signInManager.IsSignedIn(User))
+                {
+                    List<Favorite> favorites = await _IRepoFavorite.GetByUserIDAsync(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                    if (favorites is not null && favorites.Count > 0)
+                    {
+
+
+                        Favorite favorite = favorites.Where(p => p.ArticleId != null && p.ArticleId == article.Id).FirstOrDefault();
+                        if (favorite is null)
+                        {
+
+                            articles.IsFavorite = 1;
+                        }
+                        else
+                        {
+                            articles.IsFavorite = 2;
+
+                        }
+
+
+
+
+                    }
+
+                }
+
+
+                else if (!_signInManager.IsSignedIn(User))
+                {
+                    articles.IsFavorite = 0;
+                }
+
+
+
+                articles.Image = article.Image;
+                articles.Title = article.Title;
+                articles.PostDate = article.PostDate;
+                articles.ViewsNumber = article.ViewsNumber;
+                articles.LikesNumber = article.LikesNumber;
+                articles.avgReading = article.avgReading;
+                articles.Description = article.Description;
+                articles.Id = article.Id;
+                articles.CategoryId = article.CategoryId;
+
+
+
+
+                articlesList.Add(articles);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             }
-            else Favorites = null;
 
-            ViewData["listFavorites"] = Favorites;
+
+
 
         }
+
     }
 }

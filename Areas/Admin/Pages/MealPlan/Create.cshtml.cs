@@ -106,7 +106,11 @@ namespace liaqati_master.Pages.MealPlan
             MealPlan.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
             MealPlan.DietaryType = string.Join(',', lstCheckBoxDietaryType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
             MealPlan.Services.CategoryId = MealPlan.Services.CategoryId;
-
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null)
+            {
+                MealPlan.Services.UserId = userid;
+            }
             await _repoService.AddEntityAsync(MealPlan.Services);
             await _repoMealPlans.AddEntityAsync(MealPlan);
             Display = "d-block";

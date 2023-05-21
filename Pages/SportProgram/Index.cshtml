@@ -42,7 +42,16 @@
     </style>
 }
 
+
 <link href="~/user/css/filter.css" rel="stylesheet" asp-append-version="true" />
+
+
+<form method="Post" asp-page="/cart/cart" asp-page-handler="Increase" asp-route-id="21" >
+    <button title="إضافة إلى السلة" class="rounded-pill btn imgBackground add-to-bag-btn border shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+        <i class="bx bx-cart-add h3 d-block m-0"></i>ssssssssssssssssss
+    </button>
+</form>
+
 
 <div class="position-relative w-100  overflow-hidden" style="background-size:cover; height: 70vh;background-image: linear-gradient(#00000060, #00000060),url('/images/experts/header.jpeg')">
     <div class="h-100">
@@ -336,9 +345,10 @@
 
    
 @section Scripts{
-    <script src="~/jsapi/Pagination.js" asp-append-version="true"></script>
-     <script src="~/User/js/Filter.js" asp-append-version="true"></script>
     <script src="~/jsapi/programapi/programmodel.js" asp-append-version="true"></script>
     <script src="~/jsapi/programapi/programmodelapp.js" asp-append-version="true"></script>
+    <script src="~/jsapi/Pagination.js" asp-append-version="true"></script>
+     <script src="~/User/js/Filter.js" asp-append-version="true"></script>
+  
 }
 

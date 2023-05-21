@@ -41,38 +41,12 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
         public User? user { get; set; }
 
 
-        public class ChangePassword
-        {
-
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            public string CurrentPassword { get; set; }
-
-
-
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
-
-
-
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
-
-
-
-
-        }
-
+      
 
 
 
         [BindProperty(SupportsGet = true)]
-        public ChangePassword? model { get; set; }
+        public ChangePassWord? model { get; set; }
 
 
 
@@ -114,7 +88,7 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
                 user = await _IRepoUser.GetByIDAsync(userid);
 
 
-                List<Notification> List2 = (await _repoNotification.GetAllAsync()).Where(p => p.UserId == userid).ToList();
+                List<Notification> List2 = (await _repoNotification.GetAllAsync()).Where(p => p.UserId == "1").ToList();
 
                 List<Notification> n = List2.Where(n => n.DATE == DateTime.Today).ToList();
 

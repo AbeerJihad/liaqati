@@ -388,6 +388,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Graduation Project/LastUpdate/liaqati/Pages/AboutUs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRVc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Graduation Project/LastUpdate/liaqati/Pages/Articles/AllArticles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZXNcQWxsQXJ0aWNsZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -482,22 +486,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Components/GenericComponentHealthyRecipes/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcQ29tcG9uZW50c1xHZW5lcmljQ29tcG9uZW50SGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Components/MostViewedHealthyRecipes/default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcQ29tcG9uZW50c1xNb3N0Vmlld2VkSGVhbHRoeVJlY2lwZXNcZGVmYXVsdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/HealthyRecipesDetiles.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcSGVhbHRoeVJlY2lwZXNEZXRpbGVzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeCard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSGVhbHRoeVJlY2lwZXNcX0hlYWx0aHlSZWNpcGVDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Graduation Project/LastUpdate/liaqati/Pages/HealthyRecipes/_HealthyRecipeSkeletonCard.cshtml]

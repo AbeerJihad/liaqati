@@ -87,16 +87,31 @@ namespace liaqati_master.Pages.ProgramPages
             Exercies_programs = Exercies_programs.Where(s => s.Day == day && s.Week == week).ToList();
 
 
-            foreach(Exercies_program ex in Exercies_programs)
+            if(Exercies_programs is not null)
             {
-              
+                foreach (Exercies_program ex in Exercies_programs)
+                {
 
 
-                Tracking tracking = (await _repoTraking.GetAllAsync()).ToList().Where(p => p.Exercies_programId == ex.Id).ToList()[0];
 
-                Tracking.Add(tracking);
+                    var tracking = (await _repoTraking.GetAllAsync()).ToList();
+                    Tracking track = tracking.FirstOrDefault(p=>p.Exercies_programId==ex.Id);
+
+                    if (track is not null)
+                    {
+                        Tracking.Add(track);
+
+                    }
+
+
+                }
+
+
+
+
 
             }
+
 
 
 

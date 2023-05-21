@@ -51,3 +51,77 @@ async function AddFavoritesToProduct(id) {
 }
 
 
+
+async function AddFavoritesToProduct(id) {
+
+    let result;
+    try {
+        const response = await fetch(`/api/FavoritesApi/AddFavorites/${id}`, {
+            method: "GET",
+        });
+        if (response.status === 200) {
+            result = await response.json();
+        }
+        else {
+            console.error(json);
+            //`Error: ${json.title}`;
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+    return result;
+}
+
+
+async function AddCart(id) {
+
+    let result;
+    try {
+        const response = await fetch(`/api/CartApi/AddToCart/${id}`, {
+            method: "GET",
+        });
+        if (response.status === 200) {
+            result = await response.json();
+        }
+        else {
+            console.error(json);
+            //`Error: ${json.title}`;
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+    return result;
+}
+
+
+
+
+async function CountCart() {
+
+    let result;
+    try {
+        const response = await fetch(`/api/CartApi/CountCart`, {
+            method: "GET",
+        });
+        if (response.status === 200) {
+            result = await response.json();
+        }
+        else {
+            console.error(json);
+            //`Error: ${json.title}`;
+        }
+    } catch (err) {
+        console.error(err);
+    }
+
+    return result;
+}
+
+
+async function CountFunCart() {
+
+    var int = await CountCart();
+    countofcart.innerHTML = int;
+}

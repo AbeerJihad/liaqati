@@ -73,6 +73,11 @@ namespace liaqati_master.Pages.Products
             {
                 Products.ImgUrl = ImagesPaths[0].Path;
             }
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null)
+            {
+                Products.Services.UserId = userid;
+            }
             await _repoProducts.UpdateEntityAsync(Products);
             await _RepoFiles.AddRangeOfFiles(ImagesPaths);
             return RedirectToPage("./Index");

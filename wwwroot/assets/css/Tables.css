@@ -186,3 +186,16 @@ th input[type="checkbox"] {
         max-width: 300px;
     }
 }
+
+.toggle-details.active {
+    background-color: white !important;
+    color: #8763b3 !important;
+}
+
+.sub-row {
+    display: none !important;
+}
+
+    .sub-row.show {
+        display: table-row !important;
+    }

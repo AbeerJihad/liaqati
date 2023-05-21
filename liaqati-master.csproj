@@ -8,6 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="Areas\Admin\Pages\Sales\Index.cshtml" />
 	  <Content Remove="Pages\Products\Components\GenericComponentProduct\default.cshtml" />
 	</ItemGroup>
 
@@ -92,6 +93,7 @@
 		<None Include="Areas\Admin\Pages\Orders\Details.cshtml" />
 		<None Include="Areas\Admin\Pages\Orders\Edit.cshtml" />
 		<None Include="Areas\Admin\Pages\Orders\Index.cshtml" />
+		<None Include="Areas\Admin\Pages\Sales\Index.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Create.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Delete.cshtml" />
 		<None Include="Areas\Admin\Pages\SportPrograms\Edit.cshtml" />

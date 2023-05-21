@@ -2,6 +2,8 @@
 @model liaqati_master.Pages.Articles.IndexModel
 @{
 }
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+
 <style>
     body {
         background-color: #F7F7F7;
@@ -78,10 +80,10 @@
                         var active = @i == 0 ? "active" : "";
                         string[] Links = new string[] { "221796.png", "224347.png", "224664.png" };
                         <div class='carousel-item  h-100 @active'>
-                            <img src="~/images/atricles/@Links[i]" class="d-block carouselImages" alt="...">
+                            <img src="@Model.articlesList[i].Image" class="d-block carouselImages" alt="...">
                             <div class="carousel-caption w-100 start-0 m-0 p-3 bottom-0   text-start d-none d-md-block" style="background-color:rgba(255,255,255,0.6);">
                                 <p class="text-black-50 fw-bold">رشاقة وتغذية</p>
-                                <h6 class="text-dark">@Model.Articles[i].Title      .</h6>
+                                <h6 class="text-dark">@Model.articlesList[i].Title      .</h6>
                             </div>
                         </div>
                     }
@@ -104,77 +106,56 @@
                 string[] Links = new string[] { "article1.png", "224058.png", "224756.png" };
                 <div class="row w-100 mx-1 bg-white">
                     <div class="col-4 g-0 ">
-                        <img src="~/images/atricles/@Links[i]" class="sideArticlesImages" />
+                        <a asp-page="/articles/ArticleDetail" asp-route-id="@Model.articlesList[i+3].Id">
+                            <img src="@Model.articlesList[i+3].Image" class="sideArticlesImages" />
+                        </a>
+                        
                     </div>
                     <div class="col">
                         <div class="pt-2">
-                            <p class="fw-bold"> @CommonMethods.GetArabicDateTime(@Model.Articles[i+3].PostDate)   </p>
+                            <p class="fw-bold"> @CommonMethods.GetArabicDateTime(@Model.articlesList[i+3].PostDate)   </p>
                             <p class="text-black-50">رشاقة وتغذية</p>
-                            <p style="font-weight:bold;">  @Model.Articles[i+3].Title </p>
+                            <p style="font-weight:bold;">  @Model.articlesList[i+3].Title </p>
                         </div>
                         <div class="d-flex justify-content-between ">
 
                             <div>
-                                <p>وقت القراءة  @Model.Articles[i+3].avgReading  دقائق</p>
+                                <p>وقت القراءة  @Model.articlesList[i+3].avgReading  دقائق</p>
                             </div>
                             <div class="my-1 d-flex">
                                 <img width="20" src="~/images/atricles/share-button-svgrepo-com.png" />
 
-                             
+                                @if (@Model.articlesList[i + 3].IsFavorite == 0)
+                                {
+                                    <a onclick="ShowNotLoginAlert()" class="text-decoration-none">
+                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
+                                            <i class="bx bxs-heart h4 m-0 "></i>
+                                        </div>
+                                    </a>
+                                }
+                                else if (@Model.articlesList[i + 3].IsFavorite == 2)
+                                {
+                                    <a class="text-decoration-none btn-favorite" onclick="AddFavoriteArticles(@Model.articlesList[i+3].Id,this)">
+                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
+                                            <i class="bx bxs-heart h4 m-0 text-danger"></i>
+                                        </div>
+                                    </a>
+                                }
+                                else if (@Model.articlesList[i + 3].IsFavorite == 1)
+                                {
+                                    <a class="text-decoration-none btn-favorite" onclick="AddFavoriteArticles(@Model.articlesList[i+3].Id,this)">
+                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
+                                            <i class="bx bxs-heart h4 m-0 text-dark"></i>
+                                        </div>
+                                    </a>
 
-
-                                    @{
-                                     Favorite favorite =new Favorite();
-
-                                        if (Model.Favorites is null)
-                                        {
-                                             <a asp-area="identity" asp-page="/account/login" style="width: 50px; height: 50px; top: 10px; right: 10px"
-                                              class="rounded-pill btn-favourite   text-secondary btn  border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                                                <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
-
-                                            </a>
-
-                                        }
-
-                                        else
-                                        {
-                                            List<Favorite> list = Model.Favorites.Where(p => p.ArticleId == @Model.Articles[i + 3].Id).ToList();
-
-                                            if (list.Count == 0)
-                                            {
-
-
-                                                <form method="post" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/create">
-
-
-                                                    <input hidden value="@Model.Articles[i+3].Id" asp-for="@favorite.ArticleId" />
-                                                <input hidden value="مقالات" asp-for="@favorite.Type" />
-
-                                                    <button title="add to Favorite" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                                                        <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
-
-                                                    </button>
-
-                                                </form>
-
-                                            }
-                                            else
-                                            {
-                                                <form asp-route-id="@Model.Articles[i+3].Id" method="post" asp-page-handler="RemoveFavorite" asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page="/favorites/index">
+                                }
 
 
 
-                                                    <button title="add to Favorite" onclick="AddFavorite('${Product.id}')" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                                                        <img width="25" height="25" src="/Images/heart-solid-24.png" />
 
-                                                    </button>
-
-                                                </form>
-                                            }
-
-
-                                        }
-                                    }
+                                   
+                                    
 
 
 
@@ -330,20 +311,49 @@
 *@
 
 
+@section Scripts{
+
+
+    <script src="~/jsapi/Articles/ArticlesModel.js" asp-append-version="true"></script>
+
+}
+
 <script>
-    let page = 1;
-    let rowOfdata = document.getElementById('rowData');
-    fetchData();
-    function fetchData() {
-        fetch("/api/ArticlesApi/GetArticlesWithLoadMore?page=" + page + "&size=4").then(response => response.json()).then(data => { console.log(data); data.forEach(art => RenderArticles(art)) });
-        page++;
-    }
+    //let page = 1;
+    //let rowOfdata = document.getElementById('rowData');
+    //fetchData();
+    //function fetchData() {
+    //    fetch("/api/ArticlesApi/GetArticlesWithLoadMore?page=" + page + "&size=4").then(response => response.json()).then(data => { console.log(data); data.forEach(art => RenderArticles(art)) });
+    //    page++;
+    //}
 
 
-    function RenderArticles(article) {
-        let col = document.createElement('div');
-        col.className = "col-md-6 p-2"
-        col.innerHTML = `<div class=""><div class="row g-0 bg-white"><div class="col-4 g-0"><img src="/images/atricles/224664" class="sideArticlesImages" /></div><div class="col p-2 m-0"><div class="d-flex justify-content-between "><div><p class="fw-bold">رشاقة وتغذية</p></div><div><img width="20" src="/images/atricles/share-button-svgrepo-com.png" /><img width="20" src="/images/atricles/heart-svgrepo-com (1).png" /></div></div><p>فبراير 18 2023</p><p style="font-weight:bold;">فوائد المغنيسيوم للتنحيف ولصحة الجسم كافة لا تُثمّن</p></div> </div>`
-        rowOfdata.appendChild(col);
-    }
+    //function RenderArticles(article) {
+    //    let col = document.createElement('div');
+    //    col.className = "col-md-6 p-2"
+    //    col.innerHTML = `<div class=""><div class="row g-0 bg-white"><div class="col-4 g-0"><img src="/images/atricles/224664" class="sideArticlesImages" /></div><div class="col p-2 m-0"><div class="d-flex justify-content-between "><div><p class="fw-bold">رشاقة وتغذية</p></div><div><img width="20" src="/images/atricles/share-button-svgrepo-com.png" /><img width="20" src="/images/atricles/heart-svgrepo-com (1).png" /></div></div><p>فبراير 18 2023</p><p style="font-weight:bold;">فوائد المغنيسيوم للتنحيف ولصحة الجسم كافة لا تُثمّن</p></div> </div>`
+    //    rowOfdata.appendChild(col);
+    //}
+
+
+      function ShowNotLoginAlert() {
+
+
+            Swal.fire({
+                text: "يرجى منك تسجيل الدحول",
+                //icon: 'warning  ',
+                showCancelButton: true,
+                confirmButtonColor: '#a566c8',
+                cancelButtonColor: '#ff7273',
+                confirmButtonText: 'تسجيل',
+                cancelButtonText: 'إلغاء'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "/Identity/Account/Login"
+                }
+            })
+        }
 </script>
+<script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+
+    

@@ -55,6 +55,11 @@ namespace liaqati_master.Pages.HealthyReicpe
             //{
             //    HealthyRecipes.CategoryId = id;
             //}
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null)
+            {
+                HealthyRecipes.UserId = userid;
+            }
 
             HealthyRecipes.MealType = string.Join(',', lstCheckBox.Where(ch => ch.IsChecked).Select(ch => ch.Name));
             HealthyRecipes.Image = "";

@@ -87,23 +87,77 @@
         public async Task<QueryPageResult<Article>> SearchArticles(ArticlesQueryParamters artParameters)
         {
             IQueryable<Article> articles = (await GetAllAsync()).AsQueryable();
+            List<AppliedFilters> ListOfSelectedFilters = new();
+
             if (!string.IsNullOrEmpty(artParameters.UserId))
             {
+                artParameters.CurPage = 1;
+
                 articles = articles.Where(p => p.UserId == artParameters.UserId);
             }
             if (!string.IsNullOrEmpty(artParameters.SearchTearm))
             {
+                artParameters.CurPage = 1;
+
                 articles = articles.Where(art => art.Title != null && art.Title.ToLower().Trim().Contains(artParameters.SearchTearm.Trim().ToLower())); ;
+                ListOfSelectedFilters.Add(new AppliedFilters(nameof(artParameters.SearchTearm), propartyValue: artParameters.SearchTearm));
+
             }
             if (!string.IsNullOrEmpty(artParameters.Title))
             {
+                artParameters.CurPage = 1;
                 articles = articles.Where(art => art.Title != null && art.Title.ToLower().Trim().Contains(artParameters.Title.Trim().ToLower()));
+                ListOfSelectedFilters.Add(new AppliedFilters(nameof(artParameters.Title), propartyValue: artParameters.Title));
             }
+            //if (!string.IsNullOrEmpty(artParameters.SortBy))
+            //{
+            //    articles = articles.OrderByCustom(artParameters.SortBy, artParameters.SortOrder);
+            //}
+
             if (!string.IsNullOrEmpty(artParameters.SortBy))
             {
-                articles = articles.OrderByCustom(artParameters.SortBy, artParameters.SortOrder);
-            }
+                if (artParameters.SortBy.Equals(nameof(Article.Title), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (artParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderBy(p => p.Title);
+                    else if (artParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderByDescending(p => p.Title);
 
+                }
+                else if (artParameters.SortBy.Equals(nameof(Article.LikesNumber), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (artParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderBy(p => p.LikesNumber);
+                    else if (artParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderByDescending(p => p.LikesNumber);
+
+                }
+                else if (artParameters.SortBy.Equals(nameof(Article.CreatedDate), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (artParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderBy(p => p.CreatedDate);
+                    else if (artParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderByDescending(p => p.CreatedDate);
+
+                }
+                else if (artParameters.SortBy.Equals(nameof(Article.avgReading), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (artParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderBy(p => p.avgReading);
+                    else if (artParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderByDescending(p => p.avgReading);
+
+                }
+                else if (artParameters.SortBy.Equals(nameof(Article.ViewsNumber), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (artParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderBy(p => p.ViewsNumber);
+                    else if (artParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        articles = articles.OrderByDescending(p => p.ViewsNumber);
+
+                }
+
+            }
             QueryPageResult<Article> qpResult = CommonMethods.GetPageResult(articles, artParameters);
             return qpResult;
         }

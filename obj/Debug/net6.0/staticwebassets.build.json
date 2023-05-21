@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1P1igTWOBVFc2fGcQ87IDZ1uAQpGXOcXv+fOPOG9TIo=",
+  "Hash": "1ChrJc5yIOMq8E4ObX4aL/24d8Gt35bUEvE0FOSbDks=",
   "Source": "liaqati-master",
   "BasePath": "_content/liaqati-master",
   "Mode": "Default",
@@ -11456,6 +11456,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\products\\fa7358a1-d3f0-4e52-8281-e616ca5091b7pexels-marta-wave-6454051.png"
+    },
+    {
+      "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\products\\feb45c0a-1349-4d85-9a12-cef170b560cbتفاصيل يوم النظام الغذائي.png",
+      "SourceId": "liaqati-master",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\",
+      "BasePath": "_content/liaqati-master",
+      "RelativePath": "Images/products/feb45c0a-1349-4d85-9a12-cef170b560cbتفاصيل يوم النظام الغذائي.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\products\\feb45c0a-1349-4d85-9a12-cef170b560cbتفاصيل يوم النظام الغذائي.png"
     },
     {
       "Identity": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Program\\1.jfif",

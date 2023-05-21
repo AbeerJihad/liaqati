@@ -165,6 +165,33 @@ function RenderCards(HealthyRecipe) {
         minimumFractionDigits: 2
     })
 
+
+    var btn2 = ``;
+
+
+
+
+
+    if (HealthyRecipe.isFavorite == 2) {
+
+        btn2 = `   <a class="text-decoration-none btn-favorite" onclick="AddFavoriteHealthy(${HealthyRecipe.id},this)">
+                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
+                                            <i class="bx bxs-heart h4 m-0 text-danger"></i>
+                                        </div>
+                                    </a>`;
+
+
+    }
+    else {
+        btn2 = `  <a class="text-decoration-none btn-favorite" onclick="AddFavoriteHealthy(${HealthyRecipe.id},this)">
+                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
+                                            <i class="bx bxs-heart h4 m-0 text-dark"></i>
+                                        </div>
+                                    </a>`;
+    }
+
+
+
     console.log(HealthyRecipe);
     let card = document.createElement("div");
     card.className = "col p-3";
@@ -184,9 +211,7 @@ function RenderCards(HealthyRecipe) {
                     <a title="share" class=" border-0 bg-transparent " href="#">
                         <i class="bi bi-share fs-4 text-dark"></i>
                     </a>
-                    <a title="heart" class=" border-0 bg-transparent" href="#">
-                        <i class="bi bi-heart fs-4 text-dark"></i>
-                    </a>
+                   ${btn2}
                 </div>
             </div>
             <div class="d-flex justify-content-between g-0  p-2">

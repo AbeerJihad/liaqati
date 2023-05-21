@@ -116,6 +116,10 @@
                             SportProgramQueryParamters.MinDuration = null;
                             SportProgramQueryParamters.MaxDuration = null;
                             break;
+                        case "Price":
+                            SportProgramQueryParamters.MinPrice = null;
+                            SportProgramQueryParamters.MaxPrice = null;
+                            break;
                     }
 
                 }

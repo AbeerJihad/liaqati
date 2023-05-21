@@ -5,17 +5,15 @@ namespace liaqati_master.Pages.MealPlan
 
         readonly IRepoMealPlans _repoMealPlan;
         readonly IRepoArticles _repoArticles;
-        readonly IRepoComment_Servies _IRepoComment_Servies;
         readonly IRepoExercise _repocontextExer;
         readonly LiaqatiDBContext _context;
 
-        public MealPlanDetailsModel(LiaqatiDBContext context, IRepoArticles repoArticel, IRepoMealPlans repoMealPlan, IRepoExercise repocExer, IRepoComment_Servies iRepoComment_Servies)
+        public MealPlanDetailsModel(LiaqatiDBContext context, IRepoArticles repoArticel, IRepoMealPlans repoMealPlan, IRepoExercise repocExer)
         {
             _repoArticles = repoArticel;
             _repocontextExer = repocExer;
             _repoMealPlan = repoMealPlan;
             _context = context;
-            _IRepoComment_Servies = iRepoComment_Servies;
         }
 
 
@@ -29,8 +27,9 @@ namespace liaqati_master.Pages.MealPlan
         public List<Article> Articles { get; set; }
         public List<Comment_Servies> comments { get; set; }
         public List<Exercise> exercises { get; set; } = new();
-        public async Task OnGet(string id)
+        public async Task<IActionResult> OnGet(string id)
         {
+
 
             try
             {
@@ -43,11 +42,14 @@ namespace liaqati_master.Pages.MealPlan
                 Console.WriteLine(ex.Message);
             }
 
-            Articles = (await _repoArticles.GetAllAsync()).Take(4).ToList();
-            exercises = (await _repocontextExer.GetAllAsync()).Take(3).OrderBy(x => x).ToList();
-            comments = (await _IRepoComment_Servies.GetAllAsync()).Take(3).OrderBy(x => x).ToList();
+            Articles = _context.TblArticles.Take(4).OrderBy(x => x.Id).ToList();
+            exercises = _context.TblExercises.Take(3).OrderBy(x => x.Id).ToList();
+            comments = _context.TblCommentServies.Take(3).OrderBy(x => x.Id).ToList();
             days = (int)(mealplans.Length * 7);
+            ////ala
 
+
+            return Page();
         }
     }
 }

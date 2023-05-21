@@ -84,24 +84,30 @@
         public async Task<QueryPageResult<Product>> SearchProduct(ProductQueryParamters Parameters)
         {
             IQueryable<Product> products = (await GetAllAsync()).AsQueryable();
-
-            if (Parameters.CategoryId != null)
+            if (!string.IsNullOrEmpty(Parameters.CategoryId))
             {
+                Parameters.CurPage = 1;
                 products = products.Where(p => p.Services != null && p.Services.CategoryId == Parameters.CategoryId);
             }
 
             if (Parameters.MinPrice != null)
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p => p.Services != null && p.Services.Price >= Parameters.MinPrice);
             }
 
             if (Parameters.MaxPrice != null)
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p => p.Services != null && p.Services.Price <= Parameters.MaxPrice);
             }
 
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p =>
                       p.Services != null && p.Services.Title != null && p.Services.Title.ToLower().Contains(Parameters.SearchTearm.ToLower())
                  );
@@ -109,6 +115,7 @@
 
             if (!string.IsNullOrEmpty(Parameters.Title))
             {
+                Parameters.CurPage = 1;
                 products = products.Where(p => p.Services != null && p.Services.Title != null && p.Services.Title.ToLower() == Parameters.Title.ToLower());
             }
 
@@ -133,6 +140,7 @@
         public async Task<QueryPageResult<ProductVM>> SearchProductVM(ProductQueryParamters Parameters)
         {
             List<ProductVM> products2 = new();
+            List<AppliedFilters>? ListOfSelectedFilters = new();
 
 
             IQueryable<ProductVM> products = (await GetAllAsync()).Select(p =>
@@ -201,30 +209,50 @@
 
             if (!string.IsNullOrEmpty(Parameters.CategoryId))
             {
+                Parameters.CurPage = 1;
                 products = products.Where(p => p.CategoryId == Parameters.CategoryId);
+                ListOfSelectedFilters.Add(new AppliedFilters(propartyName: nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
+
             }
             if (!string.IsNullOrEmpty(Parameters.UserId))
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p => p.UserId == Parameters.UserId);
+
             }
 
             if (Parameters.MinPrice != null)
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p => p.Price >= Parameters.MinPrice);
+                ListOfSelectedFilters.Add(new AppliedFilters(propartyName: nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
+
             }
 
             if (Parameters.MaxPrice != null)
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p => p.Price <= Parameters.MaxPrice);
+                ListOfSelectedFilters.Add(new AppliedFilters(propartyName: nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
+
             }
 
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.SearchTearm.ToLower()));
+                ListOfSelectedFilters.Add(new AppliedFilters(propartyName: nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
+
             }
 
             if (!string.IsNullOrEmpty(Parameters.Title))
             {
+                Parameters.CurPage = 1;
+
                 products = products.Where(p => p.Title != null && p.Title.ToLower().Contains(Parameters.Title.ToLower()));
             }
 

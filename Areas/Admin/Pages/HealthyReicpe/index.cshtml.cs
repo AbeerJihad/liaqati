@@ -23,8 +23,12 @@
             new SelectListItem(){Value="10", Text="10"},
             new SelectListItem(){Value="20", Text="20"}
         };
-        public List<(string, string)>? ListOfSelectedFilters { get; set; }
+        public List<AppliedFilters>? ListOfSelectedFilters { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string MealTypeParams { get; set; }
+        [BindProperty(SupportsGet = true)]
 
+        public string DietaryTypeParams { get; set; }
         public IEnumerable<SelectListItem> Titles { get; set; }
         public IEnumerable<SelectListItem> DietaryType { get; set; } = Database.GetListOfDietaryType();
         public IEnumerable<SelectListItem> MealType { get; set; } = Database.GetListOfMealType();
@@ -51,6 +55,7 @@
 
                 }
                 QueryPageResult = await _repoHealthyRecipe.SearchHealty(HealthyRecipeQueryParamters);
+                ListOfSelectedFilters = QueryPageResult.ListOfSelectedFilters;
             }
         }
     }

@@ -11,6 +11,10 @@
         {nameof(Model.SportProgramQueryParamters.SortOrder),Model.SportProgramQueryParamters.SortOrder},
         {nameof(Model.SportProgramQueryParamters.SearchTearm),Model.SportProgramQueryParamters.SearchTearm??""},
         {nameof(Model.SportProgramQueryParamters.Size),Model.SportProgramQueryParamters.Size.ToString()},
+        {nameof(Model.SportProgramQueryParamters.MinDuration),Model.SportProgramQueryParamters.MinDuration.ToString()},
+        {nameof(Model.SportProgramQueryParamters.MaxDuration),Model.SportProgramQueryParamters.MinDuration.ToString()},
+        {nameof(Model.SportProgramQueryParamters.MinPrice),Model.SportProgramQueryParamters.MinPrice.ToString()},
+        {nameof(Model.SportProgramQueryParamters.MaxPrice),Model.SportProgramQueryParamters.MaxPrice.ToString()},
         {nameof(Model.SportProgramQueryParamters.Title),Model.SportProgramQueryParamters.Title??""},
     };
     if (Model.SportProgramQueryParamters.BodyFocus is not null)
@@ -48,30 +52,56 @@
         </div>
         <div class="offcanvas-body pb-5">
             <div class="d-flex flex-column gap-3">
-                <div class="d-flex  py-2">
+                <div class="py-2">
+                    <label class="form-label">بحث عام</label>
                     <input class="form-control " asp-for="@Model.SportProgramQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
                 </div>
-                <div class="d-flex ">
+                <div class="">
+
+                    <label class="form-label">المدة اليومية</label>
+
+                    <div class="d-flex gap-2 justify-content-center align-items-center">
+                        <input class="col form-control me-1" name="MinDuration" asp-for="@Model.SportProgramQueryParamters.MinDuration" id="MinDuration" type="number" placeholder="Min">
+                        <span>-</span>
+                        <input class="col form-control" name="MaxDuration" asp-for="@Model.SportProgramQueryParamters.MaxDuration" id="MaxDuration" type="number" placeholder="Max">
+                    </div>
+                </div>
+                <div class=" ">
+                    <label class="form-label">السعر</label>
+                    <div class="d-flex gap-2 justify-content-center align-items-center">
+                        <input class="col form-control me-1" name="MinPrice" asp-for="@Model.SportProgramQueryParamters.MinPrice" id="MinPrice" type="number" placeholder="Min">
+                        <span>-</span>
+                        <input class="col form-control" name="MaxPrice" asp-for="@Model.SportProgramQueryParamters.MaxPrice" id="MaxPrice" type="number" placeholder="Max">
+                    </div>
+                </div>
+                <div class=" ">
+                    <label class="form-label">عنوان البرنامج الرياضي</label>
                     <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.SportProgramQueryParamters.Title" id="single-select-field" data-placeholder="من فضلك حدد اسم الصنف">
                         <option value="">من فضلك حدد اسم الصنف</option>
                     </select>
                 </div>
-                <div class="d-flex ">
+                <div class=" ">
+                    <label class="form-label">تركيز الجسم</label>
                     <select name="BodyFocus" class="form-select w-100" asp-items="@Model.BodyFocus" asp-for="@Model.SportProgramQueryParamters.BodyFocus" id="multiple-select-BodyFocus" data-placeholder="من فضلك حدد اسم الصنف" multiple>
                         <option value="" disabled>من فضلك حدد اسم الصنف</option>
                     </select>
                 </div>
-                <div class="d-flex ">
+                <div class=" ">
+                    <label class="form-label">نوع التدريب</label>
                     <select name="TraningType" class="form-select w-100" asp-items="@Model.TraningType" asp-for="@Model.SportProgramQueryParamters.TraningType" id="multiple-select-TraningType" data-placeholder="من فضلك حدد اسم الصنف" multiple>
                         <option value="" disabled>من فضلك حدد اسم الصنف</option>
                     </select>
                 </div>
-                <div class="d-flex  ">
+                <div class="  ">
+                    <label class="form-label">المعدات</label>
+
                     <select name="Equipment" class="form-select w-100" asp-items="@Model.Equipment" asp-for="@Model.SportProgramQueryParamters.Equipment" id="multiple-select-Equipment" data-placeholder="من فضلك حدد اسم الصنف" multiple>
                         <option value="" disabled>من فضلك حدد اسم الصنف</option>
                     </select>
                 </div>
-                <div class="d-flex  ">
+                <div class="  ">
+                    <label class="form-label">درجة الصعوبة</label>
+
                     <select name="Difficulty" class="form-select w-100" asp-items="@Model.Difficulty" asp-for="@Model.SportProgramQueryParamters.Difficulty" id="multiple-select-Difficulty" data-placeholder="من فضلك حدد اسم الصنف" multiple>
                         <option value="" disabled>من فضلك حدد اسم الصنف</option>
                     </select>
@@ -139,6 +169,7 @@
                                     }
                                 }
                             }
+
 
                         </div>
                         <div class="table-responsive table-hover">

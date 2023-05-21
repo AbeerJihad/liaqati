@@ -49,6 +49,11 @@ namespace liaqati_master.Areas.Admin.Pages.Exercises
             {
                 Exercise.Video = oldurlvideo;
             }
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null)
+            {
+                Exercise.UserId = userid;
+            }
 
             await _repoExercise.AddEntityAsync(Exercise);
             return RedirectToPage("./Index");

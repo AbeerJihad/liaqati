@@ -4,6 +4,7 @@
     {
         // [Required(ErrorMessage = "هذا الحقل مطلوب")]
 
+
         //  [Required(ErrorMessage = "{0} هذا الحقل مطلوب"), Display(Name = "عنوان الخدمة")]
         public string? Title { get; set; }
         //    [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]

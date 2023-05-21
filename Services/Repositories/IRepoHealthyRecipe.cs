@@ -3,10 +3,15 @@
     public class IRepoHealthyRecipe
     {
         private readonly LiaqatiDBContext _context;
+        private readonly IHttpContextAccessor _HttpContextAccessor;
+        private readonly IRepoFavorite _IRepoFavorite;
 
-        public IRepoHealthyRecipe(LiaqatiDBContext context)
+
+        public IRepoHealthyRecipe(LiaqatiDBContext context, IHttpContextAccessor httpContextAccessor, IRepoFavorite iRepoFavorite)
         {
             _context = context;
+            _HttpContextAccessor = httpContextAccessor;
+            _IRepoFavorite = iRepoFavorite;
         }
 
         public async Task<HealthyRecipe> AddEntityAsync(HealthyRecipe Entity)
@@ -85,46 +90,108 @@
         }
         public async Task<HealthyRecipeQueryPageResult> SearchHealty(HealthyRecipeQueryParamters HealthyRecipeQueryParamters)
         {
-            IQueryable<HealthyRecipe> HealthyRecipes = (await GetAllAsync()).AsQueryable();
+
+            IQueryable<VmHealthyRecipe> HealthyRecipess = (await GetAllAsync()).Select(p =>
+              new VmHealthyRecipe()
+              {
+                  Id = p.Id,
+                  Image = p.Image ?? "",
+                  Price = p.Price,
+                  Title = p.Title,
+                  Description = p.Description,
+                  Calories = p.Calories,
+                  PrepTime = p.PrepTime,
+                  Protein = p.Protein,
+                  Rate = p.Rate,
+                  UserId = p.UserId,
+                  Total_Carbohydrate = p.Total_Carbohydrate,
+                  CreatedDate = p.CreatedDate,
+                  MealType = p.MealType ?? "",
+                  DietaryType = p.DietaryType ?? "",
+                  ShortDescription = p.ShortDescription,
+                  RatePercentage = p.RatePercentage,
+                  IsFavorite = 0
+              }).AsQueryable();
+
+
+            if (_HttpContextAccessor.HttpContext is not null)
+            {
+                List<Favorite>? list = new();
+                List<string?>? list2 = new();
+                var user = _HttpContextAccessor.HttpContext.User;
+                List<VmHealthyRecipe> HealthyRecipes = HealthyRecipess.ToList();
+
+                if (user is null)
+                {
+
+                    foreach (var item in HealthyRecipes)
+                    {
+                        item.IsFavorite = 0;
+
+
+                    }
+                }
+                else
+                {
+                    list = await _IRepoFavorite.GetByUserIDAsync(user.FindFirstValue(ClaimTypes.NameIdentifier));
+                    list2 = list?.Where(p => p.Type == "وصفات").Select(s => s.HealthyRecipeId).ToList();
+                    if (list2 is not null)
+                    {
+                        foreach (var item in HealthyRecipes)
+                        {
+                            if (list2.Contains(item.Id))
+                                item.IsFavorite = 2;
+                            else if (!list2.Contains(item.Id))
+                                item.IsFavorite = 1;
+                        }
+                    }
+
+
+                }
+
+            }
+
+
 
             if (!string.IsNullOrEmpty(HealthyRecipeQueryParamters.UserId))
             {
-                HealthyRecipes = HealthyRecipes.Where(p => p.UserId == HealthyRecipeQueryParamters.UserId);
+                HealthyRecipess = HealthyRecipess.Where(p => p.UserId == HealthyRecipeQueryParamters.UserId);
             }
             if (HealthyRecipeQueryParamters.MinCalories != null)
             {
-                HealthyRecipes = HealthyRecipes.Where(p => p.Calories >= HealthyRecipeQueryParamters.MinCalories);
+                HealthyRecipess = HealthyRecipess.Where(p => p.Calories >= HealthyRecipeQueryParamters.MinCalories);
             }
             if (HealthyRecipeQueryParamters.MaxCalories != null)
             {
-                HealthyRecipes = HealthyRecipes.Where(p => p.Calories <= HealthyRecipeQueryParamters.MaxCalories);
+                HealthyRecipess = HealthyRecipess.Where(p => p.Calories <= HealthyRecipeQueryParamters.MaxCalories);
             }
             if (HealthyRecipeQueryParamters.MinPrepTime != null)
             {
-                HealthyRecipes = HealthyRecipes.Where(p => p.PrepTime >= HealthyRecipeQueryParamters.MinPrepTime);
+                HealthyRecipess = HealthyRecipess.Where(p => p.PrepTime >= HealthyRecipeQueryParamters.MinPrepTime);
             }
             if (HealthyRecipeQueryParamters.MaxPrepTime != null)
             {
-                HealthyRecipes = HealthyRecipes.Where(p => p.PrepTime <= HealthyRecipeQueryParamters.MaxPrepTime);
+                HealthyRecipess = HealthyRecipess.Where(p => p.PrepTime <= HealthyRecipeQueryParamters.MaxPrepTime);
             }
             if (!string.IsNullOrEmpty(HealthyRecipeQueryParamters.SearchTearm))
             {
-                HealthyRecipes = HealthyRecipes.Where(p =>
+                HealthyRecipess = HealthyRecipess.Where(p =>
                     p.Title.ToLower().Contains(HealthyRecipeQueryParamters.SearchTearm.ToLower()) ||
                     p.ShortDescription.ToLower().Contains(HealthyRecipeQueryParamters.SearchTearm.ToLower())
                 );
             }
-            List<HealthyRecipe> healthyRecipes = new();
 
             if (HealthyRecipeQueryParamters.MealType != null)
                 if (HealthyRecipeQueryParamters.MealType.Count != 0)
                 {
+                    List<VmHealthyRecipe> healthyRecipes = new();
+
                     for (int i = 0; i < HealthyRecipeQueryParamters.MealType.Count; i++)
                     {
-                        healthyRecipes.AddRange(HealthyRecipes.Where(p => p.MealType.ToLower().Contains(HealthyRecipeQueryParamters.MealType[i].ToLower())));
+                        healthyRecipes.AddRange(HealthyRecipess.Where(p => p.MealType != null && p.MealType.ToLower().Contains(HealthyRecipeQueryParamters.MealType[i].ToLower())));
 
                     }
-                    HealthyRecipes = healthyRecipes.AsQueryable();
+                    HealthyRecipess = healthyRecipes.AsQueryable();
 
                 }
 
@@ -133,11 +200,13 @@
             if (HealthyRecipeQueryParamters.DietaryType != null)
                 if (HealthyRecipeQueryParamters.DietaryType.Count != 0)
                 {
+                    List<VmHealthyRecipe> healthyRecipes = new();
+
                     for (int i = 0; i < HealthyRecipeQueryParamters.DietaryType.Count; i++)
                     {
-                        healthyRecipes.AddRange(HealthyRecipes.Where(p => p.DietaryType.ToLower().Contains(HealthyRecipeQueryParamters.DietaryType[i].ToLower())));
+                        healthyRecipes.AddRange(HealthyRecipess.Where(p => p.DietaryType != null && p.DietaryType.ToLower().Contains(HealthyRecipeQueryParamters.DietaryType[i].ToLower())));
                     }
-                    HealthyRecipes = healthyRecipes.AsQueryable();
+                    HealthyRecipess = healthyRecipes.AsQueryable();
 
                 }
 
@@ -148,17 +217,17 @@
                 if (HealthyRecipeQueryParamters.SortBy.Equals("RateId", StringComparison.OrdinalIgnoreCase))
                 {
                     // if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                    HealthyRecipes = HealthyRecipes.OrderByDescending(p => p.RatePercentage);
+                    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RatePercentage);
                     //else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                    //    HealthyRecipes = HealthyRecipes.OrderByDescending(p => p.RateId);
+                    //    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RateId);
 
                 }
                 if (HealthyRecipeQueryParamters.SortBy.Equals("exerciseDate", StringComparison.OrdinalIgnoreCase))
                 {
                     // if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                    HealthyRecipes = HealthyRecipes.OrderByDescending(p => p.CreatedDate);
+                    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.CreatedDate);
                     //else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                    //    HealthyRecipes = HealthyRecipes.OrderByDescending(p => p.RateId);
+                    //    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RateId);
 
                 }
             }
@@ -167,18 +236,18 @@
             List<string> MealType = Database.GetListOfMealType().Select(b => b.Value).ToList();
             for (int i = 0; i < MealType.Count; i++)
             {
-                MealTypeCounters.Add(HealthyRecipes.Count(ex => ex.MealType.Contains(MealType[i])));
+                MealTypeCounters.Add(HealthyRecipess.Count(ex => ex.MealType != null && ex.MealType.Contains(MealType[i])));
 
             }
             List<int> DietaryTypeCounters = new();
             List<string> DietaryType = Database.GetListOfDietaryType().Select(b => b.Value).ToList();
             for (int i = 0; i < DietaryType.Count; i++)
             {
-                DietaryTypeCounters.Add(HealthyRecipes.Count(ex => ex.DietaryType.Contains(DietaryType[i])));
+                DietaryTypeCounters.Add(HealthyRecipess.Count(ex => ex.DietaryType != null && ex.DietaryType.Contains(DietaryType[i])));
 
             }
 
-            QueryPageResult<HealthyRecipe> qpres = CommonMethods.GetPageResult(HealthyRecipes, HealthyRecipeQueryParamters);
+            QueryPageResult<VmHealthyRecipe> qpres = CommonMethods.GetPageResult(HealthyRecipess, HealthyRecipeQueryParamters);
             HealthyRecipeQueryPageResult exqpres = new()
             {
                 ListOfData = qpres.ListOfData,

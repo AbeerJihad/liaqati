@@ -83,5 +83,39 @@
                 return new Order_Details();
             }
         }
+        public async Task<QueryPageResult<Order_Details>> SearchOrder(OrdersDetailsQueryParamters Parameters)
+        {
+            IQueryable<Order_Details> orders = (await GetAllAsync()).AsQueryable();
+
+            if (Parameters.UserId != null)
+            {
+                Parameters.CurPage = 1;
+
+                orders = orders.Where(o => o.Service != null && o.Service.UserId == Parameters.UserId);
+            }
+            if (Parameters.FromDateOrder != null && Parameters.ToDateOrder != null)
+            {
+                Parameters.CurPage = 1;
+
+                orders = orders.Where(x => x.Order != null && x.Order.OrderDate >= Parameters.FromDateOrder && x.Order.OrderDate <= Parameters.ToDateOrder);
+            }
+            else if (Parameters.FromDateOrder != null)
+            {
+                Parameters.CurPage = 1;
+
+                orders = orders.Where(x => x.Order != null && x.Order.OrderDate >= Parameters.FromDateOrder);
+            }
+            else if (Parameters.ToDateOrder != null)
+            {
+                Parameters.CurPage = 1;
+
+                orders = orders.Where(x => x.Order != null && x.Order.OrderDate <= Parameters.ToDateOrder);
+            }
+
+
+            QueryPageResult<Order_Details> queryPageResult = CommonMethods.GetPageResult(orders, Parameters);
+            return queryPageResult;
+
+        }
     }
 }

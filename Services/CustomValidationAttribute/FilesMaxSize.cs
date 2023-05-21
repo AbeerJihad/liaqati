@@ -4,8 +4,8 @@
     public class FilesMaxSize : ValidationAttribute
     {
         private readonly int _maxFileSize;
-        private readonly string _errormessage;
-        public FilesMaxSize(int maxFileSize, string errormessage)
+        private readonly string? _errormessage;
+        public FilesMaxSize(int maxFileSize, string? errormessage = null)
         {
             _maxFileSize = maxFileSize;
             _errormessage = errormessage;
@@ -23,14 +23,14 @@
                 }
             }
 
-            return ValidationResult.Success ?? new ValidationResult(GetErrorMessage());
+            return ValidationResult.Success;
         }
 
         public override string FormatErrorMessage(string name)
         {
             return string.Format($"{0} Maximum allowed File size is {1} bytes.", name, _maxFileSize);
         }
-        public string GetErrorMessage()
+        public string? GetErrorMessage()
         {
             return _errormessage;
         }

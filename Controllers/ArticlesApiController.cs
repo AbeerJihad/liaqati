@@ -6,13 +6,15 @@
     {
         readonly LiaqatiDBContext _context;
         readonly IRepoArticles _repository;
+        private readonly IRepoFavorite _IRepoFavorite;
 
 
-        public ArticlesApiController(LiaqatiDBContext context, IRepoArticles repository)
+
+        public ArticlesApiController(LiaqatiDBContext context, IRepoArticles repository, IRepoFavorite iRepoFavorite)
         {
             _context = context;
             _repository = repository;
-
+            _IRepoFavorite = iRepoFavorite;
         }
 
         [HttpGet("AllArticles")]
@@ -167,5 +169,72 @@
 
             return Ok((await _repository.GetAllAsync()).Skip((page - 1) * size).Take(size));
         }
+
+
+
+
+        [HttpGet("AddFavoritesToArticles/{id}")]
+        public async Task<ActionResult<string>> AddFavoritesToArticles(string id)
+        {
+            string IsAdd = "";
+            List<Favorite> Favorites = new();
+
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null && id is not null)
+            {
+
+                var lstOfFav = await _IRepoFavorite.GetByUserIDAsync(userid);
+
+                if (lstOfFav is not null)
+                {
+                    Favorites = lstOfFav.Where(p => p.ArticleId == id).ToList();
+                }
+                if (!Favorites.Any())
+                {
+                    Favorite favorite = new()
+                    {
+                        ArticleId = id,
+                        Type = "مقالات",
+                        Id = CommonMethods.Id_Guid(),
+                        UserId = userid
+                    };
+                    try
+                    {
+                        await _IRepoFavorite.AddEntityAsync(favorite);
+
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error");
+                    }
+                    IsAdd = "true";
+                }
+                else
+                {
+                    try
+                    {
+                        await _IRepoFavorite.DeleteByArticalIdAsync(id);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error");
+                    }
+
+                    IsAdd = "false";
+                }
+            }
+            else
+            {
+                IsAdd = "null";
+            }
+            return Ok(IsAdd);
+        }
+
+
+
+
+
+
+
     }
 }
