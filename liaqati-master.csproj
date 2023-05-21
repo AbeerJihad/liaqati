@@ -9,6 +9,10 @@
 
 	<ItemGroup>
 	  <Content Remove="Areas\Admin\Pages\Sales\Index.cshtml" />
+	  <Content Remove="Pages\HealthyRecipes\Components\MostViewedHealthyRecipes\default.cshtml" />
+	  <Content Remove="Pages\HealthyRecipes\HealthyRecipesDetiles.cshtml" />
+	  <Content Remove="Pages\HealthyRecipes\Index.cshtml" />
+	  <Content Remove="Pages\HealthyRecipes\_HealthyRecipeCard.cshtml" />
 	  <Content Remove="Pages\Products\Components\GenericComponentProduct\default.cshtml" />
 	</ItemGroup>
 
@@ -103,6 +107,7 @@
 		<None Include="Areas\Admin\Pages\Replyconsultations\Edit.cshtml" />
 		<None Include="Areas\Admin\Pages\Replyconsultations\Index.cshtml" />
 		<None Include="Areas\Identity\Pages\Account\Manage\Profile\Index.cshtml" />
+		<None Include="Pages\AboutUs\Index.cshtml" />
 		<None Include="Pages\Articles\AllArticles.cshtml" />
 		<None Include="Pages\Articles\Components\MostViewedArticles\default.cshtml" />
 		<None Include="Pages\Articles\Index.cshtml" />
@@ -131,6 +136,7 @@
 		<None Include="Pages\Shared\Components\SportsPrograms\default.cshtml" />
 		<None Include="wwwroot\css\fonts\slick.svg" />
 		<None Include="wwwroot\css\js\counter\main.js" />
+		<None Include="wwwroot\JsApi\Articles\ArticlesModel.js" />
 		<None Include="wwwroot\JsApi\Consultations\ConsultationModelApp.js" />
 		<None Include="wwwroot\JsApi\Consultations\ConsultationsModel.js" />
 		<None Include="wwwroot\JsApi\HealthyRecipeAPI\GetHealthy.js" />
@@ -2592,10 +2598,6 @@
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>
 	  <Content Update="Areas\Identity\Pages\Account\_ViewStart.cshtml">
-	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-	  </Content>
-	  <Content Update="Pages\HealthyRecipes\Index.cshtml">
 	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 	  </Content>
