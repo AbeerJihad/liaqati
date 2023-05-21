@@ -12,7 +12,6 @@
         public string? UserId { get; set; }
         public int? Length { get; set; }
         public string? TrainingType { get; set; }
-        public string? shortDescription { get; set; }
         public string? Description { get; set; }
         public int IsFavorite { get; set; }
         public int? Difficulty { get; set; }

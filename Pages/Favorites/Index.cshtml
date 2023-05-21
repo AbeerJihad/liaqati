@@ -18,11 +18,6 @@
         parms["SortOrder"] = "desc";
     else
         parms["SortOrder"] = "asc";
-
-
-
-    var disabled = Model.QueryPageResult.ListOfData.Count() > 0 ? "" : "disabled";
-
 }
 @section Styles{
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -92,12 +87,11 @@
             <p class="text-center" style="font-size: 55px"> المفضلة</p>
 
             <form class="p-0 g-0 row col-lg-10 mx-auto form-search justify-content-center" method="get">
-
                 <div class="col-12 my-2 my-lg-0 col-lg-6">
-                    <input id="SearchTearm" @disabled class="form-control search rounded-0" name="SearchTearm" asp-for="Parameters.SearchTearm" placeholder="ابحث" style="height: 3rem" />
+                    <input id="SearchTearm" class="form-control search rounded-0" name="SearchTearm" asp-for="Parameters.SearchTearm" placeholder="ابحث" style="height: 3rem" />
                 </div>
                 <div class="col-12 my-lg-0 col-lg-2">
-                    <input placeholder="بحث" @disabled type="submit" value="بحث" class="form-control text-center rounded-0" style="background-color: #cebfe9; height: 3rem;" />
+                    <input placeholder="بحث" type="submit" value="بحث" class="form-control text-center rounded-0" style="background-color: #cebfe9; height: 3rem;" />
                 </div>
             </form>
         </div>
@@ -111,7 +105,7 @@
         <nav class="breadcrumb-nav py-3" aria-label="breadcrumb">
             <ol class="breadcrumb d-flex align-items-center">
                 <li class="breadcrumb-item">
-                    <a class="text-secondary text-decoration-none" asp-page="/home/index3">الرئيسية</a>
+                    <a class="text-secondary text-decoration-none" asp-page="/home/index">الرئيسية</a>
                 </li>
                 <li class="d-flex justify-content-center align-items-center">
                     <i class="bx bxs-chevron-left mx-1 text-secondary"></i>
@@ -155,7 +149,7 @@
                                             </button>
                                         </td>
                                         <td class="position-relative">
-                                            <form asp-page-handler="RemoveFavorite" method="post" asp-route-id="@item.Id">
+                                            <form asp-route-returnUrl="@Url.Page("index", new { area = "" })" asp-page-handler="RemoveFavorite" method="post" asp-route-id="@item.Id">
 
                                                 <button class="btn">
                                                     <img src="~/images/Favorite/Group 784.png" />
@@ -165,30 +159,7 @@
                                     </tr>
                                 }
                             }
-                            else
-                            {
-                                <tr>
-                                    <td colspan="7">
-                                        <div class="d-flex justify-content-center align-items-center flex-column">
-                                            <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
-                                            <p>لا يوجد لديك مفضلة</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
                         }
-                        else
-                        {
-                            <tr>
-                                <td colspan="7">
-                                    <div class="d-flex justify-content-center align-items-center flex-column">
-                                        <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
-                                        <p>لا يوجد لديك مفضلة</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-
                     </tbody>
 
                     <tfoot>
@@ -216,26 +187,26 @@
                                                     @{
                                                         parms["CurPage"] = "1" ?? "";
                                                     }
-                                                    <li class="page-item"><a class="page-link @disabled @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
+                                                    <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
                                                     @{
                                                         parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
                                                     }
-                                                    <li class="page-item"><a class="page-link @disabled @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
+                                                    <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
                                                     <li class="page-item">
-                                                        <a class="page-link active @disabled">
+                                                        <a class="page-link active">
                                                             <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
-                                                                <span> @(Model.QueryPageResult.TotalPages > 0 ? Model.Parameters.CurPage : Model.QueryPageResult.TotalPages.ToString())</span> من  <span>@Model.QueryPageResult.TotalPages</span>
+                                                                <span>  @Model.Parameters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
                                                             </p>
                                                         </a>
                                                     </li>
                                                     @{
                                                         parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
                                                     }
-                                                    <li class="page-item"><a class="page-link @disabled @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
+                                                    <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
                                                     @{
                                                         parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
                                                     }
-                                                    <li class="page-item"><a class="page-link @disabled @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
+                                                    <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
                                                 </ul>
                                             </nav>
 

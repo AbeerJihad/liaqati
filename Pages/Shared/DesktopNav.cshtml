@@ -10,7 +10,7 @@
             <div class="d-flex navLarge d-none d-lg-flex justify-content-between w-100">
                 <ul class="navbar-nav flex-lg-row mb-2 mb-lg-0">
                     <li class="nav-item active d-flex justify-content-center align-items-center">
-                        <a class="nav-link" aria-current="page" href="#">الرئيسية</a>
+                        <a class="nav-link" aria-current="page" asp-page="/home/index2">الرئيسية</a>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center hoverabllink">
                         <a class="nav-link" href="#" role="button">
@@ -18,21 +18,21 @@
                         </a>
                         <ul class="bg-white subs-menu text-dark position-absolute start-0 end-0 justify-content-center align-items-center border-0">
                             <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
-                                   asp-page="/exercises/index"> <img src="~/User/images/NavIcons/XMLID_47_@@2x.png" alt="" class="img-fluid"> تمارين رياضية</a>
+                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column py-4"
+                                   asp-page="/exercises/index"> <img style="width:50px" src="~/User/images/NavIcons/XMLID_47_@@2x.png" alt="" class="img-fluid "> تمارين رياضية</a>
                             </li>
                             <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center  flex-column"
-                                   asp-page="/MealPlan/index"> <img src="~/images/home/2.jpeg" alt="" class="img-fluid" />  الانظمة الغذائية </a>
+                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center  flex-column py-4"
+                                   asp-page="/MealPlan/index"> <img style="width:50px" src="~/images/home/2.jpeg" alt="" class="img-fluid " />  الانظمة الغذائية </a>
                             </li>
                             <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
-                                   asp-page="/SportProgram/index"><img src="~/images/home/3.jpeg" alt="" class="img-fluid" /> الانظمة الرياضية</a>
+                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column py-4"
+                                   asp-page="/SportProgram/index"><img style="width:50px" src="~/images/home/3.jpeg" alt="" class="img-fluid " /> الانظمة الرياضية</a>
                             </li>
                             <li class="d-flex justify-content-center align-items-center h-100">
-                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column"
+                                <a class="text-decoration-none text-black w-100 h-100 d-flex justify-content-center align-items-center flex-column py-4"
                                    asp-page="/HealthyRecipes/index">
-                                    <img src="~/images/home/healthy.jpeg" alt="" class="img-fluid" />الوصفات الغذائية
+                                    <img style="width:50px" src="~/images/home/healthy.jpeg" alt="" class="img-fluid " />الوصفات الغذائية
                                 </a>
                             </li>
                         </ul>
@@ -51,9 +51,9 @@
                         <a class="nav-link" aria-current="page" asp-page="/Experts/index">  الخبراء</a>
                     </li>
                     <li class="nav-item d-flex justify-content-center align-items-center">
-                        <a class="nav-link" aria-current="page" href="#">من نحن</a>
+                        <a class="nav-link" aria-current="page"  asp-page="/aboutus/index"> من نحن</a>
                     </li>
-                    @if (User.FindFirstValue(Database.Admin) == "true")
+                    @if (User.FindFirstValue(Database.Admin) == "true" || User.FindFirstValue(Database.Expert) == "true")
                     {
                         <li class="nav-item d-flex justify-content-center align-items-center">
                             <a class="nav-link" aria-current="page" asp-area="admin" asp-page="/Dashboard/Index">لوحة التحكم</a>

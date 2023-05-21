@@ -1,4 +1,6 @@
-﻿namespace liaqati_master.Controllers
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     //  [ApiController]
@@ -18,7 +20,8 @@
         [HttpGet("AllExperts")]
         public async Task<IEnumerable<User>> GetAllTrainerAsync()
         {
-            return await _userManager.GetUsersInRoleAsync("Trainer");
+            return  (await _userManager.GetUsersForClaimAsync(new System.Security.Claims.Claim(Database.Expert, "true")));
+
         }
 
         [HttpPost]

@@ -62,7 +62,7 @@
                   Price = p.Services?.Price,
                   Title = p.Services?.Title,
                   BodyFocus = p.BodyFocus,
-                  shortDescription = p.Services?.ShortDescription,
+                  ShortDescription = p.Services?.ShortDescription ?? "",
                   Difficulty = p.Difficulty,
                   Duration = p.Duration,
                   CategoryId = p.Services?.CategoryId,
@@ -113,10 +113,13 @@
 
             if (!string.IsNullOrEmpty(sportProgramQueryParams.UserId))
             {
+                sportProgramQueryParams.CurPage = 1;
                 ListOfSportsProgram = ListOfSportsProgram.Where(p => p.UserId == sportProgramQueryParams.UserId);
             }
             if (!string.IsNullOrEmpty(sportProgramQueryParams.SearchTearm))
             {
+                sportProgramQueryParams.CurPage = 1;
+
                 ListOfSportsProgram = ListOfSportsProgram.Where(p =>
                (p.Title != null && p.Title.ToLower().Trim().Contains(sportProgramQueryParams.SearchTearm.ToLower().Trim())) ||
                   (p.ShortDescription != null && p.ShortDescription.ToLower().Trim().Contains(sportProgramQueryParams.SearchTearm.ToLower().Trim())) ||
@@ -133,6 +136,7 @@
                     {
                         if (item.ToString() is not null)
                         {
+                            sportProgramQueryParams.CurPage = 1;
 
                             ListOfSportsPrograms.AddRange(ListOfSportsProgram.Where(p => p.Length!.ToString()!.ToLower().Trim().Contains(item.ToString().ToLower().Trim())));
                             ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.Length), item.ToString() ?? ""));
@@ -143,6 +147,8 @@
                 }
             if (!string.IsNullOrEmpty(sportProgramQueryParams.Title))
             {
+                sportProgramQueryParams.CurPage = 1;
+
                 ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Title != null && p.Title.ToLower().Trim() == sportProgramQueryParams.Title.ToLower().Trim());
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.Title), sportProgramQueryParams.Title.ToString() ?? ""));
 
@@ -150,24 +156,46 @@
             string str = "";
             if (sportProgramQueryParams.MinDuration != null)
             {
+                sportProgramQueryParams.CurPage = 1;
                 ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Duration >= sportProgramQueryParams.MinDuration);
 
-                str += sportProgramQueryParams.MinDuration.ToString() ?? "Min";
             }
+            str += sportProgramQueryParams.MinDuration == null ? "Min" : sportProgramQueryParams.MinDuration.ToString();
             str += "-";
             if (sportProgramQueryParams.MaxDuration != null)
             {
+                sportProgramQueryParams.CurPage = 1;
+
                 ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Duration <= sportProgramQueryParams.MaxDuration);
-                str += sportProgramQueryParams.MaxDuration.ToString() ?? "Max";
             }
-            if (sportProgramQueryParams.MaxDuration != null && sportProgramQueryParams.MinDuration != null)
+            str += sportProgramQueryParams.MaxDuration == null ? "Max" : sportProgramQueryParams.MaxDuration.ToString();
+            if ((sportProgramQueryParams.MaxDuration != null && sportProgramQueryParams.MinDuration != null)
+                || sportProgramQueryParams.MinDuration != null || sportProgramQueryParams.MaxDuration != null)
             {
                 ListOfSelectedFilters.Add(new AppliedFilters("Duration", str));
             }
-            if (sportProgramQueryParams.MinDuration != null && sportProgramQueryParams.MaxDuration != null)
+            str = "";
+            if (sportProgramQueryParams.MinPrice != null)
             {
-                ListOfSelectedFilters.Add(new AppliedFilters("Duration", $"{sportProgramQueryParams.MinDuration.ToString() ?? "0"} - {sportProgramQueryParams.MaxDuration.ToString() ?? "Max"}"));
+                sportProgramQueryParams.CurPage = 1;
+                ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Price >= sportProgramQueryParams.MinPrice);
+
             }
+            str += sportProgramQueryParams.MinPrice == null ? "Min" : sportProgramQueryParams.MinPrice.ToString();
+            str += "-";
+            if (sportProgramQueryParams.MaxPrice != null)
+            {
+                sportProgramQueryParams.CurPage = 1;
+                ListOfSportsProgram = ListOfSportsProgram.Where(p => p.Price <= sportProgramQueryParams.MaxPrice);
+            }
+            str += sportProgramQueryParams.MaxPrice == null ? "Max" : sportProgramQueryParams.MaxPrice.ToString();
+            if ((sportProgramQueryParams.MaxPrice != null && sportProgramQueryParams.MinPrice != null)
+                || sportProgramQueryParams.MinPrice != null || sportProgramQueryParams.MaxPrice != null)
+            {
+                ListOfSelectedFilters.Add(new AppliedFilters("Price", propartyValue: str));
+            }
+
+
             if (sportProgramQueryParams.BodyFocus is not null)
                 if (sportProgramQueryParams.BodyFocus.Count != 0)
                 {
@@ -176,6 +204,7 @@
                     {
                         if (item is not null)
                         {
+                            sportProgramQueryParams.CurPage = 1;
                             ListOfSportsPrograms.AddRange(ListOfSportsProgram.Where(p => p.BodyFocus!.ToLower().Trim().Contains(item.ToLower().Trim())));
                             ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.BodyFocus), item.ToString() ?? ""));
                         }
@@ -190,6 +219,8 @@
                     {
                         if (item is not null)
                         {
+                            sportProgramQueryParams.CurPage = 1;
+
                             ListOfSportsPrograms.AddRange(ListOfSportsProgram.Where(p => p.TrainingType!.ToLower().Trim().Contains(item.ToLower().Trim())));
                             ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.TraningType), item.ToString() ?? ""));
                         }
@@ -220,6 +251,8 @@
                     {
                         if (item is not null)
                         {
+                            sportProgramQueryParams.CurPage = 1;
+
                             ListOfSportsPrograms.AddRange(ListOfSportsProgram.Where(p => p.Equipment!.ToLower().Trim().Contains(item.ToLower().Trim())));
                             ListOfSelectedFilters.Add(new AppliedFilters(nameof(sportProgramQueryParams.Difficulty), item.ToString() ?? ""));
                         }
@@ -302,6 +335,11 @@
                 TraningTypeCounters = TraningTypeCounters,
                 ListOfSelectedFilters = ListOfSelectedFilters
             };
+
+
+
+
+
 
             return exqpres;
 

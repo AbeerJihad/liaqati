@@ -151,6 +151,11 @@ namespace liaqati_master.Pages.Programs
             }
             SportsProgram.TrainingType = string.Join(',', lstCheckBoxTrainingType.Where(ch => ch.IsChecked).Select(ch => ch.Name));
             SportsProgram.BodyFocus = string.Join(',', lstCheckBoxBodyFocus.Where(ch => ch.IsChecked).Select(ch => ch.Name));
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null)
+            {
+                SportsProgram.Services.UserId = userid;
+            }
             await _repoService.AddEntityAsync(SportsProgram.Services);
             await _repoProgram.AddProgram(SportsProgram);
 

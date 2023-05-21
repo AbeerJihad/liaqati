@@ -10,8 +10,17 @@
         {nameof(Model.HealthyRecipeQueryParamters.SortBy),Model.HealthyRecipeQueryParamters.SortBy},
         {nameof(Model.HealthyRecipeQueryParamters.SortOrder),Model.HealthyRecipeQueryParamters.SortOrder},
         {nameof(Model.HealthyRecipeQueryParamters.SearchTearm),Model.HealthyRecipeQueryParamters.SearchTearm??""},
+        {nameof(Model.HealthyRecipeQueryParamters.Title),Model.HealthyRecipeQueryParamters.Title??""},
         {nameof(Model.HealthyRecipeQueryParamters.Size),Model.HealthyRecipeQueryParamters.Size.ToString()},
     };
+    if (Model.HealthyRecipeQueryParamters.MealType is not null)
+    {
+        parms.Add(nameof(Model.MealTypeParams), string.Join(',', Model.HealthyRecipeQueryParamters.MealType).ToString());
+    }
+    if (Model.HealthyRecipeQueryParamters.DietaryType is not null)
+    {
+        parms.Add(nameof(Model.DietaryTypeParams), string.Join(',', Model.HealthyRecipeQueryParamters.DietaryType).ToString());
+    }
     if (Model.HealthyRecipeQueryParamters.SortOrder == "asc")
         parms["SortOrder"] = "desc";
     else
@@ -22,6 +31,12 @@
     <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
     <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.rtl.min.css" rel="stylesheet" />
+    <style>
+        .img__box {
+            height: 100% !important;
+            width: auto !important;
+        }
+    </style>
 }
 <form method="get">
     <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
@@ -32,21 +47,29 @@
         <div class="offcanvas-body pb-5">
             <div class="d-flex flex-column gap-3">
 
-                <div class="d-flex  py-2">
+                <div class=" py-2">
+                    <label class="form-label">بحث عام</label>
+
                     <input class="form-control " asp-for="@Model.HealthyRecipeQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
                 </div>
-                <div class="d-flex ">
+                <div>
+                    <label class="form-label">اسم الوصفة </label>
+
                     <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.HealthyRecipeQueryParamters.Title" id="single-select-field" data-placeholder="  حدد اسم الصنف" onchange="submit()">
                         <option value="">  حدد اسم الوصفة</option>
                     </select>
                 </div>
 
-                <div class="d-flex ">
+                <div>
+                    <label class="form-label">النوع الغذائي</label>
+
                     <select name="DietaryType" class="form-select w-100" asp-items="@Model.DietaryType" asp-for="@Model.HealthyRecipeQueryParamters.DietaryType" id="multiple-select-DietaryType" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
                         <option value="" disabled>  حدد النوع الغذائي</option>
                     </select>
                 </div>
-                <div class="d-flex ">
+                <div>
+                    <label class="form-label">نوع الوجبة </label>
+
                     <select name="MealType" class="form-select w-100" asp-items="@Model.MealType" asp-for="@Model. HealthyRecipeQueryParamters.MealType" id="multiple-select-MealType" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
                         <option value="" disabled>  حدد نوع الوجبة</option>
                     </select>
@@ -110,13 +133,15 @@
                                     <h5 class="m-0">الفلاتر المطبقة:</h5>
                                     @foreach (var item in Model.ListOfSelectedFilters)
                                     {
-                                        <a asp-all-route-data="parms" asp-route-key="@item.Item1" asp-route-value="@item.Item2" class="btn btn-light btn-sm">
-                                            @item.Item2
+                                        <a asp-all-route-data="parms" asp-route-key="@item.PropartyName" asp-route-value="@item.PropartyValue" class="btn btn-light btn-sm">
+                                            @item.PropartyValue
                                             <i class="bi bi-x-lg"></i>
                                         </a>
                                     }
                                 }
                             }
+
+
 
                         </div>
 
@@ -125,14 +150,18 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" width="50">
+                                        </th>
+                                        <th scope="col" width="50">
                                             <input class="form-check-input " type="checkbox" id="chk-all" value="">
                                         </th>
-                                        <th scope="col" width="100">الصورة</th>
-                                        <th scope="col" width="180">العنوان</th>
+                                        @if (User.HasClaim(c => c.Type == Database.Expert && c.Value == "true"))
+                                        {
+                                            <th scope="col" width="180"> المدرب</th>
+                                        }
                                         <th scope="col" width="180">نوع الوجبة</th>
                                         <th scope="col" width="180">سعر الوجبة</th>
-                                        <th scope="col" width="180">النوع الغذائي</th>
-                                        <th scope="col" width="180"> </th>
+                                        <th scope="col" width="180">السعرات الحرارية</th>
+                                        <th scope="col" width="180"></th>
 
                                     </tr>
                                 </thead>
@@ -144,23 +173,24 @@
                                             @foreach (var item in Model.QueryPageResult.ListOfData)
                                             {
 
-                                                <tr>
+                                                <tr class="main-row">
+                                                    <td>
+                                                        <button type="button" class="toggle-details btn btn-primary d-flex p-2">
+                                                            <i class="bx bx-show h5 m-0"></i>
+                                                        </button>
+                                                    </td>
                                                     <td scope="row">
                                                         <label class="d-block">
                                                             <input class="checkbox_animated" type="checkbox">
                                                         </label>
                                                     </td>
-                                                    <td class="">
-                                                        <div class="img__box position-relative m-0  rounded-circle">
-                                                            <img width="40" alt="Mark" class="position-absolute "
-                                                                 src="@item.Image" />
-                                                        </div>
-                                                    </td>
-
-                                                    <td>@item.Title</td>
+                                                    @if (User.HasClaim(c => c.Type == Database.Expert && c.Value == "true"))
+                                                    {
+                                                        <td>@item.User?.Fname</td>
+                                                    }
                                                     <td>@item.MealType</td>
                                                     <td>@item.Price?.ToString("c")</td>
-                                                    <td>@item.DietaryType</td>
+                                                    <td>@item.Calories</td>
                                                     <td>
                                                         <div class="d-flex gap-2">
                                                             <a asp-page="Details" asp-route-id="@item.Id" class="btn"
@@ -180,7 +210,38 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-
+                                                <tr class="sub-row">
+                                                    <td colspan="10">
+                                                        <div class="card mb-3">
+                                                            <div class="row w-100 g-0">
+                                                                <div class="col p-3">
+                                                                    <div class="img__box position-relative rounded-3 overflow-hidden h-100 p-3">
+                                                                        <img src=@item.Image
+                                                                             class="position-absolute top-0 start-0 w-100 h-100"
+                                                                             style="object-fit: cover"
+                                                                             alt="..." />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-10">
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title">@item.Title</h5>
+                                                                        <p class="card-text">
+                                                                            <span>النوع الغذائي: </span>
+                                                                            <span>@item.DietaryType</span>
+                                                                        </p>  <p class="card-text">
+                                                                            <span> نوع الوجبة: </span>
+                                                                            <span>@item.MealType</span>
+                                                                        </p>
+                                                                        <p class="card-text">
+                                                                            <span> تاريخ الإضافة:</span>
+                                                                            <span>@CommonMethods.GetArabicDateTime(item.CreatedDate)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             }
                                         }
                                         else
@@ -302,9 +363,23 @@
             $('#multiple-select-DietaryType').val(null).trigger("change");
             $('#multiple-select-MealType').val(null).trigger("change");
         });
+    </script>
+    <script>
+        let btnToggleDetails = document.querySelectorAll(".toggle-details");
+        btnToggleDetails.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                Show(btn);
+            });
+        });
 
-
-
+        function Show(btn) {
+            btn.parentElement.parentElement.nextElementSibling.classList.toggle(
+                "show"
+            );
+            btn.classList.toggle("active");
+            btn.querySelector("i").classList.toggle("bx-show");
+            btn.querySelector("i").classList.toggle("bx-hide");
+        }
     </script>
   }
 

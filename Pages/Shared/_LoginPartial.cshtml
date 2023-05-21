@@ -40,24 +40,21 @@
 
         </a>
         <div class="dropdown-menu mt-1" style="border-radius: 10px;">
-            <a class="dropdown-item" href="profile.html">
+          @*  <a class="dropdown-item" href="profile.html">
                 <i class="bi bi-person me-1"></i>
                 الصفحة الشخصية
-            </a>
+            </a>*@
             <a class="dropdown-item" asp-page="/Favorites/Index"><i class="bi bi-heart me-1"></i>المفضلة</a>
-            <a class="dropdown-item"><i class="bi bi-cart3 me-1"></i>سلة المشتريات</a>
-            <a class="dropdown-item" href="#"><i class="bi bi-lock me-1"></i>تغيير كلمة المرور</a>
-            <a class="dropdown-item" href="settings.html">
+            <a class="dropdown-item" asp-page="/Cart/Cart"><i class="bi bi-cart3 me-1"></i>سلة المشتريات <span class="text-danger" id="countofcart"></span></a>
+            <a class="dropdown-item" asp-page="/account/ChangePassword" asp-area="identity"><i class="bi bi-lock me-1"></i>تغيير كلمة المرور</a>
+
+            <a class="dropdown-item" asp-page="/account/manage/profile/index" asp-area="identity">
                 <i class="bi bi-gear me-1"></i>
                 الإعدادات
             </a>
-            <a class="dropdown-item">
+            <a class="dropdown-item" asp-page="/account/logout" asp-area="identity">
                 <i class="bi bi-box-arrow-right me-1"></i>
-                <form class="is-inline" method="post" asp-page="/Account/logout" asp-area="Identity">
-                    <button type="submit">
-                        تسجيل الخروج
-                    </button>
-                </form>
+                تسجيل خروج
             </a>
 
         </div>

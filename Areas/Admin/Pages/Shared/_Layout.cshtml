@@ -1,13 +1,32 @@
 ﻿@using System.Security.Claims;
 @{
-
     List<Menu> menus = new List<Menu>();
     menus.Add(new Menu()
             {
                 PageLink = new PageLink()
                 {
+                    LinkName = " الصفحة الرئيسية",
+                    LinkURL = "/home/index2",
+                    LinkIcon = "bi-grid",
+                },
+                SubMenus = null
+            });
+
+    menus.Add(new Menu()
+            {
+                PageLink = new PageLink()
+                {
                     LinkName = "لوحة التحكم",
-                    LinkURL = "/Dashborad/Index",
+                    LinkURL = "/Dashboard/Index",
+                    LinkIcon = "bi-grid",
+                },
+                SubMenus = null
+            }); menus.Add(new Menu()
+            {
+                PageLink = new PageLink()
+                {
+                    LinkName = "المبيعات",
+                    LinkURL = "/Sales/Index",
                     LinkIcon = "bi-grid",
                 },
                 SubMenus = null

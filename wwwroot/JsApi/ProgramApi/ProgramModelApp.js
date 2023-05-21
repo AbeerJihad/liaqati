@@ -83,31 +83,29 @@ function RenderCards(Program) {
     })
 
 
-    var btn2 = ``;
 
+    var btn2 = ``;
 
 
 
 
     if (Program.isFavorite == 2) {
 
-        btn2 = ` <button title="add to Favorite" onclick="AddFavoriteProgram('${Program.id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                    <img width="25" height="25" src="/Images/heart-solid-24.png" />
-
-                </button>`;
+        btn2 = `   <a class="text-decoration-none btn-favorite" onclick="AddFavoriteProgram(${Program.id},this)">
+                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
+                                            <i class="bx bxs-heart h4 m-0 text-danger"></i>
+                                        </div>
+                                    </a>`;
 
 
     }
     else {
-        btn2 = `  <button title="add to Favorite" onclick="AddFavoriteProgram('${Program.id}')" class="pt-0 rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
-                    <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
-
-                </button>`;
+        btn2 = `  <a class="text-decoration-none btn-favorite" onclick="AddFavoriteProgram(${Program.id},this)">
+                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
+                                            <i class="bx bxs-heart h4 m-0 text-dark"></i>
+                                        </div>
+                                    </a>`;
     }
-
-
-
-
 
 
 
@@ -129,9 +127,9 @@ function RenderCards(Program) {
             <img src="${Program.image}" class=" w-100 position-absolute h-100 top-0 start-0 object-fit-cover" alt="...">
             <div class="overlay w-100 position-absolute h-100 top-0 start-0"></div>
             <div class="position-absolute d-flex justify-content-center align-items-center w-100 h-100 p-3 top-0 start-0">
-                <button class="btn bg-white-with-transparent more-details-btn rounded-pill shadow border-0 p-2 px-3 fw-bold" type="button">
+                   <a  href="/SportProgram/ProgramDetails?id=${Program.id}" class="btn bg-white-with-transparent more-details-btn rounded-pill shadow border-0 p-2 px-3 fw-bold" >
                     مزيد من التفاصيل
-                </button>
+                </a>
             </div>
         </div>
 
@@ -144,7 +142,7 @@ function RenderCards(Program) {
                 <p class="card-subtitle">
                     يعتمد على تقليل الكربوهيدرات ومنع السكر المصنع والبطاطا
                 </p>
-                <p class="text-danger text-start h4 fw-bold me-3">${formatter.format(Program.services.price)}</p>
+                <p class="text-danger text-start h4 fw-bold me-3">${formatter.format(Program.price)}</p>
             </div>
 
             <div class="d-flex justify-content-between align-items-center mt-2">
@@ -394,20 +392,14 @@ function RenderCounters(JsonData) {
 }
 
 
-async function AddFavoriteProgram(id) {
+async function AddFavoriteProgram(id, tag) {
     var IsAdd = await AddFavoritesToProgram(id);
-    if (IsAdd = "true") {
-
-
-        getdata(null);
-
-    }
-    else if (IsAdd = "false") {
-
-        getdata(null);
+    alert(IsAdd);
+    if (IsAdd === "true") {
+        tag.firstElementChild.innerHTML = `<i class="bx bxs-heart h4 m-0 text-danger "></i>`
     }
     else {
-        window.location = "";
+        tag.firstElementChild.innerHTML = `<i class="bx bxs-heart  text-dark h4 m-0"></i>`
     }
 
 

@@ -6,13 +6,19 @@ let NoResult = document.querySelector("#NoResult");
 let Paging = document.querySelector("#Paging");
 let lstCate = document.querySelector("#lstCate");
 let lstSort = document.querySelector("#lstSort");
+let countofcart = document.querySelector("#countofcart");
+
 let searchTearm = "";
 let selectListCategory = "";
 let SortOrder = "";
 let Sortby = "";
 let CurPage = 1;
 
+async function addprotocart(id) {
+    var int = await AddCart(id);
+    countofcart.innerHTML = int;
 
+}
 
 
 
@@ -160,8 +166,8 @@ function RenderCards(Product) {
     var image = "";
     if (Product.images.length > 0) {
         if (Product.images.length > 1) {
-         
-          
+
+
 
             if (Product.isFavorite == 2) {
                 ProdID = Product.id;
@@ -173,8 +179,8 @@ function RenderCards(Product) {
 
             </div>`
 
-                
-             
+
+
             }
             else {
                 ProdID = Product.id;
@@ -184,13 +190,13 @@ function RenderCards(Product) {
 
              ${btn1}
             </div>`
-             
-              
+
+
             }
-         
+
         } else {
             ProdID = Product.id;
-          
+
 
             if (Product.isFavorite == 2) {
                 ProdID = Product.id;
@@ -199,7 +205,7 @@ function RenderCards(Product) {
 
              ${btn2}
             </div>`
-              
+
 
             }
             else {
@@ -209,18 +215,18 @@ function RenderCards(Product) {
 
              ${btn1}
             </div>`
-               
+
 
 
             }
-           
+
 
 
 
         }
     } else {
         ProdID = Product.id;
-        
+
         if (Product.isFavorite == 2) {
             ProdID = Product.id;
             image = ` <div id="${Product.id}" class="position-relative box-img1 shadow-sm border-0 w-100">
@@ -228,7 +234,7 @@ function RenderCards(Product) {
 
              ${btn2}
             </div>`
-          
+
 
         }
         else {
@@ -239,17 +245,17 @@ function RenderCards(Product) {
              ${btn1}
             </div>`
 
-            
+
 
         }
-       
+
 
     }
 
     let card = document.createElement("div");
 
     card.className = "col p-2 p-xl-4";
-    card.innerHTML = `
+    card.innerHTML = `<a href="/products/ProductDetails/${Product.id}">
           <div class="card h-100 shadow-sm overflow-hidden h-100 product-card  border p-0" >
            ${image}
             <div class="card-body g-2 p-2 mt-0" >
@@ -281,14 +287,14 @@ function RenderCards(Product) {
                   </div>
                   <div class="d-flex justify-content-between align-items-center">
                     <h5 class="fw-bold text-danger m-0">${formatter.format(Product.price)}</h5>
-                    <button title="إضافة إلى السلة" class="rounded-pill btn imgBackground add-to-bag-btn border shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                     <button  title="إضافة إلى السلة" onclick="addprotocart(${Product.id})" class="rounded-pill btn imgBackground add-to-bag-btn border shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
                       <i class="bx bx-cart-add h3 d-block m-0"></i>
                     </button>
                   </div>
                 </div>
               </div>
           </div>
-        </div>`
+        </div></a>  `
 
     ProductContainer.appendChild(card);
 }
@@ -374,7 +380,7 @@ async function AddFavorite(id) {
 
     var IsAdd = await AddFavoritesToProduct(id);
     var btn = document.querySelectorAll('.btn-favorite');
-    if (IsAdd="true") {
+    if (IsAdd = "true") {
 
         //for (var i = 0; i < btn.length;i++) {
 
@@ -383,7 +389,7 @@ async function AddFavorite(id) {
         //                       `;
         //}
         getdata(null);
-       
+
     }
     else if (IsAdd = "false") {
         //for (var i = 0; i < btn.length; i++) {
@@ -392,7 +398,8 @@ async function AddFavorite(id) {
         //                        ${btn1}
         //                       `;
         //}
-        getdata(null);    }
+        getdata(null);
+    }
     else {
         window.location = "";
     }

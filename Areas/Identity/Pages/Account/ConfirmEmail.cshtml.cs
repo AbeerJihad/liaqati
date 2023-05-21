@@ -2,16 +2,8 @@
 // The .NET Foundation licenses this File to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using liaqati_master.Data;
+using System.Text;
 
 namespace liaqati_master.Areas.Identity.Pages.Account
 {

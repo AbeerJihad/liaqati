@@ -1,0 +1,261 @@
+﻿@page
+@model liaqati_master.Areas.Admin.Pages.Sales.IndexModel
+@{
+    ViewData["Title"] = "مبيعاتي";
+    ViewData["LinkName"] = "Categories";
+
+    var parms = new Dictionary<string, string>
+    {
+        {nameof(Model.OrdersDetailsQueryParamters.CurPage),Model.OrdersDetailsQueryParamters.CurPage.ToString()},
+        {nameof(Model.OrdersDetailsQueryParamters.SortBy),Model.OrdersDetailsQueryParamters.SortBy},
+        {nameof(Model.OrdersDetailsQueryParamters.SortOrder),Model.OrdersDetailsQueryParamters.SortOrder},
+        {nameof(Model.OrdersDetailsQueryParamters.Size),Model.OrdersDetailsQueryParamters.Size.ToString()},
+        {nameof(Model.OrdersDetailsQueryParamters.FromDateOrder),Model.OrdersDetailsQueryParamters.FromDateOrder.ToString()??""},
+        {nameof(Model.OrdersDetailsQueryParamters.ToDateOrder),Model.OrdersDetailsQueryParamters.ToDateOrder.ToString()??""},
+    };
+    if (Model.OrdersDetailsQueryParamters.SortOrder == "asc")
+        parms["SortOrder"] = "desc";
+    else
+        parms["SortOrder"] = "asc";
+}
+
+
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/assets/css/Tables.css" asp-append-version="true">
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+}
+<form method="get">
+    <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="staticBackdropLabel">تصفية</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pb-5">
+            <div class="d-flex flex-column gap-3">
+
+                <div class="col py-2">
+                    <label>من تاريخ</label>
+                    <input class="form-control" type="date" id="Fromdate" name="FromDateOrder" asp-for="@Model.OrdersDetailsQueryParamters.FromDateOrder" onchange="submit()">
+                </div>
+                <div class="col py-2">
+                    <label>الى تاريخ</label>
+                    <input class="form-control" type="date" id="Todate" name="ToDateOrder" asp-for="@Model.OrdersDetailsQueryParamters.ToDateOrder" onchange="submit()">
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-primary me-1" type="submit">إظهار النتائج</button>
+                    <button type="button" class="btn btn-primary-gradien" id="single-select-field-clear">إلغاء جميع الفلاتر</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="CurPage" asp-for="@Model.OrdersDetailsQueryParamters.CurPage" />
+
+    <div class="container-lg ">
+        <div class=" ">
+            <div class="row ">
+                <div class="col-sm-12">
+                    <div class="card p-3 border-raduis ">
+                        <div class="card-header bg-transparent px-0 py-4 ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5>
+                                    @ViewData["Title"] <span style="color:#a566c8">(@Model.QueryPageResult.TotalCount)</span>
+                                </h5>
+                                <div>
+                                    <a class="btn   btn-air-primary btn-primary-gradien  shadow" asp-page="./Create">إضافة جديد<i class="bi bi-plus-circle-dotted ms-2"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2 flex-wrap gap-2">
+                            <div class="  gap-2">
+                                <button class="btn  btn-square btn-edit shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                                    <div class="d-flex justify-content-center  align-items-center  gap-2">
+                                        <span>
+                                            تصفية البيانات
+                                        </span>
+                                        <i class='bx bx-filter h4 m-0'></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive table-hover">
+                        <table class="table  table-borderless" id="Tbl">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="50">
+                                        <input class="form-check-input " type="checkbox" id="chk-all" value="">
+                                    </th>
+                                    <th scope="col" width="180">تاريخ الطلبية</th>
+                                    <th scope="col" width="180">السعر الكلي</th>
+                                    <th scope="col" width="180">كود الخصم</th>
+                                    <th scope="col" width="180">حالة الطلب</th>
+                                    <th scope="col" width="180"> </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.QueryPageResult.ListOfData is not null)
+                                    @if (Model.QueryPageResult.ListOfData.Count() > 0)
+                                    {
+                                        @foreach (var item in Model.QueryPageResult.ListOfData)
+                                        {
+
+                                            <tr>
+                                                <td scope="row">
+                                                    <label class="d-block">
+                                                        <input class="checkbox_animated" type="checkbox">
+                                                    </label>
+                                                </td>
+                                                <td>@item.Order?.OrderDate</td>
+                                                <td>@item.Order?.DiscountCode</td>
+                                                <td>@item.Order?.TotalPrice?.ToString("c")</td>
+                                                <td>
+                                                    <div style="max-width:150px">
+                                                        @switch (item.Order?.OrderStatus)
+                                                        {
+                                                            case 0:
+                                                                <partial name="OrderStatusCases/Completed" />
+                                                                break;
+                                                            case 1:
+                                                                <partial name="OrderStatusCases/Returned" />
+                                                                break;
+                                                            case 2:
+                                                                <partial name="OrderStatusCases/Waited" />
+                                                                break;
+                                                        }
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="d-flex gap-2">
+                                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
+                                                            <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
+                                                        </a>
+                                                        <form method="post" asp-page="Delete" asp-route-id="@item.Id">
+                                                            <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
+                                                                <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
+                                                            </a>
+                                                        </form>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    }
+
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="7">
+                                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                                    <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
+                                                    <p>لا يوجد بيانات</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="7">
+                                            <div class="d-flex justify-content-center align-items-center flex-column">
+                                                <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
+                                                <p>لا يوجد بيانات</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr class="border-top bg-light">
+
+                                    <td colspan="10">
+                                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                            <div>
+                                                <span class="d-inline-block me-3 text-sm">
+                                                    الحقول من @Model.QueryPageResult.FirstRowOnPage إالى  @Model.QueryPageResult.LastRowOnPage من @Model.QueryPageResult.TotalCount
+                                                </span>
+                                            </div>
+                                            @{
+                                                var perv = Model.QueryPageResult.PreviousPage.HasValue ? "" : "disabled";
+                                                var next = Model.QueryPageResult.NextPage.HasValue ? "" : "disabled";
+                                                var first = (Model.OrdersDetailsQueryParamters.CurPage != 1 && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                var last = (Model.OrdersDetailsQueryParamters.CurPage != Model.QueryPageResult.TotalPages && Model.QueryPageResult.TotalPages != 0) ? "" : "disabled";
+                                                var firstIndex = Math.Max(Model.OrdersDetailsQueryParamters.CurPage - 2, 1);
+                                                var lastIndex = Math.Min(Model.OrdersDetailsQueryParamters.CurPage + 2, Model.QueryPageResult.TotalPages);
+                                            }
+                                            <div class="d-flex gap-2 justify-content-center align-items-center ">
+
+
+                                                <div class="d-flex justify-content-center gap-2 align-items-center">
+                                                    <label asp-for="@Model.OrdersDetailsQueryParamters.Size" class="text-sm m-0">عدد الصفوف لكل صفحة</label>
+                                                    <select name="Size" class="form-select text-sm w-auto" asp-items="@Model.lstPageSize" asp-for="@Model.OrdersDetailsQueryParamters.Size" onchange="submit()">
+                                                    </select>
+                                                </div>
+                                                <nav aria-label="Page navigation example ">
+                                                    <ul class="pagination  justify-content-end ">
+                                                        @{
+                                                            parms["CurPage"] = "1" ?? "";
+                                                        }
+                                                        <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-right'></i></a></li>
+                                                        @{
+                                                            parms["CurPage"] = Model.QueryPageResult.PreviousPage.ToString() ?? "";
+                                                        }
+                                                        <li class="page-item"><a class="page-link @perv" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-right'></i></a></li>
+                                                        <li class="page-item">
+                                                            <a class="page-link active">
+                                                                <p class="d-flex justify-content-center gap-3  align-items-center  m-0  text-sm">
+                                                                    <span>  @Model.OrdersDetailsQueryParamters.CurPage</span> من  <span>@Model.QueryPageResult.TotalPages</span>
+                                                                </p>
+                                                            </a>
+                                                        </li>
+                                                        @{
+                                                            parms["CurPage"] = Model.QueryPageResult.NextPage.ToString() ?? "";
+                                                        }
+                                                        <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevron-left'></i></a></li>
+                                                        @{
+                                                            parms["CurPage"] = Model.QueryPageResult.TotalPages.ToString() ?? "";
+                                                        }
+                                                        <li class="page-item"><a class="page-link @next" asp-all-route-data="parms" asp-route-key="" asp-route-value=""><i class='bx bxs-chevrons-left'></i></a></li>
+                                                    </ul>
+                                                </nav>
+
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</form>
+
+
+@section Scripts{
+    <script src="~/javascript/script.js"></script>
+    @*<script src="~/javascript/Table.js"></script>*@
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+
+
+}
+
+
+
+

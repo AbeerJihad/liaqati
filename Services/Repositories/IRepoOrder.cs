@@ -87,33 +87,23 @@
         {
             IQueryable<Order> orders = (await GetAllAsync()).AsQueryable();
 
-            if (Parameters.UserId != null)
-            {
-                //orders = orders.Where(Func<Order>
-                //{
-                //    foreach (var item in x.Order_Details)
-                //    {
-                //        if (item.Service?.UserId == Parameters.UserId)
-                //        {
-                //            return true;
-                //        }
-                //        else
-                //        {
-                //            return false;
-                //        }
-                //    }
-                //});
-            }
+
             if (Parameters.FromDateOrder != null && Parameters.ToDateOrder != null)
             {
+                Parameters.CurPage = 1;
+
                 orders = orders.Where(x => x.OrderDate >= Parameters.FromDateOrder && x.OrderDate <= Parameters.ToDateOrder);
             }
             else if (Parameters.FromDateOrder != null)
             {
+                Parameters.CurPage = 1;
+
                 orders = orders.Where(x => x.OrderDate >= Parameters.FromDateOrder);
             }
             else if (Parameters.ToDateOrder != null)
             {
+                Parameters.CurPage = 1;
+
                 orders = orders.Where(x => x.OrderDate <= Parameters.ToDateOrder);
             }
 

@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-
-namespace liaqati_master.Controllers
+﻿namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -70,6 +68,7 @@ namespace liaqati_master.Controllers
         public async Task<ActionResult<SportsProgram>> DeleteSportsProgram(int id)
         {
             SportsProgram? item = _context.TblSportsProgram.Find(id);
+            item.Services.IsFeatured = !item.Services.IsFeatured;
 
             if (item == null)
             {

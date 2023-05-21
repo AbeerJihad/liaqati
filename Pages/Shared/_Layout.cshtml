@@ -27,7 +27,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="~/User/js/nice-select2.js"></script>
     <script src="~/User/js/Index.js" asp-append-version="true"></script>
+    <script src="~/jsapi/productsapi/productsmodel.js"></script>
+    <script>
+
+    window.onload = () => CountCart();
+    console.log("ss");
+
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+

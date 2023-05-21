@@ -1,4 +1,7 @@
-﻿namespace liaqati_master.Areas.Admin.Pages.Articles
+﻿using liaqati_master.Services.CustomValidation;
+using liaqati_master.Services.CustomValidationAttribute;
+
+namespace liaqati_master.Areas.Admin.Pages.Articles
 {
     public class CreateModel : PageModel
     {
@@ -27,10 +30,9 @@
         [BindProperty]
         [Required(ErrorMessage = " {0} حقل مطلوب")]
         [Display(Name = "أضف صورة")]
+        [AllowedExtensions(new string[] { ".png", ".jpg" }, ErrorMessage = " نوع الملف يجب أن يكون jpg , png  ")]
+        [FilesMaxSize(maxFileSize: 1024 * 1024 * 2, "حجم الملف يزيد عن 2 ميغا بايت")]
         public IFormFile Image { get; set; }
-
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
 
@@ -39,6 +41,11 @@
             if (!ModelState.IsValid)
             {
                 return Page();
+            }
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null)
+            {
+                Articles.UserId = userid;
             }
             Articles.Image = await _formFileMang.Upload(Image, "Images", "Articles");
             await _repoArticles.AddEntityAsync(Entity: Articles);

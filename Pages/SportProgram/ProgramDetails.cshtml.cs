@@ -34,7 +34,7 @@ namespace liaqati_master.Pages.SportProgram
 
 
 
-        public async void OnGetAsync(string id)
+        public async Task OnGetAsync(string id)
 
         {
 

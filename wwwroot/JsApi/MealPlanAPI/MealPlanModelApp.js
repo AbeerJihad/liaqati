@@ -200,9 +200,9 @@ function RenderCards(MealPlan) {
                         <p class="m-0">عدد الأسابيع ${MealPlan.length}   </p>
                     </div>
                     <div>
-                        <button class="btn border-0 text-white" style="background-color: #cb8cef">
-                            اشترك الان
-                        </button>
+                      <a href="/MealPlan/MealPlanDetails?id=${MealPlan.id}" class="btn border-0 text-white" style="background-color: #cb8cef">
+                            ابدأ الان
+                        </a>
                     </div>
                 </div>
             </div>

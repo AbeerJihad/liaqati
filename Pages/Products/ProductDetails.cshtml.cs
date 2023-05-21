@@ -1,4 +1,6 @@
 #nullable disable
+using System.Security.Claims;
+
 namespace liaqati_master.Pages.Products
 {
     public class ProductDetailsModel : PageModel

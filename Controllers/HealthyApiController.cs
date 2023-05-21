@@ -1,4 +1,7 @@
-﻿namespace liaqati_master.Controllers
+﻿using liaqati_master.Services.Repositories;
+using System.Security.Claims;
+
+namespace liaqati_master.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -6,11 +9,14 @@
     {
         readonly LiaqatiDBContext _context;
         private readonly IRepoHealthyRecipe _repoHealthyRecipe;
+        private readonly IRepoFavorite _IRepoFavorite;
 
-        public HealthyApiController(LiaqatiDBContext context, IRepoHealthyRecipe repoHealthyRecipe)
+
+        public HealthyApiController(LiaqatiDBContext context, IRepoHealthyRecipe repoHealthyRecipe, IRepoFavorite iRepoFavorite)
         {
             _context = context;
             _repoHealthyRecipe = repoHealthyRecipe;
+            _IRepoFavorite = iRepoFavorite;
         }
 
         [HttpGet("AllHealthyRecipe")]
@@ -159,5 +165,75 @@
         {
             return Ok(await _repoHealthyRecipe.SearchHealty(exqParameters));
         }
+
+
+
+
+        [HttpGet("AddFavoritesToHealthy/{id}")]
+        public async Task<ActionResult<string>> AddFavoritesToHealthy(string id)
+        {
+            string IsAdd = "";
+            List<Favorite> Favorites = new();
+
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userid is not null && id is not null)
+            {
+
+                var lstOfFav = await _IRepoFavorite.GetByUserIDAsync(userid);
+
+                if (lstOfFav is not null)
+                {
+                    Favorites = lstOfFav.Where(p => p.HealthyRecipeId == id).ToList();
+                }
+                if (!Favorites.Any())
+                {
+                    Favorite favorite = new()
+                    {
+                        HealthyRecipeId = id,
+                        Type = "وصفات",
+                        Id = CommonMethods.Id_Guid(),
+                        UserId = userid
+                    };
+                    try
+                    {
+                        await _IRepoFavorite.AddEntityAsync(favorite);
+
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error");
+                    }
+                    IsAdd = "true";
+                }
+                else
+                {
+                    try
+                    {
+                        await _IRepoFavorite.DeleteByHealIdAsync(id);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error");
+                    }
+
+                    IsAdd = "false";
+                }
+            }
+            else
+            {
+                IsAdd = "null";
+            }
+            return Ok(IsAdd);
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

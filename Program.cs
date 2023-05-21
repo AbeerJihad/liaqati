@@ -143,7 +143,7 @@ builder.Services.AddScoped<IRepoUser>();
 builder.Services.AddScoped<IRepoConsultation>();
 builder.Services.AddScoped<IRepoCart>();
 builder.Services.AddScoped<IRepoTraking>();
-
+builder.Services.AddScoped<IRepoNotification>();
 
 builder.Services.AddSwaggerGen();
 

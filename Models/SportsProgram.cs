@@ -10,7 +10,7 @@
         [Display(Name = "مستوى الصعوبة")]
         public int? Difficulty { get; set; }
         [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
-        [Display(Name = "مستوى الصعوبة")]
+        [Display(Name = "المدة اليومية")]
         public int Duration { get; set; }
         [Required(ErrorMessage = "{0} هذا الحقل مطلوب")]
         [Display(Name = "الجزءالذي يركز عليه النظام من الجسم")]

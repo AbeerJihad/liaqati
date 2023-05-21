@@ -9,6 +9,8 @@
 
         public decimal? MinDuration { get; set; }
         public decimal? MaxDuration { get; set; }
+        public double? MinPrice { get; set; }
+        public double? MaxPrice { get; set; }
         public List<string>? Length { get; set; }
 
         public string SearchTearm { get; set; } = string.Empty;
