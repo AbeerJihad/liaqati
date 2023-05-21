@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\Images\\105.png"
     },
     {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\About\\WhatsApp Image 2023-05-20 at 10.55.07 AM.jpeg",
+      "PackagePath": "staticwebassets\\Images\\About\\WhatsApp Image 2023-05-20 at 10.55.07 AM.jpeg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\About\\WhatsApp Image 2023-05-20 at 10.55.08 AM.jpeg",
+      "PackagePath": "staticwebassets\\Images\\About\\WhatsApp Image 2023-05-20 at 10.55.08 AM.jpeg"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\About\\WhatsApp Image 2023-05-20 at 10.55.09 AM.jpeg",
+      "PackagePath": "staticwebassets\\Images\\About\\WhatsApp Image 2023-05-20 at 10.55.09 AM.jpeg"
+    },
+    {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\Images\\Articles Bg.png",
       "PackagePath": "staticwebassets\\Images\\Articles Bg.png"
     },
@@ -1283,6 +1295,10 @@
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JsApi\\ApiIndex.js",
       "PackagePath": "staticwebassets\\JsApi\\ApiIndex.js"
+    },
+    {
+      "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JsApi\\Articles\\ArticlesModel.js",
+      "PackagePath": "staticwebassets\\JsApi\\Articles\\ArticlesModel.js"
     },
     {
       "Id": "D:\\Graduation Project\\LastUpdate\\liaqati\\wwwroot\\JsApi\\Consultations\\ConsultationModelApp.js",

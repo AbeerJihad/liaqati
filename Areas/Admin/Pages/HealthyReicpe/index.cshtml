@@ -184,10 +184,10 @@
                                                             <input class="checkbox_animated" type="checkbox">
                                                         </label>
                                                     </td>
-                                                    @if (User.HasClaim(c => c.Type == Database.Expert && c.Value == "true"))
-                                                    {
-                                                        <td>@item.User?.Fname</td>
-                                                    }
+                                                    @*if (User.HasClaim(c => c.Type == Database.Expert && c.Value == "true"))
+                                        {
+                                        <td>@item.User?.Fname</td>
+                                        }*@
                                                     <td>@item.MealType</td>
                                                     <td>@item.Price?.ToString("c")</td>
                                                     <td>@item.Calories</td>

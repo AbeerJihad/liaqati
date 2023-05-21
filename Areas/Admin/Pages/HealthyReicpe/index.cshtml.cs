@@ -15,7 +15,7 @@
         public IList<HealthyRecipe>? HealthyRecipes { get; set; }
         [BindProperty(SupportsGet = true)]
         public HealthyRecipeQueryParamters HealthyRecipeQueryParamters { get; set; }
-        public QueryPageResult<HealthyRecipe> QueryPageResult { get; set; }
+        public QueryPageResult<VmHealthyRecipe> QueryPageResult { get; set; }
         public bool IsGrid { get; set; }
         public IEnumerable<SelectListItem> lstPageSize { get; set; } = new List<SelectListItem>()
         {
