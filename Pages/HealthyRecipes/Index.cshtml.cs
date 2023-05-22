@@ -18,8 +18,8 @@ namespace liaqati_master.Pages.HealthyRecipes
         public List<string> DietaryType { get; set; }
         public List<string> MealType { get; set; }
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
-            new SelectListItem(){Value="RateId",Text="ÇáÃÚáì ÊŞíãÇğ"},
-            new SelectListItem(){Value="exerciseDate",Text="ÇáÃÍÏË"},
+    new SelectListItem(){Value="MaxRatePercentage",Text="ÇáÃÚáì ÊŞííãÇ"},
+            new SelectListItem(){Value="MinRatePercentage",Text="ÇáÃŞá ÊŞííãÇ"},
         };
 
         [BindProperty(SupportsGet = true)]

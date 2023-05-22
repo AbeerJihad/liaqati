@@ -9,7 +9,7 @@
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var AthleticPrograms = (await _repoArticles.GetAllAsync()).OrderByDescending(a => a.PostDate).Take(6).ToList();
+            var AthleticPrograms = (await _repoArticles.GetAllAsync()).OrderByDescending(a => a.CreatedDate).Take(6).ToList();
             return View(AthleticPrograms);
         }
     }

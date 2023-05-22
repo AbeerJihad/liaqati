@@ -81,7 +81,7 @@
 
                 articles.Image = article.Image;
                 articles.Title = article.Title;
-                articles.PostDate = article.PostDate;
+                articles.CreatedDate = article.CreatedDate;
                 articles.ViewsNumber = article.ViewsNumber;
                 articles.LikesNumber = article.LikesNumber;
                 articles.avgReading = article.avgReading;

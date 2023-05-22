@@ -27,25 +27,6 @@
     return result;
 }
 
-async function AddFavoritesToHealthy(id) {
-    let result;
-    try {
-        const response = await fetch(`/api/HealthyApi/AddFavoritesToHealthy/${id}`, {
-            method: "GET",
-        });
-        if (response.status === 200) {
-            result = await response.json();
-        }
-        else {
-            console.error(json);
-            //`Error: ${json.title}`;
-        }
-    } catch (err) {
-        console.error(err);
-    }
-
-    return result;
-}
 
 
 

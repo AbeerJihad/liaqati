@@ -1,6 +1,4 @@
-﻿using System.Security.Claims;
-
-namespace liaqati_master.Services.Repositories
+﻿namespace liaqati_master.Services.Repositories
 {
     public class IRepoUser
     {
@@ -17,7 +15,7 @@ namespace liaqati_master.Services.Repositories
         public async Task<IEnumerable<User>> GetAllTrainerAsync()
         {
 
-            List<User> users =(await _userManager.GetUsersForClaimAsync(new Claim("Expert", "true"))).ToList();
+            List<User> users = (await _userManager.GetUsersForClaimAsync(new Claim("Expert", "true"))).ToList();
 
 
 
@@ -161,8 +159,9 @@ namespace liaqati_master.Services.Repositories
             User? user = await _context.Users.FirstOrDefaultAsync(a => a.Id == Entity.Id);
             if (user != null)
             {
-                _context.Users.Update(Entity);
-                await SaveAsync();
+                await _userManager.UpdateAsync(user);
+                //_context.Users.Update(Entity);
+                //await SaveAsync();
                 return Entity;
 
             }

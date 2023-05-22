@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-
-namespace liaqati_master.ViewModels
+﻿namespace liaqati_master.ViewModels
 {
     public class VmArticles
     {
@@ -18,7 +15,7 @@ namespace liaqati_master.ViewModels
         public string? Title { get; set; }
         [Display(Name = "تاريخ النشر")]
         [DataType(DataType.DateTime)]
-        public DateTime PostDate { get; set; } = DateTime.Now;
+        public DateTime? CreatedDate { get; set; } = DateTime.Now;
         [Display(Name = "عدد المشاهدات")]
         public int ViewsNumber { get; set; } = 0;
         [Display(Name = "عدد الاعجابات")]
@@ -34,6 +31,8 @@ namespace liaqati_master.ViewModels
 
         [Display(Name = "رقم الصنف")]
         public string? CategoryId { get; set; }
+        public string? CategoryName { get; set; }
+        public string? UserId { get; set; }
 
 
     }

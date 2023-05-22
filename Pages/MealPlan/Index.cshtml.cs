@@ -24,7 +24,7 @@
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
             new SelectListItem(){Value="MinPrice",Text="الأقل سعرا"},
             new SelectListItem(){Value="MaxPrice",Text="الأعلى سعرا"},
-            new SelectListItem(){Value="MaxRatePercentage",Text="الأغلى تقييما"},
+            new SelectListItem(){Value="MaxRatePercentage",Text="الأعلى تقييما"},
             new SelectListItem(){Value="MinRatePercentage",Text="الأقل تقييما"},
         };
         [BindProperty(SupportsGet = true)]

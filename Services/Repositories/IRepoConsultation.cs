@@ -118,12 +118,12 @@
 
                 if (Parameters.SortBy.Equals("newst", StringComparison.OrdinalIgnoreCase))
                 {
-                    con = con.OrderBy(p => p.PostDate);
+                    con = con.OrderBy(p => p.CreatedDate);
 
                 }
                 else if (Parameters.SortBy.Equals("oldest", StringComparison.OrdinalIgnoreCase))
                 {
-                    con = con.OrderByDescending(p => p.PostDate);
+                    con = con.OrderByDescending(p => p.CreatedDate);
 
                 }
             }

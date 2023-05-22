@@ -76,10 +76,10 @@ async function getdata(categoryid) {
     if (navigator.onLine) {
 
         ProductsApiResult = await getProducts(parms);
-        ProductContainer.innerHTML = ""; NoResult.innerHTML = "";
+        ProductContainer.innerHTML = "";
+        NoResult.innerHTML = "";
 
         if (ProductsApiResult.listOfData && ProductsApiResult.listOfData.length > 0) {
-
             ProductsApiResult.listOfData.forEach((p) => RenderCards(p));
         } else {
             RenderNoResult()
@@ -251,6 +251,47 @@ function RenderCards(Product) {
 
 
     }
+    if (Product.percentageRate == null) {
+
+        rate = ` <div class="rating">
+                  <div class="rating position-relative">
+                    <div class="rating-upper d-flex">
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                    </div>
+                    <div class="rating-lower d-flex position-absolute top-0 start-0 overflow-hidden w-0">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                  </div>`;
+
+
+    }
+    else {
+        rate = `  <div class="rating">
+                  <div class="rating position-relative">
+                    <div class="rating-upper d-flex">
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                    </div>
+                    <div class="rating-lower d-flex position-absolute top-0 start-0 overflow-hidden w-${ratePercentage}">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                  </div>`;
+    }
 
     let card = document.createElement("div");
 
@@ -261,23 +302,7 @@ function RenderCards(Product) {
             <div class="card-body g-2 p-2 mt-0" >
               <div class="d-flex m-2 justify-content-between">
                 <p class="card-text m-0">${Product.categoryName}</p>
-                <div class="rating">
-                  <div class="rating position-relative">
-                    <div class="rating-upper d-flex">
-                      <i class="bi bi-star-fill text-black-50"></i>
-                      <i class="bi bi-star-fill text-black-50"></i>
-                      <i class="bi bi-star-fill text-black-50"></i>
-                      <i class="bi bi-star-fill text-black-50"></i>
-                      <i class="bi bi-star-fill text-black-50"></i>
-                    </div>
-                    <div class="rating-lower d-flex position-absolute top-0 start-0 overflow-hidden w-[rate]">
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <i class="bi bi-star-fill text-warning"></i>
-                      <i class="bi bi-star-fill text-warning"></i>
-                    </div>
-                  </div>
+                    ${rate}
                 </div>
               </div>
               <div class="justify-content-between">

@@ -1,5 +1,4 @@
 ﻿function RenderPagination(JsonData) {
-    window.scrollTo(0, 100)
     Paging.firstElementChild.innerHTML = "";
     let perv = JsonData.previousPage === null ? "d-none" : "";
     let next = JsonData.nextPage === null ? "d-none" : "";

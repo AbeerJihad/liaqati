@@ -31,6 +31,18 @@ namespace liaqati_master.Areas.Admin.Pages.MealPlan
         public IEnumerable<SelectListItem> Categoires { get; set; }
         public IEnumerable<SelectListItem> DietaryType { get; set; } = Database.GetListOfDietaryType();
         public IEnumerable<SelectListItem> MealType { get; set; } = Database.GetListOfMealType();
+        public IEnumerable<SelectListItem> Length { get; set; } = Database.GetListOfMealPlanLength();
+
+
+        [BindProperty(SupportsGet = true)]
+        public string DietaryTypeParams { get; set; }
+        [BindProperty(SupportsGet = true)]
+
+        public string MealTypeParams { get; set; }
+        [BindProperty(SupportsGet = true)]
+
+        public string LengthParams { get; set; }
+        [BindProperty(SupportsGet = true)]
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
             new SelectListItem(){Value=nameof(MealPlans.Services.Title),Text="العنوان"},
             new SelectListItem(){Value=nameof(MealPlans.Services.Price),Text="السعر"},
@@ -40,7 +52,7 @@ namespace liaqati_master.Areas.Admin.Pages.MealPlan
             new SelectListItem(){Value=nameof(MealPlans.Length),Text="مدة النظام الغذائي"},
         };
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string key, string value)
         {
             Categoires = (await _repoCategory.GetAllAsync()).Where(c => c.Target == Database.GetListOfTargets()[nameof(MealPlans)]).Select(x => new SelectListItem() { Text = x.Name, Value = x.Id });
             if (!string.IsNullOrEmpty(MealPlansQueryParamters.CategoryId))
@@ -55,6 +67,66 @@ namespace liaqati_master.Areas.Admin.Pages.MealPlan
             }
             if (_repoMealPlans != null)
             {
+
+                if (!string.IsNullOrEmpty(DietaryTypeParams))
+                {
+                    MealPlansQueryParamters.DietaryType = DietaryTypeParams.Split(",").ToList();
+                }
+                if (!string.IsNullOrEmpty(MealTypeParams))
+                {
+                    MealPlansQueryParamters.MealType = MealTypeParams.Split(",").ToList();
+                }
+                if (!string.IsNullOrEmpty(LengthParams))
+                {
+                    MealPlansQueryParamters.Length = LengthParams.Split(",").ToList();
+                }
+
+                if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
+                {
+                    //MealPlansQueryParamters.GetType().GetProperty(key).SetValue(MealPlansQueryParamters, value);
+                    switch (key)
+                    {
+                        case nameof(MealPlansQueryParamters.DietaryType):
+                            if (MealPlansQueryParamters.DietaryType is not null && MealPlansQueryParamters.DietaryType.Contains(value))
+                            {
+                                MealPlansQueryParamters.DietaryType.Remove(value);
+                            }
+                            break;
+                        case nameof(MealPlansQueryParamters.MealType):
+                            if (MealPlansQueryParamters.MealType is not null && MealPlansQueryParamters.DietaryType.Contains(value))
+                            {
+                                MealPlansQueryParamters.DietaryType.Remove(value);
+
+                            }
+                            break;
+                        case nameof(MealPlansQueryParamters.Length):
+                            if (MealPlansQueryParamters.Length is not null && MealPlansQueryParamters.Length.Contains((value)))
+                            {
+                                MealPlansQueryParamters.Length.Remove(value);
+
+                            }
+
+                            break;
+                        case nameof(MealPlansQueryParamters.SearchTearm):
+                            MealPlansQueryParamters.SearchTearm = "";
+                            break;
+                        case nameof(MealPlansQueryParamters.Title):
+                            MealPlansQueryParamters.Title = "";
+                            break;
+                        case nameof(MealPlansQueryParamters.MaxPrice):
+                            MealPlansQueryParamters.MaxPrice = null; break;
+
+                        case nameof(MealPlansQueryParamters.MinPrice):
+                            MealPlansQueryParamters.MinPrice = null;
+                            break;
+                        case "Price":
+                            MealPlansQueryParamters.MinPrice = null;
+                            MealPlansQueryParamters.MaxPrice = null;
+                            break;
+                    }
+
+                }
+
                 if (_signInManager.IsSignedIn(User))
                 {
                     if (User.FindFirstValue(Database.Expert) != null)

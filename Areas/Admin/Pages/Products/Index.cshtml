@@ -11,6 +11,8 @@
         {nameof(Model.ProductQueryParamters.SearchTearm),Model.ProductQueryParamters.SearchTearm??""},
         {nameof(Model.ProductQueryParamters.Size),Model.ProductQueryParamters.Size.ToString()},
         {nameof(Model.ProductQueryParamters.CategoryId),Model.ProductQueryParamters.CategoryId??""},
+        {nameof(Model.ProductQueryParamters.MinPrice),Model.ProductQueryParamters.MinPrice.ToString()},
+        {nameof(Model.ProductQueryParamters.MaxPrice),Model.ProductQueryParamters.MaxPrice.ToString()},
     };
     if (Model.ProductQueryParamters.SortOrder == "asc")
         parms["SortOrder"] = "desc";
@@ -32,16 +34,30 @@
         </div>
         <div class="offcanvas-body pb-5">
             <div class="d-flex flex-column gap-3">
-
-                <div class="d-flex  py-2">
+                <div class="  py-2">
+                    <label class="form-label">بحث عام</label>
                     <input class="form-control " asp-for="@Model.ProductQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
                 </div>
-                <div class="d-flex ">
+                <div class=" ">
+                    <label class="form-label">السعر</label>
+                    <label class="form-label"></label>
+                    <div class="d-flex gap-2 justify-content-center align-items-center">
+                        <input class="col form-control me-1" name="MinPrice" asp-for="@Model.ProductQueryParamters.MinPrice" id="MinPrice" type="number" placeholder="Min">
+                        <span>-</span>
+                        <input class="col form-control" name="MaxPrice" asp-for="@Model.ProductQueryParamters.MaxPrice" id="MaxPrice" type="number" placeholder="Max">
+                    </div>
+                </div>
+
+                <div class=" ">
+                    <label class="form-label">اسم المنتج</label>
+
                     <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.ProductQueryParamters.Title" id="single-select-field" data-placeholder="من فضلك حدد اسم الصنف" onchange="submit()">
                         <option value="">من فضلك حدد اسم المنتج</option>
                     </select>
                 </div>
-                <div class="d-flex ">
+                <div class=" ">
+                    <label class="form-label">الصنف</label>
+
                     <select name="CategoryId" class="form-select" asp-items="@Model.Categoires" asp-for="@Model.ProductQueryParamters.CategoryId" onchange="submit()">
                         <option value="">من فضلك حدد اسم الصنف</option>
                     </select>
@@ -130,41 +146,67 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model.QueryPageResult.ListOfData)
+                                    @if (Model.QueryPageResult.ListOfData is not null)
+                                        @if (Model.QueryPageResult.ListOfData.Count() > 0)
+                                        {
+
+                                            @foreach (var item in Model.QueryPageResult.ListOfData)
+                                            {
+                                                <tr>
+                                                    <td scope="row">
+                                                        <label class="d-block">
+                                                            <input class="checkbox_animated" type="checkbox">
+                                                        </label>
+                                                    </td>
+                                                    <td class="">
+                                                        <div class="img__box position-relative m-0  rounded-circle">
+                                                            <img width="40" alt="Mark" class="position-absolute "
+                                                                 src="@item.Images?.FirstOrDefault()" />
+                                                        </div>
+                                                    </td>
+
+                                                    <td>@item.Title</td>
+                                                    <td>@item.Price?.ToString("c")</td>
+                                                    <td>@item.Discount.ToString("c")</td>
+
+                                                    <td>
+                                                        <div class="d-flex gap-2">
+                                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
+                                                                <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
+                                                            </a>
+                                                            <form method="post" asp-page="Delete" asp-route-id="@item.Id">
+                                                                <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
+                                                                    <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
+                                                                </a>
+                                                            </form>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="7">
+                                                    <div class="d-flex justify-content-center align-items-center flex-column">
+                                                        <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
+                                                        <p>لا يوجد بيانات</p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    else
                                     {
                                         <tr>
-                                            <td scope="row">
-                                                <label class="d-block">
-                                                    <input class="checkbox_animated" type="checkbox">
-                                                </label>
-                                            </td>
-                                            <td class="">
-                                                <div class="img__box position-relative m-0  rounded-circle">
-                                                    <img width="40" alt="Mark" class="position-absolute "
-                                                         src="@item.Images?.FirstOrDefault()" />
-                                                </div>
-                                            </td>
-
-                                            <td>@item.Title</td>
-                                            <td>@item.Price?.ToString("c")</td>
-                                            <td>@item.Discount.ToString("c")</td>
-
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-square btn-edit" type="button">
-                                                        <div class="d-flex justify-content-end align-items-center gap-2"><span>تعديل</span><i class="bi bi-pencil-square"></i></div>
-                                                    </a>
-                                                    <form method="post" asp-page="Delete" asp-route-id="@item.Id">
-                                                        <a onclick="DeleteFun(this)" class="btn btn-square btn-delete">
-                                                            <div class="d-flex justify-content-end align-items-center gap-2"><span>حذف</span><i class="bi bi-trash"></i></div>
-                                                        </a>
-                                                    </form>
-
+                                            <td colspan="7">
+                                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                                    <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
+                                                    <p>لا يوجد بيانات</p>
                                                 </div>
                                             </td>
                                         </tr>
                                     }
-
                                 </tbody>
                                 <tfoot>
                                     <tr class="border-top bg-light">

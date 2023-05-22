@@ -35,9 +35,6 @@ namespace liaqati_master.Models
         [ForeignKey(nameof(UserId))]
         public virtual User? User { get; set; }
 
-        [Display(Name = "تاريخ اضافة التمرين")]
-        [DataType(DataType.DateTime)]
-        public DateTime exerciseDate { get; set; } = DateTime.Now;
         [Display(Name = " التقييم")]
         public double? RatePercentage { get; set; }
         public virtual List<Rate>? Rate { get; set; }

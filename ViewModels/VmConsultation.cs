@@ -12,7 +12,7 @@
 
         [Display(Name = "تاريخ النشر")]
         [DataType(DataType.DateTime)]
-        public DateTime PostDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         [Display(Name = "صورة الامستشار ")]
         public string? imgUrl { get; set; } = "";
         [Display(Name = "تخصص الامستشار ")]

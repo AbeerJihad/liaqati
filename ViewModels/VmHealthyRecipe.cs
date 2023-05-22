@@ -35,6 +35,7 @@
         [Required(ErrorMessage = "هذا الحقل مطلوب")]
         [Display(Name = "كمية البروتين")]
         public int Protein { get; set; }
+        public int ViewsNumber { get; set; }
 
         public virtual List<Rate>? Rate { get; set; }
         [Display(Name = " التقييم"), Range(0, 100)]
@@ -44,6 +45,7 @@
         public int? IsFavorite { get; set; }
 
         public string? Image { get; set; } = "";
+        public string? ExpertName { get; set; }
         public string? UserId { get; set; }
 
 

@@ -30,6 +30,19 @@
         public IEnumerable<SelectListItem> TraningType { get; set; } = Database.GetListOfTrainingType();
         public IEnumerable<SelectListItem> Difficulty { get; set; } = Database.GetListOfDifficulty();
         public IEnumerable<SelectListItem> Equipment { get; set; } = Database.GetListOfEquipment();
+
+
+        [BindProperty(SupportsGet = true)]
+        public string BodyFocusParams { get; set; }
+        [BindProperty(SupportsGet = true)]
+
+        public string TraningTypeParams { get; set; }
+        [BindProperty(SupportsGet = true)]
+
+        public string DifficultyParams { get; set; }
+        [BindProperty(SupportsGet = true)]
+
+        public string EquipmentParams { get; set; }
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
             new SelectListItem(){Value=nameof(Exercise.Title),Text="العنوان"},
             new SelectListItem(){Value=nameof(Exercise.Price),Text="السعر"},

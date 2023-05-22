@@ -23,10 +23,11 @@ namespace liaqati_master.Pages.Exercises
         public List<Exercise>? Exercises { get; set; }
 
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
-            new SelectListItem(){Value="RateId",Text="الأعلى تقيماً"},
-            new SelectListItem(){Value="exerciseDate",Text="الأحدث"},
+            new SelectListItem(){Value="MinPrice",Text="الأقل سعرا"},
+            new SelectListItem(){Value="MaxPrice",Text="الأعلى سعرا"},
+            new SelectListItem(){Value="MaxRatePercentage",Text="الأغلى تقييما"},
+            new SelectListItem(){Value="MinRatePercentage",Text="الأقل تقييما"},
         };
-
 
         //  public List<string> BodyFoucs { get; set; } = new List<string>() { "الجسم بالكامل", "الجسم السفلي", "الجسم العلوي", "الجسم الوسط" };
         //public List<string> BodyFoucs { get; set; } = new List<string>() { "الجسم بالكامل", "الجسم السفلي", "الجسم العلوي", "الجسم الوسط" };

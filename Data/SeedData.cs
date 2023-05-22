@@ -7,7 +7,6 @@
 
             using var scope = applicationBuilder.ApplicationServices.CreateScope();
             LiaqatiDBContext liaqatiDBContext = scope.ServiceProvider.GetRequiredService<LiaqatiDBContext>();
-            RoleManager<IdentityRole>? RoleManager = scope.ServiceProvider?.GetService<RoleManager<IdentityRole>>();
             UserManager<User>? userManager = scope.ServiceProvider?.GetService<UserManager<User>>();
             //var migrations = liaqatiDBContext.Database.GetPendingMigrations();
             //if (migrations.Any())
@@ -16,10 +15,9 @@
             //{
             //    await liaqatiDBContext.TblSportsProgram.AddRangeAsync(Database.GetListOfSportsProgram());
             //}
-            if (RoleManager != null)
-                await SeedRoles(roleManager: RoleManager);
-            if (userManager != null && RoleManager != null)
-                await SeedUsers(userManager, roleManager: RoleManager);
+
+            if (userManager != null)
+                await SeedUsers(userManager);
 
             //if (!await liaqatiDBContext.TblServices.AnyAsync())
             //{
@@ -95,7 +93,7 @@
                 throw;
             }
         }
-        private static async Task SeedUsers(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        private static async Task SeedUsers(UserManager<User> userManager)
         {
             if (await userManager.FindByNameAsync("admin@website.com") == null)
             {
@@ -111,23 +109,14 @@
                 var result = await userManager.CreateAsync(Admin, "Admin123@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Admin, new Claim(Database.Admin, "true"));
-                    await userManager.AddClaimAsync(Admin, new Claim("FirstName", Admin.Fname));
-                    await userManager.AddClaimAsync(Admin, new Claim("Image", Admin.Photo));
-                    await userManager.AddClaimAsync(Admin, new Claim("LastName", Admin.Lname));
-                    await userManager.AddClaimAsync(Admin, new Claim("Specialization", Admin.Specialization));
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Admin");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Admin" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Admin, "Admin");
-                    }
-                    else
-                    {
-                        await userManager.AddToRolesAsync(Admin, new[] { "Admin", "Expert", "Customer" });
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Admin, "true"),
+                        new Claim("FirstName", Admin.Fname),
+                        new Claim("Image", Admin.Photo),
+                        new Claim("LastName", Admin.Lname),
+                        new Claim("Specialization", Admin.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Admin, claims);
 
                 }
             }
@@ -146,22 +135,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert1231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -180,24 +161,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert2231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -216,23 +187,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -251,25 +213,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
                 }
             }
 
@@ -288,25 +239,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
                 }
             }
 
@@ -324,26 +264,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
                 }
             }
 
@@ -361,24 +289,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -397,25 +315,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -434,24 +341,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -470,25 +367,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -507,24 +393,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -543,25 +419,14 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
@@ -580,57 +445,19 @@
                 var result = await userManager.CreateAsync(Expert, "Expert3231@");
                 if (result.Succeeded)
                 {
-                    await userManager.AddClaimAsync(Expert, new Claim(Database.Expert, value: "true"));
-                    await userManager.AddClaimAsync(Expert, new Claim("FirstName", Expert.Fname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Image", Expert.Photo));
-                    await userManager.AddClaimAsync(Expert, new Claim("LastName", Expert.Lname));
-                    await userManager.AddClaimAsync(Expert, new Claim("Specialization", Expert.Specialization));
-
-
-                    bool checkRole = await roleManager!.RoleExistsAsync("Expert");
-                    if (!checkRole)
-                    {
-                        IdentityRole role = new() { Name = "Expert" };
-                        await roleManager.CreateAsync(role);
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
-                    else
-                    {
-                        await userManager.AddToRoleAsync(Expert, "Expert");
-                    }
+                    List<Claim> claims = new() {
+                                            new Claim(Database.Expert, "true"),
+                        new Claim("FirstName", Expert.Fname),
+                        new Claim("Image", Expert.Photo),
+                        new Claim("LastName", Expert.Lname),
+                        new Claim("Specialization", Expert.Specialization)
+                    };
+                    await userManager.AddClaimsAsync(Expert, claims);
 
                 }
             }
         }
 
 
-        private static async Task SeedRoles(RoleManager<IdentityRole> roleManager)
-        {
-            if (!await roleManager.RoleExistsAsync("Admin"))
-            {
-                var role = new IdentityRole
-                {
-                    Name = "Admin",
-                };
-                await roleManager.CreateAsync(role);
-            }
-            if (!await roleManager.RoleExistsAsync("Expert"))
-            {
-                var role = new IdentityRole
-                {
-                    Name = "Expert",
-                };
-                await roleManager.CreateAsync(role);
-            }
-            if (!await roleManager.RoleExistsAsync("Customer"))
-            {
-                var role = new IdentityRole
-                {
-                    Name = "Customer",
-                };
-                await roleManager.CreateAsync(role);
-            }
-
-        }
     }
 }

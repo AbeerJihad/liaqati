@@ -2,7 +2,7 @@
 @model liaqati_master.Pages.Articles.IndexModel
 @{
 }
-    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+<link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 
 <style>
     body {
@@ -109,11 +109,11 @@
                         <a asp-page="/articles/ArticleDetail" asp-route-id="@Model.articlesList[i+3].Id">
                             <img src="@Model.articlesList[i+3].Image" class="sideArticlesImages" />
                         </a>
-                        
+
                     </div>
                     <div class="col">
                         <div class="pt-2">
-                            <p class="fw-bold"> @CommonMethods.GetArabicDateTime(@Model.articlesList[i+3].PostDate)   </p>
+                            <p class="fw-bold"> @CommonMethods.GetArabicDateTime(Model.articlesList[i+3].CreatedDate)   </p>
                             <p class="text-black-50">رشاقة وتغذية</p>
                             <p style="font-weight:bold;">  @Model.articlesList[i+3].Title </p>
                         </div>
@@ -154,8 +154,8 @@
 
 
 
-                                   
-                                    
+
+
 
 
 
@@ -189,7 +189,7 @@
         }*@
 
 
-         @foreach (var item in Model.AllArticles)
+        @foreach (var item in Model.AllArticles)
         {
 
             <div class="col-12 col-md-6  p-2">
@@ -211,9 +211,9 @@
                                     if (Model.Favorites is null)
                                     {
                                         <a asp-area="identity" asp-page="/account/login" style="width: 50px; height: 50px; top: 10px; right: 10px"
-                               class="rounded-pill btn-favourite   text-secondary btn  border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                       class="rounded-pill btn-favourite   text-secondary btn  border bg-white shadow-sm rounded d-flex fw-bold justify-content-center align-items-center align-middle">
                                             <i class="bi bi-heart-fill h3 d-block m-0 mt-1"></i>
-                                      
+
                                         </a>
 
                                     }
@@ -232,7 +232,7 @@
                                                 <input hidden value="@item.Id" asp-for="@favorite.ArticleId" />
                                                 <input hidden value="مقالات" asp-for="@favorite.Type" />
 
-                                                <button title="add to Favorite"  class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
+                                                <button title="add to Favorite" class="rounded-pill btn-favorite text-secondary btn   bg-white  rounded d-flex fw-bold justify-content-center align-items-center align-middle">
                                                     <i class="bi bi-heart-fill h4 d-block m-0 mt-1"></i>
 
                                                 </button>
@@ -269,7 +269,7 @@
 
 
                         </div>
-                        <p> @CommonMethods.GetArabicDateTime(@item.PostDate)     </p>
+                        <p> @CommonMethods.GetArabicDateTime(@item.CreatedDate)     </p>
                         <p style="font-weight:bold;">  @item.Title </p>
 
 
@@ -280,7 +280,7 @@
             </div>
 
 
-}
+        }
 
 
 
@@ -292,7 +292,7 @@
     <div class="row g-0 p-0 my-3">
         <div class="col d-flex justify-content-end ">
             @* onclick="fetchData();"*@
-            <a asp-page="AllArticles" class="btn btn-main"  >
+            <a asp-page="AllArticles" class="btn btn-main">
                 <span class="spinner-grow  spinner-grow-sm d-none" role="status" aria-hidden="true"></span>
                 عرض المزيد
             </a>
@@ -336,24 +336,23 @@
     //}
 
 
-      function ShowNotLoginAlert() {
+    function ShowNotLoginAlert() {
 
 
-            Swal.fire({
-                text: "يرجى منك تسجيل الدحول",
-                //icon: 'warning  ',
-                showCancelButton: true,
-                confirmButtonColor: '#a566c8',
-                cancelButtonColor: '#ff7273',
-                confirmButtonText: 'تسجيل',
-                cancelButtonText: 'إلغاء'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = "/Identity/Account/Login"
-                }
-            })
-        }
+        Swal.fire({
+            text: "يرجى منك تسجيل الدحول",
+            //icon: 'warning  ',
+            showCancelButton: true,
+            confirmButtonColor: '#a566c8',
+            cancelButtonColor: '#ff7273',
+            confirmButtonText: 'تسجيل',
+            cancelButtonText: 'إلغاء'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = "/Identity/Account/Login"
+            }
+        })
+    }
 </script>
 <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
 
-    

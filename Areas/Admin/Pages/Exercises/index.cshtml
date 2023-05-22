@@ -13,9 +13,26 @@
         {nameof( Model.ExerciseQueryParamters.SearchTearm), Model.ExerciseQueryParamters.SearchTearm},
         {nameof( Model.ExerciseQueryParamters.Title), Model.ExerciseQueryParamters.Title},
         {nameof( Model.ExerciseQueryParamters.Size), Model.ExerciseQueryParamters.Size.ToString()},
-
+                {nameof(Model.ExerciseQueryParamters.MinDuration),Model.ExerciseQueryParamters.MinDuration.ToString()},
+        {nameof(Model.ExerciseQueryParamters.MaxDuration),Model.ExerciseQueryParamters.MinDuration.ToString()},
+        {nameof(Model.ExerciseQueryParamters.Title),Model.ExerciseQueryParamters.Title??""},
     };
-
+    if (Model.ExerciseQueryParamters.BodyFocus is not null)
+    {
+        parms.Add(nameof(Model.BodyFocusParams), string.Join(',', Model.ExerciseQueryParamters.BodyFocus).ToString());
+    }
+    if (Model.ExerciseQueryParamters.TraningType is not null)
+    {
+        parms.Add(nameof(Model.TraningTypeParams), string.Join(',', Model.ExerciseQueryParamters.TraningType).ToString());
+    }
+    if (Model.ExerciseQueryParamters.Difficulty is not null)
+    {
+        parms.Add(nameof(Model.DifficultyParams), string.Join(',', Model.ExerciseQueryParamters.Difficulty).ToString());
+    }
+    if (Model.ExerciseQueryParamters.Equipment is not null)
+    {
+        parms.Add(nameof(Model.EquipmentParams), string.Join(',', Model.ExerciseQueryParamters.Equipment).ToString());
+    }
     if (Model.ExerciseQueryParamters.SortOrder == "asc")
         parms["SortOrder"] = "desc";
     else
@@ -37,30 +54,48 @@
         <div class="offcanvas-body pb-5">
             <div class="d-flex flex-column gap-3">
 
-                <div class="d-flex  py-2">
+                <div class=" py-2">
+                    <label class="form-label">بحث عام</label>
                     <input class="form-control " asp-for="@Model.ExerciseQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
                 </div>
-                <div class="d-flex ">
+                <div class="">
+                    <label class="form-label">المدة اليومية</label>
+                    <div class="d-flex gap-2 justify-content-center align-items-center">
+                        <input class="col form-control me-1" name="MinDuration" asp-for="@Model.ExerciseQueryParamters.MinDuration" id="MinDuration" type="number" placeholder="Min">
+                        <span>-</span>
+                        <input class="col form-control" name="MaxDuration" asp-for="@Model.ExerciseQueryParamters.MaxDuration" id="MaxDuration" type="number" placeholder="Max">
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">اسم التمرين  </label>
+
                     <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.ExerciseQueryParamters.Title" id="single-select-field" data-placeholder="  حدد اسم الصنف" onchange="submit()">
                         <option value=""> حدد اسم التمرين</option>
                     </select>
                 </div>
-                <div class="d-flex ">
+                <div>
+                    <label class="form-label">تركيز الجسم</label>
                     <select name="BodyFocus" class="form-select w-100" asp-items="@Model.BodyFocus" asp-for="@Model.ExerciseQueryParamters.BodyFocus" id="multiple-select-BodyFocus" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
                         <option value="" disabled>  حدد تركيز الجسم</option>
                     </select>
                 </div>
-                <div class="d-flex ">
+                <div>
+                    <label class="form-label">نوع التدريب</label>
+
                     <select name="TraningType" class="form-select w-100" asp-items="@Model.TraningType" asp-for="@Model.ExerciseQueryParamters.TraningType" id="multiple-select-TraningType" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
-                        <option value="" disabled>  حدد نوع التمرين</option>
+                        <option value="" disabled>  حدد نوع التدريب</option>
                     </select>
                 </div>
-                <div class="d-flex  ">
+                <div>
+                    <label class="form-label">المعدات</label>
+
                     <select name="Equipment" class="form-select w-100" asp-items="@Model.Equipment" asp-for="@Model.ExerciseQueryParamters.Equipment" id="multiple-select-Equipment" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
                         <option value="" disabled>  حدد المعدات</option>
                     </select>
                 </div>
-                <div class="d-flex  ">
+                <div>
+                    <label class="form-label">درجة الصعوبة</label>
+
                     <select name="Difficulty" class="form-select w-100" asp-items="@Model.Difficulty" asp-for="@Model.ExerciseQueryParamters.Difficulty" id="multiple-select-Difficulty" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
                         <option value="" disabled>  حدد مستوى الصعوبة</option>
                     </select>

@@ -3,10 +3,14 @@
     public class IRepoArticles
     {
         private readonly LiaqatiDBContext _context;
+        private readonly IHttpContextAccessor _HttpContextAccessor;
+        private readonly IRepoFavorite _IRepoFavorite;
 
-        public IRepoArticles(LiaqatiDBContext context)
+        public IRepoArticles(LiaqatiDBContext context, IHttpContextAccessor httpContextAccessor, IRepoFavorite iRepoFavorite)
         {
             _context = context;
+            _HttpContextAccessor = httpContextAccessor;
+            _IRepoFavorite = iRepoFavorite;
         }
 
         public async Task<Article> AddEntityAsync(Article Entity)
@@ -84,9 +88,60 @@
             }
         }
 
-        public async Task<QueryPageResult<Article>> SearchArticles(ArticlesQueryParamters artParameters)
+        public async Task<QueryPageResult<VmArticles>> SearchArticles(ArticlesQueryParamters artParameters)
         {
-            IQueryable<Article> articles = (await GetAllAsync()).AsQueryable();
+            IQueryable<VmArticles> articles = (await GetAllAsync()).Select(art => new VmArticles()
+            {
+                avgReading = art.avgReading,
+                CategoryId = art.CategoryId,
+                CategoryName = art.Category.Name,
+                Description = art.Description,
+                Id = art.Id,
+                Image = art.Image,
+                IsFavorite = 0,
+                LikesNumber = art.LikesNumber,
+                CreatedDate = art.CreatedDate,
+                Title = art.Title,
+                UserId = art.UserId,
+                ViewsNumber = art.ViewsNumber
+
+            }).AsQueryable();
+            if (_HttpContextAccessor.HttpContext is not null)
+            {
+                List<Favorite>? list = new();
+                List<string?>? list2 = new();
+                var user = _HttpContextAccessor.HttpContext.User;
+                List<VmArticles> HealthyRecipes = articles.ToList();
+
+                if (user is null)
+                {
+
+                    foreach (var item in HealthyRecipes)
+                    {
+                        item.IsFavorite = 0;
+
+
+                    }
+                }
+                else
+                {
+                    list = await _IRepoFavorite.GetByUserIDAsync(user.FindFirstValue(ClaimTypes.NameIdentifier));
+                    list2 = list?.Where(p => p.Type == "مقالات").Select(s => s.HealthyRecipeId).ToList();
+                    if (list2 is not null)
+                    {
+                        foreach (var item in HealthyRecipes)
+                        {
+                            if (list2.Contains(item.Id))
+                                item.IsFavorite = 2;
+                            else if (!list2.Contains(item.Id))
+                                item.IsFavorite = 1;
+                        }
+                    }
+
+
+                }
+
+            }
             List<AppliedFilters> ListOfSelectedFilters = new();
 
             if (!string.IsNullOrEmpty(artParameters.UserId))
@@ -158,7 +213,7 @@
                 }
 
             }
-            QueryPageResult<Article> qpResult = CommonMethods.GetPageResult(articles, artParameters);
+            QueryPageResult<VmArticles> qpResult = CommonMethods.GetPageResult(articles, artParameters);
             return qpResult;
         }
     }

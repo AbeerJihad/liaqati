@@ -54,7 +54,6 @@
                 </div>
                 <div>
                     <label class="form-label">اسم الوصفة </label>
-
                     <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.HealthyRecipeQueryParamters.Title" id="single-select-field" data-placeholder="  حدد اسم الصنف" onchange="submit()">
                         <option value="">  حدد اسم الوصفة</option>
                     </select>
@@ -62,14 +61,12 @@
 
                 <div>
                     <label class="form-label">النوع الغذائي</label>
-
                     <select name="DietaryType" class="form-select w-100" asp-items="@Model.DietaryType" asp-for="@Model.HealthyRecipeQueryParamters.DietaryType" id="multiple-select-DietaryType" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
                         <option value="" disabled>  حدد النوع الغذائي</option>
                     </select>
                 </div>
                 <div>
                     <label class="form-label">نوع الوجبة </label>
-
                     <select name="MealType" class="form-select w-100" asp-items="@Model.MealType" asp-for="@Model. HealthyRecipeQueryParamters.MealType" id="multiple-select-MealType" data-placeholder="  حدد اسم الصنف" onchange="submit()" multiple>
                         <option value="" disabled>  حدد نوع الوجبة</option>
                     </select>
@@ -184,10 +181,10 @@
                                                             <input class="checkbox_animated" type="checkbox">
                                                         </label>
                                                     </td>
-                                                    @*if (User.HasClaim(c => c.Type == Database.Expert && c.Value == "true"))
-                                        {
-                                        <td>@item.User?.Fname</td>
-                                        }*@
+                                                    @if (User.HasClaim(c => c.Type == Database.Expert && c.Value == "true"))
+                                                    {
+                                                        <td>@item.ExpertName</td>
+                                                    }
                                                     <td>@item.MealType</td>
                                                     <td>@item.Price?.ToString("c")</td>
                                                     <td>@item.Calories</td>
