@@ -35,20 +35,24 @@
         <div class="offcanvas-body pb-5">
             <div class="d-flex flex-column gap-3">
 
-                <div class="d-flex  py-2">
+                <div class="  py-2">
+                    <label class="form-label">بحث عام</label>
+
                     <input class="form-control " asp-for="@Model.ConsultationQueryParamters.SearchTearm" id="SearchTearm" name="SearchTearm" type="search" placeholder="بحث" aria-label="Search">
                 </div>
-                <div class="d-flex ">
+                <div>
+                    <label class="form-label"> عنوان الإستشارة </label>
+
                     <select name="Title" class="form-select" asp-items="@Model.Titles" asp-for="@Model.ConsultationQueryParamters.Tilte" id="single-select-field" data-placeholder="  حدد اسم الصنف" onchange="submit()">
-                        <option value=""> حدد اسم النظام الغذائي</option>
+                        <option value=""> حدد  عنوان الإستشارة   </option>
                     </select>
                 </div>
-                <div class="d-flex ">
+                <div>
+                    <label class="form-label"> الصنف </label>
                     <select name="CategoryId" class="form-select" asp-items="@Model.Categoires" asp-for="@Model.ConsultationQueryParamters.CategoryId" onchange="submit()">
                         <option value="">  حدد اسم الصنف</option>
                     </select>
                 </div>
-
                 <div class="d-flex gap-2">
                     <button class="btn btn-outline-primary me-1" type="submit">إظهار النتائج</button>
                     <button type="button" class="btn btn-primary-gradien" id="single-select-field-clear">إلغاء جميع الفلاتر</button>
@@ -113,28 +117,7 @@
                                     }
                                 }
 
-                                else
-                                {
-                                    <tr>
-                                        <td colspan="7">
-                                            <div class="d-flex justify-content-center align-items-center flex-column">
-                                                <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
-                                                <p>لا يوجد بيانات</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                }
-                            }
-                            else
-                            {
-                                <tr>
-                                    <td colspan="7">
-                                        <div class="d-flex justify-content-center align-items-center flex-column">
-                                            <i class="bi bi-database-fill-slash text-secondary" style="font-size:120px"></i>
-                                            <p>لا يوجد بيانات</p>
-                                        </div>
-                                    </td>
-                                </tr>
+
                             }
 
                         </div>
@@ -177,7 +160,7 @@
 
                                                     <td>@item.User?.Fname   @item.User?.Lname</td>
                                                     <td>@item.Title</td>
-                                                    <td>@item.PostDate</td>
+                                                    <td>@item.CreatedDate</td>
                                                     <td>@item.Category?.Name</td>
                                                     <td>
                                                         <div class="d-flex gap-2">

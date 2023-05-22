@@ -172,14 +172,14 @@
             {
                 exqParameters.CurPage = 1;
 
-                exercises = exercises.Where(p => p.Title != null && p.Title.ToLower().Contains(exqParameters.SearchTearm.ToLower()) || p.ShortDescription!.ToLower().Contains(exqParameters.SearchTearm.ToLower()));
+                exercises = exercises.Where(p => p.Title != null && p.Title.ToLower().Contains(exqParameters.SearchTearm.ToLower()) || (p.ShortDescription != null && p.ShortDescription.ToLower().Contains(exqParameters.SearchTearm.ToLower())));
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(exqParameters.SearchTearm), propartyValue: exqParameters.SearchTearm));
             }
             if (!string.IsNullOrEmpty(exqParameters.Title))
             {
                 exqParameters.CurPage = 1;
 
-                exercises = exercises.Where(p => p.Title != null && p.Title.ToLower().Contains(exqParameters.Title.ToLower()) || p.ShortDescription!.ToLower().Contains(exqParameters.SearchTearm.ToLower()));
+                exercises = exercises.Where(p => p.Title != null && p.Title.ToLower().Contains(exqParameters.Title.ToLower()));
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(exqParameters.Title), propartyValue: exqParameters.Title));
             }
             if (exqParameters.BodyFocus is not null)
@@ -267,10 +267,10 @@
             //        //    exercises = exercises.OrderByDescending(p => p.RateId);
 
             //    }
-            //    if (exqParameters.SortBy.Equals("exerciseDate", StringComparison.OrdinalIgnoreCase))
+            //    if (exqParameters.SortBy.Equals("CreatedDate", StringComparison.OrdinalIgnoreCase))
             //    {
             //        // if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-            //        exercises = exercises.OrderByDescending(p => p.exerciseDate);
+            //        exercises = exercises.OrderByDescending(p => p.CreatedDate);
             //        //else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
             //        //    exercises = exercises.OrderByDescending(p => p.RateId);
 
@@ -314,18 +314,18 @@
                 {
 
                     if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                        exercises = exercises.OrderBy(p => p.Duration);
+                        exercises = exercises.OrderBy(p => p.RatePercentage);
                     else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                        exercises = exercises.OrderByDescending(p => p.Duration);
+                        exercises = exercises.OrderByDescending(p => p.RatePercentage);
 
                 }
-                else if (exqParameters.SortBy.Equals(nameof(Exercise.exerciseDate), StringComparison.OrdinalIgnoreCase))
+                else if (exqParameters.SortBy.Equals(nameof(Exercise.CreatedDate), StringComparison.OrdinalIgnoreCase))
                 {
 
                     if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                        exercises = exercises.OrderBy(p => p.Duration);
+                        exercises = exercises.OrderBy(p => p.DateCreated);
                     else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                        exercises = exercises.OrderByDescending(p => p.Duration);
+                        exercises = exercises.OrderByDescending(p => p.DateCreated);
 
                 }
             }

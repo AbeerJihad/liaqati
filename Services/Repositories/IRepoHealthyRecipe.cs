@@ -104,12 +104,14 @@
                   Protein = p.Protein,
                   Rate = p.Rate,
                   UserId = p.UserId,
+                  ExpertName = string.Concat(p.User?.Fname, " ", p.User?.Lname),
                   Total_Carbohydrate = p.Total_Carbohydrate,
                   CreatedDate = p.CreatedDate,
                   MealType = p.MealType ?? "",
                   DietaryType = p.DietaryType ?? "",
                   ShortDescription = p.ShortDescription,
                   RatePercentage = p.RatePercentage,
+                  ViewsNumber = p.ViewsNumber,
                   IsFavorite = 0
               }).AsQueryable();
 
@@ -176,8 +178,8 @@
             if (!string.IsNullOrEmpty(HealthyRecipeQueryParamters.SearchTearm))
             {
                 HealthyRecipess = HealthyRecipess.Where(p =>
-                    p.Title.ToLower().Contains(HealthyRecipeQueryParamters.SearchTearm.ToLower()) ||
-                    p.ShortDescription.ToLower().Contains(HealthyRecipeQueryParamters.SearchTearm.ToLower())
+                   p.Title != null && p.Title.ToLower().Contains(HealthyRecipeQueryParamters.SearchTearm.ToLower()) ||
+                    p.ShortDescription != null && p.ShortDescription.ToLower().Contains(HealthyRecipeQueryParamters.SearchTearm.ToLower())
                 );
             }
 
@@ -214,23 +216,55 @@
 
             if (!string.IsNullOrEmpty(HealthyRecipeQueryParamters.SortBy))
             {
-                if (HealthyRecipeQueryParamters.SortBy.Equals("RateId", StringComparison.OrdinalIgnoreCase))
+                if (HealthyRecipeQueryParamters.SortBy.Equals(nameof(HealthyRecipe.RatePercentage), StringComparison.OrdinalIgnoreCase))
                 {
-                    // if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RatePercentage);
-                    //else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                    //    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RateId);
+                    if (HealthyRecipeQueryParamters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RatePercentage);
+                    else if (HealthyRecipeQueryParamters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RatePercentage);
 
                 }
-                if (HealthyRecipeQueryParamters.SortBy.Equals("exerciseDate", StringComparison.OrdinalIgnoreCase))
+                else if (HealthyRecipeQueryParamters.SortBy.Equals(nameof(HealthyRecipe.Price), StringComparison.OrdinalIgnoreCase))
                 {
-                    // if (exqParameters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
-                    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.CreatedDate);
-                    //else if (exqParameters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
-                    //    HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.RateId);
+                    if (HealthyRecipeQueryParamters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.Price);
+                    else if (HealthyRecipeQueryParamters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.Price);
 
                 }
+                else if (HealthyRecipeQueryParamters.SortBy.Equals(nameof(HealthyRecipe.ViewsNumber), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (HealthyRecipeQueryParamters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.ViewsNumber);
+                    else if (HealthyRecipeQueryParamters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.ViewsNumber);
+
+                }
+                else if (HealthyRecipeQueryParamters.SortBy.Equals(nameof(HealthyRecipe.CreatedDate), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (HealthyRecipeQueryParamters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.CreatedDate);
+                    else if (HealthyRecipeQueryParamters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.CreatedDate);
+
+                }
+                else if (HealthyRecipeQueryParamters.SortBy.Equals(nameof(HealthyRecipe.Calories), StringComparison.OrdinalIgnoreCase))
+                {
+                    if (HealthyRecipeQueryParamters.SortOrder.Equals("asc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.Calories);
+                    else if (HealthyRecipeQueryParamters.SortOrder.Equals("desc", StringComparison.OrdinalIgnoreCase))
+                        HealthyRecipess = HealthyRecipess.OrderByDescending(p => p.Calories);
+
+                }
+
             }
+            //     public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
+            //    new SelectListItem(){Value=nameof(HealthyRecipe.Title),Text="العنوان"},
+            //    new SelectListItem(){Value=nameof(HealthyRecipe.Price),Text="السعر"},
+            //    new SelectListItem(){Value=nameof(HealthyRecipe.ViewsNumber),Text="عدد المشاهدات"},
+            //    new SelectListItem(){Value=nameof(HealthyRecipe.CreatedDate),Text="تاريخ النشر"},
+            //    new SelectListItem(){Value=nameof(HealthyRecipe.Calories),Text="عدد السعرات الحرارية"},
+            //};
 
             List<int> MealTypeCounters = new();
             List<string> MealType = Database.GetListOfMealType().Select(b => b.Value).ToList();

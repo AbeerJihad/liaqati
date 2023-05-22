@@ -319,6 +319,14 @@
                 EquipmentCounters.Add(ListOfSportsProgram.Count(ex => ex.Equipment!.ToLower().Trim().Contains(Equipment[i].ToLower().Trim())));
 
             }
+
+            List<int> ProgramCounters = new();
+            List<string> programs = Database.GetListOfProgramLength().Select(b => b.Value).ToList();
+            for (int i = 0; i < programs.Count; i++)
+            {
+                ProgramCounters.Add(ListOfSportsProgram.Count(ex => ex.Length.ToString().Contains(programs[i].ToLower().Trim())));
+
+            }
             QueryPageResult<SportProgramVM> qpres = CommonMethods.GetPageResult(ListOfSportsProgram, sportProgramQueryParams);
             SportProgramQueryPageResult exqpres = new()
             {
@@ -332,9 +340,11 @@
                 BodyfocusCounters = BodyfocusCounters,
                 DifficultyCounters = DifficultyCounters,
                 EquipmentCounters = EquipmentCounters,
+                ProgramLengthCounters = ProgramCounters,
                 TraningTypeCounters = TraningTypeCounters,
                 ListOfSelectedFilters = ListOfSelectedFilters
             };
+
 
 
 

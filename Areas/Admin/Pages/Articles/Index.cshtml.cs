@@ -16,7 +16,7 @@
         public IList<Article> Articles { get; set; } = default!;
         [BindProperty(SupportsGet = true)]
         public ArticlesQueryParamters ArticlesQueryParamters { get; set; }
-        public QueryPageResult<Article> QueryPageResult { get; set; }
+        public QueryPageResult<VmArticles> QueryPageResult { get; set; }
         public IEnumerable<SelectListItem> lstPageSize { get; set; } = new List<SelectListItem>()
         {
             new SelectListItem(){Value="5", Text="5"},
@@ -26,7 +26,7 @@
         public SelectList Titles { get; set; }
         public IEnumerable<SelectListItem> SortList { get; set; } = new List<SelectListItem> {
             new SelectListItem(){Value=nameof(Article.Title),Text="العنوان"},
-            new SelectListItem(){Value=nameof(Article.PostDate),Text="تاريخ النشر"},
+            new SelectListItem(){Value=nameof(Article.CreatedDate),Text="تاريخ النشر"},
             new SelectListItem(){Value=nameof(Article.ViewsNumber),Text="عدد المشاهدات"},
             new SelectListItem(){Value=nameof(Article.LikesNumber),Text="عدد الإعجابات"},
         };

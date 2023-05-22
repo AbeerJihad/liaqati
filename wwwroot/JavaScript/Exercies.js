@@ -12,14 +12,33 @@ var MaxCalorieBurn;
 var txtsortBy;
 var txtsearchTerm;
 var CurPage = 1;
+let formSearch = document.querySelector("#formSearch");
 var sortedByValue = document.getElementById("SortBy");
-var SearchTearmValue = document.getElementById("SearchTearm");
-
-
-function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, duration, equipments, id, image, price, shortDescription, title, traningType, video, isFavorite }) {
+var SearchTearmValue = document.getElementById("searchTearm");
+let lstSort = document.querySelector("#lstSort");
+let NoResult = document.querySelector("#NoResult");
+let searchTearm = "";
+let SortOrder = "";
+let Sortby = "";
+function ShowAll() {
+    lstBodyfocus = [];
+    lsttraningtype = [];
+    lstdifficalty = [];
+    lstEquipment = [];
+    MinDuration = null;
+    MaxDuration = null;;
+    MinCalorieBurn = null;;
+    MaxCalorieBurn = null;;
+    txtsortBy = "";
+    searchTearm = "";
+    CurPage = 1;
+    GetAll()
+}
+function RenderRow(container, { ratePercentage, bodyFocus, burnEstimate, detail, difficulty, duration, equipments, id, image, price, shortDescription, title, traningType, video, isFavorite }) {
 
 
     var btn2 = ``;
+    var rate = ``;
 
 
 
@@ -44,63 +63,91 @@ function RenderRow(container, { bodyFocus, burnEstimate, detail, difficulty, dur
 
 
 
+    if (ratePercentage == null) {
+
+        rate = ` <div class="rating">
+                  <div class="rating position-relative">
+                    <div class="rating-upper d-flex">
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                    </div>
+                    <div class="rating-lower d-flex position-absolute top-0 start-0 overflow-hidden w-0">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                  </div>`;
+
+
+    }
+    else {
+        rate = `  <div class="rating">
+                  <div class="rating position-relative">
+                    <div class="rating-upper d-flex">
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                      <i class="bi bi-star-fill text-black-50"></i>
+                    </div>
+                    <div class="rating-lower d-flex position-absolute top-0 start-0 overflow-hidden w-${ratePercentage}">
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                      <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                  </div>`;
+    }
+
+
+
+
 
     let row = document.createElement('div');
     row.className = 'col-sm-6 col-lg-3 p-4 ';
-    row.innerHTML = `   
 
-               <div class="card border-0 h-100 ">
-            <div class="position-relative">
-                <img id="imgCard " src="${image}" style="width:100%;" />
-                <img width="40" class="position-absolute"
-                    style="top: 20px; right: 20px" src="./Images/Exercise/heart-svgrepo-com (1).png"
-                    alt=""
-                    srcset="" />
-                <img width="70"
+    row.innerHTML = `   
+       <div class="card border-0 h-100 ">
+          <div class="position-relative">
+             <img id="imgCard " src="${image}" height="220" style="width:100%;" />
+              <img width="40" class="position-absolute"
+                  style="top: 20px; right: 20px" src="./Images/Exercise/heart-svgrepo-com (1).png"
+                   alt="" srcset="" />
+               <img width="70"
                     class="position-absolute"
                     style="bottom: 20px; right: 20px"
                     src="./Images/Exercise/ic_play_circle_outline_24px.png"
-                    alt=""
-                    srcset="" />
+                    alt="" srcset="" />
+         </div>
+
+         <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title  text-dark mb-3"> ${title}   </h5>
+
+        <div class=" d-flex my-1 justify-content-between">
+            <p class="card-text  Exercises_duration_Color fw-bold" style="color: #A566C8;">
+                   ${duration} دقيقة/اليوم   
+             </p>      
+                ${rate}
+         </div>               </div>
+  
+               <div class=" d-flex justify-content-between">    
+
+                  <a href="Exercises/ExercisesDetiles/${id}" class="btn_Exercises_duration col-auto  text-white rounded-3 fw-bold d-inline-block border-0 px-4 py-2 "  style="background-color: #BE8ADC;">
+                               ابدأ الان
+                     <img class="mx-1" src="/images/Exercise/cart.png" />
+                    </a>      
+     ${btn2}
+               </div>
             </div>
-
-            <div class="card-body">
-                <p class="card-text  Exercises_duration_Color fw-bold">
-                   ${duration} دقيقة/اليوم
-                </p>
-                          ${btn2}
-                <h6 class="card-title mb-3"> ${title}   </h6>
-                <div class="">
-                     <div class="rating-section">
-                    <i class="bi bi-star-fill text-warning star"></i>
-                    <i class="bi bi-star-fill text-warning star"></i>
-                    <i class="bi bi-star-fill text-warning star"></i>
-                    <i class="bi bi-star-fill text-secondary star"></i>
-                    <i class="bi bi-star-fill text-secondary star"></i>
-                </div>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div>
-                            <h4 class="d-inline-block text-danger align-middle">
-                                    <span>  ${(price == 0 ? 'مجانا' : "${price} $")} </span>
-                     
-
-                            </h4>
-                        </div>
-                        <div>
-    <a href="Exercises/ExercisesDetiles/${id}">    ابدا الان
-
-                                <img src="/images/Exercise/cart.png" />
-</a>
-
-                          
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>   
-`;
-
+         </div>
+  
+`
 
     container.appendChild(row);
 }
@@ -168,7 +215,32 @@ async function postData(url = "", data = {}) {
 
 GetAll()
 
+lstSort.addEventListener('change', () => {/*"MinPrice",Text="الأقل سعر
+              "MaxPrice",Text="الأعلى سعر
+                                            "MaxRatePercentage
+                                            "MinRatePercentage*/
+    if (lstSort.value === "MinPrice") {
+        SortOrder = "asc";
+        Sortby = "Price";
+    } else if (lstSort.value === "MaxPrice") {
+        SortOrder = "desc";
+        Sortby = "Price";
 
+    } else if (lstSort.value === "MaxRatePercentage") {
+        SortOrder = "asc";
+        Sortby = "RatePercentage";
+
+    } if (lstSort.value === "MinRatePercentage") {
+        SortOrder = "desc";
+        Sortby = "RatePercentage";
+    }
+    GetAll();
+})
+formSearch.addEventListener("submit", (e) => {
+    e.preventDefault();
+    searchTearm = SearchTearmValue.value;
+    GetAll();
+})
 var bodyfocusCheckboxes = document.getElementsByName("bodyfocus");
 bodyfocusCheckboxes.forEach((chBox) => {
     chBox.addEventListener("change", () => {
@@ -275,6 +347,7 @@ function MaxDurationChange() {
   "title": "string"
 }*/
 function GetAll() {
+    document.getElementById("rowExercisesIndex").innerHTML = "";
     RenderSkeletonCards('rowExercisesIndex');
     var parms = {
         bodyFocus: lstBodyfocus,
@@ -284,7 +357,7 @@ function GetAll() {
         MinDuration: MinDuration,
         MaxDuration: MaxDuration,
         SortBy: txtsortBy,
-        SearchTearm: txtsearchTerm,
+        SearchTearm: searchTearm,
         CurPage: CurPage,
         Size: 12,
     };
@@ -292,10 +365,13 @@ function GetAll() {
     postData("/api/ExerciseApi/searchforExercise", parms).then((data) => {
         console.log(data);
         document.getElementById("rowExercisesIndex").innerHTML = ""
-        data.listOfData.forEach(p => {
-            RenderRow(document.getElementById("rowExercisesIndex"), p);
-        });
-
+        if (data.listOfData && data.listOfData.length > 0) {
+            data.listOfData.forEach(p => {
+                RenderRow(document.getElementById("rowExercisesIndex"), p);
+            });
+        } else {
+            RenderNoResult()
+        }
         RenderPagination(data)
         RenderCounters(data)
 
@@ -307,103 +383,33 @@ function GetAll() {
     });
 }
 
-function sortFun() {
-    txtsortBy = sortedByValue.value;
-    GetAll();
+
+
+function RenderNoResult() {
+    let card = document.createElement("div");
+    card.className = "card shadow-sm border";
+    card.style.maxWidth = 500;
+    card.innerHTML = ` 
+        <div class="card-body">
+          <div
+            class="d-flex justify-content-center align-items-center flex-column"
+          >
+            <i
+              class="bx bx-error-circle text-primary"
+              style="font-size: 100px"
+            ></i>
+            <h2 class="mb-4 text-primary">لا يوجد نتائج</h2>
+            <p class="h4 text-center mb-4">
+              حاول ضبط مرشحات البحث لمزيد من النتائج.
+            </p>
+            <div><a class="btn btn-primary" onclick="ShowAll()">عرض الكل</a></div>
+          </div>
+      </div>
+                              `;
+    document.getElementById("rowExercisesIndex").appendChild(card);
+
 }
 
-function SearchFun() {
-    txtsearchTerm = SearchTearmValue.value;
-    GetAll();
-}
-
-function RenderPagination(JsonData) {
-
-    Paging.firstElementChild.innerHTML = "";
-    let perv = JsonData.previousPage === null ? "disabled" : "";
-    let next = JsonData.nextPage === null ? "disabled" : "";
-    console.log(JsonData.previousPage !== null ? "" : "disabled");
-    var first = (CurPage != 1 && JsonData.totalPages != 0) ? "" : "disabled";
-    var last = (CurPage != JsonData.totalPages && JsonData.totalPages != 0) ? "" : "disabled";
-    console.log(perv)
-    console.log(JsonData.previousPage !== null)
-    console.log(JsonData.previousPage)
-
-    var firstIndex = Math.max(CurPage - 2, 1);
-    var lastIndex = Math.min(CurPage + 2, JsonData.totalPages);
-    let nav = document.createElement("nav");
-    nav.setAttribute('aria-label', "Page navigation example")
-    let ul = document.createElement("ul");
-    ul.className = "pagination";
-    nav.appendChild(ul);
-
-    let liFirst = document.createElement("li");
-    liFirst.className = "page-item";
-    let aFirst = document.createElement("a");
-    aFirst.className = "page-link first " + first;
-    aFirst.setAttribute('aria-label', "First");
-    aFirst.addEventListener("click", () => {
-        CurPage = 1;
-        GetAll()
-
-    });
-    aFirst.innerHTML = `</i><i class="bi bi-arrow-bar-left"></i>`;
-    liFirst.appendChild(aFirst);
-    let liLast = document.createElement("li");
-    liLast.className = "page-item";
-    let aLast = document.createElement("a");
-    aLast.className = "page-link " + last;
-    aLast.setAttribute('aria-label', "Last");
-    aLast.addEventListener("click", () => {
-        CurPage = JsonData.totalPages; GetAll();
-    });
-    aLast.innerHTML = `</i><i class="bi bi-arrow-bar-right"></i>`;
-    liLast.appendChild(aLast);
-    let liPer = document.createElement("li");
-    liPer.className = "page-item";
-    let aPer = document.createElement("a");
-    aPer.className = "page-link " + perv;
-    aPer.setAttribute('aria-label', "Previous");
-    aPer.addEventListener("click", () => { PrevPage(JsonData); });
-    aPer.innerHTML = `</i><i class="bi bi-arrow-left"></i>`;
-    liPer.appendChild(aPer);
-    let liNext = document.createElement("li");
-    liNext.className = "page-item";
-    let aNext = document.createElement("a");
-    aNext.className = "page-link " + next;
-    aNext.setAttribute('aria-label', "Next");
-    aNext.addEventListener("click", () => { NextPage(JsonData); });
-    aNext.innerHTML = `</i><i class="bi bi-arrow-right"></i>`;
-    liNext.appendChild(aNext);
-    let listOfLi = [];
-    for (var i = firstIndex; i <= lastIndex; i++) {
-        let li = document.createElement("li");
-        li.className = "page-item";
-        let a = document.createElement("a");
-        if (i == CurPage) { a.className = "page-link active"; }
-        else {
-
-            a.className = "page-link";
-            a.setAttribute("data-page", i);
-            a.addEventListener("click", () => { GetPage(a.getAttribute("data-page")) });
-
-        }
-        a.setAttribute('aria-label', "Previous");
-        a.innerHTML = i;
-        li.appendChild(a);
-        listOfLi.push(li);
-    }
-    ul.appendChild(liLast);
-    ul.appendChild(liNext);
-
-    listOfLi = listOfLi.reverse();
-    listOfLi.map(li => ul.appendChild(li))
-
-    ul.appendChild(liPer);
-
-    ul.appendChild(liFirst);
-    Paging.firstElementChild.appendChild(nav);
-}
 
 function NextPage(JsonData) {
     if (CurPage < JsonData.totalPages) {

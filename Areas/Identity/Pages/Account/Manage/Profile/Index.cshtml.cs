@@ -1,12 +1,8 @@
-using System.Security.Claims;
-
 namespace liaqati_master.Areas.Admin.Pages.Profile
 {
     [Authorize()]
     public class IndexModel : PageModel
     {
-        private readonly liaqati_master.Data.LiaqatiDBContext _context;
-        readonly IHttpContextAccessor _HttpContextAccessor;
         readonly IRepoUser _IRepoUser;
         readonly UserManager<User> _usermangaer;
         readonly SignInManager<User> _SignInManager;
@@ -14,10 +10,8 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
 
 
 
-        public IndexModel(liaqati_master.Data.LiaqatiDBContext context, IHttpContextAccessor httpContextAccessor, IRepoUser IRepoUser, UserManager<User> usermangaer, SignInManager<User> signInManager, IRepoNotification repoNotification)
+        public IndexModel(IRepoUser IRepoUser, UserManager<User> usermangaer, SignInManager<User> signInManager, IRepoNotification repoNotification)
         {
-            _context = context;
-            _HttpContextAccessor = httpContextAccessor;
             _IRepoUser = IRepoUser;
             _usermangaer = usermangaer;
             _SignInManager = signInManager;
@@ -41,7 +35,7 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
         public User? user { get; set; }
 
 
-      
+
 
 
 
@@ -54,18 +48,17 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
 
         public async Task<IActionResult> OnPostDeleteAsync(string? id)
         {
-            if (id == null || _context.TblNotification == null)
+            if (id == null || _repoNotification == null)
             {
                 return NotFound();
             }
 
-            var notifications = await _context.TblNotification.FindAsync(id);
+            var notifications = await _repoNotification.GetByIDAsync(id);
 
             if (notifications != null)
             {
                 Notifications = notifications;
-                _context.TblNotification.Remove(Notifications);
-                await _context.SaveChangesAsync();
+                await _repoNotification.DeleteEntityAsync(Notifications);
             }
 
 
@@ -74,36 +67,19 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
         public async Task OnGetAsync()
         {
 
-
-
-
-
-
             var useritem = User;
-
             var userid = useritem.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (useritem != null)
             {
                 user = await _IRepoUser.GetByIDAsync(userid);
 
-
-                List<Notification> List2 = (await _repoNotification.GetAllAsync()).Where(p => p.UserId == "1").ToList();
-
+                List<Notification> List2 = (await _repoNotification.GetAllAsync()).Where(p => p.UserId == userid).ToList();
                 List<Notification> n = List2.Where(n => n.DATE == DateTime.Today).ToList();
-
-
                 List.Today = n;
-
-
-
-
                 List<Notification> nn = List2.Where(n => n.DATE == DateTime.Today.AddDays(-1)).ToList();
                 List.yesterday = nn;
-
-
                 List2 = List2.Where(n => n.DATE != DateTime.Today.AddDays(-1) && n.DATE == DateTime.Today).ToList();
-
                 List.Other = List2;
 
 
@@ -122,25 +98,24 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
         {
 
             var user1 = await _IRepoUser.GetByIDAsync(user.Id);
-
             user1.Fname = user.Fname;
             user1.Lname = user.Lname;
             user1.Height = user.Height;
             user1.Wieght = user.Wieght;
             user1.Specialization = user.Specialization;
             user1.DateOfBirth = user.DateOfBirth;
+            user1.PhoneNumber = user.PhoneNumber;
 
 
 
 
-            _IRepoUser.UpdateEntityAsync(user1);
+            await _IRepoUser.UpdateEntityAsync(user1);
 
 
 
-            return Page();
+            return RedirectToPage();
         }
 
-        [HttpPost]
         public async Task<IActionResult> OnPostChangePassword()
         {
 
@@ -165,7 +140,7 @@ namespace liaqati_master.Areas.Admin.Pages.Profile
                 }
 
             }
-            return Page();
+            return RedirectToPage();
 
 
 

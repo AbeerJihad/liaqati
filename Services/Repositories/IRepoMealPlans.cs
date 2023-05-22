@@ -100,7 +100,6 @@
                    CategoryName = p.Services?.Category?.Name,
                    Id = p.Id,
                    UserId = p.Services?.UserId,
-
                    Images = p.Services?.Files?.Select(p => p.Path)?.ToList(),
                    Image = p.Services?.Image,
                    CategoryId = p.Services?.CategoryId,
@@ -160,14 +159,17 @@
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.CategoryId), Parameters.CategoryId.ToString() ?? ""));
 
             }
+            string str = "";
             if (Parameters.MinPrice != null)
             {
                 Parameters.CurPage = 1;
-
                 MealPlans = MealPlans.Where(p => p.Price >= Parameters.MinPrice);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MinPrice), Parameters.MinPrice.ToString() ?? ""));
 
             }
+            str += Parameters.MinPrice == null ? "Min" : Parameters.MinPrice.ToString();
+            str += "-";
+
             if (Parameters.MaxPrice != null)
             {
                 Parameters.CurPage = 1;
@@ -175,6 +177,12 @@
                 MealPlans = MealPlans.Where(p => p.Price <= Parameters.MaxPrice);
                 ListOfSelectedFilters.Add(new AppliedFilters(nameof(Parameters.MaxPrice), Parameters.MaxPrice.ToString() ?? ""));
 
+            }
+            str += Parameters.MaxPrice == null ? "Max" : Parameters.MaxPrice.ToString();
+            if ((Parameters.MaxPrice != null && Parameters.MinPrice != null)
+                || Parameters.MinPrice != null || Parameters.MaxPrice != null)
+            {
+                ListOfSelectedFilters.Add(new AppliedFilters("Price", str));
             }
             if (!string.IsNullOrEmpty(Parameters.SearchTearm))
             {

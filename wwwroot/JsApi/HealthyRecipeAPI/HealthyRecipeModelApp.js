@@ -1,15 +1,23 @@
 ﻿var lstMealType = [];
 var lstDietaryType = [];
-var txtsearchTerm;
 var MinDuration;
 var MaxDuration;
 var MinCalorieBurn;
 var MaxCalorieBurn;
-
+let Paging = document.querySelector("#Paging");
+let formSearch = document.querySelector("#formSearch");
+let searchTearmInput = document.querySelector("#searchTearm");
+let NoResult = document.querySelector("#NoResult");
+var searchTearm = "";
+let SortOrder = "";
+let Sortby = "";
 let HealthyRecipesApiResult;
 let HealthyRecipeContainer = document.querySelector("#HealthyRecipeContainer");
-let Paging = document.querySelector("#Paging");
 let CurPage = 1;
+
+
+
+
 async function getdata(categoryid) {
     RenderSkeletonCards();
     var parms = {
@@ -17,28 +25,133 @@ async function getdata(categoryid) {
         size: 12,
         dietaryType: lstDietaryType,
         mealType: lstMealType,
-        SearchTearm: txtsearchTerm,
+        SearchTearm: searchTearm,
         MinPrepTime: MinDuration,
         MaxPrepTime: MaxDuration,
         MinCalories: MinCalorieBurn,
         MaxCalories: MaxCalorieBurn,
+        userId: '',
+        title: '',
+        sortBy: Sortby,
+        sortOrder: SortOrder,
+
     };
-    HealthyRecipesApiResult = await getHealthyRecipes(parms);
-    HealthyRecipeContainer.innerHTML = "";
-    if (HealthyRecipesApiResult.listOfData && HealthyRecipesApiResult.listOfData.length > 0) {
+    console.log(parms)
+    if (navigator.onLine) {
+        HealthyRecipesApiResult = await getHealthyRecipes(parms);
+        HealthyRecipeContainer.innerHTML = "";
+        if (HealthyRecipesApiResult.listOfData && HealthyRecipesApiResult.listOfData.length > 0) {
 
-        HealthyRecipesApiResult.listOfData.forEach((p) => RenderCards(p));
+            HealthyRecipesApiResult.listOfData.forEach((p) => RenderCards(p));
+        } else {
+            RenderNoResult()
+        }
+        RenderPagination(HealthyRecipesApiResult);
+        RenderCounters(HealthyRecipesApiResult);
+
+        console.log(HealthyRecipesApiResult);
     } else {
-        RenderNoResult()
-    }
-    RenderPagination(HealthyRecipesApiResult);
-    RenderCounters(HealthyRecipesApiResult);
+        HealthyRecipeContainer.innerHTML = "";
 
-    console.log(HealthyRecipesApiResult);
+        NoResult.innerHTML = ` 
+            <div class="card shadow-sm border my-5" style="max-width: 500px">
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <i class="bx bx-error text-danger" style="font-size: 100px"></i>
+            <h2 class="mb-4 text-danger">لا يوجد انترنت</h2>
+            <p class="h4 text-center mb-4">
+تغقد اتصالك بالإنترنت ثم حاول مجددا            </p>
+            
+          </div>
+        </div>
+      </div>
+         `
+    }
 
 }
 //RenderSkeletonCards();
 getdata(null);
+
+
+lstSort.addEventListener('change', () => {
+    //if (lstSort.value === "MinPrice") {
+    //    SortOrder = "asc";
+    //    Sortby = "Price";
+    //} else if (lstSort.value === "MaxPrice") {
+    //    SortOrder = "desc";
+    //    Sortby = "Price";
+
+    //} else
+
+    if (lstSort.value === "MaxRatePercentage") {
+        SortOrder = "asc";
+        Sortby = "RatePercentage";
+
+    }
+    if (lstSort.value === "MinRatePercentage") {
+        SortOrder = "desc";
+        Sortby = "RatePercentage";
+    }
+    getdata(null);
+})
+
+formSearch.addEventListener("submit", (e) => {
+    e.preventDefault();
+    CurPage = 1;
+    searchTearm = searchTearmInput.value;
+    getdata(null);
+})
+
+function getAll() {
+    CurPage = 1;
+    searchTearm = "";
+    getdata(null);
+
+}
+
+window.addEventListener('online', () => {
+    getAll()
+})
+function RenderNoResult() {
+    NoResult.innerHTML = "";
+    let card = document.createElement("div");
+    card.className = "card shadow-sm my-5 border";
+    card.style.maxWidth = 500;
+    card.innerHTML = ` 
+        <div class="card-body ">
+          <div
+            class="d-flex justify-content-center align-items-center flex-column"
+          >
+            <i
+              class="bx bx-error-circle text-main"
+              style="font-size: 100px"
+            ></i>
+            <h2 class="mb-4 text-main">لا يوجد نتائج</h2>
+            <p class="h4 text-center mb-4">
+              حاول ضبط مرشحات البحث لمزيد من النتائج.
+            </p>
+            <div><a class="btn btn-main text-white" onclick="getAll()">عرض الكل</a></div>
+          </div>
+      </div>
+                              `;
+    NoResult.appendChild(card);
+
+}
+window.addEventListener('offline', () => {
+    HealthyRecipeContainer.innerHTML = "";
+    NoResult.innerHTML = ` 
+      <div class="card shadow-sm border my-5" style="max-width: 500px">
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <i class="bx bx-error text-danger" style="font-size: 100px"></i>
+            <h2 class="mb-4 text-danger">لا يوجد انترنت</h2>
+            <p class="h4 text-center mb-4">تغقد اتصالك بالإنترنت ثم حاول مجددا</p>
+          </div>
+        </div>
+      </div>
+         `
+
+})
 
 
 function MinCalorieBurnChange() {
@@ -107,8 +220,7 @@ function renderList(checkboxesSelector) {
 }
 
 function SearchFun() {
-    var Name = document.getElementById("SearchTearm").value;
-    txtsearchTerm = Name;
+    searchTearm = document.getElementById("SearchTearm").value;
     getdata(null);
 }
 
@@ -137,60 +249,11 @@ function RenderNoResult() {
 
 }
 
-/*"listOfData": [
-    {
-      "imgUrl": "/Image/Product/Dumbbell3.jfif",
-      "discount": 20,
-      "services": {
-        "title": "طقم اوزان دمبل 30 كغم",
-        "description": "",
-        "shortDescription": null,
-        "price": 20,
-        "categoryId": "4",
-        "category": {
-          "name": "الاجهزة الرياضية",
-          "target": "المنتجات",
-          "description": null,
-          "id": "4"
-        },
-        "userId": null,
-        "user": null,
-        "id": "21"
-      },
-      "id": "21"
-    },*/
 function RenderCards(HealthyRecipe) {
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency', currency: 'USD',
         minimumFractionDigits: 2
     })
-
-
-    var btn2 = ``;
-
-
-
-
-
-    if (HealthyRecipe.isFavorite == 2) {
-
-        btn2 = `   <a class="text-decoration-none btn-favorite" onclick="AddFavoriteHealthy(${HealthyRecipe.id},this)">
-                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
-                                            <i class="bx bxs-heart h4 m-0 text-danger"></i>
-                                        </div>
-                                    </a>`;
-
-
-    }
-    else {
-        btn2 = `  <a class="text-decoration-none btn-favorite" onclick="AddFavoriteHealthy(${HealthyRecipe.id},this)">
-                                        <div class="btn-add-to-favorite rounded-circle d-flex justify-content-center align-items-center">
-                                            <i class="bx bxs-heart h4 m-0 text-dark"></i>
-                                        </div>
-                                    </a>`;
-    }
-
-
 
     console.log(HealthyRecipe);
     let card = document.createElement("div");
@@ -211,7 +274,9 @@ function RenderCards(HealthyRecipe) {
                     <a title="share" class=" border-0 bg-transparent " href="#">
                         <i class="bi bi-share fs-4 text-dark"></i>
                     </a>
-                   ${btn2}
+                    <a title="heart" class=" border-0 bg-transparent" href="#">
+                        <i class="bi bi-heart fs-4 text-dark"></i>
+                    </a>
                 </div>
             </div>
             <div class="d-flex justify-content-between g-0  p-2">
@@ -342,5 +407,21 @@ function RenderCounters(JsonData) {
         }
         dietarytype[i].lastElementChild.innerHTML = `(${JsonData.dietaryTypeCounters[i]})`;
     }
+
+}
+
+
+async function AddFavoriteMealPlan(id) {
+    var IsAdd = await AddFavoritesToMealPlan(id);
+    if (IsAdd = "true") {
+        getdata(null);
+    }
+    else if (IsAdd = "false") {
+        getdata(null);
+    }
+    else {
+        window.location = "";
+    }
+
 
 }

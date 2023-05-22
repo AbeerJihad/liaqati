@@ -2,8 +2,6 @@
 @model liaqati_master.Pages.HealthyRecipes.IndexModel
 @{
 }
-<link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
-
 @section Styles{
     <style>
         @@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
@@ -46,24 +44,23 @@
             <div class="container-xl h-100  d-flex flex-column justify-content-center align-items-center " style="padding-top:120px !important">
                 <div class="w-100">
                     <h1 class="text-white text-center py-3 fw-bold">
-                      الوصفات الغذائية
+                        الوصفات الغذائية
                     </h1>
-                     <div class="p-0 g-0 row col-lg-10 justify-content-center mx-auto form-search">
-                    <div class="col-12 my-2 my-lg-0 col-lg-6">
-                                <input class="form-control rounded-end-0" placeholder="الخدمة" placeholder="Search" aria-label="Search" name="SearchTearm" id="SearchTearm"
-                                       asp-for="@Model.queryParameters.SearchTearm" />
-                            </div>
-                            <div class="col-12 my-2 my-lg-0 col-lg-3">
-                                <input placeholder="بحث" type="submit" value="بحث" class="form-control rounded-start-0 text-center" style="background-color: #b9aff5" onclick="SearchFun()" />
-                            </div>
-                 </div>
+                    <form id="formSearch" class="p-0 g-0 row col-lg-10 mx-auto form-search justify-content-center">
+                        <div class="col-12 my-2 my-lg-0 col-lg-6">
+                            <input type="text" id="searchTearm" class="form-control search rounded-0" placeholder="ابحث" style="height: 3rem" />
+                        </div>
+                        <div class="col-12 my-lg-0 col-lg-2">
+                            <input placeholder="بحث" type="submit" value="بحث" class="form-control text-center rounded-0" style="background-color: #cebfe9; height: 3rem;" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-  
+
 
 <div class=" container-90 mt-5 min-vh-100">
 
@@ -81,136 +78,136 @@
 
         <div class=" col-12 col-xl-9 ">
 
-             <div class="container-fluid p-0 border mt-3 mb-3">
-                    <div class="container-xl p-0 d-flex justify-content-between">
-                       <button title="toggle" type="button" class="btn bg-white main-color border rounded-0 p-3 px-3 d-flex justify-content-center align-items-center" id="btnToggleFilter">
-                            <i class="bx bx-filter h5 m-0 me-2"></i>
-                            تصفية
-                        </button>
+            <div class="container-fluid p-0 border mt-3 mb-3">
+                <div class="container-xl p-0 d-flex justify-content-between">
+                    <button title="toggle" type="button" class="btn bg-white main-color border rounded-0 p-3 px-3 d-flex justify-content-center align-items-center" id="btnToggleFilter">
+                        <i class="bx bx-filter h5 m-0 me-2"></i>
+                        تصفية
+                    </button>
 
-                        <div class="col-6 col-md-2 d-flex">
-                            <select class="form-select" asp-items="Model.SortList" name="SortBy" id="SortBy" onchange="sortFun()" asp-for="@Model.queryParameters.SortBy">
-                                <option value="" selected>ترتيب حسب</option>
-                            </select>
-                        </div>
-
+                    <div class="col-6 col-md-2 d-flex">
+                        <select class="form-select" asp-items="Model.SortList" name="SortBy" id="lstSort" onchange="sortFun()" asp-for="@Model.queryParameters.SortBy">
+                            <option value="" selected>ترتيب حسب</option>
+                        </select>
                     </div>
+
                 </div>
+            </div>
 
-                <div class="container-fluid position-relative d-none content-filter m-0 p-0 mb-2">
-                    <div class="filter d-none">
-                        <div class="filter-mobile-head d-lg-none d-flex p-3 justify-content-between align-items-center border-bottom">
-                            <h5 class="">تصفية</h5>
-                            <button class="btn btn-sm btn-primary">إلغاء جميع الفلاتر</button>
-                            <span class="filter-close p-2">
-                                <i class="bi bi-x-lg h5"></i>
-                            </span>
-                        </div>
-                        <div class="p-lg-3 d-flex align-items-lg-start justify-content-lg-center g-0 bg-white filter-container pb-5 shadow flex-column flex-lg-row">
-              
-                            <div class="p-3 d-flex align-items-lg-start">
-                                <div class="w-100 h-100">
-                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
-                                        <strong>نوع الوجبة</strong>
-                                        <i class="bi bi-chevron-down d-lg-none"></i>
-                                    </p>
-                                    <div class="filter-level d-none py-3 d-lg-block h-100">
-                                        <div class="h-100 scroll">
+            <div class="container-fluid position-relative d-none content-filter m-0 p-0 mb-2">
+                <div class="filter d-none">
+                    <div class="filter-mobile-head d-lg-none d-flex p-3 justify-content-between align-items-center border-bottom">
+                        <h5 class="">تصفية</h5>
+                        <button class="btn btn-sm btn-primary">إلغاء جميع الفلاتر</button>
+                        <span class="filter-close p-2">
+                            <i class="bi bi-x-lg h5"></i>
+                        </span>
+                    </div>
+                    <div class="p-lg-3 d-flex align-items-lg-start justify-content-lg-center g-0 bg-white filter-container pb-5 shadow flex-column flex-lg-row">
 
-                                            @{
-                                              int  Counter = 1;
-                                            }
-                                            @foreach (string bdoyfocusitem in Model.MealType)
-                                            {
-                                                string id = $"MealType{Counter}";
-
-                                                <div class=" form-check my-3 ">
-                                                    <input class="form-check-input" id="@id" name="MealType" type="checkbox" value="@bdoyfocusitem">
-                                                    <label class="form-check-label" for="@id">
-                                                        @bdoyfocusitem
-                                                        <span class="count"></span>
-
-                                                    </label>
-                                                </div>
-                                                Counter++;
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                
-                          
                         <div class="p-3 d-flex align-items-lg-start">
-                                <div class="w-100 h-100">
+                            <div class="w-100 h-100">
+                                <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                    <strong>نوع الوجبة</strong>
+                                    <i class="bi bi-chevron-down d-lg-none"></i>
+                                </p>
+                                <div class="filter-level d-none py-3 d-lg-block h-100">
+                                    <div class="h-100 scroll">
+
+                                        @{
+                                            int Counter = 1;
+                                        }
+                                        @foreach (string bdoyfocusitem in Model.MealType)
+                                        {
+                                            string id = $"MealType{Counter}";
+
+                                            <div class=" form-check my-3 ">
+                                                <input class="form-check-input" id="@id" name="MealType" type="checkbox" value="@bdoyfocusitem">
+                                                <label class="form-check-label" for="@id">
+                                                    @bdoyfocusitem
+                                                    <span class="count"></span>
+
+                                                </label>
+                                            </div>
+                                            Counter++;
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="p-3 d-flex align-items-lg-start">
+                            <div class="w-100 h-100">
+                                <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                    <strong>النوع الغذائي</strong>
+                                    <i class="bi bi-chevron-down d-lg-none"></i>
+                                </p>
+                                <div class="filter-level d-none py-3 d-lg-block h-100">
+                                    @{
+                                        Counter = 1;
+                                    }
+                                    @foreach (string lenghtitem in Model.DietaryType)
+                                    {
+                                        string id = $"DietaryType{Counter}";
+
+                                        <div class=" form-check my-3 ">
+                                            <input class="form-check-input" id="@id" name="DietaryType" type="checkbox" value="@lenghtitem">
+                                            <label class="form-check-label" for="@id">
+                                                @lenghtitem
+                                                <span class="count"></span>
+
+                                            </label>
+                                        </div>
+                                        Counter++;
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 d-flex align-items-lg-start">
+                            <div class="w-100">
+                                <div class="row g-0 mb-2">
                                     <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
-                                        <strong>النوع الغذائي</strong>
+                                        <strong> وقت التحضير</strong>
                                         <i class="bi bi-chevron-down d-lg-none"></i>
                                     </p>
-                                    <div class="filter-level d-none py-3 d-lg-block h-100">
-                                            @{
-                                                Counter = 1;
-                                            }
-                                            @foreach (string lenghtitem in Model.DietaryType)
-                                            {
-                                                string id = $"DietaryType{Counter}";
-
-                                                <div class=" form-check my-3 ">
-                                                    <input class="form-check-input" id="@id" name="DietaryType" type="checkbox" value="@lenghtitem">
-                                                    <label class="form-check-label" for="@id">
-                                                        @lenghtitem
-                                                        <span class="count"></span>
-
-                                                    </label>
-                                                </div>
-                                                Counter++;
-                                            }
-                                    </div>
-                                </div>
-                            </div>
-                          
-                                     <div class="p-3 d-flex align-items-lg-start">
-                                <div class="w-100">
-                                    <div class="row g-0 mb-2">
-                                        <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
-                                            <strong> وقت التحضير</strong>
-                                            <i class="bi bi-chevron-down d-lg-none"></i>
-                                        </p>
-                                        <div class="filter-level d-none d-lg-block">
-                                            <span class="text-secondary mb-1 small">دقائق</span>
-                                            <div class="d-flex gap-2 justify-content-center align-items-center">
-                                                <input class="col form-control me-1" id="Minduration" type="number" onkeyup="MinDurationChange()" placeholder="Min">
-                                                <span>-</span>
-                                                <input class="col form-control" id="Maxduration" type="number" onkeyup="MaxDurationChange()" placeholder="Max">
-                                            </div>
+                                    <div class="filter-level d-none d-lg-block">
+                                        <span class="text-secondary mb-1 small">دقائق</span>
+                                        <div class="d-flex gap-2 justify-content-center align-items-center">
+                                            <input class="col form-control me-1" id="Minduration" type="number" onkeyup="MinDurationChange()" placeholder="Min">
+                                            <span>-</span>
+                                            <input class="col form-control" id="Maxduration" type="number" onkeyup="MaxDurationChange()" placeholder="Max">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-3 d-flex align-items-lg-start">
-                                <div class="w-100">
-                                    <div class="row g-0 mb-2">
-                                        <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
-                                            <strong> السعرات الحرارية</strong>
-                                            <i class="bi bi-chevron-down d-lg-none"></i>
-                                        </p>
-                                        <div class="filter-level d-none d-lg-block">
-                                            <span class="text-secondary mb-1 small">
-                                                السعرات الحرارية
-                                            </span>
-                                            <div class="d-flex gap-2 justify-content-center align-items-center">
-                                                <input class="col form-control me-1" id="MinCalorieBurn" type="number" placeholder="Min" onkeyup="MinCalorieBurnChange()">
-                                                <span>-</span>
-                                                <input class="col form-control" id="MaxCalorieBurn" type="number" placeholder="Max" onkeyup="MaxCalorieBurnChange()">
-                                            </div>
+                        </div>
+                        <div class="p-3 d-flex align-items-lg-start">
+                            <div class="w-100">
+                                <div class="row g-0 mb-2">
+                                    <p class="mb-0 d-flex align-items-center justify-content-between filter-header">
+                                        <strong> السعرات الحرارية</strong>
+                                        <i class="bi bi-chevron-down d-lg-none"></i>
+                                    </p>
+                                    <div class="filter-level d-none d-lg-block">
+                                        <span class="text-secondary mb-1 small">
+                                            السعرات الحرارية
+                                        </span>
+                                        <div class="d-flex gap-2 justify-content-center align-items-center">
+                                            <input class="col form-control me-1" id="MinCalorieBurn" type="number" placeholder="Min" onkeyup="MinCalorieBurnChange()">
+                                            <span>-</span>
+                                            <input class="col form-control" id="MaxCalorieBurn" type="number" placeholder="Max" onkeyup="MaxCalorieBurnChange()">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                
                         </div>
 
                     </div>
-                     </div>
+
+                </div>
+            </div>
             <div class="d-flex justify-content-between align-items-center px-3">
                 <div class="d-flex align-items-center">
                     <div style="width:5px;background-color:#be8adc;height:40px;"></div>
@@ -231,35 +228,17 @@
     </div>
 </div>
 <div class="container-lg mt-3">
+    <div class="d-flex  justify-content-center align-items-center  g-0" id="NoResult">
+    </div>
+
     <div class="row p-0 g-0" id="Paging">
         <div class="col p-3 d-flex justify-content-center align-items-center"></div>
     </div>
 </div>
 @section Scripts{
     <script src="~/jsapi/Pagination.js" asp-append-version="true"></script>
-     <script src="~/User/js/Filter.js" asp-append-version="true"></script>
+    <script src="~/User/js/Filter.js" asp-append-version="true"></script>
     <script src="~/jsapi/healthyrecipeapi/healthyrecipemodel.js" asp-append-version="true"></script>
     <script src="~/jsapi/healthyrecipeapi/HealthyRecipeModelApp.js" asp-append-version="true"></script>
-    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
-
-    <script>
-         function ShowNotLoginAlert() {
-
-
-            Swal.fire({
-                text: "يرجى منك تسجيل الدحول",
-                //icon: 'warning  ',
-                showCancelButton: true,
-                confirmButtonColor: '#a566c8',
-                cancelButtonColor: '#ff7273',
-                confirmButtonText: 'تسجيل',
-                cancelButtonText: 'إلغاء'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location = "/Identity/Account/Login"
-                }
-            })
-        }
-    </script>
 
   }

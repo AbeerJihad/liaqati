@@ -38,7 +38,7 @@
                                 <div class="d-flex">
                                     <p>الاسم: @Model.Cons.User?.Fname</p>
                                     <p class="mx-2">العمر: @(DateOnly.FromDateTime(DateTime.Now).Year - Model.Cons.User?.DateOfBirth?.Year)</p>
-                                    <p>@Model.Cons.PostDate</p>
+                                    <p>@Model.Cons.CreatedDate</p>
                                 </div>
                                 <h5 class="card-title">@Html.Raw(Model.Cons.Title)</h5>
                                 <hr />

@@ -17,11 +17,11 @@
         [Display(Name = "سنوات الخبرة"), MinLength(3, ErrorMessage = "على الاقل ثلاث سنوات")]
         public int? Exp_Years { get; set; }
 
-        [MinLength(50, ErrorMessage = "خمسبن كليوجرام على الاقل  ")]
+        //[MinLength(50, ErrorMessage = "خمسبن كليوجرام على الاقل  ")]
         [Display(Name = "الوزن")]
         public int? Wieght { get; set; }
 
-        [MinLength(100, ErrorMessage = "مئة سم على الاقل")]
+        //[MinLength(100, ErrorMessage = "مئة سم على الاقل")]
         [Display(Name = "الطول")]
         public int? Height { get; set; } //sm
         public Gender Gender { get; set; }
@@ -34,6 +34,7 @@
         [Display(Name = "الفيس بوك")]
         public string? WhatsApp { get; set; }
 
+
         [Display(Name = " تويتر")]
         public string? Twitter { get; set; }
 
@@ -42,8 +43,7 @@
         [Display(Name = "تاريخ الميلاد"), DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
 
-        [Display(Name = "صورة الغلاف")]
-        public string? Cover_photo { get; set; }
+
         public virtual List<Replyconsultation> Replyconsultation { get; set; }
         public virtual List<Consultation>? Consultation { get; set; }
 

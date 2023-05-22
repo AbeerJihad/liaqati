@@ -9,10 +9,13 @@ let Paging = document.querySelector("#Paging");
 let formSearch = document.querySelector("#formSearch");
 let searchTearmInput = document.querySelector("#searchTearm");
 let NoResult = document.querySelector("#NoResult");
-var searchTearm;
+var searchTearm = "";
 let SortOrder = "";
 let Sortby = "";
 let CurPage = 1;
+
+
+
 async function getdata(categoryid) {
 
     RenderSkeletonCards();
@@ -24,14 +27,24 @@ async function getdata(categoryid) {
         Length: lstProgramlength,
         MealType: lstMealType,
         DietaryType: lstDietaryType,
-        SearchTearm: searchTearm
-
-
+        SearchTearm: searchTearm,
+        title: '',
+        userId: '',
+        categoryid: '',
+        maxPrice: null,
+        minprice: null
     };
+    console.log(parms)
     if (navigator.onLine) {
         lstMealPlans = await getMealPlans(parms);
         MealPlansContainer.innerHTML = "";
-        lstMealPlans.listOfData.forEach((p) => RenderCards(p));
+        if (lstMealPlans.listOfData && lstMealPlans.listOfData.length > 0) {
+            NoResult.innerHTML = "";
+            lstMealPlans.listOfData.forEach((p) => RenderCards(p));
+        } else {
+            RenderNoResult()
+        }
+        //lstMealPlans.listOfData.forEach((p) => RenderCards(p));
         RenderPagination(lstMealPlans);
         RenderCounters(lstMealPlans);
         console.log(lstMealPlans);
@@ -78,7 +91,6 @@ lstSort.addEventListener('change', () => {
 formSearch.addEventListener("submit", (e) => {
     e.preventDefault();
     CurPage = 1;
-
     searchTearm = searchTearmInput.value;
     getdata(null);
 })
@@ -200,9 +212,9 @@ function RenderCards(MealPlan) {
                         <p class="m-0">عدد الأسابيع ${MealPlan.length}   </p>
                     </div>
                     <div>
-                      <a href="/MealPlan/MealPlanDetails?id=${MealPlan.id}" class="btn border-0 text-white" style="background-color: #cb8cef">
-                            ابدأ الان
-                        </a>
+                        <button class="btn border-0 text-white" style="background-color: #cb8cef">
+                            اشترك الان
+                        </button>
                     </div>
                 </div>
             </div>
